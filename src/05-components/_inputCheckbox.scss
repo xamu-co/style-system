@@ -1,0 +1,96 @@
+/** @format */
+/// Checkbox
+///
+/// @group Components
+input[type="checkbox"].x-inputCheckbox {
+	display: none;
+	&:not(:disabled) {
+		+ label:hover {
+			cursor: pointer;
+		}
+	}
+	+ label {
+		// width: 100%;
+		// vertical-align: middle;
+		// text-align: justify;
+		@include transition(all 0.2s ease-out);
+		// @include flexbox(row, nowrap, space-between, center);
+		&:after {
+			content: "";
+			vertical-align: middle;
+			display: inline-block;
+			width: 1.8rem;
+			height: 1.8rem;
+			border-radius: 0.7rem;
+			border-width: 2px;
+			border-style: solid;
+			font-family: font(awesome);
+			font-weight: 900;
+			text-align: center;
+			line-height: 1.7rem;
+			// float: right;
+			// margin-left: auto;
+			@include transition(all 0.2s ease-out);
+			@include box-sizing(border-box);
+			// @include flexbox(row, nowrap, center, center);
+		}
+
+		> * {
+			margin-right: 0.5em;
+		}
+	}
+	&:checked + label {
+		font-weight: $fontWeightBold;
+		&:after {
+			content: "\f00c";
+		}
+	}
+
+	/// Checkbox theme
+	///
+	/// @group Modifiers
+	&.m__theme-light {
+		+ label {
+			color: color(light);
+			&:after {
+				background-color: color(light, 0.1);
+				border-color: color(light, 0.1);
+			}
+			&:hover {
+				color: color(light, 0.7);
+				&:after {
+					border-color: color(light, 0.3);
+				}
+			}
+		}
+		&:checked + label {
+			&:after {
+				// color: color(light);
+				background-color: color(light, 0.5);
+			}
+		}
+	}
+	/// default theme
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
+		+ label {
+			color: color(secondary);
+			&:after {
+				background-color: color(secondary, 0.1);
+				border-color: color(secondary, 0.1);
+			}
+			&:hover {
+				color: color(secondary, 0.7);
+				&:after {
+					border-color: color(secondary, 0.3);
+				}
+			}
+		}
+		&:checked + label {
+			&:after {
+				// color: color(light);
+				background-color: color(secondary, 0.5);
+			}
+		}
+	}
+}

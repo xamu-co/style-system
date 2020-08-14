@@ -1,0 +1,66 @@
+/** @format */
+
+/// flex container
+///
+/// @group Layouts
+.x-flex {
+	display: flex;
+}
+
+/// flex inline container
+///
+/// @group Layouts
+.x-flexInline {
+	display: inline-flex;
+}
+
+/// flexbox container
+.x-flex,
+.x-flexInline {
+	/// flexbox column container
+	///
+	/// @group Modifiers
+	&.m__flexColumn {
+		&,
+		&-nowrap {
+			/// default
+			flex-flow: column nowrap;
+			&:not([class*="xm__itemSpacing"])
+				> :not([class*="xm__margin"]):not(br):not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+		&-wrap {
+			flex-flow: column wrap;
+		}
+	}
+
+	/// flexbox row container
+	///
+	/// @group Modifiers
+	&.m__flexRow {
+		&,
+		&-nowrap {
+			/// default
+			flex-flow: row nowrap;
+			&:not([class*="xm__itemSpacing"])
+				> :not([class*="xm__margin"]):not(br):not(:last-child) {
+				margin-right: 1rem;
+			}
+		}
+		&-wrap {
+			flex-flow: row wrap;
+		}
+	}
+
+	&.m__flexColumn,
+	&.m__flexRow {
+		&-wrap {
+			&:not([class*="xm__itemSpacing"])
+				> :not([class*="xm__margin"]):not(br) {
+				margin-bottom: 1rem;
+				margin-right: 1rem;
+			}
+		}
+	}
+}

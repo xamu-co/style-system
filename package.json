@@ -1,0 +1,86 @@
+{
+  "name": "styles",
+  "version": "1.0.0",
+  "description": "Style system for the xamu project",
+  "main": "dist/index.css",
+  "browser": "dist/index.min.css",
+  "source": "src/index.scss",
+  "scripts": {
+    "sass": "cross-env sass src/index.scss dist/index.css",
+    "postcss": "cross-env postcss -o dist/index.min.css dist/index.css --no-map",
+    "build": "yarn sass && yarn postcss --verbose",
+    "watch": "yarn sass --watch",
+    "test": "cross-env stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
+    "prepublish": "npm run build",
+    "prebuild": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xamu-co/style-system.git"
+  },
+  "keywords": [
+    "style",
+    "css",
+    "style",
+    "system"
+  ],
+  "author": "@vis97c",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xamu-co/style-system/issues"
+  },
+  "homepage": "https://github.com/xamu-co/style-system#readme",
+  "devDependencies": {
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "cssnano-preset-advanced": "^4.0.7",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "postcss-cli": "^7.1.1",
+    "postcss-combine-media-query": "^1.0.1",
+    "postcss-custom-properties": "^9.1.1",
+    "prettier": "^2.0.5",
+    "sass": "^1.26.10",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-prettier": "^1.1.2"
+  },
+  "engines": {
+    "node": ">=12.13.1",
+    "yarn": ">=1.22.4"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.scss": [
+      "stylelint --syntax=scss --fix",
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "tabWidth": 4,
+    "useTabs": true,
+    "endOfLine": "auto",
+    "requirePragma": true,
+    "insertPragma": false
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-prettier/recommended"
+    ],
+    "rules": {
+      "indentation": null
+    }
+  }
+}

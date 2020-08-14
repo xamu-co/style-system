@@ -1,0 +1,96 @@
+/** @format */
+
+/// Grid container
+///
+/// @group Layouts
+.x-grid {
+	display: grid;
+	&:not([class*="xm__gridGap"]) {
+		gap: 2rem;
+	}
+
+	/// columns grid
+	///
+	/// @group Modifiers
+	&.m__gridColumns {
+		&-voidLeft {
+			grid-template-areas: ". content";
+		}
+		&-voidLeftAlt {
+			grid-template-areas: ". . content content content";
+		}
+		&-voidRight {
+			grid-template-areas: "content .";
+		}
+		&-voidRightAlt {
+			grid-template-areas: "content content content . .";
+		}
+		&,
+		&-auto {
+			/// default
+			grid-template-columns: repeat(
+				auto-fit,
+				minmax($minColumnSize, 1fr)
+			);
+		}
+		&-autoMin {
+			grid-template-columns: repeat(
+				auto-fit,
+				minmax($minColumnSize/3, max-content)
+			);
+		}
+		&-voidLeft,
+		&-voidLeftAlt,
+		&-voidRight,
+		&-voidRightAlt {
+			grid-template-columns: repeat(2, minmax($minColumnSize, 1fr));
+		}
+		&-voidLeft > *:last-child,
+		&-voidLeftAlt > *:last-child,
+		&-voidRight > *:first-child,
+		&-voidRightAlt > *:first-child {
+			grid-area: content;
+		}
+		&,
+		&-auto,
+		&-autoMin,
+		&-voidLeft,
+		&-voidLeftAlt,
+		&-voidRight,
+		&-voidRightAlt {
+			grid-auto-rows: minmax(min-content, 100%);
+		}
+	}
+	@for $i from 2 through 12 {
+		&.m__gridColumns-#{$i} {
+			grid-template-columns: repeat(
+				auto-fit,
+				minmax(#{$minColumnSize/$i * 3}, 1fr)
+			);
+			grid-auto-rows: minmax(min-content, 100%);
+		}
+	}
+}
+
+/// item in grid
+///
+/// @group Layouts
+.x-grid-item {
+	width: 100%;
+	height: 100%;
+	@media (min-width: 721px) {
+		/// grid column span, restricted to wide viewports
+		///
+		/// @group Modifiers
+		&.m__gridColumnSpan {
+			&-2 {
+				grid-column: span 2;
+			}
+		}
+		&.m__gridRowSpan {
+			&-2 {
+				grid-row: span 2;
+			}
+		}
+	}
+}

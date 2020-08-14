@@ -1,0 +1,249 @@
+/** @format */
+
+/// inicia vue transitions
+/// this is tied to vueRouter naming
+/// don't change
+.page {
+	&-enter-active {
+		@include transition-delay(0.3s);
+	}
+	&-enter, &-leave-to /* .fade-leave-active below version 2.1.8 */ {
+		opacity: 0;
+	}
+	&-enter-active,
+	&-leave-active {
+		@include transition(opacity 0.3s ease-out);
+	}
+}
+// termina vue transitions
+
+// inicia animations
+///
+/// @group Status
+.is__animated {
+	&,
+	&:before,
+	&:after {
+		-webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+	}
+
+	&.m__iterations-infinite {
+		animation-iteration-count: infinite;
+	}
+
+	@for $i from 1 through 20 {
+		&.m__delay-#{$i} {
+			animation-delay: #{$i/10}s;
+		}
+		&.m__iterations-#{$i} {
+			animation-iteration-count: #{$i};
+		}
+	}
+}
+
+/// animate only on pc
+
+@media screen and (any-hover: hover) {
+	/// grows from the center
+	///
+	/// @group Animations
+	.a-growingIn {
+		max-height: 0;
+		// opacity: 0;
+		// @include transform(translateY(-5vh));
+		&.is__animated {
+			animation-name: growingIn;
+			animation-duration: 6s;
+		}
+	}
+
+	/// fades from the center
+	///
+	/// @group Animations
+	.a-fadeIn {
+		opacity: 0;
+		// @include transform(translateY(-5vh));
+		&.is__animated {
+			animation-name: fadeIn;
+			animation-duration: 1.2s;
+		}
+	}
+
+	/// grows from the top
+	///
+	/// @group Animations
+	.a-topFade {
+		opacity: 0;
+		@include transform(translateY(-5vh));
+		&.is__animated {
+			animation-name: topFade;
+			animation-duration: 0.6s;
+		}
+	}
+
+	/// grows from the bottom
+	///
+	/// @group Animations
+	.a-bottomFade {
+		opacity: 0;
+		@include transform(translateY(5vh));
+		&.is__animated {
+			animation-name: bottomFade;
+			animation-duration: 0.6s;
+		}
+	}
+
+	/// grows from the left
+	///
+	/// @group Animations
+	.a-leftFade {
+		opacity: 0;
+		@include transform(translateX(-5vh));
+		&.is__animated {
+			animation-name: bottomFade;
+			animation-duration: 0.6s;
+		}
+	}
+
+	/// grows from the right
+	///
+	/// @group Animations
+	.a-rightFade {
+		opacity: 0;
+		@include transform(translateX(5vh));
+		&.is__animated {
+			animation-name: bottomFade;
+			animation-duration: 0.6s;
+		}
+	}
+
+	/// shows the background begind 2 horizontal bars
+	///
+	/// @group Animations
+	.a-openBack {
+		&.is__animated {
+			&:before,
+			&:after {
+				animation-name: openBack;
+				animation-duration: 0.6s;
+			}
+		}
+		&:before {
+			left: 0;
+		}
+		&:after {
+			right: 0;
+		}
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			width: 50%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			z-index: -1;
+			background: #fff;
+		}
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	*,
+	::before,
+	::after {
+		animation-duration: 0.001s !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001s !important;
+	}
+}
+
+@keyframes growingIn {
+	0% {
+	}
+	100% {
+		// opacity: 1;
+		max-height: 1000px;
+		overflow: visible;
+		// @include transform(translateY(0));
+	}
+}
+@keyframes fadeIn {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		// @include transform(translateY(0));
+	}
+}
+@keyframes topFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		@include transform(translateY(0));
+	}
+}
+@keyframes bottomFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		@include transform(translateY(0));
+	}
+}
+@keyframes leftFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		@include transform(translateX(0));
+	}
+}
+@keyframes rightFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		@include transform(translateX(0));
+	}
+}
+@keyframes openBack {
+	0% {
+	}
+	100% {
+		width: 0;
+	}
+}
+@keyframes colorSwitch {
+	0% {
+		background-color: red;
+	}
+	50% {
+		background-color: yellow;
+	}
+	100% {
+		background-color: red;
+	}
+}
+@keyframes pulse {
+	0% {
+		@include box-shadow(0 0 0 0 rgba(red, 0.4));
+	}
+	70% {
+		@include box-shadow(0 0 0 10px red);
+	}
+	100% {
+		@include box-shadow(0 0 0 0 red);
+	}
+}
+@keyframes spin {
+	0% {
+		@include transform(rotate(0deg));
+	}
+	100% {
+		@include transform(rotate(360deg));
+	}
+}
+// termina animations

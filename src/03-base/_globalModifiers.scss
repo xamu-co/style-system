@@ -1,0 +1,500 @@
+/** @format */
+
+/// inicia GLOBAL MODIFIERS
+/// Can be used in any element
+
+/// hidden element, hide visually only
+///
+/// @group GlobalModifiers
+.xm__hidden {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+/// full width
+///
+/// @group GlobalModifiers
+.xm__width-full {
+	width: 100%;
+}
+
+/// hidden element, hide visually only
+///
+/// @group GlobalModifiers
+.xm__flexGrow {
+	@include flex(1 1 auto);
+}
+
+/// positon
+///
+/// @group GlobalModifiers
+.xm__position {
+	&-relative {
+		position: relative;
+	}
+	&-sticky {
+		position: sticky;
+	}
+	&-absolute {
+		position: absolute;
+	}
+	&-fixed {
+		position: fixed;
+	}
+	/// default
+	&,
+	&-static {
+		position: static;
+	}
+}
+
+/// text wrap
+///
+/// @group GlobalModifiers
+.xm__textWrap {
+	&-nowrap {
+		white-space: nowrap;
+	}
+	/// default
+	&,
+	&-wrap {
+		white-space: normal;
+	}
+}
+
+/// box alignment
+///
+/// @group GlobalModifiers
+.xm__marginX {
+	&-left {
+		margin-left: 0;
+		margin-right: auto;
+	}
+	&-right {
+		margin-left: auto;
+		margin-right: 0;
+	}
+	/// default
+	&,
+	&-center {
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+/// box alignment
+///
+/// @group GlobalModifiers
+.xm__marginY {
+	&-top {
+		margin-top: 0;
+		margin-bottom: auto;
+	}
+	&-bottom {
+		margin-top: auto;
+		margin-bottom: 0;
+	}
+	/// default
+	&,
+	&-center {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+}
+
+/// flexbox justify content
+///
+/// @group GlobalModifiers
+.xm__flexJustify {
+	&-between {
+		justify-content: space-between;
+	}
+	&-around {
+		justify-content: space-around;
+	}
+	&-start {
+		justify-content: flex-start;
+	}
+	&-end {
+		justify-content: flex-end;
+	}
+	/// default
+	&,
+	&-center {
+		justify-content: center;
+	}
+}
+
+/// flexbox align items
+///
+/// @group GlobalModifiers
+.xm__flexAlign {
+	&-stretch {
+		align-items: stretch;
+	}
+	&-start {
+		align-items: flex-start;
+	}
+	&-end {
+		align-items: flex-end;
+	}
+	/// default
+	&,
+	&-center {
+		align-items: center;
+	}
+}
+
+/// text size
+///
+/// @group GlobalModifiers
+.xm__textSize-small {
+	font-size: $fontSizeSmall;
+}
+.xm__textSize-little {
+	font-size: $fontSizeLittle;
+}
+.xm__textSize-normal {
+	/// this is the default value
+	font-size: $fontSize;
+}
+.xm__textSize-medium,
+h4:not([class*="xm__textSize"]) {
+	font-size: $fontSizeMedium;
+}
+.xm__textSize-large,
+h3:not([class*="xm__textSize"]) {
+	font-size: $fontSizeLarge;
+}
+.xm__textSize-big,
+h2:not([class*="xm__textSize"]) {
+	font-size: $fontSizeBig;
+}
+.xm__textSize-huge,
+h1:not([class*="xm__textSize"]) {
+	font-size: $fontSizeHuge;
+}
+.xm__textSize-massive {
+	font-size: $fontSizeMassive;
+}
+/// default
+.xm__textSize {
+	font-size: $fontSize;
+}
+
+.xm__striped {
+	/// default
+	&,
+	&-secondary {
+		> :nth-child(even) {
+		}
+		> :nth-child(odd) {
+			background-color: color(secondary, 0.1);
+		}
+	}
+}
+
+/// text align
+///
+/// @group FamilyGlobalModifiers
+.xm__textAlign,
+.xm__textAlignFlex {
+	&-right,
+	&-right
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		text-align: right;
+	}
+	&-justify,
+	&-justify
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		text-align: justify;
+	}
+	&-center,
+	&-center
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		text-align: center;
+	}
+	/// default
+	&,
+	&-left,
+	&
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]),
+	&-left
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		text-align: left;
+	}
+}
+
+/// text align flex
+///
+/// @group FamilyGlobalModifiers
+.xm__textAlignFlex {
+	&-right,
+	&-right
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
+	}
+	&-justify,
+	&-justify
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
+	}
+	&-center,
+	&-center
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		@include flexbox(column, nowrap, flex-start, center, inline-flex);
+	}
+	/// default
+	&,
+	&-left,
+	&
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]),
+	&-left
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		@include flexbox(column, nowrap, flex-start, flex-start, inline-flex);
+	}
+}
+
+/// LOOPS
+
+/// max width
+/// pixel based
+///
+/// @group GlobalModifiers
+$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
+@each $size in $maxSizes {
+	.xm__maxWidth-#{$size} {
+		max-width: #{$size}px;
+	}
+}
+/// default
+.xm__maxWidth,
+.xm__maxWidth-1200 {
+	max-width: 1200px;
+}
+
+/// min width
+/// viewport width based
+///
+/// @group GlobalModifiers
+@for $i from 4 through 10 {
+	.xm__minWidthVw-#{$i*5} {
+		min-width: #{$i * 5}vw;
+	}
+}
+/// default
+.xm__minWidthVw,
+.xm__minWidthVw-15 {
+	min-width: 15vw;
+}
+
+@for $i from 1 through 10 {
+	/// margins
+	///
+	/// @group GlobalModifiers
+	.xm__marginTop-#{$i*5} {
+		margin-top: #{$i/3}rem;
+	}
+	.xm__marginRight-#{$i*5} {
+		margin-right: #{$i/3}rem;
+	}
+	.xm__marginLeft-#{$i*5} {
+		margin-left: #{$i/3}rem;
+	}
+	.xm__marginBottom-#{$i*5} {
+		margin-bottom: #{$i/3}rem;
+	}
+
+	/// paddings
+	///
+	/// @group GlobalModifiers
+	.xm__paddingTop-#{$i*5} {
+		padding-top: #{$i/3}rem;
+	}
+	.xm__paddingRight-#{$i*5} {
+		padding-right: #{$i/3}rem;
+	}
+	.xm__paddingLeft-#{$i*5} {
+		padding-left: #{$i/3}rem;
+	}
+	.xm__paddingBottom-#{$i*5} {
+		padding-bottom: #{$i/3}rem;
+	}
+
+	/// grid Gap
+	/// both axis
+	///
+	/// @group GlobalModifiers
+	.xm__gridGap-#{$i*5} {
+		gap: #{$i/3}rem;
+	}
+
+	/// item Spacing for childs
+	/// both axis
+	///
+	/// @group GlobalModifiers
+	.xm__itemSpacing-#{$i*5} {
+		> * {
+			margin-bottom: #{$i/3}rem;
+			margin-right: #{$i/3}rem;
+		}
+	}
+	.xm__itemSpacingX-#{$i*5} {
+		/// X axis
+		> :not([class*="xm__marginRight"]):not(:last-child) {
+			margin-right: #{$i/3}rem;
+		}
+	}
+	.xm__itemSpacingY-#{$i*5} {
+		/// Y axis
+		> :not([class*="xm__marginBottom"]):not(:last-child) {
+			margin-bottom: #{$i/3}rem;
+		}
+	}
+}
+
+/// margin defaults
+.xm__marginTop {
+	margin-top: 1rem;
+}
+.xm__marginRight {
+	margin-right: 1rem;
+}
+.xm__marginLeft {
+	margin-left: 1rem;
+}
+.xm__marginBottom {
+	margin-bottom: 1rem;
+}
+
+/// padding defaults
+.xm__paddingTop {
+	padding-top: 1rem;
+}
+.xm__paddingRight {
+	padding-right: 1rem;
+}
+.xm__paddingLeft {
+	padding-left: 1rem;
+}
+.xm__paddingBottom {
+	padding-bottom: 1rem;
+}
+
+/// grid/column gap default
+.xm__gridGap {
+	gap: 1rem;
+}
+
+/// item spacing defaults
+.xm__itemSpacing {
+	> * {
+		margin-bottom: 1rem;
+		margin-right: 1rem;
+	}
+}
+.xm__itemSpacingX {
+	/// X axis
+	> :not([class*="xm__marginRight"]):not(:last-child) {
+		margin-right: 1rem;
+	}
+}
+.xm__itemSpacingY {
+	/// Y axis
+	> :not([class*="xm__marginBottom"]):not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+/// text color & text shadow & background color & borderColor
+/// color based modifiers
+///
+/// @group ColorGlobalModifiers
+@each $name, $color in $colors {
+	/// text color
+	.xm__textColor-#{$name} {
+		&,
+		> :not([class*="xm__textColor"]):not([class*="x-action"]):not([class*="x-button"]) {
+			color: #{color($name)};
+		}
+	}
+
+	/// text shadow
+	.xm__textShadow-#{$name} {
+		&,
+		> :not([class*="xm__textShadow"]):not([class*="x-action"]):not([class*="x-button"]) {
+			text-shadow: 1px 1px 1px #{color($name)};
+		}
+	}
+
+	/// background color
+	.xm__bgColor-#{$name} {
+		background: #{color($name)};
+	}
+
+	/// borderColor
+	.xm__borderColor-#{$name} {
+		border-color: #{color($name)};
+	}
+
+	/// shades of color
+	@for $i from 1 through 9 {
+		/// text color
+		.xm__textColor-#{$name}#{$i} {
+			&,
+			> :not([class*="xm__textColor"]):not([class*="x-action"]):not([class*="x-button"]) {
+				color: #{color($name, $i/10)};
+			}
+		}
+
+		/// text shadow
+		.xm__textShadow-#{$name}#{$i} {
+			&,
+			> :not([class*="xm__textShadow"]):not([class*="x-action"]):not([class*="x-button"]) {
+				text-shadow: 1px 1px 1px #{color($name, $i/10)};
+			}
+		}
+
+		/// background color
+		.xm__bgColor-#{$name}#{$i} {
+			background: #{color($name, $i/10)};
+		}
+
+		/// borderColor
+		.xm__borderColor-#{$name}#{$i} {
+			border-color: #{color($name, $i/10)};
+		}
+	}
+}
+
+/// default color
+.xm__textColor {
+	&,
+	> :not([class*="xm__textColor"]):not([class*="x-action"]):not([class*="x-button"]) {
+		color: color(dark, 0.7);
+	}
+}
+
+/// default text color
+.xm__textShadow {
+	&,
+	> :not([class*="xm__textShadow"]):not([class*="x-action"]):not([class*="x-button"]) {
+		text-shadow: 1px 1px 1px color(dark, 0.3);
+	}
+}
+
+/// default background color
+.xm__bgColor {
+	background: color(light);
+}
+
+/// default borderColor
+.xm__borderColor {
+	border-color: color(secondary, 0.1);
+}
+
+/// termina GLOBAL MODIFIERS

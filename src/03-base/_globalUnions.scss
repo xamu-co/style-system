@@ -1,0 +1,142 @@
+/** @format */
+
+///
+/// inicia GLOBAL UNIONS
+///
+
+/// flexbox shortcuts: Set justify-content & align-items
+
+///  Justify Space between...
+///
+/// @group GlobalUnions
+.xu__flex-between {
+	&-stretch {
+		align-items: stretch;
+	}
+	&-start {
+		align-items: flex-start;
+	}
+	&-end {
+		align-items: flex-end;
+	}
+	&,
+	&-stretch,
+	&-start,
+	&-center,
+	&-end {
+		justify-content: space-between;
+	}
+	/// default
+	&,
+	&-center {
+		align-items: center;
+	}
+}
+
+///  Justify space around...
+///
+/// @group GlobalUnions
+.xu__flex-around {
+	&-stretch {
+		align-items: stretch;
+	}
+	&-start {
+		align-items: flex-start;
+	}
+	&-end {
+		align-items: flex-end;
+	}
+	&,
+	&-stretch,
+	&-start,
+	&-center,
+	&-end {
+		justify-content: space-around;
+	}
+	/// default
+	&,
+	&-center {
+		align-items: center;
+	}
+}
+
+///  Justify flex start...
+///
+/// @group GlobalUnions
+.xu__flex-start {
+	&-stretch {
+		align-items: stretch;
+	}
+	&-center {
+		align-items: center;
+	}
+	&-end {
+		align-items: flex-end;
+	}
+	&,
+	&-stretch,
+	&-start,
+	&-center,
+	&-end {
+		justify-content: flex-start;
+	}
+	/// default
+	&,
+	&-start {
+		align-items: flex-start;
+	}
+}
+
+/// Justify center...
+///
+/// @group GlobalUnions
+.xu__flex-center {
+	&-stretch {
+		align-items: stretch;
+	}
+	&-start {
+		align-items: flex-start;
+	}
+	&-end {
+		align-items: flex-end;
+	}
+	&,
+	&-stretch,
+	&-start,
+	&-center,
+	&-end {
+		justify-content: center;
+	}
+	/// default
+	&,
+	&-center {
+		align-items: center;
+	}
+}
+
+/// Justify flex-end...
+///
+/// @group GlobalUnions
+.xu__flex-end {
+	&-stretch {
+		align-items: stretch;
+	}
+	&-start {
+		align-items: flex-start;
+	}
+	&-center {
+		align-items: center;
+	}
+	&,
+	&-stretch,
+	&-start,
+	&-center,
+	&-end {
+		justify-content: flex-end;
+	}
+	/// default
+	&,
+	&-end {
+		align-items: flex-end;
+	}
+}

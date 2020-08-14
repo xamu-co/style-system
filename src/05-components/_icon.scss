@@ -1,0 +1,43 @@
+/** @format */
+
+/// icon components
+///
+/// @group Components
+/// this element is expected to be an <i> tag
+i.x-icon {
+	width: auto;
+	vertical-align: middle;
+	@include flexbox(row, nowrap, center, center, inline-flex);
+
+	&:not([class*="xm__textColor"]) {
+		color: inherit;
+	}
+
+	/// icon size
+	///
+	/// @group Modifiers
+	@for $i from 4 through 10 {
+		&.m__size-#{$i*5} {
+			height: #{$i/3}rem;
+			font-size: #{$i/3}rem;
+		}
+	}
+	/// default size
+	&:not([class*="m__size"]),
+	&.m__size-15 {
+		height: 1rem;
+		font-size: 1rem;
+	}
+
+	/// icon margin
+	///
+	/// @group Modifiers
+	&.m__margin {
+		&:not(:first-child) {
+			margin-left: 0.5em;
+		}
+		&:not(:last-child) {
+			margin-right: 0.5em;
+		}
+	}
+}

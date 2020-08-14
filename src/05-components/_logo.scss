@@ -1,0 +1,80 @@
+/** @format */
+/// website logo
+///
+/// @group Components
+.x-logo {
+	width: auto;
+
+	/// logo theme
+	///
+	/// @group Modifiers
+	&.m__theme {
+		&-light {
+			&:hover,
+			&.is__active,
+			&.is__routeExact {
+				svg [fill] {
+					fill: color(primary);
+				}
+			}
+		}
+		&-lightAlt {
+			&:hover,
+			&.is__active,
+			&.is__routeExact {
+				svg [fill] {
+					fill: color(secondary);
+				}
+			}
+		}
+		&-primaryAlt {
+			svg [fill] {
+				fill: color(primaryAlt);
+			}
+			&:hover,
+			&.is__active,
+			&.is__routeExact {
+				svg [fill] {
+					fill: color(light);
+				}
+			}
+		}
+		&-light,
+		&-lightAlt {
+			@include filter(drop-shadow(1px 1px 1px color(dark, 0.3)));
+			svg [fill] {
+				fill: color(light);
+			}
+		}
+	}
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
+		svg [fill] {
+			fill: color(secondary);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
+			svg [fill] {
+				fill: color(primary);
+			}
+		}
+	}
+
+	/// logo size
+	///
+	/// @group Modifiers
+	@for $i from 3 through 10 {
+		&.m__size-#{$i*5} {
+			height: #{$i/3}rem;
+		}
+	}
+	/// default size
+	&:not([class*="m__size"]) {
+		height: 8/3rem;
+	}
+
+	svg [fill] {
+		@include transition(all 0.2s ease-out);
+	}
+}

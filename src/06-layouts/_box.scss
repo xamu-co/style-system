@@ -1,0 +1,128 @@
+/** @format */
+/// Comment
+///
+/// @group Components
+.x-box {
+	// width: 100%;
+	padding: 1rem;
+	border-radius: 1.6rem;
+	border: 2px solid transparent;
+	overflow: visible;
+	@include transition(all 0.2s ease-out);
+	&:not([class*="x-flex"]) {
+		@include flexbox(column, nowrap, flex-start, stretch);
+		> :not([class*="xm__marginBottom"]):not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	/// Comment theme
+	///
+	/// @group Modifiers
+	&.m__theme-light {
+		background: color(light, 0.1);
+		&:hover {
+			border-color: color(light, 0.1);
+			&.m__button {
+				background: color(light, 0.2);
+				// border-color: color(light, 0.3);
+				.x-box {
+					box-shadow: 3px 3px 9px color(light, 0.3);
+				}
+			}
+		}
+		&.m__button:not([class*="xm__textColor"]) {
+			color: color(light);
+		}
+	}
+	&.m__theme-lightAlt {
+		background: color(light);
+		&:hover {
+			border-color: color(dark, 0.1);
+			&.m__button {
+				background: color(light, 0.2);
+				// border-color: color(light, 0.3);
+				.x-box {
+					box-shadow: 3px 3px 9px color(light, 0.3);
+				}
+			}
+		}
+		&.m__button:not([class*="xm__textColor"]) {
+			color: color(light);
+		}
+	}
+	/// default theme
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
+		background: color(secondary, 0.1);
+		&:hover {
+			border-color: color(secondary, 0.1);
+			&.m__button {
+				background: color(secondary, 0.2);
+				// border-color: color(secondary, 0.3);
+				.x-box {
+					box-shadow: 3px 3px 9px color(secondary, 0.3);
+				}
+			}
+		}
+		&.m__button:not([class*="xm__textColor"]) {
+			color: color(secondary);
+		}
+	}
+
+	/// button behavior
+	///
+	/// @group Modifiers
+	&.m__button {
+		.x-box {
+			border-color: transparent !important;
+		}
+		p {
+			text-align: center;
+		}
+	}
+
+	.x-box {
+		border-radius: 1rem;
+
+		/// Square shape
+		/// this assummes there is only one child
+		///
+		/// @group Modifiers
+		&.m__square {
+			&-small {
+				width: 3rem;
+			}
+			&-little {
+				width: 5rem;
+			}
+			&-big {
+				width: 9rem;
+			}
+			&,
+			&-medium {
+				width: 6rem;
+			}
+			&,
+			&-big,
+			&-small,
+			&-little,
+			&-medium {
+				margin: 0 auto;
+				&:before {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 0;
+					padding-bottom: 100%;
+				}
+				> * {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					@include transform(translate(-50%, -50%));
+				}
+			}
+		}
+	}
+}

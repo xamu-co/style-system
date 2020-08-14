@@ -1,0 +1,74 @@
+/** @format */
+ul.x-pickList,
+ol.x-pickList {
+	@include flexbox(row, nowrap, center, center);
+	&:not([class*="xm__itemSpacing"]) > * {
+		margin-right: 1rem;
+	}
+
+	/// link theme
+	///
+	/// @group Modifiers
+	&.m__theme {
+		&-light {
+			button.x-pickList-item-action {
+				&:hover,
+				&.is__active {
+					border-color: color(secondary);
+				}
+			}
+		}
+		&-lightAlt {
+			button.x-pickList-item-action {
+				&:hover,
+				&.is__active {
+					border-color: color(primaryAlt);
+				}
+			}
+		}
+		&-primaryAlt {
+			button.x-pickList-item-action {
+				border-color: color(primaryAlt, 0.3);
+				&:hover,
+				&.is__active {
+					border-color: color(light);
+				}
+			}
+		}
+		&-light,
+		&-lightAlt {
+			button.x-pickList-item-action {
+				border-color: color(light, 0.3);
+			}
+		}
+	}
+	/// default theme
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
+		button.x-pickList-item-action {
+			border-color: color(secondary, 0.3);
+			&:hover {
+				border-color: color(secondary);
+			}
+			&.is__active {
+				border-color: color(dark, 0.7);
+			}
+		}
+	}
+}
+li.x-pickList-item {
+}
+button.x-pickList-item-action {
+	width: 1rem;
+	height: 1rem;
+	border-width: 3px;
+	border-style: solid;
+	border-radius: 50%;
+	background: transparent;
+	@include transition(all 0.3s ease-out);
+	@include box-sizing(border-box);
+	@media (max-width: 720px) {
+		width: 1.3rem;
+		height: 1.3rem;
+	}
+}

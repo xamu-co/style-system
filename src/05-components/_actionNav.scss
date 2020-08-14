@@ -1,0 +1,79 @@
+/** @format */
+
+/// link Navigation element
+/// this element is expected to be an <a> tag
+///
+/// @group Components
+a.x-actionNav,
+button.x-actionNav {
+	// vertical-align: middle;
+	text-shadow: none;
+	white-space: nowrap;
+	display: inline-block;
+	background-color: transparent;
+	// font-size: 1rem;
+	// font-weight: 500;
+	// line-height: 1.6em;
+	@include transition(all 0.2s ease-out);
+	// @include flexbox(row, nowrap, flex-start, center, inline-flex);
+
+	/// ruta activa
+	///
+	/// @group Statuses
+	&.is__route {
+		&:before {
+			content: "...";
+			display: block;
+			position: absolute;
+			top: calc(100%);
+			left: 0;
+			line-height: 0;
+			overflow: visible;
+			font-size: 1.3em;
+		}
+	}
+
+	/// nav link themes
+	///
+	/// @group Modifiers
+	&.m__theme {
+		&-light {
+			&:hover,
+			&.is__active,
+			&.is__routeExact {
+				color: color(primary);
+			}
+		}
+		&-lightAlt {
+			&:hover,
+			&.is__active,
+			&.is__routeExact {
+				color: color(primaryAlt);
+			}
+		}
+		&-primaryAlt {
+			color: color(primaryAlt);
+			&:hover,
+			&.is__active,
+			&.is__routeExact {
+				color: color(light);
+			}
+		}
+		&-light,
+		&-lightAlt {
+			color: color(light);
+		}
+	}
+	/// default theme: secondary
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
+		color: color(secondary);
+		&:hover:not(.is__active):not(.is__routeExact) {
+			color: color(dark, 0.5);
+		}
+		&.is__active,
+		&.is__routeExact {
+			color: color(dark, 0.7);
+		}
+	}
+}

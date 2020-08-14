@@ -1,0 +1,18 @@
+/** @format */
+
+/// Default button element
+/// this element is expected to be an <button>, <a> or <label> element
+///
+/// @group Components
+button.x-button,
+a.x-button,
+label.x-button {
+	white-space: nowrap;
+	border-style: solid;
+	border-color: transparent;
+	text-shadow: none;
+	@include box-sizing(border-box);
+	@include transition(all 0.2s ease-out);
+	@include flex(0 0 auto);
+	@include flexbox(row, nowrap, center, center, inline-flex);
+}

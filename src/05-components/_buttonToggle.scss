@@ -1,0 +1,143 @@
+/** @format */
+
+/// Toggle button
+/// this element is expected to be an <button>, <a> or <label> element
+/// aditionally you have to provide a fas(solid) far(regular) icons
+///
+/// @group Components
+button.x-buttonToggle,
+a.x-buttonToggle,
+label.x-buttonToggle {
+	white-space: nowrap;
+	border-style: solid;
+	border-color: transparent;
+	text-shadow: none;
+	@include box-sizing(border-box);
+	@include transition(all 0.2s ease-out);
+	@include flex(0 0 auto);
+	@include flexbox(row, nowrap, center, center, inline-flex);
+	&.is__alert:after {
+		content: "";
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		position: absolute;
+		right: -0.3rem;
+		bottom: -0.3rem;
+		border-width: 4px;
+		border-style: solid;
+		border-radius: 50%;
+		@include box-sizing(border-box);
+	}
+	&.is__alert,
+	&.is__active,
+	&.is__routeExact {
+		//hide regular
+		i.x-icon:first-of-type {
+			display: none;
+		}
+	}
+	&:not(.is__alert):not(.is__active):not(.is__routeExact) {
+		//hide solid
+		i.x-icon:last-of-type {
+			display: none;
+		}
+	}
+
+	/// button theme
+	/// first value is the bgColor
+	/// second value is the textColor
+	///
+	/// @group Modifiers
+	&.m__theme {
+		&-dark7 {
+			background: color(dark, 0.1);
+			color: color(dark, 0.7);
+			&:hover {
+				border-color: color(dark, 0.3);
+			}
+			&.is__alert,
+			&.is__active {
+				background: color(dark, 0.5);
+			}
+			&.is__alert:after {
+				/// TODO: check border and color
+				background-color: color(light);
+				border-color: color(dark, 0.7);
+			}
+			&.is__routeExact {
+				/// TODO: check border and color
+				background: color(dark, 0.5);
+				color: color(light);
+				border-color: color(light, 0.3);
+			}
+		}
+		&-light {
+			background: color(light, 0.1);
+			color: color(light);
+			&:hover {
+				border-color: color(light, 0.3);
+			}
+			&.is__alert:after {
+				/// TODO: check border and color
+				background-color: color(light);
+				border-color: color(light);
+			}
+			&.is__alert,
+			&.is__active {
+				background: color(light, 0.5);
+			}
+			&.is__routeExact {
+				/// TODO: check border and color
+				background: color(light, 0.5);
+				color: color(light);
+				border-color: color(light, 0.3);
+			}
+		}
+		&-primaryAlt {
+			background: color(primaryAlt, 0.1);
+			color: color(primaryAlt);
+			&:hover {
+				border-color: color(primaryAlt);
+			}
+			&.is__alert:after {
+				/// TODO: check border and color
+				background-color: color(light);
+				border-color: color(dark, 0.3);
+			}
+			&.is__alert,
+			&.is__active {
+				background: color(primaryAlt, 0.5);
+			}
+			&.is__routeExact {
+				/// TODO: check border and color
+				background: color(primaryAlt, 0.5);
+				color: color(light);
+				border-color: color(light, 0.3);
+			}
+		}
+	}
+	/// default theme
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
+		background: color(secondary, 0.1);
+		color: color(secondary);
+		&:hover {
+			border-color: color(secondary, 0.3);
+		}
+		&.is__alert:after {
+			/// TODO: check border and color
+			background-color: color(light);
+			border-color: color(secondary);
+		}
+		&.is__alert,
+		&.is__active {
+			background: color(secondary, 0.5);
+		}
+		&.is__routeExact {
+			background: color(secondary);
+			color: color(light);
+			border-color: color(light, 0.3);
+		}
+	}
+}

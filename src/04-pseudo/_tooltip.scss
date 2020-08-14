@@ -1,0 +1,74 @@
+/** @format */
+
+/// tooltip
+///
+/// @group Pseudos
+&[data-tooltip] {
+	overflow: visible;
+	&:before {
+		content: attr(data-tooltip);
+		pointer-events: none;
+		display: block;
+		overflow: hidden;
+		background: color(dark);
+		z-index: 1;
+		position: absolute;
+		vertical-align: bottom;
+		color: color(light);
+		padding: 0 0.5rem;
+		text-align: center;
+		font-size: 0.7rem;
+		opacity: 0;
+		font-weight: $fontWeightRegular;
+		@include transition(all 0.2s ease-out);
+		@include border-radius(0.5rem);
+		@include box-sizing(content-box);
+		@include box-shadow(3px 3px 9px color(dark, 0.3));
+		border: 2px solid color(light, 0.1);
+	}
+	&:not([data-tooltip-text]) {
+		&:before {
+			white-space: nowrap;
+			text-transform: capitalize;
+		}
+	}
+	&[data-tooltip-text] {
+		max-width: 40ch;
+	}
+	&:hover:not([disabled]):not(.is__active):not(.is__open) {
+		cursor: pointer;
+		&:before {
+			opacity: 1;
+		}
+	}
+	&[data-tooltip-position="top"] {
+		&:before {
+			top: 0;
+			left: 50%;
+			@include transform(translate(-50%, calc(-100% - 0.5em)));
+		}
+	}
+	&[data-tooltip-position="right"] {
+		&:before {
+			top: 50%;
+			right: 0;
+			@include transform(translate(calc(100% + 0.5em), -50%));
+		}
+	}
+	&[data-tooltip-position="left"] {
+		&:before {
+			top: 50%;
+			left: 0;
+			@include transform(translate(calc(-100% - 0.5em), -50%));
+		}
+	}
+	/// default value
+	&:not([data-tooltip-position]),
+	&[data-tooltip-position="bottom"] {
+		&:before {
+			bottom: 0;
+			left: 50%;
+			@include transform(translate(-50%, calc(100% + 0.5em)));
+		}
+	}
+}

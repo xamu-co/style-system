@@ -1,0 +1,57 @@
+/** @format */
+/*
+	Project variables
+*/
+$fonts: (
+	primary: (
+		"'Poppins'",
+		sans-serif,
+	),
+	secondary: (
+		"'Palatino Linotype'",
+		"'Book Antiqua'",
+		"Palatino",
+		serif,
+	),
+	awesome: "'Font Awesome 5 Free'",
+	code: (
+		"'Courier New'",
+		Courier,
+		monospace,
+	),
+);
+
+$colors: (
+	primary: #f39c12,
+	primaryAlt: #61320f,
+	secondary: #0f47af,
+	light: #fff,
+	dark: #000,
+	danger: #e74c3c,
+	success: #259c21,
+);
+
+/// font size
+$fontSizeSmall: 0.7rem;
+$fontSizeLittle: 0.9rem;
+$fontSize: 1rem;
+$fontSizeMedium: 1.2rem;
+$fontSizeLarge: 1.8rem;
+$fontSizeBig: 2.8rem;
+$fontSizeHuge: 3.8rem;
+$fontSizeMassive: 4.8rem;
+
+/// font weight
+$fontWeightRegular: 400;
+$fontWeightBold: 600;
+
+/// line height
+$lineHeight: 1.2em;
+$lineHeightMedium: 1.4em;
+$lineHeightBig: 1.6em;
+
+/// min column size
+$minColumnSize: 18rem; // 280px aprox
+
+/// max text block width
+$maxTextWidth: 66ch; // 780px aprox

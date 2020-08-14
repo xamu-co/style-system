@@ -1,0 +1,22 @@
+/** @format */
+
+/// list element
+///
+/// @group Layouts
+nav.x-navList {
+	// width: 100%;
+}
+span.x-navList-title {
+	display: block;
+	margin-bottom: 1rem;
+}
+ul.x-navList-group,
+ol.x-navList-group {
+}
+li.x-navList-group-item {
+	.x-action,
+	.x-actionNav {
+		white-space: normal;
+		line-height: $lineHeightMedium;
+	}
+}

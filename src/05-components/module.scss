@@ -1,0 +1,326 @@
+/** @format */
+
+/// tag associated
+@import "inputText";
+@import "inputCheckbox";
+@import "icon";
+@import "action"; //links
+@import "actionNav"; //links
+@import "button";
+@import "buttonToggle";
+@import "select";
+@import "hr";
+
+/// non tag associated
+@import "text";
+@import "emoji";
+@import "logo";
+@import "avatar";
+@import "avatarAureo";
+@import "pickList";
+@import "back";
+@import "galleryItem";
+
+/// There are some components that share common styles
+
+/// navList-group & navListToggle-group shared styles
+///
+/// @group SharedStyles
+ul.x-navList-group,
+ol.x-navList-group,
+ul.x-navListToggle-group,
+ol.x-navListToggle-group {
+	overflow: hidden;
+
+	/// flow direction
+	///
+	/// @group Modifiers
+	&.m__flow-row {
+		@include flexbox(row, nowrap, flex-start, center);
+		> li:not(:last-child) {
+			margin-right: 1rem;
+		}
+	}
+	/// default flow
+	&:not([class*="m__flow"]),
+	&.m__flow-column {
+		@include flexbox(column, nowrap, flex-start, flex-start);
+		> li:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	> li {
+		.x-action,
+		.x-actionNav {
+			white-space: normal;
+			line-height: $lineHeightMedium;
+		}
+	}
+}
+
+/// button & select shared styles
+///
+/// @group SharedStyles
+a.x-button,
+button.x-button,
+label.x-button,
+select.x-select {
+	/// button, select theme
+	/// first value is the bgColor
+	/// second value is the textColor
+	///
+	/// @group Unions
+	&.u__theme-light {
+		&-secondary {
+			color: color(secondary);
+			&:hover,
+			&:focus {
+				border-color: color(secondary, 0.3);
+				color: color(secondary, 0.7);
+			}
+		}
+		&-dark {
+			color: color(dark, 0.7);
+			&:hover,
+			&:focus {
+				border-color: color(dark, 0.3);
+				color: color(dark, 0.3);
+			}
+		}
+		&-primaryAlt {
+			color: color(primaryAlt);
+			&:hover,
+			&:focus {
+				border-color: color(primaryAlt, 0.3);
+				color: color(primaryAlt, 0.7);
+			}
+		}
+		&-primary {
+			color: color(primary);
+			background-color: color(light);
+			&:hover,
+			&:focus {
+				border-color: color(primary, 0.3);
+				color: color(primary, 0.7);
+			}
+			&.is__routeExact,
+			&.is__active,
+			&:disabled {
+				border-color: color(light);
+				color: color(light);
+			}
+			&:not(.is__active) {
+				text-shadow: 0 0 1px color(dark, 0.2);
+			}
+		}
+		&-secondary,
+		&-dark,
+		&-primaryAlt {
+			background-color: color(light);
+			&.is__routeExact,
+			&.is__active,
+			&:disabled {
+				border-color: color(light);
+				color: color(light);
+			}
+		}
+	}
+	&.u__theme-primary-light {
+		background-color: color(primary);
+		color: color(light);
+		&:hover,
+		&:focus {
+			border-color: color(light, 0.3);
+			color: color(light, 0.7);
+		}
+		&.is__routeExact,
+		&.is__active,
+		&:disabled {
+			border-color: color(primary);
+			color: color(primary);
+		}
+	}
+	&.u__theme-primaryAlt-primary {
+		background-color: color(primaryAlt);
+		color: color(primary);
+		&:hover,
+		&:focus {
+			border-color: color(primary, 0.3);
+			color: color(primary, 0.7);
+		}
+		&.is__routeExact,
+		&.is__active,
+		&:disabled {
+			border-color: color(primaryAlt);
+			color: color(primaryAlt);
+		}
+	}
+	/// default theme
+	&:not([class*="u__theme"]),
+	&.u__theme-secondary-light {
+		background-color: color(secondary);
+		color: color(light);
+		&:hover,
+		&:focus {
+			border-color: color(light, 0.3);
+			color: color(light, 0.7);
+		}
+		&.is__routeExact,
+		&.is__active,
+		&:disabled {
+			border-color: color(secondary);
+			color: color(secondary);
+		}
+	}
+
+	/// OVERRIDE: dejar en el final
+	&.is__routeExact,
+	&.is__active,
+	&:disabled {
+		background: transparent;
+	}
+}
+
+/// button & buttonToggle shared styles
+///
+/// @group SharedStyles
+a.x-button,
+label.x-button,
+button.x-button,
+a.x-buttonToggle,
+label.x-buttonToggle,
+button.x-buttonToggle {
+	/// button size
+	///
+	/// @group Modifiers
+	&.m__size-small {
+		font-size: $fontSizeSmall;
+		height: 1.5rem;
+		padding: 0 0.7rem;
+		border-radius: 0.7rem;
+		border-width: 2px;
+		&.m__round {
+			width: 1.5rem;
+		}
+	}
+	&.m__size-little {
+		font-size: $fontSizeLittle;
+		height: 2rem;
+		padding: 0 0.7rem;
+		border-radius: 0.7rem;
+		border-width: 2px;
+		&.m__round {
+			width: 2rem;
+		}
+	}
+	/// same font size
+	&.m__size-medium {
+		font-size: $fontSize;
+		height: 3rem;
+		padding: 0 1rem;
+		border-radius: 1rem;
+		border-width: 3px;
+		&.m__round {
+			width: 3rem;
+		}
+	}
+	&.m__size-large {
+		font-size: $fontSize;
+		height: 3.5rem;
+		padding: 0 1rem;
+		border-radius: 1.3rem;
+		border-width: 3px;
+		&.m__round {
+			width: 3.5rem;
+		}
+	}
+	&.m__size-big {
+		font-size: $fontSize;
+		height: 4rem;
+		padding: 0 1.5rem;
+		border-radius: 1.6rem;
+		border-width: 3px;
+		&.m__round {
+			width: 4rem;
+		}
+	}
+	/// bigger font size
+	&.m__size-huge {
+		font-size: $fontSizeMedium;
+		height: 4.5rem;
+		padding: 0 2rem;
+		border-radius: 1.9rem;
+		border-width: 4px;
+		&.m__round {
+			width: 4.5rem;
+		}
+	}
+
+	&:not([class*="m__size"]),
+	&.m__size-normal {
+		/// this is the default value
+		font-size: $fontSize;
+		height: 2.5rem;
+		padding: 0 1rem;
+		border-radius: 1rem;
+		border-width: 2px;
+		&.m__round {
+			width: 2.5rem;
+		}
+	}
+
+	/// round button
+	///
+	/// @group Modifiers
+	&.m__round {
+		padding: 0;
+	}
+}
+
+/// button, buttonToggle, link & linkNav shared styles
+///
+/// @group SharedStyles
+a.x-button,
+label.x-button,
+button.x-button,
+a.x-buttonToggle,
+label.x-buttonToggle,
+button.x-buttonToggle,
+a.x-action,
+button.x-action,
+a.x-actionNav,
+button.x-actionNav {
+	:not(.x-icon):first-child ~ i.x-icon {
+		margin-left: 0.5em;
+	}
+	i.x-icon ~ :not(.x-icon) {
+		margin-left: 0.5em;
+	}
+}
+
+/// button, buttonToggle, link, linkNav & select shared styles
+///
+/// @group SharedStyles
+a.x-button,
+label.x-button,
+button.x-button,
+a.x-buttonToggle,
+label.x-buttonToggle,
+button.x-buttonToggle,
+a.x-action,
+button.x-action,
+a.x-actionNav,
+button.x-actionNav,
+select.x-select {
+	&,
+	> :not(.x-icon) {
+		&::first-letter {
+			text-transform: capitalize;
+		}
+	}
+	&:disabled {
+		opacity: 0.3;
+		pointer-events: none;
+	}
+}

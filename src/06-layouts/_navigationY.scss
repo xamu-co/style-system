@@ -1,0 +1,50 @@
+/** @format */
+nav.x-navigationY {
+	background-color: color(light, 0.9);
+	width: auto;
+	// @include flex(0 0 auto);
+	@include flexbox(row, nowrap, flex-start, stretch);
+}
+.x-navigationY-menu {
+	height: 100%;
+	// @include flex(0 0 auto);
+	@include box-sizing(border-box);
+	@include flexbox(column, nowrap, center, stretch);
+	// @include box-sizing(border-box);
+
+	/// es barra de navegacion principal
+	///
+	/// @group Statuses
+	&.is__menu {
+		width: 4.5rem;
+		// @include flex(0 0 auto);
+		padding-bottom: 2rem;
+		border-right: 2px solid color(secondary, 0.05);
+		@include flexbox(column, nowrap, space-between, center);
+	}
+
+	/// es barra de navegacion secundaria
+	///
+	/// @group Statuses
+	&.is__menuSub {
+		width: 230px;
+		padding: 0 1rem 2rem;
+		// @include flex(1 1 auto);
+		@include transition(max-width 0.3s ease-out);
+		@include flexbox(column, nowrap, space-between, flex-start);
+	}
+}
+
+/// Navigation nav list
+/// this element is expected to be an <ul> or <ol> list
+ul.x-navigationY-menu-list,
+ol.x-navigationY-menu-list {
+	@include flexbox(column, nowrap, center, flex-start);
+	&:first-child > *:first-child {
+		height: 5rem;
+		@include flexbox(column, nowrap, center, flex-start);
+	}
+	> *:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
