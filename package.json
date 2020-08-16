@@ -1,5 +1,5 @@
 {
-  "name": "styles",
+  "name": "@xamu-co/styles",
   "version": "1.0.0",
   "description": "Style system for the xamu project",
   "main": "dist/index.css",
@@ -11,8 +11,7 @@
     "build": "yarn sass && yarn postcss --verbose",
     "watch": "yarn sass --watch",
     "test": "cross-env stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
-    "prepublish": "npm run build",
-    "prebuild": "npm run test"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -31,6 +30,9 @@
   },
   "homepage": "https://github.com/xamu-co/style-system#readme",
   "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "@semantic-release/git": "^9.0.0",
     "cross-env": "^7.0.2",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
@@ -41,6 +43,7 @@
     "postcss-custom-properties": "^9.1.1",
     "prettier": "^2.0.5",
     "sass": "^1.26.10",
+    "semantic-release": "^17.1.1",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.2"
@@ -48,6 +51,17 @@
   "engines": {
     "node": ">=12.13.1",
     "yarn": ">=1.22.4"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "lint-staged": {
     "*.js": [
@@ -62,11 +76,6 @@
       "stylelint --syntax=scss --fix",
       "prettier --write"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   },
   "prettier": {
     "tabWidth": 4,
