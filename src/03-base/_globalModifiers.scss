@@ -33,17 +33,17 @@
 ///
 /// @group GlobalModifiers
 .xm__position {
-	&-relative {
-		position: relative;
+	&-fixed {
+		position: fixed;
 	}
 	&-sticky {
 		position: sticky;
 	}
+	&-relative {
+		position: relative;
+	}
 	&-absolute {
 		position: absolute;
-	}
-	&-fixed {
-		position: fixed;
 	}
 	/// default
 	&,
@@ -110,17 +110,17 @@
 ///
 /// @group GlobalModifiers
 .xm__flexJustify {
-	&-between {
-		justify-content: space-between;
-	}
-	&-around {
-		justify-content: space-around;
+	&-end {
+		justify-content: flex-end;
 	}
 	&-start {
 		justify-content: flex-start;
 	}
-	&-end {
-		justify-content: flex-end;
+	&-around {
+		justify-content: space-around;
+	}
+	&-between {
+		justify-content: space-between;
 	}
 	/// default
 	&,
@@ -133,14 +133,14 @@
 ///
 /// @group GlobalModifiers
 .xm__flexAlign {
-	&-stretch {
-		align-items: stretch;
+	&-end {
+		align-items: flex-end;
 	}
 	&-start {
 		align-items: flex-start;
 	}
-	&-end {
-		align-items: flex-end;
+	&-stretch {
+		align-items: stretch;
 	}
 	/// default
 	&,
@@ -208,15 +208,15 @@ h1:not([class*="xm__textSize"]) {
 		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
 		text-align: right;
 	}
-	&-justify,
-	&-justify
-		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
-		text-align: justify;
-	}
 	&-center,
 	&-center
 		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
 		text-align: center;
+	}
+	&-justify,
+	&-justify
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		text-align: justify;
 	}
 	/// default
 	&,
@@ -238,15 +238,15 @@ h1:not([class*="xm__textSize"]) {
 		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
 		@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
 	}
-	&-justify,
-	&-justify
-		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
-		@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-	}
 	&-center,
 	&-center
 		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
 		@include flexbox(column, nowrap, flex-start, center, inline-flex);
+	}
+	&-justify,
+	&-justify
+		> :not([class*="xm__textAlign"]):not([class*="x-action"]):not([class*="x-button"]) {
+		@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
 	}
 	/// default
 	&,
@@ -329,6 +329,7 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 	/// both axis
 	///
 	/// @group GlobalModifiers
+	.xm__gap-#{$i*5},
 	.xm__gridGap-#{$i*5} {
 		gap: #{$i/3}rem;
 	}
@@ -386,6 +387,7 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 }
 
 /// grid/column gap default
+.xm__gap,
 .xm__gridGap {
 	gap: 1rem;
 }

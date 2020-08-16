@@ -32,15 +32,31 @@
 			text-transform: capitalize;
 		}
 	}
-	&[data-tooltip-text] {
-		max-width: 40ch;
-	}
 	&:hover:not([disabled]):not(.is__active):not(.is__open) {
 		cursor: pointer;
 		&:before {
 			opacity: 1;
 		}
 	}
+	&[data-tooltip-text] {
+		max-width: 40ch;
+	}
+	/// top position
+	&[data-tooltip-top-left] {
+		&:before {
+			top: 0;
+			left: 0;
+			@include transform(translateY(calc(-100% - 0.5em)));
+		}
+	}
+	&[data-tooltip-top-right] {
+		&:before {
+			top: 0;
+			right: 0;
+			@include transform(translateY(calc(-100% - 0.5em)));
+		}
+	}
+	&[data-tooltip-top],
 	&[data-tooltip-position="top"] {
 		&:before {
 			top: 0;
@@ -48,6 +64,22 @@
 			@include transform(translate(-50%, calc(-100% - 0.5em)));
 		}
 	}
+	/// right position
+	&[data-tooltip-right-top] {
+		&:before {
+			top: 0;
+			right: 0;
+			@include transform(translateX(calc(100% + 0.5em)));
+		}
+	}
+	&[data-tooltip-right-bottom] {
+		&:before {
+			bottom: 0;
+			right: 0;
+			@include transform(translateX(calc(100% + 0.5em)));
+		}
+	}
+	&[data-tooltip-right],
 	&[data-tooltip-position="right"] {
 		&:before {
 			top: 50%;
@@ -55,6 +87,22 @@
 			@include transform(translate(calc(100% + 0.5em), -50%));
 		}
 	}
+	/// left position
+	&[data-tooltip-left-top] {
+		&:before {
+			top: 0;
+			left: 0;
+			@include transform(translateX(calc(-100% - 0.5em)));
+		}
+	}
+	&[data-tooltip-left-top] {
+		&:before {
+			bottom: 0;
+			left: 0;
+			@include transform(translateX(calc(-100% - 0.5em)));
+		}
+	}
+	&[data-tooltip-left],
 	&[data-tooltip-position="left"] {
 		&:before {
 			top: 50%;
@@ -62,9 +110,24 @@
 			@include transform(translate(calc(-100% - 0.5em), -50%));
 		}
 	}
-	/// default value
-	&:not([data-tooltip-position]),
-	&[data-tooltip-position="bottom"] {
+	/// bottom position: default value
+	&[data-tooltip-bottom-left] {
+		&:before {
+			bottom: 0;
+			left: 0;
+			@include transform(translateY(calc(100% + 0.5em)));
+		}
+	}
+	&[data-tooltip-bottom-right] {
+		&:before {
+			bottom: 0;
+			right: 0;
+			@include transform(translateY(calc(100% + 0.5em)));
+		}
+	}
+	&[data-tooltip-bottom],
+	&[data-tooltip-position="bottom"],
+	&:not([data-tooltip-position]):not([data-tooltip-bottom-right]):not([data-tooltip-bottom-left]):not([data-tooltip-top]):not([data-tooltip-top-right]):not([data-tooltip-top-left]):not([data-tooltip-left]):not([data-tooltip-left-top]):not([data-tooltip-left-bottom]):not([data-tooltip-right]):not([data-tooltip-right-top]):not([data-tooltip-right-bottom]) {
 		&:before {
 			bottom: 0;
 			left: 50%;

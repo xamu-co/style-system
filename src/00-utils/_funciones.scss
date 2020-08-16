@@ -1,6 +1,5 @@
 /** @format */
 // _funciones.scss
-// rgba para rgba(255,255,255, 0.$opacity)
 
 //coverts color to rgb, making it compatible with custom vars and opacity
 @function to-rgb($color) {
@@ -25,17 +24,7 @@
 		@return var(--hex-#{$color-name}, #{map-get($colors, $color-name)});
 	}
 }
-// @function blanco($opacity) {
-// 	@return unquote("rgba(255, 255, 255, 0." + $opacity + ")");
-// }
-// // rgba para rgba(0,0,0, 0.$opacity)
-// @function negro($opacity) {
-// 	@return unquote("rgba(0, 0, 0, 0." + $opacity + ")");
-// }
 
-// @function narrojo($opacity) {
-// 	@return rgba($narrojo, $opacity);
-// }
 // busca y elimina la string dada
 @function str-replace($string, $search, $replace: "") {
 	$index: str-index($string, $search);
