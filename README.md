@@ -1,8 +1,6 @@
 
 # CLASS NAMING CONVENTION
 
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
-
 - based in BEM but reinterpreted for sass and vue
 - prefixes prevent the collision with vendor styling
 - the "x" stands for xamu
