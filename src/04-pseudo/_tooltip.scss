@@ -10,7 +10,6 @@
 		pointer-events: none;
 		display: block;
 		overflow: hidden;
-		background: color(dark);
 		z-index: 1;
 		position: absolute;
 		vertical-align: bottom;
@@ -26,21 +25,47 @@
 		@include box-sizing(content-box);
 		border: 2px solid color(light, 0.1);
 	}
-	&:not([data-tooltip-text]) {
-		&:before {
-			white-space: nowrap;
-			text-transform: capitalize;
-		}
-	}
 	&:hover:not([disabled]):not(.is__active):not(.is__open) {
 		cursor: pointer;
 		&:before {
 			opacity: 1;
 		}
 	}
+
+	/// tooltip bgColor
+	///
+	/// @group PseudoModifiers
+	@each $name, $color in $colors {
+		&[data-tooltip-#{$name}] {
+			&:before {
+				background: #{color($name)};
+			}
+		}
+	}
+	/// default tooltip bgcolor
+	&:not([data-tooltip-secondary]) {
+		&:before {
+			background: color(dark);
+		}
+	}
+
+	/// tooltip text behavior
+	///
+	/// @group PseudoModifiers
 	&[data-tooltip-text] {
 		max-width: 40ch;
 	}
+	///default text behavior
+	&:not([data-tooltip-text]) {
+		&:before {
+			white-space: nowrap;
+			text-transform: capitalize;
+		}
+	}
+
+	/// tooltip position
+	///
+	/// @group PseudoModifiers
 	/// top position
 	&[data-tooltip-top-left] {
 		&:before {
@@ -110,7 +135,7 @@
 			@include transform(translate(calc(-100% - 0.5em), -50%));
 		}
 	}
-	/// bottom position: default value
+	/// bottom position
 	&[data-tooltip-bottom-left] {
 		&:before {
 			bottom: 0;
@@ -125,6 +150,7 @@
 			@include transform(translateY(calc(100% + 0.5em)));
 		}
 	}
+	/// default value
 	&[data-tooltip-bottom],
 	&[data-tooltip-position="bottom"],
 	&:not([data-tooltip-position]):not([data-tooltip-bottom-right]):not([data-tooltip-bottom-left]):not([data-tooltip-top]):not([data-tooltip-top-right]):not([data-tooltip-top-left]):not([data-tooltip-left]):not([data-tooltip-left-top]):not([data-tooltip-left-bottom]):not([data-tooltip-right]):not([data-tooltip-right-top]):not([data-tooltip-right-bottom]) {

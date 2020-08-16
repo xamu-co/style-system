@@ -27,11 +27,19 @@ nav.x-navigationY {
 	///
 	/// @group Statuses
 	&.is__menuSub {
-		width: 230px;
-		padding: 0 1rem 2rem;
+		width: auto;
+		max-width: 1000px;
+		overflow: hidden;
 		// @include flex(1 1 auto);
 		@include transition(max-width 0.3s ease-out);
 		@include flexbox(column, nowrap, space-between, flex-start);
+		&:not(.is__active) {
+			max-width: 0;
+		}
+		.x-navigationY-menu-list {
+			width: 230px;
+			padding: 0 1rem 2rem;
+		}
 	}
 }
 
