@@ -19,11 +19,11 @@
 		text-align: center;
 		font-size: 0.7rem;
 		opacity: 0;
+		border-radius: 0.5rem;
 		font-weight: $fontWeightRegular;
+		box-shadow: 3px 3px 9px color(dark, 0.3);
 		@include transition(all 0.2s ease-out);
-		@include border-radius(0.5rem);
 		@include box-sizing(content-box);
-		@include box-shadow(3px 3px 9px color(dark, 0.3));
 		border: 2px solid color(light, 0.1);
 	}
 	&:not([data-tooltip-text]) {

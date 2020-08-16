@@ -18,7 +18,7 @@ jobs:
           key: v2-yarn-{{ checksum "yarn.lock" }}
       - run:
           name: Install front-end dependencies
-          command: yarn --ignore-engines
+          command: yarn --ignore-engines --ignore-scripts
       - save_cache:
           key: v2-yarn-{{ checksum "yarn.lock" }}
           paths:
