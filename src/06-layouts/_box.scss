@@ -9,6 +9,11 @@
 	border: 2px solid transparent;
 	overflow: visible;
 	@include transition(all 0.2s ease-out);
+	&:disabled,
+	&[disabled] {
+		pointer-events: none;
+		opacity: 0.3;
+	}
 	&:not([class*="x-flex"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
 		> :not([class*="xm__marginBottom"]):not(:last-child) {

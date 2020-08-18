@@ -1,0 +1,22 @@
+{
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "prettier.requireConfig": true,
+    "blade.format.enable": true,
+    "files.associations": {
+        // "*.blade.php": "html",
+        "*.svg": "html"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svg]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.configPath": "./package.json",
+}

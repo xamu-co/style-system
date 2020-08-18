@@ -59,13 +59,28 @@ ol.x-navListToggle-group {
 	}
 }
 
-/// button & select shared styles
+/// button, buttonY & select shared styles
 ///
 /// @group SharedStyles
 a.x-button,
 button.x-button,
 label.x-button,
+a.x-buttonY,
+button.x-buttonY,
+label.x-buttonY,
 select.x-select {
+	border-style: solid;
+	white-space: nowrap;
+	text-shadow: none;
+	text-align: center;
+	border-color: transparent;
+	@include box-sizing(border-box);
+	&:disabled,
+	&[disabled] {
+		// opacity: 0.3;
+		pointer-events: none;
+	}
+
 	/// button, select theme
 	/// first value is the bgColor
 	/// second value is the textColor
@@ -104,12 +119,6 @@ select.x-select {
 				border-color: color(primary, 0.3);
 				color: color(primary, 0.7);
 			}
-			&.is__routeExact,
-			&.is__active,
-			&:disabled {
-				border-color: color(light);
-				color: color(light);
-			}
 			&:not(.is__active) {
 				text-shadow: 0 0 1px color(dark, 0.2);
 			}
@@ -119,10 +128,14 @@ select.x-select {
 		&-primaryAlt {
 			background-color: color(light);
 			&.is__routeExact,
-			&.is__active,
-			&:disabled {
+			&.is__active {
 				border-color: color(light);
 				color: color(light);
+			}
+			&:disabled,
+			&[disabled] {
+				border-color: color(light, 0.3);
+				color: color(light, 0.3);
 			}
 		}
 	}
@@ -135,10 +148,14 @@ select.x-select {
 			color: color(light, 0.7);
 		}
 		&.is__routeExact,
-		&.is__active,
-		&:disabled {
+		&.is__active {
 			border-color: color(primary);
 			color: color(primary);
+		}
+		&:disabled,
+		&[disabled] {
+			border-color: color(primary, 0.3);
+			color: color(primary, 0.3);
 		}
 	}
 	&.u__theme-primaryAlt-primary {
@@ -150,10 +167,14 @@ select.x-select {
 			color: color(primary, 0.7);
 		}
 		&.is__routeExact,
-		&.is__active,
-		&:disabled {
+		&.is__active {
 			border-color: color(primaryAlt);
 			color: color(primaryAlt);
+		}
+		&:disabled,
+		&[disabled] {
+			border-color: color(primaryAlt, 0.3);
+			color: color(primaryAlt, 0.3);
 		}
 	}
 	/// default theme
@@ -167,18 +188,23 @@ select.x-select {
 			color: color(light, 0.7);
 		}
 		&.is__routeExact,
-		&.is__active,
-		&:disabled {
+		&.is__active {
 			border-color: color(secondary);
 			color: color(secondary);
+		}
+		&:disabled,
+		&[disabled] {
+			border-color: color(secondary, 0.3);
+			color: color(secondary, 0.3);
 		}
 	}
 
 	/// OVERRIDE: dejar en el final
 	&.is__routeExact,
 	&.is__active,
-	&:disabled {
-		background: transparent;
+	&:disabled,
+	&[disabled] {
+		background-color: transparent;
 	}
 }
 
@@ -319,7 +345,8 @@ select.x-select {
 			text-transform: capitalize;
 		}
 	}
-	&:disabled {
+	&:disabled,
+	&[disabled] {
 		opacity: 0.3;
 		pointer-events: none;
 	}

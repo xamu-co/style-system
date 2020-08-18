@@ -7,12 +7,30 @@
 button.x-button,
 a.x-button,
 label.x-button {
-	white-space: nowrap;
-	border-style: solid;
-	border-color: transparent;
-	text-shadow: none;
-	@include box-sizing(border-box);
-	@include transition(all 0.2s ease-out);
+}
+
+/// Toggle button Vertical
+/// this element is expected to be an <button>, <a> or <label> element
+///
+/// @group Components
+button.x-buttonY,
+a.x-buttonY,
+label.x-buttonY {
+	padding: 1rem 0.2rem;
+	border-radius: 0.4rem;
+	border-width: 2px;
+}
+
+/// button & buttonY
+///
+/// @group SharedStyles
+a.x-button,
+button.x-button,
+label.x-button,
+a.x-buttonY,
+button.x-buttonY,
+label.x-buttonY {
 	@include flex(0 0 auto);
 	@include flexbox(row, nowrap, center, center, inline-flex);
+	@include transition(all 0.2s ease-out);
 }

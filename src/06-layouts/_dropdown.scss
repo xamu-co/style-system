@@ -81,7 +81,8 @@
 	&.u__position-top {
 		&,
 		&-left,
-		&-right {
+		&-right,
+		&-center {
 			bottom: calc(100% + 0.5rem);
 			&:before {
 				left: 0;
@@ -93,7 +94,8 @@
 	&.u__position-bottom {
 		&,
 		&-left,
-		&-right {
+		&-right,
+		&-center {
 			top: calc(100% + 0.5rem);
 			&:before {
 				right: 0;
@@ -111,6 +113,10 @@
 		}
 		&-right {
 			right: -1rem;
+		}
+		&-center {
+			left: 50%;
+			@include transform(translateX(-50%));
 		}
 	}
 	/// default: bottom-left

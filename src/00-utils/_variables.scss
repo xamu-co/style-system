@@ -21,14 +21,22 @@ $fonts: (
 	),
 );
 
+$primary: #f39c12;
+$primaryAlt: #61320f;
+$secondary: #0f47af;
+$light: #fff;
+$dark: #000;
+$danger: #e74c3c;
+$success: #259c21;
+
 $colors: (
-	primary: #f39c12,
-	primaryAlt: #61320f,
-	secondary: #0f47af,
-	light: #fff,
-	dark: #000,
-	danger: #e74c3c,
-	success: #259c21,
+	primary: $primary,
+	primaryAlt: $primaryAlt,
+	secondary: $secondary,
+	light: $light,
+	dark: $dark,
+	danger: $danger,
+	success: $success,
 );
 
 /// font size

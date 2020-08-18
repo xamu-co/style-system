@@ -28,7 +28,7 @@ nav.x-navigationY {
 	/// @group Statuses
 	&.is__menuSub {
 		width: auto;
-		max-width: 1000px;
+		max-width: 360px;
 		overflow: hidden;
 		// @include flex(1 1 auto);
 		@include transition(max-width 0.3s ease-out);

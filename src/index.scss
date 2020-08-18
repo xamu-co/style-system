@@ -40,9 +40,13 @@ body {
 	}
 	&.is__dashboard {
 		height: 100%;
-		#appex {
+		#appex,
+		#__nuxt,
+		#__layout {
 			height: 100%;
 			overflow: hidden;
+		}
+		#appex {
 			// background: color(secondary);
 			@include flexbox(row, nowrap, flex-start, stretch);
 			> .clearfix {
@@ -52,6 +56,7 @@ body {
 				background-color: color(light);
 				overflow-y: auto;
 				overflow-x: hidden;
+				overflow: auto;
 				box-shadow: -4px -4px 40px color(dark, 0.1);
 				// @include flex(1 1 auto);
 			}

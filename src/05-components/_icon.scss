@@ -16,15 +16,14 @@ i.x-icon {
 	/// icon size
 	///
 	/// @group Modifiers
-	@for $i from 4 through 10 {
+	@for $i from 2 through 10 {
 		&.m__size-#{$i*5} {
 			height: #{$i/3}rem;
 			font-size: #{$i/3}rem;
 		}
 	}
 	/// default size
-	&:not([class*="m__size"]),
-	&.m__size-15 {
+	&:not([class*="m__size"]) {
 		height: 1rem;
 		font-size: 1rem;
 	}

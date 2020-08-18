@@ -10,7 +10,7 @@
 		pointer-events: none;
 		display: block;
 		overflow: hidden;
-		z-index: 1;
+		z-index: 20;
 		position: absolute;
 		vertical-align: bottom;
 		color: color(light);
@@ -36,14 +36,14 @@
 	///
 	/// @group PseudoModifiers
 	@each $name, $color in $colors {
-		&[data-tooltip-#{$name}] {
+		&[data-tooltip-bg="#{$name}"] {
 			&:before {
 				background: #{color($name)};
 			}
 		}
 	}
 	/// default tooltip bgcolor
-	&:not([data-tooltip-secondary]) {
+	&:not([data-tooltip-bg]) {
 		&:before {
 			background: color(dark);
 		}
@@ -67,14 +67,16 @@
 	///
 	/// @group PseudoModifiers
 	/// top position
-	&[data-tooltip-top-left] {
+	&[data-tooltip-top="left"],
+	&[data-tooltip-p="top-left"] {
 		&:before {
 			top: 0;
 			left: 0;
 			@include transform(translateY(calc(-100% - 0.5em)));
 		}
 	}
-	&[data-tooltip-top-right] {
+	&[data-tooltip-top="right"],
+	&[data-tooltip-p="top-right"] {
 		&:before {
 			top: 0;
 			right: 0;
@@ -82,6 +84,7 @@
 		}
 	}
 	&[data-tooltip-top],
+	&[data-tooltip-p="top"],
 	&[data-tooltip-position="top"] {
 		&:before {
 			top: 0;
@@ -89,15 +92,18 @@
 			@include transform(translate(-50%, calc(-100% - 0.5em)));
 		}
 	}
+
 	/// right position
-	&[data-tooltip-right-top] {
+	&[data-tooltip-right="top"],
+	&[data-tooltip-p="right-top"] {
 		&:before {
 			top: 0;
 			right: 0;
 			@include transform(translateX(calc(100% + 0.5em)));
 		}
 	}
-	&[data-tooltip-right-bottom] {
+	&[data-tooltip-right="bottom"],
+	&[data-tooltip-p="right-bottom"] {
 		&:before {
 			bottom: 0;
 			right: 0;
@@ -105,6 +111,7 @@
 		}
 	}
 	&[data-tooltip-right],
+	&[data-tooltip-p="right"],
 	&[data-tooltip-position="right"] {
 		&:before {
 			top: 50%;
@@ -112,15 +119,18 @@
 			@include transform(translate(calc(100% + 0.5em), -50%));
 		}
 	}
+
 	/// left position
-	&[data-tooltip-left-top] {
+	&[data-tooltip-left="top"],
+	&[data-tooltip-p="left-top"] {
 		&:before {
 			top: 0;
 			left: 0;
 			@include transform(translateX(calc(-100% - 0.5em)));
 		}
 	}
-	&[data-tooltip-left-top] {
+	&[data-tooltip-left="bottom"],
+	&[data-tooltip-p="left-bottom"] {
 		&:before {
 			bottom: 0;
 			left: 0;
@@ -128,6 +138,7 @@
 		}
 	}
 	&[data-tooltip-left],
+	&[data-tooltip-p="left"],
 	&[data-tooltip-position="left"] {
 		&:before {
 			top: 50%;
@@ -135,15 +146,18 @@
 			@include transform(translate(calc(-100% - 0.5em), -50%));
 		}
 	}
+
 	/// bottom position
-	&[data-tooltip-bottom-left] {
+	&[data-tooltip-bottom="left"],
+	&[data-tooltip-p="bottom-left"] {
 		&:before {
 			bottom: 0;
 			left: 0;
 			@include transform(translateY(calc(100% + 0.5em)));
 		}
 	}
-	&[data-tooltip-bottom-right] {
+	&[data-tooltip-bottom="right"],
+	&[data-tooltip-p="bottom-right"] {
 		&:before {
 			bottom: 0;
 			right: 0;
@@ -152,8 +166,9 @@
 	}
 	/// default value
 	&[data-tooltip-bottom],
+	&[data-tooltip-p="bottom"],
 	&[data-tooltip-position="bottom"],
-	&:not([data-tooltip-position]):not([data-tooltip-bottom-right]):not([data-tooltip-bottom-left]):not([data-tooltip-top]):not([data-tooltip-top-right]):not([data-tooltip-top-left]):not([data-tooltip-left]):not([data-tooltip-left-top]):not([data-tooltip-left-bottom]):not([data-tooltip-right]):not([data-tooltip-right-top]):not([data-tooltip-right-bottom]) {
+	&:not([data-tooltip-position]):not([data-tooltip-p]):not([data-tooltip-bottom]):not([data-tooltip-top]):not([data-tooltip-left]):not([data-tooltip-right]) {
 		&:before {
 			bottom: 0;
 			left: 50%;
