@@ -67,7 +67,9 @@ html {
 	font-size: 100%;
 }
 
-img {
+// broken asset fallback styles
+img,
+iframe {
 	display: block;
 	overflow: hidden;
 	color: color(light);

@@ -3,16 +3,74 @@
 /// inicia vue transitions
 /// this is tied to vueRouter naming
 /// don't change
+
+// nuxt page fade
 .page {
 	&-enter-active {
 		@include transition-delay(0.3s);
 	}
-	&-enter, &-leave-to /* .fade-leave-active below version 2.1.8 */ {
+	&-enter,
+	&-leave-to {
 		opacity: 0;
 	}
 	&-enter-active,
 	&-leave-active {
-		@include transition(opacity 0.3s ease-out);
+		@include transition(all 0.3s ease-out);
+	}
+}
+// fade
+.fade {
+	&-top {
+		&-enter,
+		&-leave-to {
+			transform: translateY(-30vh);
+		}
+	}
+	&-left {
+		&-enter,
+		&-leave-to {
+			transform: translateX(-30vh);
+		}
+	}
+	&-right {
+		&-enter,
+		&-leave-to {
+			transform: translateX(30vh);
+		}
+	}
+	&-bottom {
+		&-enter,
+		&-leave-to {
+			transform: translateY(30vh);
+		}
+	}
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+	}
+	&-top,
+	&-left,
+	&-right,
+	&-bottom {
+		&-enter,
+		&-leave-to {
+			opacity: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+	}
+	&,
+	&-top,
+	&-left,
+	&-right,
+	&-bottom {
+		&-enter-active {
+			@include transition-delay(0.3s);
+		}
+		&-enter-active,
+		&-leave-active {
+			@include transition(all 0.3s ease-out);
+		}
 	}
 }
 // termina vue transitions
