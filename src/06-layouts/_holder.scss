@@ -11,4 +11,7 @@
 		padding: 0 1rem;
 		@include box-sizing(border-box);
 	}
+	&:not([class*="xm__maxWidth"]) {
+		max-width: 1200px;
+	}
 }
