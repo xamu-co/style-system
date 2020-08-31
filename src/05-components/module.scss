@@ -8,7 +8,7 @@
 @import "actionNav"; //links
 @import "button";
 @import "buttonToggle";
-@import "select";
+@import "inputSelect";
 @import "hr";
 
 /// non tag associated
@@ -68,7 +68,7 @@ label.x-button,
 a.x-buttonY,
 button.x-buttonY,
 label.x-buttonY,
-select.x-select {
+select.x-inputSelect {
 	border-style: solid;
 	white-space: nowrap;
 	text-shadow: none;
@@ -338,7 +338,7 @@ a.x-action,
 button.x-action,
 a.x-actionNav,
 button.x-actionNav,
-select.x-select {
+select.x-inputSelect {
 	&,
 	> :not(.x-icon) {
 		&::first-letter {

@@ -1,11 +1,12 @@
 /** @format */
-$path1: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.478' height='10' viewBox='0 0 16.478 10'%3E%3Cpath d='M14.537,123.76l7.333,7.333a.906.906,0,0,1,0,1.281l-.855.855a.906.906,0,0,1-1.279,0L13.9,127.419l-5.839,5.812a.906.906,0,0,1-1.279,0l-.855-.855a.906.906,0,0,1,0-1.281l7.333-7.333A.906.906,0,0,1,14.537,123.76Z' transform='translate(22.135 133.496) rotate(180)' ";
-$path2: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.478' height='10' viewBox='0 0 16.478 10'%3E%3Cpath d='M14.537,123.76l7.333,7.333a.906.906,0,0,1,0,1.281l-.855.855a.906.906,0,0,1-1.279,0L13.9,127.419l-5.839,5.812a.906.906,0,0,1-1.279,0l-.855-.855a.906.906,0,0,1,0-1.281l7.333-7.333A.906.906,0,0,1,14.537,123.76Z' transform='translate(-5.657 -123.496)' ";
+$pathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.478' height='10' viewBox='0 0 16.478 10'%3E%3Cpath d='M14.537,123.76l7.333,7.333a.906.906,0,0,1,0,1.281l-.855.855a.906.906,0,0,1-1.279,0L13.9,127.419l-5.839,5.812a.906.906,0,0,1-1.279,0l-.855-.855a.906.906,0,0,1,0-1.281l7.333-7.333A.906.906,0,0,1,14.537,123.76Z' transform='translate(";
+$path2: "#{$pathStart}-5.657 -123.496)' ";
+$path1: "#{$pathStart}22.135 133.496) rotate(180)' ";
 $pathEnd: "/%3E%3C/svg%3E";
 /// website logo
 ///
 /// @group Components
-select.x-select {
+select.x-inputSelect {
 	width: 100%;
 	height: 2.5rem;
 	display: inline-block;

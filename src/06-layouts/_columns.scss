@@ -12,8 +12,13 @@
 	/// @group Modifiers
 	/// default
 	&:not([class*="m__count"]),
-	&.m__count-2 {
-		columns: $minColumnSize 2;
+	&.m__columnCount-2 {
+		columns: #{$minColumnSize/2 * 3} 2;
+	}
+	@for $i from 3 through 12 {
+		&.m__columnCount-#{$i} {
+			columns: #{$minColumnSize/$i * 3} #{$i};
+		}
 	}
 
 	> * {

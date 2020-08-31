@@ -82,12 +82,23 @@
 		/// grid column span, restricted to wide viewports
 		///
 		/// @group Modifiers
+		@for $i from 3 through 10 {
+			&.m__gridColumnSpan-#{$i} {
+				grid-column: span #{$i};
+			}
+			&.m__gridRowSpan-#{$i} {
+				grid-row: span #{$i};
+			}
+		}
+		/// defaults
 		&.m__gridColumnSpan {
+			&,
 			&-2 {
 				grid-column: span 2;
 			}
 		}
 		&.m__gridRowSpan {
+			&,
 			&-2 {
 				grid-row: span 2;
 			}

@@ -28,6 +28,10 @@
 		background: color(light, 0.1);
 		&:hover {
 			border-color: color(light, 0.1);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
 			&.m__button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -44,6 +48,10 @@
 		background: color(light);
 		&:hover {
 			border-color: color(dark, 0.1);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
 			&.m__button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -62,6 +70,10 @@
 		background: color(secondary, 0.1);
 		&:hover {
 			border-color: color(secondary, 0.1);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
 			&.m__button {
 				background: color(secondary, 0.2);
 				// border-color: color(secondary, 0.3);
