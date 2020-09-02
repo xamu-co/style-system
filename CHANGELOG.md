@@ -1,5 +1,18 @@
 Xamu style system
 
+# [2.0.0](https://github.com/xamu-co/style-system/compare/v1.4.0...v2.0.0) (2020-09-02)
+
+
+### Features
+
+* holder default ([3279070](https://github.com/xamu-co/style-system/commit/327907055f0619665fd63efcdc52e9c733a5471b))
+* more grid & column values ([3a40b25](https://github.com/xamu-co/style-system/commit/3a40b25fb1017f0aca5734ef412ed53d3bd2028b))
+
+
+### BREAKING CHANGES
+
+* select >> selectInput
+
 # [1.4.0](https://github.com/xamu-co/style-system/compare/v1.3.0...v1.4.0) (2020-08-25)
 
 
