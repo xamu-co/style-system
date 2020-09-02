@@ -1,5 +1,12 @@
 Xamu style system
 
+# [1.4.0](https://github.com/xamu-co/style-system/compare/v1.3.0...v1.4.0) (2020-08-25)
+
+
+### Features
+
+* vue fade transitions ([c63331d](https://github.com/xamu-co/style-system/commit/c63331d8de7e5a69390c04319fb0094293302740))
+
 # [1.3.0](https://github.com/xamu-co/style-system/compare/v1.2.0...v1.3.0) (2020-08-18)
 
 
