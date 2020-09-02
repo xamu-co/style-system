@@ -6,11 +6,11 @@
   "browser": "dist/index.min.css",
   "source": "src/index.scss",
   "scripts": {
-    "sass": "cross-env sass src/index.scss dist/index.css",
-    "postcss": "cross-env postcss -o dist/index.min.css dist/index.css --no-map",
+    "sass": "sass src/index.scss dist/index.css",
+    "postcss": "postcss -o dist/index.min.css dist/index.css --no-map",
     "build": "yarn sass && yarn postcss --verbose",
     "watch": "yarn sass --watch",
-    "test": "cross-env stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
+    "test": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
     "prepare": "npm run build"
   },
   "repository": {
@@ -34,7 +34,6 @@
     "@commitlint/config-conventional": "^9.1.1",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
-    "cross-env": "^7.0.2",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
     "husky": "^4.2.5",
