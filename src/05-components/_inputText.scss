@@ -5,7 +5,6 @@
 ///
 /// @group Components
 :not(textarea).x-inputText {
-	height: 2.5rem;
 	i.x-icon {
 		position: absolute;
 		top: 50%;
@@ -24,7 +23,7 @@
 	}
 }
 textarea.x-inputText {
-	height: auto;
+	height: auto !important;
 	min-height: 6rem;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
@@ -32,13 +31,13 @@ textarea.x-inputText {
 .x-inputText {
 	width: 100%;
 	display: block;
-	border-width: 2px;
-	border-style: solid;
-	border-radius: 1rem;
 	padding: 0 1rem;
-	@include box-sizing(border-box);
 	@include transition(all 0.2s ease-out);
 	@include flexbox(column, nowrap, center, center);
+
+	/// theme
+	///
+	/// @group Modifiers
 	&.m__theme {
 		&-light {
 			background: color(light, 0.3);
@@ -74,6 +73,12 @@ textarea.x-inputText {
 			&:focus,
 			&:focus-within {
 				border-color: color(primaryAlt);
+			}
+			/// showcase a shadow
+			///
+			/// @group ConditionalModifiers
+			&.m__shadow {
+				box-shadow: 1px 1px 3px color(dark, 0.3);
 			}
 		}
 		&-primary {
@@ -112,12 +117,5 @@ textarea.x-inputText {
 		&:focus-within {
 			border-color: color(secondary);
 		}
-	}
-
-	/// showcase a shadow
-	///
-	/// @group ConditionalModifiers
-	&.m__theme-lightAlt.m__shadow {
-		box-shadow: 1px 1px 3px color(dark, 0.3);
 	}
 }

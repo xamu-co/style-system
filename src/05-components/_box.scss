@@ -107,24 +107,24 @@
 		///
 		/// @group Modifiers
 		&.m__square {
-			&-small {
+			&-xs {
 				width: 3rem;
 			}
-			&-little {
+			&-sm {
 				width: 5rem;
 			}
-			&-big {
+			&-lg {
 				width: 9rem;
 			}
 			&,
-			&-medium {
+			&-md {
 				width: 6rem;
 			}
 			&,
-			&-big,
-			&-small,
-			&-little,
-			&-medium {
+			&-xs,
+			&-sm,
+			&-md,
+			&-lg {
 				margin: 0 auto;
 				&:before {
 					content: "";

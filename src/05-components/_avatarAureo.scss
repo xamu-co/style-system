@@ -28,35 +28,29 @@
 	///
 	/// @group Modifiers
 	&.m__size {
-		&-little {
+		&-sm {
 			border-radius: 0.7rem;
+			&.m__border {
+				border-width: 2px;
+			}
 		}
-		&-medium {
+		&-md {
 			border-radius: 1.3rem;
+			&.m__border {
+				border-width: 3px;
+			}
 		}
-		&-big {
+		&-lg {
 			border-radius: 1.6rem;
+			&.m__border {
+				border-width: 4px;
+			}
 		}
 	}
 	/// default size
-	&:not([class*="m__size"]),
-	&.m__size-normal {
+	&.m__size-normal,
+	&:not([class*="m__size"]) {
 		border-radius: 1rem;
-	}
-
-	/// avatar border
-	///
-	/// @group ConditionalModifiers
-	&.m__size-little.m__border {
-		border-width: 2px;
-	}
-	&.m__size-medium.m__border {
-		border-width: 3px;
-	}
-	/// default border
-	&.m__border,
-	&.m__size-big.m__border {
-		border-width: 4px;
 	}
 
 	/// avatar border

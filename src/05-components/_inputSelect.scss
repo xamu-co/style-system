@@ -8,10 +8,7 @@ $pathEnd: "/%3E%3C/svg%3E";
 /// @group Components
 select.x-inputSelect {
 	width: 100%;
-	height: 2.5rem;
 	display: inline-block;
-	border-width: 2px;
-	border-radius: 1rem;
 	padding: 0 2rem 0 1rem;
 	background-repeat: no-repeat;
 	background-size: auto 0.5rem;
@@ -135,7 +132,6 @@ select.x-inputSelect {
 			background-image: url("#{$path1}fill='%23#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3'#{$pathEnd}");
 		}
 	}
-
 	/// default
 	&:not([class*="u__theme"]),
 	&.u__theme-secondary-light {

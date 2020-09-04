@@ -53,23 +53,23 @@ $viewports: (
 );
 
 /// font size
-$fontSizeSmall: 0.7rem;
-$fontSizeLittle: 0.9rem;
+$fontSizeExtraSmall: 0.7rem;
+$fontSizeSmall: 0.9rem;
 $fontSize: 1rem;
 $fontSizeMedium: 1.2rem;
 $fontSizeLarge: 1.8rem;
-$fontSizeBig: 2.8rem;
-$fontSizeHuge: 3.8rem;
-$fontSizeMassive: 4.8rem;
+$fontSizeExtraLarge: 2.8rem;
+$fontSizeExtraExtraLarge: 3.8rem;
+$fontSizeMaximum: 4.8rem;
 
 $fontSizes: (
-	small: $fontSizeSmall,
-	little: $fontSizeLittle,
-	medium: $fontSizeMedium,
-	large: $fontSizeLarge,
-	big: $fontSizeBig,
-	huge: $fontSizeHuge,
-	massive: $fontSizeMassive,
+	xs: $fontSizeExtraSmall,
+	sm: $fontSizeSmall,
+	md: $fontSizeMedium,
+	lg: $fontSizeLarge,
+	xl: $fontSizeExtraLarge,
+	xxl: $fontSizeExtraExtraLarge,
+	max: $fontSizeMaximum,
 );
 
 /// font weight

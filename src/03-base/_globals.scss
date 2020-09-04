@@ -65,13 +65,14 @@
 
 html {
 	font-size: 100%;
+	font-weight: $fontWeightRegular;
 }
 
 h1:not([class*="xm__textSize"]) {
-	font-size: $fontSizeHuge;
+	font-size: $fontSizeExtraExtraLarge;
 }
 h2:not([class*="xm__textSize"]) {
-	font-size: $fontSizeBig;
+	font-size: $fontSizeExtraLarge;
 }
 h3:not([class*="xm__textSize"]) {
 	font-size: $fontSizeLarge;
@@ -145,7 +146,7 @@ iframe {
 		font-family: font(awesome);
 		font-weight: 900;
 		color: color(danger);
-		font-size: $fontSizeHuge;
+		font-size: $fontSizeExtraExtraLarge;
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -208,13 +209,4 @@ strong,
 	&:not([class*="xm__textWeight"]) {
 		font-weight: $fontWeightBold;
 	}
-}
-
-.xm__textWeight-bold {
-	font-weight: $fontWeightBold;
-}
-
-html,
-.xm__textWeight-regular {
-	font-weight: $fontWeightRegular;
 }

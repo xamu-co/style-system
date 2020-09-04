@@ -15,7 +15,7 @@
 	/// avatar size
 	///
 	/// @group Modifiers
-	&.m__size-big {
+	&.m__size-lg {
 		border-radius: 1.6rem;
 		width: 9rem;
 		height: 9rem;
@@ -23,7 +23,7 @@
 			border-width: 4px;
 		}
 	}
-	&.m__size-medium {
+	&.m__size-md {
 		border-radius: 1.3rem;
 		width: 6rem;
 		height: 6rem;
@@ -32,8 +32,8 @@
 		}
 	}
 	/// default size
-	&:not([class*="m__size"]),
-	&.m__size-little {
+	&.m__size-sm,
+	&:not([class*="m__size"]) {
 		border-radius: 1rem;
 		width: 3rem;
 		height: 3rem;

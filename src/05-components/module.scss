@@ -4,10 +4,6 @@
 @import "inputText";
 @import "inputCheckbox";
 @import "icon";
-@import "action"; //links
-@import "actionNav"; //links
-@import "button";
-@import "buttonToggle";
 @import "inputSelect";
 @import "hr";
 @import "navList";
@@ -27,41 +23,46 @@
 @import "navigationX";
 @import "navigationY";
 @import "view";
+@import "action"; //links
+@import "actionNav"; //links
+@import "button";
+@import "buttonToggle";
 
 /// There are some components that share common styles
 
 /// navList-group & navListToggle-group shared styles
 ///
 /// @group SharedStyles
-ul.x-navList-group,
-ol.x-navList-group,
-ul.x-navListToggle-group,
-ol.x-navListToggle-group {
-	overflow: hidden;
+ul,
+ol {
+	&.x-navList-group,
+	&.x-navListToggle-group {
+		overflow: hidden;
 
-	/// flow direction
-	///
-	/// @group Modifiers
-	&.m__flow-row {
-		@include flexbox(row, nowrap, flex-start, center);
-		> li:not(:last-child) {
-			margin-right: 1rem;
+		/// flow direction
+		///
+		/// @group Modifiers
+		&.m__flow-row {
+			@include flexbox(row, nowrap, flex-start, center);
+			> li:not(:last-child) {
+				margin-right: 1rem;
+			}
 		}
-	}
-	/// default flow
-	&:not([class*="m__flow"]),
-	&.m__flow-column {
-		@include flexbox(column, nowrap, flex-start, flex-start);
-		> li:not(:last-child) {
-			margin-bottom: 0.5rem;
+		/// default flow
+		&:not([class*="m__flow"]),
+		&.m__flow-column {
+			@include flexbox(column, nowrap, flex-start, flex-start);
+			> li:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
 		}
-	}
 
-	> li {
-		.x-action,
-		.x-actionNav {
-			white-space: normal;
-			line-height: $lineHeightMedium;
+		> li {
+			.x-action,
+			.x-actionNav {
+				white-space: normal;
+				line-height: $lineHeightMedium;
+			}
 		}
 	}
 }
@@ -69,19 +70,12 @@ ol.x-navListToggle-group {
 /// button, buttonY & select shared styles
 ///
 /// @group SharedStyles
-a.x-button,
-button.x-button,
-label.x-button,
-a.x-buttonY,
-button.x-buttonY,
-label.x-buttonY,
+.x-button,
+.x-buttonY,
 select.x-inputSelect {
-	border-style: solid;
 	white-space: nowrap;
-	text-shadow: none;
 	text-align: center;
 	border-color: transparent;
-	@include box-sizing(border-box);
 	&:disabled,
 	&[disabled] {
 		// opacity: 0.3;
@@ -218,88 +212,14 @@ select.x-inputSelect {
 /// button & buttonToggle shared styles
 ///
 /// @group SharedStyles
-a.x-button,
-label.x-button,
-button.x-button,
-a.x-buttonToggle,
-label.x-buttonToggle,
-button.x-buttonToggle {
-	/// button size
-	///
-	/// @group Modifiers
-	&.m__size-small {
-		font-size: $fontSizeSmall;
-		height: 1.5rem;
-		padding: 0 0.7rem;
-		border-radius: 0.7rem;
-		border-width: 2px;
-		&.m__round {
-			width: 1.5rem;
-		}
-	}
-	&.m__size-little {
-		font-size: $fontSizeLittle;
-		height: 2rem;
-		padding: 0 0.7rem;
-		border-radius: 0.7rem;
-		border-width: 2px;
-		&.m__round {
-			width: 2rem;
-		}
-	}
-	/// same font size
-	&.m__size-medium {
-		font-size: $fontSize;
-		height: 3rem;
+.x-button,
+.x-buttonToggle {
+	/// this is the default value
+	&.m__size-normal,
+	&:not([class*="m__size"]) {
 		padding: 0 1rem;
-		border-radius: 1rem;
-		border-width: 3px;
 		&.m__round {
-			width: 3rem;
-		}
-	}
-	&.m__size-large {
-		font-size: $fontSize;
-		height: 3.5rem;
-		padding: 0 1rem;
-		border-radius: 1.3rem;
-		border-width: 3px;
-		&.m__round {
-			width: 3.5rem;
-		}
-	}
-	&.m__size-big {
-		font-size: $fontSize;
-		height: 4rem;
-		padding: 0 1.5rem;
-		border-radius: 1.6rem;
-		border-width: 3px;
-		&.m__round {
-			width: 4rem;
-		}
-	}
-	/// bigger font size
-	&.m__size-huge {
-		font-size: $fontSizeMedium;
-		height: 4.5rem;
-		padding: 0 2rem;
-		border-radius: 1.9rem;
-		border-width: 4px;
-		&.m__round {
-			width: 4.5rem;
-		}
-	}
-
-	&:not([class*="m__size"]),
-	&.m__size-normal {
-		/// this is the default value
-		font-size: $fontSize;
-		height: 2.5rem;
-		padding: 0 1rem;
-		border-radius: 1rem;
-		border-width: 2px;
-		&.m__round {
-			width: 2.5rem;
+			width: 2.4rem;
 		}
 	}
 
@@ -311,19 +231,36 @@ button.x-buttonToggle {
 	}
 }
 
+/// text, select, button & buttonToggle shared styles
+///
+/// @group SharedStyles
+.x-button,
+.x-buttonToggle,
+.x-inputText,
+select.x-inputSelect {
+	border-style: solid;
+	text-shadow: none;
+	@include box-sizing(border-box);
+	&:not([class*="xm__textSize"]) {
+		font-size: 1rem;
+	}
+	/// this is the default value
+	&.m__size,
+	&.m__size-normal,
+	&:not([class*="m__size"]) {
+		height: 2.4rem;
+		border-radius: 1rem;
+		border-width: 2px;
+	}
+}
+
 /// button, buttonToggle, link & linkNav shared styles
 ///
 /// @group SharedStyles
-a.x-button,
-label.x-button,
-button.x-button,
-a.x-buttonToggle,
-label.x-buttonToggle,
-button.x-buttonToggle,
-a.x-action,
-button.x-action,
-a.x-actionNav,
-button.x-actionNav {
+.x-button,
+.x-buttonToggle,
+.x-action,
+.x-actionNav {
 	:not(.x-icon):first-child ~ i.x-icon {
 		margin-left: 0.5em;
 	}
@@ -335,16 +272,10 @@ button.x-actionNav {
 /// button, buttonToggle, link, linkNav & select shared styles
 ///
 /// @group SharedStyles
-a.x-button,
-label.x-button,
-button.x-button,
-a.x-buttonToggle,
-label.x-buttonToggle,
-button.x-buttonToggle,
-a.x-action,
-button.x-action,
-a.x-actionNav,
-button.x-actionNav,
+.x-button,
+.x-buttonToggle,
+.x-action,
+.x-actionNav,
 select.x-inputSelect {
 	&,
 	> :not(.x-icon) {
@@ -356,5 +287,35 @@ select.x-inputSelect {
 	&[disabled] {
 		opacity: 0.3;
 		pointer-events: none;
+	}
+}
+
+/// LOOPS
+
+@each $name, $size in $fontSizes {
+	/// button & buttonToggle shared styles
+	///
+	/// @group SharedStyles
+	.x-button,
+	.x-buttonToggle {
+		&.m__size-#{$name} {
+			padding: 0 $size;
+			&.m__round {
+				width: $size * 2.6;
+			}
+		}
+	}
+	/// text, select, button & buttonToggle shared styles
+	///
+	/// @group SharedStyles
+	.x-button,
+	.x-buttonToggle,
+	.x-inputText,
+	select.x-inputSelect {
+		&.m__size-#{$name} {
+			height: $size * 2.6;
+			border-radius: $size;
+			border-width: calc(2px + (#{$size} / 18));
+		}
 	}
 }

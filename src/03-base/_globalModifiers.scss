@@ -17,18 +17,6 @@
 	}
 }
 
-/// full width
-///
-/// @group GlobalModifiers
-.xm__width {
-	&,
-	&-full {
-		@include extend-viewports {
-			width: 100%;
-		}
-	}
-}
-
 /// hidden element, hide visually only
 ///
 /// @group GlobalModifiers
@@ -202,16 +190,18 @@
 	}
 }
 
-.xm__striped {
-	/// default
-	&,
-	&-secondary {
+/// font weight
+///
+/// @group GlobalModifiers
+.xm__textWeight {
+	&-bold {
 		@include extend-viewports {
-			> :nth-child(even) {
-			}
-			> :nth-child(odd) {
-				background-color: color(secondary, 0.1);
-			}
+			font-weight: $fontWeightBold;
+		}
+	}
+	&-regular {
+		@include extend-viewports {
+			font-weight: $fontWeightRegular;
 		}
 	}
 }
@@ -224,7 +214,7 @@
 	&-right {
 		@include extend-viewports {
 			text-align: right;
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				text-align: right;
 			}
 		}
@@ -232,7 +222,7 @@
 	&-center {
 		@include extend-viewports {
 			text-align: center;
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				text-align: center;
 			}
 		}
@@ -240,7 +230,7 @@
 	&-justify {
 		@include extend-viewports {
 			text-align: justify;
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				text-align: justify;
 			}
 		}
@@ -250,7 +240,7 @@
 	&-left {
 		@include extend-viewports {
 			text-align: left;
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				text-align: left;
 			}
 		}
@@ -264,7 +254,7 @@
 	&-right {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -278,7 +268,7 @@
 	&-center {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, center, inline-flex);
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -292,7 +282,7 @@
 	&-justify {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -314,7 +304,7 @@
 				flex-start,
 				inline-flex
 			);
-			> :not([class*="xm__textAlign"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -347,7 +337,7 @@
 	}
 }
 
-/// max width
+/// max width, max height
 /// pixel based
 ///
 /// @group GlobalModifiers
@@ -358,12 +348,54 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 			max-width: #{$size}px;
 		}
 	}
+	.xm__maxHeight-#{$size} {
+		@include extend-viewports {
+			max-height: #{$size}px;
+		}
+	}
 }
 /// default
 .xm__maxWidth,
 .xm__maxWidth-1200 {
 	@include extend-viewports {
 		max-width: 1200px;
+	}
+}
+/// default
+.xm__maxHeight,
+.xm__maxHeight-1200 {
+	@include extend-viewports {
+		max-height: 400px;
+	}
+}
+
+/// width, height
+///
+/// @group GlobalModifiers
+$axles: width, height;
+@each $axis in $axles {
+	.xm__#{$axis} {
+		&-quarter {
+			@include extend-viewports {
+				#{$axis}: 50%;
+			}
+		}
+		&-third {
+			@include extend-viewports {
+				#{$axis}: 33%;
+			}
+		}
+		&-half {
+			@include extend-viewports {
+				#{$axis}: 50%;
+			}
+		}
+		&,
+		&-full {
+			@include extend-viewports {
+				#{$axis}: 100%;
+			}
+		}
 	}
 }
 
@@ -559,11 +591,20 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 ///
 /// @group ColorGlobalModifiers
 @each $name, $color in $colors {
+	/// striped childs
+	.xm__striped-#{$name} {
+		@include extend-viewports {
+			> :nth-child(odd) {
+				background-color: #{color($name, 0.1)};
+			}
+		}
+	}
+
 	/// text color
 	.xm__textColor-#{$name} {
 		@include extend-viewports {
 			&,
-			> :not([class*="xm__textColor"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textColor"]):not([class*="x-"]) {
 				color: #{color($name)};
 			}
 		}
@@ -573,7 +614,7 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 	.xm__textShadow-#{$name} {
 		@include extend-viewports {
 			&,
-			> :not([class*="xm__textShadow"]):not(.x-action):not(.x-button) {
+			> :not([class*="xm__textShadow"]):not([class*="x-"]) {
 				text-shadow: 1px 1px 1px #{color($name)};
 			}
 		}
@@ -599,7 +640,7 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 		.xm__textColor-#{$name}#{$i} {
 			@include extend-viewports {
 				&,
-				> :not([class*="xm__textColor"]):not(.x-action):not(.x-button) {
+				> :not([class*="xm__textColor"]):not([class*="x-"]) {
 					color: #{color($name, $i/10)};
 				}
 			}
@@ -609,7 +650,7 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 		.xm__textShadow-#{$name}#{$i} {
 			@include extend-viewports {
 				&,
-				> :not([class*="xm__textShadow"]):not(.x-action):not(.x-button) {
+				> :not([class*="xm__textShadow"]):not([class*="x-"]) {
 					text-shadow: 1px 1px 1px #{color($name, $i/10)};
 				}
 			}
@@ -631,11 +672,20 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 	}
 }
 
+/// default striped child color
+.xm__striped {
+	@include extend-viewports {
+		> :nth-child(odd) {
+			background-color: color(secondary, 0.1);
+		}
+	}
+}
+
 /// default color
 .xm__textColor {
 	@include extend-viewports {
 		&,
-		> :not([class*="xm__textColor"]):not(.x-action):not(.x-button) {
+		> :not([class*="xm__textColor"]):not([class*="x-"]) {
 			color: color(dark, 0.7);
 		}
 	}
@@ -645,7 +695,7 @@ $maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
 .xm__textShadow {
 	@include extend-viewports {
 		&,
-		> :not([class*="xm__textShadow"]):not(.x-action):not(.x-button) {
+		> :not([class*="xm__textShadow"]):not([class*="x-"]) {
 			text-shadow: 1px 1px 1px color(dark, 0.3);
 		}
 	}
