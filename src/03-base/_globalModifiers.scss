@@ -333,9 +333,9 @@
 ///
 /// @group GlobalModifiers
 @each $name, $size in $fontSizes {
-	.xm__textSize-#{name} {
+	.xm__textSize-#{$name} {
 		@include extend-viewports {
-			font-size: #{size};
+			font-size: #{$size};
 		}
 	}
 }
