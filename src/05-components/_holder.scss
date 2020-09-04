@@ -7,11 +7,11 @@
 	margin: 0 auto;
 	width: 100%;
 	// display: block;
-	&:not(.m__padding-none) {
-		padding: 0 2rem;
+	&:not(.m__pd-none) {
+		padding: 0 1rem;
 		@include box-sizing(border-box);
-		@media (max-width: $viewportMd + 1) {
-			padding: 0 1rem;
+		@media (min-width: $viewportSm + 1) {
+			padding: 0 2rem;
 		}
 	}
 	&:not([class*="xm__maxWidth"]) {

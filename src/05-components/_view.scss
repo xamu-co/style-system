@@ -31,10 +31,10 @@
 	}
 	&[class*="xm__bgColor"] {
 		padding-bottom: 4rem;
-		&:not(.m__padding-normal):first-child {
+		&:not(.m__pd-normal):first-child {
 			padding-top: 6rem;
 		}
-		&.m__padding-normal:first-child {
+		&.m__pd-normal:first-child {
 			padding-top: 3rem;
 		}
 		&:last-child {
@@ -81,7 +81,7 @@
 
 	> .x-holder {
 		@include flexbox(column, nowrap, center, stretch);
-		> :not([class*="xm__marginBottom"]):not(:last-child) {
+		> :not([class*="xm__mgBottom"]):not(:last-child) {
 			margin-bottom: 2rem;
 		}
 	}

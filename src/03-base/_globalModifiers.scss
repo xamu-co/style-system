@@ -20,7 +20,7 @@
 /// hidden element, hide visually only
 ///
 /// @group GlobalModifiers
-.xm__flexGrow {
+.xm__flxGrow {
 	@include extend-viewports {
 		@include flex(1 1 auto);
 	}
@@ -62,7 +62,7 @@
 /// text wrap
 ///
 /// @group GlobalModifiers
-.xm__textWrap {
+.xm__txtWrap {
 	&-nowrap {
 		@include extend-viewports {
 			white-space: nowrap;
@@ -80,7 +80,7 @@
 /// box alignment
 ///
 /// @group GlobalModifiers
-.xm__marginX {
+.xm__mgX {
 	&-left {
 		@include extend-viewports {
 			margin-left: 0;
@@ -106,7 +106,7 @@
 /// box alignment
 ///
 /// @group GlobalModifiers
-.xm__marginY {
+.xm__mgY {
 	&-top {
 		@include extend-viewports {
 			margin-top: 0;
@@ -132,7 +132,7 @@
 /// flexbox justify content
 ///
 /// @group GlobalModifiers
-.xm__flexJustify {
+.xm__flxJustify {
 	&-end {
 		@include extend-viewports {
 			justify-content: flex-end;
@@ -165,7 +165,7 @@
 /// flexbox align items
 ///
 /// @group GlobalModifiers
-.xm__flexAlign {
+.xm__flxAlign {
 	&-end {
 		@include extend-viewports {
 			align-items: flex-end;
@@ -193,7 +193,7 @@
 /// font weight
 ///
 /// @group GlobalModifiers
-.xm__textWeight {
+.xm__txtWeight {
 	&-bold {
 		@include extend-viewports {
 			font-weight: $fontWeightBold;
@@ -209,12 +209,12 @@
 /// text align
 ///
 /// @group FamilyGlobalModifiers
-.xm__textAlign,
-.xm__textAlignFlex {
+.xm__txtAlign,
+.xm__txtAlignFlx {
 	&-right {
 		@include extend-viewports {
 			text-align: right;
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				text-align: right;
 			}
 		}
@@ -222,7 +222,7 @@
 	&-center {
 		@include extend-viewports {
 			text-align: center;
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				text-align: center;
 			}
 		}
@@ -230,7 +230,7 @@
 	&-justify {
 		@include extend-viewports {
 			text-align: justify;
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				text-align: justify;
 			}
 		}
@@ -240,7 +240,7 @@
 	&-left {
 		@include extend-viewports {
 			text-align: left;
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				text-align: left;
 			}
 		}
@@ -250,11 +250,11 @@
 /// text align flex
 ///
 /// @group FamilyGlobalModifiers
-.xm__textAlignFlex {
+.xm__txtAlignFlx {
 	&-right {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -268,7 +268,7 @@
 	&-center {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, center, inline-flex);
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -282,7 +282,7 @@
 	&-justify {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -304,7 +304,7 @@
 				flex-start,
 				inline-flex
 			);
-			> :not([class*="xm__textAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -323,15 +323,15 @@
 ///
 /// @group GlobalModifiers
 @each $name, $size in $fontSizes {
-	.xm__textSize-#{$name} {
+	.xm__txtSize-#{$name} {
 		@include extend-viewports {
 			font-size: #{$size};
 		}
 	}
 }
 /// default
-.xm__textSize,
-.xm__textSize-normal {
+.xm__txtSize,
+.xm__txtSize-normal {
 	@include extend-viewports {
 		font-size: $fontSize;
 	}
@@ -428,26 +428,26 @@ $directions: top, right, bottom, left;
 @each $direction in $directions {
 	@for $i from 1 through 10 {
 		/// margins
-		.xm__margin#{capitalize($direction) + "-" + $i*5} {
+		.xm__mg#{capitalize($direction) + "-" + $i*5} {
 			@include extend-viewports {
 				margin-#{$direction}: #{$i/3}rem;
 			}
 		}
 		/// paddings
-		.xm__padding#{capitalize($direction) + "-" + $i*5} {
+		.xm__pd#{capitalize($direction) + "-" + $i*5} {
 			@include extend-viewports {
 				padding-#{$direction}: #{$i/3}rem;
 			}
 		}
 	}
 	/// margin defaults
-	.xm__margin#{capitalize($direction)} {
+	.xm__mg#{capitalize($direction)} {
 		@include extend-viewports {
 			margin-#{$direction}: 1rem;
 		}
 	}
 	/// padding defaults
-	.xm__padding#{capitalize($direction)} {
+	.xm__pd#{capitalize($direction)} {
 		@include extend-viewports {
 			padding-#{$direction}: 1rem;
 		}
@@ -460,17 +460,17 @@ $directions: top, right, bottom, left;
 	///
 	/// @group GlobalModifiers
 	.xm__gap-#{$i*5},
-	.xm__gridGap-#{$i*5} {
+	.xm__grdGap-#{$i*5} {
 		@include extend-viewports {
 			gap: #{$i/3}rem;
 		}
 	}
 
-	/// item Spacing for childs
+	/// item Space for childs
 	/// both axis
 	///
 	/// @group GlobalModifiers
-	.xm__itemSpacing-#{$i*5} {
+	.xm__itemSpace-#{$i*5} {
 		@include extend-viewports {
 			> * {
 				margin-bottom: #{$i/3}rem;
@@ -478,18 +478,18 @@ $directions: top, right, bottom, left;
 			}
 		}
 	}
-	.xm__itemSpacingX-#{$i*5} {
+	.xm__itemSpaceX-#{$i*5} {
 		/// X axis
 		@include extend-viewports {
-			> :not([class*="xm__marginRight"]):not(:last-child) {
+			> :not([class*="xm__mgRight"]):not(:last-child) {
 				margin-right: #{$i/3}rem;
 			}
 		}
 	}
-	.xm__itemSpacingY-#{$i*5} {
+	.xm__itemSpaceY-#{$i*5} {
 		/// Y axis
 		@include extend-viewports {
-			> :not([class*="xm__marginBottom"]):not(:last-child) {
+			> :not([class*="xm__mgBottom"]):not(:last-child) {
 				margin-bottom: #{$i/3}rem;
 			}
 		}
@@ -498,14 +498,14 @@ $directions: top, right, bottom, left;
 
 /// grid/column gap default
 .xm__gap,
-.xm__gridGap {
+.xm__grdGap {
 	@include extend-viewports {
 		gap: 1rem;
 	}
 }
 
 /// item spacing defaults
-.xm__itemSpacing {
+.xm__itemSpace {
 	@include extend-viewports {
 		> * {
 			margin-bottom: 1rem;
@@ -513,18 +513,18 @@ $directions: top, right, bottom, left;
 		}
 	}
 }
-.xm__itemSpacingX {
+.xm__itemSpaceX {
 	/// X dimension
 	@include extend-viewports {
-		> :not([class*="xm__marginRight"]):not(:last-child) {
+		> :not([class*="xm__mgRight"]):not(:last-child) {
 			margin-right: 1rem;
 		}
 	}
 }
-.xm__itemSpacingY {
+.xm__itemSpaceY {
 	/// Y dimension
 	@include extend-viewports {
-		> :not([class*="xm__marginBottom"]):not(:last-child) {
+		> :not([class*="xm__mgBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}
@@ -545,20 +545,20 @@ $directions: top, right, bottom, left;
 	}
 
 	/// text color
-	.xm__textColor-#{$name} {
+	.xm__txtColor-#{$name} {
 		@include extend-viewports {
 			&,
-			> :not([class*="xm__textColor"]):not([class*="x-"]) {
+			> :not([class*="xm__txtColor"]):not([class*="x-"]) {
 				color: #{color($name)};
 			}
 		}
 	}
 
 	/// text shadow
-	.xm__textShadow-#{$name} {
+	.xm__txtShadow-#{$name} {
 		@include extend-viewports {
 			&,
-			> :not([class*="xm__textShadow"]):not([class*="x-"]) {
+			> :not([class*="xm__txtShadow"]):not([class*="x-"]) {
 				text-shadow: 1px 1px 1px #{color($name)};
 			}
 		}
@@ -572,7 +572,7 @@ $directions: top, right, bottom, left;
 	}
 
 	/// borderColor
-	.xm__borderColor-#{$name} {
+	.xm__bdrColor-#{$name} {
 		@include extend-viewports {
 			border-color: #{color($name)};
 		}
@@ -581,20 +581,20 @@ $directions: top, right, bottom, left;
 	/// shades of color
 	@for $i from 1 through 9 {
 		/// text color
-		.xm__textColor-#{$name}#{$i} {
+		.xm__txtColor-#{$name}#{$i} {
 			@include extend-viewports {
 				&,
-				> :not([class*="xm__textColor"]):not([class*="x-"]) {
+				> :not([class*="xm__txtColor"]):not([class*="x-"]) {
 					color: #{color($name, $i/10)};
 				}
 			}
 		}
 
 		/// text shadow
-		.xm__textShadow-#{$name}#{$i} {
+		.xm__txtShadow-#{$name}#{$i} {
 			@include extend-viewports {
 				&,
-				> :not([class*="xm__textShadow"]):not([class*="x-"]) {
+				> :not([class*="xm__txtShadow"]):not([class*="x-"]) {
 					text-shadow: 1px 1px 1px #{color($name, $i/10)};
 				}
 			}
@@ -608,7 +608,7 @@ $directions: top, right, bottom, left;
 		}
 
 		/// borderColor
-		.xm__borderColor-#{$name}#{$i} {
+		.xm__bdrColor-#{$name}#{$i} {
 			@include extend-viewports {
 				border-color: #{color($name, $i/10)};
 			}
@@ -626,20 +626,20 @@ $directions: top, right, bottom, left;
 }
 
 /// default color
-.xm__textColor {
+.xm__txtColor {
 	@include extend-viewports {
 		&,
-		> :not([class*="xm__textColor"]):not([class*="x-"]) {
+		> :not([class*="xm__txtColor"]):not([class*="x-"]) {
 			color: color(dark, 0.7);
 		}
 	}
 }
 
 /// default text color
-.xm__textShadow {
+.xm__txtShadow {
 	@include extend-viewports {
 		&,
-		> :not([class*="xm__textShadow"]):not([class*="x-"]) {
+		> :not([class*="xm__txtShadow"]):not([class*="x-"]) {
 			text-shadow: 1px 1px 1px color(dark, 0.3);
 		}
 	}
@@ -653,7 +653,7 @@ $directions: top, right, bottom, left;
 }
 
 /// default borderColor
-.xm__borderColor {
+.xm__bdrColor {
 	@include extend-viewports {
 		border-color: color(secondary, 0.1);
 	}

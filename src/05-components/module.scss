@@ -241,7 +241,7 @@ select.x-inputSelect {
 	border-style: solid;
 	text-shadow: none;
 	@include box-sizing(border-box);
-	&:not([class*="xm__textSize"]) {
+	&:not([class*="xm__txtSize"]) {
 		font-size: 1rem;
 	}
 	/// this is the default value

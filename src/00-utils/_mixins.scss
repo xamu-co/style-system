@@ -10,16 +10,18 @@
 	@content;
 	@if $responsive {
 		@each $name, $viewport in $viewports {
-			@media (max-width: $viewport) {
+			/// mobile first
+			@media (min-width: $viewport + 1) {
 				&\:#{$name} {
 					@content;
 				}
 			}
-			@media (min-width: $viewport + 1) {
-				&\:#{$name}-inv {
-					@content;
-				}
-			}
+			/// dektop first
+			// @media (max-width: $viewport) {
+			// 	&\:#{$name}-inv {
+			// 		@content;
+			// 	}
+			// }
 		}
 	}
 }

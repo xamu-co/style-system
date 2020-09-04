@@ -2,7 +2,7 @@
 ul.x-pickList,
 ol.x-pickList {
 	@include flexbox(row, nowrap, center, center);
-	&:not([class*="xm__itemSpacing"]) > * {
+	&:not([class*="xm__itemSpace"]) > * {
 		margin-right: 1rem;
 	}
 
@@ -59,16 +59,16 @@ ol.x-pickList {
 li.x-pickList-item {
 }
 button.x-pickList-item-action {
-	width: 1rem;
-	height: 1rem;
+	width: 1.3rem;
+	height: 1.3rem;
 	border-width: 3px;
 	border-style: solid;
 	border-radius: 50%;
 	background: transparent;
 	@include transition(all 0.3s ease-out);
 	@include box-sizing(border-box);
-	@media (max-width: 720px) {
-		width: 1.3rem;
-		height: 1.3rem;
+	@media (min-width: $viewportSm + 1) {
+		width: 1rem;
+		height: 1rem;
 	}
 }

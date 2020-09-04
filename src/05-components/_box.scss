@@ -16,7 +16,7 @@
 	}
 	&:not([class*="x-flex"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> :not([class*="xm__marginBottom"]):not(:last-child) {
+		> :not([class*="xm__mgBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}
@@ -40,7 +40,7 @@
 				}
 			}
 		}
-		&.m__button:not([class*="xm__textColor"]) {
+		&.m__button:not([class*="xm__txtColor"]) {
 			color: color(light);
 		}
 	}
@@ -60,7 +60,7 @@
 				}
 			}
 		}
-		&.m__button:not([class*="xm__textColor"]) {
+		&.m__button:not([class*="xm__txtColor"]) {
 			color: color(light);
 		}
 	}
@@ -82,7 +82,7 @@
 				}
 			}
 		}
-		&.m__button:not([class*="xm__textColor"]) {
+		&.m__button:not([class*="xm__txtColor"]) {
 			color: color(secondary);
 		}
 	}

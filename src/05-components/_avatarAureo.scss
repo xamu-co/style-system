@@ -11,7 +11,7 @@
 	overflow: hidden;
 	@include flex(0 0 auto);
 	@include transition(all 0.1s ease-out);
-	&:not([class*="xm__backgroundColor"]) {
+	&:not([class*="xm__bgColor"]) {
 		background-color: color(light);
 	}
 
@@ -30,19 +30,19 @@
 	&.m__size {
 		&-sm {
 			border-radius: 0.7rem;
-			&.m__border {
+			&.m__bdr {
 				border-width: 2px;
 			}
 		}
 		&-md {
 			border-radius: 1.3rem;
-			&.m__border {
+			&.m__bdr {
 				border-width: 3px;
 			}
 		}
 		&-lg {
 			border-radius: 1.6rem;
-			&.m__border {
+			&.m__bdr {
 				border-width: 4px;
 			}
 		}
@@ -56,10 +56,10 @@
 	/// avatar border
 	///
 	/// @group Modifiers
-	&.m__border {
+	&.m__bdr {
 		border-style: solid;
 		@include box-sizing(border-box);
-		&:not([class*="xm__borderColor"]) {
+		&:not([class*="xm__bdrColor"]) {
 			border-color: color(light);
 		}
 	}
@@ -91,7 +91,7 @@ a.x-avatarAureo {
 	/// avatar border
 	///
 	/// @group Modifiers
-	&.m__border {
+	&.m__bdr {
 		&:not(:hover),
 		&:not(.is__active),
 		&:not(.is__routeExact) {

@@ -11,14 +11,14 @@
 	///
 	/// @group Modifiers
 	@for $i from 2 through 12 {
-		&.m__columnCount-#{$i} {
+		&.m__colCount-#{$i} {
 			@include extend-viewports {
 				columns: #{$minColumnSize/$i * 3} #{$i};
 			}
 		}
 	}
 	/// default
-	&:not([class*="m__count"]) {
+	&:not([class*="m__colCount"]) {
 		columns: #{$minColumnSize/2 * 3} 2;
 	}
 
@@ -27,8 +27,8 @@
 		// display: inline-block;
 		break-inside: avoid;
 	}
-	&:not([class*="xm__itemSpacing"])
-		> :not([class*="xm__marginBottom"]):not(:last-child):not(br) {
+	&:not([class*="xm__itemSpace"])
+		> :not([class*="xm__mgBottom"]):not(:last-child):not(br) {
 		margin-bottom: 2rem;
 	}
 }
