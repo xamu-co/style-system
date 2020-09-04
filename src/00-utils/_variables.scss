@@ -2,6 +2,7 @@
 /*
 	Project variables
 */
+$responsive: true !default;
 $fonts: (
 	primary: (
 		"'Poppins'",
@@ -39,6 +40,18 @@ $colors: (
 	success: $success,
 );
 
+$viewportSm: 640px;
+$viewportMd: 768px;
+$viewportLg: 1080px;
+$viewportXl: 1280px;
+
+$viewports: (
+	sm: $viewportSm,
+	//md: $viewportMd,
+	lg: $viewportLg,
+	//xl: $viewportXl,
+);
+
 /// font size
 $fontSizeSmall: 0.7rem;
 $fontSizeLittle: 0.9rem;
@@ -48,6 +61,16 @@ $fontSizeLarge: 1.8rem;
 $fontSizeBig: 2.8rem;
 $fontSizeHuge: 3.8rem;
 $fontSizeMassive: 4.8rem;
+
+$fontSizes: (
+	small: $fontSizeSmall,
+	little: $fontSizeLittle,
+	medium: $fontSizeMedium,
+	large: $fontSizeLarge,
+	big: $fontSizeBig,
+	huge: $fontSizeHuge,
+	massive: $fontSizeMassive,
+);
 
 /// font weight
 $fontWeightRegular: 400;

@@ -5,6 +5,25 @@
 	Some of them are not that necesary cuz the were mean for prefixing, but autoprefixer solves that already
 */
 
+// viewport extend
+@mixin extend-viewports() {
+	@content;
+	@if $responsive {
+		@each $name, $viewport in $viewports {
+			@media (max-width: $viewport) {
+				&\:#{$name} {
+					@content;
+				}
+			}
+			@media (min-width: $viewport + 1) {
+				&\:#{$name}-inv {
+					@content;
+				}
+			}
+		}
+	}
+}
+
 // este mixin es solo valido para display:flex
 @mixin d_flex() {
 	display: -webkit-box;

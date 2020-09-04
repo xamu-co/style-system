@@ -16,7 +16,7 @@
 }
 .x-dropdown {
 	z-index: 15;
-	padding: 1rem;
+	padding: 0.7rem 1rem;
 	border-radius: 1rem;
 	background: color(light);
 	box-shadow: 3px 3px 9px color(dark, 0.3);
@@ -41,10 +41,12 @@
 		&-top,
 		&-center,
 		&-bottom {
-			left: calc(100% + 0.5rem);
-			&:before {
-				left: -0.5rem;
-				top: 0;
+			@include extend-viewports {
+				left: calc(100% + 0.5rem);
+				&:before {
+					left: -0.5rem;
+					top: 0;
+				}
 			}
 		}
 	}
@@ -54,27 +56,35 @@
 		&-top,
 		&-center,
 		&-bottom {
-			right: calc(100% + 0.5rem);
-			&:before {
-				right: -0.5rem;
-				top: 0;
+			@include extend-viewports {
+				right: calc(100% + 0.5rem);
+				&:before {
+					right: -0.5rem;
+					top: 0;
+				}
 			}
 		}
 	}
 	/// Right & Left
 	&.u__position-right,
 	&.u__position-left {
-		&,
-		&-top {
-			/// Default right position
-			top: -1rem;
-		}
 		&-center {
-			top: 50%;
-			@include transform(translateY(-50%));
+			@include extend-viewports {
+				top: 50%;
+				@include transform(translateY(-50%));
+			}
 		}
 		&-bottom {
-			bottom: -1rem;
+			@include extend-viewports {
+				bottom: -1rem;
+			}
+		}
+		/// Default right position
+		&,
+		&-top {
+			@include extend-viewports {
+				top: -1rem;
+			}
 		}
 	}
 	/// Top
@@ -83,10 +93,12 @@
 		&-left,
 		&-right,
 		&-center {
-			bottom: calc(100% + 0.5rem);
-			&:before {
-				left: 0;
-				bottom: -0.5rem;
+			@include extend-viewports {
+				bottom: calc(100% + 0.5rem);
+				&:before {
+					left: 0;
+					bottom: -0.5rem;
+				}
 			}
 		}
 	}
@@ -96,32 +108,40 @@
 		&-left,
 		&-right,
 		&-center {
-			top: calc(100% + 0.5rem);
-			&:before {
-				right: 0;
-				top: -0.5rem;
+			@include extend-viewports {
+				top: calc(100% + 0.5rem);
+				&:before {
+					right: 0;
+					top: -0.5rem;
+				}
 			}
 		}
 	}
 	/// Top & Bottom
 	&.u__position-top,
 	&.u__position-bottom {
-		&,
-		&-left {
-			/// Default bottom position
-			left: -1rem;
-		}
 		&-right {
-			right: -1rem;
+			@include extend-viewports {
+				right: -0.7rem;
+			}
 		}
 		&-center {
-			left: 50%;
-			@include transform(translateX(-50%));
+			@include extend-viewports {
+				left: 50%;
+				@include transform(translateX(-50%));
+			}
+		}
+		/// Default bottom position
+		&,
+		&-left {
+			@include extend-viewports {
+				left: -0.7rem;
+			}
 		}
 	}
 	/// default: bottom-left
 	&:not([class*="u__position"]) {
-		left: -1rem;
+		left: -0.7rem;
 		top: calc(100% + 0.5rem);
 		&:before {
 			right: 0;
@@ -129,8 +149,12 @@
 		}
 	}
 
-	a {
-		padding-top: 0.3rem;
-		padding-bottom: 0.3rem;
+	li {
+		&:not(:first-child) a {
+			padding-top: 0.2rem;
+		}
+		&:not(:last-child) a {
+			padding-bottom: 0.2rem;
+		}
 	}
 }

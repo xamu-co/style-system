@@ -147,3 +147,16 @@ EJ:
 EJ: .x-element1{}
 .x-element2{}
 .x-element1, .x-element2{}
+
+
+# Responsive styles
+
+We are following a simalar approach to the tailwind framework (global & layout modifiers only)
+
+.xm__hidden:sm => Hide if element has less than 640px of width;
+.xm__hidden:sm-inv => Hide if element has more than 640px of width;
+
+sm => 640px // small
+md => 640px // medium, disabled
+lg => 640px // large
+xl => 640px // extralarge, disabled

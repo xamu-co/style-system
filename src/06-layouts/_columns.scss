@@ -10,15 +10,16 @@
 	/// Column count
 	///
 	/// @group Modifiers
-	/// default
-	&:not([class*="m__count"]),
-	&.m__columnCount-2 {
-		columns: #{$minColumnSize/2 * 3} 2;
-	}
-	@for $i from 3 through 12 {
+	@for $i from 2 through 12 {
 		&.m__columnCount-#{$i} {
-			columns: #{$minColumnSize/$i * 3} #{$i};
+			@include extend-viewports {
+				columns: #{$minColumnSize/$i * 3} #{$i};
+			}
 		}
+	}
+	/// default
+	&:not([class*="m__count"]) {
+		columns: #{$minColumnSize/2 * 3} 2;
 	}
 
 	> * {
