@@ -8,8 +8,11 @@
 	width: 100%;
 	// display: block;
 	&:not(.m__padding-none) {
-		padding: 0 1rem;
+		padding: 0 2rem;
 		@include box-sizing(border-box);
+		@media (max-width: $viewportMd + 1) {
+			padding: 0 1rem;
+		}
 	}
 	&:not([class*="xm__maxWidth"]) {
 		max-width: 1200px;

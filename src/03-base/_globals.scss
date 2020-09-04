@@ -67,30 +67,17 @@ html {
 	font-size: 100%;
 }
 
-// broken asset fallback styles
-img,
-iframe {
-	display: block;
-	overflow: hidden;
-	color: color(light);
-	&:before {
-		content: "\f7a9";
-		font-family: font(awesome);
-		font-weight: 900;
-		color: color(danger);
-		font-size: $fontSizeHuge;
-		width: 100%;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		left: 0;
-		padding: 1rem;
-		@include box-sizing(border-box);
-		@include flexbox(column, nowrap, center, center);
-	}
-	&:not(.m__bgColor-none) {
-		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
-	}
+h1:not([class*="xm__textSize"]) {
+	font-size: $fontSizeHuge;
+}
+h2:not([class*="xm__textSize"]) {
+	font-size: $fontSizeBig;
+}
+h3:not([class*="xm__textSize"]) {
+	font-size: $fontSizeLarge;
+}
+h4:not([class*="xm__textSize"]) {
+	font-size: $fontSizeMedium;
 }
 
 code {
@@ -145,6 +132,32 @@ i:not(.x-icon) {
 ul,
 ol {
 	list-style: none;
+}
+
+// broken asset fallback styles
+img,
+iframe {
+	display: block;
+	overflow: hidden;
+	color: color(light);
+	&:before {
+		content: "\f7a9";
+		font-family: font(awesome);
+		font-weight: 900;
+		color: color(danger);
+		font-size: $fontSizeHuge;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 1rem;
+		@include box-sizing(border-box);
+		@include flexbox(column, nowrap, center, center);
+	}
+	&:not(.m__bgColor-none) {
+		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
+	}
 }
 
 a,
