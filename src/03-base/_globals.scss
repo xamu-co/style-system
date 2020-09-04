@@ -169,7 +169,7 @@ select {
 	* {
 		vertical-align: middle;
 	}
-	&:not(:disabled):hover {
+	&:not(:disabled):not([disabled]):hover {
 		cursor: pointer;
 	}
 	&.is__routeExact {

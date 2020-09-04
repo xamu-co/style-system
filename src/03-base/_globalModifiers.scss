@@ -337,138 +337,126 @@
 	}
 }
 
-/// max width, max height
-/// pixel based
-///
-/// @group GlobalModifiers
-$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
-@each $size in $maxSizes {
-	.xm__maxWidth-#{$size} {
-		@include extend-viewports {
-			max-width: #{$size}px;
-		}
-	}
-	.xm__maxHeight-#{$size} {
-		@include extend-viewports {
-			max-height: #{$size}px;
-		}
-	}
-}
-/// default
-.xm__maxWidth,
-.xm__maxWidth-1200 {
-	@include extend-viewports {
-		max-width: 1200px;
-	}
-}
-/// default
-.xm__maxHeight,
-.xm__maxHeight-1200 {
-	@include extend-viewports {
-		max-height: 400px;
-	}
-}
-
-/// width, height
-///
-/// @group GlobalModifiers
-$axles: width, height;
-@each $axis in $axles {
-	.xm__#{$axis} {
+/// Dimensions
+$dimensions: width, height;
+@each $dimension in $dimensions {
+	/// width, height
+	///
+	/// @group GlobalModifiers
+	.xm__#{$dimension} {
 		&-quarter {
 			@include extend-viewports {
-				#{$axis}: 50%;
+				#{$dimension}: 50%;
 			}
 		}
 		&-third {
 			@include extend-viewports {
-				#{$axis}: 33%;
+				#{$dimension}: 33%;
 			}
 		}
 		&-half {
 			@include extend-viewports {
-				#{$axis}: 50%;
+				#{$dimension}: 50%;
 			}
 		}
 		&,
 		&-full {
 			@include extend-viewports {
-				#{$axis}: 100%;
+				#{$dimension}: 100%;
 			}
+		}
+	}
+
+	/// max width, max height
+	/// pixel based
+	///
+	/// @group GlobalModifiers
+	$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
+	@each $size in $maxSizes {
+		.xm__max#{capitalize($dimension) + "-" + $size} {
+			@include extend-viewports {
+				max-#{$dimension}: #{$size}px;
+			}
+		}
+		.xm__min#{capitalize($dimension) + "-" + $size} {
+			@include extend-viewports {
+				min-#{$dimension}: #{$size}px;
+			}
+		}
+	}
+	/// default
+	.xm__max#{capitalize($dimension)},
+	.xm__max#{capitalize($dimension)}-1200 {
+		@include extend-viewports {
+			max-#{$dimension}: 1200px;
+		}
+	}
+
+	/// min width, max width
+	/// viewport width based
+	///
+	/// @group GlobalModifiers
+	@for $i from 3 through 10 {
+		.xm__min#{capitalize($dimension) + "Vw-" + $i*5} {
+			@include extend-viewports {
+				min-#{$dimension}: #{$i * 5}vw;
+			}
+		}
+		.xm__min#{capitalize($dimension) + "Vh-" + $i*10} {
+			@include extend-viewports {
+				min-#{$dimension}: #{$i * 10}vh;
+			}
+		}
+	}
+	/// defaults
+	.xm__min#{capitalize($dimension) + "Vw"} {
+		@include extend-viewports {
+			min-#{$dimension}: 15vw;
+		}
+	}
+	.xm__min#{capitalize($dimension) + "Vh"} {
+		@include extend-viewports {
+			min-#{$dimension}: 30vh;
 		}
 	}
 }
 
-/// min width
-/// viewport width based
+/// margin & padding
 ///
 /// @group GlobalModifiers
-@for $i from 4 through 10 {
-	.xm__minWidthVw-#{$i*5} {
-		@include extend-viewports {
-			min-width: #{$i * 5}vw;
+$directions: top, right, bottom, left;
+@each $direction in $directions {
+	@for $i from 1 through 10 {
+		/// margins
+		.xm__margin#{capitalize($direction) + "-" + $i*5} {
+			@include extend-viewports {
+				margin-#{$direction}: #{$i/3}rem;
+			}
+		}
+		/// paddings
+		.xm__padding#{capitalize($direction) + "-" + $i*5} {
+			@include extend-viewports {
+				padding-#{$direction}: #{$i/3}rem;
+			}
 		}
 	}
-}
-/// default
-.xm__minWidthVw,
-.xm__minWidthVw-15 {
-	@include extend-viewports {
-		min-width: 15vw;
+	/// margin defaults
+	.xm__margin#{capitalize($direction)} {
+		@include extend-viewports {
+			margin-#{$direction}: 1rem;
+		}
+	}
+	/// padding defaults
+	.xm__padding#{capitalize($direction)} {
+		@include extend-viewports {
+			padding-#{$direction}: 1rem;
+		}
 	}
 }
 
 @for $i from 1 through 10 {
-	/// margins
-	///
-	/// @group GlobalModifiers
-	.xm__marginTop-#{$i*5} {
-		@include extend-viewports {
-			margin-top: #{$i/3}rem;
-		}
-	}
-	.xm__marginRight-#{$i*5} {
-		@include extend-viewports {
-			margin-right: #{$i/3}rem;
-		}
-	}
-	.xm__marginLeft-#{$i*5} {
-		@include extend-viewports {
-			margin-left: #{$i/3}rem;
-		}
-	}
-	.xm__marginBottom-#{$i*5} {
-		@include extend-viewports {
-			margin-bottom: #{$i/3}rem;
-		}
-	}
-
-	/// paddings
-	///
-	/// @group GlobalModifiers
-	.xm__paddingTop-#{$i*5} {
-		@include extend-viewports {
-			padding-top: #{$i/3}rem;
-		}
-	}
-	.xm__paddingRight-#{$i*5} {
-		@include extend-viewports {
-			padding-right: #{$i/3}rem;
-		}
-	}
-	.xm__paddingLeft-#{$i*5} {
-		@include extend-viewports {
-			padding-left: #{$i/3}rem;
-		}
-	}
-	.xm__paddingBottom-#{$i*5} {
-		@include extend-viewports {
-			padding-bottom: #{$i/3}rem;
-		}
-	}
-
 	/// grid Gap
-	/// both axis
+	/// both dimension
 	///
 	/// @group GlobalModifiers
 	.xm__gap-#{$i*5},
@@ -508,50 +496,6 @@ $axles: width, height;
 	}
 }
 
-/// margin defaults
-.xm__marginTop {
-	@include extend-viewports {
-		margin-top: 1rem;
-	}
-}
-.xm__marginRight {
-	@include extend-viewports {
-		margin-right: 1rem;
-	}
-}
-.xm__marginLeft {
-	@include extend-viewports {
-		margin-left: 1rem;
-	}
-}
-.xm__marginBottom {
-	@include extend-viewports {
-		margin-bottom: 1rem;
-	}
-}
-
-/// padding defaults
-.xm__paddingTop {
-	@include extend-viewports {
-		padding-top: 1rem;
-	}
-}
-.xm__paddingRight {
-	@include extend-viewports {
-		padding-right: 1rem;
-	}
-}
-.xm__paddingLeft {
-	@include extend-viewports {
-		padding-left: 1rem;
-	}
-}
-.xm__paddingBottom {
-	@include extend-viewports {
-		padding-bottom: 1rem;
-	}
-}
-
 /// grid/column gap default
 .xm__gap,
 .xm__gridGap {
@@ -570,7 +514,7 @@ $axles: width, height;
 	}
 }
 .xm__itemSpacingX {
-	/// X axis
+	/// X dimension
 	@include extend-viewports {
 		> :not([class*="xm__marginRight"]):not(:last-child) {
 			margin-right: 1rem;
@@ -578,7 +522,7 @@ $axles: width, height;
 	}
 }
 .xm__itemSpacingY {
-	/// Y axis
+	/// Y dimension
 	@include extend-viewports {
 		> :not([class*="xm__marginBottom"]):not(:last-child) {
 			margin-bottom: 1rem;

@@ -12,11 +12,14 @@
 
 :root {
 	@each $name, $font in $fonts {
-		--font-#{$name}: #{$font};
+		// font
+		--f-#{$name}: #{$font};
 	}
 	@each $name, $color in $colors {
-		--hex-#{$name}: #{$color};
-		--rgb-#{$name}: #{to-rgb($color)};
+		// hex
+		--h-#{$name}: #{$color};
+		// rgb
+		--r-#{$name}: #{to-rgb($color)};
 	}
 	// --full-height: calc(100vh - 60px);
 }

@@ -7,8 +7,10 @@
   "source": "src/index.scss",
   "scripts": {
     "sass": "sass src/index.scss dist/index.css",
-    "postcss": "postcss -o dist/index.min.css dist/index.css --no-map",
-    "build": "yarn sass && yarn postcss --verbose",
+    "postcss": "postcss dist/index.css -o dist/postcss.min.css --no-map",
+    "csso": "csso dist/index.css -o dist/csso.min.css --force-media-merge",
+    "css": "csso dist/postcss.min.css -o dist/index.min.css --force-media-merge",
+    "build": "yarn sass && yarn postcss --verbose && yarn csso --debug && yarn css --debug",
     "watch": "yarn sass --watch",
     "test": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
     "prepare": "npm run build"
@@ -36,6 +38,7 @@
     "@semantic-release/git": "^9.0.0",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
+    "csso-cli": "^3.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "postcss-cli": "^7.1.1",
