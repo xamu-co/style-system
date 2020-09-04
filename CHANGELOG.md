@@ -1,5 +1,12 @@
 Xamu style system
 
+# [2.1.0](https://github.com/xamu-co/style-system/compare/v2.0.0...v2.1.0) (2020-09-04)
+
+
+### Features
+
+* responsive classes ([ced1565](https://github.com/xamu-co/style-system/commit/ced15650500954c45fe13396c8bfd9b9535da56a))
+
 # [2.0.0](https://github.com/xamu-co/style-system/compare/v1.4.0...v2.0.0) (2020-09-02)
 
 
