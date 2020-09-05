@@ -20,7 +20,7 @@
 		max-width: $maxTextWidth;
 	}
 	&:not([class*="xm__itemSpace"]) > * {
-		&:not([class*="xm__mgBottom"]):not(:last-child) {
+		&:not([class*="xm__mBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}

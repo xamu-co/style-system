@@ -28,7 +28,7 @@
 		break-inside: avoid;
 	}
 	&:not([class*="xm__itemSpace"])
-		> :not([class*="xm__mgBottom"]):not(:last-child):not(br) {
+		> :not([class*="xm__mBottom"]):not(:last-child):not(br) {
 		margin-bottom: 2rem;
 	}
 }

@@ -15,9 +15,7 @@
 @import "logo";
 @import "avatar";
 @import "avatarAureo";
-@import "pickList";
 @import "back";
-@import "galleryItem";
 @import "box";
 @import "holder";
 @import "navigationX";
@@ -72,7 +70,7 @@ ol {
 /// @group SharedStyles
 .x-button,
 .x-buttonY,
-select.x-inputSelect {
+select.x-inSelect {
 	white-space: nowrap;
 	text-align: center;
 	border-color: transparent;
@@ -87,7 +85,7 @@ select.x-inputSelect {
 	/// second value is the textColor
 	///
 	/// @group Unions
-	&.u__theme-light {
+	&.u__tm-light {
 		&-secondary {
 			color: color(secondary);
 			&:hover,
@@ -140,7 +138,7 @@ select.x-inputSelect {
 			}
 		}
 	}
-	&.u__theme-primary-light {
+	&.u__tm-primary-light {
 		background-color: color(primary);
 		color: color(light);
 		&:hover,
@@ -159,7 +157,7 @@ select.x-inputSelect {
 			color: color(primary, 0.3);
 		}
 	}
-	&.u__theme-primaryAlt-primary {
+	&.u__tm-primaryAlt-primary {
 		background-color: color(primaryAlt);
 		color: color(primary);
 		&:hover,
@@ -179,8 +177,8 @@ select.x-inputSelect {
 		}
 	}
 	/// default theme
-	&:not([class*="u__theme"]),
-	&.u__theme-secondary-light {
+	&:not([class*="u__tm"]),
+	&.u__tm-secondary-light {
 		background-color: color(secondary);
 		color: color(light);
 		&:hover,
@@ -228,6 +226,12 @@ select.x-inputSelect {
 	/// @group Modifiers
 	&.m__round {
 		padding: 0;
+		i.x-icon {
+			margin: 0 !important;
+			+ span {
+				display: none;
+			}
+		}
 	}
 }
 
@@ -236,8 +240,8 @@ select.x-inputSelect {
 /// @group SharedStyles
 .x-button,
 .x-buttonToggle,
-.x-inputText,
-select.x-inputSelect {
+.x-inText,
+select.x-inSelect {
 	border-style: solid;
 	text-shadow: none;
 	@include box-sizing(border-box);
@@ -276,7 +280,7 @@ select.x-inputSelect {
 .x-buttonToggle,
 .x-action,
 .x-actionNav,
-select.x-inputSelect {
+select.x-inSelect {
 	&,
 	> :not(.x-icon) {
 		&::first-letter {
@@ -310,8 +314,8 @@ select.x-inputSelect {
 	/// @group SharedStyles
 	.x-button,
 	.x-buttonToggle,
-	.x-inputText,
-	select.x-inputSelect {
+	.x-inText,
+	select.x-inSelect {
 		&.m__size-#{$name} {
 			height: $size * 2.6;
 			border-radius: $size;

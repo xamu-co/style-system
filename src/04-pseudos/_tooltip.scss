@@ -25,7 +25,7 @@
 		@include box-sizing(content-box);
 		border: 2px solid color(light, 0.1);
 	}
-	&:hover:not([disabled]):not(.is__active):not(.is__open) {
+	&:hover:not([disabled]):not(.is__routeExact):not(.is__open) {
 		cursor: pointer;
 		&:before {
 			opacity: 1;
@@ -53,7 +53,9 @@
 	///
 	/// @group PseudoModifiers
 	&[data-tooltip-text] {
-		max-width: 40ch;
+		&:before {
+			max-width: 40ch;
+		}
 	}
 	///default text behavior
 	&:not([data-tooltip-text]) {

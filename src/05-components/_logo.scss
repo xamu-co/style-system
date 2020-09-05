@@ -8,7 +8,7 @@
 	/// logo theme
 	///
 	/// @group Modifiers
-	&.m__theme {
+	&.m__tm {
 		&-light {
 			&:hover,
 			&.is__active,
@@ -47,8 +47,8 @@
 			}
 		}
 	}
-	&:not([class*="m__theme"]),
-	&.m__theme-secondary {
+	&:not([class*="m__tm"]),
+	&.m__tm-secondary {
 		svg [fill] {
 			fill: color(secondary);
 		}

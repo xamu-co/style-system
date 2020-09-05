@@ -6,7 +6,7 @@ $pathEnd: "/%3E%3C/svg%3E";
 /// website logo
 ///
 /// @group Components
-select.x-inputSelect {
+select.x-inSelect {
 	width: 100%;
 	display: inline-block;
 	padding: 0 2rem 0 1rem;
@@ -19,7 +19,7 @@ select.x-inputSelect {
 	/// Theme
 	///
 	/// @group Unions
-	&.u__theme-light {
+	&.u__tm-light {
 		&-secondary {
 			//chevron-light down
 			background-image: url("#{$path1}fill='%23#{str-replace(#{$secondary}, '#')}'#{$pathEnd}");
@@ -98,10 +98,10 @@ select.x-inputSelect {
 			}
 		}
 	}
-	&:not([class*="u__theme"]),
-	&.u__theme-primary-light,
-	&.u__theme-primaryAlt-light,
-	&.u__theme-secondary-light {
+	&:not([class*="u__tm"]),
+	&.u__tm-primary-light,
+	&.u__tm-primaryAlt-light,
+	&.u__tm-secondary-light {
 		//chevron-light down
 		background-image: url("#{$path1}fill='%23#{str-replace(#{$light}, '#')}'#{$pathEnd}");
 		&:hover {
@@ -118,14 +118,14 @@ select.x-inputSelect {
 			background-image: url("#{$path2}fill='%23#{str-replace(#{$light}, '#')}' opacity='0.7'#{$pathEnd}");
 		}
 	}
-	&.u__theme-primary-light {
+	&.u__tm-primary-light {
 		&:disabled,
 		&[disabled] {
 			//chevron-primary down
 			background-image: url("#{$path1}fill='%23#{str-replace(#{$primary}, '#')}' opacity='0.3'#{$pathEnd}");
 		}
 	}
-	&.u__theme-primaryAlt-light {
+	&.u__tm-primaryAlt-light {
 		&:disabled,
 		&[disabled] {
 			//chevron-primaryAlt down
@@ -133,8 +133,8 @@ select.x-inputSelect {
 		}
 	}
 	/// default
-	&:not([class*="u__theme"]),
-	&.u__theme-secondary-light {
+	&:not([class*="u__tm"]),
+	&.u__tm-secondary-light {
 		&:disabled,
 		&[disabled] {
 			//chevron-secondary down

@@ -7,7 +7,7 @@
 ///
 /// @group GlobalModifiers
 .xm__hidden {
-	@include extend-viewports {
+	@include extend-viewports(true) {
 		width: 0.1px;
 		height: 0.1px;
 		opacity: 0;
@@ -17,10 +17,10 @@
 	}
 }
 
-/// hidden element, hide visually only
+/// flex growth and shrink
 ///
 /// @group GlobalModifiers
-.xm__flxGrow {
+.xm__flx {
 	@include extend-viewports {
 		@include flex(1 1 auto);
 	}
@@ -77,10 +77,11 @@
 	}
 }
 
-/// box alignment
+/// box margins
+/// X axis
 ///
 /// @group GlobalModifiers
-.xm__mgX {
+.xm__mX {
 	&-left {
 		@include extend-viewports {
 			margin-left: 0;
@@ -103,10 +104,11 @@
 	}
 }
 
-/// box alignment
+/// box margins
+/// Y axis
 ///
 /// @group GlobalModifiers
-.xm__mgY {
+.xm__mY {
 	&-top {
 		@include extend-viewports {
 			margin-top: 0;
@@ -337,6 +339,55 @@
 	}
 }
 
+/// box model: margin & padding
+///
+/// @group GlobalModifiers
+$models: margin, padding;
+@each $model in $models {
+	@for $i from 1 through 10 {
+		/// all sides
+		.xm__#{str-slice($model,1,1) + "-" + $i*5} {
+			@include extend-viewports {
+				#{$model}: #{$i/3}rem;
+			}
+		}
+		/// X axis
+		.xm__#{str-slice($model,1,1) + "X-" + $i*5} {
+			@include extend-viewports {
+				#{$model}-left: #{$i/3}rem;
+				#{$model}-right: #{$i/3}rem;
+			}
+		}
+		/// Y axis
+		.xm__#{str-slice($model,1,1) + "Y-" + $i*5} {
+			@include extend-viewports {
+				#{$model}-top: #{$i/3}rem;
+				#{$model}-bottom: #{$i/3}rem;
+			}
+		}
+	}
+	/// default: all sides
+	.xm__#{str-slice($model,1,1)} {
+		@include extend-viewports {
+			#{$model}: 1rem;
+		}
+	}
+	/// default: X axis
+	.xm__#{str-slice($model,1,1)}X {
+		@include extend-viewports {
+			#{$model}-left: 1rem;
+			#{$model}-right: 1rem;
+		}
+	}
+	/// default: Y axis
+	.xm__#{str-slice($model,1,1)}Y {
+		@include extend-viewports {
+			#{$model}-top: 1rem;
+			#{$model}-bottom: 1rem;
+		}
+	}
+}
+
 /// Dimensions
 $dimensions: width, height;
 @each $dimension in $dimensions {
@@ -409,12 +460,12 @@ $dimensions: width, height;
 		}
 	}
 	/// defaults
-	.xm__min#{capitalize($dimension) + "Vw"} {
+	.xm__min#{capitalize($dimension)}Vw {
 		@include extend-viewports {
 			min-#{$dimension}: 15vw;
 		}
 	}
-	.xm__min#{capitalize($dimension) + "Vh"} {
+	.xm__min#{capitalize($dimension)}Vh {
 		@include extend-viewports {
 			min-#{$dimension}: 30vh;
 		}
@@ -428,26 +479,26 @@ $directions: top, right, bottom, left;
 @each $direction in $directions {
 	@for $i from 1 through 10 {
 		/// margins
-		.xm__mg#{capitalize($direction) + "-" + $i*5} {
+		.xm__m#{capitalize($direction) + "-" + $i*5} {
 			@include extend-viewports {
 				margin-#{$direction}: #{$i/3}rem;
 			}
 		}
 		/// paddings
-		.xm__pd#{capitalize($direction) + "-" + $i*5} {
+		.xm__p#{capitalize($direction) + "-" + $i*5} {
 			@include extend-viewports {
 				padding-#{$direction}: #{$i/3}rem;
 			}
 		}
 	}
 	/// margin defaults
-	.xm__mg#{capitalize($direction)} {
+	.xm__m#{capitalize($direction)} {
 		@include extend-viewports {
 			margin-#{$direction}: 1rem;
 		}
 	}
 	/// padding defaults
-	.xm__pd#{capitalize($direction)} {
+	.xm__p#{capitalize($direction)} {
 		@include extend-viewports {
 			padding-#{$direction}: 1rem;
 		}
@@ -481,7 +532,7 @@ $directions: top, right, bottom, left;
 	.xm__itemSpaceX-#{$i*5} {
 		/// X axis
 		@include extend-viewports {
-			> :not([class*="xm__mgRight"]):not(:last-child) {
+			> :not([class*="xm__mRight"]):not(:last-child) {
 				margin-right: #{$i/3}rem;
 			}
 		}
@@ -489,7 +540,7 @@ $directions: top, right, bottom, left;
 	.xm__itemSpaceY-#{$i*5} {
 		/// Y axis
 		@include extend-viewports {
-			> :not([class*="xm__mgBottom"]):not(:last-child) {
+			> :not([class*="xm__mBottom"]):not(:last-child) {
 				margin-bottom: #{$i/3}rem;
 			}
 		}
@@ -516,7 +567,7 @@ $directions: top, right, bottom, left;
 .xm__itemSpaceX {
 	/// X dimension
 	@include extend-viewports {
-		> :not([class*="xm__mgRight"]):not(:last-child) {
+		> :not([class*="xm__mRight"]):not(:last-child) {
 			margin-right: 1rem;
 		}
 	}
@@ -524,7 +575,7 @@ $directions: top, right, bottom, left;
 .xm__itemSpaceY {
 	/// Y dimension
 	@include extend-viewports {
-		> :not([class*="xm__mgBottom"]):not(:last-child) {
+		> :not([class*="xm__mBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}

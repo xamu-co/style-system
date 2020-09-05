@@ -47,7 +47,7 @@
 	/// second value is the textColor
 	///
 	/// @group Modifiers
-	&.m__theme {
+	&.m__tm {
 		&-dark7 {
 			background: color(dark, 0.1);
 			color: color(dark, 0.7);
@@ -116,8 +116,8 @@
 		}
 	}
 	/// default theme
-	&:not([class*="m__theme"]),
-	&.m__theme-secondary {
+	&:not([class*="m__tm"]),
+	&.m__tm-secondary {
 		background: color(secondary, 0.1);
 		color: color(secondary);
 		&:hover {

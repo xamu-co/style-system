@@ -6,7 +6,7 @@
 */
 
 // viewport extend
-@mixin extend-viewports() {
+@mixin extend-viewports($desktop: false) {
 	@content;
 	@if $responsive {
 		@each $name, $viewport in $viewports {
@@ -16,12 +16,14 @@
 					@content;
 				}
 			}
-			/// dektop first
-			// @media (max-width: $viewport) {
-			// 	&\:#{$name}-inv {
-			// 		@content;
-			// 	}
-			// }
+			/// desktop first
+			@if $desktop {
+				@media (max-width: $viewport) {
+					&\:#{$name}-inv {
+						@content;
+					}
+				}
+			}
 		}
 	}
 }

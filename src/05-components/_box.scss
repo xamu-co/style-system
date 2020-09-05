@@ -16,7 +16,7 @@
 	}
 	&:not([class*="x-flex"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> :not([class*="xm__mgBottom"]):not(:last-child) {
+		> :not([class*="xm__mBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}
@@ -24,7 +24,7 @@
 	/// Comment theme
 	///
 	/// @group Modifiers
-	&.m__theme-light {
+	&.m__tm-light {
 		background: color(light, 0.1);
 		&:hover {
 			border-color: color(light, 0.1);
@@ -44,7 +44,7 @@
 			color: color(light);
 		}
 	}
-	&.m__theme-lightAlt {
+	&.m__tm-lightAlt {
 		background: color(light);
 		&:hover {
 			border-color: color(dark, 0.1);
@@ -65,8 +65,8 @@
 		}
 	}
 	/// default theme
-	&:not([class*="m__theme"]),
-	&.m__theme-secondary {
+	&:not([class*="m__tm"]),
+	&.m__tm-secondary {
 		background: color(secondary, 0.1);
 		&:hover {
 			border-color: color(secondary, 0.1);

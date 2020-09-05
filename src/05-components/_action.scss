@@ -19,7 +19,7 @@
 	/// link theme
 	///
 	/// @group Modifiers
-	&.m__theme {
+	&.m__tm {
 		&-light {
 			&:hover,
 			&.is__active,
@@ -48,8 +48,8 @@
 		}
 	}
 	/// default theme: secondary
-	&:not([class*="m__theme"]),
-	&.m__theme-secondary {
+	&:not([class*="m__tm"]),
+	&.m__tm-secondary {
 		color: color(secondary);
 		&:hover:not(.is__active):not(.is__routeExact) {
 			color: color(dark, 0.5);

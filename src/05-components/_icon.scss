@@ -31,7 +31,8 @@ i.x-icon {
 	/// icon margin
 	///
 	/// @group Modifiers
-	&.m__mg {
+	&.m__m,
+	&.m__margin {
 		&:not(:first-child) {
 			margin-left: 0.5em;
 		}

@@ -43,21 +43,9 @@ nav.x-navigationX,
 	/// tema de la barra de navegacion principal
 	///
 	/// @group ConditionalModifiers
-	&.is__menu.m__theme {
-		&-secondary {
-			background: color(light);
-			&:not(.is__relative) {
-				box-shadow: 0 0.5rem 3rem color(dark, 0.05);
-			}
-			.x-navigationX-menu-list-item > {
-				.x-action,
-				.x-actionNav {
-					// color: color(secondary);
-				}
-			}
-		}
-		&-light,
-		&-lightAlt {
+	&.is__menu {
+		&.m__tm-light,
+		&.m__tm-lightAlt {
 			.x-navigationX-menu-list-item > {
 				.x-action,
 				.x-actionNav {
@@ -75,13 +63,27 @@ nav.x-navigationX,
 				}
 			}
 		}
+		/// default theme
+		&:not([class*="m__tm"]),
+		&.m__tm-secondary {
+			background: color(light);
+			&:not(.is__relative) {
+				box-shadow: 0 0.5rem 3rem color(dark, 0.05);
+			}
+			.x-navigationX-menu-list-item > {
+				.x-action,
+				.x-actionNav {
+					// color: color(secondary);
+				}
+			}
+		}
 	}
 
 	/// tema de la barra de navegacion secundaria
 	///
 	/// @group ConditionalModifiers
-	&.is__menuSub.m__theme {
-		&-light {
+	&.is__menuSub {
+		&.m__tm-light {
 			.x-navigationX-menu-list-item > {
 				.x-action,
 				.x-actionNav {
@@ -92,7 +94,7 @@ nav.x-navigationX,
 				}
 			}
 		}
-		&-primaryAlt {
+		&.m__tm-primaryAlt {
 			.x-navigationX-menu-list-item > {
 				.x-action,
 				.x-actionNav {
@@ -105,7 +107,9 @@ nav.x-navigationX,
 				}
 			}
 		}
-		&-secondary {
+		/// default theme
+		&:not([class*="m__tm"]),
+		&.m__tm-secondary {
 			border-bottom-color: color(secondary, 0.05);
 			.x-navigationX-menu-list-item > {
 				.x-action,
