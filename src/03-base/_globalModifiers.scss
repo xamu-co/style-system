@@ -6,6 +6,7 @@
 /// hidden element, hide visually only
 ///
 /// @group GlobalModifiers
+
 .xm__hidden {
 	@include extend-viewports(true) {
 		width: 0.1px;
@@ -367,6 +368,7 @@ $models: margin, padding;
 		}
 	}
 	/// default: all sides
+	.xm__#{$model},
 	.xm__#{str-slice($model,1,1)} {
 		@include extend-viewports {
 			#{$model}: 1rem;
