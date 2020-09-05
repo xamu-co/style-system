@@ -21,8 +21,8 @@
 @import "navigationX";
 @import "navigationY";
 @import "view";
-@import "action"; //links
-@import "actionNav"; //links
+@import "link"; //links
+@import "linkNav"; //links
 @import "button";
 @import "buttonToggle";
 
@@ -56,8 +56,8 @@ ol {
 		}
 
 		> li {
-			.x-action,
-			.x-actionNav {
+			.x-link,
+			.x-linkNav {
 				white-space: normal;
 				line-height: $lineHeightMedium;
 			}
@@ -68,8 +68,8 @@ ol {
 /// button, buttonY & select shared styles
 ///
 /// @group SharedStyles
-.x-button,
-.x-buttonY,
+.x-btn,
+.x-btnY,
 select.x-inSelect {
 	white-space: nowrap;
 	text-align: center;
@@ -210,8 +210,8 @@ select.x-inSelect {
 /// button & buttonToggle shared styles
 ///
 /// @group SharedStyles
-.x-button,
-.x-buttonToggle {
+.x-btn,
+.x-btnToggle {
 	/// this is the default value
 	&.m__size-normal,
 	&:not([class*="m__size"]) {
@@ -238,8 +238,8 @@ select.x-inSelect {
 /// text, select, button & buttonToggle shared styles
 ///
 /// @group SharedStyles
-.x-button,
-.x-buttonToggle,
+.x-btn,
+.x-btnToggle,
 .x-inText,
 select.x-inSelect {
 	border-style: solid;
@@ -261,10 +261,10 @@ select.x-inSelect {
 /// button, buttonToggle, link & linkNav shared styles
 ///
 /// @group SharedStyles
-.x-button,
-.x-buttonToggle,
-.x-action,
-.x-actionNav {
+.x-btn,
+.x-btnToggle,
+.x-link,
+.x-linkNav {
 	:not(.x-icon):first-child ~ i.x-icon {
 		margin-left: 0.5em;
 	}
@@ -276,10 +276,10 @@ select.x-inSelect {
 /// button, buttonToggle, link, linkNav & select shared styles
 ///
 /// @group SharedStyles
-.x-button,
-.x-buttonToggle,
-.x-action,
-.x-actionNav,
+.x-btn,
+.x-btnToggle,
+.x-link,
+.x-linkNav,
 select.x-inSelect {
 	&,
 	> :not(.x-icon) {
@@ -300,8 +300,8 @@ select.x-inSelect {
 	/// button & buttonToggle shared styles
 	///
 	/// @group SharedStyles
-	.x-button,
-	.x-buttonToggle {
+	.x-btn,
+	.x-btnToggle {
 		&.m__size-#{$name} {
 			padding: 0 $size;
 			&.m__round {
@@ -312,8 +312,8 @@ select.x-inSelect {
 	/// text, select, button & buttonToggle shared styles
 	///
 	/// @group SharedStyles
-	.x-button,
-	.x-buttonToggle,
+	.x-btn,
+	.x-btnToggle,
 	.x-inText,
 	select.x-inSelect {
 		&.m__size-#{$name} {

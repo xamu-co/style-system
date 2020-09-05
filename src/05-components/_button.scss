@@ -4,14 +4,14 @@
 /// this element is expected to be an <button>, <a> or <label> element
 ///
 /// @group Components
-.x-button {
+.x-btn {
 }
 
 /// Toggle button Vertical
 /// this element is expected to be an <button>, <a> or <label> element
 ///
 /// @group Components
-.x-buttonY {
+.x-btnY {
 	padding: 1rem 0.2rem;
 	border-radius: 0.4rem;
 	border-width: 2px;
@@ -22,8 +22,8 @@
 /// button & buttonY
 ///
 /// @group SharedStyles
-.x-button,
-.x-buttonY {
+.x-btn,
+.x-btnY {
 	@include flex(0 0 auto);
 	@include flexbox(row, nowrap, center, center, inline-flex);
 	@include transition(all 0.2s ease-out);

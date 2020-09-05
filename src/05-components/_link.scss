@@ -1,10 +1,10 @@
 /** @format */
 
-/// link Navigation element
+/// Default link element
 /// this element is expected to be an <a> tag
 ///
 /// @group Components
-.x-actionNav {
+.x-link {
 	// vertical-align: middle;
 	text-shadow: none;
 	white-space: nowrap;
@@ -16,23 +16,7 @@
 	@include transition(all 0.2s ease-out);
 	// @include flexbox(row, nowrap, flex-start, center, inline-flex);
 
-	/// ruta activa
-	///
-	/// @group Statuses
-	&.is__route {
-		&:before {
-			content: "...";
-			display: block;
-			position: absolute;
-			top: calc(100%);
-			left: 0;
-			line-height: 0;
-			overflow: visible;
-			font-size: 1.3em;
-		}
-	}
-
-	/// nav link themes
+	/// link theme
 	///
 	/// @group Modifiers
 	&.m__tm {
@@ -73,6 +57,17 @@
 		&.is__active,
 		&.is__routeExact {
 			color: color(dark, 0.7);
+		}
+	}
+
+	/// link shadow
+	///
+	/// @group Modifiers
+	&.m__shadow {
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
+			text-shadow: 1px 1px 1px color(dark, 0.3);
 		}
 	}
 }

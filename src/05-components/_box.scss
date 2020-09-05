@@ -32,6 +32,7 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
+			&.m__btn,
 			&.m__button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -40,8 +41,11 @@
 				}
 			}
 		}
-		&.m__button:not([class*="xm__txtColor"]) {
-			color: color(light);
+		&.m__btn,
+		&.m__button {
+			&:not([class*="xm__txtColor"]) {
+				color: color(light);
+			}
 		}
 	}
 	&.m__tm-lightAlt {
@@ -52,6 +56,7 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
+			&.m__btn,
 			&.m__button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -60,8 +65,11 @@
 				}
 			}
 		}
-		&.m__button:not([class*="xm__txtColor"]) {
-			color: color(light);
+		&.m__btn,
+		&.m__button {
+			&:not([class*="xm__txtColor"]) {
+				color: color(light);
+			}
 		}
 	}
 	/// default theme
@@ -74,6 +82,7 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
+			&.m__btn,
 			&.m__button {
 				background: color(secondary, 0.2);
 				// border-color: color(secondary, 0.3);
@@ -82,14 +91,18 @@
 				}
 			}
 		}
-		&.m__button:not([class*="xm__txtColor"]) {
-			color: color(secondary);
+		&.m__btn,
+		&.m__button {
+			&:not([class*="xm__txtColor"]) {
+				color: color(secondary);
+			}
 		}
 	}
 
 	/// button behavior
 	///
 	/// @group Modifiers
+	&.m__btn,
 	&.m__button {
 		.x-box {
 			border-color: transparent !important;

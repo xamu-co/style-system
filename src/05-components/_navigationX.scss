@@ -47,14 +47,14 @@ nav.x-navigationX,
 		&.m__tm-light,
 		&.m__tm-lightAlt {
 			.x-navigationX-menu-list-item > {
-				.x-action,
-				.x-actionNav {
+				.x-link,
+				.x-linkNav {
 					// color: color(light);
 					&:not(:hover):not(.is__active):not(.is__routeExact) {
 						text-shadow: 1px 1px 1px color(dark, 0.3);
 					}
 				}
-				.x-button {
+				.x-btn {
 					&.is__active,
 					&.is__routeExact {
 						// color: color(primaryAlt);
@@ -71,8 +71,8 @@ nav.x-navigationX,
 				box-shadow: 0 0.5rem 3rem color(dark, 0.05);
 			}
 			.x-navigationX-menu-list-item > {
-				.x-action,
-				.x-actionNav {
+				.x-link,
+				.x-linkNav {
 					// color: color(secondary);
 				}
 			}
@@ -85,8 +85,8 @@ nav.x-navigationX,
 	&.is__menuSub {
 		&.m__tm-light {
 			.x-navigationX-menu-list-item > {
-				.x-action,
-				.x-actionNav {
+				.x-link,
+				.x-linkNav {
 					&:not(:hover):not(.is__active):not(.is__routeExact) {
 						// color: color(light);
 						text-shadow: 1px 1px 1px color(dark, 0.3);
@@ -96,8 +96,8 @@ nav.x-navigationX,
 		}
 		&.m__tm-primaryAlt {
 			.x-navigationX-menu-list-item > {
-				.x-action,
-				.x-actionNav {
+				.x-link,
+				.x-linkNav {
 					&:hover,
 					&.is__active,
 					&.is__routeExact {
@@ -112,8 +112,8 @@ nav.x-navigationX,
 		&.m__tm-secondary {
 			border-bottom-color: color(secondary, 0.05);
 			.x-navigationX-menu-list-item > {
-				.x-action,
-				.x-actionNav {
+				.x-link,
+				.x-linkNav {
 					// color: color(secondary);
 				}
 			}

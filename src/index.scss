@@ -7,9 +7,11 @@
 	base layout ruling
 	module concatenation
 */
-@media only screen {
-	@import "00-utils/module";
 
+@import "00-utils/module";
+// @import "01-vendor/module"; // the vendors are independent in this built
+
+@media only screen {
 	:root {
 		@each $name, $font in $fonts {
 			// font
@@ -24,7 +26,6 @@
 		// --full-height: calc(100vh - 60px);
 	}
 
-	// @import "01-vendor/module"; // the vendors are independent in this built
 	// @import '02-fonts/module'; // this project use google fonts
 	@import "03-base/module";
 	@import "04-pseudos/module";

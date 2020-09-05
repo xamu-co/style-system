@@ -190,7 +190,7 @@ h6 {
 }
 
 /// global font weight
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class*="x-button"]):not([class*="fa-"]):not([class*="xm__txtWeight"]) {
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class*="x-btn"]):not([class*="fa-"]):not([class*="xm__txtWeight"]) {
 	font-weight: inherit;
 }
 
@@ -204,8 +204,8 @@ h5,
 h6,
 button,
 strong,
-.x-button,
-.x-buttonToggle {
+.x-btn,
+.x-btnToggle {
 	&:not([class*="xm__txtWeight"]) {
 		font-weight: $fontWeightBold;
 	}

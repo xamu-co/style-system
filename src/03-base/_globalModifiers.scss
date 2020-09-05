@@ -132,6 +132,30 @@
 	}
 }
 
+/// box padding
+/// X axis
+///
+/// @group GlobalModifiers
+.xm__pX {
+	/// there is no thing such as padding auto
+	@include extend-viewports {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+/// box padding
+/// Y axis
+///
+/// @group GlobalModifiers
+.xm__pY {
+	/// there is no thing such as padding auto
+	@include extend-viewports {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+}
+
 /// flexbox justify content
 ///
 /// @group GlobalModifiers
@@ -374,20 +398,7 @@ $models: margin, padding;
 			#{$model}: 1rem;
 		}
 	}
-	/// default: X axis
-	.xm__#{str-slice($model,1,1)}X {
-		@include extend-viewports {
-			#{$model}-left: 1rem;
-			#{$model}-right: 1rem;
-		}
-	}
-	/// default: Y axis
-	.xm__#{str-slice($model,1,1)}Y {
-		@include extend-viewports {
-			#{$model}-top: 1rem;
-			#{$model}-bottom: 1rem;
-		}
-	}
+	/// margin & padding already have defaults for X & Y axles
 }
 
 /// Dimensions
