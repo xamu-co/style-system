@@ -432,55 +432,53 @@ $dimensions: width, height;
 	}
 
 	/// max width, max height
-	/// pixel based
-	///
-	/// @group GlobalModifiers
-	$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 180;
-	@each $size in $maxSizes {
-		.xm__max#{capitalize($dimension) + "-" + $size} {
-			@include extend-viewports {
-				max-#{$dimension}: #{$size}px;
+	$constrains: min, max;
+	@each $constrain in $constrains {
+		/// pixel based
+		///
+		/// @group GlobalModifiers
+		$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
+		@each $size in $maxSizes {
+			.xm__#{$constrain + capitalize($dimension)}-#{$size} {
+				@include extend-viewports {
+					#{$constrain}-#{$dimension}: #{$size}px;
+				}
 			}
 		}
-		.xm__min#{capitalize($dimension) + "-" + $size} {
+		/// default pixel based constrains
+		.xm__#{$constrain + capitalize($dimension)},
+		.xm__#{$constrain + capitalize($dimension)}-1200 {
 			@include extend-viewports {
-				min-#{$dimension}: #{$size}px;
+				max-#{$dimension}: 1200px;
 			}
 		}
-	}
-	/// default
-	.xm__max#{capitalize($dimension)},
-	.xm__max#{capitalize($dimension)}-1200 {
-		@include extend-viewports {
-			max-#{$dimension}: 1200px;
-		}
-	}
 
-	/// min width, max width
-	/// viewport width based
-	///
-	/// @group GlobalModifiers
-	@for $i from 3 through 10 {
-		.xm__min#{capitalize($dimension) + "Vw-" + $i*5} {
-			@include extend-viewports {
-				min-#{$dimension}: #{$i * 5}vw;
+		/// min width, max width
+		/// viewport width based
+		///
+		/// @group GlobalModifiers
+		@for $i from 3 through 10 {
+			.xm__#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
+				@include extend-viewports {
+					#{$constrain}-#{$dimension}: #{$i * 10}vw;
+				}
+			}
+			.xm__#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
+				@include extend-viewports {
+					#{$constrain}-#{$dimension}: #{$i * 10}vh;
+				}
 			}
 		}
-		.xm__min#{capitalize($dimension) + "Vh-" + $i*10} {
+		/// default viewport based constrains
+		.xm__#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports {
-				min-#{$dimension}: #{$i * 10}vh;
+				#{$constrain}-#{$dimension}: 30vw;
 			}
 		}
-	}
-	/// defaults
-	.xm__min#{capitalize($dimension)}Vw {
-		@include extend-viewports {
-			min-#{$dimension}: 15vw;
-		}
-	}
-	.xm__min#{capitalize($dimension)}Vh {
-		@include extend-viewports {
-			min-#{$dimension}: 30vh;
+		.xm__#{$constrain + capitalize($dimension)}Vh {
+			@include extend-viewports {
+				#{$constrain}-#{$dimension}: 30vh;
+			}
 		}
 	}
 }

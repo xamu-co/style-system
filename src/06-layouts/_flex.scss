@@ -31,9 +31,12 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: column nowrap;
-				&:not([class*="xm__itemSpace"])
-					> :not([class*="xm__m"]):not(br):not(:last-child) {
-					margin-bottom: 1rem;
+				&:not([class*="xm__itemSpace"]) {
+					> :not([class*="xm__m"]):not(br):not(:last-child),
+					> [class*="xm__min"]:not(br):not(:last-child),
+					> [class*="xm__max"]:not(br):not(:last-child) {
+						margin-bottom: 1rem;
+					}
 				}
 			}
 		}
@@ -53,9 +56,12 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: row nowrap;
-				&:not([class*="xm__itemSpace"])
-					> :not([class*="xm__m"]):not(br):not(:last-child) {
-					margin-right: 1rem;
+				&:not([class*="xm__itemSpace"]) {
+					> :not([class*="xm__m"]):not(br):not(:last-child),
+					> [class*="xm__min"]:not(br):not(:last-child),
+					> [class*="xm__max"]:not(br):not(:last-child) {
+						margin-right: 1rem;
+					}
 				}
 			}
 		}
@@ -65,10 +71,13 @@
 	&.m__flxRow {
 		&-wrap {
 			@include extend-viewports {
-				&:not([class*="xm__itemSpace"])
-					> :not([class*="xm__m"]):not(br) {
-					margin-bottom: 1rem;
-					margin-right: 1rem;
+				&:not([class*="xm__itemSpace"]) {
+					> :not([class*="xm__m"]):not(br),
+					> [class*="xm__min"]:not(br),
+					> [class*="xm__max"]:not(br) {
+						margin-bottom: 1rem;
+						margin-right: 1rem;
+					}
 				}
 			}
 		}

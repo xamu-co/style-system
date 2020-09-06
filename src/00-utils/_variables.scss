@@ -46,10 +46,10 @@ $viewportLg: 1080px;
 $viewportXl: 1280px;
 
 $viewports: (
-	sm: $viewportSm,
-	//md: $viewportMd,
+	// sm: $viewportSm,
+	md: $viewportMd,
 	// lg: $viewportLg,
-	xl: $viewportXl,
+	xl: $viewportXl
 );
 
 /// font size

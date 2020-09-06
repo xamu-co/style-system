@@ -215,7 +215,7 @@ select.x-inSelect {
 	/// this is the default value
 	&.m__size-normal,
 	&:not([class*="m__size"]) {
-		padding: 0 1rem;
+		padding: 0 0.8rem;
 		&.m__round {
 			width: 2.4rem;
 		}
@@ -303,7 +303,7 @@ select.x-inSelect {
 	.x-btn,
 	.x-btnToggle {
 		&.m__size-#{$name} {
-			padding: 0 $size;
+			padding: 0 #{$size * 0.8};
 			&.m__round {
 				width: $size * 2.6;
 			}

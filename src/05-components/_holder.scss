@@ -13,7 +13,7 @@
 		@include transition(padding 0.3s ease-out);
 		&.xm__maxWidth-1200,
 		&:not([class*="xm__maxWidth-"]) {
-			@media (min-width: $viewportSm + 1) {
+			@media (min-width: $viewportMd + 1) {
 				padding: 0 2rem;
 			}
 			@media (min-width: $viewportXl + 1) {
