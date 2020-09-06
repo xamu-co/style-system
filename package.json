@@ -44,7 +44,6 @@
     "lint-staged": "^10.2.11",
     "postcss-cli": "^7.1.1",
     "postcss-combine-media-query": "^1.0.1",
-    "postcss-csso": "^4.0.0",
     "postcss-custom-properties": "^9.1.1",
     "prettier": "^2.0.5",
     "sass": "^1.26.10",

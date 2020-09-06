@@ -21,10 +21,6 @@ module.exports = {
 		}),
 		require("autoprefixer"),
 		require("postcss-custom-properties")({}),
-		require("postcss-csso")({
-			comments: false,
-			forceMediaMerge: true,
-		}),
 	],
 	env: "production",
 	preset: { stage: false },

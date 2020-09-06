@@ -33,6 +33,14 @@
 				grid-template-areas: "content content content . .";
 			}
 		}
+		&-autoMin {
+			@include extend-viewports {
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax($minColumnSize/3, max-content)
+				);
+			}
+		}
 		&,
 		&-auto {
 			/// default
@@ -40,14 +48,6 @@
 				grid-template-columns: repeat(
 					auto-fit,
 					minmax($minColumnSize, 1fr)
-				);
-			}
-		}
-		&-autoMin {
-			@include extend-viewports {
-				grid-template-columns: repeat(
-					auto-fit,
-					minmax($minColumnSize/3, max-content)
 				);
 			}
 		}
