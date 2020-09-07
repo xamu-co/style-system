@@ -528,19 +528,26 @@ $directions: top, right, bottom, left;
 		}
 	}
 
-	/// item Space for childs
+	/// gap using margin
 	/// both axis
 	///
 	/// @group GlobalModifiers
-	.xm__itemSpace-#{$i*5} {
+	.xm__gaping-#{$i*5} {
 		@include extend-viewports {
+			/// this is a very special class
+			/// omit this specific fix
+			&:not(.unfix__gaping) {
+				margin-left: -0.1px;
+				margin-right: -#{$i/3}rem;
+				@include box-sizing(border-box);
+			}
 			> * {
 				margin-bottom: #{$i/3}rem;
 				margin-right: #{$i/3}rem;
 			}
 		}
 	}
-	.xm__itemSpaceX-#{$i*5} {
+	.xm__gapingX-#{$i*5} {
 		/// X axis
 		@include extend-viewports {
 			> :not([class*="xm__mRight"]):not(:last-child) {
@@ -548,7 +555,7 @@ $directions: top, right, bottom, left;
 			}
 		}
 	}
-	.xm__itemSpaceY-#{$i*5} {
+	.xm__gapingY-#{$i*5} {
 		/// Y axis
 		@include extend-viewports {
 			> :not([class*="xm__mBottom"]):not(:last-child) {
@@ -567,15 +574,22 @@ $directions: top, right, bottom, left;
 }
 
 /// item spacing defaults
-.xm__itemSpace {
+.xm__gaping {
 	@include extend-viewports {
+		/// this is a very special class
+		/// omit this specific fix
+		&:not(.unfix__gaping) {
+			margin-left: -0.1px;
+			margin-right: -1rem;
+			@include box-sizing(border-box);
+		}
 		> * {
 			margin-bottom: 1rem;
 			margin-right: 1rem;
 		}
 	}
 }
-.xm__itemSpaceX {
+.xm__gapingX {
 	/// X dimension
 	@include extend-viewports {
 		> :not([class*="xm__mRight"]):not(:last-child) {
@@ -583,7 +597,7 @@ $directions: top, right, bottom, left;
 		}
 	}
 }
-.xm__itemSpaceY {
+.xm__gapingY {
 	/// Y dimension
 	@include extend-viewports {
 		> :not([class*="xm__mBottom"]):not(:last-child) {

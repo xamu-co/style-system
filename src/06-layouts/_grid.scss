@@ -3,7 +3,7 @@
 /// Grid container
 ///
 /// @group Layouts
-.x-grid {
+.x-grd {
 	display: grid;
 	&:not([class*="xm__grdGap"]):not([class*="xm__gap"]) {
 		gap: 2rem;
@@ -103,7 +103,7 @@
 /// item in grid
 ///
 /// @group Layouts
-.x-grid-item {
+.x-grd-item {
 	width: 100%;
 	height: 100%;
 	// @media (min-width: $viewportMd + 1) {

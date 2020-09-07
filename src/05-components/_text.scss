@@ -3,13 +3,13 @@
 /// Text block component
 ///
 /// @group Components
-.x-text {
-	&:not(.x-flex):not(.x-grid):not([class*="xm__txtAlignFlx"]) {
+.x-txt {
+	&:not(.x-flx):not(.x-grd):not([class*="xm__txtAlignFlx"]) {
 		display: block;
 	}
 	&:not([class*="xm__txtAlign"]) {
 		text-align: left;
-		&:not([class*="xm__itemSpace"]) > * {
+		&:not([class*="xm__gaping"]) > * {
 			display: inline-block;
 		}
 	}
@@ -19,7 +19,7 @@
 	&:not(.m__maxWidth-none) {
 		max-width: $maxTextWidth;
 	}
-	&:not([class*="xm__itemSpace"]) > * {
+	&:not([class*="xm__gaping"]) > * {
 		&:not([class*="xm__mBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}

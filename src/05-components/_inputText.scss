@@ -8,7 +8,7 @@
 	i.x-icon {
 		position: absolute;
 		top: 50%;
-		left: 1rem;
+		left: 0.8rem;
 		z-index: 1;
 		@include transform(translateY(-50%));
 	}
@@ -31,7 +31,7 @@ textarea.x-inText {
 .x-inText {
 	width: 100%;
 	display: block;
-	padding: 0 1rem;
+	padding: 0 0.8rem;
 	@include transition(all 0.2s ease-out);
 	@include flexbox(column, nowrap, center, center);
 

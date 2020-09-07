@@ -4,7 +4,6 @@
 /// @group Components
 .x-box {
 	// width: 100%;
-	padding: 1rem;
 	border-radius: 1.6rem;
 	border: 2px solid transparent;
 	overflow: visible;
@@ -14,7 +13,10 @@
 		pointer-events: none;
 		opacity: 0.3;
 	}
-	&:not([class*="x-flex"]) {
+	&:not(.m__btn):not(.m__button) {
+		padding: 1rem;
+	}
+	&:not([class*="x-flx"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
 		> :not([class*="xm__mBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
@@ -104,6 +106,7 @@
 	/// @group Modifiers
 	&.m__btn,
 	&.m__button {
+		padding: 0.8rem;
 		.x-box {
 			border-color: transparent !important;
 		}

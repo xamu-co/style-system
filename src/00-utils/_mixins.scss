@@ -78,7 +78,7 @@
 }
 
 @mixin flex($v) {
-	-webkit-box-flex: nth($v, 1); //toma el primer valor numerico de $v
+	-webkit-box-flx: nth($v, 1); //toma el primer valor numerico de $v
 	-ms-flex: $v;
 	flex: $v;
 }

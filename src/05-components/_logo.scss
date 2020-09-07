@@ -71,7 +71,8 @@
 	}
 	/// default size
 	&:not([class*="m__size"]) {
-		height: 8/3rem;
+		$ocho: 8; /// sass was not compiling without the variable
+		height: #{$ocho/3}rem;
 	}
 
 	svg [fill] {
