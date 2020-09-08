@@ -5,7 +5,8 @@
 /// don't change
 
 // nuxt page fade
-.page {
+.page,
+.layout {
 	&-enter-active {
 		transition-delay: 0.3s;
 	}

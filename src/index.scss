@@ -60,9 +60,16 @@
 					background-color: color(light);
 					overflow-y: auto;
 					overflow-x: hidden;
-					overflow: auto;
+					// overflow: auto;
 					box-shadow: -4px -4px 40px color(dark, 0.1);
+					transition: padding 0.3s ease-out;
 					// flex: 1 1 auto;
+					@media (min-width: $viewportMd + 1) {
+						padding: 0;
+					}
+					@media (min-width: $viewportXl + 1) {
+						padding: 0 2rem;
+					}
 				}
 			}
 		}

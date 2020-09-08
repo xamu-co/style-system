@@ -1,11 +1,11 @@
 /** @format */
-nav.x-navigationY {
+nav.x-navY {
 	background-color: color(light, 0.9);
 	width: auto;
 	// flex: 0 0 auto;
 	@include flexbox(row, nowrap, flex-start, stretch);
 }
-.x-navigationY-menu {
+.x-navY-menu {
 	height: 100%;
 	// flex: 0 0 auto;
 	box-sizing: border-box;
@@ -15,7 +15,7 @@ nav.x-navigationY {
 	/// es barra de navegacion principal
 	///
 	/// @group Statuses
-	&.is__menu {
+	&:not(.is__sub) {
 		width: 4.5rem;
 		// flex: 0 0 auto;
 		padding-bottom: 2rem;
@@ -26,7 +26,7 @@ nav.x-navigationY {
 	/// es barra de navegacion secundaria
 	///
 	/// @group Statuses
-	&.is__menuSub {
+	&.is__sub {
 		width: auto;
 		max-width: 360px;
 		overflow: hidden;
@@ -36,7 +36,7 @@ nav.x-navigationY {
 		&:not(.is__active) {
 			max-width: 0;
 		}
-		.x-navigationY-menu-list {
+		.x-navY-menu-list {
 			width: 230px;
 			padding: 0 1rem 2rem;
 		}
@@ -45,8 +45,8 @@ nav.x-navigationY {
 
 /// Navigation nav list
 /// this element is expected to be an <ul> or <ol> list
-ul.x-navigationY-menu-list,
-ol.x-navigationY-menu-list {
+ul.x-navY-menu-list,
+ol.x-navY-menu-list {
 	@include flexbox(column, nowrap, center, flex-start);
 	&:first-child > *:first-child {
 		height: 5rem;

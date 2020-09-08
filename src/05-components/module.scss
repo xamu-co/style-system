@@ -1,11 +1,11 @@
 /** @format */
 
 /// tag associated
+@import "hr";
+@import "icon";
 @import "inputText";
 @import "inputCheckbox";
-@import "icon";
 @import "inputSelect";
-@import "hr";
 @import "navList";
 @import "navListToggle";
 
@@ -17,14 +17,14 @@
 @import "avatarAureo";
 @import "back";
 @import "box";
-@import "holder";
-@import "navigationX";
-@import "navigationY";
-@import "view";
-@import "link"; //links
-@import "linkNav"; //links
+@import "link";
+@import "linkNav";
 @import "button";
 @import "buttonToggle";
+@import "holder";
+@import "view";
+@import "navigationX";
+@import "navigationY";
 
 /// There are some components that share common styles
 
@@ -49,7 +49,7 @@ ol {
 		/// default flow
 		&:not([class*="m__flow"]),
 		&.m__flow-column {
-			@include flexbox(column, nowrap, flex-start, flex-start);
+			@include flexbox(column, nowrap, flex-start, stretch);
 			> li:not(:last-child) {
 				margin-bottom: 0.5rem;
 			}
@@ -65,20 +65,43 @@ ol {
 	}
 }
 
+/// button & buttonToggle shared styles
+///
+/// @group SharedStyles
+.x-btn,
+.x-btnToggle {
+	/// this is the default value
+	&.m__size-normal,
+	&:not([class*="m__size"]) {
+		padding: 0 0.8rem;
+		&.m__round {
+			width: 2.4rem;
+		}
+	}
+
+	/// round button
+	///
+	/// @group Modifiers
+	&.m__round {
+		padding: 0;
+		i.x-icon {
+			margin: 0 !important;
+			+ span {
+				display: none;
+			}
+		}
+	}
+}
+
 /// button, buttonY & select shared styles
 ///
 /// @group SharedStyles
 .x-btn,
 .x-btnY,
-.x-inSelect {
+select.x-inSelect {
 	white-space: nowrap;
 	text-align: center;
 	border-color: transparent;
-	&:disabled,
-	&[disabled] {
-		// opacity: 0.3;
-		pointer-events: none;
-	}
 
 	/// button, select theme
 	/// first value is the bgColor
@@ -207,41 +230,13 @@ ol {
 	}
 }
 
-/// button & buttonToggle shared styles
-///
-/// @group SharedStyles
-.x-btn,
-.x-btnToggle {
-	/// this is the default value
-	&.m__size-normal,
-	&:not([class*="m__size"]) {
-		padding: 0 0.8rem;
-		&.m__round {
-			width: 2.4rem;
-		}
-	}
-
-	/// round button
-	///
-	/// @group Modifiers
-	&.m__round {
-		padding: 0;
-		i.x-icon {
-			margin: 0 !important;
-			+ span {
-				display: none;
-			}
-		}
-	}
-}
-
 /// text, select, button & buttonToggle shared styles
 ///
 /// @group SharedStyles
 .x-btn,
 .x-btnToggle,
 .x-inText,
-.x-inSelect {
+select.x-inSelect {
 	border-style: solid;
 	text-shadow: none;
 	box-sizing: border-box;
@@ -265,6 +260,12 @@ ol {
 .x-btnToggle,
 .x-link,
 .x-linkNav {
+	&,
+	> :not(.x-icon) {
+		&::first-letter {
+			text-transform: capitalize;
+		}
+	}
 	:not(.x-icon):first-child ~ i.x-icon {
 		margin-left: 0.4em;
 	}
@@ -280,13 +281,8 @@ ol {
 .x-btnToggle,
 .x-link,
 .x-linkNav,
-.x-inSelect {
-	&,
-	> :not(.x-icon) {
-		&::first-letter {
-			text-transform: capitalize;
-		}
-	}
+.x-inText,
+select.x-inSelect {
 	&:disabled,
 	&[disabled] {
 		opacity: 0.3;
@@ -315,7 +311,7 @@ ol {
 	.x-btn,
 	.x-btnToggle,
 	.x-inText,
-	.x-inSelect {
+	select.x-inSelect {
 		&.m__size-#{$name} {
 			height: $size * 2.6;
 			border-radius: $size;

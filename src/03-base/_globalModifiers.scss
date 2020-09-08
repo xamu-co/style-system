@@ -224,11 +224,19 @@
 	&-bold {
 		@include extend-viewports {
 			font-weight: $fontWeightBold;
+			@supports (-moz-appearance: none) {
+				// firefox fix
+				font-weight: $fontWeightBoldAlt;
+			}
 		}
 	}
 	&-regular {
 		@include extend-viewports {
 			font-weight: $fontWeightRegular;
+			@supports (-moz-appearance: none) {
+				// firefox fix
+				font-weight: $fontWeightRegularAlt;
+			}
 		}
 	}
 }

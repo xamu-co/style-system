@@ -6,15 +6,18 @@ $pathEnd: "/%3E%3C/svg%3E";
 /// website logo
 ///
 /// @group Components
-.x-inSelect {
+select.x-inSelect {
 	width: 100%;
 	display: inline-block;
-	padding: 0 2rem 0 1rem;
+	padding: 0 2.2rem 0 0.8rem;
 	background-repeat: no-repeat;
 	background-size: auto 0.5rem;
-	background-position: calc(100% - 1rem) 50%;
+	background-position: calc(100% - 0.8rem) 50%;
 	transition: all 0.2s ease-out, background-image 0s;
 	// @include flexbox(column, nowrap, center, center);
+	&::first-letter {
+		text-transform: capitalize;
+	}
 
 	/// Theme
 	///
