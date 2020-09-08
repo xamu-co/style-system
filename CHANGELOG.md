@@ -1,5 +1,19 @@
 Xamu style system
 
+## [2.1.1](https://github.com/xamu-co/style-system/compare/v2.1.0...v2.1.1) (2020-09-04)
+
+
+### Bug Fixes
+
+* broken text size ([25dfea5](https://github.com/xamu-co/style-system/commit/25dfea598ac4cb385df6736e6067be05955e708e))
+
+# [2.1.0](https://github.com/xamu-co/style-system/compare/v2.0.0...v2.1.0) (2020-09-04)
+
+
+### Features
+
+* responsive classes ([ced1565](https://github.com/xamu-co/style-system/commit/ced15650500954c45fe13396c8bfd9b9535da56a))
+
 # [2.0.0](https://github.com/xamu-co/style-system/compare/v1.4.0...v2.0.0) (2020-09-02)
 
 
