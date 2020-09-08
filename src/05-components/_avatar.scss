@@ -6,8 +6,8 @@
 .x-avatar {
 	display: block;
 	overflow: hidden;
-	@include flex(0 0 auto);
-	@include transition(all 0.1s ease-out);
+	flex: 0 0 auto;
+	transition: all 0.1s ease-out;
 	&:not([class*="xm__bgColor"]) {
 		background-color: color(light);
 	}
@@ -51,7 +51,7 @@
 	&.m__bdr,
 	&.m__border {
 		border-style: solid;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 		&:not([class*="xm__bdrColor"]) {
 			border-color: color(light);
 		}
@@ -62,7 +62,7 @@
 		height: 100%;
 		object-fit: cover;
 		object-position: 50% 50%;
-		@include transition(all 0.1s ease-out);
+		transition: all 0.1s ease-out;
 	}
 }
 a.x-avatar {

@@ -244,7 +244,7 @@ ol {
 .x-inSelect {
 	border-style: solid;
 	text-shadow: none;
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 	&:not([class*="xm__txtSize"]) {
 		font-size: 1rem;
 	}

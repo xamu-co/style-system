@@ -7,7 +7,7 @@
 // nuxt page fade
 .page {
 	&-enter-active {
-		@include transition-delay(0.3s);
+		transition-delay: 0.3s;
 	}
 	&-enter,
 	&-leave-to {
@@ -15,7 +15,7 @@
 	}
 	&-enter-active,
 	&-leave-active {
-		@include transition(all 0.3s ease-out);
+		transition: all 0.3s ease-out;
 	}
 }
 // fade
@@ -65,11 +65,11 @@
 	&-right,
 	&-bottom {
 		&-enter-active {
-			@include transition-delay(0.3s);
+			transition-delay: 0.3s;
 		}
 		&-enter-active,
 		&-leave-active {
-			@include transition(all 0.3s ease-out);
+			transition: all 0.3s ease-out;
 		}
 	}
 }
@@ -110,7 +110,7 @@
 	.a-growingIn {
 		max-height: 0;
 		// opacity: 0;
-		// @include transform(translateY(-5vh));
+		// transform: translateY(-5vh);
 		&.is__animated {
 			animation-name: growingIn;
 			animation-duration: 6s;
@@ -122,7 +122,7 @@
 	/// @group Animations
 	.a-fadeIn {
 		opacity: 0;
-		// @include transform(translateY(-5vh));
+		// transform: translateY(-5vh);
 		&.is__animated {
 			animation-name: fadeIn;
 			animation-duration: 1.2s;
@@ -134,7 +134,7 @@
 	/// @group Animations
 	.a-topFade {
 		opacity: 0;
-		@include transform(translateY(-5vh));
+		transform: translateY(-5vh);
 		&.is__animated {
 			animation-name: topFade;
 			animation-duration: 0.6s;
@@ -146,7 +146,7 @@
 	/// @group Animations
 	.a-bottomFade {
 		opacity: 0;
-		@include transform(translateY(5vh));
+		transform: translateY(5vh);
 		&.is__animated {
 			animation-name: bottomFade;
 			animation-duration: 0.6s;
@@ -158,7 +158,7 @@
 	/// @group Animations
 	.a-leftFade {
 		opacity: 0;
-		@include transform(translateX(-5vh));
+		transform: translateX(-5vh);
 		&.is__animated {
 			animation-name: bottomFade;
 			animation-duration: 0.6s;
@@ -170,7 +170,7 @@
 	/// @group Animations
 	.a-rightFade {
 		opacity: 0;
-		@include transform(translateX(5vh));
+		transform: translateX(5vh);
 		&.is__animated {
 			animation-name: bottomFade;
 			animation-duration: 0.6s;
@@ -224,7 +224,7 @@
 		// opacity: 1;
 		max-height: 1000px;
 		overflow: visible;
-		// @include transform(translateY(0));
+		// transform: translateY(0);
 	}
 }
 @keyframes fadeIn {
@@ -232,7 +232,7 @@
 	}
 	100% {
 		opacity: 1;
-		// @include transform(translateY(0));
+		// transform: translateY(0);
 	}
 }
 @keyframes topFade {
@@ -240,7 +240,7 @@
 	}
 	100% {
 		opacity: 1;
-		@include transform(translateY(0));
+		transform: translateY(0);
 	}
 }
 @keyframes bottomFade {
@@ -248,7 +248,7 @@
 	}
 	100% {
 		opacity: 1;
-		@include transform(translateY(0));
+		transform: translateY(0);
 	}
 }
 @keyframes leftFade {
@@ -256,7 +256,7 @@
 	}
 	100% {
 		opacity: 1;
-		@include transform(translateX(0));
+		transform: translateX(0);
 	}
 }
 @keyframes rightFade {
@@ -264,7 +264,7 @@
 	}
 	100% {
 		opacity: 1;
-		@include transform(translateX(0));
+		transform: translateX(0);
 	}
 }
 @keyframes openBack {
@@ -296,10 +296,10 @@
 }
 @keyframes spin {
 	0% {
-		@include transform(rotate(0deg));
+		transform: rotate(0deg);
 	}
 	100% {
-		@include transform(rotate(360deg));
+		transform: rotate(360deg);
 	}
 }
 // termina animations

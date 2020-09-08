@@ -21,8 +21,8 @@
 		border-radius: 0.5rem;
 		font-weight: $fontWeightRegular;
 		box-shadow: 3px 3px 9px color(dark, 0.3);
-		@include transition(all 0.2s ease-out);
-		@include box-sizing(content-box);
+		transition: all 0.2s ease-out;
+		box-sizing: content-box;
 		border: 2px solid color(light, 0.1);
 	}
 	&:hover:not([disabled]):not(.is__routeExact):not(.is__open) {
@@ -74,7 +74,7 @@
 		&:before {
 			top: 0;
 			left: 0;
-			@include transform(translateY(calc(-100% - 0.5em)));
+			transform: translateY(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-top="right"],
@@ -82,7 +82,7 @@
 		&:before {
 			top: 0;
 			right: 0;
-			@include transform(translateY(calc(-100% - 0.5em)));
+			transform: translateY(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-top],
@@ -91,7 +91,7 @@
 		&:before {
 			top: 0;
 			left: 50%;
-			@include transform(translate(-50%, calc(-100% - 0.5em)));
+			transform: translate(-50%, calc(-100% - 0.5em));
 		}
 	}
 
@@ -101,7 +101,7 @@
 		&:before {
 			top: 0;
 			right: 0;
-			@include transform(translateX(calc(100% + 0.5em)));
+			transform: translateX(calc(100% + 0.5em));
 		}
 	}
 	&[data-tooltip-right="bottom"],
@@ -109,7 +109,7 @@
 		&:before {
 			bottom: 0;
 			right: 0;
-			@include transform(translateX(calc(100% + 0.5em)));
+			transform: translateX(calc(100% + 0.5em));
 		}
 	}
 	&[data-tooltip-right],
@@ -118,7 +118,7 @@
 		&:before {
 			top: 50%;
 			right: 0;
-			@include transform(translate(calc(100% + 0.5em), -50%));
+			transform: translate(calc(100% + 0.5em), -50%);
 		}
 	}
 
@@ -128,7 +128,7 @@
 		&:before {
 			top: 0;
 			left: 0;
-			@include transform(translateX(calc(-100% - 0.5em)));
+			transform: translateX(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-left="bottom"],
@@ -136,7 +136,7 @@
 		&:before {
 			bottom: 0;
 			left: 0;
-			@include transform(translateX(calc(-100% - 0.5em)));
+			transform: translateX(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-left],
@@ -145,7 +145,7 @@
 		&:before {
 			top: 50%;
 			left: 0;
-			@include transform(translate(calc(-100% - 0.5em), -50%));
+			transform: translate(calc(-100% - 0.5em), -50%);
 		}
 	}
 
@@ -155,7 +155,7 @@
 		&:before {
 			bottom: 0;
 			left: 0;
-			@include transform(translateY(calc(100% + 0.5em)));
+			transform: translateY(calc(100% + 0.5em));
 		}
 	}
 	&[data-tooltip-bottom="right"],
@@ -163,7 +163,7 @@
 		&:before {
 			bottom: 0;
 			right: 0;
-			@include transform(translateY(calc(100% + 0.5em)));
+			transform: translateY(calc(100% + 0.5em));
 		}
 	}
 	/// default value
@@ -174,7 +174,7 @@
 		&:before {
 			bottom: 0;
 			left: 50%;
-			@include transform(translate(-50%, calc(100% + 0.5em)));
+			transform: translate(-50%, calc(100% + 0.5em));
 		}
 	}
 }

@@ -41,7 +41,7 @@
 		}
 		&-light,
 		&-lightAlt {
-			@include filter(drop-shadow(1px 1px 1px color(dark, 0.3)));
+			filter: drop-shadow(1px 1px 1px color(dark, 0.3));
 			svg [fill] {
 				fill: color(light);
 			}
@@ -76,6 +76,6 @@
 	}
 
 	svg [fill] {
-		@include transition(all 0.2s ease-out);
+		transition: all 0.2s ease-out;
 	}
 }

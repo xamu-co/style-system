@@ -7,21 +7,8 @@
 	background: color(secondary);
 	color: color(light);
 }
-::-moz-selection {
-	background: color(secondary);
-	color: color(light);
-}
 
-// ::-webkit-input-placeholder{
-// 	color: color(secondary);
-// }
-// ::-moz-placeholder{
-// 	color: color(secondary);
-// }
-// :-ms-input-placeholder{
-// 	color: color(secondary);
-// }
-// :-moz-placeholder{
+// ::placeholder{
 // 	color: color(secondary);
 // }
 
@@ -50,11 +37,11 @@
 	font-family: inherit;
 	font-size: 1em;
 	line-height: $lineHeight;
-	@include appearance(none);
+	appearance: none;
 	&:before,
 	&:after {
 		// line-height: 1.2em;
-		@include box-sizing(inherit);
+		box-sizing: inherit;
 	}
 	&:active,
 	&:focus,
@@ -102,16 +89,12 @@ p {
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
-	-ms-word-break: break-all;
 	/* This is the dangerous one in WebKit, as it breaks things wherever */
 	// word-break: break-all;
 	/* Instead use this non-standard one: */
 	word-break: break-word;
 
 	/* Adds a hyphen where the word breaks, if supported (No Blink) */
-	-ms-hyphens: auto;
-	-moz-hyphens: auto;
-	-webkit-hyphens: auto;
 	hyphens: auto;
 	a {
 		white-space: normal !important;
@@ -153,7 +136,7 @@ iframe {
 		top: 0;
 		left: 0;
 		padding: 1rem;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 		@include flexbox(column, nowrap, center, center);
 	}
 	&:not(.m__bgColor-none) {

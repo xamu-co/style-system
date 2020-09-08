@@ -23,7 +23,7 @@
 /// @group GlobalModifiers
 .xm__flx {
 	@include extend-viewports {
-		@include flex(1 1 auto);
+		flex: 1 1 auto;
 	}
 }
 
@@ -539,7 +539,7 @@ $directions: top, right, bottom, left;
 			&:not(.unfix__gaping) {
 				margin-left: -0.1px;
 				margin-right: -#{$i/3}rem;
-				@include box-sizing(border-box);
+				box-sizing: border-box;
 			}
 			> * {
 				margin-bottom: #{$i/3}rem;
@@ -581,7 +581,7 @@ $directions: top, right, bottom, left;
 		&:not(.unfix__gaping) {
 			margin-left: -0.1px;
 			margin-right: -1rem;
-			@include box-sizing(border-box);
+			box-sizing: border-box;
 		}
 		> * {
 			margin-bottom: 1rem;

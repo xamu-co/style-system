@@ -13,7 +13,7 @@
 	// font-size: 1rem;
 	// font-weight: 500;
 	// line-height: 1.6em;
-	@include transition(all 0.2s ease-out);
+	transition: all 0.2s ease-out;
 	// @include flexbox(row, nowrap, flex-start, center, inline-flex);
 
 	/// link theme

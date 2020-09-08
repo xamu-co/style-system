@@ -9,8 +9,8 @@
 	// display: block;
 	&:not(.m__p-none) {
 		padding: 0 1rem;
-		@include box-sizing(border-box);
-		@include transition(padding 0.3s ease-out);
+		box-sizing: border-box;
+		transition: padding 0.3s ease-out;
 		&.xm__maxWidth-1200,
 		&:not([class*="xm__maxWidth-"]) {
 			@media (min-width: $viewportMd + 1) {

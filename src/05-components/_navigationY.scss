@@ -2,22 +2,22 @@
 nav.x-navigationY {
 	background-color: color(light, 0.9);
 	width: auto;
-	// @include flex(0 0 auto);
+	// flex: 0 0 auto;
 	@include flexbox(row, nowrap, flex-start, stretch);
 }
 .x-navigationY-menu {
 	height: 100%;
-	// @include flex(0 0 auto);
-	@include box-sizing(border-box);
+	// flex: 0 0 auto;
+	box-sizing: border-box;
 	@include flexbox(column, nowrap, center, stretch);
-	// @include box-sizing(border-box);
+	// box-sizing: border-box;
 
 	/// es barra de navegacion principal
 	///
 	/// @group Statuses
 	&.is__menu {
 		width: 4.5rem;
-		// @include flex(0 0 auto);
+		// flex: 0 0 auto;
 		padding-bottom: 2rem;
 		border-right: 2px solid color(secondary, 0.05);
 		@include flexbox(column, nowrap, space-between, center);
@@ -30,8 +30,8 @@ nav.x-navigationY {
 		width: auto;
 		max-width: 360px;
 		overflow: hidden;
-		// @include flex(1 1 auto);
-		@include transition(max-width 0.3s ease-out);
+		// flex: 1 1 auto;
+		transition: max-width 0.3s ease-out;
 		@include flexbox(column, nowrap, space-between, flex-start);
 		&:not(.is__active) {
 			max-width: 0;

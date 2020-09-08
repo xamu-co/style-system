@@ -10,7 +10,7 @@
 		top: 50%;
 		left: 0.8rem;
 		z-index: 1;
-		@include transform(translateY(-50%));
+		transform: translateY(-50%);
 	}
 	input {
 		background: transparent;
@@ -19,7 +19,7 @@
 		padding-left: 1.5rem;
 		color: inherit;
 		font-weight: inherit;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 	}
 }
 textarea.x-inText {
@@ -32,7 +32,7 @@ textarea.x-inText {
 	width: 100%;
 	display: block;
 	padding: 0 0.8rem;
-	@include transition(all 0.2s ease-out);
+	transition: all 0.2s ease-out;
 	@include flexbox(column, nowrap, center, center);
 
 	/// theme
