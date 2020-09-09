@@ -7,7 +7,7 @@
 	&:hover,
 	&.is_active {
 		i.x-icon {
-			transform: rotate(180deg);
+			@include transform(rotate(180deg));
 		}
 		~ .x-dropdown {
 			display: block;
@@ -71,7 +71,7 @@
 		&-center {
 			@include extend-viewports {
 				top: 50%;
-				transform: translateY(-50%);
+				@include transform(translateY(-50%));
 			}
 		}
 		&-bottom {
@@ -128,7 +128,7 @@
 		&-center {
 			@include extend-viewports {
 				left: 50%;
-				transform: translateX(-50%);
+				@include transform(translateX(-50%));
 			}
 		}
 		/// Default bottom position

@@ -5,6 +5,7 @@ module.exports = {
 	map: false,
 	plugins: [
 		// Disable a plugin by passing false as value
+		require("postcss-custom-properties")({}),
 		require("postcss-combine-media-query")({}),
 		require("cssnano")({
 			preset: [
@@ -15,14 +16,9 @@ module.exports = {
 					},
 					calc: false,
 					zindex: false,
-					autoprefixer: false,
 				},
 			],
 		}),
-		require("postcss-merge-selectors")({}),
-		require("postcss-precision")({}),
-		require("autoprefixer")({}),
-		require("postcss-custom-properties")({}),
 	],
 	env: "production",
 	preset: { stage: false },

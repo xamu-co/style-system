@@ -8,7 +8,7 @@
 
 //retorna la fuente del mapa de fuentes
 @function font($font-name) {
-	@return var(--f-#{$font-name}, #{map-get($fonts, $font-name)});
+	@return var(--font-#{$font-name}, #{map-get($fonts, $font-name)});
 }
 //retorna el color del mapa de colores
 @function color($color-name, $rgb: false) {
@@ -16,12 +16,12 @@
 		@return unquote(
 			"rgba(" +
 				var(
-					--r-#{$color-name},
+					--rgb-#{$color-name},
 					#{to-rgb(map-get($colors, $color-name))}
 				) + "," + $rgb + ")"
 		);
 	} @else {
-		@return var(--h-#{$color-name}, #{map-get($colors, $color-name)});
+		@return var(--hex-#{$color-name}, #{map-get($colors, $color-name)});
 	}
 }
 
@@ -119,11 +119,4 @@
 	}
 
 	@return 90deg - convert-angle($value, "deg");
-}
-
-// Capitalize string
-// https://gist.github.com/pascalduez/10011785
-
-@function capitalize($string) {
-	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
 }

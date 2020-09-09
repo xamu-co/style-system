@@ -5,10 +5,9 @@
 /// don't change
 
 // nuxt page fade
-.page,
-.layout {
+.page {
 	&-enter-active {
-		transition-delay: 0.3s;
+		@include transition-delay(0.3s);
 	}
 	&-enter,
 	&-leave-to {
@@ -16,7 +15,7 @@
 	}
 	&-enter-active,
 	&-leave-active {
-		transition: all 0.3s ease-out;
+		@include transition(all 0.3s ease-out);
 	}
 }
 // fade
@@ -66,11 +65,11 @@
 	&-right,
 	&-bottom {
 		&-enter-active {
-			transition-delay: 0.3s;
+			@include transition-delay(0.3s);
 		}
 		&-enter-active,
 		&-leave-active {
-			transition: all 0.3s ease-out;
+			@include transition(all 0.3s ease-out);
 		}
 	}
 }
@@ -104,14 +103,14 @@
 
 /// animate only on pc
 
-@media (any-hover: hover) {
+@media screen and (any-hover: hover) {
 	/// grows from the center
 	///
 	/// @group Animations
 	.a-growingIn {
 		max-height: 0;
 		// opacity: 0;
-		// transform: translateY(-5vh);
+		// @include transform(translateY(-5vh));
 		&.is__animated {
 			animation-name: growingIn;
 			animation-duration: 6s;
@@ -123,7 +122,7 @@
 	/// @group Animations
 	.a-fadeIn {
 		opacity: 0;
-		// transform: translateY(-5vh);
+		// @include transform(translateY(-5vh));
 		&.is__animated {
 			animation-name: fadeIn;
 			animation-duration: 1.2s;
@@ -135,7 +134,7 @@
 	/// @group Animations
 	.a-topFade {
 		opacity: 0;
-		transform: translateY(-5vh);
+		@include transform(translateY(-5vh));
 		&.is__animated {
 			animation-name: topFade;
 			animation-duration: 0.6s;
@@ -147,7 +146,7 @@
 	/// @group Animations
 	.a-bottomFade {
 		opacity: 0;
-		transform: translateY(5vh);
+		@include transform(translateY(5vh));
 		&.is__animated {
 			animation-name: bottomFade;
 			animation-duration: 0.6s;
@@ -159,7 +158,7 @@
 	/// @group Animations
 	.a-leftFade {
 		opacity: 0;
-		transform: translateX(-5vh);
+		@include transform(translateX(-5vh));
 		&.is__animated {
 			animation-name: bottomFade;
 			animation-duration: 0.6s;
@@ -171,7 +170,7 @@
 	/// @group Animations
 	.a-rightFade {
 		opacity: 0;
-		transform: translateX(5vh);
+		@include transform(translateX(5vh));
 		&.is__animated {
 			animation-name: bottomFade;
 			animation-duration: 0.6s;
@@ -225,7 +224,7 @@
 		// opacity: 1;
 		max-height: 1000px;
 		overflow: visible;
-		// transform: translateY(0);
+		// @include transform(translateY(0));
 	}
 }
 @keyframes fadeIn {
@@ -233,7 +232,7 @@
 	}
 	100% {
 		opacity: 1;
-		// transform: translateY(0);
+		// @include transform(translateY(0));
 	}
 }
 @keyframes topFade {
@@ -241,7 +240,7 @@
 	}
 	100% {
 		opacity: 1;
-		transform: translateY(0);
+		@include transform(translateY(0));
 	}
 }
 @keyframes bottomFade {
@@ -249,7 +248,7 @@
 	}
 	100% {
 		opacity: 1;
-		transform: translateY(0);
+		@include transform(translateY(0));
 	}
 }
 @keyframes leftFade {
@@ -257,7 +256,7 @@
 	}
 	100% {
 		opacity: 1;
-		transform: translateX(0);
+		@include transform(translateX(0));
 	}
 }
 @keyframes rightFade {
@@ -265,7 +264,7 @@
 	}
 	100% {
 		opacity: 1;
-		transform: translateX(0);
+		@include transform(translateX(0));
 	}
 }
 @keyframes openBack {
@@ -297,10 +296,10 @@
 }
 @keyframes spin {
 	0% {
-		transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	100% {
-		transform: rotate(360deg);
+		@include transform(rotate(360deg));
 	}
 }
 // termina animations

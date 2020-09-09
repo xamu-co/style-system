@@ -9,9 +9,9 @@
 	width: 100%;
 	height: auto;
 	overflow: hidden;
-	flex: 0 0 auto;
-	transition: all 0.1s ease-out;
-	&:not([class*="xm__bgColor"]) {
+	@include flex(0 0 auto);
+	@include transition(all 0.1s ease-out);
+	&:not([class*="xm__backgroundColor"]) {
 		background-color: color(light);
 	}
 
@@ -28,42 +28,44 @@
 	///
 	/// @group Modifiers
 	&.m__size {
-		&-sm {
+		&-little {
 			border-radius: 0.7rem;
-			&.m__bdr,
-			&.m__border {
-				border-width: 2px;
-			}
 		}
-		&-md {
+		&-medium {
 			border-radius: 1.3rem;
-			&.m__bdr,
-			&.m__border {
-				border-width: 3px;
-			}
 		}
-		&-lg {
+		&-big {
 			border-radius: 1.6rem;
-			&.m__bdr,
-			&.m__border {
-				border-width: 4px;
-			}
 		}
 	}
 	/// default size
-	&.m__size-normal,
-	&:not([class*="m__size"]) {
+	&:not([class*="m__size"]),
+	&.m__size-normal {
 		border-radius: 1rem;
 	}
 
 	/// avatar border
 	///
+	/// @group ConditionalModifiers
+	&.m__size-little.m__border {
+		border-width: 2px;
+	}
+	&.m__size-medium.m__border {
+		border-width: 3px;
+	}
+	/// default border
+	&.m__border,
+	&.m__size-big.m__border {
+		border-width: 4px;
+	}
+
+	/// avatar border
+	///
 	/// @group Modifiers
-	&.m__bdr,
 	&.m__border {
 		border-style: solid;
-		box-sizing: border-box;
-		&:not([class*="xm__bdrColor"]) {
+		@include box-sizing(border-box);
+		&:not([class*="xm__borderColor"]) {
 			border-color: color(light);
 		}
 	}
@@ -79,7 +81,7 @@
 	img {
 		object-fit: cover;
 		object-position: 50% 50%;
-		transition: all 0.1s ease-out;
+		@include transition(all 0.1s ease-out);
 	}
 }
 a.x-avatarAureo {
@@ -95,7 +97,6 @@ a.x-avatarAureo {
 	/// avatar border
 	///
 	/// @group Modifiers
-	&.m__bdr,
 	&.m__border {
 		&:not(:hover),
 		&:not(.is__active),

@@ -4,41 +4,42 @@
 /// this element is expected to be an <input> or <textarea> tag but the text type
 ///
 /// @group Components
-:not(textarea).x-inText {
+:not(textarea).x-inputText {
+	height: 2.5rem;
 	i.x-icon {
 		position: absolute;
 		top: 50%;
-		left: 0.8rem;
+		left: 1rem;
 		z-index: 1;
-		transform: translateY(-50%);
+		@include transform(translateY(-50%));
 	}
 	input {
 		background: transparent;
 		width: 100%;
 		height: 100%;
-		padding-left: 1.6rem;
+		padding-left: 1.5rem;
 		color: inherit;
 		font-weight: inherit;
-		box-sizing: border-box;
+		@include box-sizing(border-box);
 	}
 }
-textarea.x-inText {
-	height: auto !important;
+textarea.x-inputText {
+	height: auto;
 	min-height: 6rem;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
-.x-inText {
+.x-inputText {
 	width: 100%;
 	display: block;
-	padding: 0 0.8rem;
-	transition: all 0.2s ease-out;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: 1rem;
+	padding: 0 1rem;
+	@include box-sizing(border-box);
+	@include transition(all 0.2s ease-out);
 	@include flexbox(column, nowrap, center, center);
-
-	/// theme
-	///
-	/// @group Modifiers
-	&.m__tm {
+	&.m__theme {
 		&-light {
 			background: color(light, 0.3);
 			border-color: color(light, 0.7);
@@ -74,12 +75,6 @@ textarea.x-inText {
 			&:focus-within {
 				border-color: color(primaryAlt);
 			}
-			/// showcase a shadow
-			///
-			/// @group ConditionalModifiers
-			&.m__shadow {
-				box-shadow: 1px 1px 3px color(dark, 0.3);
-			}
 		}
 		&-primary {
 			background: color(primary, 0.1);
@@ -100,8 +95,8 @@ textarea.x-inText {
 		}
 	}
 	/// default theme
-	&:not([class*="m__tm"]),
-	&.m__tm-secondary {
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
 		background: color(secondary, 0.1);
 		border-color: color(secondary, 0.05);
 		color: color(secondary);
@@ -117,5 +112,12 @@ textarea.x-inText {
 		&:focus-within {
 			border-color: color(secondary);
 		}
+	}
+
+	/// showcase a shadow
+	///
+	/// @group ConditionalModifiers
+	&.m__theme-lightAlt.m__shadow {
+		box-shadow: 1px 1px 3px color(dark, 0.3);
 	}
 }

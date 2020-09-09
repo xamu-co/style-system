@@ -4,31 +4,33 @@
 /// this element is expected to be an <button>, <a> or <label> element
 ///
 /// @group Components
-.x-btn {
+button.x-button,
+a.x-button,
+label.x-button {
 }
 
 /// Toggle button Vertical
 /// this element is expected to be an <button>, <a> or <label> element
 ///
 /// @group Components
-.x-btnY {
-	padding: 0.8rem 0.2rem;
+button.x-buttonY,
+a.x-buttonY,
+label.x-buttonY {
+	padding: 1rem 0.2rem;
 	border-radius: 0.4rem;
 	border-width: 2px;
-	border-style: solid;
-	box-sizing: border-box;
-	&:disabled,
-	&[disabled] {
-		pointer-events: none;
-	}
 }
 
 /// button & buttonY
 ///
 /// @group SharedStyles
-.x-btn,
-.x-btnY {
-	flex: 0 0 auto;
-	transition: all 0.2s ease-out;
+a.x-button,
+button.x-button,
+label.x-button,
+a.x-buttonY,
+button.x-buttonY,
+label.x-buttonY {
+	@include flex(0 0 auto);
 	@include flexbox(row, nowrap, center, center, inline-flex);
+	@include transition(all 0.2s ease-out);
 }
