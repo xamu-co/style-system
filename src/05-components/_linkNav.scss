@@ -4,8 +4,7 @@
 /// this element is expected to be an <a> tag
 ///
 /// @group Components
-a.x-actionNav,
-button.x-actionNav {
+.x-linkNav {
 	// vertical-align: middle;
 	text-shadow: none;
 	white-space: nowrap;
@@ -14,7 +13,7 @@ button.x-actionNav {
 	// font-size: 1rem;
 	// font-weight: 500;
 	// line-height: 1.6em;
-	@include transition(all 0.2s ease-out);
+	transition: all 0.2s ease-out;
 	// @include flexbox(row, nowrap, flex-start, center, inline-flex);
 
 	/// ruta activa
@@ -36,7 +35,7 @@ button.x-actionNav {
 	/// nav link themes
 	///
 	/// @group Modifiers
-	&.m__theme {
+	&.m__tm {
 		&-light {
 			&:hover,
 			&.is__active,
@@ -65,8 +64,8 @@ button.x-actionNav {
 		}
 	}
 	/// default theme: secondary
-	&:not([class*="m__theme"]),
-	&.m__theme-secondary {
+	&:not([class*="m__tm"]),
+	&.m__tm-secondary {
 		color: color(secondary);
 		&:hover:not(.is__active):not(.is__routeExact) {
 			color: color(dark, 0.5);

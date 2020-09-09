@@ -8,7 +8,7 @@
 	/// logo theme
 	///
 	/// @group Modifiers
-	&.m__theme {
+	&.m__tm {
 		&-light {
 			&:hover,
 			&.is__active,
@@ -41,14 +41,14 @@
 		}
 		&-light,
 		&-lightAlt {
-			@include filter(drop-shadow(1px 1px 1px color(dark, 0.3)));
+			filter: drop-shadow(1px 1px 1px color(dark, 0.3));
 			svg [fill] {
 				fill: color(light);
 			}
 		}
 	}
-	&:not([class*="m__theme"]),
-	&.m__theme-secondary {
+	&:not([class*="m__tm"]),
+	&.m__tm-secondary {
 		svg [fill] {
 			fill: color(secondary);
 		}
@@ -71,10 +71,11 @@
 	}
 	/// default size
 	&:not([class*="m__size"]) {
-		height: 8/3rem;
+		$ocho: 8; /// sass was not compiling without the variable
+		height: #{$ocho/3}rem;
 	}
 
 	svg [fill] {
-		@include transition(all 0.2s ease-out);
+		transition: all 0.2s ease-out;
 	}
 }

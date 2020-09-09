@@ -3,16 +3,16 @@
 /// Grid container
 ///
 /// @group Layouts
-.x-grid {
+.x-grd {
 	display: grid;
-	&:not([class*="xm__gridGap"]) {
+	&:not([class*="xm__grdGap"]):not([class*="xm__gap"]) {
 		gap: 2rem;
 	}
 
 	/// columns grid
 	///
 	/// @group Modifiers
-	&.m__gridColumns {
+	&.m__grdColumns {
 		&-voidLeft {
 			@include extend-viewports {
 				grid-template-areas: ". content";
@@ -33,6 +33,14 @@
 				grid-template-areas: "content content content . .";
 			}
 		}
+		&-autoMin {
+			@include extend-viewports {
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax($minColumnSize/3, max-content)
+				);
+			}
+		}
 		&,
 		&-auto {
 			/// default
@@ -40,14 +48,6 @@
 				grid-template-columns: repeat(
 					auto-fit,
 					minmax($minColumnSize, 1fr)
-				);
-			}
-		}
-		&-autoMin {
-			@include extend-viewports {
-				grid-template-columns: repeat(
-					auto-fit,
-					minmax($minColumnSize/3, max-content)
 				);
 			}
 		}
@@ -88,7 +88,7 @@
 		}
 	}
 	@for $i from 2 through 12 {
-		&.m__gridColumns-#{$i} {
+		&.m__grdColumns-#{$i} {
 			@include extend-viewports {
 				grid-template-columns: repeat(
 					auto-fit,
@@ -103,41 +103,41 @@
 /// item in grid
 ///
 /// @group Layouts
-.x-grid-item {
+.x-grd-item {
 	width: 100%;
 	height: 100%;
-	@media (min-width: $viewportMd + 1) {
-		/// grid column span, restricted to wide viewports
-		///
-		/// @group Modifiers
-		@for $i from 3 through 10 {
-			&.m__gridColumnSpan-#{$i} {
-				@include extend-viewports {
-					grid-column: span #{$i};
-				}
-			}
-			&.m__gridRowSpan-#{$i} {
-				@include extend-viewports {
-					grid-row: span #{$i};
-				}
+	// @media (min-width: $viewportMd + 1) {
+	/// grid column span, restricted to wide viewports
+	///
+	/// @group Modifiers
+	@for $i from 3 through 10 {
+		&.m__grdColumnSpan-#{$i} {
+			@include extend-viewports {
+				grid-column: span #{$i};
 			}
 		}
-		/// defaults
-		&.m__gridColumnSpan {
-			&,
-			&-2 {
-				@include extend-viewports {
-					grid-column: span 2;
-				}
-			}
-		}
-		&.m__gridRowSpan {
-			&,
-			&-2 {
-				@include extend-viewports {
-					grid-row: span 2;
-				}
+		&.m__grdRowSpan-#{$i} {
+			@include extend-viewports {
+				grid-row: span #{$i};
 			}
 		}
 	}
+	/// defaults
+	&.m__grdColumnSpan {
+		&,
+		&-2 {
+			@include extend-viewports {
+				grid-column: span 2;
+			}
+		}
+	}
+	&.m__grdRowSpan {
+		&,
+		&-2 {
+			@include extend-viewports {
+				grid-row: span 2;
+			}
+		}
+	}
+	// }
 }

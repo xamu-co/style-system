@@ -8,18 +8,18 @@ $fonts: (
 		"'Poppins'",
 		sans-serif,
 	),
-	secondary: (
-		"'Palatino Linotype'",
-		"'Book Antiqua'",
-		"Palatino",
-		serif,
-	),
+	// secondary: (
+	// 	"'Palatino Linotype'",
+	// 	"'Book Antiqua'",
+	// 	"Palatino",
+	// 	serif,
+	// ),
+	// code: (
+	// 	"'Courier New'",
+	// 	Courier,
+	// 	monospace,
+	// ),
 	awesome: "'Font Awesome 5 Free'",
-	code: (
-		"'Courier New'",
-		Courier,
-		monospace,
-	),
 );
 
 $primary: #f39c12;
@@ -46,35 +46,38 @@ $viewportLg: 1080px;
 $viewportXl: 1280px;
 
 $viewports: (
-	sm: $viewportSm,
-	//md: $viewportMd,
-	lg: $viewportLg,
-	//xl: $viewportXl,
+	// sm: $viewportSm,
+	md: $viewportMd,
+	// lg: $viewportLg,
+	xl: $viewportXl
 );
 
 /// font size
-$fontSizeSmall: 0.7rem;
-$fontSizeLittle: 0.9rem;
+$fontSizeExtraSmall: 0.7rem;
+$fontSizeSmall: 0.9rem;
 $fontSize: 1rem;
 $fontSizeMedium: 1.2rem;
 $fontSizeLarge: 1.8rem;
-$fontSizeBig: 2.8rem;
-$fontSizeHuge: 3.8rem;
-$fontSizeMassive: 4.8rem;
+$fontSizeExtraLarge: 2.8rem;
+$fontSizeExtraExtraLarge: 3.8rem;
+$fontSizeMaximum: 4.8rem;
 
 $fontSizes: (
-	small: $fontSizeSmall,
-	little: $fontSizeLittle,
-	medium: $fontSizeMedium,
-	large: $fontSizeLarge,
-	big: $fontSizeBig,
-	huge: $fontSizeHuge,
-	massive: $fontSizeMassive,
+	xs: $fontSizeExtraSmall,
+	sm: $fontSizeSmall,
+	md: $fontSizeMedium,
+	lg: $fontSizeLarge,
+	xl: $fontSizeExtraLarge,
+	xxl: $fontSizeExtraExtraLarge,
+	max: $fontSizeMaximum,
 );
 
 /// font weight
 $fontWeightRegular: 400;
 $fontWeightBold: 600;
+/// firefox fix: font weight
+$fontWeightRegularAlt: 300;
+$fontWeightBoldAlt: 500;
 
 /// line height
 $lineHeight: 1.2em;
