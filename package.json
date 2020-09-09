@@ -7,7 +7,7 @@
   "source": "src/index.scss",
   "scripts": {
     "sass": "sass src/index.scss dist/index.css",
-    "postcss": "postcss -o dist/index.min.css dist/index.css --no-map",
+    "postcss": "postcss dist/index.css -o dist/index.min.css --no-map",
     "build": "yarn sass && yarn postcss --verbose",
     "watch": "yarn sass --watch",
     "test": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
@@ -21,7 +21,10 @@
     "style",
     "css",
     "style",
-    "system"
+    "system",
+    "sass",
+    "postcss",
+    "csso"
   ],
   "author": "@vis97c",
   "license": "MIT",
@@ -34,6 +37,7 @@
     "@commitlint/config-conventional": "^9.1.1",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
+    "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "cssnano-preset-advanced": "^4.0.7",
     "husky": "^4.2.5",
@@ -41,6 +45,8 @@
     "postcss-cli": "^7.1.1",
     "postcss-combine-media-query": "^1.0.1",
     "postcss-custom-properties": "^9.1.1",
+    "postcss-merge-selectors": "vis97c/postcss-merge-selectors",
+    "postcss-precision": "^1.0.0",
     "prettier": "^2.0.5",
     "sass": "^1.26.10",
     "semantic-release": "^17.1.1",
@@ -87,5 +93,13 @@
     "rules": {
       "indentation": null
     }
-  }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ]
 }

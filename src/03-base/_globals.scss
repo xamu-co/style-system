@@ -7,21 +7,8 @@
 	background: color(secondary);
 	color: color(light);
 }
-::-moz-selection {
-	background: color(secondary);
-	color: color(light);
-}
 
-// ::-webkit-input-placeholder{
-// 	color: color(secondary);
-// }
-// ::-moz-placeholder{
-// 	color: color(secondary);
-// }
-// :-ms-input-placeholder{
-// 	color: color(secondary);
-// }
-// :-moz-placeholder{
+// ::placeholder{
 // 	color: color(secondary);
 // }
 
@@ -50,11 +37,11 @@
 	font-family: inherit;
 	font-size: 1em;
 	line-height: $lineHeight;
-	@include appearance(none);
+	appearance: none;
 	&:before,
 	&:after {
 		// line-height: 1.2em;
-		@include box-sizing(inherit);
+		box-sizing: inherit;
 	}
 	&:active,
 	&:focus,
@@ -65,18 +52,27 @@
 
 html {
 	font-size: 100%;
+	font-weight: $fontWeightRegular;
+	text-rendering: optimizeLegibility;
+
+	@supports (-moz-appearance: none) {
+		// firefox fix
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-weight: $fontWeightRegularAlt;
+	}
 }
 
-h1:not([class*="xm__textSize"]) {
-	font-size: $fontSizeHuge;
+h1:not([class*="xm__txtSize"]) {
+	font-size: $fontSizeExtraExtraLarge;
 }
-h2:not([class*="xm__textSize"]) {
-	font-size: $fontSizeBig;
+h2:not([class*="xm__txtSize"]) {
+	font-size: $fontSizeExtraLarge;
 }
-h3:not([class*="xm__textSize"]) {
+h3:not([class*="xm__txtSize"]) {
 	font-size: $fontSizeLarge;
 }
-h4:not([class*="xm__textSize"]) {
+h4:not([class*="xm__txtSize"]) {
 	font-size: $fontSizeMedium;
 }
 
@@ -101,18 +97,15 @@ p {
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
-	-ms-word-break: break-all;
 	/* This is the dangerous one in WebKit, as it breaks things wherever */
 	// word-break: break-all;
 	/* Instead use this non-standard one: */
 	word-break: break-word;
 
 	/* Adds a hyphen where the word breaks, if supported (No Blink) */
-	-ms-hyphens: auto;
-	-moz-hyphens: auto;
-	-webkit-hyphens: auto;
 	hyphens: auto;
 	a {
+		display: inline !important;
 		white-space: normal !important;
 	}
 }
@@ -145,14 +138,14 @@ iframe {
 		font-family: font(awesome);
 		font-weight: 900;
 		color: color(danger);
-		font-size: $fontSizeHuge;
+		font-size: $fontSizeExtraExtraLarge;
 		width: 100%;
 		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
 		padding: 1rem;
-		@include box-sizing(border-box);
+		box-sizing: border-box;
 		@include flexbox(column, nowrap, center, center);
 	}
 	&:not(.m__bgColor-none) {
@@ -168,7 +161,7 @@ select {
 	* {
 		vertical-align: middle;
 	}
-	&:not(:disabled):hover {
+	&:not(:disabled):not([disabled]):hover {
 		cursor: pointer;
 	}
 	&.is__routeExact {
@@ -189,7 +182,7 @@ h6 {
 }
 
 /// global font weight
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class*="x-button"]):not([class*="fa-"]):not([class*="xm__textWeight"]) {
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class*="x-btn"]):not([class*="fa-"]):not([class*="xm__txtWeight"]) {
 	font-weight: inherit;
 }
 
@@ -203,18 +196,13 @@ h5,
 h6,
 button,
 strong,
-.x-button,
-.x-buttonToggle {
-	&:not([class*="xm__textWeight"]) {
+.x-btn,
+.x-btnToggle {
+	&:not([class*="xm__txtWeight"]) {
 		font-weight: $fontWeightBold;
+		@supports (-moz-appearance: none) {
+			// firefox fix
+			font-weight: $fontWeightBoldAlt;
+		}
 	}
-}
-
-.xm__textWeight-bold {
-	font-weight: $fontWeightBold;
-}
-
-html,
-.xm__textWeight-regular {
-	font-weight: $fontWeightRegular;
 }

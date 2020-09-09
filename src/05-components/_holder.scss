@@ -7,14 +7,21 @@
 	margin: 0 auto;
 	width: 100%;
 	// display: block;
-	&:not(.m__padding-none) {
-		padding: 0 2rem;
-		@include box-sizing(border-box);
-		@media (max-width: $viewportMd + 1) {
-			padding: 0 1rem;
+	&:not(.m__p-none) {
+		padding: 0 1rem;
+		box-sizing: border-box;
+		transition: padding 0.3s ease-out;
+		&.xm__maxWidth-1200,
+		&:not([class*="xm__maxWidth-"]) {
+			@media (min-width: $viewportMd + 1) {
+				padding: 0 2rem;
+			}
+			@media (min-width: $viewportXl + 1) {
+				padding: 0;
+			}
 		}
 	}
-	&:not([class*="xm__maxWidth"]) {
+	&:not([class*="xm__maxWidth-"]) {
 		max-width: 1200px;
 	}
 }

@@ -9,7 +9,7 @@
 ///  Justify Space between...
 ///
 /// @group GlobalUnions
-.xu__flex-between {
+.xu__flx-between {
 	&-stretch {
 		@include extend-viewports {
 			align-items: stretch;
@@ -46,7 +46,7 @@
 ///  Justify space around...
 ///
 /// @group GlobalUnions
-.xu__flex-around {
+.xu__flx-around {
 	&-stretch {
 		@include extend-viewports {
 			align-items: stretch;
@@ -83,14 +83,13 @@
 ///  Justify flex start...
 ///
 /// @group GlobalUnions
-.xu__flex-start {
-	@include extend-viewports {
-		&-stretch {
-		}
+.xu__flx-start {
+	&-stretch {
 		@include extend-viewports {
 			align-items: stretch;
 		}
 	}
+
 	&-center {
 		@include extend-viewports {
 			align-items: center;
@@ -122,14 +121,13 @@
 /// Justify center...
 ///
 /// @group GlobalUnions
-.xu__flex-center {
-	@include extend-viewports {
-		&-stretch {
-		}
+.xu__flx-center {
+	&-stretch {
 		@include extend-viewports {
 			align-items: stretch;
 		}
 	}
+
 	&-start {
 		@include extend-viewports {
 			align-items: flex-start;
@@ -161,14 +159,13 @@
 /// Justify flex-end...
 ///
 /// @group GlobalUnions
-.xu__flex-end {
-	@include extend-viewports {
-		&-stretch {
-		}
+.xu__flx-end {
+	&-stretch {
 		@include extend-viewports {
 			align-items: stretch;
 		}
 	}
+
 	&-start {
 		@include extend-viewports {
 			align-items: flex-start;
