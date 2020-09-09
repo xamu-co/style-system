@@ -1,5 +1,19 @@
 Xamu style system
 
+# [3.0.0](https://github.com/xamu-co/style-system/compare/v2.4.1...v3.0.0) (2020-09-09)
+
+
+### Features
+
+* 3.0 again ([5645134](https://github.com/xamu-co/style-system/commit/56451340424878fc38d1571bdd39945de5e52582))
+* 3.0 release ([cfa323c](https://github.com/xamu-co/style-system/commit/cfa323c153c1edd4a1888572f8363d8814e67b13))
+
+
+### BREAKING CHANGES
+
+* compact classes & optimizations
+* shorter classes
+
 ## [2.4.1](https://github.com/xamu-co/style-system/compare/v2.4.0...v2.4.1) (2020-09-09)
 
 
