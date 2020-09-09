@@ -6,7 +6,7 @@
 
 This file needs to be improved
 
-# CLASS NAMING CONVENTION
+# Xamu naming convention
 
 - based in BEM but reinterpreted for sass and vue
 - prefixes prevent the collision with vendor styling
