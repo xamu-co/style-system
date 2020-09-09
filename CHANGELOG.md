@@ -1,5 +1,6 @@
 Xamu style system
 
+<<<<<<< HEAD
 # [2.2.0](https://github.com/xamu-co/style-system/compare/v2.1.1...v2.2.0) (2020-09-09)
 
 
@@ -28,6 +29,8 @@ Xamu style system
 
 * broken text size ([25dfea5](https://github.com/xamu-co/style-system/commit/25dfea598ac4cb385df6736e6067be05955e708e))
 
+=======
+>>>>>>> parent of 181c483... chore(release): 2.1.1 [skip ci]
 # [2.1.0](https://github.com/xamu-co/style-system/compare/v2.0.0...v2.1.0) (2020-09-04)
 
 
