@@ -6,77 +6,35 @@
 */
 
 // viewport extend
-@mixin extend-viewports() {
+@mixin extend-viewports($desktop: false) {
 	@content;
 	@if $responsive {
 		@each $name, $viewport in $viewports {
-			@media (max-width: $viewport) {
+			/// mobile first
+			@media (min-width: $viewport + 1) {
 				&\:#{$name} {
 					@content;
 				}
 			}
-			@media (min-width: $viewport + 1) {
-				&\:#{$name}-inv {
-					@content;
+			/// desktop first
+			@if $desktop {
+				@media (max-width: $viewport) {
+					&\:#{$name}-inv {
+						@content;
+					}
 				}
 			}
 		}
 	}
 }
 
-// este mixin es solo valido para display:flex
-@mixin d_flex() {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-}
-@mixin flex-flow($type, $mode) {
-	-webkit-box-orient: if($type == row, horizontal, vertical);
-	-webkit-box-direction: if(str-index($type, reverse), reverse, normal);
-	-ms-flex-flow: $type $mode;
-	flex-flow: $type $mode;
-}
-@mixin justify-content($v) {
-	$_v: str-replace($v, "flex-", "");
-	$n_v: map-get(
-		(
-			space-between: justify,
-			space-around: distribute,
-			center: center,
-			start: start,
-			end: end,
-		),
-		$_v
-	);
-	@if $n_v != distribute {
-		-webkit-box-pack: $n_v;
-	}
-	-ms-flex-pack: $n_v;
-	justify-content: $v;
-}
-@mixin align-items($v) {
-	$_v: str-replace($v, "flex-", "");
-	-webkit-box-align: $_v;
-	-ms-flex-align: $_v;
-	align-items: $v;
-}
 // flexbox en una sola linea
 // ej: row, nowrap, space-around, strecth
 @mixin flexbox($t, $m, $j, $a, $d: flex) {
-	@if $d != flex {
-		display: $d;
-	} @else {
-		@include d_flex();
-	}
-	@include flex-flow($t, $m);
-	@include justify-content($j);
-	@include align-items($a);
-}
-
-@mixin flex($v) {
-	-webkit-box-flex: nth($v, 1); //toma el primer valor numerico de $v
-	-ms-flex: $v;
-	flex: $v;
+	display: $d;
+	flex-flow: $t $m;
+	justify-content: $j;
+	align-items: $a;
 }
 
 /// Mixin printing a linear-gradient
@@ -97,81 +55,6 @@
 		$color-stops
 	);
 	background-image: linear-gradient($direction, $color-stops);
-}
-
-/*
-	Mixins
-	Author - Andy Crone | @andycrone_
-	+ Popular mixins including vendor prefixes for cross-browser support
-*/
-
-// === Standard layout & styling
-
-@mixin box-sizing($v) {
-	-webkit-box-sizing: $v;
-	-moz-box-sizing: $v;
-	box-sizing: $v;
-}
-
-// === Animations
-
-@mixin transition($v...) {
-	-webkit-transition: $v;
-	transition: $v;
-}
-@mixin transition-delay($v) {
-	-webkit-transition-delay: $v;
-	transition-delay: $v;
-}
-@mixin transform($v) {
-	-o-transform: $v;
-	-ms-transform: $v;
-	-webkit-transform: $v;
-	transform: $v;
-}
-@mixin transform-origin($v) {
-	-o-transform-origin: $v;
-	-ms-transform-origin: $v;
-	-webkit-transform-origin: $v;
-	transform-origin: $v;
-}
-@mixin animation($v...) {
-	-o-animation: $v;
-	-moz-animation: $v;
-	-webkit-animation: $v;
-	animation: $v;
-}
-@mixin animation-delay($v) {
-	-o-animation-delay: $v;
-	-moz-animation-delay: $v;
-	-webkit-animation-delay: $v;
-	animation-delay: $v;
-}
-
-// === Filters
-
-@mixin filter($v) {
-	-o-filter: $v;
-	-ms-filter: $v;
-	-webkit-filter: $v;
-	-moz-filter: $v;
-	filter: $v;
-}
-
-// === Browser mods
-
-@mixin appearance($v) {
-	-moz-appearance: $v;
-	-webkit-appearance: $v;
-	appearance: $v;
-}
-@mixin user-select($v) {
-	-webkit-touch-callout: $v;
-	-webkit-user-select: $v;
-	-khtml-user-select: $v;
-	-moz-user-select: $v;
-	-ms-user-select: $v;
-	user-select: $v;
 }
 
 //https://gist.github.com/nickspiel/10331551

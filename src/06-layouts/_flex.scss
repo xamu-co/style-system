@@ -3,24 +3,24 @@
 /// flex container
 ///
 /// @group Layouts
-.x-flex {
+.x-flx {
 	display: flex;
 }
 
 /// flex inline container
 ///
 /// @group Layouts
-.x-flexInline {
+.x-flxInline {
 	display: inline-flex;
 }
 
 /// flexbox container
-.x-flex,
-.x-flexInline {
+.x-flx,
+.x-flxInline {
 	/// flexbox column container
 	///
 	/// @group Modifiers
-	&.m__flexColumn {
+	&.m__flxColumn {
 		&-wrap {
 			@include extend-viewports {
 				flex-flow: column wrap;
@@ -31,9 +31,12 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: column nowrap;
-				&:not([class*="xm__itemSpacing"])
-					> :not([class*="xm__margin"]):not(br):not(:last-child) {
-					margin-bottom: 1rem;
+				&:not([class*="xm__gaping"]) {
+					> :not([class*="xm__m"]):not(br):not(:last-child),
+					> [class*="xm__min"]:not(br):not(:last-child),
+					> [class*="xm__max"]:not(br):not(:last-child) {
+						margin-bottom: 1rem;
+					}
 				}
 			}
 		}
@@ -42,7 +45,7 @@
 	/// flexbox row container
 	///
 	/// @group Modifiers
-	&.m__flexRow {
+	&.m__flxRow {
 		&-wrap {
 			@include extend-viewports {
 				flex-flow: row wrap;
@@ -53,22 +56,28 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: row nowrap;
-				&:not([class*="xm__itemSpacing"])
-					> :not([class*="xm__margin"]):not(br):not(:last-child) {
-					margin-right: 1rem;
+				&:not([class*="xm__gaping"]) {
+					> :not([class*="xm__m"]):not(br):not(:last-child),
+					> [class*="xm__min"]:not(br):not(:last-child),
+					> [class*="xm__max"]:not(br):not(:last-child) {
+						margin-right: 1rem;
+					}
 				}
 			}
 		}
 	}
 
-	&.m__flexColumn,
-	&.m__flexRow {
+	&.m__flxColumn,
+	&.m__flxRow {
 		&-wrap {
 			@include extend-viewports {
-				&:not([class*="xm__itemSpacing"])
-					> :not([class*="xm__margin"]):not(br) {
-					margin-bottom: 1rem;
-					margin-right: 1rem;
+				&:not([class*="xm__gaping"]) {
+					> :not([class*="xm__m"]):not(br),
+					> [class*="xm__min"]:not(br),
+					> [class*="xm__max"]:not(br) {
+						margin-bottom: 1rem;
+						margin-right: 1rem;
+					}
 				}
 			}
 		}
