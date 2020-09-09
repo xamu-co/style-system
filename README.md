@@ -4,6 +4,8 @@
 </a>
 </p>
 
+This file needs to be improved
+
 # CLASS NAMING CONVENTION
 
 - based in BEM but reinterpreted for sass and vue
