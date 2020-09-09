@@ -9,60 +9,72 @@
 */
 
 @import "00-utils/module";
-
-:root {
-	@each $name, $font in $fonts {
-		--font-#{$name}: #{$font};
-	}
-	@each $name, $color in $colors {
-		--hex-#{$name}: #{$color};
-		--rgb-#{$name}: #{to-rgb($color)};
-	}
-	// --full-height: calc(100vh - 60px);
-}
-
 // @import "01-vendor/module"; // the vendors are independent in this built
-// @import '02-fonts/module'; // this project use google fonts
-@import "03-base/module";
-@import "04-pseudos/module";
-@import "05-components/module";
-@import "06-layouts/module";
 
-body {
-	width: 100%;
-	font-family: font(primary);
-	font-size: $fontSize;
-
-	&:not(.is__dashboard) {
-		#appex {
-			@include flexbox(column, nowrap, flex-start, stretch);
+@media only screen {
+	:root {
+		@each $name, $font in $fonts {
+			// font
+			--f-#{$name}: #{$font};
 		}
+		@each $name, $color in $colors {
+			// hex
+			--h-#{$name}: #{$color};
+			// rgb
+			--r-#{$name}: #{to-rgb($color)};
+		}
+		// --full-height: calc(100vh - 60px);
 	}
-	&.is__dashboard {
-		height: 100%;
-		#appex,
-		#__nuxt,
-		#__layout {
-			height: 100%;
-			overflow: hidden;
+
+	// @import '02-fonts/module'; // this project use google fonts
+	@import "03-base/module";
+	@import "04-pseudos/module";
+	@import "05-components/module";
+	@import "06-layouts/module";
+
+	body {
+		width: 100%;
+		font-family: font(primary);
+		font-size: $fontSize;
+
+		&:not(.is__dashboard) {
+			#appex {
+				@include flexbox(column, nowrap, flex-start, stretch);
+			}
 		}
-		#appex {
-			// background: color(secondary);
-			@include flexbox(row, nowrap, flex-start, stretch);
-			> .clearfix {
-				width: 100%;
+		&.is__dashboard {
+			height: 100%;
+			#appex,
+			#__nuxt,
+			#__layout {
 				height: 100%;
-				padding: 0 1rem;
-				background-color: color(light);
-				overflow-y: auto;
-				overflow-x: hidden;
-				overflow: auto;
-				box-shadow: -4px -4px 40px color(dark, 0.1);
-				// @include flex(1 1 auto);
+				overflow: hidden;
+			}
+			#appex {
+				// background: color(secondary);
+				@include flexbox(row, nowrap, flex-start, stretch);
+				> .clearfix {
+					width: 100%;
+					height: 100%;
+					padding: 0 1rem;
+					background-color: color(light);
+					overflow-y: auto;
+					overflow-x: hidden;
+					// overflow: auto;
+					box-shadow: -4px -4px 40px color(dark, 0.1);
+					transition: padding 0.3s ease-out;
+					// flex: 1 1 auto;
+					@media (min-width: $viewportMd + 1) {
+						padding: 0;
+					}
+					@media (min-width: $viewportXl + 1) {
+						padding: 0 2rem;
+					}
+				}
 			}
 		}
 	}
-}
-#appex {
-	width: 100%;
+	#appex {
+		width: 100%;
+	}
 }
