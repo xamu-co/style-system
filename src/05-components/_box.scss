@@ -4,21 +4,19 @@
 /// @group Components
 .x-box {
 	// width: 100%;
+	padding: 1rem;
 	border-radius: 1.6rem;
 	border: 2px solid transparent;
 	overflow: visible;
-	transition: all 0.2s ease-out;
+	@include transition(all 0.2s ease-out);
 	&:disabled,
 	&[disabled] {
 		pointer-events: none;
 		opacity: 0.3;
 	}
-	&:not(.m__btn):not(.m__button) {
-		padding: 1rem;
-	}
-	&:not([class*="x-flx"]) {
+	&:not([class*="x-flex"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> :not([class*="xm__mBottom"]):not(:last-child) {
+		> :not([class*="xm__marginBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}
@@ -26,7 +24,7 @@
 	/// Comment theme
 	///
 	/// @group Modifiers
-	&.m__tm-light {
+	&.m__theme-light {
 		background: color(light, 0.1);
 		&:hover {
 			border-color: color(light, 0.1);
@@ -34,7 +32,6 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
-			&.m__btn,
 			&.m__button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -43,14 +40,11 @@
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="xm__txtColor"]) {
-				color: color(light);
-			}
+		&.m__button:not([class*="xm__textColor"]) {
+			color: color(light);
 		}
 	}
-	&.m__tm-lightAlt {
+	&.m__theme-lightAlt {
 		background: color(light);
 		&:hover {
 			border-color: color(dark, 0.1);
@@ -58,7 +52,6 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
-			&.m__btn,
 			&.m__button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -67,16 +60,13 @@
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="xm__txtColor"]) {
-				color: color(light);
-			}
+		&.m__button:not([class*="xm__textColor"]) {
+			color: color(light);
 		}
 	}
 	/// default theme
-	&:not([class*="m__tm"]),
-	&.m__tm-secondary {
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
 		background: color(secondary, 0.1);
 		&:hover {
 			border-color: color(secondary, 0.1);
@@ -84,7 +74,6 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
-			&.m__btn,
 			&.m__button {
 				background: color(secondary, 0.2);
 				// border-color: color(secondary, 0.3);
@@ -93,20 +82,15 @@
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="xm__txtColor"]) {
-				color: color(secondary);
-			}
+		&.m__button:not([class*="xm__textColor"]) {
+			color: color(secondary);
 		}
 	}
 
 	/// button behavior
 	///
 	/// @group Modifiers
-	&.m__btn,
 	&.m__button {
-		padding: 0.8rem;
 		.x-box {
 			border-color: transparent !important;
 		}
@@ -123,24 +107,24 @@
 		///
 		/// @group Modifiers
 		&.m__square {
-			&-xs {
+			&-small {
 				width: 3rem;
 			}
-			&-sm {
+			&-little {
 				width: 5rem;
 			}
-			&-lg {
+			&-big {
 				width: 9rem;
 			}
 			&,
-			&-md {
+			&-medium {
 				width: 6rem;
 			}
 			&,
-			&-xs,
-			&-sm,
-			&-md,
-			&-lg {
+			&-big,
+			&-small,
+			&-little,
+			&-medium {
 				margin: 0 auto;
 				&:before {
 					content: "";
@@ -153,7 +137,7 @@
 					position: absolute;
 					top: 50%;
 					left: 50%;
-					transform: translate(-50%, -50%);
+					@include transform(translate(-50%, -50%));
 				}
 			}
 		}

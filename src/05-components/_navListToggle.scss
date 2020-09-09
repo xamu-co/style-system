@@ -3,36 +3,36 @@
 /// list element
 ///
 /// @group Layouts
-nav.x-nListToggle {
+nav.x-navListToggle {
 	// width: 100%;
 	> input[type="checkbox"] {
 		display: none;
 		&:checked {
-			~ .x-nListToggle-toggler {
+			~ .x-navListToggle-toggler {
 				font-weight: $fontWeightBold;
 				margin-bottom: 1rem;
 				i.x-icon {
-					transform: rotate(180deg);
+					@include transform(rotate(180deg));
 				}
 			}
 		}
 		&:not(:checked) {
-			~ ul.x-nListToggle-group,
-			~ ol.x-nListToggle-group {
+			~ ul.x-navListToggle-group,
+			~ ol.x-navListToggle-group {
 				max-height: 0;
 			}
 		}
 	}
 }
-.x-nListToggle-toggler {
+.x-navListToggle-toggler {
 	display: block;
 	@include flexbox(row, nowrap, space-between, center);
 	i.x-icon {
 		width: 1.8rem;
 	}
 }
-ul.x-nListToggle-group,
-ol.x-nListToggle-group {
+ul.x-navListToggle-group,
+ol.x-navListToggle-group {
 	> li {
 		width: 100%;
 	}

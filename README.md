@@ -4,9 +4,7 @@
 </a>
 </p>
 
-This file needs to be improved
-
-# Xamu naming convention
+# CLASS NAMING CONVENTION
 
 - based in BEM but reinterpreted for sass and vue
 - prefixes prevent the collision with vendor styling
@@ -153,7 +151,7 @@ EJ: .x-element1{}
 
 # Responsive styles
 
-We are following a similar approach to the tailwind framework (global & layout modifiers only)
+We are following a simalar approach to the tailwind framework (global & layout modifiers only)
 
 .xm__hidden:sm => Hide if element has less than 640px of width;
 .xm__hidden:sm-inv => Hide if element has more than 640px of width;

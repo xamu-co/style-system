@@ -15,12 +15,12 @@ jobs:
       - checkout
       # Download and cache dependencies
       - restore_cache:
-          key: v4-yarn-{{ checksum "yarn.lock" }}
+          key: v2-yarn-{{ checksum "yarn.lock" }}
       - run:
           name: Install front-end dependencies
           command: yarn --ignore-engines --ignore-scripts
       - save_cache:
-          key: v4-yarn-{{ checksum "yarn.lock" }}
+          key: v2-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ./node_modules
       - persist_to_workspace:

@@ -7,10 +7,9 @@
 i.x-icon {
 	width: auto;
 	vertical-align: middle;
-	// text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 
-	&:not([class*="xm__txtColor"]) {
+	&:not([class*="xm__textColor"]) {
 		color: inherit;
 	}
 
@@ -32,7 +31,6 @@ i.x-icon {
 	/// icon margin
 	///
 	/// @group Modifiers
-	&.m__m,
 	&.m__margin {
 		&:not(:first-child) {
 			margin-left: 0.5em;

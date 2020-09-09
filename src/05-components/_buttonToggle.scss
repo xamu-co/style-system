@@ -5,14 +5,16 @@
 /// aditionally you have to provide a fas(solid) far(regular) icons
 ///
 /// @group Components
-.x-btnToggle {
+button.x-buttonToggle,
+a.x-buttonToggle,
+label.x-buttonToggle {
 	white-space: nowrap;
 	border-style: solid;
 	border-color: transparent;
 	text-shadow: none;
-	box-sizing: border-box;
-	transition: all 0.2s ease-out;
-	flex: 0 0 auto;
+	@include box-sizing(border-box);
+	@include transition(all 0.2s ease-out);
+	@include flex(0 0 auto);
 	@include flexbox(row, nowrap, center, center, inline-flex);
 	&.is__alert:after {
 		content: "";
@@ -25,7 +27,7 @@
 		border-width: 4px;
 		border-style: solid;
 		border-radius: 50%;
-		box-sizing: border-box;
+		@include box-sizing(border-box);
 	}
 	&.is__alert,
 	&.is__active,
@@ -47,7 +49,7 @@
 	/// second value is the textColor
 	///
 	/// @group Modifiers
-	&.m__tm {
+	&.m__theme {
 		&-dark7 {
 			background: color(dark, 0.1);
 			color: color(dark, 0.7);
@@ -116,8 +118,8 @@
 		}
 	}
 	/// default theme
-	&:not([class*="m__tm"]),
-	&.m__tm-secondary {
+	&:not([class*="m__theme"]),
+	&.m__theme-secondary {
 		background: color(secondary, 0.1);
 		color: color(secondary);
 		&:hover {

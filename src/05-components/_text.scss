@@ -3,24 +3,24 @@
 /// Text block component
 ///
 /// @group Components
-.x-txt {
-	&:not(.x-flx):not(.x-grd):not([class*="xm__txtAlignFlx"]) {
+.x-text {
+	&:not(.x-flex):not(.x-grid):not([class*="xm__textAlignFlex"]) {
 		display: block;
 	}
-	&:not([class*="xm__txtAlign"]) {
+	&:not([class*="xm__textAlign"]) {
 		text-align: left;
-		&:not([class*="xm__gaping"]) > * {
+		&:not([class*="xm__itemSpacing"]) > * {
 			display: inline-block;
 		}
 	}
-	&:not([class*="xm__txtColor"]) {
+	&:not([class*="xm__textColor"]) {
 		color: color(dark, 0.7);
 	}
 	&:not(.m__maxWidth-none) {
 		max-width: $maxTextWidth;
 	}
-	&:not([class*="xm__gaping"]) > * {
-		&:not([class*="xm__mBottom"]):not(:last-child) {
+	&:not([class*="xm__itemSpacing"]) > * {
+		&:not([class*="xm__marginBottom"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}

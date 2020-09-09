@@ -3,18 +3,19 @@
 /// list element
 ///
 /// @group Layouts
-nav.x-nList {
+nav.x-navList {
 	// width: 100%;
 }
-span.x-nList-title {
+span.x-navList-title {
 	display: block;
 	margin-bottom: 1rem;
 }
-ul.x-nList-group,
-ol.x-nList-group {
+ul.x-navList-group,
+ol.x-navList-group {
 }
-li.x-nList-group-item {
-	a {
+li.x-navList-group-item {
+	.x-action,
+	.x-actionNav {
 		white-space: normal;
 		line-height: $lineHeightMedium;
 	}

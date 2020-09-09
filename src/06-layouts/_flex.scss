@@ -3,24 +3,24 @@
 /// flex container
 ///
 /// @group Layouts
-.x-flx {
+.x-flex {
 	display: flex;
 }
 
 /// flex inline container
 ///
 /// @group Layouts
-.x-flxInline {
+.x-flexInline {
 	display: inline-flex;
 }
 
 /// flexbox container
-.x-flx,
-.x-flxInline {
+.x-flex,
+.x-flexInline {
 	/// flexbox column container
 	///
 	/// @group Modifiers
-	&.m__flxColumn {
+	&.m__flexColumn {
 		&-wrap {
 			@include extend-viewports {
 				flex-flow: column wrap;
@@ -31,12 +31,9 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: column nowrap;
-				&:not([class*="xm__gaping"]) {
-					> :not([class*="xm__m"]):not(br):not(:last-child),
-					> [class*="xm__min"]:not(br):not(:last-child),
-					> [class*="xm__max"]:not(br):not(:last-child) {
-						margin-bottom: 1rem;
-					}
+				&:not([class*="xm__itemSpacing"])
+					> :not([class*="xm__margin"]):not(br):not(:last-child) {
+					margin-bottom: 1rem;
 				}
 			}
 		}
@@ -45,7 +42,7 @@
 	/// flexbox row container
 	///
 	/// @group Modifiers
-	&.m__flxRow {
+	&.m__flexRow {
 		&-wrap {
 			@include extend-viewports {
 				flex-flow: row wrap;
@@ -56,28 +53,22 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: row nowrap;
-				&:not([class*="xm__gaping"]) {
-					> :not([class*="xm__m"]):not(br):not(:last-child),
-					> [class*="xm__min"]:not(br):not(:last-child),
-					> [class*="xm__max"]:not(br):not(:last-child) {
-						margin-right: 1rem;
-					}
+				&:not([class*="xm__itemSpacing"])
+					> :not([class*="xm__margin"]):not(br):not(:last-child) {
+					margin-right: 1rem;
 				}
 			}
 		}
 	}
 
-	&.m__flxColumn,
-	&.m__flxRow {
+	&.m__flexColumn,
+	&.m__flexRow {
 		&-wrap {
 			@include extend-viewports {
-				&:not([class*="xm__gaping"]) {
-					> :not([class*="xm__m"]):not(br),
-					> [class*="xm__min"]:not(br),
-					> [class*="xm__max"]:not(br) {
-						margin-bottom: 1rem;
-						margin-right: 1rem;
-					}
+				&:not([class*="xm__itemSpacing"])
+					> :not([class*="xm__margin"]):not(br) {
+					margin-bottom: 1rem;
+					margin-right: 1rem;
 				}
 			}
 		}
