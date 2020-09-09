@@ -1,5 +1,12 @@
 Xamu style system
 
+## [2.2.1](https://github.com/xamu-co/style-system/compare/v2.2.0...v2.2.1) (2020-09-09)
+
+
+### Bug Fixes
+
+* broken version ([3a5c956](https://github.com/xamu-co/style-system/commit/3a5c9567839ba379654ae33c949e8bb66ca07089))
+
 <<<<<<< HEAD
 # [2.2.0](https://github.com/xamu-co/style-system/compare/v2.1.1...v2.2.0) (2020-09-09)
 
