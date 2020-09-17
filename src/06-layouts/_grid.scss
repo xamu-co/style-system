@@ -5,6 +5,7 @@
 /// @group Layouts
 .x-grd {
 	display: grid;
+	// height: auto;
 	&:not([class*="xm__grdGap"]):not([class*="xm__gap"]) {
 		gap: 2rem;
 	}
@@ -13,24 +14,13 @@
 	///
 	/// @group Modifiers
 	&.m__grdColumns {
-		&-voidLeft {
+		& {
+			/// default
 			@include extend-viewports {
-				grid-template-areas: ". content";
-			}
-		}
-		&-voidLeftAlt {
-			@include extend-viewports {
-				grid-template-areas: ". . content content content";
-			}
-		}
-		&-voidRight {
-			@include extend-viewports {
-				grid-template-areas: "content .";
-			}
-		}
-		&-voidRightAlt {
-			@include extend-viewports {
-				grid-template-areas: "content content content . .";
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax($minColumnSize, 1fr)
+				);
 			}
 		}
 		&-autoMin {
@@ -41,49 +31,19 @@
 				);
 			}
 		}
-		&,
 		&-auto {
-			/// default
 			@include extend-viewports {
-				grid-template-columns: repeat(
-					auto-fit,
-					minmax($minColumnSize, 1fr)
-				);
-			}
-		}
-		&-voidLeft,
-		&-voidLeftAlt {
-			@include extend-viewports {
-				> *:last-child {
-					grid-area: content;
-				}
-			}
-		}
-		&-voidRight,
-		&-voidRightAlt {
-			@include extend-viewports {
-				> *:first-child {
-					grid-area: content;
-				}
-			}
-		}
-		&-voidLeft,
-		&-voidLeftAlt,
-		&-voidRight,
-		&-voidRightAlt {
-			@include extend-viewports {
-				grid-template-columns: repeat(2, minmax($minColumnSize, 1fr));
+				grid-template-columns: repeat(auto-fit, 1fr);
 			}
 		}
 		&,
 		&-auto,
-		&-autoMin,
-		&-voidLeft,
-		&-voidLeftAlt,
-		&-voidRight,
-		&-voidRightAlt {
+		&-autoMin {
 			@include extend-viewports {
 				grid-auto-rows: minmax(min-content, 100%);
+				> * {
+					box-sizing: border-box;
+				}
 			}
 		}
 	}
@@ -95,6 +55,100 @@
 					minmax(#{$minColumnSize/$i * 3}, 1fr)
 				);
 				grid-auto-rows: minmax(min-content, 100%);
+				> * {
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+	/// bi columns grid
+	///
+	/// @group Unions
+	&.u__grdVoidLeft {
+		&,
+		&-1,
+		&-1-1 {
+			@include extend-viewports {
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-areas: ". content";
+			}
+		}
+		&-1-4 {
+			@include extend-viewports {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: ". content content content content";
+			}
+		}
+		&-2-3 {
+			@include extend-viewports {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: ". . content content content";
+			}
+		}
+		&-3-2 {
+			@include extend-viewports {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: ". . . content content";
+			}
+		}
+		&,
+		&-1,
+		&-1-1,
+		&-1-4,
+		&-2-3,
+		&-3-2 {
+			@include extend-viewports {
+				grid-auto-rows: minmax(min-content, 100%);
+				> * {
+					box-sizing: border-box;
+					&:last-child {
+						grid-area: content;
+					}
+				}
+			}
+		}
+	}
+	&.u__grdVoidRight {
+		&,
+		&-1,
+		&-1-1 {
+			@include extend-viewports {
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-areas: "content .";
+			}
+		}
+		&-4-1 {
+			@include extend-viewports {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: "content content content content .";
+			}
+		}
+		&-3-2 {
+			@include extend-viewports {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: "content content content . .";
+			}
+		}
+		&-2-3 {
+			@include extend-viewports {
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: "content content . . .";
+			}
+		}
+		&,
+		&-1,
+		&-1-1,
+		&-4-1,
+		&-3-2,
+		&-2-3 {
+			@include extend-viewports {
+				grid-auto-rows: minmax(min-content, 100%);
+				> * {
+					box-sizing: border-box;
+					&:first-child {
+						grid-area: content;
+					}
+				}
 			}
 		}
 	}

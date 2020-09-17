@@ -249,7 +249,7 @@
 	&-right {
 		@include extend-viewports {
 			text-align: right;
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				text-align: right;
 			}
 		}
@@ -257,7 +257,7 @@
 	&-center {
 		@include extend-viewports {
 			text-align: center;
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				text-align: center;
 			}
 		}
@@ -265,7 +265,7 @@
 	&-justify {
 		@include extend-viewports {
 			text-align: justify;
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				text-align: justify;
 			}
 		}
@@ -275,7 +275,7 @@
 	&-left {
 		@include extend-viewports {
 			text-align: left;
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				text-align: left;
 			}
 		}
@@ -289,7 +289,7 @@
 	&-right {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -303,7 +303,7 @@
 	&-center {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, center, inline-flex);
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -317,7 +317,7 @@
 	&-justify {
 		@include extend-viewports {
 			@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -339,7 +339,7 @@
 				flex-start,
 				inline-flex
 			);
-			> :not([class*="xm__txtAlign"]):not([class*="x-"]) {
+			> :not([class*="xm__txtAlign"]):not([class|="x"]) {
 				@include flexbox(
 					column,
 					nowrap,
@@ -377,7 +377,7 @@
 /// @group GlobalModifiers
 $models: margin, padding;
 @each $model in $models {
-	@for $i from 1 through 10 {
+	@for $i from 1 through 20 {
 		/// all sides
 		.xm__#{str-slice($model,1,1) + "-" + $i*5} {
 			@include extend-viewports {
@@ -496,7 +496,7 @@ $dimensions: width, height;
 /// @group GlobalModifiers
 $directions: top, right, bottom, left;
 @each $direction in $directions {
-	@for $i from 1 through 10 {
+	@for $i from 1 through 20 {
 		/// margins
 		.xm__m#{capitalize($direction) + "-" + $i*5} {
 			@include extend-viewports {
@@ -525,6 +525,16 @@ $directions: top, right, bottom, left;
 }
 
 @for $i from 1 through 10 {
+	/// z index
+	/// both dimension
+	///
+	/// @group GlobalModifiers
+	.xm__index-#{$i} {
+		@include extend-viewports {
+			z-index: #{$i};
+		}
+	}
+
 	/// grid Gap
 	/// both dimension
 	///
@@ -546,7 +556,9 @@ $directions: top, right, bottom, left;
 			/// omit this specific fix
 			&:not(.unfix__gaping) {
 				margin-left: -0.1px;
+				margin-top: -0.1px;
 				margin-right: -#{$i/3}rem;
+				margin-bottom: -#{$i/3}rem;
 				box-sizing: border-box;
 			}
 			> * {
@@ -558,16 +570,26 @@ $directions: top, right, bottom, left;
 	.xm__gapingX-#{$i*5} {
 		/// X axis
 		@include extend-viewports {
-			> :not([class*="xm__mRight"]):not(:last-child) {
+			> :not([class*="xm__mBottom"]):not(:last-child).unfix__gaping,
+			> :not([class*="xm__mBottom"]):not(:last-child):not(.xm__gaping):not([class*="xm__gaping-"]) {
 				margin-right: #{$i/3}rem;
+			}
+			> :not(:last-child):not(.unfix__gaping).xm__gaping + *,
+			> :not(:last-child):not(.unfix__gaping)[class*="xm__gaping-"] + * {
+				margin-left: #{$i/3}rem;
 			}
 		}
 	}
 	.xm__gapingY-#{$i*5} {
 		/// Y axis
 		@include extend-viewports {
-			> :not([class*="xm__mBottom"]):not(:last-child) {
+			> :not([class*="xm__mBottom"]):not(:last-child).unfix__gaping,
+			> :not([class*="xm__mBottom"]):not(:last-child):not(.xm__gaping):not([class*="xm__gaping-"]) {
 				margin-bottom: #{$i/3}rem;
+			}
+			> :not(:last-child):not(.unfix__gaping).xm__gaping + *,
+			> :not(:last-child):not(.unfix__gaping)[class*="xm__gaping-"] + * {
+				margin-top: #{$i/3}rem;
 			}
 		}
 	}
@@ -588,7 +610,9 @@ $directions: top, right, bottom, left;
 		/// omit this specific fix
 		&:not(.unfix__gaping) {
 			margin-left: -0.1px;
+			margin-top: -0.1px;
 			margin-right: -1rem;
+			margin-bottom: -1rem;
 			box-sizing: border-box;
 		}
 		> * {
@@ -632,7 +656,7 @@ $directions: top, right, bottom, left;
 	.xm__txtColor-#{$name} {
 		@include extend-viewports {
 			&,
-			> :not([class*="xm__txtColor"]):not([class*="x-"]) {
+			> :not([class*="xm__txtColor"]):not([class|="x"]) {
 				color: #{color($name)};
 			}
 		}
@@ -642,7 +666,7 @@ $directions: top, right, bottom, left;
 	.xm__txtShadow-#{$name} {
 		@include extend-viewports {
 			&,
-			> :not([class*="xm__txtShadow"]):not([class*="x-"]) {
+			> :not([class*="xm__txtShadow"]):not([class|="x"]) {
 				text-shadow: 1px 1px 1px #{color($name)};
 			}
 		}
@@ -668,7 +692,7 @@ $directions: top, right, bottom, left;
 		.xm__txtColor-#{$name}#{$i} {
 			@include extend-viewports {
 				&,
-				> :not([class*="xm__txtColor"]):not([class*="x-"]) {
+				> :not([class*="xm__txtColor"]):not([class|="x"]) {
 					color: #{color($name, $i/10)};
 				}
 			}
@@ -678,7 +702,7 @@ $directions: top, right, bottom, left;
 		.xm__txtShadow-#{$name}#{$i} {
 			@include extend-viewports {
 				&,
-				> :not([class*="xm__txtShadow"]):not([class*="x-"]) {
+				> :not([class*="xm__txtShadow"]):not([class|="x"]) {
 					text-shadow: 1px 1px 1px #{color($name, $i/10)};
 				}
 			}
@@ -713,7 +737,7 @@ $directions: top, right, bottom, left;
 .xm__txtColor {
 	@include extend-viewports {
 		&,
-		> :not([class*="xm__txtColor"]):not([class*="x-"]) {
+		> :not([class*="xm__txtColor"]):not([class|="x"]) {
 			color: color(dark, 0.7);
 		}
 	}
@@ -723,7 +747,7 @@ $directions: top, right, bottom, left;
 .xm__txtShadow {
 	@include extend-viewports {
 		&,
-		> :not([class*="xm__txtShadow"]):not([class*="x-"]) {
+		> :not([class*="xm__txtShadow"]):not([class|="x"]) {
 			text-shadow: 1px 1px 1px color(dark, 0.3);
 		}
 	}

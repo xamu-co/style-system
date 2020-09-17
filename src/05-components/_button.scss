@@ -30,5 +30,6 @@
 .x-btnY {
 	flex: 0 0 auto;
 	transition: all 0.2s ease-out;
+	text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 }

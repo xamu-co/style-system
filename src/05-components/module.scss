@@ -100,7 +100,6 @@ ol {
 .x-btnY,
 select.x-inSelect {
 	white-space: nowrap;
-	text-align: center;
 	border-color: transparent;
 
 	/// button, select theme
@@ -144,6 +143,16 @@ select.x-inSelect {
 			&:not(.is__active) {
 				text-shadow: 0 0 1px color(dark, 0.2);
 			}
+			// &.is__routeExact,
+			// &.is__active {
+			// 	border-color: color(light);
+			// 	color: color(light);
+			// }
+			// &:disabled,
+			// &[disabled] {
+			// 	border-color: color(light, 0.3);
+			// 	color: color(light, 0.3);
+			// }
 		}
 		&-secondary,
 		&-dark,
@@ -235,7 +244,7 @@ select.x-inSelect {
 /// @group SharedStyles
 .x-btn,
 .x-btnToggle,
-.x-inText,
+.x-inTxt,
 select.x-inSelect {
 	border-style: solid;
 	text-shadow: none;
@@ -281,7 +290,7 @@ select.x-inSelect {
 .x-btnToggle,
 .x-link,
 .x-linkNav,
-.x-inText,
+.x-inTxt,
 select.x-inSelect {
 	&:disabled,
 	&[disabled] {
@@ -310,7 +319,7 @@ select.x-inSelect {
 	/// @group SharedStyles
 	.x-btn,
 	.x-btnToggle,
-	.x-inText,
+	.x-inTxt,
 	select.x-inSelect {
 		&.m__size-#{$name} {
 			height: $size * 2.6;
