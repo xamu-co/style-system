@@ -4,19 +4,22 @@
 ///
 /// @group Layouts
 .x-flx {
-	display: flex;
+	@include extend-interactions {
+		display: flex;
+	}
 }
 
 /// flex inline container
 ///
 /// @group Layouts
 .x-flxInline {
-	display: inline-flex;
+	@include extend-interactions {
+		display: inline-flex;
+	}
 }
 
 /// flexbox container
-.x-flx,
-.x-flxInline {
+[class*="x-flx"] {
 	/// flexbox column container
 	///
 	/// @group Modifiers
@@ -72,6 +75,14 @@
 		&-wrap {
 			@include extend-viewports {
 				&:not([class*="xm__gaping"]) {
+					/// this is a very special class to omit this specific fix
+					&:not(.unfix__gaping) {
+						margin-left: -0.1px;
+						margin-top: -0.1px;
+						margin-right: -1rem;
+						margin-bottom: -1rem;
+						box-sizing: border-box;
+					}
 					> :not([class*="xm__m"]):not(br),
 					> [class*="xm__min"]:not(br),
 					> [class*="xm__max"]:not(br) {

@@ -127,6 +127,7 @@ nav.x-navX,
 ul.x-navX-menu-list,
 ol.x-navX-menu-list {
 	@include flexbox(row, nowrap, center, center);
+	&:not(:last-child),
 	> *:not(:last-child) {
 		margin-right: 1rem;
 	}

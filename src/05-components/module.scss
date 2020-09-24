@@ -22,6 +22,7 @@
 @import "button";
 @import "buttonToggle";
 @import "holder";
+@import "scroll";
 @import "view";
 @import "navigationX";
 @import "navigationY";
@@ -218,10 +219,13 @@ select.x-inSelect {
 			border-color: color(light, 0.3);
 			color: color(light, 0.7);
 		}
-		&.is__routeExact,
 		&.is__active {
 			border-color: color(secondary);
 			color: color(secondary);
+		}
+		&.is__routeExact {
+			border-color: color(dark, 0.7);
+			color: color(dark, 0.7);
 		}
 		&:disabled,
 		&[disabled] {

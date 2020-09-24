@@ -552,8 +552,7 @@ $directions: top, right, bottom, left;
 	/// @group GlobalModifiers
 	.xm__gaping-#{$i*5} {
 		@include extend-viewports {
-			/// this is a very special class
-			/// omit this specific fix
+			/// this is a very special class to omit this specific fix
 			&:not(.unfix__gaping) {
 				margin-left: -0.1px;
 				margin-top: -0.1px;
@@ -561,35 +560,53 @@ $directions: top, right, bottom, left;
 				margin-bottom: -#{$i/3}rem;
 				box-sizing: border-box;
 			}
-			> * {
-				margin-bottom: #{$i/3}rem;
-				margin-right: #{$i/3}rem;
+			> :not(br) {
+				&:not([class*="xm__m"]),
+				&[class*="xm__min"],
+				&[class*="xm__max"] {
+					margin-bottom: #{$i/3}rem;
+					margin-right: #{$i/3}rem;
+				}
 			}
 		}
 	}
 	.xm__gapingX-#{$i*5} {
 		/// X axis
+		/// because of the fix is necesary to transfer the margin to the sibling element
 		@include extend-viewports {
-			> :not([class*="xm__mBottom"]):not(:last-child).unfix__gaping,
-			> :not([class*="xm__mBottom"]):not(:last-child):not(.xm__gaping):not([class*="xm__gaping-"]) {
-				margin-right: #{$i/3}rem;
-			}
-			> :not(:last-child):not(.unfix__gaping).xm__gaping + *,
-			> :not(:last-child):not(.unfix__gaping)[class*="xm__gaping-"] + * {
-				margin-left: #{$i/3}rem;
+			> :not(br):not(:last-child) {
+				&:not([class*="xm__mRight"]) {
+					&.unfix__gaping,
+					&:not(.xm__gaping):not([class*="xm__gaping-"]) {
+						margin-right: #{$i/3}rem;
+					}
+				}
+				&:not(.unfix__gaping) {
+					&.xm__gaping + *,
+					&[class*="xm__gaping-"] + * {
+						margin-left: #{$i/3}rem;
+					}
+				}
 			}
 		}
 	}
 	.xm__gapingY-#{$i*5} {
 		/// Y axis
+		/// because of the fix is necesary to transfer the margin to the sibling element
 		@include extend-viewports {
-			> :not([class*="xm__mBottom"]):not(:last-child).unfix__gaping,
-			> :not([class*="xm__mBottom"]):not(:last-child):not(.xm__gaping):not([class*="xm__gaping-"]) {
-				margin-bottom: #{$i/3}rem;
-			}
-			> :not(:last-child):not(.unfix__gaping).xm__gaping + *,
-			> :not(:last-child):not(.unfix__gaping)[class*="xm__gaping-"] + * {
-				margin-top: #{$i/3}rem;
+			> :not(br):not(:last-child) {
+				&:not([class*="xm__mBottom"]) {
+					&.unfix__gaping,
+					&:not(.xm__gaping):not([class*="xm__gaping-"]) {
+						margin-bottom: #{$i/3}rem;
+					}
+				}
+				&:not(.unfix__gaping) {
+					&.xm__gaping + *,
+					&[class*="xm__gaping-"] + * {
+						margin-top: #{$i/3}rem;
+					}
+				}
 			}
 		}
 	}
@@ -606,8 +623,7 @@ $directions: top, right, bottom, left;
 /// item spacing defaults
 .xm__gaping {
 	@include extend-viewports {
-		/// this is a very special class
-		/// omit this specific fix
+		/// this is a very special class to omit this specific fix
 		&:not(.unfix__gaping) {
 			margin-left: -0.1px;
 			margin-top: -0.1px;

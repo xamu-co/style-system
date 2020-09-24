@@ -74,10 +74,10 @@
 	/// @group Modifiers
 	&.m__minHeight-100 {
 		&:not(.m__noShapes) {
-			min-height: calc(100vh - 5rem - 12vh);
+			min-height: calc(100vh - 12vh);
 		}
 		&.m__noShapes {
-			min-height: calc(100vh - 5rem);
+			min-height: 100vh;
 		}
 	}
 
