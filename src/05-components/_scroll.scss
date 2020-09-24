@@ -4,34 +4,50 @@
 ///
 /// @group Components
 .x-scroll {
-	@media (hover: none) {
+	@media (hover: none) and (max-width: $viewportMd) {
 		width: auto;
 		height: auto;
 		overflow-x: auto;
 		overflow-y: hidden;
 		padding-left: 1rem;
+		box-sizing: border-box;
 		> * {
 			width: auto;
-			@include flexbox(row, nowrap, flex-start, center);
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+			// box-sizing: content-box !important;
+			@include flexbox(
+				row,
+				nowrap !important,
+				flex-start,
+				flex-start,
+				inline-flex
+			);
+			&:after {
+				content: "";
+				display: block;
+				width: 1rem;
+				height: 1rem;
+				flex: 0 0 auto;
+			}
 			> * {
 				flex: 0 0 auto;
 				&:last-child {
-					padding-right: 1rem;
+					margin-right: 0 !important;
 				}
 			}
 		}
-		@media (min-width: $viewportMd + 1) {
-			padding-left: 2rem;
-
-			> * > :last-child {
-				padding-right: 2rem;
-			}
-		}
-		@media (min-width: $viewportXl + 1) {
-			padding-left: 0;
-			> * > :last-child {
-				padding-right: 0;
-			}
-		}
+		// @media (min-width: $viewportMd + 1) {
+		// 	padding-left: 2rem;
+		// 	> *:after {
+		// 		width: 2rem;
+		// 	}
+		// }
+		// @media (min-width: $viewportXl + 1) {
+		// 	padding-left: 0;
+		// 	> *:after {
+		// 		width: 0;
+		// 	}
+		// }
 	}
 }

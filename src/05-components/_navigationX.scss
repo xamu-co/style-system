@@ -1,4 +1,5 @@
 /** @format */
+
 /// Main navigation
 /// this element is expected to be an <nav> wrapper
 ///
@@ -6,7 +7,7 @@
 nav.x-navX,
 .x-navX-menu:not(.is__sub) {
 	height: 5rem;
-	z-index: 10;
+	z-index: 15;
 }
 
 /// Navigation nav
@@ -32,11 +33,12 @@ nav.x-navX,
 		/// @group ConditionalModifiers
 		&.m__tm-light,
 		&.m__tm-lightAlt {
-			.x-navX-menu-list-item > {
-				.x-link,
-				.x-linkNav {
-					// color: color(light);
-					&:not(:hover):not(.is__active):not(.is__routeExact) {
+			> .x-navX-menu-list .x-navX-menu-list-item > {
+				.x-link:not(:hover):not(.is__active):not(.is__routeExact) {
+					text-shadow: 1px 1px 1px color(dark, 0.3);
+				}
+				.x-btnLink:not(:hover):not(.is__active):not(.is__routeExact) {
+					@media (min-width: $viewportMd + 1) {
 						text-shadow: 1px 1px 1px color(dark, 0.3);
 					}
 				}
@@ -56,9 +58,9 @@ nav.x-navX,
 			&:not(.is__relative) {
 				box-shadow: 0 0.5rem 3rem color(dark, 0.05);
 			}
-			.x-navX-menu-list-item > {
+			> .x-navX-menu-list .x-navX-menu-list-item > {
 				.x-link,
-				.x-linkNav {
+				.x-btnLink {
 					// color: color(secondary);
 				}
 			}
@@ -72,6 +74,7 @@ nav.x-navX,
 		position: absolute;
 		left: 0;
 		top: 100%;
+		// margin: 0;
 		height: 3rem;
 		border-top: 2px solid transparent;
 		border-bottom: 2px solid transparent;
@@ -80,9 +83,9 @@ nav.x-navX,
 		///
 		/// @group ConditionalModifiers
 		&.m__tm-light {
-			.x-navX-menu-list-item > {
+			> .x-navX-menu-list .x-navX-menu-list-item > {
 				.x-link,
-				.x-linkNav {
+				.x-btnLink {
 					&:not(:hover):not(.is__active):not(.is__routeExact) {
 						// color: color(light);
 						text-shadow: 1px 1px 1px color(dark, 0.3);
@@ -91,9 +94,9 @@ nav.x-navX,
 			}
 		}
 		&.m__tm-primaryAlt {
-			.x-navX-menu-list-item > {
+			> .x-navX-menu-list .x-navX-menu-list-item > {
 				.x-link,
-				.x-linkNav {
+				.x-btnLink {
 					&:hover,
 					&.is__active,
 					&.is__routeExact {
@@ -107,9 +110,9 @@ nav.x-navX,
 		&:not([class*="m__tm"]),
 		&.m__tm-secondary {
 			border-bottom-color: color(secondary, 0.05);
-			.x-navX-menu-list-item > {
+			> .x-navX-menu-list .x-navX-menu-list-item > {
 				.x-link,
-				.x-linkNav {
+				.x-btnLink {
 					// color: color(secondary);
 				}
 			}
@@ -120,6 +123,10 @@ nav.x-navX,
 		height: 100%;
 		@include flexbox(row, nowrap, space-between, center);
 	}
+
+	.x-navX-menu {
+		z-index: -1;
+	}
 }
 
 /// Navigation nav list
@@ -127,9 +134,18 @@ nav.x-navX,
 ul.x-navX-menu-list,
 ol.x-navX-menu-list {
 	@include flexbox(row, nowrap, center, center);
-	&:not(:last-child),
-	> *:not(:last-child) {
-		margin-right: 1rem;
+	&,
+	> * {
+		&:not(:first-child):not(.x-navX-menu) {
+			margin-left: 1rem;
+		}
+	}
+}
+
+aside.x-navX-menu-aside {
+	@media (max-width: $viewportMd) {
+		position: absolute;
+		display: none;
 	}
 }
 

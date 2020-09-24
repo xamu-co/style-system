@@ -38,6 +38,8 @@
 	font-size: 1em;
 	line-height: $lineHeight;
 	appearance: none;
+	scroll-behavior: smooth;
+	-webkit-tap-highlight-color: transparent;
 	&:before,
 	&:after {
 		// line-height: 1.2em;
@@ -50,24 +52,29 @@
 	}
 }
 
-html {
-	font-size: 100%;
-	font-weight: $fontWeightRegular;
-	text-rendering: optimizeLegibility;
-
-	@supports (-moz-appearance: none) {
-		// firefox fix
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		font-weight: $fontWeightRegularAlt;
+h1:not([class*="xm__txtSize"]) {
+	font-size: $fontSizeExtraLarge;
+	br {
+		display: none;
+	}
+	@media (min-width: $viewportMd + 1) {
+		font-size: $fontSizeExtraExtraLarge;
+		br {
+			display: inline;
+		}
 	}
 }
-
-h1:not([class*="xm__txtSize"]) {
-	font-size: $fontSizeExtraExtraLarge;
-}
 h2:not([class*="xm__txtSize"]) {
-	font-size: $fontSizeExtraLarge;
+	font-size: $fontSizeLarge;
+	br {
+		display: none;
+	}
+	@media (min-width: $viewportMd + 1) {
+		font-size: $fontSizeExtraLarge;
+		br {
+			display: inline;
+		}
+	}
 }
 h3:not([class*="xm__txtSize"]) {
 	font-size: $fontSizeLarge;

@@ -32,10 +32,28 @@
 	@import "05-components/module";
 	@import "06-layouts/module";
 
+	html {
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+		overflow-x: hidden;
+		font-size: 100%;
+		font-weight: $fontWeightRegular;
+		text-rendering: optimizeLegibility;
+		@supports (-moz-appearance: none) {
+			// firefox fix
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			font-weight: $fontWeightRegularAlt;
+		}
+	}
+
 	body {
 		width: 100%;
 		font-family: font(primary);
 		font-size: $fontSize;
+		overflow: hidden;
+		position: static;
 
 		&:not(.is__dashboard) {
 			#appex {

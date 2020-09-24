@@ -1,0 +1,101 @@
+/** @format */
+
+/// link Navigation element
+/// this element is expected to be an <a> tag
+///
+/// @group Components
+.x-btnLink {
+	&:not(.is__route):not(.is__active) span {
+		display: none;
+	}
+	&.m__size,
+	&.m__size-normal,
+	&:not([class*="m__size"]) {
+		&.is__route,
+		&.is__active {
+			// text only
+			padding: 0 0.8rem;
+			i.x-icon {
+				display: none;
+			}
+		}
+		&:not(.is__route):not(.is__active) {
+			// icon only
+			padding: 0;
+			width: 2.4rem;
+			i.x-icon {
+				margin: 0 !important;
+				+ span {
+					display: none;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $viewportMd + 1) {
+		//desktop overrides
+
+		border: 0 !important;
+		padding: 0 !important;
+		width: auto !important;
+		height: auto !important;
+		background: transparent !important;
+
+		/// ruta activa
+		///
+		/// @group Statuses
+		&.is__route {
+			&:before {
+				content: "...";
+				display: block;
+				position: absolute;
+				top: calc(100%);
+				left: 0;
+				line-height: 0;
+				overflow: visible;
+				font-size: 1.3em;
+			}
+		}
+
+		/// nav link themes
+		///
+		// /// @group Modifiers
+		&.u__tm {
+			&-light-primaryAlt {
+				color: color(light);
+				&:hover,
+				&.is__active,
+				&.is__routeExact {
+					color: color(primaryAlt);
+				}
+			}
+			&-primary-light {
+				color: color(light);
+				&:hover,
+				&.is__active,
+				&.is__routeExact {
+					color: color(primary);
+				}
+			}
+		}
+		/// default theme: secondary
+		&:not([class*="u__tm"]),
+		&.u__tm-secondary-light {
+			color: color(secondary);
+			&:hover:not(.is__active):not(.is__routeExact) {
+				color: color(dark, 0.5);
+			}
+			&.is__active,
+			&.is__routeExact {
+				color: color(dark, 0.7);
+			}
+		}
+
+		span {
+			display: block !important;
+		}
+		i.x-icon {
+			display: none;
+		}
+	}
+}
