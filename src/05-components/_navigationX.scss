@@ -4,16 +4,9 @@
 /// this element is expected to be an <nav> wrapper
 ///
 /// @group Layouts
-nav.x-navX,
-.x-navX-menu:not(.is__sub) {
-	height: 5rem;
-	z-index: 15;
-}
-
-/// Navigation nav
-.x-navX-menu {
+.x-navX {
 	width: 100%;
-	left: 0;
+	z-index: 15;
 	@include flexbox(column, nowrap, center, stretch);
 	// box-sizing: border-box;
 
@@ -21,11 +14,64 @@ nav.x-navX,
 	///
 	/// @group Statuses
 	&:not(.is__sub) {
-		transition: background 0.3s ease-out;
 		&:not(.is__relative) {
-			position: fixed;
-			left: 0;
-			top: 0;
+			@media (min-width: $viewportMd + 1) {
+				/// desktop
+				> .x-navX-wrapper {
+					position: fixed;
+					left: 0;
+					top: 0;
+					z-index: 16;
+					.x-navX-wrapper {
+						width: auto;
+						> .x-holder {
+							// nested childs
+							padding: 0 !important;
+						}
+					}
+				}
+			}
+			@media (max-width: $viewportMd) {
+				/// mobile
+				&:not([class*="m__tm"]),
+				&.m__tm-secondary {
+					> .x-navX-wrapper {
+						background: transparent;
+						box-shadow: none;
+					}
+					.x-navX-wrapper.is__main {
+						background: color(light);
+						box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
+					}
+				}
+				> .x-navX-wrapper > .x-holder {
+					// first one
+					padding: 0 !important;
+				}
+				.x-navX-wrapper.is__main {
+					position: fixed;
+					left: 0;
+					top: 0;
+					z-index: 16;
+				}
+				.x-navX-wrapper.is__search {
+					z-index: -1;
+					height: auto;
+					position: absolute;
+					top: 100%;
+					left: 0;
+					> *,
+					> * > *,
+					> * > * > * {
+						width: 100%;
+					}
+				}
+			}
+		}
+		&,
+		.x-navX-wrapper {
+			height: 5rem;
+			transition: background 0.3s ease-out;
 		}
 
 		/// tema de la barra de navegacion principal
@@ -33,7 +79,7 @@ nav.x-navX,
 		/// @group ConditionalModifiers
 		&.m__tm-light,
 		&.m__tm-lightAlt {
-			> .x-navX-menu-list .x-navX-menu-list-item > {
+			.x-navX-list-item > {
 				.x-link:not(:hover):not(.is__active):not(.is__routeExact) {
 					text-shadow: 1px 1px 1px color(dark, 0.3);
 				}
@@ -54,11 +100,15 @@ nav.x-navX,
 		/// default theme
 		&:not([class*="m__tm"]),
 		&.m__tm-secondary {
-			background: color(light);
-			&:not(.is__relative) {
-				box-shadow: 0 0.5rem 3rem color(dark, 0.05);
+			> .x-navX-wrapper {
+				background: color(light);
 			}
-			> .x-navX-menu-list .x-navX-menu-list-item > {
+			&:not(.is__relative) {
+				> .x-navX-wrapper {
+					box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
+				}
+			}
+			.x-navX-list-item > {
 				.x-link,
 				.x-btnLink {
 					// color: color(secondary);
@@ -71,19 +121,23 @@ nav.x-navX,
 	///
 	/// @group Statuses
 	&.is__sub {
+		z-index: 14;
 		position: absolute;
 		left: 0;
 		top: 100%;
 		// margin: 0;
-		height: 3rem;
+		height: 2.4rem;
 		border-top: 2px solid transparent;
 		border-bottom: 2px solid transparent;
+		@media (max-width: $viewportMd) {
+			display: none;
+		}
 
 		/// tema de la barra de navegacion secundaria
 		///
 		/// @group ConditionalModifiers
 		&.m__tm-light {
-			> .x-navX-menu-list .x-navX-menu-list-item > {
+			.x-navX-list-item > {
 				.x-link,
 				.x-btnLink {
 					&:not(:hover):not(.is__active):not(.is__routeExact) {
@@ -94,7 +148,7 @@ nav.x-navX,
 			}
 		}
 		&.m__tm-primaryAlt {
-			> .x-navX-menu-list .x-navX-menu-list-item > {
+			.x-navX-list-item > {
 				.x-link,
 				.x-btnLink {
 					&:hover,
@@ -110,7 +164,7 @@ nav.x-navX,
 		&:not([class*="m__tm"]),
 		&.m__tm-secondary {
 			border-bottom-color: color(secondary, 0.05);
-			> .x-navX-menu-list .x-navX-menu-list-item > {
+			.x-navX-list-item > {
 				.x-link,
 				.x-btnLink {
 					// color: color(secondary);
@@ -118,39 +172,50 @@ nav.x-navX,
 			}
 		}
 	}
-
-	> .x-holder {
-		height: 100%;
-		@include flexbox(row, nowrap, space-between, center);
-	}
-
-	.x-navX-menu {
-		z-index: -1;
-	}
 }
 
-/// Navigation nav list
-/// this element is expected to be an <ul> or <ol> list
-ul.x-navX-menu-list,
-ol.x-navX-menu-list {
-	@include flexbox(row, nowrap, center, center);
+/// Navigation wrapper
+.x-navX-wrapper {
 	&,
-	> * {
-		&:not(:first-child):not(.x-navX-menu) {
+	> .x-holder {
+		width: 100%;
+		height: 100%;
+		position: static;
+		@include flexbox(row, nowrap, space-between, center);
+	}
+	> *:not(:first-child) {
+		@media (min-width: $viewportMd + 1) {
 			margin-left: 1rem;
 		}
 	}
 }
 
-aside.x-navX-menu-aside {
-	@media (max-width: $viewportMd) {
-		position: absolute;
-		display: none;
+/// Navigation nav list
+/// this element is expected to be an <ul> or <ol> list
+ul.x-navX-list,
+ol.x-navX-list {
+	position: static;
+	@include flexbox(row, nowrap, center, center);
+	&,
+	> * {
+		&:not(:first-child) {
+			margin-left: 1rem;
+		}
+	}
+	&.is__toggle {
+		@media (min-width: $viewportMd + 1) {
+			display: none;
+		}
+	}
+	&.is__aside {
+		@media (max-width: $viewportMd) {
+			display: none;
+		}
 	}
 }
 
 /// Navigation nav list item
 /// this element is expected to be an <li> list item
-li.x-navX-menu-list-item {
+li.x-navX-list-item {
 	@include flexbox(row, nowrap, center, center);
 }

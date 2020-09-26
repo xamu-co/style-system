@@ -15,12 +15,9 @@
 	height: auto;
 	box-sizing: border-box;
 	@include flexbox(row, nowrap, center, stretch);
-	&:not(.m__minHeight-none) {
-		min-height: 60vh;
-	}
 	&:not([class*="xm__bgColor"]) {
 		&:first-child + .x-view-item[class*="xm__bgColor"] {
-			padding-top: 3rem;
+			padding-top: 2.4rem;
 			&:before {
 				content: "";
 				// triangle-top.svg
@@ -33,13 +30,13 @@
 	&[class*="xm__bgColor"] {
 		padding-bottom: 4rem;
 		&:not(.m__p-normal):first-child {
-			padding-top: 6rem;
+			padding-top: 4.8rem;
 		}
 		&.m__p-normal:first-child {
-			padding-top: 3rem;
+			padding-top: 2.4rem;
 		}
 		&:last-child {
-			padding-bottom: 3rem;
+			padding-bottom: 2.4rem;
 			&:not(.m__noShapes) {
 				margin-bottom: 12vh; // triangle size
 				&:after {
@@ -72,6 +69,9 @@
 	/// min height
 	///
 	/// @group Modifiers
+	&:not(.m__minHeight-none) {
+		min-height: 60vh;
+	}
 	&.m__minHeight-100 {
 		&:not(.m__noShapes) {
 			min-height: calc(100vh - 12vh);

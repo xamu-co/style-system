@@ -16,6 +16,11 @@
 		position: absolute;
 		z-index: -1;
 	}
+	&-full {
+		@include extend-viewports(true) {
+			display: none !important;
+		}
+	}
 }
 
 /// flex growth and shrink
