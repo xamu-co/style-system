@@ -1,5 +1,29 @@
 Xamu style system
 
+# [4.0.0](https://github.com/xamu-co/style-system/compare/v3.0.0...v4.0.0) (2020-09-27)
+
+
+* Merge pull request #7 from xamu-co/dev ([9b91f62](https://github.com/xamu-co/style-system/commit/9b91f623a593547f0f8a357a6fe03c1ea1e36759)), closes [#7](https://github.com/xamu-co/style-system/issues/7)
+
+
+### Features
+
+* device type && scroll area ([eb42514](https://github.com/xamu-co/style-system/commit/eb42514bcaaa3caaea4086df32473f44032390f7))
+* full buttonLink ([ec329b2](https://github.com/xamu-co/style-system/commit/ec329b29369cfb4f2bb8b739d121562643f4cde8))
+* grid common voids ([c32015e](https://github.com/xamu-co/style-system/commit/c32015e9d3fb380a53bef7b01f89a022c6364768))
+* mobile navigation menu ([0d6d458](https://github.com/xamu-co/style-system/commit/0d6d458aede3a442952741337a7067c8bef18511))
+* partially responsive menu ([66cc6aa](https://github.com/xamu-co/style-system/commit/66cc6aa08e752f7b3e5c2d0bc5aac5f295e9faef))
+* svg icons ([573b0ea](https://github.com/xamu-co/style-system/commit/573b0ea295e39389e4284223a5c9899ba1e675d3))
+
+
+### BREAKING CHANGES
+
+* v4 & responsive, this release contains important changes
+* logo class >> svg
+* swaped navX class & subclass roles
+* linkNav class >> btnLink
+* grid void modifier >> union
+
 # [3.0.0](https://github.com/xamu-co/style-system/compare/v2.4.1...v3.0.0) (2020-09-09)
 
 
