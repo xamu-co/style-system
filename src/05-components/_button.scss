@@ -5,6 +5,10 @@
 ///
 /// @group Components
 .x-btn {
+	/// button round handling
+	&.m__round span {
+		display: none;
+	}
 }
 
 /// Toggle button Vertical

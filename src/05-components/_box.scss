@@ -18,7 +18,7 @@
 	}
 	&:not([class*="x-flx"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> :not([class*="xm__mBottom"]):not(:last-child) {
+		> :not([class*="xm__mBottom"]):not([class*="m__flxRow-wrap"]):not([class*="m__flxColumn-wrap"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}
