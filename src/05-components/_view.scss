@@ -22,7 +22,7 @@
 				content: "";
 				// triangle-top.svg
 				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M100,0V100H0Z' fill='%23fff' /%3E%3C/svg%3E%0A");
-				bottom: calc(100% - 0.3px);
+				bottom: calc(100% - 1px);
 				border-bottom: 1px solid color(light);
 			}
 		}
@@ -38,13 +38,16 @@
 		&:last-child {
 			padding-bottom: 2.4rem;
 			&:not(.m__noShapes) {
-				margin-bottom: 12vh; // triangle size
+				margin-bottom: 6vh; // triangle size
 				&:after {
 					content: "";
 					// triangle-bottom.svg
 					background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M0,0H100L0,100Z' fill='%23fff' /%3E%3C/svg%3E%0A");
-					top: calc(100% - 0.3px);
+					top: calc(100% - 1px);
 					border-top: 1px solid color(light);
+				}
+				@media (min-width: $viewportMd + 1) {
+					margin-bottom: 12vh; // triangle size
 				}
 			}
 		}
@@ -55,7 +58,7 @@
 		&:before,
 		&:after {
 			width: 100%;
-			height: 12vh;
+			height: 6vh;
 			display: block;
 			position: absolute;
 			left: 0;
@@ -63,6 +66,9 @@
 			background-repeat: no-repeat;
 			pointer-events: none;
 			box-sizing: border-box;
+			@media (min-width: $viewportMd + 1) {
+				height: 12vh; // triangle size
+			}
 		}
 	}
 
@@ -74,7 +80,7 @@
 	}
 	&.m__minHeight-100 {
 		&:not(.m__noShapes) {
-			min-height: calc(100vh - 12vh);
+			min-height: calc(100vh - 5rem);
 		}
 		&.m__noShapes {
 			min-height: 100vh;

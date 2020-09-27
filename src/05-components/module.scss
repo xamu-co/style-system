@@ -95,7 +95,7 @@ ol {
 	}
 }
 
-/// button & buttonY & link nav
+/// button & buttonY & btnlink nav
 ///
 /// @group SharedStyles
 .x-btn,
@@ -107,7 +107,21 @@ ol {
 	@include flexbox(row, nowrap, center, center, inline-flex);
 }
 
-/// button, buttonY & select shared styles
+/// button, buttonToggle & link shared styles
+///
+/// @group SharedStyles
+.x-btn,
+.x-btnToggle,
+.x-link {
+	:not(.x-icon):first-child ~ i.x-icon {
+		margin-left: 0.4em;
+	}
+	i.x-icon ~ :not(.x-icon) {
+		margin-left: 0.4em;
+	}
+}
+
+/// button, buttonY, select & btnLink shared styles
 ///
 /// @group SharedStyles
 .x-btn,
@@ -117,7 +131,6 @@ select.x-inSelect {
 	white-space: nowrap;
 	border-color: transparent;
 
-	/// button, select theme
 	/// first value is the bgColor
 	/// second value is the textColor
 	///
@@ -158,17 +171,6 @@ select.x-inSelect {
 			&:not(.is__active):not(.is__route) {
 				text-shadow: 0 0 1px color(dark, 0.2);
 			}
-			// &.is__routeExact,
-			// &.is__route,
-			// &.is__active {
-			// 	border-color: color(light);
-			// 	color: color(light);
-			// }
-			// &:disabled,
-			// &[disabled] {
-			// 	border-color: color(light, 0.3);
-			// 	color: color(light, 0.3);
-			// }
 		}
 		&-secondary,
 		&-dark,
@@ -294,19 +296,12 @@ select.x-inSelect {
 /// @group SharedStyles
 .x-btn,
 .x-btnToggle,
-.x-btnLink,
 .x-inTxt,
 select.x-inSelect {
-	border-style: solid;
-	text-shadow: none;
-	box-sizing: border-box;
-	&:not([class*="xm__txtSize"]) {
-		font-size: 1rem;
-	}
-	/// this is the default value
 	&.m__size,
 	&.m__size-normal,
 	&:not([class*="m__size"]) {
+		/// this is the default value
 		height: 2.4rem;
 		border-radius: 1rem;
 		border-width: 2px;
@@ -326,11 +321,21 @@ select.x-inSelect {
 			text-transform: capitalize;
 		}
 	}
-	:not(.x-icon):first-child ~ i.x-icon {
-		margin-left: 0.4em;
-	}
-	i.x-icon ~ :not(.x-icon) {
-		margin-left: 0.4em;
+}
+
+/// text, select, button, buttonToggle & btnLink shared styles
+///
+/// @group SharedStyles
+.x-btn,
+.x-btnToggle,
+.x-btnLink,
+.x-inTxt,
+select.x-inSelect {
+	border-style: solid;
+	text-shadow: none;
+	box-sizing: border-box;
+	&:not([class*="xm__txtSize"]) {
+		font-size: 1rem;
 	}
 }
 
@@ -357,8 +362,7 @@ select.x-inSelect {
 	///
 	/// @group SharedStyles
 	.x-btn,
-	.x-btnToggle,
-	.x-btnLink {
+	.x-btnToggle {
 		&.m__size-#{$name} {
 			padding: 0 #{$size * 0.8};
 			&.m__round {
@@ -371,7 +375,6 @@ select.x-inSelect {
 	/// @group SharedStyles
 	.x-btn,
 	.x-btnToggle,
-	.x-btnLink,
 	.x-inTxt,
 	select.x-inSelect {
 		&.m__size-#{$name} {

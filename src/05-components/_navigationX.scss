@@ -6,7 +6,6 @@
 /// @group Layouts
 .x-navX {
 	width: 100%;
-	z-index: 15;
 	@include flexbox(column, nowrap, center, stretch);
 	// box-sizing: border-box;
 
@@ -15,22 +14,6 @@
 	/// @group Statuses
 	&:not(.is__sub) {
 		&:not(.is__relative) {
-			@media (min-width: $viewportMd + 1) {
-				/// desktop
-				> .x-navX-wrapper {
-					position: fixed;
-					left: 0;
-					top: 0;
-					z-index: 16;
-					.x-navX-wrapper {
-						width: auto;
-						> .x-holder {
-							// nested childs
-							padding: 0 !important;
-						}
-					}
-				}
-			}
 			@media (max-width: $viewportMd) {
 				/// mobile
 				&:not([class*="m__tm"]),
@@ -46,6 +29,7 @@
 				}
 				> .x-navX-wrapper > .x-holder {
 					// first one
+					position: static;
 					padding: 0 !important;
 				}
 				.x-navX-wrapper.is__main {
@@ -67,11 +51,27 @@
 					}
 				}
 			}
+			@media (min-width: $viewportMd + 1) {
+				/// desktop
+				> .x-navX-wrapper {
+					position: fixed;
+					left: 0;
+					top: 0;
+					z-index: 16;
+					.x-navX-wrapper {
+						width: auto;
+						> .x-holder {
+							// nested childs
+							padding: 0 !important;
+						}
+					}
+				}
+			}
 		}
 		&,
 		.x-navX-wrapper {
 			height: 5rem;
-			transition: background 0.3s ease-out;
+			transition: background 0.3s ease-out, margin 0.3s ease-out;
 		}
 
 		/// tema de la barra de navegacion principal
@@ -121,7 +121,6 @@
 	///
 	/// @group Statuses
 	&.is__sub {
-		z-index: 14;
 		position: absolute;
 		left: 0;
 		top: 100%;
@@ -129,8 +128,8 @@
 		height: 2.4rem;
 		border-top: 2px solid transparent;
 		border-bottom: 2px solid transparent;
-		@media (max-width: $viewportMd) {
-			display: none;
+		@media (min-width: $viewportMd + 1) {
+			z-index: 14;
 		}
 
 		/// tema de la barra de navegacion secundaria
@@ -172,6 +171,73 @@
 			}
 		}
 	}
+
+	/// mobile menu
+	///
+	/// @group Statuses
+	&.is__mobile {
+		@media (max-width: $viewportMd) {
+			position: fixed;
+			left: 100%;
+			top: 0;
+			width: 230px;
+			height: 100%;
+			border: none;
+			transition: margin 0.3s ease-out;
+			box-sizing: border-box;
+			padding-top: 7.4rem;
+			background: color(light);
+			&:before {
+				content: "";
+				z-index: -1;
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 2.4rem;
+				height: 100%;
+				@include linear-gradient(
+					to right,
+					color(dark, 0.05),
+					transparent
+				);
+			}
+			&:after {
+				content: "Menú";
+				display: block;
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 5rem;
+				padding: 0 1rem;
+				color: color(dark, 0.7);
+				font-weight: $fontWeightBold;
+				@include flexbox(row, nowrap, flex-start, center);
+			}
+			> .x-navX-wrapper {
+				z-index: 14;
+				overflow-y: auto;
+				overflow-x: hidden;
+				display: block;
+				.x-holder {
+					padding-top: 1rem;
+					padding-bottom: 1rem;
+				}
+				.x-holder,
+				.x-navX-list {
+					height: auto;
+					flex-flow: column nowrap;
+					justify-content: flex-start;
+					align-items: flex-start;
+					> *:not(:first-child) {
+						margin-left: 0;
+						margin-top: 1rem;
+					}
+				}
+			}
+		}
+	}
 }
 
 /// Navigation wrapper
@@ -209,7 +275,13 @@ ol.x-navX-list {
 	}
 	&.is__aside {
 		@media (max-width: $viewportMd) {
-			display: none;
+			position: fixed;
+			left: 100%;
+			top: 5rem;
+			z-index: 16;
+			margin-left: 0;
+			padding-left: 1rem;
+			transition: margin 0.3s ease-out;
 		}
 	}
 }

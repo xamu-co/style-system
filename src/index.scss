@@ -46,6 +46,25 @@
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: $fontWeightRegularAlt;
 		}
+
+		@media (max-width: $viewportMd) {
+			transition-delay: 0.3s;
+			&.is__navOpen {
+				overflow-y: hidden;
+				@media (hover: hover) {
+					border-right: 1rem solid transparent;
+				}
+				#appex,
+				.x-navX-wrapper.is__main,
+				.x-navX.is__mobile,
+				.x-navX-list.is__aside {
+					margin-left: -230px;
+				}
+				.x-view {
+					pointer-events: none;
+				}
+			}
+		}
 	}
 
 	body {
@@ -54,7 +73,6 @@
 		font-size: $fontSize;
 		overflow: hidden;
 		position: static;
-
 		&:not(.is__dashboard) {
 			#appex {
 				@include flexbox(column, nowrap, flex-start, stretch);
@@ -92,7 +110,15 @@
 			}
 		}
 	}
+	html,
+	body {
+	}
 	#appex {
 		width: 100%;
+	}
+	#appex,
+	#__nuxt,
+	#__layout {
+		position: static;
 	}
 }
