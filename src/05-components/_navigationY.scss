@@ -52,7 +52,10 @@ ol.x-navY-menu-list {
 		height: 5rem;
 		@include flexbox(column, nowrap, center, flex-start);
 	}
-	> *:not(:last-child) {
-		margin-bottom: 1rem;
+	&,
+	> * {
+		&:not(:first-child) {
+			margin-top: 1rem;
+		}
 	}
 }

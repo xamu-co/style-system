@@ -1,0 +1,113 @@
+/** @format */
+
+/// link Navigation element
+///
+/// @group Components
+.x-btnLink {
+	@media (max-width: $viewportMd) {
+		/// mobile
+		&:not(.is__route):not(.is__active) {
+			padding: 0;
+			span {
+				display: none;
+			}
+		}
+
+		/// button link size
+		///
+		/// @group Modifiers
+		&.m__size,
+		&.m__size-normal,
+		&:not([class*="m__size"]) {
+			/// this is the default value
+			height: 2.4rem;
+			border-radius: 1rem;
+			border-width: 2px;
+			&.is__route,
+			&.is__active {
+				// text only
+				padding: 0 0.8rem;
+				i.x-icon {
+					display: none;
+				}
+			}
+			&:not(.is__route):not(.is__active) {
+				// icon only
+				width: 2.4rem;
+			}
+		}
+
+		@each $name, $size in $fontSizes {
+			/// button link size
+			///
+			/// @group Modifiers
+			&.m__size-#{$name} {
+				height: $size * 2.6;
+				border-radius: $size;
+				border-width: calc(2px + (#{$size} / 18));
+				padding: 0 #{$size * 0.8};
+				&:not(.is__route):not(.is__active) {
+					width: $size * 2.6;
+				}
+			}
+		}
+	}
+
+	@media (min-width: $viewportMd + 1) {
+		/// desktop
+		background: transparent !important;
+
+		/// ruta activa
+		///
+		/// @group Statuses
+		&.is__route {
+			&:before {
+				content: "...";
+				display: block;
+				position: absolute;
+				top: calc(100%);
+				left: 0;
+				line-height: 0;
+				overflow: visible;
+				font-size: 1.3em;
+			}
+		}
+
+		/// nav link themes
+		///
+		/// @group Modifiers
+		&.u__tm {
+			&-light-primaryAlt {
+				color: color(light);
+				&:hover,
+				&.is__active,
+				&.is__routeExact {
+					color: color(primaryAlt);
+				}
+			}
+			&-primary-light {
+				color: color(light);
+				&:hover,
+				&.is__active,
+				&.is__routeExact {
+					color: color(primary);
+				}
+			}
+		}
+		/// default theme: secondary
+		&:not([class*="u__tm"]),
+		&.u__tm-secondary-light {
+			color: color(secondary);
+			&:hover:not(.is__active):not(.is__routeExact) {
+				color: color(dark, 0.5);
+			}
+			&.is__active,
+			&.is__routeExact {
+				color: color(dark, 0.7);
+			}
+		}
+		i.x-icon {
+			display: none;
+		}
+	}
+}

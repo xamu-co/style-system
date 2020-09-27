@@ -8,12 +8,16 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	z-index: -1;
 	overflow: hidden;
 	// background: color(blanco);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	transition: all 0.3s ease-out;
+
+	&:not([class*="xm__index"]) {
+		z-index: -1;
+	}
 
 	&:not([class*="xm__position"]) {
 		position: absolute;
@@ -23,7 +27,7 @@
 		top: -5rem;
 		height: auto;
 		bottom: 0;
-		background-color: color(dark);
+		background-color: color(secondary);
 		background-attachment: fixed;
 		@supports (-webkit-overflow-scrolling: touch) {
 			background-attachment: scroll;

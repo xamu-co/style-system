@@ -4,7 +4,7 @@
 /// this element is expected to be an <input> or <textarea> tag but the text type
 ///
 /// @group Components
-:not(textarea).x-inText {
+:not(textarea).x-inTxt {
 	i.x-icon {
 		position: absolute;
 		top: 50%;
@@ -22,13 +22,13 @@
 		box-sizing: border-box;
 	}
 }
-textarea.x-inText {
+textarea.x-inTxt {
 	height: auto !important;
 	min-height: 6rem;
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
-.x-inText {
+.x-inTxt {
 	width: 100%;
 	display: block;
 	padding: 0 0.8rem;

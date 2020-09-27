@@ -28,6 +28,27 @@
 	}
 }
 
+// device type extend
+@mixin extend-interactions($hover: false) {
+	@content;
+	@if $responsive {
+		/// mobile only
+		@media (hover: none) {
+			touch\:#{&} {
+				@content;
+			}
+		}
+		/// desktop only
+		@if $hover {
+			@media (hover: hover) {
+				hover\:#{&} {
+					@content;
+				}
+			}
+		}
+	}
+}
+
 // flexbox en una sola linea
 // ej: row, nowrap, space-around, strecth
 @mixin flexbox($t, $m, $j, $a, $d: flex) {

@@ -4,9 +4,12 @@
 ///
 /// @group Layouts
 .x-cols {
-	overflow: hidden;
-	gap: 2rem;
-
+	@include extend-interactions {
+		overflow: hidden;
+		gap: 2rem;
+	}
+}
+[class*="x-cols"] {
 	/// Column count
 	///
 	/// @group Modifiers
