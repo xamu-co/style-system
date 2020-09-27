@@ -58,7 +58,13 @@
 				.x-navX-wrapper.is__main,
 				.x-navX.is__mobile,
 				.x-navX-list.is__aside {
-					margin-left: -230px;
+					margin-left: -15rem; //230px aprox
+				}
+				body:before {
+					background-position: -5rem 0; /// third the distance
+				}
+				.x-back.is__header {
+					background-position: calc(50% - 15rem) 50%;
 				}
 				.x-view {
 					pointer-events: none;
@@ -73,6 +79,9 @@
 		font-size: $fontSize;
 		overflow: hidden;
 		position: static;
+		&:before {
+			transition: all 0.3s ease-out;
+		}
 		&:not(.is__dashboard) {
 			#appex {
 				@include flexbox(column, nowrap, flex-start, stretch);

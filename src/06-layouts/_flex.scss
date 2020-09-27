@@ -15,6 +15,7 @@
 .x-flxInline {
 	@include extend-interactions {
 		display: inline-flex;
+		position: static;
 	}
 }
 

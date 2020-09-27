@@ -14,17 +14,20 @@
 	/// @group Statuses
 	&:not(.is__sub) {
 		&:not(.is__relative) {
+			z-index: 16;
 			@media (max-width: $viewportMd) {
 				/// mobile
 				&:not([class*="m__tm"]),
 				&.m__tm-secondary {
-					> .x-navX-wrapper {
-						background: transparent;
-						box-shadow: none;
+					&:not(.is__top) .x-navX-wrapper.is__main {
+						box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
 					}
 					.x-navX-wrapper.is__main {
 						background: color(light);
-						box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
+					}
+					> .x-navX-wrapper {
+						background: transparent;
+						box-shadow: none;
 					}
 				}
 				> .x-navX-wrapper > .x-holder {
@@ -71,7 +74,7 @@
 		&,
 		.x-navX-wrapper {
 			height: 5rem;
-			transition: background 0.3s ease-out, margin 0.3s ease-out;
+			transition: all 0.3s ease-out;
 		}
 
 		/// tema de la barra de navegacion principal
@@ -180,7 +183,7 @@
 			position: fixed;
 			left: 100%;
 			top: 0;
-			width: 230px;
+			width: 15rem; //230px aprox
 			height: 100%;
 			border: none;
 			transition: margin 0.3s ease-out;
@@ -278,7 +281,6 @@ ol.x-navX-list {
 			position: fixed;
 			left: 100%;
 			top: 5rem;
-			z-index: 16;
 			margin-left: 0;
 			padding-left: 1rem;
 			transition: margin 0.3s ease-out;
