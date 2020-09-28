@@ -53,6 +53,8 @@
 		@media (max-width: $viewportMd) {
 			transition-delay: 0.3s;
 			&.is__navOpen {
+				/// there has to be a way of optimizing this
+				/// TODO: refactor side mobile menu in the future
 				overflow-y: hidden;
 				@media (hover: hover) {
 					border-right: 1rem solid transparent;
@@ -73,12 +75,12 @@
 					pointer-events: none;
 				}
 			}
-			#appex,
-			.x-navX-wrapper.is__main,
-			.x-navX.is__mobile,
-			.x-navX-list.is__aside {
-				will-change: margin;
-			}
+			// #appex,
+			// .x-navX-wrapper.is__main,
+			// .x-navX.is__mobile,
+			// .x-navX-list.is__aside {
+			// 	will-change: margin;
+			// }
 		}
 	}
 

@@ -184,7 +184,7 @@
 			left: 100%;
 			top: 0;
 			width: 15rem; //230px aprox
-			height: 100%;
+			height: 120%;
 			border: none;
 			transition: margin 0.3s ease-out;
 			box-sizing: border-box;
@@ -225,7 +225,7 @@
 				display: block;
 				.x-holder {
 					padding-top: 1rem;
-					padding-bottom: 1rem;
+					padding-bottom: calc(20vh + 1rem); // overflow fix
 				}
 				.x-holder,
 				.x-navX-list {
@@ -236,6 +236,35 @@
 					> *:not(:first-child) {
 						margin-left: 0;
 						margin-top: 1rem;
+					}
+				}
+			}
+			.x-dropdownToggler i.x-icon {
+				display: none;
+			}
+			.x-dropdown {
+				display: block;
+				position: relative;
+				top: auto;
+				left: auto;
+				bottom: auto;
+				right: auto;
+				padding: 1rem 0 1.4rem;
+				border-radius: 0;
+				background: transparent;
+				box-shadow: none;
+				hr {
+					display: none;
+				}
+				li {
+					padding-left: 1rem;
+					&:not(:last-child) {
+						margin-bottom: 1rem;
+					}
+					a,
+					p {
+						padding: 0;
+						white-space: normal;
 					}
 				}
 			}
@@ -291,5 +320,5 @@ ol.x-navX-list {
 /// Navigation nav list item
 /// this element is expected to be an <li> list item
 li.x-navX-list-item {
-	@include flexbox(row, nowrap, center, center);
+	@include flexbox(column, nowrap, center, flex-start);
 }
