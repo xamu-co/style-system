@@ -1,5 +1,17 @@
 Xamu style system
 
+# [4.1.0](https://github.com/xamu-co/style-system/compare/v4.0.0...v4.1.0) (2020-09-28)
+
+
+### Bug Fixes
+
+* box & flx gaping ([17ece14](https://github.com/xamu-co/style-system/commit/17ece14cbc0cfc7b7786b467fb3bda463deae97b))
+
+
+### Features
+
+* full responsive menu ([9aca2de](https://github.com/xamu-co/style-system/commit/9aca2de180aa2ed4eba51cc76a6aa6aa04e26883))
+
 # [4.0.0](https://github.com/xamu-co/style-system/compare/v3.0.0...v4.0.0) (2020-09-27)
 
 
