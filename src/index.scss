@@ -41,15 +41,20 @@
 		font-weight: $fontWeightRegular;
 		text-rendering: optimizeLegibility;
 		@supports (-moz-appearance: none) {
-			// firefox fix
+			/// firefox fix
+			/// font weight bug
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: $fontWeightRegularAlt;
+			/// scroll bug on android
+			overflow: hidden;
 		}
 
 		@media (max-width: $viewportMd) {
 			transition-delay: 0.3s;
 			&.is__navOpen {
+				/// there has to be a way of optimizing this
+				/// TODO: refactor side mobile menu in the future
 				overflow-y: hidden;
 				@media (hover: hover) {
 					border-right: 1rem solid transparent;
@@ -70,6 +75,12 @@
 					pointer-events: none;
 				}
 			}
+			// #appex,
+			// .x-navX-wrapper.is__main,
+			// .x-navX.is__mobile,
+			// .x-navX-list.is__aside {
+			// 	will-change: margin;
+			// }
 		}
 	}
 
@@ -79,6 +90,14 @@
 		font-size: $fontSize;
 		overflow: hidden;
 		position: static;
+		@supports (-moz-appearance: none) {
+			/// firefox fix
+			/// scroll bug on android
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+			overflow-x: hidden;
+		}
 		&:before {
 			transition: all 0.3s ease-out;
 		}

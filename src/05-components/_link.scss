@@ -70,4 +70,9 @@
 			text-shadow: 1px 1px 1px color(dark, 0.3);
 		}
 	}
+
+	/// link round handling
+	&.m__round i.x-icon {
+		display: none;
+	}
 }

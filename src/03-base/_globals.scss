@@ -217,3 +217,47 @@ strong,
 		}
 	}
 }
+
+x-flx[class*="m__flxRow"] {
+	/// default
+	&:not([class*="xm__gaping"]) {
+		> [class*="m__flxRow-wrap"],
+		> [class*="m__flxColumn-wrap"] {
+			&:not(.unfix__gaping) + * {
+				margin-left: 1rem;
+			}
+		}
+	}
+	@for $i from 1 through 10 {
+		&.xm__gaping-#{$i*5} {
+			> [class*="m__flxRow-wrap"],
+			> [class*="m__flxColumn-wrap"] {
+				&:not(.unfix__gaping) + * {
+					margin-left: #{$i/3}rem;
+				}
+			}
+		}
+	}
+}
+.x-box,
+x-flx[class*="m__flxColumn"] {
+	/// default
+	&:not([class*="xm__gaping"]) {
+		> [class*="m__flxRow-wrap"],
+		> [class*="m__flxColumn-wrap"] {
+			&:not(.unfix__gaping) + * {
+				margin-top: 1rem;
+			}
+		}
+	}
+	@for $i from 1 through 10 {
+		&.xm__gaping-#{$i*5} {
+			> [class*="m__flxRow-wrap"],
+			> [class*="m__flxColumn-wrap"] {
+				&:not(.unfix__gaping) + * {
+					margin-top: #{$i/3}rem;
+				}
+			}
+		}
+	}
+}
