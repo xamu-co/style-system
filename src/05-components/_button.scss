@@ -19,8 +19,6 @@
 	padding: 0.8rem 0.2rem;
 	border-radius: 0.4rem;
 	border-width: 2px;
-	border-style: solid;
-	box-sizing: border-box;
 	&:disabled,
 	&[disabled] {
 		pointer-events: none;

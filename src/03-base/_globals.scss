@@ -52,7 +52,7 @@
 	}
 }
 
-h1:not([class*="xm__txtSize"]) {
+h1:not([class*="__txtSize"]) {
 	font-size: $fontSizeExtraLarge;
 	br {
 		display: none;
@@ -64,7 +64,7 @@ h1:not([class*="xm__txtSize"]) {
 		}
 	}
 }
-h2:not([class*="xm__txtSize"]) {
+h2:not([class*="__txtSize"]) {
 	font-size: $fontSizeLarge;
 	br {
 		display: none;
@@ -76,10 +76,10 @@ h2:not([class*="xm__txtSize"]) {
 		}
 	}
 }
-h3:not([class*="xm__txtSize"]) {
+h3:not([class*="__txtSize"]) {
 	font-size: $fontSizeLarge;
 }
-h4:not([class*="xm__txtSize"]) {
+h4:not([class*="__txtSize"]) {
 	font-size: $fontSizeMedium;
 }
 
@@ -159,7 +159,7 @@ iframe {
 		box-sizing: border-box;
 		@include flexbox(column, nowrap, center, center);
 	}
-	&:not(.m__bgColor-none) {
+	&:not([class*="__bgColor"]) {
 		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
 	}
 }
@@ -193,7 +193,7 @@ h6 {
 }
 
 /// global font weight
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class*="x-btn"]):not([class*="fa-"]):not([class*="xm__txtWeight"]) {
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not([class|="fa"]):not([class*="__txtWeight"]) {
 	font-weight: inherit;
 }
 
@@ -209,7 +209,7 @@ button,
 strong,
 .x-btn,
 .x-btnToggle {
-	&:not([class*="xm__txtWeight"]) {
+	&:not([class*="__txtWeight"]) {
 		font-weight: $fontWeightBold;
 		@supports (-moz-appearance: none) {
 			// firefox fix
@@ -218,11 +218,14 @@ strong,
 	}
 }
 
-x-flx[class*="m__flxRow"] {
+/// gaping fix
+///
+/// @group SharedStyles
+x-flx[class*="__flxRow"] {
 	/// default
-	&:not([class*="xm__gaping"]) {
-		> [class*="m__flxRow-wrap"],
-		> [class*="m__flxColumn-wrap"] {
+	&:not([class*="__gaping"]) {
+		> [class*="__flxRow-wrap"],
+		> [class*="__flxColumn-wrap"] {
 			&:not(.unfix__gaping) + * {
 				margin-left: 1rem;
 			}
@@ -230,8 +233,8 @@ x-flx[class*="m__flxRow"] {
 	}
 	@for $i from 1 through 10 {
 		&.xm__gaping-#{$i*5} {
-			> [class*="m__flxRow-wrap"],
-			> [class*="m__flxColumn-wrap"] {
+			> [class*="__flxRow-wrap"],
+			> [class*="__flxColumn-wrap"] {
 				&:not(.unfix__gaping) + * {
 					margin-left: #{$i/3}rem;
 				}
@@ -240,11 +243,11 @@ x-flx[class*="m__flxRow"] {
 	}
 }
 .x-box,
-x-flx[class*="m__flxColumn"] {
+x-flx[class*="__flxColumn"] {
 	/// default
-	&:not([class*="xm__gaping"]) {
-		> [class*="m__flxRow-wrap"],
-		> [class*="m__flxColumn-wrap"] {
+	&:not([class*="__gaping"]) {
+		> [class*="__flxRow-wrap"],
+		> [class*="__flxColumn-wrap"] {
 			&:not(.unfix__gaping) + * {
 				margin-top: 1rem;
 			}
@@ -252,12 +255,30 @@ x-flx[class*="m__flxColumn"] {
 	}
 	@for $i from 1 through 10 {
 		&.xm__gaping-#{$i*5} {
-			> [class*="m__flxRow-wrap"],
-			> [class*="m__flxColumn-wrap"] {
+			> [class*="__flxRow-wrap"],
+			> [class*="__flxColumn-wrap"] {
 				&:not(.unfix__gaping) + * {
 					margin-top: #{$i/3}rem;
 				}
 			}
 		}
 	}
+}
+
+/// basic transition
+///
+/// @group SharedStyles
+.x-btn,
+.x-btnY,
+.x-btnLink,
+.x-btnToggle,
+.x-inTxt,
+.x-link,
+.x-box,
+select.x-inSelect,
+input[type="checkbox"].x-inCheckbox + label,
+input[type="checkbox"].x-inCheckbox + label:after,
+.x-svg [fill]:not([fill="none"]),
+*[data-tooltip]:before {
+	transition: all 0.2s ease-out, background-image 0s;
 }

@@ -15,7 +15,7 @@
 .x-flxInline {
 	@include extend-interactions {
 		display: inline-flex;
-		position: static;
+		position: static; /// why?
 	}
 }
 
@@ -35,10 +35,10 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: column nowrap;
-				&:not([class*="xm__gaping"]) {
-					> :not([class*="xm__m"]):not(br):not(:last-child),
-					> [class*="xm__min"]:not(br):not(:last-child),
-					> [class*="xm__max"]:not(br):not(:last-child) {
+				&:not([class*="__gaping"]) > :not(br):not(:last-child) {
+					&:not([class*="__m"]),
+					&[class*="__min"],
+					&[class*="__max"] {
 						margin-bottom: 1rem;
 					}
 				}
@@ -60,10 +60,10 @@
 		&-nowrap {
 			@include extend-viewports {
 				flex-flow: row nowrap;
-				&:not([class*="xm__gaping"]) {
-					> :not([class*="xm__m"]):not(br):not(:last-child),
-					> [class*="xm__min"]:not(br):not(:last-child),
-					> [class*="xm__max"]:not(br):not(:last-child) {
+				&:not([class*="__gaping"]) > :not(br):not(:last-child) {
+					&:not([class*="__m"]),
+					&[class*="__min"],
+					&[class*="__max"] {
 						margin-right: 1rem;
 					}
 				}
@@ -75,20 +75,19 @@
 	&.m__flxRow {
 		&-wrap {
 			@include extend-viewports {
-				&:not([class*="xm__gaping"]) {
+				&:not([class*="__gaping"]) {
 					/// this is a very special class to omit this specific fix
 					&:not(.unfix__gaping) {
-						margin-left: -0.1px;
-						margin-top: -0.1px;
-						margin-right: -1rem;
-						margin-bottom: -1rem;
+						margin: -0.1px -1rem -1rem -0.1px;
 						box-sizing: border-box;
 					}
-					> :not([class*="xm__m"]):not(br),
-					> [class*="xm__min"]:not(br),
-					> [class*="xm__max"]:not(br) {
-						margin-bottom: 1rem;
-						margin-right: 1rem;
+					> :not(br) {
+						&:not([class*="__m"]),
+						&[class*="__min"],
+						&[class*="__max"] {
+							margin-bottom: 1rem;
+							margin-right: 1rem;
+						}
 					}
 				}
 			}

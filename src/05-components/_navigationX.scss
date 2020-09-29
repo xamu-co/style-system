@@ -17,7 +17,7 @@
 			z-index: 16;
 			@media (max-width: $viewportMd) {
 				/// mobile
-				&:not([class*="m__tm"]),
+				&:not([class*="__tm"]),
 				&.m__tm-secondary {
 					&:not(.is__top) .x-navX-wrapper.is__main {
 						box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
@@ -101,15 +101,13 @@
 			}
 		}
 		/// default theme
-		&:not([class*="m__tm"]),
+		&:not([class*="__tm"]),
 		&.m__tm-secondary {
 			> .x-navX-wrapper {
 				background: color(light);
 			}
-			&:not(.is__relative) {
-				> .x-navX-wrapper {
-					box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
-				}
+			&:not(.is__relative) > .x-navX-wrapper {
+				box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
 			}
 			.x-navX-list-item > {
 				.x-link,
@@ -138,32 +136,28 @@
 		/// tema de la barra de navegacion secundaria
 		///
 		/// @group ConditionalModifiers
-		&.m__tm-light {
-			.x-navX-list-item > {
-				.x-link,
-				.x-btnLink {
-					&:not(:hover):not(.is__active):not(.is__routeExact) {
-						// color: color(light);
-						text-shadow: 1px 1px 1px color(dark, 0.3);
-					}
+		&.m__tm-light .x-navX-list-item > {
+			.x-link,
+			.x-btnLink {
+				&:not(:hover):not(.is__active):not(.is__routeExact) {
+					// color: color(light);
+					text-shadow: 1px 1px 1px color(dark, 0.3);
 				}
 			}
 		}
-		&.m__tm-primaryAlt {
-			.x-navX-list-item > {
-				.x-link,
-				.x-btnLink {
-					&:hover,
-					&.is__active,
-					&.is__routeExact {
-						// color: color(primaryAlt);
-						text-shadow: 1px 1px 1px color(dark, 0.3);
-					}
+		&.m__tm-primaryAlt .x-navX-list-item > {
+			.x-link,
+			.x-btnLink {
+				&:hover,
+				&.is__active,
+				&.is__routeExact {
+					// color: color(primaryAlt);
+					text-shadow: 1px 1px 1px color(dark, 0.3);
 				}
 			}
 		}
 		/// default theme
-		&:not([class*="m__tm"]),
+		&:not([class*="__tm"]),
 		&.m__tm-secondary {
 			border-bottom-color: color(secondary, 0.05);
 			.x-navX-list-item > {

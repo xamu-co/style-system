@@ -4,86 +4,28 @@
 ///
 /// @group Components
 .x-avatar {
-	display: block;
-	overflow: hidden;
-	flex: 0 0 auto;
-	transition: all 0.1s ease-out;
-	&:not([class*="xm__bgColor"]) {
-		background-color: color(light);
-	}
-
 	/// avatar size
 	///
 	/// @group Modifiers
 	&.m__size-lg {
-		border-radius: 1.6rem;
 		width: 9rem;
 		height: 9rem;
-		&.m__bdr,
-		&.m__border {
-			border-width: 4px;
-		}
 	}
 	&.m__size-md {
-		border-radius: 1.3rem;
 		width: 6rem;
 		height: 6rem;
-		&.m__bdr,
-		&.m__border {
-			border-width: 3px;
-		}
 	}
 	/// default size
+	&.m__size,
 	&.m__size-sm,
-	&:not([class*="m__size"]) {
-		border-radius: 1rem;
+	&.m__size-normal,
+	&:not([class*="__size"]) {
 		width: 3rem;
 		height: 3rem;
-		&.m__bdr,
-		&.m__border {
-			border-width: 2px;
-		}
-	}
-
-	/// avatar border
-	///
-	/// @group Modifiers
-	&.m__bdr,
-	&.m__border {
-		border-style: solid;
-		box-sizing: border-box;
-		&:not([class*="xm__bdrColor"]) {
-			border-color: color(light);
-		}
 	}
 
 	img {
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-		object-position: 50% 50%;
-		transition: all 0.1s ease-out;
-	}
-}
-a.x-avatar {
-	&:hover,
-	&.is__active,
-	&.is__routeExact {
-		// box-shadow: 1px 1px 3px color(dark, 0.2);
-		img {
-			opacity: 0.7;
-		}
-	}
-
-	/// avatar border
-	///
-	/// @group Modifiers
-	&.m__bdr,
-	&.m__border {
-		&:not(:hover),
-		&:not(.is__active),
-		&:not(.is__routeExact) {
-			border-color: transparent;
-		}
 	}
 }

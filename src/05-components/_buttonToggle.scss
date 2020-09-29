@@ -6,14 +6,6 @@
 ///
 /// @group Components
 .x-btnToggle {
-	white-space: nowrap;
-	border-style: solid;
-	border-color: transparent;
-	text-shadow: none;
-	box-sizing: border-box;
-	transition: all 0.2s ease-out;
-	flex: 0 0 auto;
-	@include flexbox(row, nowrap, center, center, inline-flex);
 	&.is__alert:after {
 		content: "";
 		display: block;
@@ -35,11 +27,10 @@
 			display: none;
 		}
 	}
-	&:not(.is__alert):not(.is__active):not(.is__routeExact) {
-		//hide solid
+	//hide solid
+	&:not(.is__alert):not(.is__active):not(.is__routeExact)
 		i.x-icon:last-of-type {
-			display: none;
-		}
+		display: none;
 	}
 
 	/// button theme
@@ -116,7 +107,7 @@
 		}
 	}
 	/// default theme
-	&:not([class*="m__tm"]),
+	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		background: color(secondary, 0.1);
 		color: color(secondary);

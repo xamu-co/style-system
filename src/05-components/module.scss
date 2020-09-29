@@ -48,7 +48,7 @@ ol {
 			}
 		}
 		/// default flow
-		&:not([class*="m__flow"]),
+		&:not([class*="__flow"]),
 		&.m__flow-column {
 			@include flexbox(column, nowrap, flex-start, stretch);
 			> li:not(:last-child) {
@@ -66,7 +66,126 @@ ol {
 	}
 }
 
-/// button & buttonToggle shared styles
+/// avatar & avatarAureo shared styles
+///
+/// @group SharedStyles
+.x-avatar,
+.x-avatarAureo {
+	display: block;
+	overflow: hidden;
+	flex: 0 0 auto;
+	transition: all 0.1s ease-out;
+	&:not([class*="__bgColor"]) {
+		background-color: color(light);
+	}
+
+	/// avatar size
+	///
+	/// @group Modifiers
+	&.m__size-lg {
+		border-radius: 1.667rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 4px;
+		}
+	}
+	&.m__size-md {
+		border-radius: 1.333rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 3px;
+		}
+	}
+	/// default size
+	&.m__size,
+	&.m__size-sm,
+	&:not([class*="__size"]) {
+		border-radius: 1rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 2px;
+		}
+	}
+
+	/// avatar border
+	///
+	/// @group Modifiers
+	&.m__bdr,
+	&.m__border {
+		border-style: solid;
+		box-sizing: border-box;
+		&:not([class*="__bdrColor"]) {
+			border-color: color(light);
+		}
+	}
+
+	img {
+		object-fit: cover;
+		object-position: 50% 50%;
+		transition: all 0.1s ease-out;
+	}
+}
+a.x-avatar,
+a.x-avatarAureo {
+	&:hover,
+	&.is__active,
+	&.is__routeExact {
+		// box-shadow: 1px 1px 3px color(dark, 0.2);
+		img {
+			opacity: 0.7;
+		}
+	}
+	/// avatar border
+	///
+	/// @group Modifiers
+	&.m__bdr,
+	&.m__border {
+		&:not(:hover),
+		&:not(.is__active),
+		&:not(.is__routeExact) {
+			border-color: transparent;
+		}
+	}
+}
+
+/// icon & svgIcon
+///
+/// @group SharedStyles
+.x-svg,
+i.x-icon {
+	width: auto;
+
+	/// icon margin
+	///
+	/// @group Modifiers
+	&.m__m,
+	&.m__margin {
+		&:not(:first-child) {
+			margin-left: 0.4em;
+		}
+		&:not(:last-child) {
+			margin-right: 0.4em;
+		}
+	}
+
+	/// icon size
+	///
+	/// @group Modifiers
+	&.m__size,
+	&.m__size-normal,
+	&:not([class*="__size"]) {
+		height: 1rem;
+		font-size: 1rem;
+	}
+	@for $i from 2 through 10 {
+		&.m__size-#{$i*5} {
+			height: #{$i/3}rem;
+			font-size: #{$i/3}rem;
+		}
+	}
+}
+
+/// button defaults & round modifier
 ///
 /// @group SharedStyles
 .x-btn,
@@ -74,7 +193,7 @@ ol {
 	/// this is the default value
 	&.m__size,
 	&.m__size-normal,
-	&:not([class*="m__size"]) {
+	&:not([class*="__size"]) {
 		padding: 0 0.8rem;
 		&.m__round {
 			width: 2.4rem;
@@ -95,19 +214,7 @@ ol {
 	}
 }
 
-/// button & buttonY & btnlink nav
-///
-/// @group SharedStyles
-.x-btn,
-.x-btnY,
-.x-btnLink {
-	flex: 0 0 auto;
-	transition: all 0.2s ease-out;
-	text-align: center;
-	@include flexbox(row, nowrap, center, center, inline-flex);
-}
-
-/// button, buttonToggle & link shared styles
+/// icon behavior
 ///
 /// @group SharedStyles
 .x-btn,
@@ -121,16 +228,25 @@ ol {
 	}
 }
 
-/// button, buttonY, select & btnLink shared styles
+/// content alignment
+///
+/// @group SharedStyles
+.x-btn,
+.x-btnY,
+.x-btnLink,
+.x-btnToggle {
+	flex: 0 0 auto;
+	text-align: center;
+	@include flexbox(row, nowrap, center, center, inline-flex);
+}
+
+/// buttons & select themes
 ///
 /// @group SharedStyles
 .x-btn,
 .x-btnY,
 .x-btnLink,
 select.x-inSelect {
-	white-space: nowrap;
-	border-color: transparent;
-
 	/// first value is the bgColor
 	/// second value is the textColor
 	///
@@ -250,7 +366,7 @@ select.x-inSelect {
 		}
 	}
 	/// default theme
-	&:not([class*="u__tm"]),
+	&:not([class*="__tm"]),
 	&.u__tm-secondary-light {
 		background-color: color(secondary);
 		color: color(light);
@@ -291,7 +407,7 @@ select.x-inSelect {
 	}
 }
 
-/// text, select, button & buttonToggle shared styles
+/// default size
 ///
 /// @group SharedStyles
 .x-btn,
@@ -300,7 +416,7 @@ select.x-inSelect {
 select.x-inSelect {
 	&.m__size,
 	&.m__size-normal,
-	&:not([class*="m__size"]) {
+	&:not([class*="__size"]) {
 		/// this is the default value
 		height: 2.4rem;
 		border-radius: 1rem;
@@ -308,13 +424,14 @@ select.x-inSelect {
 	}
 }
 
-/// button, buttonToggle, link & buttonLink shared styles
+/// capitalize
 ///
 /// @group SharedStyles
 .x-btn,
+.x-btnLink,
 .x-btnToggle,
 .x-link,
-.x-btnLink {
+select.x-inSelect {
 	&,
 	> :not(.x-icon) {
 		&::first-letter {
@@ -323,30 +440,14 @@ select.x-inSelect {
 	}
 }
 
-/// text, select, button, buttonToggle & btnLink shared styles
+/// disabled behavior
 ///
 /// @group SharedStyles
 .x-btn,
-.x-btnToggle,
 .x-btnLink,
-.x-inTxt,
-select.x-inSelect {
-	border-style: solid;
-	text-shadow: none;
-	box-sizing: border-box;
-	&:not([class*="xm__txtSize"]) {
-		font-size: 1rem;
-	}
-}
-
-/// button, buttonToggle, link, buttonLink & select shared styles
-///
-/// @group SharedStyles
-.x-btn,
 .x-btnToggle,
+.x-inTxt,
 .x-link,
-.x-btnLink,
-.x-inTxt,
 select.x-inSelect {
 	&:disabled,
 	&[disabled] {
@@ -355,8 +456,27 @@ select.x-inSelect {
 	}
 }
 
-/// LOOPS
+/// basic styling
+///
+/// @group SharedStyles
+.x-btn,
+.x-btnY,
+.x-btnLink,
+.x-btnToggle,
+.x-inTxt,
+.x-link,
+select.x-inSelect {
+	white-space: nowrap;
+	border-color: transparent;
+	border-style: solid;
+	text-shadow: none;
+	box-sizing: border-box;
+	&:not([class*="__txtSize"]) {
+		font-size: 1em;
+	}
+}
 
+/// LOOPS
 @each $name, $size in $fontSizes {
 	/// button & buttonToggle shared styles
 	///
@@ -370,6 +490,7 @@ select.x-inSelect {
 			}
 		}
 	}
+
 	/// text, select, button & buttonToggle shared styles
 	///
 	/// @group SharedStyles

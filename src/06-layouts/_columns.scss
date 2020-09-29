@@ -4,10 +4,6 @@
 ///
 /// @group Layouts
 .x-cols {
-	@include extend-interactions {
-		overflow: hidden;
-		gap: 2rem;
-	}
 }
 [class*="x-cols"] {
 	/// Column count
@@ -21,8 +17,9 @@
 		}
 	}
 	/// default
+	&.m__count,
 	&.m__count-2,
-	&:not([class*="m__count"]) {
+	&:not([class*="__count"]) {
 		columns: #{$minColumnSize/2 * 3} 2;
 	}
 
@@ -31,8 +28,8 @@
 		// display: inline-block;
 		break-inside: avoid;
 	}
-	&:not([class*="xm__gaping"])
-		> :not([class*="xm__mBottom"]):not(:last-child):not(br) {
+	&:not([class*="__gaping"])
+		> :not(br):not(:last-child):not([class*="__mBottom"]) {
 		margin-bottom: 2rem;
 	}
 }

@@ -5,11 +5,6 @@
 input[type="checkbox"].x-inCheckbox {
 	display: none;
 	+ label {
-		// width: 100%;
-		// vertical-align: middle;
-		// text-align: justify;
-		transition: all 0.2s ease-out;
-		// @include flexbox(row, nowrap, space-between, center);
 		&:after {
 			content: "";
 			vertical-align: middle;
@@ -23,11 +18,7 @@ input[type="checkbox"].x-inCheckbox {
 			font-weight: 900;
 			text-align: center;
 			line-height: 1.7rem;
-			// float: right;
-			// margin-left: auto;
-			transition: all 0.2s ease-out;
 			box-sizing: border-box;
-			// @include flexbox(row, nowrap, center, center);
 		}
 
 		> * {
@@ -87,7 +78,7 @@ input[type="checkbox"].x-inCheckbox {
 		}
 	}
 	/// default theme
-	&:not([class*="m__tm"]),
+	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		+ label {
 			color: color(secondary);

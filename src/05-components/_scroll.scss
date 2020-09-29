@@ -4,7 +4,7 @@
 ///
 /// @group Components
 .x-scroll {
-	@media (hover: none) and (max-width: $viewportMd) {
+	@media (max-width: $viewportMd) and (hover: none) {
 		width: auto;
 		height: auto;
 		overflow-x: auto;
@@ -22,10 +22,8 @@
 				flex-start,
 				inline-flex
 			);
-			&[class*="x-grd"] {
-				&:after {
-					width: 1px;
-				}
+			&[class*="x-grd"]:after {
+				width: 1px;
 			}
 			&:after {
 				content: "";

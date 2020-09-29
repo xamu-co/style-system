@@ -18,7 +18,7 @@
 		/// @group Modifiers
 		&.m__size,
 		&.m__size-normal,
-		&:not([class*="m__size"]) {
+		&:not([class*="__size"]) {
 			/// this is the default value
 			height: 2.4rem;
 			border-radius: 1rem;
@@ -38,9 +38,6 @@
 		}
 
 		@each $name, $size in $fontSizes {
-			/// button link size
-			///
-			/// @group Modifiers
 			&.m__size-#{$name} {
 				height: $size * 2.6;
 				border-radius: $size;
@@ -60,17 +57,15 @@
 		/// ruta activa
 		///
 		/// @group Statuses
-		&.is__route {
-			&:before {
-				content: "...";
-				display: block;
-				position: absolute;
-				top: calc(100%);
-				left: 0;
-				line-height: 0;
-				overflow: visible;
-				font-size: 1.3em;
-			}
+		&.is__route:before {
+			content: "...";
+			display: block;
+			position: absolute;
+			top: calc(100%);
+			left: 0;
+			line-height: 0;
+			overflow: visible;
+			font-size: 1.3em;
 		}
 
 		/// nav link themes

@@ -7,7 +7,6 @@
 	border-radius: 1.6rem;
 	border: 2px solid transparent;
 	overflow: visible;
-	transition: all 0.2s ease-out;
 	&:disabled,
 	&[disabled] {
 		pointer-events: none;
@@ -18,7 +17,7 @@
 	}
 	&:not([class*="x-flx"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> :not([class*="xm__mBottom"]):not([class*="m__flxRow-wrap"]):not([class*="m__flxColumn-wrap"]):not(:last-child) {
+		> :not([class*="__mBottom"]):not([class*="__flxRow-wrap"]):not([class*="__flxColumn-wrap"]):not(:last-child) {
 			margin-bottom: 1rem;
 		}
 	}
@@ -45,7 +44,7 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="xm__txtColor"]) {
+			&:not([class*="__txtColor"]) {
 				color: color(light);
 			}
 		}
@@ -69,13 +68,13 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="xm__txtColor"]) {
+			&:not([class*="__txtColor"]) {
 				color: color(light);
 			}
 		}
 	}
 	/// default theme
-	&:not([class*="m__tm"]),
+	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		background: color(secondary, 0.1);
 		&:hover {
@@ -95,7 +94,7 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="xm__txtColor"]) {
+			&:not([class*="__txtColor"]) {
 				color: color(secondary);
 			}
 		}
@@ -136,25 +135,21 @@
 			&-md {
 				width: 6rem;
 			}
-			&,
-			&-xs,
-			&-sm,
-			&-md,
-			&-lg {
-				margin: 0 auto;
-				&:before {
-					content: "";
-					display: block;
-					width: 100%;
-					height: 0;
-					padding-bottom: 100%;
-				}
-				> * {
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-				}
+		}
+		&[class*="__square"] {
+			margin: 0 auto;
+			&:before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 0;
+				padding-bottom: 100%;
+			}
+			> * {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
 			}
 		}
 	}

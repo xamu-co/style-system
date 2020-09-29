@@ -14,7 +14,7 @@ hr.x-hrX {
 	///
 	/// @group Modifiers
 	/// default theme
-	&:not([class*="m__tm"]),
+	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAFklEQVQYV2Pkd1//nwENfNwZyIguBgByogQC7WHnJwAAAABJRU5ErkJggg==");
 	}
@@ -30,7 +30,7 @@ hr.x-hrY {
 	///
 	/// @group Modifiers
 	/// default theme
-	&:not([class*="m__tm"]),
+	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKCAYAAAB10jRKAAAAE0lEQVQYV2Pgd1//nwEbwYADAAByIwoV0EDsZAAAAABJRU5ErkJggg==");
 	}
