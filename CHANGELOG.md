@@ -1,5 +1,12 @@
 Xamu style system
 
+## [4.1.1](https://github.com/xamu-co/style-system/compare/v4.1.0...v4.1.1) (2020-09-29)
+
+
+### Bug Fixes
+
+* touch extend ([271917b](https://github.com/xamu-co/style-system/commit/271917b35560b011f33cb1c809475fb7d4e25a9c))
+
 # [4.1.0](https://github.com/xamu-co/style-system/compare/v4.0.0...v4.1.0) (2020-09-28)
 
 
