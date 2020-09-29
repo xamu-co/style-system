@@ -5,40 +5,11 @@
 /// @group Components
 /// this element is expected to be an <i> tag
 i.x-icon {
-	width: auto;
 	vertical-align: middle;
 	// text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 
-	&:not([class*="xm__txtColor"]) {
+	&:not([class*="__txtColor"]) {
 		color: inherit;
-	}
-
-	/// icon size
-	///
-	/// @group Modifiers
-	@for $i from 2 through 10 {
-		&.m__size-#{$i*5} {
-			height: #{$i/3}rem;
-			font-size: #{$i/3}rem;
-		}
-	}
-	/// default size
-	&:not([class*="m__size"]) {
-		height: 1rem;
-		font-size: 1rem;
-	}
-
-	/// icon margin
-	///
-	/// @group Modifiers
-	&.m__m,
-	&.m__margin {
-		&:not(:first-child) {
-			margin-left: 0.5em;
-		}
-		&:not(:last-child) {
-			margin-right: 0.5em;
-		}
 	}
 }

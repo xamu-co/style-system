@@ -7,13 +7,11 @@ nav.x-nListToggle {
 	// width: 100%;
 	> input[type="checkbox"] {
 		display: none;
-		&:checked {
-			~ .x-nListToggle-toggler {
-				font-weight: $fontWeightBold;
-				margin-bottom: 1rem;
-				i.x-icon {
-					transform: rotate(180deg);
-				}
+		&:checked ~ .x-nListToggle-toggler {
+			font-weight: $fontWeightBold;
+			margin-bottom: 1rem;
+			i.x-icon {
+				transform: rotate(180deg);
 			}
 		}
 		&:not(:checked) {

@@ -5,16 +5,8 @@
 ///
 /// @group Components
 .x-link {
-	// vertical-align: middle;
-	text-shadow: none;
-	white-space: nowrap;
 	display: inline-block;
 	background-color: transparent;
-	// font-size: 1rem;
-	// font-weight: 500;
-	// line-height: 1.6em;
-	transition: all 0.2s ease-out;
-	// @include flexbox(row, nowrap, flex-start, center, inline-flex);
 
 	/// link theme
 	///
@@ -48,7 +40,7 @@
 		}
 	}
 	/// default theme: secondary
-	&:not([class*="m__tm"]),
+	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		color: color(secondary);
 		&:hover:not(.is__active):not(.is__routeExact) {

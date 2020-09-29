@@ -32,7 +32,6 @@ textarea.x-inTxt {
 	width: 100%;
 	display: block;
 	padding: 0 0.8rem;
-	transition: all 0.2s ease-out;
 	@include flexbox(column, nowrap, center, center);
 
 	/// theme
@@ -100,7 +99,7 @@ textarea.x-inTxt {
 		}
 	}
 	/// default theme
-	&:not([class*="m__tm"]),
+	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		background: color(secondary, 0.1);
 		border-color: color(secondary, 0.05);

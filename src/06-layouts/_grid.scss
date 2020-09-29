@@ -7,9 +7,6 @@
 	@include extend-interactions {
 		display: grid;
 		// height: auto;
-		&:not([class*="xm__grdGap"]):not([class*="xm__gap"]) {
-			gap: 2rem;
-		}
 	}
 }
 [class*="x-grd"] {

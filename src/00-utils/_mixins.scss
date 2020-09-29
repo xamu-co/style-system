@@ -34,14 +34,14 @@
 	@if $responsive {
 		/// mobile only
 		@media (hover: none) {
-			touch\:#{&} {
+			&\:touch {
 				@content;
 			}
 		}
 		/// desktop only
 		@if $hover {
 			@media (hover: hover) {
-				hover\:#{&} {
+				&\:hover {
 					@content;
 				}
 			}

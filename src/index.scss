@@ -41,29 +41,25 @@
 		font-weight: $fontWeightRegular;
 		text-rendering: optimizeLegibility;
 		@supports (-moz-appearance: none) {
-			/// firefox fix
-			/// font weight bug
+			/// firefox fix, font weight bug
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: $fontWeightRegularAlt;
-			/// scroll bug on android
-			overflow: hidden;
 		}
-
 		@media (max-width: $viewportMd) {
 			transition-delay: 0.3s;
+			@media (hover: none) {
+				@supports (-moz-appearance: none) {
+					/// firefox fix, scroll bug on android
+					overflow: hidden;
+				}
+			}
 			&.is__navOpen {
-				/// there has to be a way of optimizing this
-				/// TODO: refactor side mobile menu in the future
+				/// It works but it's to laggy on mobile
+				/// TODO: Improve if possible
 				overflow-y: hidden;
 				@media (hover: hover) {
 					border-right: 1rem solid transparent;
-				}
-				#appex,
-				.x-navX-wrapper.is__main,
-				.x-navX.is__mobile,
-				.x-navX-list.is__aside {
-					margin-left: -15rem; //230px aprox
 				}
 				body:before {
 					background-position: -5rem 0; /// third the distance
@@ -74,13 +70,13 @@
 				.x-view {
 					pointer-events: none;
 				}
+				#appex,
+				.x-navX-wrapper.is__main,
+				.x-navX.is__mobile,
+				.x-navX-list.is__aside {
+					margin-left: -15rem; //230px aprox
+				}
 			}
-			// #appex,
-			// .x-navX-wrapper.is__main,
-			// .x-navX.is__mobile,
-			// .x-navX-list.is__aside {
-			// 	will-change: margin;
-			// }
 		}
 	}
 
@@ -89,33 +85,24 @@
 		font-family: font(primary);
 		font-size: $fontSize;
 		overflow: hidden;
-		position: static;
-		@supports (-moz-appearance: none) {
-			/// firefox fix
-			/// scroll bug on android
-			width: 100%;
-			height: 100%;
-			overflow-y: auto;
-			overflow-x: hidden;
+		@media (max-width: $viewportMd) and (hover: none) {
+			@supports (-moz-appearance: none) {
+				/// firefox fix, scroll bug on android
+				width: 100%;
+				height: 100%;
+				overflow-y: auto;
+				overflow-x: hidden;
+			}
 		}
 		&:before {
 			transition: all 0.3s ease-out;
 		}
-		&:not(.is__dashboard) {
-			#appex {
-				@include flexbox(column, nowrap, flex-start, stretch);
-			}
+		&:not(.is__dashboard) #appex {
+			@include flexbox(column, nowrap, flex-start, stretch);
 		}
 		&.is__dashboard {
 			height: 100%;
-			#appex,
-			#__nuxt,
-			#__layout {
-				height: 100%;
-				overflow: hidden;
-			}
 			#appex {
-				// background: color(secondary);
 				@include flexbox(row, nowrap, flex-start, stretch);
 				> .clearfix {
 					width: 100%;
@@ -124,10 +111,8 @@
 					background-color: color(light);
 					overflow-y: auto;
 					overflow-x: hidden;
-					// overflow: auto;
 					box-shadow: -4px -4px 40px color(dark, 0.1);
 					transition: padding 0.3s ease-out;
-					// flex: 1 1 auto;
 					@media (min-width: $viewportMd + 1) {
 						padding: 0;
 					}
@@ -136,14 +121,18 @@
 					}
 				}
 			}
+			#appex,
+			#__nuxt,
+			#__layout {
+				height: 100%;
+				overflow: hidden;
+			}
 		}
-	}
-	html,
-	body {
 	}
 	#appex {
 		width: 100%;
 	}
+	body,
 	#appex,
 	#__nuxt,
 	#__layout {

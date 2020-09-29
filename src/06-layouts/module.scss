@@ -3,3 +3,16 @@
 @import "columns";
 @import "flex";
 @import "grid";
+
+/// basic styling
+///
+/// @group SharedStyles
+.x-cols,
+.x-grd {
+	@include extend-interactions {
+		overflow: hidden;
+		&:not([class*="__grdGap"]):not([class*="__gap"]) {
+			gap: 2rem;
+		}
+	}
+}

@@ -21,7 +21,6 @@
 		border-radius: 0.5rem;
 		font-weight: $fontWeightRegular;
 		box-shadow: 3px 3px 9px color(dark, 0.3);
-		transition: all 0.2s ease-out;
 		box-sizing: content-box;
 		border: 2px solid color(light, 0.1);
 	}
@@ -36,33 +35,25 @@
 	///
 	/// @group PseudoModifiers
 	@each $name, $color in $colors {
-		&[data-tooltip-bg="#{$name}"] {
-			&:before {
-				background: #{color($name)};
-			}
+		&[data-tooltip-bg="#{$name}"]:before {
+			background: #{color($name)};
 		}
 	}
 	/// default tooltip bgcolor
-	&:not([data-tooltip-bg]) {
-		&:before {
-			background: color(dark);
-		}
+	&:not([data-tooltip-bg]):before {
+		background: color(dark);
 	}
 
 	/// tooltip text behavior
 	///
 	/// @group PseudoModifiers
-	&[data-tooltip-text] {
-		&:before {
-			max-width: 40ch;
-		}
+	&[data-tooltip-text]:before {
+		max-width: 40ch;
 	}
 	///default text behavior
-	&:not([data-tooltip-text]) {
-		&:before {
-			white-space: nowrap;
-			text-transform: capitalize;
-		}
+	&:not([data-tooltip-text]):before {
+		white-space: nowrap;
+		text-transform: capitalize;
 	}
 
 	/// tooltip position
