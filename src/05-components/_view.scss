@@ -16,6 +16,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 	height: auto;
 	box-sizing: border-box;
 	@include flexbox(row, nowrap, center, stretch);
+	&:before,
 	&:after {
 		/// This only becomes visible over certain conditions
 		width: 100%;
@@ -31,9 +32,10 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			height: 12vh; // triangle size
 		}
 	}
-	&:not([class*="__bgColor"]):first-child + .x-view-item[class*="__bgColor"] {
+	&:not([class*="__bgColor"]):first-child
+		+ .x-view-item[class*="__bgColor"]:not(.m__noShapes) {
 		padding-top: 2.4rem;
-		&:after {
+		&:before {
 			content: "";
 			// triangle-top.svg
 			background-image: linear-gradient(
