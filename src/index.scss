@@ -64,9 +64,6 @@
 				body:before {
 					background-position: -5rem 0; /// third the distance
 				}
-				.x-back.is__header {
-					background-position: calc(50% - 15rem) 50%;
-				}
 				.x-view {
 					pointer-events: none;
 				}
@@ -131,11 +128,5 @@
 	}
 	#appex {
 		width: 100%;
-	}
-	body,
-	#appex,
-	#__nuxt,
-	#__layout {
-		position: static;
 	}
 }
