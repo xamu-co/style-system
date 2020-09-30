@@ -1,5 +1,12 @@
 Xamu style system
 
+## [4.1.2](https://github.com/xamu-co/style-system/compare/v4.1.1...v4.1.2) (2020-09-30)
+
+
+### Bug Fixes
+
+* view && scroll components issue ([9daeece](https://github.com/xamu-co/style-system/commit/9daeecef0e839a5f16c776953dd6869c603b3421))
+
 ## [4.1.1](https://github.com/xamu-co/style-system/compare/v4.1.0...v4.1.1) (2020-09-29)
 
 
