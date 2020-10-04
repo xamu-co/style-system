@@ -180,6 +180,11 @@
 			justify-content: space-around;
 		}
 	}
+	&-evenly {
+		@include extend-viewports {
+			justify-content: space-evenly;
+		}
+	}
 	&-between {
 		@include extend-viewports {
 			justify-content: space-between;
@@ -211,6 +216,11 @@
 	&-stretch {
 		@include extend-viewports {
 			align-items: stretch;
+		}
+	}
+	&-baseline {
+		@include extend-viewports {
+			align-items: baseline;
 		}
 	}
 	/// default
@@ -254,6 +264,9 @@
 	&-right {
 		@include extend-viewports {
 			text-align: right;
+			&:not([class*="__gaping"]) > :not([class|="x"]) {
+				display: inline-block;
+			}
 			> :not([class*="__txtAlign"]):not([class|="x"]) {
 				text-align: right;
 			}
@@ -262,6 +275,9 @@
 	&-center {
 		@include extend-viewports {
 			text-align: center;
+			&:not([class*="__gaping"]) > :not([class|="x"]) {
+				display: inline-block;
+			}
 			> :not([class*="__txtAlign"]):not([class|="x"]) {
 				text-align: center;
 			}
@@ -270,6 +286,9 @@
 	&-justify {
 		@include extend-viewports {
 			text-align: justify;
+			&:not([class*="__gaping"]) > :not([class|="x"]) {
+				display: inline-block;
+			}
 			> :not([class*="__txtAlign"]):not([class|="x"]) {
 				text-align: justify;
 			}
@@ -280,6 +299,9 @@
 	&-left {
 		@include extend-viewports {
 			text-align: left;
+			&:not([class*="__gaping"]) > :not([class|="x"]) {
+				display: inline-block;
+			}
 			> :not([class*="__txtAlign"]):not([class|="x"]) {
 				text-align: left;
 			}
@@ -566,8 +588,11 @@ $directions: top, right, bottom, left;
 				&:not([class*="__m"]),
 				&[class*="__min"],
 				&[class*="__max"] {
-					margin-bottom: #{$i/3}rem;
-					margin-right: #{$i/3}rem;
+					&[class*="__txtWrap"]:not([class*="__flx"]),
+					&:not([class*="-wrap"]):not([class*="-reverse"]) {
+						margin-bottom: #{$i/3}rem;
+						margin-right: #{$i/3}rem;
+					}
 				}
 			}
 		}
@@ -578,16 +603,15 @@ $directions: top, right, bottom, left;
 		@include extend-viewports {
 			> :not(br):not(:last-child) {
 				&:not([class*="__mRight"]) {
+					/// TODO: .xm__gaping is not targeting responsive
 					&.unfix__gaping,
 					&:not(.xm__gaping):not([class*="__gaping-"]) {
 						margin-right: #{$i/3}rem;
 					}
 				}
-				&:not(.unfix__gaping) {
-					&.xm__gaping + *,
-					&[class*="__gaping-"] + * {
-						margin-left: #{$i/3}rem;
-					}
+				&:not(.unfix__gaping)[class*="__gaping"]:not([class*="__gapingX"]):not([class*="__gapingY"])
+					+ * {
+					margin-left: #{$i/3}rem;
 				}
 			}
 		}
@@ -598,16 +622,15 @@ $directions: top, right, bottom, left;
 		@include extend-viewports {
 			> :not(br):not(:last-child) {
 				&:not([class*="__mBottom"]) {
+					/// TODO: .xm__gaping is not targeting responsive
 					&.unfix__gaping,
 					&:not(.xm__gaping):not([class*="__gaping-"]) {
 						margin-bottom: #{$i/3}rem;
 					}
 				}
-				&:not(.unfix__gaping) {
-					&.xm__gaping + *,
-					&[class*="__gaping-"] + * {
-						margin-top: #{$i/3}rem;
-					}
+				&:not(.unfix__gaping)[class*="__gaping"]:not([class*="__gapingX"]):not([class*="__gapingY"])
+					+ * {
+					margin-top: #{$i/3}rem;
 				}
 			}
 		}
@@ -694,7 +717,7 @@ $directions: top, right, bottom, left;
 	/// background color
 	.xm__bgColor-#{$name} {
 		@include extend-viewports {
-			background: #{color($name)};
+			background-color: #{color($name)};
 		}
 	}
 
@@ -730,7 +753,7 @@ $directions: top, right, bottom, left;
 		/// background color
 		.xm__bgColor-#{$name}#{$i} {
 			@include extend-viewports {
-				background: #{color($name, $i/10)};
+				background-color: #{color($name, $i/10)};
 			}
 		}
 
@@ -775,7 +798,7 @@ $directions: top, right, bottom, left;
 /// default background color
 .xm__bgColor {
 	@include extend-viewports {
-		background: color(light);
+		background-color: color(light);
 	}
 }
 

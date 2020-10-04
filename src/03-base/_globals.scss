@@ -221,46 +221,68 @@ strong,
 /// gaping fix
 ///
 /// @group SharedStyles
-x-flx[class*="__flxRow"] {
+/// row fix
+.x-flx[class*="__flxRow"] {
 	/// default
-	&:not([class*="__gaping"]) {
-		> [class*="__flxRow-wrap"],
-		> [class*="__flxColumn-wrap"] {
-			&:not(.unfix__gaping) + * {
+	&:not([class*="__gaping"]) > :not(.unfix__gaping)[class*="__flx"] {
+		&[class*="-wrap"],
+		&[class*="-reverse"] {
+			+ * {
 				margin-left: 1rem;
 			}
 		}
 	}
 	@for $i from 1 through 10 {
-		&.xm__gaping-#{$i*5} {
-			> [class*="__flxRow-wrap"],
-			> [class*="__flxColumn-wrap"] {
-				&:not(.unfix__gaping) + * {
+		&.xm__gaping-#{$i*5} > :not(.unfix__gaping)[class*="__flx"] {
+			&[class*="-wrap"],
+			&[class*="-reverse"] {
+				+ * {
 					margin-left: #{$i/3}rem;
 				}
 			}
 		}
 	}
 }
+/// column fix
 .x-box,
-x-flx[class*="__flxColumn"] {
+.x-flx[class*="__flxColumn"] {
+	&:last-child > :not(.unfix__gaping)[class*="__flx"] {
+		&[class*="-wrap"],
+		&[class*="-reverse"] {
+			&:first-child:only-of-type,
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 	/// default
-	&:not([class*="__gaping"]) {
-		> [class*="__flxRow-wrap"],
-		> [class*="__flxColumn-wrap"] {
-			&:not(.unfix__gaping) + * {
+	&:not([class*="__gaping"]) > :not(.unfix__gaping)[class*="__flx"] {
+		&[class*="-wrap"],
+		&[class*="-reverse"] {
+			+ * {
 				margin-top: 1rem;
 			}
 		}
 	}
 	@for $i from 1 through 10 {
-		&.xm__gaping-#{$i*5} {
-			> [class*="__flxRow-wrap"],
-			> [class*="__flxColumn-wrap"] {
-				&:not(.unfix__gaping) + * {
+		&.xm__gaping-#{$i*5} > :not(.unfix__gaping)[class*="__flx"] {
+			&[class*="-wrap"],
+			&[class*="-reverse"] {
+				+ * {
 					margin-top: #{$i/3}rem;
 				}
 			}
+		}
+	}
+}
+.x-box,
+.x-flx[class*="__flxRow"],
+.x-flx[class*="__flxColumn"] {
+	&:last-child > :last-child:not(.unfix__gaping)[class*="__flx"] {
+		&[class*="-wrap"],
+		&[class*="-reverse"] {
+			margin: 0;
 		}
 	}
 }

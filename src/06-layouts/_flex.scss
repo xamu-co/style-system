@@ -21,45 +21,35 @@
 
 /// flexbox container
 [class*="x-flx"] {
-	/// flexbox column container
-	///
-	/// @group Modifiers
-	&.m__flxColumn {
-		&-wrap {
-			@include extend-viewports {
-				flex-flow: column wrap;
-			}
-		}
-		/// default
-		&,
-		&-nowrap {
-			@include extend-viewports {
-				flex-flow: column nowrap;
-				&:not([class*="__gaping"]) > :not(br):not(:last-child) {
-					&:not([class*="__m"]),
-					&[class*="__min"],
-					&[class*="__max"] {
-						margin-bottom: 1rem;
-					}
-				}
-			}
-		}
-	}
-
 	/// flexbox row container
 	///
 	/// @group Modifiers
 	&.m__flxRow {
-		&-wrap {
+		&,
+		&-wrap,
+		&-reverse,
+		&-nowrap {
 			@include extend-viewports {
-				flex-flow: row wrap;
+				flex-direction: row;
 			}
 		}
+	}
+	&.m__flxRowReverse {
+		&,
+		&-wrap,
+		&-reverse,
+		&-nowrap {
+			@include extend-viewports {
+				flex-direction: row-reverse;
+			}
+		}
+	}
+	&.m__flxRow,
+	&.m__flxRowReverse {
 		/// default
 		&,
 		&-nowrap {
 			@include extend-viewports {
-				flex-flow: row nowrap;
 				&:not([class*="__gaping"]) > :not(br):not(:last-child) {
 					&:not([class*="__m"]),
 					&[class*="__min"],
@@ -71,9 +61,63 @@
 		}
 	}
 
+	/// flexbox column container
+	///
+	/// @group Modifiers
+	&.m__flxColumn {
+		&,
+		&-wrap,
+		&-reverse,
+		&-nowrap {
+			@include extend-viewports {
+				flex-direction: column;
+			}
+		}
+	}
+	&.m__flxColumnReverse {
+		&,
+		&-wrap,
+		&-reverse,
+		&-nowrap {
+			@include extend-viewports {
+				flex-direction: column-reverse;
+			}
+		}
+	}
 	&.m__flxColumn,
-	&.m__flxRow {
+	&.m__flxColumnReverse {
+		/// default
+		&,
+		&-nowrap {
+			@include extend-viewports {
+				&:not([class*="__gaping"]) > :not(br):not(:last-child) {
+					&:not([class*="__m"]),
+					&[class*="__min"],
+					&[class*="__max"] {
+						margin-bottom: 1rem;
+					}
+				}
+			}
+		}
+	}
+
+	/// an union could be a shorter solution, but is a huge breaking change
+	&.m__flxRow,
+	&.m__flxColumn,
+	&.m__flxRowReverse,
+	&.m__flxColumnReverse {
 		&-wrap {
+			@include extend-viewports {
+				flex-wrap: wrap;
+			}
+		}
+		&-reverse {
+			@include extend-viewports {
+				flex-wrap: wrap-reverse;
+			}
+		}
+		&-wrap,
+		&-reverse {
 			@include extend-viewports {
 				&:not([class*="__gaping"]) {
 					/// this is a very special class to omit this specific fix
@@ -85,11 +129,20 @@
 						&:not([class*="__m"]),
 						&[class*="__min"],
 						&[class*="__max"] {
-							margin-bottom: 1rem;
-							margin-right: 1rem;
+							&:not([class*="__flxRow-wrap"]):not([class*="__flxColumn-wrap"]) {
+								margin-bottom: 1rem;
+								margin-right: 1rem;
+							}
 						}
 					}
 				}
+			}
+		}
+		/// default
+		&,
+		&-nowrap {
+			@include extend-viewports {
+				flex-wrap: nowrap;
 			}
 		}
 	}

@@ -33,12 +33,18 @@
 		}
 		&-auto {
 			@include extend-viewports {
-				grid-template-columns: repeat(auto-fit, 1fr);
+				grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+			}
+		}
+		&-autoFill {
+			@include extend-viewports {
+				grid-template-columns: repeat(auto-fill, minmax(0, 1fr));
 			}
 		}
 		&,
 		&-auto,
-		&-autoMin {
+		&-autoMin,
+		&-autoFill {
 			@include extend-viewports {
 				grid-auto-rows: minmax(min-content, 100%);
 				> * {
@@ -62,6 +68,7 @@
 		}
 	}
 	/// bi columns grid
+	/// always left to right
 	///
 	/// @group Unions
 	&.u__grdVoidLeft {
@@ -108,6 +115,7 @@
 			}
 		}
 	}
+	/// left to right too
 	&.u__grdVoidRight {
 		&,
 		&-1,
@@ -167,7 +175,7 @@
 	/// grid column span, restricted to wide viewports
 	///
 	/// @group Modifiers
-	@for $i from 3 through 10 {
+	@for $i from 2 through 10 {
 		&.m__grdColumnSpan-#{$i} {
 			@include extend-viewports {
 				grid-column: span #{$i};
@@ -181,20 +189,13 @@
 	}
 	/// defaults
 	&.m__grdColumnSpan {
-		&,
-		&-2 {
-			@include extend-viewports {
-				grid-column: span 2;
-			}
+		@include extend-viewports {
+			grid-column: span 2;
 		}
 	}
 	&.m__grdRowSpan {
-		&,
-		&-2 {
-			@include extend-viewports {
-				grid-row: span 2;
-			}
+		@include extend-viewports {
+			grid-row: span 2;
 		}
 	}
-	// }
 }

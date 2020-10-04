@@ -90,21 +90,11 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 		min-height: 60vh;
 	}
 	&.m__minHeight-100 {
-		&:not(.m__noShapes) {
-			min-height: calc(100vh - 5rem);
-		}
-		&.m__noShapes {
-			min-height: 100vh;
-		}
+		min-height: calc(100vh - 5rem);
 
 		@media (max-device-width: $viewportMd) {
 			/// mobile only
-			&:not(.m__noShapes) {
-				min-height: calc((100vh - 5rem) - 56px); // 56px: navigation bar
-			}
-			&.m__noShapes {
-				min-height: calc(100vh - 56px); // 56px: navigation bar
-			}
+			min-height: calc((100vh - 5rem) - 56px); // 56px: navigation bar
 		}
 	}
 
