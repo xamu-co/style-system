@@ -18,6 +18,8 @@
 		border-style: solid;
 		border-radius: 50%;
 		box-sizing: border-box;
+		background-color: var(--bg, transparent);
+		border-color: var(--bd, transparent);
 	}
 	&.is__alert,
 	&.is__active,
@@ -40,93 +42,93 @@
 	/// @group Modifiers
 	&.m__tm {
 		&-dark7 {
-			background: color(dark, 0.1);
-			color: color(dark, 0.7);
+			--cl: #{color(dark, 0.7)};
+			--bg: #{color(dark, 0.1)};
 			&:hover {
-				border-color: color(dark, 0.3);
+				--bd: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
-				background: color(dark, 0.5);
+				--bg: #{color(dark, 0.5)};
 			}
 			&.is__alert:after {
 				/// TODO: check border and color
-				background-color: color(light);
-				border-color: color(dark, 0.7);
+				--bd: #{color(dark, 0.7)};
+				--bg: #{color(light)};
 			}
 			&.is__routeExact {
 				/// TODO: check border and color
-				background: color(dark, 0.5);
-				color: color(light);
-				border-color: color(light, 0.3);
+				--cl: #{color(light)};
+				--bg: #{color(dark, 0.5)};
+				--bd: #{color(light, 0.3)};
 			}
 		}
 		&-light {
-			background: color(light, 0.1);
-			color: color(light);
+			--cl: #{color(light)};
+			--bg: #{color(light, 0.1)};
 			&:hover {
-				border-color: color(light, 0.3);
+				--bd: #{color(light, 0.3)};
 			}
 			&.is__alert:after {
 				/// TODO: check border and color
-				background-color: color(light);
-				border-color: color(light);
+				--bg: #{color(light)};
+				--bd: #{color(light)};
 			}
 			&.is__alert,
 			&.is__active {
-				background: color(light, 0.5);
+				--bg: #{color(light, 0.5)};
 			}
 			&.is__routeExact {
 				/// TODO: check border and color
-				background: color(light, 0.5);
-				color: color(light);
-				border-color: color(light, 0.3);
+				--cl: #{color(light)};
+				--bg: #{color(light, 0.5)};
+				--bd: #{color(light, 0.3)};
 			}
 		}
 		&-primaryAlt {
-			background: color(primaryAlt, 0.1);
-			color: color(primaryAlt);
+			--cl: #{color(primaryAlt)};
+			--bg: #{color(primaryAlt, 0.1)};
 			&:hover {
-				border-color: color(primaryAlt);
+				--bd: #{color(primaryAlt)};
 			}
 			&.is__alert:after {
 				/// TODO: check border and color
-				background-color: color(light);
-				border-color: color(dark, 0.3);
+				--bg: #{color(light)};
+				--bd: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
-				background: color(primaryAlt, 0.5);
+				--bg: #{color(primaryAlt, 0.5)};
 			}
 			&.is__routeExact {
 				/// TODO: check border and color
-				background: color(primaryAlt, 0.5);
-				color: color(light);
-				border-color: color(light, 0.3);
+				--cl: #{color(light)};
+				--bg: #{color(primaryAlt, 0.5)};
+				--bd: #{color(light, 0.3)};
 			}
 		}
 	}
 	/// default theme
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
-		background: color(secondary, 0.1);
-		color: color(secondary);
+		--cl: #{color(secondary)};
+		--bg: #{color(secondary, 0.1)};
 		&:hover {
-			border-color: color(secondary, 0.3);
+			--bd: #{color(secondary, 0.3)};
 		}
 		&.is__alert:after {
 			/// TODO: check border and color
-			background-color: color(light);
-			border-color: color(secondary);
+			--bg: #{color(light)};
+			--bd: #{color(secondary)};
 		}
 		&.is__alert,
 		&.is__active {
-			background: color(secondary, 0.5);
+			--bg: #{color(secondary, 0.5)};
 		}
 		&.is__routeExact {
-			background: color(secondary);
-			color: color(light);
-			border-color: color(light, 0.3);
+			--cl: #{color(light)};
+			--bg: #{color(secondary)};
+			--bd: #{color(light, 0.3)};
 		}
 	}
 }

@@ -6,53 +6,44 @@
 .x-btnLink {
 	@media (max-width: $viewportMd) {
 		/// mobile
+		/// Size
+		/// this is the default value
+		height: var(--bls, 2.4rem);
+		border-radius: var(--blr, 1rem);
+		border-width: var(--blw, 2px);
+		padding: var(--blp, 0 0.8rem);
 		&:not(.is__route):not(.is__active) {
-			padding: 0;
+			--blp: 0;
 			span {
 				display: none;
 			}
 		}
-
-		/// button link size
-		///
-		/// @group Modifiers
-		&.m__size,
-		&.m__size-normal,
-		&:not([class*="__size"]) {
-			/// this is the default value
-			height: 2.4rem;
-			border-radius: 1rem;
-			border-width: 2px;
-			&.is__route,
-			&.is__active {
-				// text only
-				padding: 0 0.8rem;
-				i.x-icon {
-					display: none;
-				}
+		&.is__route,
+		&.is__active {
+			// text only
+			i.x-icon {
+				display: none;
 			}
-			&:not(.is__route):not(.is__active) {
-				// icon only
-				width: 2.4rem;
-			}
+		}
+		&:not(.is__route):not(.is__active) {
+			// icon only
+			width: var(--bls, 2.4rem);
 		}
 
 		@each $name, $size in $fontSizes {
 			&.m__size-#{$name} {
-				height: $size * 2.6;
-				border-radius: $size;
-				border-width: calc(2px + (#{$size} / 18));
-				padding: 0 #{$size * 0.8};
-				&:not(.is__route):not(.is__active) {
-					width: $size * 2.6;
-				}
+				--bls: $size * 2.6;
+				--blr: $size;
+				--blw: calc(2px + (#{$size} / 18));
+				--blp: 0 #{$size * 0.8};
 			}
 		}
 	}
 
 	@media (min-width: $viewportMd + 1) {
 		/// desktop
-		background: transparent !important;
+		--cl: var(--rew) !important;
+		--bg: transparent !important;
 
 		/// ruta activa
 		///
@@ -73,32 +64,34 @@
 		/// @group Modifiers
 		&.u__tm {
 			&-light-primaryAlt {
-				color: color(light);
 				&:hover,
 				&.is__active,
 				&.is__routeExact {
-					color: color(primaryAlt);
+					--rew: #{color(primaryAlt)};
 				}
 			}
 			&-primary-light {
-				color: color(light);
 				&:hover,
 				&.is__active,
 				&.is__routeExact {
-					color: color(primary);
+					--rew: #{color(primary)};
 				}
+			}
+			&-primary-light,
+			&-light-primaryAlt {
+				--rew: #{color(light)};
 			}
 		}
 		/// default theme: secondary
 		&:not([class*="u__tm"]),
 		&.u__tm-secondary-light {
-			color: color(secondary);
+			--rew: #{color(secondary)};
 			&:hover:not(.is__active):not(.is__routeExact) {
-				color: color(dark, 0.5);
+				--rew: #{color(dark, 0.5)};
 			}
 			&.is__active,
 			&.is__routeExact {
-				color: color(dark, 0.7);
+				--rew: #{color(dark, 0.7)};
 			}
 		}
 		i.x-icon {

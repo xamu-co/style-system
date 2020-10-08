@@ -41,7 +41,7 @@
 		&-top,
 		&-center,
 		&-bottom {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				left: calc(100% + 0.5rem);
 				&:before {
 					left: -0.5rem;
@@ -56,7 +56,7 @@
 		&-top,
 		&-center,
 		&-bottom {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				right: calc(100% + 0.5rem);
 				&:before {
 					right: -0.5rem;
@@ -69,20 +69,20 @@
 	&.u__position-right,
 	&.u__position-left {
 		&-center {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				top: 50%;
 				transform: translateY(-50%);
 			}
 		}
 		&-bottom {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				bottom: -1rem;
 			}
 		}
 		/// Default right position
 		&,
 		&-top {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				top: -1rem;
 			}
 		}
@@ -93,7 +93,7 @@
 		&-left,
 		&-right,
 		&-center {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				bottom: calc(100% + 0.5rem);
 				&:before {
 					left: 0;
@@ -108,7 +108,7 @@
 		&-left,
 		&-right,
 		&-center {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				top: calc(100% + 0.5rem);
 				&:before {
 					right: 0;
@@ -121,12 +121,12 @@
 	&.u__position-top,
 	&.u__position-bottom {
 		&-right {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				right: -0.7rem;
 			}
 		}
 		&-center {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				left: 50%;
 				transform: translateX(-50%);
 			}
@@ -134,13 +134,14 @@
 		/// Default bottom position
 		&,
 		&-left {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				left: -0.7rem;
 			}
 		}
 	}
 	/// default: bottom-left
-	&:not([class*="u__position"]) {
+	&:not([class*="__po"]) {
+		/// Position
 		left: -0.7rem;
 		top: calc(100% + 0.5rem);
 		&:before {

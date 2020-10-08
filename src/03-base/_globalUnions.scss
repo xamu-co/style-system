@@ -16,8 +16,8 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports {
-			justify-content: space-between;
+		@include extend-viewports-classes {
+			--ju: space-between;
 		}
 	}
 }
@@ -32,8 +32,8 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports {
-			justify-content: space-around;
+		@include extend-viewports-classes {
+			--ju: space-around;
 		}
 	}
 }
@@ -48,8 +48,8 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports {
-			justify-content: space-evenly;
+		@include extend-viewports-classes {
+			--ju: space-evenly;
 		}
 	}
 }
@@ -57,30 +57,30 @@
 .xu__flx-around,
 .xu__flx-evenly {
 	&-stretch {
-		@include extend-viewports {
-			align-items: stretch;
+		@include extend-viewports-classes {
+			--al: stretch;
 		}
 	}
 	&-start {
-		@include extend-viewports {
-			align-items: flex-start;
+		@include extend-viewports-classes {
+			--al: flex-start;
 		}
 	}
 	&-end {
-		@include extend-viewports {
-			align-items: flex-end;
+		@include extend-viewports-classes {
+			--al: flex-end;
 		}
 	}
 	&-baseline {
-		@include extend-viewports {
-			align-items: baseline;
+		@include extend-viewports-classes {
+			--al: baseline;
 		}
 	}
 	/// default
 	&,
 	&-center {
-		@include extend-viewports {
-			align-items: center;
+		@include extend-viewports-classes {
+			--al: center;
 		}
 	}
 }
@@ -90,13 +90,13 @@
 /// @group GlobalUnions
 .xu__flx-start {
 	&-center {
-		@include extend-viewports {
-			align-items: center;
+		@include extend-viewports-classes {
+			--al: center;
 		}
 	}
 	&-end {
-		@include extend-viewports {
-			align-items: flex-end;
+		@include extend-viewports-classes {
+			--al: flex-end;
 		}
 	}
 	&,
@@ -105,15 +105,15 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports {
-			justify-content: flex-start;
+		@include extend-viewports-classes {
+			--ju: flex-start;
 		}
 	}
 	/// default
 	&,
 	&-start {
-		@include extend-viewports {
-			align-items: flex-start;
+		@include extend-viewports-classes {
+			--al: flex-start;
 		}
 	}
 }
@@ -123,13 +123,13 @@
 /// @group GlobalUnions
 .xu__flx-center {
 	&-start {
-		@include extend-viewports {
-			align-items: flex-start;
+		@include extend-viewports-classes {
+			--al: flex-start;
 		}
 	}
 	&-end {
-		@include extend-viewports {
-			align-items: flex-end;
+		@include extend-viewports-classes {
+			--al: flex-end;
 		}
 	}
 	&,
@@ -138,15 +138,15 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports {
-			justify-content: center;
+		@include extend-viewports-classes {
+			--ju: center;
 		}
 	}
 	/// default
 	&,
 	&-center {
-		@include extend-viewports {
-			align-items: center;
+		@include extend-viewports-classes {
+			--al: center;
 		}
 	}
 }
@@ -156,13 +156,13 @@
 /// @group GlobalUnions
 .xu__flx-end {
 	&-start {
-		@include extend-viewports {
-			align-items: flex-start;
+		@include extend-viewports-classes {
+			--al: flex-start;
 		}
 	}
 	&-center {
-		@include extend-viewports {
-			align-items: center;
+		@include extend-viewports-classes {
+			--al: center;
 		}
 	}
 	&,
@@ -171,15 +171,15 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports {
-			justify-content: flex-end;
+		@include extend-viewports-classes {
+			--ju: flex-end;
 		}
 	}
 	/// default
 	&,
 	&-end {
-		@include extend-viewports {
-			align-items: flex-end;
+		@include extend-viewports-classes {
+			--al: flex-end;
 		}
 	}
 }
@@ -187,13 +187,17 @@
 .xu__flx-center,
 .xu__flx-end {
 	&-stretch {
-		@include extend-viewports {
-			align-items: stretch;
+		@include extend-viewports-classes {
+			--al: stretch;
 		}
 	}
 	&-baseline {
-		@include extend-viewports {
-			align-items: baseline;
+		@include extend-viewports-classes {
+			--al: baseline;
 		}
 	}
+}
+[class*="__flx-"] {
+	justify-content: var(--ju, initial);
+	align-items: var(--al, initial);
 }

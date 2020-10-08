@@ -5,7 +5,7 @@
 /// @group Layouts
 nav.x-nListToggle {
 	// width: 100%;
-	> input[type="checkbox"] {
+	> input[type^="c"] {
 		display: none;
 		&:checked ~ .x-nListToggle-toggler {
 			font-weight: $fontWeightBold;

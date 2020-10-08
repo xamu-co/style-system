@@ -6,7 +6,7 @@ $hrPatternY: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKCAYAAAB10jRK
 /// @group Components
 hr {
 	&.m__hrX {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			// max-height: 2px;
 			width: calc(100% + 1rem);
 			height: 2px;
@@ -23,7 +23,7 @@ hr {
 		}
 	}
 	&.m__hrY {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			// max-width: 2px;
 			width: 2px;
 			height: calc(100% + 1rem);
@@ -41,7 +41,7 @@ hr {
 	}
 	&.m__hrX,
 	&.m__hrY {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			opacity: 0.2;
 			background-repeat: round;
 			background-position: 50% 50%;

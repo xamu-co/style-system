@@ -8,7 +8,7 @@
 /// @group GlobalModifiers
 
 .xm__hidden {
-	@include extend-viewports(true) {
+	@include extend-viewports-classes(true) {
 		width: 0.1px;
 		height: 0.1px;
 		opacity: 0;
@@ -17,7 +17,7 @@
 		z-index: -1;
 	}
 	&-full {
-		@include extend-viewports(true) {
+		@include extend-viewports-classes(true) {
 			display: none !important;
 		}
 	}
@@ -27,7 +27,7 @@
 ///
 /// @group GlobalModifiers
 .xm__flx {
-	@include extend-viewports {
+	@include extend-viewports-classes {
 		flex: 1 1 auto;
 	}
 }
@@ -37,32 +37,35 @@
 /// @group GlobalModifiers
 .xm__position {
 	&-fixed {
-		@include extend-viewports {
-			position: fixed;
+		@include extend-viewports-classes {
+			--po: fixed;
 		}
 	}
 	&-sticky {
-		@include extend-viewports {
-			position: sticky;
+		@include extend-viewports-classes {
+			--po: sticky;
 		}
 	}
 	&-relative {
-		@include extend-viewports {
-			position: relative;
+		@include extend-viewports-classes {
+			--po: relative;
 		}
 	}
 	&-absolute {
-		@include extend-viewports {
-			position: absolute;
+		@include extend-viewports-classes {
+			--po: absolute;
 		}
 	}
 	/// default
 	&,
 	&-static {
-		@include extend-viewports {
-			position: static;
+		@include extend-viewports-classes {
+			--po: static;
 		}
 	}
+}
+[class*="__position"] {
+	position: var(--po, relative);
 }
 
 /// text wrap
@@ -70,14 +73,14 @@
 /// @group GlobalModifiers
 .xm__txtWrap {
 	&-nowrap {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			white-space: nowrap;
 		}
 	}
 	/// default
 	&,
 	&-wrap {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			white-space: normal;
 		}
 	}
@@ -89,13 +92,13 @@
 /// @group GlobalModifiers
 .xm__mX {
 	&-left {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			margin-left: 0;
 			margin-right: auto;
 		}
 	}
 	&-right {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			margin-left: auto;
 			margin-right: 0;
 		}
@@ -103,9 +106,8 @@
 	/// default
 	&,
 	&-center {
-		@include extend-viewports {
-			margin-left: auto;
-			margin-right: auto;
+		@include extend-viewports-classes {
+			--ma-x: auto;
 		}
 	}
 }
@@ -116,13 +118,13 @@
 /// @group GlobalModifiers
 .xm__mY {
 	&-top {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			margin-top: 0;
 			margin-bottom: auto;
 		}
 	}
 	&-bottom {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			margin-top: auto;
 			margin-bottom: 0;
 		}
@@ -130,9 +132,8 @@
 	/// default
 	&,
 	&-center {
-		@include extend-viewports {
-			margin-top: auto;
-			margin-bottom: auto;
+		@include extend-viewports-classes {
+			--ma-y: auto;
 		}
 	}
 }
@@ -143,9 +144,8 @@
 /// @group GlobalModifiers
 .xm__pX {
 	/// there is no thing such as padding auto
-	@include extend-viewports {
-		padding-left: 1rem;
-		padding-right: 1rem;
+	@include extend-viewports-classes {
+		--pa-x: 1rem;
 	}
 }
 
@@ -155,9 +155,8 @@
 /// @group GlobalModifiers
 .xm__pY {
 	/// there is no thing such as padding auto
-	@include extend-viewports {
-		padding-top: 1rem;
-		padding-bottom: 1rem;
+	@include extend-viewports-classes {
+		--pa-y: 1rem;
 	}
 }
 
@@ -166,37 +165,40 @@
 /// @group GlobalModifiers
 .xm__flxJustify {
 	&-end {
-		@include extend-viewports {
-			justify-content: flex-end;
+		@include extend-viewports-classes {
+			--ju: flex-end;
 		}
 	}
 	&-start {
-		@include extend-viewports {
-			justify-content: flex-start;
+		@include extend-viewports-classes {
+			--ju: flex-start;
 		}
 	}
 	&-around {
-		@include extend-viewports {
-			justify-content: space-around;
+		@include extend-viewports-classes {
+			--ju: space-around;
 		}
 	}
 	&-evenly {
-		@include extend-viewports {
-			justify-content: space-evenly;
+		@include extend-viewports-classes {
+			--ju: space-evenly;
 		}
 	}
 	&-between {
-		@include extend-viewports {
-			justify-content: space-between;
+		@include extend-viewports-classes {
+			--ju: space-between;
 		}
 	}
 	/// default
 	&,
 	&-center {
-		@include extend-viewports {
-			justify-content: center;
+		@include extend-viewports-classes {
+			--ju: center;
 		}
 	}
+}
+[class*="__flxJu"] {
+	justify-content: var(--ju, initial);
 }
 
 /// flexbox align items
@@ -204,32 +206,35 @@
 /// @group GlobalModifiers
 .xm__flxAlign {
 	&-end {
-		@include extend-viewports {
-			align-items: flex-end;
+		@include extend-viewports-classes {
+			--al: flex-end;
 		}
 	}
 	&-start {
-		@include extend-viewports {
-			align-items: flex-start;
+		@include extend-viewports-classes {
+			--al: flex-start;
 		}
 	}
 	&-stretch {
-		@include extend-viewports {
-			align-items: stretch;
+		@include extend-viewports-classes {
+			--al: stretch;
 		}
 	}
 	&-baseline {
-		@include extend-viewports {
-			align-items: baseline;
+		@include extend-viewports-classes {
+			--al: baseline;
 		}
 	}
 	/// default
 	&,
 	&-center {
-		@include extend-viewports {
-			align-items: center;
+		@include extend-viewports-classes {
+			--al: center;
 		}
 	}
+}
+[class*="__flxA"] {
+	align-items: var(--al, initial);
 }
 
 /// font weight
@@ -237,7 +242,7 @@
 /// @group GlobalModifiers
 .xm__txtWeight {
 	&-bold {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			font-weight: $fontWeightBold;
 			@supports (-moz-appearance: none) {
 				// firefox fix
@@ -246,7 +251,7 @@
 		}
 	}
 	&-regular {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			font-weight: $fontWeightRegular;
 			@supports (-moz-appearance: none) {
 				// firefox fix
@@ -262,34 +267,40 @@
 .xm__txtAlign,
 .xm__txtAlignFlx {
 	&-right {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			text-align: right;
-			&:not([class*="__gaping"]) > :not([class|="x"]) {
+			&:not([class*="__gapi"]) > :not([class|="x"]) {
+				/// Gaping
 				display: inline-block;
 			}
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				text-align: right;
 			}
 		}
 	}
 	&-center {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			text-align: center;
-			&:not([class*="__gaping"]) > :not([class|="x"]) {
+			&:not([class*="__gapi"]) > :not([class|="x"]) {
+				/// Gaping
 				display: inline-block;
 			}
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				text-align: center;
 			}
 		}
 	}
 	&-justify {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			text-align: justify;
-			&:not([class*="__gaping"]) > :not([class|="x"]) {
+			&:not([class*="__gapi"]) > :not([class|="x"]) {
+				/// Gaping
 				display: inline-block;
 			}
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				text-align: justify;
 			}
 		}
@@ -297,12 +308,14 @@
 	/// default
 	&,
 	&-left {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			text-align: left;
-			&:not([class*="__gaping"]) > :not([class|="x"]) {
+			&:not([class*="__gapi"]) > :not([class|="x"]) {
+				/// Gaping
 				display: inline-block;
 			}
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				text-align: left;
 			}
 		}
@@ -314,9 +327,10 @@
 /// @group FamilyGlobalModifiers
 .xm__txtAlignFlx {
 	&-right {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				@include flexbox(
 					column,
 					nowrap,
@@ -328,9 +342,10 @@
 		}
 	}
 	&-center {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, center, inline-flex);
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				@include flexbox(
 					column,
 					nowrap,
@@ -342,9 +357,10 @@
 		}
 	}
 	&-justify {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				@include flexbox(
 					column,
 					nowrap,
@@ -358,7 +374,7 @@
 	/// default
 	&,
 	&-left {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			@include flexbox(
 				column,
 				nowrap,
@@ -366,7 +382,8 @@
 				flex-start,
 				inline-flex
 			);
-			> :not([class*="__txtAlign"]):not([class|="x"]) {
+			> :not([class*="__txtA"]):not([class|="x"]) {
+				/// Align
 				@include flexbox(
 					column,
 					nowrap,
@@ -386,7 +403,7 @@
 /// @group GlobalModifiers
 @each $name, $size in $fontSizes {
 	.xm__txtSize-#{$name} {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			font-size: #{$size};
 		}
 	}
@@ -394,7 +411,7 @@
 /// default
 .xm__txtSize,
 .xm__txtSize-normal {
-	@include extend-viewports {
+	@include extend-viewports-classes {
 		font-size: $fontSize;
 	}
 }
@@ -407,33 +424,67 @@ $models: margin, padding;
 	@for $i from 1 through 20 {
 		/// all sides
 		.xm__#{str-slice($model,1,1) + "-" + $i*5} {
-			@include extend-viewports {
-				#{$model}: #{$i/3}rem;
+			@include extend-viewports-classes {
+				--#{str-slice($model, 1, 2)}: #{$i/3}rem;
 			}
 		}
 		/// X axis
 		.xm__#{str-slice($model,1,1) + "X-" + $i*5} {
-			@include extend-viewports {
-				#{$model}-left: #{$i/3}rem;
-				#{$model}-right: #{$i/3}rem;
+			@include extend-viewports-classes {
+				--#{str-slice($model, 1, 2)}-x: #{$i/3}rem;
 			}
 		}
 		/// Y axis
 		.xm__#{str-slice($model,1,1) + "Y-" + $i*5} {
-			@include extend-viewports {
-				#{$model}-top: #{$i/3}rem;
-				#{$model}-bottom: #{$i/3}rem;
+			@include extend-viewports-classes {
+				--#{str-slice($model, 1, 2)}-y: #{$i/3}rem;
 			}
 		}
 	}
 	/// default: all sides
+	/// margin & padding already have defaults for X & Y axles
 	.xm__#{$model},
 	.xm__#{str-slice($model,1,1)} {
-		@include extend-viewports {
-			#{$model}: 1rem;
+		@include extend-viewports-classes {
+			--#{str-slice($model, 1, 2)}: 1rem;
 		}
 	}
-	/// margin & padding already have defaults for X & Y axles
+
+	/// maybe i'm overcomplicating this
+	/// I break this  two in multiple lines because of his complexity
+	/// margin
+	[class*="__m"]:not([class*="__mY"]):not([class*="__mX"]) {
+		&:not([class*="__mT"]):not([class*="__mR"]):not([class*="__mB"]):not([class*="__mL"]) {
+			/// Top, Right, Bottom, Left
+			&:not([class*="min"]):not([class*="max"]) {
+				/// this could caue problems if min/max is set alongside margin/padding
+				&:not([class*="is__m"]) {
+					/// this could cause problems in some statuses starting with m
+					margin: var(--ma, initial);
+				}
+			}
+		}
+	}
+	/// padding
+	[class*="__p"]:not([class*="__pY"]):not([class*="__pX"]):not([class*="__po"]) {
+		&:not([class*="__pT"]):not([class*="__pR"]):not([class*="__pB"]):not([class*="__pL"]) {
+			/// Top, Right, Bottom, Left
+			&:not([class*="is__p"]) {
+				/// this could cause problems in some statuses starting with p
+				padding: var(--pa, initial);
+			}
+		}
+	}
+	/// X axis
+	[class*="__#{str-slice($model,1,1)}X"] {
+		#{$model}-left: var(--#{str-slice($model, 1, 2)}-x, initial);
+		#{$model}-right: var(--#{str-slice($model, 1, 2)}-x, initial);
+	}
+	/// Y axis
+	[class*="__#{str-slice($model,1,1)}Y"] {
+		#{$model}-top: var(--#{str-slice($model, 1, 2)}-y, initial);
+		#{$model}-bottom: var(--#{str-slice($model, 1, 2)}-y, initial);
+	}
 }
 
 /// Dimensions
@@ -444,26 +495,29 @@ $dimensions: width, height;
 	/// @group GlobalModifiers
 	.xm__#{$dimension} {
 		&-quarter {
-			@include extend-viewports {
-				#{$dimension}: 50%;
+			@include extend-viewports-classes {
+				--#{str-slice($dimension,1,2)}: 50%;
 			}
 		}
 		&-third {
-			@include extend-viewports {
-				#{$dimension}: 33%;
+			@include extend-viewports-classes {
+				--#{str-slice($dimension,1,2)}: 33%;
 			}
 		}
 		&-half {
-			@include extend-viewports {
-				#{$dimension}: 50%;
+			@include extend-viewports-classes {
+				--#{str-slice($dimension,1,2)}: 50%;
 			}
 		}
 		&,
 		&-full {
-			@include extend-viewports {
-				#{$dimension}: 100%;
+			@include extend-viewports-classes {
+				--#{str-slice($dimension,1,2)}: 100%;
 			}
 		}
+	}
+	[class*="__#{str-slice($dimension,1,2)}"] {
+		#{$dimension}: var(--#{str-slice($dimension, 1, 2)}, initial);
 	}
 
 	/// max width, max height
@@ -475,16 +529,17 @@ $dimensions: width, height;
 		$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
 		@each $size in $maxSizes {
 			.xm__#{$constrain + capitalize($dimension)}-#{$size} {
-				@include extend-viewports {
-					#{$constrain}-#{$dimension}: #{$size}px;
+				@include extend-viewports-classes {
+					--#{$constrain}: #{round($size/15)}rem;
 				}
 			}
 		}
 		/// default pixel based constrains
 		.xm__#{$constrain + capitalize($dimension)},
 		.xm__#{$constrain + capitalize($dimension)}-1200 {
-			@include extend-viewports {
-				max-#{$dimension}: 1200px;
+			$mildos: 1200;
+			@include extend-viewports-classes {
+				--#{$constrain}: #{round($mildos/16)}rem;
 			}
 		}
 
@@ -494,25 +549,29 @@ $dimensions: width, height;
 		/// @group GlobalModifiers
 		@for $i from 3 through 10 {
 			.xm__#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
-				@include extend-viewports {
-					#{$constrain}-#{$dimension}: #{$i * 10}vw;
+				@include extend-viewports-classes {
+					--#{$constrain}: #{$i * 10}vw;
 				}
 			}
 			.xm__#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
-				@include extend-viewports {
-					#{$constrain}-#{$dimension}: #{$i * 10}vh;
+				@include extend-viewports-classes {
+					--#{$constrain}: #{$i * 10}vh;
 				}
 			}
 		}
 		/// default viewport based constrains
+		/// __maxW, __maxH, __minW, __minH
+		[class*="__#{$constrain + capitalize(str-slice($dimension,1,1))}"] {
+			#{$constrain}-#{$dimension}: var(--#{$constrain}, initial);
+		}
 		.xm__#{$constrain + capitalize($dimension)}Vw {
-			@include extend-viewports {
-				#{$constrain}-#{$dimension}: 30vw;
+			@include extend-viewports-classes {
+				--#{$constrain}: 30vw;
 			}
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vh {
-			@include extend-viewports {
-				#{$constrain}-#{$dimension}: 30vh;
+			@include extend-viewports-classes {
+				--#{$constrain}: 30vh;
 			}
 		}
 	}
@@ -526,27 +585,39 @@ $directions: top, right, bottom, left;
 	@for $i from 1 through 20 {
 		/// margins
 		.xm__m#{capitalize($direction) + "-" + $i*5} {
-			@include extend-viewports {
-				margin-#{$direction}: #{$i/3}rem;
+			@include extend-viewports-classes {
+				--m#{str-slice($direction,1,1)}: #{$i/3}rem;
 			}
 		}
 		/// paddings
 		.xm__p#{capitalize($direction) + "-" + $i*5} {
-			@include extend-viewports {
-				padding-#{$direction}: #{$i/3}rem;
+			@include extend-viewports-classes {
+				--p#{str-slice($direction,1,1)}: #{$i/3}rem;
 			}
 		}
 	}
 	/// margin defaults
+	[class*="__m#{capitalize($direction)}"] {
+		margin-#{$direction}: var(--m#{str-slice($direction, 1, 1)}, 0);
+		> * {
+			--m#{str-slice($direction,1,1)}: 0;
+		}
+	}
 	.xm__m#{capitalize($direction)} {
-		@include extend-viewports {
-			margin-#{$direction}: 1rem;
+		@include extend-viewports-classes {
+			--m#{str-slice($direction,1,1)}: 1rem;
 		}
 	}
 	/// padding defaults
+	[class*="__p#{capitalize($direction)}"] {
+		padding-#{$direction}: var(--p#{str-slice($direction, 1, 1)}, 0);
+		> * {
+			--p#{str-slice($direction,1,1)}: 0;
+		}
+	}
 	.xm__p#{capitalize($direction)} {
-		@include extend-viewports {
-			padding-#{$direction}: 1rem;
+		@include extend-viewports-classes {
+			--p#{str-slice($direction,1,1)}: 1rem;
 		}
 	}
 }
@@ -557,7 +628,7 @@ $directions: top, right, bottom, left;
 	///
 	/// @group GlobalModifiers
 	.xm__index-#{$i} {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			z-index: #{$i};
 		}
 	}
@@ -566,116 +637,101 @@ $directions: top, right, bottom, left;
 	/// both dimension
 	///
 	/// @group GlobalModifiers
-	.xm__gap-#{$i*5},
-	.xm__grdGap-#{$i*5} {
-		@include extend-viewports {
-			gap: #{$i/3}rem;
-		}
-	}
-
 	/// gap using margin
 	/// both axis
+	/// this class applies to any container, not just flex containers, so it can't be polyfilled
 	///
 	/// @group GlobalModifiers
+	.xm__gap-#{$i*5},
+	.xm__grdGap-#{$i*5},
 	.xm__gaping-#{$i*5} {
-		@include extend-viewports {
-			/// this is a very special class to omit this specific fix
-			&:not(.unfix__gaping) {
-				margin: -0.1px -#{$i/3}rem -#{$i/3}rem -0.1px;
-				box-sizing: border-box;
-			}
-			> :not(br) {
-				&:not([class*="__m"]),
-				&[class*="__min"],
-				&[class*="__max"] {
-					&[class*="__txtWrap"]:not([class*="__flx"]),
-					&:not([class*="-wrap"]):not([class*="-reverse"]) {
-						margin-bottom: #{$i/3}rem;
-						margin-right: #{$i/3}rem;
-					}
-				}
-			}
+		@include extend-viewports-classes {
+			--gap: #{$i/3}rem;
 		}
 	}
-	.xm__gapingX-#{$i*5} {
-		/// X axis
-		/// because of the fix is necesary to transfer the margin to the sibling element
-		@include extend-viewports {
-			> :not(br):not(:last-child) {
-				&:not([class*="__mRight"]) {
-					/// TODO: .xm__gaping is not targeting responsive
-					&.unfix__gaping,
-					&:not(.xm__gaping):not([class*="__gaping-"]) {
-						margin-right: #{$i/3}rem;
-					}
-				}
-				&:not(.unfix__gaping)[class*="__gaping"]:not([class*="__gapingX"]):not([class*="__gapingY"])
-					+ * {
-					margin-left: #{$i/3}rem;
-				}
-			}
-		}
-	}
+	.xm__gapingX-#{$i*5},
 	.xm__gapingY-#{$i*5} {
-		/// Y axis
-		/// because of the fix is necesary to transfer the margin to the sibling element
-		@include extend-viewports {
-			> :not(br):not(:last-child) {
-				&:not([class*="__mBottom"]) {
-					/// TODO: .xm__gaping is not targeting responsive
-					&.unfix__gaping,
-					&:not(.xm__gaping):not([class*="__gaping-"]) {
-						margin-bottom: #{$i/3}rem;
-					}
-				}
-				&:not(.unfix__gaping)[class*="__gaping"]:not([class*="__gapingX"]):not([class*="__gapingY"])
-					+ * {
-					margin-top: #{$i/3}rem;
-				}
+		@include extend-viewports-classes {
+			> * {
+				--gap: #{$i/3}rem;
 			}
 		}
 	}
 }
 
 /// grid/column gap default
-.xm__gap,
-.xm__grdGap {
-	@include extend-viewports {
-		gap: 1rem;
-	}
+[class*="__gap"]:not([class*="__gapi"]),
+[class*="__grdG"] {
+	gap: var(--gap);
 }
 
 /// item spacing defaults
-.xm__gaping {
-	@include extend-viewports {
-		/// this is a very special class to omit this specific fix
-		&:not(.unfix__gaping) {
-			margin: -0.1px -1rem -1rem -0.1px;
-			box-sizing: border-box;
-		}
-		> :not(br) {
-			&:not([class*="__m"]),
-			&[class*="__min"],
-			&[class*="__max"] {
-				margin-bottom: 1rem;
-				margin-right: 1rem;
+[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]) {
+	/// this is a very special class to omit this specific fix
+	&:not(.unfix__gaping) {
+		margin: -0.1px calc(-1 * var(--gap)) calc(-1 * var(--gap)) -0.1px;
+		box-sizing: border-box;
+	}
+	> :not(br) {
+		&:not([class*="__m"]),
+		&[class*="__min"],
+		&[class*="__max"] {
+			&[class*="__txtWr"]:not([class*="__flx"]),
+			&:not([class*="-wrap"]):not([class*="-reverse"]) {
+				/// Wrap
+				margin-bottom: var(--gap);
+				margin-right: var(--gap);
 			}
 		}
 	}
 }
-.xm__gapingX {
-	/// X dimension
-	@include extend-viewports {
-		> :not([class*="__mRight"]):not(:last-child) {
-			margin-right: 1rem;
+/// X axis
+/// because of the fix is necesary to transfer the margin to the sibling element
+[class*="ngX"] > :not(br):not(:last-child) {
+	/// Gaping
+	&:not([class*="__mR"]) {
+		/// Right
+		&.unfix__gaping,
+		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
+			margin-right: var(--gap);
 		}
 	}
+	&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
+		+ * {
+		/// Gaping
+		margin-left: var(--gap);
+	}
 }
+/// Y axis
+/// because of the fix is necesary to transfer the margin to the sibling element
+[class*="ngY"] > :not(br):not(:last-child) {
+	/// Gaping
+	&:not([class*="__mB"]) {
+		/// Bottom
+		&.unfix__gaping,
+		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
+			margin-bottom: var(--gap);
+		}
+	}
+	&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
+		+ * {
+		/// Gaping
+		margin-top: var(--gap);
+	}
+}
+.xm__gap,
+.xm__grdGap,
+.xm__gaping {
+	@include extend-viewports-classes {
+		--gap: 1rem;
+	}
+}
+.xm__gapingX,
 .xm__gapingY {
 	/// Y dimension
-	@include extend-viewports {
-		> :not([class*="__mBottom"]):not(:last-child) {
-			margin-bottom: 1rem;
+	@include extend-viewports-classes {
+		> * {
+			--gap: 1rem;
 		}
 	}
 }
@@ -687,44 +743,46 @@ $directions: top, right, bottom, left;
 @each $name, $color in $colors {
 	/// striped childs
 	.xm__striped-#{$name} {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			> :nth-child(odd) {
-				background-color: #{color($name, 0.1)};
+				--bg: #{color($name, 0.1)};
 			}
 		}
 	}
 
 	/// text color
 	.xm__txtColor-#{$name} {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			&,
-			> :not([class*="__txtColor"]):not([class|="x"]) {
-				color: #{color($name)};
+			> :not([class*="__txtC"]):not([class|="x"]) {
+				/// Color
+				--cl: #{color($name)};
 			}
 		}
 	}
 
 	/// text shadow
 	.xm__txtShadow-#{$name} {
-		@include extend-viewports {
+		@include extend-viewports-classes {
 			&,
-			> :not([class*="__txtShadow"]):not([class|="x"]) {
-				text-shadow: 1px 1px 1px #{color($name)};
+			> :not([class*="__txtSh"]):not([class|="x"]) {
+				/// Shadow
+				--sh: #{color($name)};
 			}
 		}
 	}
 
 	/// background color
 	.xm__bgColor-#{$name} {
-		@include extend-viewports {
-			background-color: #{color($name)};
+		@include extend-viewports-classes {
+			--bg: #{color($name)};
 		}
 	}
 
 	/// borderColor
 	.xm__bdrColor-#{$name} {
-		@include extend-viewports {
-			border-color: #{color($name)};
+		@include extend-viewports-classes {
+			--bd: #{color($name)};
 		}
 	}
 
@@ -732,80 +790,112 @@ $directions: top, right, bottom, left;
 	@for $i from 1 through 9 {
 		/// text color
 		.xm__txtColor-#{$name}#{$i} {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				&,
-				> :not([class*="__txtColor"]):not([class|="x"]) {
-					color: #{color($name, $i/10)};
+				> :not([class*="__txtC"]):not([class|="x"]) {
+					/// Shadow
+					--cl: #{color($name, $i/10)};
 				}
 			}
 		}
 
 		/// text shadow
 		.xm__txtShadow-#{$name}#{$i} {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				&,
-				> :not([class*="__txtShadow"]):not([class|="x"]) {
-					text-shadow: 1px 1px 1px #{color($name, $i/10)};
+				> :not([class*="__txtSh"]):not([class|="x"]) {
+					/// Shadow
+					--sh: #{color($name, $i/10)};
 				}
 			}
 		}
 
 		/// background color
 		.xm__bgColor-#{$name}#{$i} {
-			@include extend-viewports {
-				background-color: #{color($name, $i/10)};
+			@include extend-viewports-classes {
+				--bg: #{color($name, $i/10)};
 			}
 		}
 
 		/// borderColor
 		.xm__bdrColor-#{$name}#{$i} {
-			@include extend-viewports {
-				border-color: #{color($name, $i/10)};
+			@include extend-viewports-classes {
+				--bd: #{color($name, $i/10)};
 			}
 		}
 	}
 }
 
 /// default striped child color
+[class*="__st"] {
+	/// Striped
+	> :nth-child(odd) {
+		background-color: var(--bg);
+	}
+}
 .xm__striped {
-	@include extend-viewports {
+	@include extend-viewports-classes {
 		> :nth-child(odd) {
-			background-color: color(secondary, 0.1);
+			--bg: #{color(secondary, 0.1)};
 		}
 	}
 }
 
 /// default color
+[class*="__txtC"] {
+	&,
+	> :not([class*="__txtC"]):not([class|="x"]) {
+		/// Color
+		color: var(--cl);
+	}
+}
 .xm__txtColor {
-	@include extend-viewports {
+	@include extend-viewports-classes {
 		&,
-		> :not([class*="__txtColor"]):not([class|="x"]) {
-			color: color(dark, 0.7);
+		> :not([class*="__txtC"]):not([class|="x"]) {
+			/// Color
+			--cl: #{color(dark, 0.7)};
 		}
 	}
 }
 
 /// default text color
+[class*="__txtSh"] {
+	&,
+	> :not([class*="__txtSh"]):not([class|="x"]) {
+		/// Shadow
+		text-shadow: 1px 1px 1px var(--sh);
+	}
+}
 .xm__txtShadow {
-	@include extend-viewports {
+	@include extend-viewports-classes {
 		&,
-		> :not([class*="__txtShadow"]):not([class|="x"]) {
-			text-shadow: 1px 1px 1px color(dark, 0.3);
+		> :not([class*="__txtSh"]):not([class|="x"]) {
+			/// Shadow
+			--sh: #{color(dark, 0.3)};
 		}
 	}
 }
 
 /// default background color
+[class*="__bgC"]:not([class*="or-none"]) {
+	/// Color
+	background-color: var(--bg);
+}
 .xm__bgColor {
-	@include extend-viewports {
-		background-color: color(light);
+	@include extend-viewports-classes {
+		--bg: #{color(light)};
 	}
 }
 
 /// default borderColor
+[class*="__bdrC"] {
+	/// Color
+	border-color: var(--bd);
+}
 .xm__bdrColor {
-	@include extend-viewports {
-		border-color: color(secondary, 0.1);
+	@include extend-viewports-classes {
+		--bd: #{color(secondary, 0.1)};
 	}
 }
 

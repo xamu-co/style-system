@@ -6,7 +6,7 @@
 /// @group Components
 .x-link {
 	display: inline-block;
-	background-color: transparent;
+	--bg: transparent;
 
 	/// link theme
 	///
@@ -16,39 +16,39 @@
 			&:hover,
 			&.is__active,
 			&.is__routeExact {
-				color: color(primary);
+				--cl: #{color(primary)};
 			}
 		}
 		&-lightAlt {
 			&:hover,
 			&.is__active,
 			&.is__routeExact {
-				color: color(primaryAlt);
+				--cl: #{color(primaryAlt)};
 			}
 		}
 		&-primaryAlt {
-			color: color(primaryAlt);
+			--cl: #{color(primaryAlt)};
 			&:hover,
 			&.is__active,
 			&.is__routeExact {
-				color: color(light);
+				--cl: #{color(light)};
 			}
 		}
 		&-light,
 		&-lightAlt {
-			color: color(light);
+			--cl: #{color(light)};
 		}
 	}
 	/// default theme: secondary
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
-		color: color(secondary);
+		--cl: #{color(secondary)};
 		&:hover:not(.is__active):not(.is__routeExact) {
-			color: color(dark, 0.5);
+			--cl: #{color(dark, 0.5)};
 		}
 		&.is__active,
 		&.is__routeExact {
-			color: color(dark, 0.7);
+			--cl: #{color(dark, 0.7)};
 		}
 	}
 

@@ -2,7 +2,7 @@
 /// Checkbox
 ///
 /// @group Components
-input[type="checkbox"].x-inCheckbox {
+input[type^="c"].x-inCheckbox {
 	display: none;
 	+ label {
 		&:after {

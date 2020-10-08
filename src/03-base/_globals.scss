@@ -52,7 +52,8 @@
 	}
 }
 
-h1:not([class*="__txtSize"]) {
+h1:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeExtraLarge;
 	br {
 		display: none;
@@ -64,7 +65,8 @@ h1:not([class*="__txtSize"]) {
 		}
 	}
 }
-h2:not([class*="__txtSize"]) {
+h2:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeLarge;
 	br {
 		display: none;
@@ -76,10 +78,12 @@ h2:not([class*="__txtSize"]) {
 		}
 	}
 }
-h3:not([class*="__txtSize"]) {
+h3:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeLarge;
 }
-h4:not([class*="__txtSize"]) {
+h4:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeMedium;
 }
 
@@ -159,7 +163,8 @@ iframe {
 		box-sizing: border-box;
 		@include flexbox(column, nowrap, center, center);
 	}
-	&:not([class*="__bgColor"]) {
+	&:not([class*="__bgC"]) {
+		/// Color
 		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
 	}
 }
@@ -193,7 +198,8 @@ h6 {
 }
 
 /// global font weight
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not([class|="fa"]):not([class*="__txtWeight"]) {
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not([class|="fa"]):not([class*="__txtWe"]) {
+	/// Weight
 	font-weight: inherit;
 }
 
@@ -209,7 +215,8 @@ button,
 strong,
 .x-btn,
 .x-btnToggle {
-	&:not([class*="__txtWeight"]) {
+	&:not([class*="__txtWe"]) {
+		/// Weight
 		font-weight: $fontWeightBold;
 		@supports (-moz-appearance: none) {
 			// firefox fix
@@ -222,30 +229,41 @@ strong,
 ///
 /// @group SharedStyles
 /// row fix
-.x-flx[class*="__flxRow"] {
-	/// default
-	&:not([class*="__gaping"]) > :not(.unfix__gaping)[class*="__flx"] {
+[class*="x-flx"][class*="__flxR"] {
+	//Row
+	&:last-child > :not(.unfix__gaping)[class*="__flx"] {
 		&[class*="-wrap"],
 		&[class*="-reverse"] {
-			+ * {
-				margin-left: 1rem;
+			&:first-child:only-of-type,
+			&:last-child {
+				margin-right: 0;
 			}
 		}
 	}
-	@for $i from 1 through 10 {
-		&.xm__gaping-#{$i*5} > :not(.unfix__gaping)[class*="__flx"] {
-			&[class*="-wrap"],
-			&[class*="-reverse"] {
-				+ * {
-					margin-left: #{$i/3}rem;
-				}
+	/// default
+	&:not([class*="__gapi"]) > :not(.unfix__gaping)[class*="__flx"] {
+		/// Gaping
+		&[class*="-wrap"],
+		&[class*="-reverse"] {
+			+ * {
+				margin-left: var(--gap);
+			}
+		}
+	}
+	[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
+		> :not(.unfix__gaping)[class*="__flx"] {
+		&[class*="-wrap"],
+		&[class*="-reverse"] {
+			+ * {
+				margin-left: var(--gap);
 			}
 		}
 	}
 }
 /// column fix
 .x-box,
-.x-flx[class*="__flxColumn"] {
+[class*="x-flx"][class*="__flxC"] {
+	// Column
 	&:last-child > :not(.unfix__gaping)[class*="__flx"] {
 		&[class*="-wrap"],
 		&[class*="-reverse"] {
@@ -257,28 +275,29 @@ strong,
 	}
 
 	/// default
-	&:not([class*="__gaping"]) > :not(.unfix__gaping)[class*="__flx"] {
+	&:not([class*="__gapi"]) > :not(.unfix__gaping)[class*="__flx"] {
+		/// Gaping
 		&[class*="-wrap"],
 		&[class*="-reverse"] {
 			+ * {
-				margin-top: 1rem;
+				margin-top: var(--gap);
 			}
 		}
 	}
-	@for $i from 1 through 10 {
-		&.xm__gaping-#{$i*5} > :not(.unfix__gaping)[class*="__flx"] {
-			&[class*="-wrap"],
-			&[class*="-reverse"] {
-				+ * {
-					margin-top: #{$i/3}rem;
-				}
+	[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
+		> :not(.unfix__gaping)[class*="__flx"] {
+		&[class*="-wrap"],
+		&[class*="-reverse"] {
+			+ * {
+				margin-top: var(--gap);
 			}
 		}
 	}
 }
 .x-box,
-.x-flx[class*="__flxRow"],
-.x-flx[class*="__flxColumn"] {
+[class*="x-flx"][class*="__flxR"],
+[class*="x-flx"][class*="__flxC"] {
+	/// Row, Column
 	&:last-child > :last-child:not(.unfix__gaping)[class*="__flx"] {
 		&[class*="-wrap"],
 		&[class*="-reverse"] {
@@ -290,17 +309,15 @@ strong,
 /// basic transition
 ///
 /// @group SharedStyles
-.x-btn,
-.x-btnY,
-.x-btnLink,
-.x-btnToggle,
+[class*="x-btn"],
 .x-inTxt,
 .x-link,
 .x-box,
 select.x-inSelect,
-input[type="checkbox"].x-inCheckbox + label,
-input[type="checkbox"].x-inCheckbox + label:after,
+input[type^="c"].x-inCheckbox + label,
+input[type^="c"].x-inCheckbox + label:after,
 .x-svg [fill]:not([fill="none"]),
-*[data-tooltip]:before {
+*[data-tooltip]:before,
+[class*="x-avatar"] img {
 	transition: all 0.2s ease-out, background-image 0s;
 }
