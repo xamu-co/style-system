@@ -89,23 +89,23 @@
 	}
 
 	&.m__iterations-infinite {
-		--aic: infinite;
+		--ai: infinite;
 	}
 
 	@for $i from 1 through 20 {
 		&.m__delay-#{$i} {
-			--ade: #{$i/10}s;
+			--ad: #{$i/10}s;
 		}
 		&.m__iterations-#{$i} {
-			--aic: #{$i};
+			--ai: #{$i};
 		}
 	}
 
 	&[class*="__delay"] {
-		animation-delay: var(--ade, initial);
+		animation-delay: var(--ad, initial);
 	}
 	&[class*="__iterations"] {
-		animation-iteration-count: var(--aic, initial);
+		animation-iteration-count: var(--ai, initial);
 	}
 }
 
@@ -115,8 +115,8 @@
 		&,
 		&:before,
 		&:after {
-			animation-name: var(--ani, initial);
-			animation-duration: var(--adu, initial);
+			animation-name: var(--an, initial);
+			animation-duration: var(--ad, initial);
 		}
 	}
 	/// grows from the center
@@ -127,8 +127,8 @@
 		// opacity: 0;
 		// transform: translateY(-5vh);
 		&.is__animated {
-			--ani: growingIn;
-			--adu: 6s;
+			--an: growingIn;
+			--ad: 6s;
 		}
 	}
 
@@ -139,8 +139,8 @@
 		opacity: 0;
 		// transform: translateY(-5vh);
 		&.is__animated {
-			--ani: fadeIn;
-			--adu: 1.2s;
+			--an: fadeIn;
+			--ad: 1.2s;
 		}
 	}
 
@@ -151,8 +151,8 @@
 		opacity: 0;
 		transform: translateY(-5vh);
 		&.is__animated {
-			--ani: topFade;
-			--adu: 0.6s;
+			--an: topFade;
+			--ad: 0.6s;
 		}
 	}
 
@@ -163,8 +163,8 @@
 		opacity: 0;
 		transform: translateY(5vh);
 		&.is__animated {
-			--ani: bottomFade;
-			--adu: 0.6s;
+			--an: bottomFade;
+			--ad: 0.6s;
 		}
 	}
 
@@ -175,8 +175,8 @@
 		opacity: 0;
 		transform: translateX(-5vh);
 		&.is__animated {
-			--ani: bottomFade;
-			--adu: 0.6s;
+			--an: bottomFade;
+			--ad: 0.6s;
 		}
 	}
 
@@ -187,8 +187,8 @@
 		opacity: 0;
 		transform: translateX(5vh);
 		&.is__animated {
-			--ani: bottomFade;
-			--adu: 0.6s;
+			--an: bottomFade;
+			--ad: 0.6s;
 		}
 	}
 }

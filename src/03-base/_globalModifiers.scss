@@ -107,7 +107,7 @@
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--ma-x: auto;
+			--mx: auto;
 		}
 	}
 }
@@ -133,7 +133,7 @@
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--ma-y: auto;
+			--my: auto;
 		}
 	}
 }
@@ -145,7 +145,7 @@
 .xm__pX {
 	/// there is no thing such as padding auto
 	@include extend-viewports-classes {
-		--pa-x: 1rem;
+		--px: 1rem;
 	}
 }
 
@@ -156,7 +156,7 @@
 .xm__pY {
 	/// there is no thing such as padding auto
 	@include extend-viewports-classes {
-		--pa-y: 1rem;
+		--py: 1rem;
 	}
 }
 
@@ -166,39 +166,39 @@
 .xm__flxJustify {
 	&-end {
 		@include extend-viewports-classes {
-			--ju: flex-end;
+			--fj: flex-end;
 		}
 	}
 	&-start {
 		@include extend-viewports-classes {
-			--ju: flex-start;
+			--fj: flex-start;
 		}
 	}
 	&-around {
 		@include extend-viewports-classes {
-			--ju: space-around;
+			--fj: space-around;
 		}
 	}
 	&-evenly {
 		@include extend-viewports-classes {
-			--ju: space-evenly;
+			--fj: space-evenly;
 		}
 	}
 	&-between {
 		@include extend-viewports-classes {
-			--ju: space-between;
+			--fj: space-between;
 		}
 	}
 	/// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--ju: center;
+			--fj: center;
 		}
 	}
 }
 [class*="__flxJu"] {
-	justify-content: var(--ju, initial);
+	justify-content: var(--fj, initial);
 }
 
 /// flexbox align items
@@ -207,34 +207,34 @@
 .xm__flxAlign {
 	&-end {
 		@include extend-viewports-classes {
-			--al: flex-end;
+			--fa: flex-end;
 		}
 	}
 	&-start {
 		@include extend-viewports-classes {
-			--al: flex-start;
+			--fa: flex-start;
 		}
 	}
 	&-stretch {
 		@include extend-viewports-classes {
-			--al: stretch;
+			--fa: stretch;
 		}
 	}
 	&-baseline {
 		@include extend-viewports-classes {
-			--al: baseline;
+			--fa: baseline;
 		}
 	}
 	/// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--al: center;
+			--fa: center;
 		}
 	}
 }
 [class*="__flxA"] {
-	align-items: var(--al, initial);
+	align-items: var(--fa, initial);
 }
 
 /// font weight
@@ -425,19 +425,19 @@ $models: margin, padding;
 		/// all sides
 		.xm__#{str-slice($model,1,1) + "-" + $i*5} {
 			@include extend-viewports-classes {
-				--#{str-slice($model, 1, 2)}: #{$i/3}rem;
+				--#{str-slice($model, 1, 1)}: #{$i/3}rem;
 			}
 		}
 		/// X axis
 		.xm__#{str-slice($model,1,1) + "X-" + $i*5} {
 			@include extend-viewports-classes {
-				--#{str-slice($model, 1, 2)}-x: #{$i/3}rem;
+				--#{str-slice($model, 1, 1)}x: #{$i/3}rem;
 			}
 		}
 		/// Y axis
 		.xm__#{str-slice($model,1,1) + "Y-" + $i*5} {
 			@include extend-viewports-classes {
-				--#{str-slice($model, 1, 2)}-y: #{$i/3}rem;
+				--#{str-slice($model, 1, 1)}y: #{$i/3}rem;
 			}
 		}
 	}
@@ -446,7 +446,7 @@ $models: margin, padding;
 	.xm__#{$model},
 	.xm__#{str-slice($model,1,1)} {
 		@include extend-viewports-classes {
-			--#{str-slice($model, 1, 2)}: 1rem;
+			--#{str-slice($model, 1, 1)}: 1rem;
 		}
 	}
 
@@ -460,7 +460,7 @@ $models: margin, padding;
 				/// this could caue problems if min/max is set alongside margin/padding
 				&:not([class*="is__m"]) {
 					/// this could cause problems in some statuses starting with m
-					margin: var(--ma, initial);
+					margin: var(--m, initial);
 				}
 			}
 		}
@@ -471,19 +471,19 @@ $models: margin, padding;
 			/// Top, Right, Bottom, Left
 			&:not([class*="is__p"]) {
 				/// this could cause problems in some statuses starting with p
-				padding: var(--pa, initial);
+				padding: var(--p, initial);
 			}
 		}
 	}
 	/// X axis
 	[class*="__#{str-slice($model,1,1)}X"] {
-		#{$model}-left: var(--#{str-slice($model, 1, 2)}-x, initial);
-		#{$model}-right: var(--#{str-slice($model, 1, 2)}-x, initial);
+		#{$model}-left: var(--#{str-slice($model, 1, 1)}x, initial);
+		#{$model}-right: var(--#{str-slice($model, 1, 1)}x, initial);
 	}
 	/// Y axis
 	[class*="__#{str-slice($model,1,1)}Y"] {
-		#{$model}-top: var(--#{str-slice($model, 1, 2)}-y, initial);
-		#{$model}-bottom: var(--#{str-slice($model, 1, 2)}-y, initial);
+		#{$model}-top: var(--#{str-slice($model, 1, 1)}y, initial);
+		#{$model}-bottom: var(--#{str-slice($model, 1, 1)}y, initial);
 	}
 }
 
@@ -496,28 +496,28 @@ $dimensions: width, height;
 	.xm__#{$dimension} {
 		&-quarter {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,2)}: 50%;
+				--#{str-slice($dimension,1,1)}: 50%;
 			}
 		}
 		&-third {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,2)}: 33%;
+				--#{str-slice($dimension,1,1)}: 33%;
 			}
 		}
 		&-half {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,2)}: 50%;
+				--#{str-slice($dimension,1,1)}: 50%;
 			}
 		}
 		&,
 		&-full {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,2)}: 100%;
+				--#{str-slice($dimension,1,1)}: 100%;
 			}
 		}
 	}
 	[class*="__#{str-slice($dimension,1,2)}"] {
-		#{$dimension}: var(--#{str-slice($dimension, 1, 2)}, initial);
+		#{$dimension}: var(--#{str-slice($dimension, 1, 1)}, initial);
 	}
 
 	/// max width, max height
@@ -530,7 +530,9 @@ $dimensions: width, height;
 		@each $size in $maxSizes {
 			.xm__#{$constrain + capitalize($dimension)}-#{$size} {
 				@include extend-viewports-classes {
-					--#{$constrain}: #{round($size/15)}rem;
+					--#{$constrain}#{str-slice($dimension, 1, 1)}: #{round(
+							$size/15
+						)}rem;
 				}
 			}
 		}
@@ -539,7 +541,9 @@ $dimensions: width, height;
 		.xm__#{$constrain + capitalize($dimension)}-1200 {
 			$mildos: 1200;
 			@include extend-viewports-classes {
-				--#{$constrain}: #{round($mildos/16)}rem;
+				--#{$constrain}#{str-slice($dimension, 1, 1)}: #{round(
+						$mildos/16
+					)}rem;
 			}
 		}
 
@@ -550,28 +554,31 @@ $dimensions: width, height;
 		@for $i from 3 through 10 {
 			.xm__#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
 				@include extend-viewports-classes {
-					--#{$constrain}: #{$i * 10}vw;
+					--#{$constrain}#{str-slice($dimension, 1, 1)}: #{$i * 10}vw;
 				}
 			}
 			.xm__#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
 				@include extend-viewports-classes {
-					--#{$constrain}: #{$i * 10}vh;
+					--#{$constrain}#{str-slice($dimension, 1, 1)}: #{$i * 10}vh;
 				}
 			}
 		}
 		/// default viewport based constrains
 		/// __maxW, __maxH, __minW, __minH
 		[class*="__#{$constrain + capitalize(str-slice($dimension,1,1))}"] {
-			#{$constrain}-#{$dimension}: var(--#{$constrain}, initial);
+			#{$constrain}-#{$dimension}: var(
+				--#{$constrain}#{str-slice($dimension, 1, 1)},
+				initial
+			);
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
-				--#{$constrain}: 30vw;
+				--#{$constrain}#{str-slice($dimension, 1, 1)}: 30vw;
 			}
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vh {
 			@include extend-viewports-classes {
-				--#{$constrain}: 30vh;
+				--#{$constrain}#{str-slice($dimension, 1, 1)}: 30vh;
 			}
 		}
 	}
@@ -643,39 +650,31 @@ $directions: top, right, bottom, left;
 	///
 	/// @group GlobalModifiers
 	.xm__gap-#{$i*5},
-	.xm__grdGap-#{$i*5},
 	.xm__gaping-#{$i*5} {
 		@include extend-viewports-classes {
-			--gap: #{$i/3}rem;
+			--g: #{$i/3}rem;
 		}
 	}
-	.xm__gapingX-#{$i*5} {
-		@include extend-viewports-classes {
-			> * {
-				--gap-x: #{$i/3}rem;
-			}
-		}
-	}
+	.xm__gapingX-#{$i*5},
 	.xm__gapingY-#{$i*5} {
 		@include extend-viewports-classes {
 			> * {
-				--gap-y: #{$i/3}rem;
+				--g: #{$i/3}rem;
 			}
 		}
 	}
 }
 
 /// grid/column gap default
-[class*="__gap"]:not([class*="__gapi"]),
-[class*="__grdG"] {
-	gap: var(--gap);
+[class*="__gap"]:not([class*="__gapi"]) {
+	gap: var(--g);
 }
 
 /// item spacing defaults
 [class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]) {
 	/// this is a very special class to omit this specific fix
 	&:not(.unfix__gaping) {
-		margin: -0.1px calc(-1 * var(--gap)) calc(-1 * var(--gap)) -0.1px;
+		margin: -0.1px calc(-1 * var(--g)) calc(-1 * var(--g)) -0.1px;
 		box-sizing: border-box;
 	}
 	> :not(br) {
@@ -685,11 +684,11 @@ $directions: top, right, bottom, left;
 			&[class*="__txtWr"]:not([class*="__flx"]),
 			&:not([class*="-wrap"]):not([class*="-reverse"]) {
 				/// Wrap
-				margin-bottom: var(--gap);
-				margin-right: var(--gap);
+				margin-bottom: var(--g);
+				margin-right: var(--g);
 				&:not([class*="__gapi"]) {
 					> :not([class*="__gapi"]) {
-						--gap: initial;
+						--g: initial;
 					}
 				}
 			}
@@ -704,10 +703,10 @@ $directions: top, right, bottom, left;
 		/// Right
 		&.unfix__gaping,
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			margin-right: var(--gap-x);
+			margin-right: var(--g);
 			&:not([class*="__gapi"]) {
 				> :not([class*="__gapi"]) {
-					--gap-x: initial;
+					--g: initial;
 				}
 			}
 		}
@@ -715,10 +714,10 @@ $directions: top, right, bottom, left;
 	&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
 		+ * {
 		/// Gaping
-		margin-left: var(--gap-x);
+		margin-left: var(--g);
 		&:not([class*="__gapi"]) {
 			> :not([class*="__gapi"]) {
-				--gap-x: initial;
+				--g: initial;
 			}
 		}
 	}
@@ -731,10 +730,10 @@ $directions: top, right, bottom, left;
 		/// Bottom
 		&.unfix__gaping,
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			margin-bottom: var(--gap-y);
+			margin-bottom: var(--g);
 			&:not([class*="__gapi"]) {
 				> :not([class*="__gapi"]) {
-					--gap-y: initial;
+					--g: initial;
 				}
 			}
 		}
@@ -742,35 +741,27 @@ $directions: top, right, bottom, left;
 	&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
 		+ * {
 		/// Gaping
-		margin-top: var(--gap-y);
+		margin-top: var(--g);
 		&:not([class*="__gapi"]) {
 			> :not([class*="__gapi"]) {
-				--gap-y: initial;
+				--g: initial;
 			}
 		}
 	}
 }
 /// defaults
 .xm__gap,
-.xm__grdGap,
 .xm__gaping {
 	@include extend-viewports-classes {
-		--gap: 1rem;
+		--g: 1rem;
 	}
 }
-.xm__gapingX {
-	/// Y dimension
-	@include extend-viewports-classes {
-		> * {
-			--gap-x: 1rem;
-		}
-	}
-}
+.xm__gapingX,
 .xm__gapingY {
 	/// Y dimension
 	@include extend-viewports-classes {
 		> * {
-			--gap-y: 1rem;
+			--g: 1rem;
 		}
 	}
 }
@@ -784,7 +775,7 @@ $directions: top, right, bottom, left;
 	.xm__striped-#{$name} {
 		@include extend-viewports-classes {
 			> :nth-child(odd) {
-				--bg: #{color($name, 0.1)};
+				--cbg: #{color($name, 0.1)};
 			}
 		}
 	}
@@ -795,7 +786,7 @@ $directions: top, right, bottom, left;
 			&,
 			> :not([class*="__txtC"]):not([class|="x"]) {
 				/// Color
-				--cl: #{color($name)};
+				--ccl: #{color($name)};
 			}
 		}
 	}
@@ -806,7 +797,7 @@ $directions: top, right, bottom, left;
 			&,
 			> :not([class*="__txtSh"]):not([class|="x"]) {
 				/// Shadow
-				--sh: #{color($name)};
+				--csh: #{color($name)};
 			}
 		}
 	}
@@ -814,14 +805,14 @@ $directions: top, right, bottom, left;
 	/// background color
 	.xm__bgColor-#{$name} {
 		@include extend-viewports-classes {
-			--bg: #{color($name)};
+			--cbg: #{color($name)};
 		}
 	}
 
 	/// borderColor
 	.xm__bdrColor-#{$name} {
 		@include extend-viewports-classes {
-			--bd: #{color($name)};
+			--cbc: #{color($name)};
 		}
 	}
 
@@ -833,7 +824,7 @@ $directions: top, right, bottom, left;
 				&,
 				> :not([class*="__txtC"]):not([class|="x"]) {
 					/// Shadow
-					--cl: #{color($name, $i/10)};
+					--ccl: #{color($name, $i/10)};
 				}
 			}
 		}
@@ -844,7 +835,7 @@ $directions: top, right, bottom, left;
 				&,
 				> :not([class*="__txtSh"]):not([class|="x"]) {
 					/// Shadow
-					--sh: #{color($name, $i/10)};
+					--csh: #{color($name, $i/10)};
 				}
 			}
 		}
@@ -852,14 +843,14 @@ $directions: top, right, bottom, left;
 		/// background color
 		.xm__bgColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
-				--bg: #{color($name, $i/10)};
+				--cbg: #{color($name, $i/10)};
 			}
 		}
 
 		/// borderColor
 		.xm__bdrColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
-				--bd: #{color($name, $i/10)};
+				--cbc: #{color($name, $i/10)};
 			}
 		}
 	}
@@ -869,13 +860,13 @@ $directions: top, right, bottom, left;
 [class*="__st"] {
 	/// Striped
 	> :nth-child(odd) {
-		background-color: var(--bg);
+		background-color: var(--cbg);
 	}
 }
 .xm__striped {
 	@include extend-viewports-classes {
 		> :nth-child(odd) {
-			--bg: #{color(secondary, 0.1)};
+			--cbg: #{color(secondary, 0.1)};
 		}
 	}
 }
@@ -885,7 +876,7 @@ $directions: top, right, bottom, left;
 	&,
 	> :not([class*="__txtC"]):not([class|="x"]) {
 		/// Color
-		color: var(--cl);
+		color: var(--ccl);
 	}
 }
 .xm__txtColor {
@@ -893,7 +884,7 @@ $directions: top, right, bottom, left;
 		&,
 		> :not([class*="__txtC"]):not([class|="x"]) {
 			/// Color
-			--cl: #{color(dark, 0.7)};
+			--ccl: #{color(dark, 0.7)};
 		}
 	}
 }
@@ -903,7 +894,7 @@ $directions: top, right, bottom, left;
 	&,
 	> :not([class*="__txtSh"]):not([class|="x"]) {
 		/// Shadow
-		text-shadow: 1px 1px 1px var(--sh);
+		text-shadow: 1px 1px 1px var(--csh);
 	}
 }
 .xm__txtShadow {
@@ -911,7 +902,7 @@ $directions: top, right, bottom, left;
 		&,
 		> :not([class*="__txtSh"]):not([class|="x"]) {
 			/// Shadow
-			--sh: #{color(dark, 0.3)};
+			--csh: #{color(dark, 0.3)};
 		}
 	}
 }
@@ -919,22 +910,22 @@ $directions: top, right, bottom, left;
 /// default background color
 [class*="__bgC"]:not([class*="or-none"]) {
 	/// Color
-	background-color: var(--bg);
+	background-color: var(--cbg);
 }
 .xm__bgColor {
 	@include extend-viewports-classes {
-		--bg: #{color(light)};
+		--cbg: #{color(light)};
 	}
 }
 
 /// default borderColor
 [class*="__bdrC"] {
 	/// Color
-	border-color: var(--bd);
+	border-color: var(--cbc);
 }
 .xm__bdrColor {
 	@include extend-viewports-classes {
-		--bd: #{color(secondary, 0.1)};
+		--cbc: #{color(secondary, 0.1)};
 	}
 }
 

@@ -7,9 +7,9 @@
 	@include extend-interactions {
 		display: grid;
 		// height: auto;
-		grid-template-columns: var(--cls, unset);
-		grid-template-areas: var(--areas, unset);
-		grid-auto-rows: var(--rws, minmax(min-content, 100%));
+		grid-template-columns: var(--gc, unset);
+		grid-template-areas: var(--ga, unset);
+		grid-auto-rows: var(--gr, minmax(min-content, 100%));
 		> * {
 			box-sizing: border-box;
 		}
@@ -23,12 +23,12 @@
 		& {
 			/// default
 			@include extend-viewports-classes {
-				--cls: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+				--gc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
 			}
 		}
 		&-autoMin {
 			@include extend-viewports-classes {
-				--cls: repeat(
+				--gc: repeat(
 					auto-fit,
 					minmax(#{$minColumnSize/3}, max-content)
 				);
@@ -36,19 +36,19 @@
 		}
 		&-auto {
 			@include extend-viewports-classes {
-				--cls: repeat(auto-fit, minmax(0, 1fr));
+				--gc: repeat(auto-fit, minmax(0, 1fr));
 			}
 		}
 		&-autoFill {
 			@include extend-viewports-classes {
-				--cls: repeat(auto-fill, minmax(0, 1fr));
+				--gc: repeat(auto-fill, minmax(0, 1fr));
 			}
 		}
 	}
 	@for $i from 2 through 12 {
 		&.m__grdColumns-#{$i} {
 			@include extend-viewports-classes {
-				--cls: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
+				--gc: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
 			}
 		}
 	}
@@ -61,26 +61,26 @@
 		&-1,
 		&-1-1 {
 			@include extend-viewports-classes {
-				--cls: repeat(2, 1fr);
-				--areas: ". content";
+				--gc: repeat(2, 1fr);
+				--ga: ". content";
 			}
 		}
 		&-1-4 {
 			@include extend-viewports-classes {
-				--cls: repeat(5, 1fr);
-				--areas: ". content content content content";
+				--gc: repeat(5, 1fr);
+				--ga: ". content content content content";
 			}
 		}
 		&-2-3 {
 			@include extend-viewports-classes {
-				--cls: repeat(5, 1fr);
-				--areas: ". . content content content";
+				--gc: repeat(5, 1fr);
+				--ga: ". . content content content";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
-				--cls: repeat(5, 1fr);
-				--areas: ". . . content content";
+				--gc: repeat(5, 1fr);
+				--ga: ". . . content content";
 			}
 		}
 		&,
@@ -102,20 +102,20 @@
 		&-1,
 		&-1-1 {
 			@include extend-viewports-classes {
-				--cls: repeat(2, 1fr);
-				--areas: "content .";
+				--gc: repeat(2, 1fr);
+				--ga: "content .";
 			}
 		}
 		&-4-1 {
 			@include extend-viewports-classes {
-				--cls: repeat(5, 1fr);
-				--areas: "content content content content .";
+				--gc: repeat(5, 1fr);
+				--ga: "content content content content .";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
-				--cls: repeat(5, 1fr);
-				--areas: "content content content . .";
+				--gc: repeat(5, 1fr);
+				--ga: "content content content . .";
 			}
 		}
 		&,

@@ -55,7 +55,7 @@
 					&:not([class*="__m"]),
 					&[class*="__min"],
 					&[class*="__max"] {
-						margin-right: var(--gap-x, 1rem);
+						margin-right: var(--g, 1rem);
 					}
 				}
 			}
@@ -96,7 +96,7 @@
 					&:not([class*="__m"]),
 					&[class*="__min"],
 					&[class*="__max"] {
-						margin-bottom: var(--gap-y, 1rem);
+						margin-bottom: var(--g, 1rem);
 					}
 				}
 			}
@@ -125,8 +125,8 @@
 					/// Gaping
 					/// this is a very special class to omit this specific fix
 					&:not(.unfix__gaping) {
-						margin: -0.1px calc(-1 * var(--gap, 1rem))
-							calc(-1 * var(--gap, 1rem)) -0.1px;
+						margin: -0.1px calc(-1 * var(--g, 1rem))
+							calc(-1 * var(--g, 1rem)) -0.1px;
 						box-sizing: border-box;
 					}
 					> :not(br) {
@@ -135,8 +135,8 @@
 						&[class*="__max"] {
 							&[class*="__txtWr"]:not([class*="__flx"]),
 							&:not([class*="-wrap"]):not([class*="-reverse"]) {
-								margin-bottom: var(--gap, 1rem);
-								margin-right: var(--gap, 1rem);
+								margin-bottom: var(--g, 1rem);
+								margin-right: var(--g, 1rem);
 							}
 						}
 					}

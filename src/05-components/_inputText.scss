@@ -40,31 +40,24 @@ textarea.x-inTxt {
 	&.m__tm {
 		&-light {
 			--bg: #{color(light, 0.3)};
-			--bd: #{color(light, 0.7)};
+			--bc: #{color(light, 0.7)};
 			--cl: #{color(light)};
 			--cl-a: #{color(light, 0.7)};
 			text-shadow: 1px 1px 1px color(dark, 0.3);
-			&:hover {
-				--bd: var(--cl);
+			&:hover:not(:focus):not(:focus-within) {
+				--bc: var(--cl);
 			}
 			&:focus,
 			&:focus-within {
 				--bg: #{color(primary, 0.3)};
-				--bd: #{color(primary)};
+				--bc: #{color(primary)};
 			}
 		}
 		&-lightAlt {
 			--bg: #{color(light)};
-			--bd: #{transparent};
+			--bc: #{transparent};
 			--cl: #{color(primaryAlt)};
 			--cl-a: #{color(primaryAlt, 0.3)};
-			&:hover {
-				--bd: var(--cl-a);
-			}
-			&:focus,
-			&:focus-within {
-				--bd: var(--cl);
-			}
 			/// showcase a shadow
 			///
 			/// @group ConditionalModifiers
@@ -74,32 +67,27 @@ textarea.x-inTxt {
 		}
 		&-primary {
 			--bg: #{color(primary, 0.1)};
-			--bd: #{color(primary, 0.05)};
+			--bc: #{color(primary, 0.05)};
 			--cl: #{color(light)};
 			--cl-a: #{color(light, 0.5)};
-			&:hover {
-				--bd: var(--cl-a);
-			}
-			&:focus,
-			&:focus-within {
-				--bd: var(--cl);
-			}
 		}
 	}
 	/// default theme
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		--bg: #{color(secondary, 0.1)};
-		--bd: #{color(secondary, 0.05)};
+		--bc: #{color(secondary, 0.05)};
 		--cl: #{color(secondary)};
 		--cl-a: #{color(secondary, 0.3)};
-		&:hover {
-			--bd: var(--cl-a);
-		}
-		&:focus,
-		&:focus-within {
-			--bd: var(--cl);
-		}
+	}
+
+	/// OVERRIDES:
+	&:hover:not(:focus):not(:focus-within) {
+		--bc: var(--cl-a);
+	}
+	&:focus,
+	&:focus-within {
+		--bc: var(--cl);
 	}
 
 	&::placeholder,

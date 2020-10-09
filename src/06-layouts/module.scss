@@ -9,9 +9,9 @@
 	@include extend-interactions {
 		overflow: hidden;
 		/// Gaping will trigger this but that is not a problem
-		&:not([class*="__grdG"]):not([class*="__gap"]) {
+		&:not([class*="__gap"]) {
 			/// Gap
-			gap: var(--gap, 2rem);
+			gap: var(--g, 2rem);
 		}
 	}
 }

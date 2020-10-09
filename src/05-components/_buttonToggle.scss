@@ -19,7 +19,7 @@
 		border-radius: 50%;
 		box-sizing: border-box;
 		background-color: var(--bg, transparent);
-		border-color: var(--bd, transparent);
+		border-color: var(--bc, transparent);
 	}
 	&.is__alert,
 	&.is__active,
@@ -45,31 +45,31 @@
 			--cl: #{color(dark, 0.7)};
 			--bg: #{color(dark, 0.1)};
 			&:hover {
-				--bd: #{color(dark, 0.3)};
+				--bc: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
 				--bg: #{color(dark, 0.5)};
 			}
 			&.is__alert:after {
-				--bd: #{color(dark, 0.7)};
+				--bc: #{color(dark, 0.7)};
 				--bg: #{color(light)};
 			}
 			&.is__routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(dark, 0.5)};
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&-light {
 			--cl: #{color(light)};
 			--bg: #{color(light, 0.1)};
 			&:hover {
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 			&.is__alert:after {
 				--bg: #{color(light)};
-				--bd: #{color(light)};
+				--bc: #{color(light)};
 			}
 			&.is__alert,
 			&.is__active {
@@ -78,18 +78,18 @@
 			&.is__routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(light, 0.5)};
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&-primaryAlt {
 			--cl: #{color(primaryAlt)};
 			--bg: #{color(primaryAlt, 0.1)};
 			&:hover {
-				--bd: #{color(primaryAlt)};
+				--bc: #{color(primaryAlt)};
 			}
 			&.is__alert:after {
 				--bg: #{color(light)};
-				--bd: #{color(dark, 0.3)};
+				--bc: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
@@ -98,18 +98,18 @@
 			&.is__routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(primaryAlt, 0.5)};
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&-danger {
 			--cl: #{color(danger)};
 			--bg: #{color(danger, 0.1)};
 			&:hover {
-				--bd: #{color(danger)};
+				--bc: #{color(danger)};
 			}
 			&.is__alert:after {
 				--bg: #{color(light)};
-				--bd: #{color(dark, 0.3)};
+				--bc: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
@@ -118,7 +118,7 @@
 			&.is__routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(danger, 0.5)};
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 	}
@@ -128,11 +128,11 @@
 		--cl: #{color(secondary)};
 		--bg: #{color(secondary, 0.1)};
 		&:hover {
-			--bd: #{color(secondary, 0.3)};
+			--bc: #{color(secondary, 0.3)};
 		}
 		&.is__alert:after {
 			--bg: #{color(light)};
-			--bd: #{color(secondary)};
+			--bc: #{color(secondary)};
 		}
 		&.is__alert,
 		&.is__active {
@@ -141,7 +141,7 @@
 		&.is__routeExact {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
-			--bd: #{color(light, 0.3)};
+			--bc: #{color(light, 0.3)};
 		}
 	}
 }

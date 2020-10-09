@@ -4,16 +4,16 @@
 ///
 /// @group Components
 .x-avatar {
-	width: var(--avs, 3rem);
-	height: var(--avs, 3rem);
+	width: var(--sz, 3rem);
+	height: var(--sz, 3rem);
 	/// avatar size
 	///
 	/// @group Modifiers
 	&.m__size-lg {
-		--avs: 9rem;
+		--sz: 9rem;
 	}
 	&.m__size-md {
-		--avs: 6rem;
+		--sz: 6rem;
 	}
 
 	img {

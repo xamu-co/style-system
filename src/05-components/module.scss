@@ -45,7 +45,7 @@ ol {
 	display: block;
 	overflow: hidden;
 	flex: 0 0 auto;
-	border-radius: var(--avr, 1rem);
+	border-radius: var(--br, 1rem);
 	transition: all 0.1s ease-out;
 	&:not([class*="__bgC"]) {
 		/// Color
@@ -56,17 +56,17 @@ ol {
 	///
 	/// @group Modifiers
 	&.m__size-lg {
-		--avr: 1.667rem;
+		--br: 1.667rem;
 		&.m__bdr,
 		&.m__border {
-			--avb: 4px;
+			--bw: 4px;
 		}
 	}
 	&.m__size-md {
-		--avr: 1.333rem;
+		--br: 1.333rem;
 		&.m__bdr,
 		&.m__border {
-			--avb: 3px;
+			--bw: 3px;
 		}
 	}
 
@@ -77,7 +77,7 @@ ol {
 	&.m__border {
 		border-style: solid;
 		box-sizing: border-box;
-		border-width: var(--avb, 2px);
+		border-width: var(--bw, 2px);
 		&:not([class*="__bdrC"]) {
 			/// Color
 			border-color: color(light);
@@ -116,9 +116,10 @@ a[class*="x-avatar"] {
 /// @group SharedStyles
 .x-svg,
 i.x-icon {
+	// --sz could be inherited, we don't want that
 	width: auto;
-	height: var(--ics, 1rem);
-	font-size: var(--ics, 1rem);
+	height: var(--isz, 1rem);
+	font-size: var(--isz, 1rem);
 
 	/// icon margin
 	///
@@ -138,7 +139,7 @@ i.x-icon {
 	/// @group Modifiers
 	@for $i from 2 through 10 {
 		&.m__size-#{$i*5} {
-			--ics: #{$i/3}rem;
+			--isz: #{$i/3}rem;
 		}
 	}
 }
@@ -149,14 +150,14 @@ i.x-icon {
 [class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
 	/// this is the default value
 	/// Size
-	padding: var(--btp, 0 0.8rem);
+	padding: var(--bp, 0 0.8rem);
 
 	/// round button
 	///
 	/// @group Modifiers
 	&.m__round {
-		--btp: 0;
-		width: var(--bts, 2.4rem);
+		--bp: 0; // button padding
+		width: var(--sz, 2.4rem);
 		i.x-icon {
 			margin: 0 !important;
 			+ span {
@@ -204,7 +205,7 @@ select.x-inSelect {
 				&:hover,
 				&:focus {
 					--cl: #{color(secondary, 0.7)};
-					--bd: #{color(secondary, 0.3)};
+					--bc: #{color(secondary, 0.3)};
 				}
 			}
 		}
@@ -214,7 +215,7 @@ select.x-inSelect {
 				&:hover,
 				&:focus {
 					--cl: #{color(dark, 0.3)};
-					--bd: var(--cl);
+					--bc: var(--cl);
 				}
 			}
 		}
@@ -224,7 +225,7 @@ select.x-inSelect {
 				&:hover,
 				&:focus {
 					--cl: #{color(primaryAlt, 0.7)};
-					--bd: #{color(primaryAlt, 0.3)};
+					--bc: #{color(primaryAlt, 0.3)};
 				}
 			}
 		}
@@ -235,7 +236,7 @@ select.x-inSelect {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
-					--bd: #{color(primary, 0.3)};
+					--bc: #{color(primary, 0.3)};
 				}
 			}
 			&:not(.is__active):not(.is__route) {
@@ -266,7 +267,7 @@ select.x-inSelect {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&.is__active,
@@ -288,7 +289,7 @@ select.x-inSelect {
 			&:hover,
 			&:focus {
 				--cl: #{color(primary, 0.7)};
-				--bd: #{color(primary, 0.3)};
+				--bc: #{color(primary, 0.3)};
 			}
 		}
 		&.is__active,
@@ -310,7 +311,7 @@ select.x-inSelect {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&.is__active,
@@ -334,7 +335,7 @@ select.x-inSelect {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
-				--bd: #{color(light, 0.3)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&.is__active,
@@ -358,18 +359,18 @@ select.x-inSelect {
 	&.is__route,
 	&.is__routeExact {
 		--cl: var(--bg);
-		--bd: var(--cl);
+		--bc: var(--cl);
 	}
 	&.is__active,
 	&.is__route:not(.is__routeExact) {
 		&:hover,
 		&:focus {
-			--bd: var(--cl);
+			--bc: var(--cl);
 		}
 	}
 	&:disabled,
 	&[disabled] {
-		--bd: var(--cl);
+		--bc: var(--cl);
 	}
 	&.is__routeExact,
 	&.is__route,
@@ -388,9 +389,9 @@ select.x-inSelect {
 select.x-inSelect {
 	/// Size
 	/// this is the default value
-	height: var(--bts, 2.4rem);
-	border-radius: var(--btr, 1rem);
-	border-width: var(--btb, 2px);
+	height: var(--sz, 2.4rem);
+	border-radius: var(--br, 1rem);
+	border-width: var(--bw, 2px);
 }
 
 /// capitalize
@@ -431,7 +432,7 @@ select.x-inSelect {
 	white-space: nowrap;
 	color: var(--cl, transparent);
 	background: var(--bg, transparent);
-	border-color: var(--bd, transparent); // by default
+	border-color: var(--bc, transparent); // by default
 	border-style: solid;
 	text-shadow: none;
 	box-sizing: border-box;
@@ -448,7 +449,8 @@ select.x-inSelect {
 	/// @group SharedStyles
 	[class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
 		&.m__size-#{$name} {
-			--btp: 0 #{$size * 0.8};
+			// --p could be inherited, we don't want that
+			--bp: 0 #{$size * 0.8}; // button padding
 		}
 	}
 
@@ -459,9 +461,9 @@ select.x-inSelect {
 	.x-inTxt,
 	select.x-inSelect {
 		&.m__size-#{$name} {
-			--bts: #{$size * 2.6}; // size: height/width
-			--btr: #{$size}; // border radius
-			--btb: calc(2px + #{$size/18}); // border width
+			--sz: #{$size * 2.6}; // button size: height/width
+			--br: #{$size}; // button border radius
+			--bw: calc(2px + #{$size/18}); // button border width
 		}
 	}
 }

@@ -8,12 +8,12 @@
 		/// mobile
 		/// Size
 		/// this is the default value
-		height: var(--bls, 2.4rem);
-		border-radius: var(--blr, 1rem);
-		border-width: var(--blw, 2px);
-		padding: var(--blp, 0 0.8rem);
+		height: var(--bs, 2.4rem);
+		border-radius: var(--br, 1rem);
+		border-width: var(--bb, 2px);
+		padding: var(--bp, 0 0.8rem);
 		&:not(.is__route):not(.is__active) {
-			--blp: 0;
+			--bp: 0;
 			span {
 				display: none;
 			}
@@ -27,15 +27,15 @@
 		}
 		&:not(.is__route):not(.is__active) {
 			// icon only
-			width: var(--bls, 2.4rem);
+			width: var(--bs, 2.4rem);
 		}
 
 		@each $name, $size in $fontSizes {
 			&.m__size-#{$name} {
-				--bls: $size * 2.6;
-				--blr: $size;
-				--blw: calc(2px + (#{$size} / 18));
-				--blp: 0 #{$size * 0.8};
+				--bs: $size * 2.6;
+				--br: $size;
+				--bb: calc(2px + (#{$size} / 18));
+				--bp: 0 #{$size * 0.8};
 			}
 		}
 	}
