@@ -86,7 +86,25 @@ select.x-inSelect {
 				background-image: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 		}
+		&-danger {
+			//chevron-light down
+			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}'#{$selectPathEnd}");
+			&:hover {
+				//chevron-light down-hover
+				background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.7'#{$selectPathEnd}");
+			}
+			&:focus {
+				//chevron-light up
+				background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}'#{$selectPathEnd}");
+			}
+			&:focus:hover,
+			&:focus-within:hover {
+				//chevron-light up-hover
+				background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}' opacity='0.7'#{$selectPathEnd}");
+			}
+		}
 		&-secondary,
+		&-danger,
 		&-dark,
 		&-primaryAlt {
 			&:disabled,
@@ -99,7 +117,8 @@ select.x-inSelect {
 	&:not([class*="u__tm"]),
 	&.u__tm-primary-light,
 	&.u__tm-primaryAlt-light,
-	&.u__tm-secondary-light {
+	&.u__tm-secondary-light,
+	&.u__tm-danger-light {
 		//chevron-light down
 		background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}'#{$selectPathEnd}");
 		&:hover {
@@ -128,6 +147,13 @@ select.x-inSelect {
 		&[disabled] {
 			//chevron-primaryAlt down
 			background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3'#{$selectPathEnd}");
+		}
+	}
+	&.u__tm-danger-light {
+		&:disabled,
+		&[disabled] {
+			//chevron-danger down
+			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3'#{$selectPathEnd}");
 		}
 	}
 	/// default

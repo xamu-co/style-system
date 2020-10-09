@@ -649,11 +649,17 @@ $directions: top, right, bottom, left;
 			--gap: #{$i/3}rem;
 		}
 	}
-	.xm__gapingX-#{$i*5},
+	.xm__gapingX-#{$i*5} {
+		@include extend-viewports-classes {
+			> * {
+				--gap-x: #{$i/3}rem;
+			}
+		}
+	}
 	.xm__gapingY-#{$i*5} {
 		@include extend-viewports-classes {
 			> * {
-				--gap: #{$i/3}rem;
+				--gap-y: #{$i/3}rem;
 			}
 		}
 	}
@@ -681,6 +687,11 @@ $directions: top, right, bottom, left;
 				/// Wrap
 				margin-bottom: var(--gap);
 				margin-right: var(--gap);
+				&:not([class*="__gapi"]) {
+					> :not([class*="__gapi"]) {
+						--gap: initial;
+					}
+				}
 			}
 		}
 	}
@@ -693,13 +704,23 @@ $directions: top, right, bottom, left;
 		/// Right
 		&.unfix__gaping,
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			margin-right: var(--gap);
+			margin-right: var(--gap-x);
+			&:not([class*="__gapi"]) {
+				> :not([class*="__gapi"]) {
+					--gap-x: initial;
+				}
+			}
 		}
 	}
 	&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
 		+ * {
 		/// Gaping
-		margin-left: var(--gap);
+		margin-left: var(--gap-x);
+		&:not([class*="__gapi"]) {
+			> :not([class*="__gapi"]) {
+				--gap-x: initial;
+			}
+		}
 	}
 }
 /// Y axis
@@ -710,15 +731,26 @@ $directions: top, right, bottom, left;
 		/// Bottom
 		&.unfix__gaping,
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			margin-bottom: var(--gap);
+			margin-bottom: var(--gap-y);
+			&:not([class*="__gapi"]) {
+				> :not([class*="__gapi"]) {
+					--gap-y: initial;
+				}
+			}
 		}
 	}
 	&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"])
 		+ * {
 		/// Gaping
-		margin-top: var(--gap);
+		margin-top: var(--gap-y);
+		&:not([class*="__gapi"]) {
+			> :not([class*="__gapi"]) {
+				--gap-y: initial;
+			}
+		}
 	}
 }
+/// defaults
 .xm__gap,
 .xm__grdGap,
 .xm__gaping {
@@ -726,12 +758,19 @@ $directions: top, right, bottom, left;
 		--gap: 1rem;
 	}
 }
-.xm__gapingX,
+.xm__gapingX {
+	/// Y dimension
+	@include extend-viewports-classes {
+		> * {
+			--gap-x: 1rem;
+		}
+	}
+}
 .xm__gapingY {
 	/// Y dimension
 	@include extend-viewports-classes {
 		> * {
-			--gap: 1rem;
+			--gap-y: 1rem;
 		}
 	}
 }

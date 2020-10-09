@@ -52,12 +52,10 @@
 				--bg: #{color(dark, 0.5)};
 			}
 			&.is__alert:after {
-				/// TODO: check border and color
 				--bd: #{color(dark, 0.7)};
 				--bg: #{color(light)};
 			}
 			&.is__routeExact {
-				/// TODO: check border and color
 				--cl: #{color(light)};
 				--bg: #{color(dark, 0.5)};
 				--bd: #{color(light, 0.3)};
@@ -70,7 +68,6 @@
 				--bd: #{color(light, 0.3)};
 			}
 			&.is__alert:after {
-				/// TODO: check border and color
 				--bg: #{color(light)};
 				--bd: #{color(light)};
 			}
@@ -79,7 +76,6 @@
 				--bg: #{color(light, 0.5)};
 			}
 			&.is__routeExact {
-				/// TODO: check border and color
 				--cl: #{color(light)};
 				--bg: #{color(light, 0.5)};
 				--bd: #{color(light, 0.3)};
@@ -92,7 +88,6 @@
 				--bd: #{color(primaryAlt)};
 			}
 			&.is__alert:after {
-				/// TODO: check border and color
 				--bg: #{color(light)};
 				--bd: #{color(dark, 0.3)};
 			}
@@ -101,9 +96,28 @@
 				--bg: #{color(primaryAlt, 0.5)};
 			}
 			&.is__routeExact {
-				/// TODO: check border and color
 				--cl: #{color(light)};
 				--bg: #{color(primaryAlt, 0.5)};
+				--bd: #{color(light, 0.3)};
+			}
+		}
+		&-danger {
+			--cl: #{color(danger)};
+			--bg: #{color(danger, 0.1)};
+			&:hover {
+				--bd: #{color(danger)};
+			}
+			&.is__alert:after {
+				--bg: #{color(light)};
+				--bd: #{color(dark, 0.3)};
+			}
+			&.is__alert,
+			&.is__active {
+				--bg: #{color(danger, 0.5)};
+			}
+			&.is__routeExact {
+				--cl: #{color(light)};
+				--bg: #{color(danger, 0.5)};
 				--bd: #{color(light, 0.3)};
 			}
 		}
@@ -117,7 +131,6 @@
 			--bd: #{color(secondary, 0.3)};
 		}
 		&.is__alert:after {
-			/// TODO: check border and color
 			--bg: #{color(light)};
 			--bd: #{color(secondary)};
 		}

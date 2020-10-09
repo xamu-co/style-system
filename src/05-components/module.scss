@@ -303,6 +303,28 @@ select.x-inSelect {
 			--cl: #{color(primaryAlt, 0.3)};
 		}
 	}
+	&.u__tm-danger-light {
+		--cl: #{color(light)};
+		--bg: #{color(danger)};
+		&:not(.is__routeExact) {
+			&:hover,
+			&:focus {
+				--cl: #{color(light, 0.7)};
+				--bd: #{color(light, 0.3)};
+			}
+		}
+		&.is__active,
+		&.is__route:not(.is__routeExact) {
+			&:hover,
+			&:focus {
+				--cl: #{color(danger, 0.7)};
+			}
+		}
+		&:disabled,
+		&[disabled] {
+			--cl: #{color(danger, 0.3)};
+		}
+	}
 	/// default theme
 	&:not([class*="__tm"]),
 	&.u__tm-secondary-light {

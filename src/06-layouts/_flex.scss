@@ -55,7 +55,7 @@
 					&:not([class*="__m"]),
 					&[class*="__min"],
 					&[class*="__max"] {
-						margin-right: var(--gap, 1rem);
+						margin-right: var(--gap-x, 1rem);
 					}
 				}
 			}
@@ -96,7 +96,7 @@
 					&:not([class*="__m"]),
 					&[class*="__min"],
 					&[class*="__max"] {
-						margin-bottom: var(--gap, 1rem);
+						margin-bottom: var(--gap-y, 1rem);
 					}
 				}
 			}

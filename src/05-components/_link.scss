@@ -34,6 +34,16 @@
 				--cl: #{color(light)};
 			}
 		}
+		&-danger {
+			--cl: #{color(danger)};
+			&:hover:not(.is__active):not(.is__routeExact) {
+				--cl: #{color(danger, 0.5)};
+			}
+			&.is__active,
+			&.is__routeExact {
+				--cl: #{color(danger, 0.7)};
+			}
+		}
 		&-light,
 		&-lightAlt {
 			--cl: #{color(light)};
