@@ -36,10 +36,13 @@
 					padding: 0 !important;
 				}
 				.x-navX-wrapper.is__main {
-					position: fixed;
+					position: absolute;
 					left: 0;
 					top: 0;
 					z-index: 16;
+					@media (min-height: 400px) {
+						position: fixed;
+					}
 				}
 				.x-navX-wrapper.is__search {
 					z-index: -1;
@@ -182,8 +185,11 @@
 			border: none;
 			transition: margin 0.3s ease-out;
 			box-sizing: border-box;
-			padding-top: 7.4rem;
+			padding-top: 3.4rem;
 			background: color(light);
+			@media (min-height: 400px) {
+				padding-top: 7.4rem;
+			}
 			&:before {
 				content: "";
 				z-index: -1;
@@ -200,8 +206,6 @@
 				);
 			}
 			&:after {
-				content: "Menú";
-				display: block;
 				position: absolute;
 				left: 0;
 				top: 0;
@@ -211,6 +215,9 @@
 				color: color(dark, 0.7);
 				font-weight: $fontWeightBold;
 				@include flexbox(row, nowrap, flex-start, center);
+				@media (min-height: 400px) {
+					content: attr(data-menu);
+				}
 			}
 			> .x-navX-wrapper {
 				z-index: 14;
@@ -304,10 +311,13 @@ ol.x-navX-list {
 		@media (max-width: $viewportMd) {
 			position: fixed;
 			left: 100%;
-			top: 5rem;
+			top: 1rem;
 			margin-left: 0;
 			padding-left: 1rem;
 			transition: margin 0.3s ease-out;
+			@media (min-height: 400px) {
+				top: 5rem;
+			}
 		}
 	}
 }

@@ -68,10 +68,14 @@
 					pointer-events: none;
 				}
 				#appex,
-				.x-navX-wrapper.is__main,
 				.x-navX.is__mobile,
 				.x-navX-list.is__aside {
 					margin-left: -15rem; //230px aprox
+				}
+				.x-navX-wrapper.is__main {
+					@media (min-height: 400px) {
+						margin-left: -15rem; //230px aprox
+					}
 				}
 			}
 		}
