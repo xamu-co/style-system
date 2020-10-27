@@ -345,6 +345,9 @@ select.x-inSelect {
 				--cl: #{color(secondary, 0.7)};
 			}
 		}
+		&.is__route {
+			--cl: #{color(secondary)};
+		}
 		&.is__routeExact {
 			--cl: #{color(dark, 0.7)};
 		}
