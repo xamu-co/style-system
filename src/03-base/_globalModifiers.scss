@@ -530,7 +530,7 @@ $dimensions: width, height;
 		@each $size in $maxSizes {
 			.xm__#{$constrain + capitalize($dimension)}-#{$size} {
 				@include extend-viewports-classes {
-					--#{$constrain}#{str-slice($dimension, 1, 1)}: #{round(
+					--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{round(
 							$size/15
 						)}rem;
 				}
@@ -541,7 +541,7 @@ $dimensions: width, height;
 		.xm__#{$constrain + capitalize($dimension)}-1200 {
 			$mildos: 1200;
 			@include extend-viewports-classes {
-				--#{$constrain}#{str-slice($dimension, 1, 1)}: #{round(
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{round(
 						$mildos/16
 					)}rem;
 			}
@@ -554,12 +554,14 @@ $dimensions: width, height;
 		@for $i from 3 through 10 {
 			.xm__#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
 				@include extend-viewports-classes {
-					--#{$constrain}#{str-slice($dimension, 1, 1)}: #{$i * 10}vw;
+					--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{$i *
+						10}vw;
 				}
 			}
 			.xm__#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
 				@include extend-viewports-classes {
-					--#{$constrain}#{str-slice($dimension, 1, 1)}: #{$i * 10}vh;
+					--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{$i *
+						10}vh;
 				}
 			}
 		}
@@ -567,18 +569,18 @@ $dimensions: width, height;
 		/// __maxW, __maxH, __minW, __minH
 		[class*="__#{$constrain + capitalize(str-slice($dimension,1,1))}"] {
 			#{$constrain}-#{$dimension}: var(
-				--#{$constrain}#{str-slice($dimension, 1, 1)},
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)},
 				initial
 			);
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
-				--#{$constrain}#{str-slice($dimension, 1, 1)}: 30vw;
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 30vw;
 			}
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vh {
 			@include extend-viewports-classes {
-				--#{$constrain}#{str-slice($dimension, 1, 1)}: 30vh;
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 30vh;
 			}
 		}
 	}

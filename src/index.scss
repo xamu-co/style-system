@@ -14,14 +14,16 @@
 @media only screen {
 	:root {
 		@each $name, $font in $fonts {
+			$font-index: index(($fonts), ($name $font));
 			// font
-			--f-#{$name}: #{$font};
+			--f-#{$font-index}: #{$font};
 		}
 		@each $name, $color in $colors {
+			$color-index: index(($colors), ($name $color));
 			// hex
-			--h-#{$name}: #{$color};
+			--h-c#{$color-index}: #{$color};
 			// rgb
-			--r-#{$name}: #{to-rgb($color)};
+			--r-c#{$color-index}: #{to-rgb($color)};
 		}
 		// --full-height: calc(100vh - 60px);
 	}
@@ -109,7 +111,7 @@
 					width: 100%;
 					height: 100%;
 					padding: 0 1rem;
-					background-color: color(light);
+					background-color: var(--c3);
 					overflow-y: auto;
 					overflow-x: hidden;
 					box-shadow: -4px -4px 40px color(dark, 0.1);

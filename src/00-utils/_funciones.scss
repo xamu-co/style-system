@@ -8,20 +8,20 @@
 
 //retorna la fuente del mapa de fuentes
 @function font($font-name) {
-	@return var(--f-#{$font-name}, #{map-get($fonts, $font-name)});
+	$index: index(($fonts), ($font-name map-get($fonts, $font-name)));
+	@return var(--f-#{$index}, #{map-get($fonts, $font-name)});
 }
 //retorna el color del mapa de colores
 @function color($color-name, $rgb: false) {
+	$index: index(($colors), ($color-name map-get($colors, $color-name)));
 	@if $rgb {
 		@return unquote(
 			"rgba(" +
-				var(
-					--r-#{$color-name},
-					#{to-rgb(map-get($colors, $color-name))}
-				) + "," + $rgb + ")"
+				var(--r-c#{$index}, #{to-rgb(map-get($colors, $color-name))}) +
+				"," + $rgb + ")"
 		);
 	} @else {
-		@return var(--h-#{$color-name}, #{map-get($colors, $color-name)});
+		@return var(--h-c#{$index}, #{map-get($colors, $color-name)});
 	}
 }
 
