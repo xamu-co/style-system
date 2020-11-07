@@ -36,9 +36,16 @@ nav.x-navY {
 		&:not(.is__active) {
 			max-width: 0;
 		}
-		.x-navY-menu-list {
+		> .x-navY-menu-list {
 			width: 230px;
 			padding: 0 1rem 2rem;
+		}
+	}
+
+	> .x-navY-menu-list {
+		&:first-child > *:first-child {
+			height: 5rem;
+			@include flexbox(column, nowrap, center, flex-start);
 		}
 	}
 }
@@ -48,10 +55,6 @@ nav.x-navY {
 ul.x-navY-menu-list,
 ol.x-navY-menu-list {
 	@include flexbox(column, nowrap, center, flex-start);
-	&:first-child > *:first-child {
-		height: 5rem;
-		@include flexbox(column, nowrap, center, flex-start);
-	}
 	&,
 	> * {
 		&:not(:first-child) {
