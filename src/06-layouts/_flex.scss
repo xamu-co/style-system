@@ -125,9 +125,15 @@
 					/// Gaping
 					/// this is a very special class to omit this specific fix
 					&:not(.unfix__gaping) {
-						margin: -0.1px calc(-1 * var(--g, 1rem))
-							calc(-1 * var(--g, 1rem)) -0.1px;
+						--gc: calc(-1 * var(--g, 1rem)); // calculated gap
+						margin: -0.1px var(--gc) var(--gc) -0.1px;
 						box-sizing: border-box;
+						&:last-child {
+							> :first-child:last-child {
+								// only child, text nodes can break this
+								margin: 0;
+							}
+						}
 					}
 					> :not(br) {
 						&:not([class*="__m"]),
