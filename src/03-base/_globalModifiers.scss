@@ -721,25 +721,10 @@ $directions: top, right, bottom, left;
 			&.unfix__gaping,
 			&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
 				margin-right: var(--gx);
-				// &:not([class*="__gapi"]) {
-				// 	> :not([class*="__gapi"]) {
-				// 		--gx: initial;
-				// 	}
-				// }
 				&[class*="__flx"][class*="-wrap"],
 				&[class*="__flx"][class*="-reverse"],
 				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
-					margin-right: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
-				}
-			}
-		}
-		&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"])
-			+ * {
-			/// Gaping
-			margin-left: var(--gx);
-			&:not([class*="__gapi"]) {
-				> :not([class*="__gapi"]) {
-					--gx: initial;
+					--gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
 				}
 			}
 		}
@@ -756,27 +741,10 @@ $directions: top, right, bottom, left;
 				&.unfix__gaping,
 				&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
 					margin-bottom: var(--gy);
-					// &:not([class*="__gapi"]) {
-					// 	> :not([class*="__gapi"]) {
-					// 		--gy: initial;
-					// 	}
-					// }
 					&[class*="__flx"][class*="-wrap"],
 					&[class*="__flx"][class*="-reverse"],
 					&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
-						margin-bottom: calc(
-							-1 * (var(--g, 1rem) - var(--gy, 1rem))
-						);
-					}
-				}
-			}
-			&:not(.unfix__gaping)[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"])
-				+ * {
-				/// Gaping
-				margin-top: var(--gy);
-				&:not([class*="__gapi"]) {
-					> :not([class*="__gapi"]) {
-						--gy: initial;
+						--gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
 					}
 				}
 			}
