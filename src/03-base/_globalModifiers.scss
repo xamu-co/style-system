@@ -685,11 +685,9 @@ $directions: top, right, bottom, left;
 		--gc: calc(-1 * var(--g, 1rem)); // calculated gap
 		margin: -0.1px var(--gc) var(--gc) -0.1px;
 		box-sizing: border-box;
-		&:last-child {
-			> :first-child:last-child {
-				// only child, text nodes can break this
-				margin: 0;
-			}
+		&:last-child > :first-child:last-child {
+			// only child, text nodes can break this
+			margin: 0;
 		}
 	}
 	> :not(br) {
@@ -701,10 +699,8 @@ $directions: top, right, bottom, left;
 				/// Wrap
 				margin-bottom: var(--g);
 				margin-right: var(--g);
-				&:not([class*="__gapi"]) {
-					> :not([class*="__gapi"]) {
-						--g: initial;
-					}
+				&:not([class*="__gapi"]) > :not([class*="__gapi"]) {
+					--g: initial;
 				}
 			}
 		}
@@ -713,41 +709,31 @@ $directions: top, right, bottom, left;
 
 /// X axis
 /// because of the fix is necesary to transfer the margin to the sibling element
-[class*="ngX"]:not([class*="ngX-none"]) {
-	> :not(br):not(:last-child) {
-		/// Gaping
-		&:not([class*="__mR"]) {
-			/// Right
-			&.unfix__gaping,
-			&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-				margin-right: var(--gx);
-				&[class*="__flx"][class*="-wrap"],
-				&[class*="__flx"][class*="-reverse"],
-				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
-					--gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
-				}
-			}
+[class*="ngX"]:not([class*="ngX-none"])
+	> :not(br):not(:last-child):not([class*="__mR"]) {
+	/// Right
+	&.unfix__gaping,
+	&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
+		margin-right: var(--gx);
+		&[class*="__flx"][class*="-wrap"],
+		&[class*="__flx"][class*="-reverse"],
+		&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+			--gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
 		}
 	}
 }
 /// Y axis
 /// because of the fix is necesary to transfer the margin to the sibling element
-[class*="ngY"]:not([class*="ngY-none"]) {
-	> :not(br) {
-		&:not(:last-child) {
-			/// Gaping
-			&:not([class*="__mB"]) {
-				/// Bottom
-				&.unfix__gaping,
-				&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-					margin-bottom: var(--gy);
-					&[class*="__flx"][class*="-wrap"],
-					&[class*="__flx"][class*="-reverse"],
-					&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
-						--gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
-					}
-				}
-			}
+[class*="ngY"]:not([class*="ngY-none"])
+	> :not(br):not(:last-child):not([class*="__mB"]) {
+	/// Bottom
+	&.unfix__gaping,
+	&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
+		margin-bottom: var(--gy);
+		&[class*="__flx"][class*="-wrap"],
+		&[class*="__flx"][class*="-reverse"],
+		&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+			--gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
 		}
 	}
 }
