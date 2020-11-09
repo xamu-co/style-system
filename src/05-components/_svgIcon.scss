@@ -7,69 +7,39 @@
 	svg {
 		display: block;
 	}
+	[fill]:not([fill="none"]) {
+		fill: var(--cl, #{color(secondary)});
+	}
+	&:hover,
+	&.is__active,
+	&.is__routeExact {
+		--cl: var(--cl-a, #{color(dark, 0.7)});
+		&.is__logo {
+			--cl: var(--cl-l, #{color(primary)});
+		}
+	}
 
 	/// logo theme
 	///
 	/// @group Modifiers
 	&.m__tm {
 		&-light {
-			&:hover,
-			&.is__active,
-			&.is__routeExact {
-				[fill]:not([fill="none"]) {
-					fill: color(primary);
-				}
-				&.is__logo [fill]:not([fill="none"]) {
-					fill: color(secondary);
-				}
-			}
+			--cl-a: #{color(primary)};
+			--cl-l: #{color(secondary)};
 		}
 		&-lightAlt {
-			&:hover,
-			&.is__active,
-			&.is__routeExact {
-				[fill]:not([fill="none"]) {
-					fill: color(primaryAlt);
-				}
-				&.is__logo [fill]:not([fill="none"]) {
-					fill: color(secondary);
-				}
-			}
+			--cl-a: #{color(primaryAlt)};
+			--cl-l: #{color(secondary)};
 		}
 		&-primaryAlt {
-			[fill]:not([fill="none"]) {
-				fill: color(primaryAlt);
-			}
-			&:hover,
-			&.is__active,
-			&.is__routeExact {
-				[fill]:not([fill="none"]) {
-					fill: color(light);
-				}
-			}
+			--cl: #{color(primaryAlt)};
+			--cl-a: #{color(light)};
+			// --cl-l: #{color(primary)};
 		}
 		&-light,
 		&-lightAlt {
+			--cl: #{color(light)};
 			filter: drop-shadow(1px 1px 1px color(dark, 0.3));
-			[fill]:not([fill="none"]) {
-				fill: color(light);
-			}
-		}
-	}
-	&:not([class*="__tm"]),
-	&.m__tm-secondary {
-		[fill]:not([fill="none"]) {
-			fill: color(secondary);
-		}
-		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			[fill]:not([fill="none"]) {
-				fill: color(dark, 0.7);
-			}
-			&.is__logo [fill]:not([fill="none"]) {
-				fill: color(primary);
-			}
 		}
 	}
 
