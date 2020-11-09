@@ -21,9 +21,9 @@
 		> :not([class*="__mB"]):not(:last-child) {
 			/// Bottom
 			margin-bottom: var(--gy);
-			&.x-flx[class*="-wrap"],
-			&.x-flx[class*="-reverse"],
-			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]) {
+			&[class*="x-flx"][class*="-wrap"],
+			&[class*="x-flx"][class*="-reverse"],
+			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
 				margin-bottom: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
 			}
 		}
