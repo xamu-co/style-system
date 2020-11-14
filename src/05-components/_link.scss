@@ -28,6 +28,7 @@
 		}
 		&-primaryAlt {
 			--cl: #{color(primaryAlt)};
+			--sh: #{color(primaryAlt, 0.7)};
 			&:hover,
 			&.is__active,
 			&.is__routeExact {
@@ -69,7 +70,7 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
-			text-shadow: 1px 1px 1px color(dark, 0.3);
+			text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 		}
 	}
 

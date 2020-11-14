@@ -83,25 +83,26 @@
 		/// tema de la barra de navegacion principal
 		///
 		/// @group ConditionalModifiers
-		&.m__tm-light,
-		&.m__tm-lightAlt {
+		&[class*="__tm-light"] {
 			.x-navX-list-item > {
 				.x-link:not(:hover):not(.is__active):not(.is__routeExact) {
-					text-shadow: 1px 1px 1px color(dark, 0.3);
+					text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 				}
 				.x-btnLink:not(:hover):not(.is__active):not(.is__routeExact) {
 					@media (min-width: $viewportMd + 1) {
-						text-shadow: 1px 1px 1px color(dark, 0.3);
+						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
 				}
 				.x-btn {
 					&.is__active,
 					&.is__routeExact {
-						// color: color(primaryAlt);
-						text-shadow: 1px 1px 1px color(dark, 0.3);
+						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
 				}
 			}
+		}
+		&.m__tm-lightAlt {
+			--sh: #{color(primaryAlt, 0.7)};
 		}
 		/// default theme
 		&:not([class*="__tm"]),
@@ -261,7 +262,7 @@
 					padding-left: 1rem;
 					&:not(:last-child) {
 						// margin-bottom: 1rem;
-						--g: 1rem;
+						--gy: 1rem;
 					}
 					a,
 					p {
