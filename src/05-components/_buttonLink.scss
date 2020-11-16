@@ -21,13 +21,21 @@
 		&.is__route,
 		&.is__active {
 			// text only
-			i.x-icon {
+			i.x-icon,
+			.x-svg {
 				display: none;
 			}
 		}
 		&:not(.is__route):not(.is__active) {
 			// icon only
 			width: var(--sz, 2.4rem);
+		}
+
+		i.x-icon,
+		.x-svg {
+			&:first-child {
+				display: none;
+			}
 		}
 
 		@each $name, $size in $fontSizes {
@@ -104,8 +112,11 @@
 				--rw: #{color(dark, 0.7)};
 			}
 		}
-		i.x-icon {
-			display: none;
+		i.x-icon,
+		.x-svg {
+			&:last-child {
+				display: none;
+			}
 		}
 	}
 }

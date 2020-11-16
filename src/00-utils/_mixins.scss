@@ -6,10 +6,13 @@
 */
 
 /// viewport extend
-@mixin extend-viewports-classes($desktop: false) {
+@mixin extend-viewports-classes(
+	$desktop: false,
+	$localViewports: $modifiersViewports
+) {
 	@content;
 	@if $responsive {
-		@each $name, $viewport in $viewports {
+		@each $name, $viewport in $localViewports {
 			/// mobile first
 			@media (min-width: $viewport + 1) {
 				/// default: class selector
@@ -31,10 +34,13 @@
 }
 /// alternative for attrs
 /// needs improvements
-@mixin extend-viewports-attrs($desktop: false) {
+@mixin extend-viewports-attrs(
+	$desktop: false,
+	$localViewports: $modifiersViewports
+) {
 	@content;
 	@if $responsive {
-		@each $name, $viewport in $viewports {
+		@each $name, $viewport in $localViewports {
 			@each $selector in & {
 				$newSelector: str-replace(#{$selector}, "=", '="');
 				$newSelector: str-replace(#{$newSelector}, "]", '"]');

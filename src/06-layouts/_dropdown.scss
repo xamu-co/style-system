@@ -3,14 +3,29 @@
 /// dropdown
 ///
 /// @group Components
-.x-dropdownToggler {
-	&:hover,
-	&.is_active {
-		i.x-icon {
-			transform: rotate(180deg);
+.toggler__dropdown {
+	@media (max-width: $viewportMd) {
+		//mobile
+		i.x-icon,
+		.x-svg {
+			&:last-child {
+				display: none;
+			}
 		}
-		~ .x-dropdown {
-			display: block;
+	}
+	@media (min-width: $viewportMd + 1) {
+		/// desktop
+		&:hover:not(.no__hover),
+		&.is__active {
+			i.x-icon,
+			.x-svg {
+				&:last-child {
+					transform: rotate(180deg);
+				}
+			}
+			~ .x-dropdown {
+				display: block;
+			}
 		}
 	}
 }

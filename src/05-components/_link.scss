@@ -38,7 +38,7 @@
 		&-danger {
 			--cl: #{color(danger)};
 			&:hover:not(.is__active):not(.is__routeExact) {
-				--cl: #{color(danger, 0.5)};
+				--cl: #{color(dark, 0.5)};
 			}
 			&.is__active,
 			&.is__routeExact {
@@ -75,7 +75,14 @@
 	}
 
 	/// link round handling
-	&.m__round i.x-icon {
-		display: none;
+	&.m__round {
+		@include extend-viewports-classes(true, $viewports) {
+			i.x-icon,
+			.x-svg {
+				&:last-child {
+					display: none;
+				}
+			}
+		}
 	}
 }

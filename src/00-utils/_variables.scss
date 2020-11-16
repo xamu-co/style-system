@@ -34,16 +34,23 @@ $colors: (
 	success: $success,
 );
 
-$viewportSm: 640px;
+$viewportXs: 358px;
+$viewportSm: 480px;
 $viewportMd: 768px;
 $viewportLg: 1080px;
 $viewportXl: 1280px;
 
-$viewports: (
-	// sm: $viewportSm,
+$modifiersViewports: (
 	md: $viewportMd,
-	// lg: $viewportLg,
-	xl: $viewportXl
+	xl: $viewportXl,
+);
+
+$viewports: (
+	xs: $viewportXs,
+	sm: $viewportSm,
+	md: $viewportMd,
+	lg: $viewportLg,
+	xl: $viewportXl,
 );
 
 /// font size

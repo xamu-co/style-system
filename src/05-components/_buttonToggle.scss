@@ -6,6 +6,7 @@
 ///
 /// @group Components
 .x-btnToggle {
+	--cl-a: var(--cl);
 	&.is__alert:after {
 		content: "";
 		display: block;
@@ -25,14 +26,21 @@
 	&.is__active,
 	&.is__routeExact {
 		//hide regular
-		i.x-icon:first-of-type {
-			display: none;
+		i.x-icon,
+		.x-svg {
+			&:first-of-type {
+				display: none;
+			}
 		}
 	}
 	//hide solid
-	&:not(.is__alert):not(.is__active):not(.is__routeExact)
-		i.x-icon:last-of-type {
-		display: none;
+	&:not(.is__alert):not(.is__active):not(.is__routeExact) {
+		i.x-icon,
+		.x-svg {
+			&:last-of-type {
+				display: none;
+			}
+		}
 	}
 
 	/// button theme
@@ -76,6 +84,29 @@
 				--bg: #{color(light, 0.5)};
 			}
 			&.is__routeExact {
+				--cl: #{color(light)};
+				--bg: #{color(light, 0.5)};
+				--bc: #{color(light, 0.3)};
+			}
+		}
+		&-lightAlt {
+			--cl: #{color(light)};
+			--bg: #{color(primaryAlt, 0.1)};
+			&:hover {
+				--bc: #{color(primaryAlt, 0.3)};
+			}
+			&.is__alert:after {
+				// TODO: verify this
+				--bg: #{color(light)};
+				--bc: #{color(light)};
+			}
+			&.is__alert,
+			&.is__active {
+				// TODO: verify this
+				--bg: #{color(light, 0.5)};
+			}
+			&.is__routeExact {
+				// TODO: verify this
 				--cl: #{color(light)};
 				--bg: #{color(light, 0.5)};
 				--bc: #{color(light, 0.3)};

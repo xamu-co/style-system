@@ -8,7 +8,7 @@
 /// @group GlobalModifiers
 
 .xm__hidden {
-	@include extend-viewports-classes(true) {
+	@include extend-viewports-classes(true, $viewports) {
 		width: 0.1px;
 		height: 0.1px;
 		opacity: 0;
@@ -17,7 +17,7 @@
 		z-index: -1;
 	}
 	&-full {
-		@include extend-viewports-classes(true) {
+		@include extend-viewports-classes(true, $viewports) {
 			display: none !important;
 		}
 	}
@@ -458,7 +458,7 @@ $models: margin, padding;
 			/// Top, Right, Bottom, Left
 			&:not([class*="min"]):not([class*="max"]) {
 				/// this could caue problems if min/max is set alongside margin/padding
-				&:not([class*="is__m"]) {
+				&:not([class*="is__m"]):not([class*="__m-no"]) {
 					/// this could cause problems in some statuses starting with m
 					margin: var(--m, initial);
 				}
@@ -469,7 +469,7 @@ $models: margin, padding;
 	[class*="__p"]:not([class*="__pY"]):not([class*="__pX"]):not([class*="__po"]) {
 		&:not([class*="__pT"]):not([class*="__pR"]):not([class*="__pB"]):not([class*="__pL"]) {
 			/// Top, Right, Bottom, Left
-			&:not([class*="is__p"]) {
+			&:not([class*="is__p"]):not([class*="__p-no"]) {
 				/// this could cause problems in some statuses starting with p
 				padding: var(--p, initial);
 			}

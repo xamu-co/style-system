@@ -5,7 +5,7 @@
 .x-svg {
 	&,
 	svg {
-		display: block;
+		@include flexbox(row, nowrap, center, center, inline-flex);
 	}
 	[fill]:not([fill="none"]) {
 		fill: var(--cl, #{color(secondary)});

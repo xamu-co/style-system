@@ -5,7 +5,8 @@
 ///
 /// @group Components
 :not(textarea).x-inTxt {
-	i.x-icon {
+	i.x-icon,
+	.x-svg {
 		position: absolute;
 		top: 50%;
 		left: 0.8rem;
@@ -92,7 +93,9 @@ textarea.x-inTxt {
 
 	&::placeholder,
 	input::placeholder,
-	input:placeholder-shown ~ i.x-icon {
+	input:placeholder-shown ~ i.x-icon,
+	input:placeholder-shown ~ .x-svg path {
 		color: var(--cl-a);
+		fill: var(--cl-a);
 	}
 }

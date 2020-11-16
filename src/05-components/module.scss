@@ -156,12 +156,15 @@ i.x-icon {
 	///
 	/// @group Modifiers
 	&.m__round {
-		--bp: 0; // button padding
-		width: var(--sz, 2.4rem);
-		i.x-icon {
-			margin: 0 !important;
-			+ span {
-				display: none;
+		@include extend-viewports-classes(true, $viewports) {
+			--bp: 0; // button padding
+			width: var(--sz, 2.4rem);
+			i.x-icon,
+			.x-svg {
+				margin: 0 !important;
+				+ span {
+					display: none;
+				}
 			}
 		}
 	}
@@ -172,10 +175,7 @@ i.x-icon {
 /// @group SharedStyles
 [class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
 .x-link {
-	:not(.x-icon):first-child ~ i.x-icon {
-		margin-left: 0.4em;
-	}
-	i.x-icon ~ :not(.x-icon) {
+	* + * {
 		margin-left: 0.4em;
 	}
 }
