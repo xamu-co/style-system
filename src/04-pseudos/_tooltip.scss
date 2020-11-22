@@ -27,9 +27,12 @@
 		transform: var(--tt);
 	}
 	&:hover:not([disabled]):not(.is__routeExact):not(.is__open) {
-		cursor: pointer;
-		&:before {
-			opacity: 1;
+		@media (hover: hover) {
+			/// dektop only
+			cursor: pointer;
+			&:before {
+				opacity: 1;
+			}
 		}
 	}
 
