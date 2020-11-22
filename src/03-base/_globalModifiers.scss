@@ -15,10 +15,22 @@
 		overflow: hidden;
 		position: absolute;
 		z-index: -1;
+		+ {
+			i.x-icon,
+			.x-svg {
+				margin-left: 0;
+			}
+		}
 	}
 	&-full {
 		@include extend-viewports-classes(true, $viewports) {
 			display: none !important;
+			+ {
+				i.x-icon,
+				.x-svg {
+					margin-left: 0;
+				}
+			}
 		}
 	}
 }

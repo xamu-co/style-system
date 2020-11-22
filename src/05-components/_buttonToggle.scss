@@ -8,20 +8,9 @@
 .x-btnToggle {
 	--cl-a: var(--cl);
 	&.is__alert:after {
-		content: "";
-		display: block;
-		width: 1rem;
-		height: 1rem;
-		position: absolute;
-		right: -0.3rem;
-		bottom: -0.3rem;
-		border-width: 4px;
-		border-style: solid;
-		border-radius: 50%;
-		box-sizing: border-box;
 		background-color: var(--bg, transparent);
-		border-color: var(--bc, transparent);
 	}
+
 	&.is__alert,
 	&.is__active,
 	&.is__routeExact {
@@ -96,19 +85,16 @@
 				--bc: #{color(primaryAlt, 0.3)};
 			}
 			&.is__alert:after {
-				// TODO: verify this
 				--bg: #{color(light)};
-				--bc: #{color(light)};
+				--bc: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
-				// TODO: verify this
-				--bg: #{color(light, 0.5)};
+				--bg: #{color(primaryAlt, 0.5)};
 			}
 			&.is__routeExact {
-				// TODO: verify this
 				--cl: #{color(light)};
-				--bg: #{color(light, 0.5)};
+				--bg: #{color(primaryAlt, 0.5)};
 				--bc: #{color(light, 0.3)};
 			}
 		}

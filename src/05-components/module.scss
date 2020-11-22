@@ -170,6 +170,15 @@ i.x-icon {
 	}
 }
 
+/// content alignment
+///
+/// @group SharedStyles
+[class*="x-btn"] {
+	flex: 0 0 auto;
+	text-align: center;
+	@include flexbox(row, nowrap, center, center, inline-flex);
+}
+
 /// icon behavior
 ///
 /// @group SharedStyles
@@ -180,13 +189,25 @@ i.x-icon {
 	}
 }
 
-/// content alignment
+/// is alert
 ///
 /// @group SharedStyles
-[class*="x-btn"] {
-	flex: 0 0 auto;
-	text-align: center;
-	@include flexbox(row, nowrap, center, center, inline-flex);
+.x-link,
+.x-btnToggle {
+	&.is__alert:after {
+		content: "";
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		position: absolute;
+		right: -0.4rem;
+		bottom: -0.4rem;
+		border-width: 4px;
+		border-style: solid;
+		border-radius: 50%;
+		box-sizing: border-box;
+		border-color: var(--bc, transparent);
+	}
 }
 
 /// buttons & select themes
@@ -201,7 +222,7 @@ select.x-inSelect {
 	&.u__tm-light {
 		&-secondary {
 			--cl: #{color(secondary)};
-			&:not(.is__routeExact) {
+			&:not(.is__route):not(.is__active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(secondary, 0.7)};
@@ -211,7 +232,7 @@ select.x-inSelect {
 		}
 		&-dark {
 			--cl: #{color(dark, 0.7)};
-			&:not(.is__routeExact) {
+			&:not(.is__route):not(.is__active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(dark, 0.3)};
@@ -221,7 +242,7 @@ select.x-inSelect {
 		}
 		&-primaryAlt {
 			--cl: #{color(primaryAlt)};
-			&:not(.is__routeExact) {
+			&:not(.is__route):not(.is__active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primaryAlt, 0.7)};
@@ -232,7 +253,7 @@ select.x-inSelect {
 		&-primary {
 			--cl: #{color(primary)};
 			--bg: #{color(light)};
-			&:not(.is__routeExact) {
+			&:not(.is__route):not(.is__active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
@@ -263,7 +284,7 @@ select.x-inSelect {
 	&.u__tm-primary-light {
 		--cl: #{color(light)};
 		--bg: #{color(primary)};
-		&:not(.is__routeExact) {
+		&:not(.is__route):not(.is__active) {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
@@ -285,7 +306,7 @@ select.x-inSelect {
 	&.u__tm-primaryAlt-primary {
 		--cl: #{color(primary)};
 		--bg: #{color(primaryAlt)};
-		&:not(.is__routeExact) {
+		&:not(.is__route):not(.is__active) {
 			&:hover,
 			&:focus {
 				--cl: #{color(primary, 0.7)};
@@ -307,7 +328,7 @@ select.x-inSelect {
 	&.u__tm-danger-light {
 		--cl: #{color(light)};
 		--bg: #{color(danger)};
-		&:not(.is__routeExact) {
+		&:not(.is__route):not(.is__active) {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
@@ -331,7 +352,7 @@ select.x-inSelect {
 	&.u__tm-secondary-light {
 		--cl: #{color(light)};
 		--bg: #{color(secondary)};
-		&:not(.is__routeExact) {
+		&:not(.is__route):not(.is__active) {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
@@ -380,7 +401,7 @@ select.x-inSelect {
 	&.is__active,
 	&:disabled,
 	&[disabled] {
-		--bg: transparent;
+		background-color: var(--bg-a, transparent);
 	}
 }
 

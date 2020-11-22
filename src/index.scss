@@ -48,39 +48,6 @@
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: $fontWeightRegularAlt;
 		}
-		@media (max-width: $viewportMd) {
-			transition-delay: 0.3s;
-			@media (hover: none) {
-				@supports (-moz-appearance: none) {
-					/// firefox fix, scroll bug on android
-					overflow: hidden;
-				}
-			}
-			&.is__navOpen {
-				/// It works but it's to laggy on mobile
-				/// TODO: Improve if possible
-				overflow-y: hidden;
-				@media (hover: hover) {
-					border-right: 1rem solid transparent;
-				}
-				body:before {
-					background-position: -5rem 0; /// third the distance
-				}
-				.x-view {
-					pointer-events: none;
-				}
-				#appex,
-				.x-navX.is__mobile,
-				.x-navX-list.is__aside {
-					margin-left: -15rem; //230px aprox
-				}
-				.x-navX-wrapper.is__main {
-					@media (min-height: 400px) {
-						margin-left: -15rem; //230px aprox
-					}
-				}
-			}
-		}
 	}
 
 	body {
@@ -97,42 +64,9 @@
 				overflow-x: hidden;
 			}
 		}
-		&:before {
-			transition: all 0.3s ease-out;
-		}
-		&:not(.is__dashboard) #appex {
-			@include flexbox(column, nowrap, flex-start, stretch);
-		}
-		&.is__dashboard {
-			height: 100%;
-			#appex {
-				@include flexbox(row, nowrap, flex-start, stretch);
-				> .clearfix {
-					width: 100%;
-					height: 100%;
-					// padding: 0 1rem;
-					background-color: color(light);
-					overflow-y: auto;
-					overflow-x: hidden;
-					box-shadow: -4px -4px 40px color(dark, 0.1);
-					transition: padding 0.3s ease-out;
-					@media (min-width: $viewportMd + 1) {
-						padding: 0;
-					}
-					@media (min-width: $viewportXl + 1) {
-						padding: 0 2rem;
-					}
-				}
-			}
-			#appex,
-			#__nuxt,
-			#__layout {
-				height: 100%;
-				overflow: hidden;
-			}
-		}
 	}
 	#appex {
 		width: 100%;
+		@include flexbox(column, nowrap, flex-start, stretch);
 	}
 }

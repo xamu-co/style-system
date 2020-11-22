@@ -24,10 +24,12 @@
 	/// @group Modifiers
 	&.m__tm {
 		&-light {
+			--cl: #{color(light)};
 			--cl-a: #{color(primary)};
 			--cl-l: #{color(secondary)};
 		}
 		&-lightAlt {
+			--cl: #{color(light)};
 			--cl-a: #{color(primaryAlt)};
 			--cl-l: #{color(secondary)};
 		}
@@ -38,7 +40,6 @@
 		}
 		&-light,
 		&-lightAlt {
-			--cl: #{color(light)};
 			filter: drop-shadow(1px 1px 1px color(dark, 0.3));
 		}
 	}
