@@ -22,8 +22,14 @@
 	&.m__grdColumns {
 		& {
 			/// default
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(false, $viewports) {
 				--gc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+			}
+		}
+		&-single {
+			/// default
+			@include extend-viewports-classes {
+				--gc: 1fr;
 			}
 		}
 		&-autoMin {

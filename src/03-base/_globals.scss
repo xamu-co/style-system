@@ -180,7 +180,7 @@ select {
 	&:not(:disabled):not([disabled]):hover {
 		cursor: pointer;
 	}
-	&.is__routeExact {
+	&.is__routeExact:not([class*="toggler__"]) {
 		pointer-events: none;
 	}
 }

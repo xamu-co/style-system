@@ -8,17 +8,29 @@
 /// @group GlobalModifiers
 
 .xm__hidden {
-	@include extend-viewports-classes(true) {
+	@include extend-viewports-classes(true, $viewports) {
 		width: 0.1px;
 		height: 0.1px;
 		opacity: 0;
 		overflow: hidden;
 		position: absolute;
 		z-index: -1;
+		&:first-child + {
+			i.x-icon,
+			.x-svg {
+				margin-left: 0;
+			}
+		}
 	}
 	&-full {
-		@include extend-viewports-classes(true) {
+		@include extend-viewports-classes(true, $viewports) {
 			display: none !important;
+			&:first-child + {
+				i.x-icon,
+				.x-svg {
+					margin-left: 0;
+				}
+			}
 		}
 	}
 }
@@ -458,7 +470,7 @@ $models: margin, padding;
 			/// Top, Right, Bottom, Left
 			&:not([class*="min"]):not([class*="max"]) {
 				/// this could caue problems if min/max is set alongside margin/padding
-				&:not([class*="is__m"]) {
+				&:not([class*="is__m"]):not([class*="__m-no"]) {
 					/// this could cause problems in some statuses starting with m
 					margin: var(--m, initial);
 				}
@@ -469,7 +481,7 @@ $models: margin, padding;
 	[class*="__p"]:not([class*="__pY"]):not([class*="__pX"]):not([class*="__po"]) {
 		&:not([class*="__pT"]):not([class*="__pR"]):not([class*="__pB"]):not([class*="__pL"]) {
 			/// Top, Right, Bottom, Left
-			&:not([class*="is__p"]) {
+			&:not([class*="is__p"]):not([class*="__p-no"]) {
 				/// this could cause problems in some statuses starting with p
 				padding: var(--p, initial);
 			}
@@ -675,7 +687,7 @@ $directions: top, right, bottom, left;
 
 /// grid/column gap default
 [class*="__gap"]:not([class*="__gapi"]) {
-	gap: var(--g);
+	gap: var(--g); // omit fallback
 }
 
 /// item spacing defaults
@@ -696,7 +708,7 @@ $directions: top, right, bottom, left;
 		&[class*="__max"] {
 			&[class*="__txtWr"]:not([class*="__flx"]),
 			&:not([class*="-wrap"]):not([class*="-reverse"]) {
-				/// Wrap
+				/// Wrap, omit fallback
 				margin-bottom: var(--g);
 				margin-right: var(--g);
 				&:not([class*="__gapi"]) > :not([class*="__gapi"]) {
@@ -714,7 +726,7 @@ $directions: top, right, bottom, left;
 	/// Right
 	&.unfix__gaping,
 	&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-		margin-right: var(--gx);
+		margin-right: var(--gx); // omit fallback
 		&[class*="__flx"][class*="-wrap"],
 		&[class*="__flx"][class*="-reverse"],
 		&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
@@ -729,7 +741,7 @@ $directions: top, right, bottom, left;
 	/// Bottom
 	&.unfix__gaping,
 	&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-		margin-bottom: var(--gy);
+		margin-bottom: var(--gy); // omit fallback
 		&[class*="__flx"][class*="-wrap"],
 		&[class*="__flx"][class*="-reverse"],
 		&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {

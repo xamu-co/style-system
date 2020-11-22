@@ -5,7 +5,8 @@
 ///
 /// @group Components
 :not(textarea).x-inTxt {
-	i.x-icon {
+	i.x-icon,
+	.x-svg {
 		position: absolute;
 		top: 50%;
 		left: 0.8rem;
@@ -53,6 +54,18 @@ textarea.x-inTxt {
 				--bc: #{color(primary)};
 			}
 		}
+		&-lighter {
+			--bg: #{color(light)};
+			--bc: #{transparent};
+			--cl: #{color(primary)};
+			--cl-a: #{color(primary, 0.5)};
+			/// showcase a shadow
+			///
+			/// @group ConditionalModifiers
+			&.m__shadow {
+				box-shadow: 1px 1px 3px color(dark, 0.3);
+			}
+		}
 		&-lightAlt {
 			--bg: #{color(light)};
 			--bc: #{transparent};
@@ -92,7 +105,9 @@ textarea.x-inTxt {
 
 	&::placeholder,
 	input::placeholder,
-	input:placeholder-shown ~ i.x-icon {
+	input:placeholder-shown ~ i.x-icon,
+	input:placeholder-shown ~ .x-svg path {
 		color: var(--cl-a);
+		fill: var(--cl-a);
 	}
 }

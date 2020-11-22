@@ -7,7 +7,7 @@
 .x-cols,
 .x-grd {
 	@include extend-interactions {
-		overflow: hidden;
+		overflow: visible;
 		/// Gaping will trigger this but that is not a problem
 		&:not([class*="__gap"]) {
 			/// Gap

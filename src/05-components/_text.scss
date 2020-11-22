@@ -4,7 +4,7 @@
 ///
 /// @group Components
 .x-txt {
-	color: var(--ccl);
+	color: var(--ccl, #{color(dark, 0.7)});
 	&:not([class*="x-flx"]):not([class*="x-grd"]):not([class*="__txtAlignF"]) {
 		/// Flx
 		display: block;
@@ -16,10 +16,6 @@
 			/// Gaping
 			display: inline-block;
 		}
-	}
-	&:not([class*="__txtC"]) {
-		/// Color
-		--ccl: #{color(dark, 0.7)};
 	}
 	&:not([class*="__maxW"]) {
 		/// Width
