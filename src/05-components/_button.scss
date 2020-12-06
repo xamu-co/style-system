@@ -6,8 +6,13 @@
 /// @group Components
 .x-btn {
 	/// button round handling
-	&.m__round span {
-		display: none;
+	&.m__round {
+		@include extend-viewports-classes(true, $viewports) {
+			&:not([class*="toggler__"]) :not(:last-child),
+			&[class*="toggler__"] :not(:nth-child(2)) {
+				display: none;
+			}
+		}
 	}
 }
 

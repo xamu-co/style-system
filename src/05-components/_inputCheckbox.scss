@@ -2,9 +2,10 @@
 /// Checkbox
 ///
 /// @group Components
-input[type="checkbox"].x-inCheckbox {
+input[type^="c"].x-inCheckbox {
 	display: none;
 	+ label {
+		color: var(--cl, #{color(secondary)});
 		&:after {
 			content: "";
 			vertical-align: middle;
@@ -19,6 +20,14 @@ input[type="checkbox"].x-inCheckbox {
 			text-align: center;
 			line-height: 1.7rem;
 			box-sizing: border-box;
+			background-color: var(--bg, #{color(secondary, 0.1)});
+			border-color: var(--bc, #{color(secondary, 0.1)});
+		}
+		&:hover {
+			--cl: #{color(secondary, 0.7)};
+			&:after {
+				--bc: #{color(secondary, 0.3)};
+			}
 		}
 
 		> * {
@@ -29,6 +38,8 @@ input[type="checkbox"].x-inCheckbox {
 		font-weight: $fontWeightBold;
 		&:after {
 			content: "\f00c";
+			// color: var(--cl, color(light));
+			--bg: #{color(secondary, 0.5)};
 		}
 	}
 	&:disabled,
@@ -60,42 +71,21 @@ input[type="checkbox"].x-inCheckbox {
 	/// @group Modifiers
 	&.m__tm-light {
 		+ label {
-			color: color(light);
+			--cl: #{color(light)};
 			&:after {
-				background-color: color(light, 0.1);
-				border-color: color(light, 0.1);
+				--bg: color(light, 0.1);
+				--bc: color(light, 0.1);
 			}
 			&:hover {
-				color: color(light, 0.7);
+				--cl: color(light, 0.7);
 				&:after {
-					border-color: color(light, 0.3);
+					--bc: color(light, 0.3);
 				}
 			}
 		}
 		&:checked + label:after {
 			// color: color(light);
-			background-color: color(light, 0.5);
-		}
-	}
-	/// default theme
-	&:not([class*="__tm"]),
-	&.m__tm-secondary {
-		+ label {
-			color: color(secondary);
-			&:after {
-				background-color: color(secondary, 0.1);
-				border-color: color(secondary, 0.1);
-			}
-			&:hover {
-				color: color(secondary, 0.7);
-				&:after {
-					border-color: color(secondary, 0.3);
-				}
-			}
-		}
-		&:checked + label:after {
-			// color: color(light);
-			background-color: color(secondary, 0.5);
+			--bg: color(light, 0.5);
 		}
 	}
 }

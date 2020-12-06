@@ -5,13 +5,17 @@
 	Some of them are not that necesary cuz the were mean for prefixing, but autoprefixer solves that already
 */
 
-// viewport extend
-@mixin extend-viewports($desktop: false) {
+/// viewport extend
+@mixin extend-viewports-classes(
+	$desktop: false,
+	$localViewports: $modifiersViewports
+) {
 	@content;
 	@if $responsive {
-		@each $name, $viewport in $viewports {
+		@each $name, $viewport in $localViewports {
 			/// mobile first
 			@media (min-width: $viewport + 1) {
+				/// default: class selector
 				&\:#{$name} {
 					@content;
 				}
@@ -19,6 +23,7 @@
 			/// desktop first
 			@if $desktop {
 				@media (max-width: $viewport) {
+					/// default: class selector
 					&\:#{$name}-inv {
 						@content;
 					}
@@ -27,22 +32,64 @@
 		}
 	}
 }
-
-// device type extend
-@mixin extend-interactions($hover: false) {
+/// alternative for attrs
+/// needs improvements
+@mixin extend-viewports-attrs(
+	$desktop: false,
+	$localViewports: $modifiersViewports
+) {
 	@content;
 	@if $responsive {
-		/// mobile only
-		@media (hover: none) {
-			&\:touch {
-				@content;
+		@each $name, $viewport in $localViewports {
+			@each $selector in & {
+				$newSelector: str-replace(#{$selector}, "=", '="');
+				$newSelector: str-replace(#{$newSelector}, "]", '"]');
+				/// mobile first
+				@media (min-width: $viewport + 1) {
+					/// attr selector support
+
+					@at-root #{str-slice($newSelector, 1, -3)
+							+ "\:"
+							+ $name
+							+ '"]'} {
+						@content;
+					}
+				}
+
+				/// desktop first
+				@if $desktop {
+					@media (max-width: $viewport) {
+						/// attr selector support
+						@at-root #{str-slice($newSelector, 1, -3)
+								+ "\:"
+								+ $name
+								+ '-inv"]'} {
+							@content;
+						}
+					}
+				}
 			}
 		}
-		/// desktop only
-		@if $hover {
+	}
+}
+
+// device type extend
+@mixin extend-interactions($touch: false) {
+	@content;
+	@if $responsive {
+		@each $selector in & {
+			/// desktop only
 			@media (hover: hover) {
-				&\:hover {
+				@at-root .hover\:#{str-replace(#{$selector},".")} {
 					@content;
+				}
+			}
+			@if $touch {
+				/// mobile only
+				@media (hover: none) {
+					@at-root .touch\:#{str-replace(#{$selector},".")} {
+						@content;
+					}
 				}
 			}
 		}

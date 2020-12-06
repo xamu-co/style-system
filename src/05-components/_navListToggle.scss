@@ -5,12 +5,13 @@
 /// @group Layouts
 nav.x-nListToggle {
 	// width: 100%;
-	> input[type="checkbox"] {
+	> input[type^="c"] {
 		display: none;
 		&:checked ~ .x-nListToggle-toggler {
 			font-weight: $fontWeightBold;
 			margin-bottom: 1rem;
-			i.x-icon {
+			i.x-icon,
+			.x-svg {
 				transform: rotate(180deg);
 			}
 		}
@@ -25,7 +26,8 @@ nav.x-nListToggle {
 .x-nListToggle-toggler {
 	display: block;
 	@include flexbox(row, nowrap, space-between, center);
-	i.x-icon {
+	i.x-icon,
+	.x-svg {
 		width: 1.8rem;
 	}
 }

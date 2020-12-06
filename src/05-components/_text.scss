@@ -4,22 +4,25 @@
 ///
 /// @group Components
 .x-txt {
-	&:not(.x-flx):not(.x-grd):not([class*="__txtAlignFlx"]) {
+	color: var(--ccl, #{color(dark, 0.7)});
+	&:not([class*="x-flx"]):not([class*="x-grd"]):not([class*="__txtAlignF"]) {
+		/// Flx
 		display: block;
 	}
-	&:not([class*="__txtAlign"]) {
+	&:not([class*="__txtA"]) {
+		/// Align
 		text-align: left;
-		&:not([class*="__gaping"]) > * {
+		&:not([class*="__gapi"]) > * {
+			/// Gaping
 			display: inline-block;
 		}
 	}
-	&:not([class*="__txtColor"]) {
-		color: color(dark, 0.7);
-	}
-	&:not([class*="__maxWidth"]) {
+	&:not([class*="__maxW"]) {
+		/// Width
 		max-width: $maxTextWidth;
 	}
-	&:not([class*="__gaping"]) > *:not([class*="__mBottom"]):not(:last-child) {
+	&:not([class*="__gapi"]) > *:not([class*="__mB"]):not(:last-child) {
+		/// Gaping, Bottom
 		margin-bottom: 1rem;
 	}
 

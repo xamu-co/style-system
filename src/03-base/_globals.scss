@@ -52,7 +52,8 @@
 	}
 }
 
-h1:not([class*="__txtSize"]) {
+h1:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeExtraLarge;
 	br {
 		display: none;
@@ -64,7 +65,8 @@ h1:not([class*="__txtSize"]) {
 		}
 	}
 }
-h2:not([class*="__txtSize"]) {
+h2:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeLarge;
 	br {
 		display: none;
@@ -76,10 +78,12 @@ h2:not([class*="__txtSize"]) {
 		}
 	}
 }
-h3:not([class*="__txtSize"]) {
+h3:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeLarge;
 }
-h4:not([class*="__txtSize"]) {
+h4:not([class*="__txtSi"]) {
+	/// Size
 	font-size: $fontSizeMedium;
 }
 
@@ -159,7 +163,8 @@ iframe {
 		box-sizing: border-box;
 		@include flexbox(column, nowrap, center, center);
 	}
-	&:not([class*="__bgColor"]) {
+	&:not([class*="__bgC"]) {
+		/// Color
 		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
 	}
 }
@@ -175,7 +180,7 @@ select {
 	&:not(:disabled):not([disabled]):hover {
 		cursor: pointer;
 	}
-	&.is__routeExact {
+	&.is__routeExact:not([class*="toggler__"]) {
 		pointer-events: none;
 	}
 }
@@ -193,7 +198,8 @@ h6 {
 }
 
 /// global font weight
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not([class|="fa"]):not([class*="__txtWeight"]) {
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not([class|="fa"]):not([class*="__txtWe"]) {
+	/// Weight
 	font-weight: inherit;
 }
 
@@ -209,7 +215,8 @@ button,
 strong,
 .x-btn,
 .x-btnToggle {
-	&:not([class*="__txtWeight"]) {
+	&:not([class*="__txtWe"]) {
+		/// Weight
 		font-weight: $fontWeightBold;
 		@supports (-moz-appearance: none) {
 			// firefox fix
@@ -221,45 +228,48 @@ strong,
 /// gaping fix
 ///
 /// @group SharedStyles
-x-flx[class*="__flxRow"] {
-	/// default
-	&:not([class*="__gaping"]) {
-		> [class*="__flxRow-wrap"],
-		> [class*="__flxColumn-wrap"] {
-			&:not(.unfix__gaping) + * {
-				margin-left: 1rem;
+[class*="x-flx"] {
+	&:last-child:not([class*="x-item"]) {
+		&[class*="__flxR"] {
+			/// row fix
+			> :not(.unfix__gaping) {
+				&[class*="__flx"][class*="-wrap"],
+				&[class*="__flx"][class*="-reverse"],
+				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+					&:first-child:only-of-type,
+					&:last-child {
+						// margin-bottom: 0;
+						margin-right: calc(-1 * (var(--g) - var(--gx)));
+						margin-bottom: calc(-1 * (var(--g) - var(--gx)));
+					}
+				}
 			}
 		}
-	}
-	@for $i from 1 through 10 {
-		&.xm__gaping-#{$i*5} {
-			> [class*="__flxRow-wrap"],
-			> [class*="__flxColumn-wrap"] {
-				&:not(.unfix__gaping) + * {
-					margin-left: #{$i/3}rem;
+		&[class*="__flxC"] {
+			/// column fix
+			> :not(.unfix__gaping) {
+				&[class*="__flx"][class*="-wrap"],
+				&[class*="__flx"][class*="-reverse"],
+				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+					&:first-child:only-of-type,
+					&:last-child {
+						// margin-bottom: 0;
+						margin-right: calc(-1 * (var(--g) - var(--gy)));
+						margin-bottom: calc(-1 * (var(--g) - var(--gy)));
+					}
 				}
 			}
 		}
 	}
-}
-.x-box,
-x-flx[class*="__flxColumn"] {
-	/// default
-	&:not([class*="__gaping"]) {
-		> [class*="__flxRow-wrap"],
-		> [class*="__flxColumn-wrap"] {
-			&:not(.unfix__gaping) + * {
-				margin-top: 1rem;
-			}
-		}
-	}
-	@for $i from 1 through 10 {
-		&.xm__gaping-#{$i*5} {
-			> [class*="__flxRow-wrap"],
-			> [class*="__flxColumn-wrap"] {
-				&:not(.unfix__gaping) + * {
-					margin-top: #{$i/3}rem;
-				}
+	// column & row fix
+	&[class*="__flxR"],
+	&[class*="__flxC"] {
+		/// Row, Column
+		&:last-child:not([class*="x-item"]) > :last-child:not(.unfix__gaping) {
+			&[class*="__flx"][class*="-wrap"],
+			&[class*="__flx"][class*="-reverse"],
+			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+				margin: 0;
 			}
 		}
 	}
@@ -268,17 +278,15 @@ x-flx[class*="__flxColumn"] {
 /// basic transition
 ///
 /// @group SharedStyles
-.x-btn,
-.x-btnY,
-.x-btnLink,
-.x-btnToggle,
+[class*="x-btn"],
 .x-inTxt,
 .x-link,
 .x-box,
 select.x-inSelect,
-input[type="checkbox"].x-inCheckbox + label,
-input[type="checkbox"].x-inCheckbox + label:after,
+input[type^="c"].x-inCheckbox + label,
+input[type^="c"].x-inCheckbox + label:after,
 .x-svg [fill]:not([fill="none"]),
-*[data-tooltip]:before {
+*[data-tooltip]:before,
+[class*="x-avatar"] img {
 	transition: all 0.2s ease-out, background-image 0s;
 }

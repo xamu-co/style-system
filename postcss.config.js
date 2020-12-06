@@ -1,26 +1,30 @@
 /** @format */
+let nano = {
+	preset: [
+		"advanced",
+		{
+			discardComments: {
+				removeAll: true,
+			},
+			calc: false,
+			zindex: false,
+			autoprefixer: false,
+		},
+	],
+};
+
 module.exports = {
 	// Add plugin names as key and arguments as value
 	// Install them before as dependencies with npm or yarn
 	map: false,
 	plugins: [
-		// Disable a plugin by passing false as value
+		// Optimizations
 		require("postcss-combine-media-query")({}),
-		require("cssnano")({
-			preset: [
-				"advanced",
-				{
-					discardComments: {
-						removeAll: true,
-					},
-					calc: false,
-					zindex: false,
-					autoprefixer: false,
-				},
-			],
-		}),
+		require("cssnano")(nano),
 		require("postcss-merge-selectors")({}),
 		require("postcss-precision")({}),
+		require("cssnano")(nano), // optimize again
+		// More weight by polyfilling
 		require("autoprefixer")({}),
 		require("postcss-custom-properties")({}),
 	],

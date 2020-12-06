@@ -7,6 +7,7 @@
 	border-radius: 1.6rem;
 	border: 2px solid transparent;
 	overflow: visible;
+	--gy: 1rem;
 	&:disabled,
 	&[disabled] {
 		pointer-events: none;
@@ -17,8 +18,14 @@
 	}
 	&:not([class*="x-flx"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> :not([class*="__mBottom"]):not([class*="__flxRow-wrap"]):not([class*="__flxColumn-wrap"]):not(:last-child) {
-			margin-bottom: 1rem;
+		> :not([class*="__mB"]):not(:last-child) {
+			/// Bottom
+			margin-bottom: var(--gy);
+			&[class*="x-flx"][class*="-wrap"],
+			&[class*="x-flx"][class*="-reverse"],
+			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+				margin-bottom: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
+			}
 		}
 	}
 
@@ -44,7 +51,8 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="__txtColor"]) {
+			&:not([class*="__txtC"]) {
+				/// Color
 				color: color(light);
 			}
 		}
@@ -68,7 +76,8 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="__txtColor"]) {
+			&:not([class*="__txtC"]) {
+				/// Color
 				color: color(light);
 			}
 		}
@@ -94,7 +103,8 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="__txtColor"]) {
+			&:not([class*="__txtC"]) {
+				/// Color
 				color: color(secondary);
 			}
 		}

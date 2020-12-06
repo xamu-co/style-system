@@ -7,6 +7,12 @@
 	@include extend-interactions {
 		display: grid;
 		// height: auto;
+		grid-template-columns: var(--gc, unset);
+		grid-template-areas: var(--ga, unset);
+		grid-auto-rows: var(--gr, minmax(min-content, 100%));
+		> * {
+			box-sizing: border-box;
+		}
 	}
 }
 [class*="x-grd"] {
@@ -16,79 +22,71 @@
 	&.m__grdColumns {
 		& {
 			/// default
-			@include extend-viewports {
-				grid-template-columns: repeat(
-					auto-fit,
-					minmax($minColumnSize, 1fr)
-				);
+			@include extend-viewports-classes(false, $viewports) {
+				--gc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+			}
+		}
+		&-single {
+			/// default
+			@include extend-viewports-classes {
+				--gc: 1fr;
 			}
 		}
 		&-autoMin {
-			@include extend-viewports {
-				grid-template-columns: repeat(
+			@include extend-viewports-classes {
+				--gc: repeat(
 					auto-fit,
-					minmax($minColumnSize/3, max-content)
+					minmax(#{$minColumnSize/3}, max-content)
 				);
 			}
 		}
 		&-auto {
-			@include extend-viewports {
-				grid-template-columns: repeat(auto-fit, 1fr);
+			@include extend-viewports-classes {
+				--gc: repeat(auto-fit, minmax(0, 1fr));
 			}
 		}
-		&,
-		&-auto,
-		&-autoMin {
-			@include extend-viewports {
-				grid-auto-rows: minmax(min-content, 100%);
-				> * {
-					box-sizing: border-box;
-				}
+		&-autoFill {
+			@include extend-viewports-classes {
+				--gc: repeat(auto-fill, minmax(0, 1fr));
 			}
 		}
 	}
 	@for $i from 2 through 12 {
 		&.m__grdColumns-#{$i} {
-			@include extend-viewports {
-				grid-template-columns: repeat(
-					auto-fit,
-					minmax(#{$minColumnSize/$i * 3}, 1fr)
-				);
-				grid-auto-rows: minmax(min-content, 100%);
-				> * {
-					box-sizing: border-box;
-				}
+			@include extend-viewports-classes {
+				--gc: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
 			}
 		}
 	}
 	/// bi columns grid
+	/// always left to right
 	///
 	/// @group Unions
 	&.u__grdVoidLeft {
 		&,
 		&-1,
 		&-1-1 {
-			@include extend-viewports {
-				grid-template-columns: repeat(2, 1fr);
-				grid-template-areas: ". content";
+			@include extend-viewports-classes {
+				--gc: repeat(2, 1fr);
+				--ga: ". content";
 			}
 		}
 		&-1-4 {
-			@include extend-viewports {
-				grid-template-columns: repeat(5, 1fr);
-				grid-template-areas: ". content content content content";
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: ". content content content content";
 			}
 		}
 		&-2-3 {
-			@include extend-viewports {
-				grid-template-columns: repeat(5, 1fr);
-				grid-template-areas: ". . content content content";
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: ". . content content content";
 			}
 		}
 		&-3-2 {
-			@include extend-viewports {
-				grid-template-columns: repeat(5, 1fr);
-				grid-template-areas: ". . . content content";
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: ". . . content content";
 			}
 		}
 		&,
@@ -97,42 +95,33 @@
 		&-1-4,
 		&-2-3,
 		&-3-2 {
-			@include extend-viewports {
-				grid-auto-rows: minmax(min-content, 100%);
-				> * {
-					box-sizing: border-box;
-					&:last-child {
-						grid-area: content;
-					}
+			@include extend-viewports-classes {
+				> *:last-child {
+					grid-area: content;
 				}
 			}
 		}
 	}
+	/// left to right too
 	&.u__grdVoidRight {
 		&,
 		&-1,
 		&-1-1 {
-			@include extend-viewports {
-				grid-template-columns: repeat(2, 1fr);
-				grid-template-areas: "content .";
+			@include extend-viewports-classes {
+				--gc: repeat(2, 1fr);
+				--ga: "content .";
 			}
 		}
 		&-4-1 {
-			@include extend-viewports {
-				grid-template-columns: repeat(5, 1fr);
-				grid-template-areas: "content content content content .";
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: "content content content content .";
 			}
 		}
 		&-3-2 {
-			@include extend-viewports {
-				grid-template-columns: repeat(5, 1fr);
-				grid-template-areas: "content content content . .";
-			}
-		}
-		&-2-3 {
-			@include extend-viewports {
-				grid-template-columns: repeat(5, 1fr);
-				grid-template-areas: "content content . . .";
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: "content content content . .";
 			}
 		}
 		&,
@@ -141,13 +130,9 @@
 		&-4-1,
 		&-3-2,
 		&-2-3 {
-			@include extend-viewports {
-				grid-auto-rows: minmax(min-content, 100%);
-				> * {
-					box-sizing: border-box;
-					&:first-child {
-						grid-area: content;
-					}
+			@include extend-viewports-classes {
+				> *:first-child {
+					grid-area: content;
 				}
 			}
 		}
@@ -167,34 +152,27 @@
 	/// grid column span, restricted to wide viewports
 	///
 	/// @group Modifiers
-	@for $i from 3 through 10 {
+	@for $i from 2 through 10 {
 		&.m__grdColumnSpan-#{$i} {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				grid-column: span #{$i};
 			}
 		}
 		&.m__grdRowSpan-#{$i} {
-			@include extend-viewports {
+			@include extend-viewports-classes {
 				grid-row: span #{$i};
 			}
 		}
 	}
 	/// defaults
 	&.m__grdColumnSpan {
-		&,
-		&-2 {
-			@include extend-viewports {
-				grid-column: span 2;
-			}
+		@include extend-viewports-classes {
+			grid-column: span 2;
 		}
 	}
 	&.m__grdRowSpan {
-		&,
-		&-2 {
-			@include extend-viewports {
-				grid-row: span 2;
-			}
+		@include extend-viewports-classes {
+			grid-row: span 2;
 		}
 	}
-	// }
 }

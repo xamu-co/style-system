@@ -6,49 +6,53 @@
 /// @group Components
 .x-link {
 	display: inline-block;
-	background-color: transparent;
+	--bg: transparent;
+	&.is__alert:after {
+		--bc: var(--cl-h, var(--cl-a));
+		background-color: var(--cl, var(--bg));
+	}
+	&:hover:not(.is__active):not(.is__routeExact) {
+		color: var(--cl-h, var(--cl-a));
+	}
+	&.is__active,
+	&.is__routeExact {
+		color: var(--cl-a);
+	}
 
 	/// link theme
 	///
 	/// @group Modifiers
 	&.m__tm {
 		&-light {
-			&:hover,
-			&.is__active,
-			&.is__routeExact {
-				color: color(primary);
-			}
+			--cl: #{color(light)};
+			--cl-a: #{color(primary)};
 		}
 		&-lightAlt {
-			&:hover,
-			&.is__active,
-			&.is__routeExact {
-				color: color(primaryAlt);
-			}
+			--cl: #{color(light)};
+			--cl-a: #{color(primaryAlt)};
 		}
 		&-primaryAlt {
-			color: color(primaryAlt);
-			&:hover,
-			&.is__active,
-			&.is__routeExact {
-				color: color(light);
-			}
+			--cl: #{color(primaryAlt)};
+			--cl-a: #{color(light)};
+			--sh: #{color(primaryAlt, 0.7)};
 		}
-		&-light,
-		&-lightAlt {
-			color: color(light);
+		&-danger {
+			--cl: #{color(danger)};
+			--cl-a: #{color(danger, 0.7)};
+			--cl-h: #{color(dark, 0.5)};
+			&.is__alert:after {
+				--cl-h: #{color(light, 0.5)};
+			}
 		}
 	}
 	/// default theme: secondary
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
-		color: color(secondary);
-		&:hover:not(.is__active):not(.is__routeExact) {
-			color: color(dark, 0.5);
-		}
-		&.is__active,
-		&.is__routeExact {
-			color: color(dark, 0.7);
+		--cl: #{color(secondary)};
+		--cl-a: #{color(dark, 0.7)};
+		--cl-h: #{color(dark, 0.5)};
+		&.is__alert:after {
+			--cl-h: #{color(light, 0.5)};
 		}
 	}
 
@@ -59,12 +63,19 @@
 		&:hover,
 		&.is__active,
 		&.is__routeExact {
-			text-shadow: 1px 1px 1px color(dark, 0.3);
+			text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 		}
 	}
 
 	/// link round handling
-	&.m__round i.x-icon {
-		display: none;
+	&.m__round {
+		@include extend-viewports-classes(true, $viewports) {
+			i.x-icon,
+			.x-svg {
+				&:last-child {
+					display: none;
+				}
+			}
+		}
 	}
 }

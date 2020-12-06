@@ -23,11 +23,16 @@
 		box-shadow: 3px 3px 9px color(dark, 0.3);
 		box-sizing: content-box;
 		border: 2px solid color(light, 0.1);
+		background: var(--tb, #{color(dark)});
+		transform: var(--tt);
 	}
 	&:hover:not([disabled]):not(.is__routeExact):not(.is__open) {
-		cursor: pointer;
-		&:before {
-			opacity: 1;
+		@media (hover: hover) {
+			/// dektop only
+			cursor: pointer;
+			&:before {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -36,13 +41,13 @@
 	/// @group PseudoModifiers
 	@each $name, $color in $colors {
 		&[data-tooltip-bg="#{$name}"]:before {
-			background: #{color($name)};
+			--tb: #{color($name)};
 		}
 	}
 	/// default tooltip bgcolor
-	&:not([data-tooltip-bg]):before {
-		background: color(dark);
-	}
+	// &:not([data-tooltip-bg]):before {
+	// 	--tb: color(dark);
+	// }
 
 	/// tooltip text behavior
 	///
@@ -65,7 +70,7 @@
 		&:before {
 			top: 0;
 			left: 0;
-			transform: translateY(calc(-100% - 0.5em));
+			--tt: translateY(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-top="right"],
@@ -73,7 +78,7 @@
 		&:before {
 			top: 0;
 			right: 0;
-			transform: translateY(calc(-100% - 0.5em));
+			--tt: translateY(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-top],
@@ -82,7 +87,7 @@
 		&:before {
 			top: 0;
 			left: 50%;
-			transform: translate(-50%, calc(-100% - 0.5em));
+			--tt: translate(-50%, calc(-100% - 0.5em));
 		}
 	}
 
@@ -92,7 +97,7 @@
 		&:before {
 			top: 0;
 			right: 0;
-			transform: translateX(calc(100% + 0.5em));
+			--tt: translateX(calc(100% + 0.5em));
 		}
 	}
 	&[data-tooltip-right="bottom"],
@@ -100,7 +105,7 @@
 		&:before {
 			bottom: 0;
 			right: 0;
-			transform: translateX(calc(100% + 0.5em));
+			--tt: translateX(calc(100% + 0.5em));
 		}
 	}
 	&[data-tooltip-right],
@@ -109,7 +114,7 @@
 		&:before {
 			top: 50%;
 			right: 0;
-			transform: translate(calc(100% + 0.5em), -50%);
+			--tt: translate(calc(100% + 0.5em), -50%);
 		}
 	}
 
@@ -119,7 +124,7 @@
 		&:before {
 			top: 0;
 			left: 0;
-			transform: translateX(calc(-100% - 0.5em));
+			--tt: translateX(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-left="bottom"],
@@ -127,7 +132,7 @@
 		&:before {
 			bottom: 0;
 			left: 0;
-			transform: translateX(calc(-100% - 0.5em));
+			--tt: translateX(calc(-100% - 0.5em));
 		}
 	}
 	&[data-tooltip-left],
@@ -136,7 +141,7 @@
 		&:before {
 			top: 50%;
 			left: 0;
-			transform: translate(calc(-100% - 0.5em), -50%);
+			--tt: translate(calc(-100% - 0.5em), -50%);
 		}
 	}
 
@@ -146,7 +151,7 @@
 		&:before {
 			bottom: 0;
 			left: 0;
-			transform: translateY(calc(100% + 0.5em));
+			--tt: translateY(calc(100% + 0.5em));
 		}
 	}
 	&[data-tooltip-bottom="right"],
@@ -154,7 +159,7 @@
 		&:before {
 			bottom: 0;
 			right: 0;
-			transform: translateY(calc(100% + 0.5em));
+			--tt: translateY(calc(100% + 0.5em));
 		}
 	}
 	/// default value
@@ -165,7 +170,7 @@
 		&:before {
 			bottom: 0;
 			left: 50%;
-			transform: translate(-50%, calc(100% + 0.5em));
+			--tt: translate(-50%, calc(100% + 0.5em));
 		}
 	}
 }

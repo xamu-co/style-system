@@ -14,11 +14,13 @@
 	background-position: 50% 50%;
 	transition: background 0.3s ease-out;
 
-	&:not([class*="__index"]) {
+	&:not([class*="__in"]) {
+		/// Index
 		z-index: -1;
 	}
 
-	&:not([class*="__position"]) {
+	&:not([class*="__po"]) {
+		/// Position
 		position: absolute;
 	}
 

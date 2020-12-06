@@ -6,6 +6,7 @@
 .x-scroll {
 	@media (max-width: $viewportMd) and (hover: none) {
 		width: auto;
+		max-width: 100vw;
 		height: auto;
 		overflow-x: auto;
 		overflow-y: hidden;

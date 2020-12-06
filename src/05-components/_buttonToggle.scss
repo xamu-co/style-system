@@ -6,31 +6,30 @@
 ///
 /// @group Components
 .x-btnToggle {
+	--cl-a: var(--cl);
 	&.is__alert:after {
-		content: "";
-		display: block;
-		width: 1rem;
-		height: 1rem;
-		position: absolute;
-		right: -0.3rem;
-		bottom: -0.3rem;
-		border-width: 4px;
-		border-style: solid;
-		border-radius: 50%;
-		box-sizing: border-box;
+		background-color: var(--bg, transparent);
 	}
+
 	&.is__alert,
 	&.is__active,
 	&.is__routeExact {
 		//hide regular
-		i.x-icon:first-of-type {
-			display: none;
+		i.x-icon,
+		.x-svg {
+			&:first-of-type {
+				display: none;
+			}
 		}
 	}
 	//hide solid
-	&:not(.is__alert):not(.is__active):not(.is__routeExact)
-		i.x-icon:last-of-type {
-		display: none;
+	&:not(.is__alert):not(.is__active):not(.is__routeExact) {
+		i.x-icon,
+		.x-svg {
+			&:last-of-type {
+				display: none;
+			}
+		}
 	}
 
 	/// button theme
@@ -40,93 +39,126 @@
 	/// @group Modifiers
 	&.m__tm {
 		&-dark7 {
-			background: color(dark, 0.1);
-			color: color(dark, 0.7);
+			--cl: #{color(dark, 0.7)};
+			--bg: #{color(dark, 0.1)};
 			&:hover {
-				border-color: color(dark, 0.3);
+				--bc: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
-				background: color(dark, 0.5);
+				--bg: #{color(dark, 0.5)};
 			}
 			&.is__alert:after {
-				/// TODO: check border and color
-				background-color: color(light);
-				border-color: color(dark, 0.7);
+				--bc: #{color(dark, 0.7)};
+				--bg: #{color(light)};
 			}
 			&.is__routeExact {
-				/// TODO: check border and color
-				background: color(dark, 0.5);
-				color: color(light);
-				border-color: color(light, 0.3);
+				--cl: #{color(light)};
+				--bg: #{color(dark, 0.5)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&-light {
-			background: color(light, 0.1);
-			color: color(light);
+			--cl: #{color(light)};
+			--bg: #{color(light, 0.1)};
 			&:hover {
-				border-color: color(light, 0.3);
+				--bc: #{color(light, 0.3)};
 			}
 			&.is__alert:after {
-				/// TODO: check border and color
-				background-color: color(light);
-				border-color: color(light);
+				--bg: #{color(light)};
+				--bc: #{color(light)};
 			}
 			&.is__alert,
 			&.is__active {
-				background: color(light, 0.5);
+				--bg: #{color(light, 0.5)};
 			}
 			&.is__routeExact {
-				/// TODO: check border and color
-				background: color(light, 0.5);
-				color: color(light);
-				border-color: color(light, 0.3);
+				--cl: #{color(light)};
+				--bg: #{color(light, 0.5)};
+				--bc: #{color(light, 0.3)};
+			}
+		}
+		&-lightAlt {
+			--cl: #{color(light)};
+			--bg: #{color(primaryAlt, 0.1)};
+			&:hover {
+				--bc: #{color(primaryAlt, 0.3)};
+			}
+			&.is__alert:after {
+				--bg: #{color(light)};
+				--bc: #{color(dark, 0.3)};
+			}
+			&.is__alert,
+			&.is__active {
+				--bg: #{color(primaryAlt, 0.5)};
+			}
+			&.is__routeExact {
+				--cl: #{color(light)};
+				--bg: #{color(primaryAlt, 0.5)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 		&-primaryAlt {
-			background: color(primaryAlt, 0.1);
-			color: color(primaryAlt);
+			--cl: #{color(primaryAlt)};
+			--bg: #{color(primaryAlt, 0.1)};
 			&:hover {
-				border-color: color(primaryAlt);
+				--bc: #{color(primaryAlt)};
 			}
 			&.is__alert:after {
-				/// TODO: check border and color
-				background-color: color(light);
-				border-color: color(dark, 0.3);
+				--bg: #{color(light)};
+				--bc: #{color(dark, 0.3)};
 			}
 			&.is__alert,
 			&.is__active {
-				background: color(primaryAlt, 0.5);
+				--bg: #{color(primaryAlt, 0.5)};
 			}
 			&.is__routeExact {
-				/// TODO: check border and color
-				background: color(primaryAlt, 0.5);
-				color: color(light);
-				border-color: color(light, 0.3);
+				--cl: #{color(light)};
+				--bg: #{color(primaryAlt, 0.5)};
+				--bc: #{color(light, 0.3)};
+			}
+		}
+		&-danger {
+			--cl: #{color(danger)};
+			--bg: #{color(danger, 0.1)};
+			&:hover {
+				--bc: #{color(danger)};
+			}
+			&.is__alert:after {
+				--bg: #{color(light)};
+				--bc: #{color(dark, 0.3)};
+			}
+			&.is__alert,
+			&.is__active {
+				--bg: #{color(danger, 0.5)};
+			}
+			&.is__routeExact {
+				--cl: #{color(light)};
+				--bg: #{color(danger, 0.5)};
+				--bc: #{color(light, 0.3)};
 			}
 		}
 	}
 	/// default theme
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
-		background: color(secondary, 0.1);
-		color: color(secondary);
+		--cl: #{color(secondary)};
+		--bg: #{color(secondary, 0.1)};
 		&:hover {
-			border-color: color(secondary, 0.3);
+			--bc: #{color(secondary, 0.3)};
 		}
 		&.is__alert:after {
-			/// TODO: check border and color
-			background-color: color(light);
-			border-color: color(secondary);
+			--bg: #{color(light)};
+			--bc: #{color(secondary)};
 		}
 		&.is__alert,
 		&.is__active {
-			background: color(secondary, 0.5);
+			--bg: #{color(secondary, 0.5)};
 		}
 		&.is__routeExact {
-			background: color(secondary);
-			color: color(light);
-			border-color: color(light, 0.3);
+			--cl: #{color(light)};
+			--bg: #{color(secondary)};
+			--bc: #{color(light, 0.3)};
 		}
 	}
 }
