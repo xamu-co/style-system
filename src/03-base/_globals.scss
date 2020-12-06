@@ -229,7 +229,7 @@ strong,
 ///
 /// @group SharedStyles
 [class*="x-flx"] {
-	&:last-child {
+	&:last-child:not([class*="x-item"]) {
 		&[class*="__flxR"] {
 			/// row fix
 			> :not(.unfix__gaping) {
@@ -265,7 +265,7 @@ strong,
 	&[class*="__flxR"],
 	&[class*="__flxC"] {
 		/// Row, Column
-		&:last-child > :last-child:not(.unfix__gaping) {
+		&:last-child:not([class*="x-item"]) > :last-child:not(.unfix__gaping) {
 			&[class*="__flx"][class*="-wrap"],
 			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
