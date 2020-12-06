@@ -645,12 +645,20 @@ $directions: top, right, bottom, left;
 
 @for $i from 1 through 10 {
 	/// z index
-	/// both dimension
 	///
 	/// @group GlobalModifiers
 	.xm__index-#{$i} {
 		@include extend-viewports-classes {
 			z-index: #{$i};
+		}
+	}
+
+	/// order
+	///
+	/// @group GlobalModifiers
+	.xm__order-#{$i} {
+		@include extend-viewports-classes(false, $viewports) {
+			order: #{$i};
 		}
 	}
 
@@ -751,6 +759,16 @@ $directions: top, right, bottom, left;
 }
 
 /// defaults
+.xm__order {
+	@include extend-viewports-classes(false, $viewports) {
+		order: 1;
+	}
+}
+.xm__index {
+	@include extend-viewports-classes {
+		z-index: 999;
+	}
+}
 .xm__gap,
 .xm__gaping {
 	@include extend-viewports-classes {

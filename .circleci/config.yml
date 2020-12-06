@@ -84,3 +84,4 @@ workflows:
             branches:
               only:
                 - master
+                - next

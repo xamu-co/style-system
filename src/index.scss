@@ -8,10 +8,10 @@
 	module concatenation
 */
 
-@import "00-utils/module";
-// @import "01-vendor/module"; // the vendors are independent in this built
-
 @media only screen {
+	@import "00-utils/module";
+	// @import "01-vendor/module"; // the vendors are independent in this built
+
 	:root {
 		@each $name, $font in $fonts {
 			$font-index: index(($fonts), ($name $font));
