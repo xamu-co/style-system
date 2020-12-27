@@ -14,8 +14,7 @@
 			box-sizing: border-box;
 		}
 	}
-}
-[class*="x-grd"] {
+
 	/// columns grid
 	///
 	/// @group Modifiers
@@ -68,25 +67,25 @@
 		&-1-1 {
 			@include extend-viewports-classes {
 				--gc: repeat(2, 1fr);
-				--ga: ". content";
+				--ga: ". a";
 			}
 		}
 		&-1-4 {
 			@include extend-viewports-classes {
 				--gc: repeat(5, 1fr);
-				--ga: ". content content content content";
+				--ga: ". a a a a";
 			}
 		}
 		&-2-3 {
 			@include extend-viewports-classes {
 				--gc: repeat(5, 1fr);
-				--ga: ". . content content content";
+				--ga: ". . a a a";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
 				--gc: repeat(5, 1fr);
-				--ga: ". . . content content";
+				--ga: ". . . a a";
 			}
 		}
 		&,
@@ -97,7 +96,8 @@
 		&-3-2 {
 			@include extend-viewports-classes {
 				> *:last-child {
-					grid-area: content;
+					// The compiler converts this to "a" always causing issues if other word is used
+					grid-area: a;
 				}
 			}
 		}
@@ -109,19 +109,19 @@
 		&-1-1 {
 			@include extend-viewports-classes {
 				--gc: repeat(2, 1fr);
-				--ga: "content .";
+				--ga: "a .";
 			}
 		}
 		&-4-1 {
 			@include extend-viewports-classes {
 				--gc: repeat(5, 1fr);
-				--ga: "content content content content .";
+				--ga: "a a a a .";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
 				--gc: repeat(5, 1fr);
-				--ga: "content content content . .";
+				--ga: "a a a . .";
 			}
 		}
 		&,
@@ -132,7 +132,7 @@
 		&-2-3 {
 			@include extend-viewports-classes {
 				> *:first-child {
-					grid-area: content;
+					grid-area: a;
 				}
 			}
 		}
@@ -147,8 +147,7 @@
 		width: 100%;
 		height: 100%;
 	}
-}
-[class*="x-grd-item"] {
+
 	/// grid column span, restricted to wide viewports
 	///
 	/// @group Modifiers
