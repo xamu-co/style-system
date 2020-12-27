@@ -1,5 +1,51 @@
 Xamu style system
 
+# [5.0.0-next.1](https://github.com/xamu-co/style-system/compare/v4.1.2...v5.0.0-next.1) (2020-12-06)
+
+
+### Bug Fixes
+
+* better box gaping selector ([a9e2d7f](https://github.com/xamu-co/style-system/commit/a9e2d7f1cb94bfde1524c888c2781243685c32da))
+* colors & dropdown gaping ([37eedde](https://github.com/xamu-co/style-system/commit/37eedde0c90abc41f24cfbf2f5e7c7e177605d25))
+* custom propertie match ([4502acb](https://github.com/xamu-co/style-system/commit/4502acb56e42429755a08cc1733e0302b37935ed))
+* gaping x & y axis ([4df8b69](https://github.com/xamu-co/style-system/commit/4df8b69b56bd439c098a421bdebba637f847a597))
+* item actions wrap fix ([78ff541](https://github.com/xamu-co/style-system/commit/78ff54113027423ed8f9abdbf7632c8efe8894f8))
+* major improvements for gaping behavior ([f749e6b](https://github.com/xamu-co/style-system/commit/f749e6bc33a2abea61a40ebd1a39f5abe2a616c5))
+* minor fix ([1ef200a](https://github.com/xamu-co/style-system/commit/1ef200a0f0529e01cff30732b28560743b6ae9a7))
+* navY item alignment ([cb3e867](https://github.com/xamu-co/style-system/commit/cb3e867d6f4d7c45911d4a2914668a716ed9dfb1))
+* secondary theme button behavior ([45355a7](https://github.com/xamu-co/style-system/commit/45355a7c19e619092987741ff710f50d2832831c))
+
+
+### Code Refactoring
+
+* shorter custom attrs ([4d84f4c](https://github.com/xamu-co/style-system/commit/4d84f4c1211a045ddc0aeedd360477a26dfd006b))
+
+
+### Features
+
+* custom viewport support in responsive mixin ([80be887](https://github.com/xamu-co/style-system/commit/80be88774125ade8ffe0178090712021eb0228df))
+* flx improvements ([33e9fb5](https://github.com/xamu-co/style-system/commit/33e9fb5c427e7366180036a113bdd48ef2757af2))
+* global order modifier ([83881c0](https://github.com/xamu-co/style-system/commit/83881c0750ffb5d3f305daa0dba9981232c95728))
+* narrow screens support ([c7fa8d9](https://github.com/xamu-co/style-system/commit/c7fa8d93746596dba5c83e576630823a913ce88e))
+* new text input theme ([dfdadae](https://github.com/xamu-co/style-system/commit/dfdadae6757d1a3cf529915e604289cce5ff2d92))
+* single grid column & minor fixes ([2d4fb63](https://github.com/xamu-co/style-system/commit/2d4fb63c4b09c71d6812faa31359cb76ab4201ec))
+* theming improvements for btn & links ([f15a3bb](https://github.com/xamu-co/style-system/commit/f15a3bb9f554763122b18cc934e5c558e065401a))
+
+
+### Performance Improvements
+
+* custom properties & attribute selectors ([a8b60ab](https://github.com/xamu-co/style-system/commit/a8b60ab82c22c04958d13b7db7dfb53202f3fb50))
+* shorter variable names ([037b2dd](https://github.com/xamu-co/style-system/commit/037b2dd77f254c1f77992ada910c61ecc3b2a3f3))
+
+
+### BREAKING CHANGES
+
+* more generic vertical navigation
+* removed some non global styling
+* toggler & navX
+* grdGap deprecated
+* hr element >> responsive modifiers
+
 ## [4.1.2](https://github.com/xamu-co/style-system/compare/v4.1.1...v4.1.2) (2020-09-30)
 
 
