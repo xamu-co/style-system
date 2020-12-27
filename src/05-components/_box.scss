@@ -23,7 +23,7 @@
 			margin-bottom: var(--gy);
 			&[class*="x-flx"][class*="-wrap"],
 			&[class*="x-flx"][class*="-reverse"],
-			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 				margin-bottom: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
 			}
 		}
