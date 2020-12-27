@@ -1,5 +1,5 @@
 /** @format */
-let nano = {
+const nano = {
 	preset: [
 		"advanced",
 		{
@@ -23,7 +23,8 @@ module.exports = {
 		require("cssnano")(nano),
 		require("postcss-merge-selectors")({}),
 		require("postcss-precision")({}),
-		require("cssnano")(nano), // optimize again
+		// optimize again
+		require("cssnano")(nano),
 		// More weight by polyfilling
 		require("autoprefixer")({}),
 		require("postcss-custom-properties")({}),
