@@ -1,5 +1,12 @@
 Xamu style system
 
+# [5.0.0-next.3](https://github.com/xamu-co/style-system/compare/v5.0.0-next.2...v5.0.0-next.3) (2020-12-27)
+
+
+### Bug Fixes
+
+* padding & margin wrapping ([6239d98](https://github.com/xamu-co/style-system/commit/6239d9800b4bad86789d88851373de565396e0fc))
+
 # [5.0.0-next.2](https://github.com/xamu-co/style-system/compare/v5.0.0-next.1...v5.0.0-next.2) (2020-12-27)
 
 
