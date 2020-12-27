@@ -620,8 +620,11 @@ $directions: top, right, bottom, left;
 	/// margin defaults
 	[class*="__m#{capitalize($direction)}"] {
 		margin-#{$direction}: var(--m#{str-slice($direction, 1, 1)}, 0);
-		> * {
-			--m#{str-slice($direction,1,1)}: 0;
+		/// target specific class (~) not range (*)
+		> *:not([class~="xm__m#{capitalize($direction)}"]) {
+			@include extend-viewports-attrs {
+				--m#{str-slice($direction,1,1)}: 0;
+			}
 		}
 	}
 	.xm__m#{capitalize($direction)} {
@@ -632,8 +635,11 @@ $directions: top, right, bottom, left;
 	/// padding defaults
 	[class*="__p#{capitalize($direction)}"] {
 		padding-#{$direction}: var(--p#{str-slice($direction, 1, 1)}, 0);
-		> * {
-			--p#{str-slice($direction,1,1)}: 0;
+		/// target specific class (~) not range (*)
+		> *:not([class~="xm__p#{capitalize($direction)}"]) {
+			@include extend-viewports-attrs {
+				--p#{str-slice($direction,1,1)}: 0;
+			}
 		}
 	}
 	.xm__p#{capitalize($direction)} {
@@ -699,7 +705,7 @@ $directions: top, right, bottom, left;
 }
 
 /// item spacing defaults
-[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
+[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 	/// this is a very special class to omit this specific fix
 	&:not(.unfix__gaping) {
 		--gc: calc(-1 * var(--g, 1rem)); // calculated gap
@@ -729,31 +735,31 @@ $directions: top, right, bottom, left;
 
 /// X axis
 /// because of the fix is necesary to transfer the margin to the sibling element
-[class*="ngX"]:not([class*="ngX-none"])
-	> :not(br):not(:last-child):not([class*="__mR"]) {
-	/// Right
-	&.unfix__gaping,
-	&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-		margin-right: var(--gx); // omit fallback
-		&[class*="__flx"][class*="-wrap"],
-		&[class*="__flx"][class*="-reverse"],
-		&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
-			--gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
+[class*="ngX"]:not([class*="ngX-no"]) {
+	> :not(br):not(:last-child):not([class*="__mR"]):not(.unfix__gaping) {
+		/// Right
+		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
+			margin-right: var(--gx); // omit fallback
+			&[class*="__flx"][class*="-wrap"],
+			&[class*="__flx"][class*="-reverse"],
+			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
+				--gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
+			}
 		}
 	}
 }
 /// Y axis
 /// because of the fix is necesary to transfer the margin to the sibling element
-[class*="ngY"]:not([class*="ngY-none"])
-	> :not(br):not(:last-child):not([class*="__mB"]) {
-	/// Bottom
-	&.unfix__gaping,
-	&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-		margin-bottom: var(--gy); // omit fallback
-		&[class*="__flx"][class*="-wrap"],
-		&[class*="__flx"][class*="-reverse"],
-		&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-none"]) {
-			--gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
+[class*="ngY"]:not([class*="ngY-no"]) {
+	> :not(br):not(:last-child):not([class*="__mB"]):not(.unfix__gaping) {
+		/// Bottom
+		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
+			margin-bottom: var(--gy); // omit fallback
+			&[class*="__flx"][class*="-wrap"],
+			&[class*="__flx"][class*="-reverse"],
+			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
+				--gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
+			}
 		}
 	}
 }
@@ -934,7 +940,7 @@ $directions: top, right, bottom, left;
 }
 
 /// default background color
-[class*="__bgC"]:not([class*="or-none"]) {
+[class*="__bgC"]:not([class*="or-no"]) {
 	/// Color
 	background-color: var(--cbg);
 }
