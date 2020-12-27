@@ -1,5 +1,12 @@
 Xamu style system
 
+# [5.0.0-next.2](https://github.com/xamu-co/style-system/compare/v5.0.0-next.1...v5.0.0-next.2) (2020-12-27)
+
+
+### Bug Fixes
+
+* grid area broken on production ([c7a157c](https://github.com/xamu-co/style-system/commit/c7a157cb273ec86fb2f86a89b12ecc7f12bdb57f))
+
 # [5.0.0-next.1](https://github.com/xamu-co/style-system/compare/v4.1.2...v5.0.0-next.1) (2020-12-06)
 
 
