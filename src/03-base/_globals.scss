@@ -198,7 +198,7 @@ h6 {
 }
 
 /// global font weight
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not([class|="fa"]):not([class*="__txtWe"]) {
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not(.fas):not(.far):not(.fab):not([class*="__txtWe"]) {
 	/// Weight
 	font-weight: inherit;
 }
