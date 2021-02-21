@@ -15,19 +15,25 @@
 	&.is__active,
 	&.is__routeExact {
 		//hide regular
-		i.x-icon,
-		.x-svg {
-			&:first-of-type {
-				display: none;
+		&,
+		.x-btnToggle-icon {
+			i.x-icon,
+			.x-svg {
+				&:first-of-type {
+					display: none;
+				}
 			}
 		}
 	}
-	//hide solid
 	&:not(.is__alert):not(.is__active):not(.is__routeExact) {
-		i.x-icon,
-		.x-svg {
-			&:last-of-type {
-				display: none;
+		//hide solid
+		&,
+		.x-btnToggle-icon {
+			i.x-icon,
+			.x-svg {
+				&:last-of-type {
+					display: none;
+				}
 			}
 		}
 	}
@@ -161,4 +167,8 @@
 			--bc: #{color(light, 0.3)};
 		}
 	}
+}
+.x-btnToggle-icon {
+	display: block;
+	line-height: 1em;
 }
