@@ -167,8 +167,9 @@
 			--bc: #{color(light, 0.3)};
 		}
 	}
-}
-.x-btnToggle-icon {
-	display: block;
-	line-height: 1em;
+
+	> span {
+		display: block;
+		line-height: 1em;
+	}
 }

@@ -4,6 +4,7 @@
 ///
 /// @group Components
 .x-txt {
+	--wrap: normal;
 	color: var(--ccl, #{color(dark, 0.7)});
 	&:not([class*="x-flx"]):not([class*="x-grd"]):not([class*="__txtAlignF"]) {
 		/// Flx
@@ -12,7 +13,8 @@
 	&:not([class*="__txtA"]) {
 		/// Align
 		text-align: left;
-		&:not([class*="__gapi"]) > * {
+		&:not([class*="__gapi"])
+			> *:not([class*="x-flx"]):not([class*="x-grd"]) {
 			/// Gaping
 			display: inline-block;
 		}

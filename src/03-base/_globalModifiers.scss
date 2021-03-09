@@ -262,6 +262,7 @@
 			}
 		}
 	}
+	&,
 	&-regular {
 		@include extend-viewports-classes {
 			font-weight: $fontWeightRegular;
@@ -587,12 +588,12 @@ $dimensions: width, height;
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 30vw;
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 25vw;
 			}
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vh {
 			@include extend-viewports-classes {
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 30vh;
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 25vh;
 			}
 		}
 	}
