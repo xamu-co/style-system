@@ -342,7 +342,7 @@
 	&-right {
 		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
@@ -357,7 +357,7 @@
 	&-center {
 		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, center, inline-flex);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
@@ -372,7 +372,7 @@
 	&-justify {
 		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
@@ -395,7 +395,7 @@
 				flex-start,
 				inline-flex
 			);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
