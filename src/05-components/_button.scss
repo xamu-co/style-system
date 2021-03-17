@@ -8,8 +8,8 @@
 	/// button round handling
 	&.m__round {
 		@include extend-viewports-classes(true, $viewports) {
-			&:not([class*="toggler__"]) :not(:last-child),
-			&[class*="toggler__"] :not(:nth-child(2)) {
+			&:not([class*="toggle__"]) :not(:last-child),
+			&[class*="toggle__"] :not(:nth-child(2)) {
 				display: none;
 			}
 		}

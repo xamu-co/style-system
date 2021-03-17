@@ -262,6 +262,7 @@
 			}
 		}
 	}
+	&,
 	&-regular {
 		@include extend-viewports-classes {
 			font-weight: $fontWeightRegular;
@@ -341,7 +342,7 @@
 	&-right {
 		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
@@ -356,7 +357,7 @@
 	&-center {
 		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, center, inline-flex);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
@@ -371,7 +372,7 @@
 	&-justify {
 		@include extend-viewports-classes {
 			@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
@@ -394,7 +395,7 @@
 				flex-start,
 				inline-flex
 			);
-			> :not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
 				/// Align
 				@include flexbox(
 					column,
@@ -587,12 +588,12 @@ $dimensions: width, height;
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 30vw;
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 25vw;
 			}
 		}
 		.xm__#{$constrain + capitalize($dimension)}Vh {
 			@include extend-viewports-classes {
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 30vh;
+				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 25vh;
 			}
 		}
 	}
@@ -716,10 +717,8 @@ $directions: top, right, bottom, left;
 			margin: 0;
 		}
 	}
-	> :not(br) {
-		&:not([class*="__m"]),
-		&[class*="__min"],
-		&[class*="__max"] {
+	> :not(br):not(.xm__m):not(.xm__margin):not([class*="__mX"]):not([class*="__mY"]) {
+		&:not([class*="__mT"]):not([class*="__mL"]):not([class*="__mB"]):not([class*="__mR"]) {
 			&[class*="__txtWr"]:not([class*="__flx"]),
 			&:not([class*="-wrap"]):not([class*="-reverse"]) {
 				/// Wrap, omit fallback
@@ -729,6 +728,8 @@ $directions: top, right, bottom, left;
 					--g: initial;
 				}
 			}
+			// override gapinp fix on childs (affects wrap)
+			--gc: 0 var(--g) var(--g) 0;
 		}
 	}
 }

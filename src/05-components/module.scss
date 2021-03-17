@@ -1,43 +1,6 @@
 /** @format */
 /// There are some components that share common styles
 
-/// navList-group & navListToggle-group shared styles
-///
-/// @group SharedStyles
-ul,
-ol {
-	&[class*="x-nList"][class*="-group"] {
-		overflow: hidden;
-
-		/// flow direction
-		///
-		/// @group Modifiers
-		&.m__flow-row {
-			@include flexbox(row, nowrap, flex-start, center);
-			> li:not(:last-child) {
-				margin-right: 1rem;
-			}
-		}
-		/// default flow
-		&:not([class*="__fl"]),
-		&.m__flow-column {
-			/// Flow
-			@include flexbox(column, nowrap, flex-start, stretch);
-			> li:not(:last-child) {
-				margin-bottom: 0.5rem;
-			}
-		}
-
-		> li {
-			.x-link,
-			.x-btnLink {
-				white-space: normal;
-				line-height: $lineHeightMedium;
-			}
-		}
-	}
-}
-
 /// avatar & avatarAureo shared styles
 ///
 /// @group SharedStyles
@@ -184,7 +147,7 @@ i.x-icon {
 /// @group SharedStyles
 [class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
 .x-link {
-	* + * {
+	> * + * {
 		margin-left: 0.4em;
 	}
 }
@@ -453,7 +416,7 @@ select.x-inSelect {
 .x-inTxt,
 .x-link,
 select.x-inSelect {
-	white-space: nowrap;
+	white-space: var(--wrap, nowrap);
 	color: var(--cl, transparent);
 	background: var(--bg, transparent);
 	border-color: var(--bc, transparent); // by default
@@ -496,9 +459,9 @@ select.x-inSelect {
 @import "icon";
 @import "inputText";
 @import "inputCheckbox";
+@import "inputRadio";
 @import "inputSelect";
 @import "navList";
-@import "navListToggle";
 
 /// non tag associated
 @import "text";

@@ -52,7 +52,7 @@
 	}
 }
 
-h1:not([class*="__txtSi"]) {
+h1:not([class*="__txtSi"]):not([class*="swal"]) {
 	/// Size
 	font-size: $fontSizeExtraLarge;
 	br {
@@ -65,7 +65,7 @@ h1:not([class*="__txtSi"]) {
 		}
 	}
 }
-h2:not([class*="__txtSi"]) {
+h2:not([class*="__txtSi"]):not([class*="swal"]) {
 	/// Size
 	font-size: $fontSizeLarge;
 	br {
@@ -78,11 +78,11 @@ h2:not([class*="__txtSi"]) {
 		}
 	}
 }
-h3:not([class*="__txtSi"]) {
+h3:not([class*="__txtSi"]):not([class*="swal"]) {
 	/// Size
 	font-size: $fontSizeLarge;
 }
-h4:not([class*="__txtSi"]) {
+h4:not([class*="__txtSi"]):not([class*="swal"]) {
 	/// Size
 	font-size: $fontSizeMedium;
 }
@@ -105,6 +105,7 @@ textarea {
 }
 
 p {
+	--wrap: normal;
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -117,7 +118,7 @@ p {
 	hyphens: auto;
 	a {
 		display: inline !important;
-		white-space: normal !important;
+		// white-space: normal !important;
 	}
 }
 
@@ -180,7 +181,7 @@ select {
 	&:not(:disabled):not([disabled]):hover {
 		cursor: pointer;
 	}
-	&.is__routeExact:not([class*="toggler__"]) {
+	&.is__routeExact:not([class*="toggle__"]) {
 		pointer-events: none;
 	}
 }
@@ -192,15 +193,20 @@ h4,
 h5,
 h6 {
 	// font-family: font(second);
-	> a {
-		white-space: normal !important;
-	}
+	--wrap: normal;
 }
 
 /// global font weight
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong):not(label[class|="x"]):not([class|="fa"]):not([class*="__txtWe"]) {
-	/// Weight
-	font-weight: inherit;
+/// breaking it because it is too long
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong) {
+	// xamu
+	&:not(label[class|="x"]):not([class*="__txtWe"]) {
+		// external brands
+		&:not(.fas):not(.far):not(.fab):not([class*="swal"]) {
+			/// Weight
+			font-weight: inherit;
+		}
+	}
 }
 
 a,
@@ -286,6 +292,8 @@ strong,
 select.x-inSelect,
 input[type^="c"].x-inCheckbox + label,
 input[type^="c"].x-inCheckbox + label:after,
+input[type^="r"].x-inRadio + label,
+input[type^="r"].x-inRadio + label:after,
 .x-svg [fill]:not([fill="none"]),
 *[data-tooltip]:before,
 [class*="x-avatar"] img {
