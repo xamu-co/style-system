@@ -1,5 +1,26 @@
 Xamu style system
 
+# [5.0.0-next.4](https://github.com/xamu-co/style-system/compare/v5.0.0-next.3...v5.0.0-next.4) (2021-03-17)
+
+
+### Bug Fixes
+
+* fontawesome font weight ([3b7e022](https://github.com/xamu-co/style-system/commit/3b7e022045a404e8131f234fcc76f24f16985f23))
+* gaping fix on child ([1a3fe8a](https://github.com/xamu-co/style-system/commit/1a3fe8ac9039df0803adab3b9f34563a4a7ceec5))
+* tooltip text wrap ([a3673f4](https://github.com/xamu-co/style-system/commit/a3673f437793f74bbeb328d87c7e8989bc190bdf))
+* txtAlingFlx unmatch paragraph ([dd74950](https://github.com/xamu-co/style-system/commit/dd74950179038e9bcba99e1a8d6f5da68ca29560))
+
+
+### Features
+
+* buttonToggle icon wrapper ([100a830](https://github.com/xamu-co/style-system/commit/100a830b512668c6da8d62a04312a716f345d338))
+* input radio ([6f94693](https://github.com/xamu-co/style-system/commit/6f94693d04aba44193e9257809d3cbc6137b9260))
+
+
+### BREAKING CHANGES
+
+* nlist to list, min viewport width from 30 to 25, toggler to toggle state modifier
+
 # [5.0.0-next.3](https://github.com/xamu-co/style-system/compare/v5.0.0-next.2...v5.0.0-next.3) (2020-12-27)
 
 
