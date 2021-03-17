@@ -717,10 +717,8 @@ $directions: top, right, bottom, left;
 			margin: 0;
 		}
 	}
-	> :not(br) {
-		&:not([class*="__m"]),
-		&[class*="__min"],
-		&[class*="__max"] {
+	> :not(br):not(.xm__m):not(.xm__margin):not([class*="__mX"]):not([class*="__mY"]) {
+		&:not([class*="__mT"]):not([class*="__mL"]):not([class*="__mB"]):not([class*="__mR"]) {
 			&[class*="__txtWr"]:not([class*="__flx"]),
 			&:not([class*="-wrap"]):not([class*="-reverse"]) {
 				/// Wrap, omit fallback
@@ -730,6 +728,8 @@ $directions: top, right, bottom, left;
 					--g: initial;
 				}
 			}
+			// override gapinp fix on childs (affects wrap)
+			--gc: 0 var(--g) var(--g) 0;
 		}
 	}
 }
