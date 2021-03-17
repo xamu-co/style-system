@@ -2,6 +2,22 @@
 /// svg icon
 ///
 /// @group Components
+
+a,
+label,
+button {
+	&:hover,
+	&.is__active,
+	&.is__routeExact {
+		.x-svg {
+			--cl: var(--cl-a, #{color(dark, 0.7)});
+			&.is__logo {
+				--cl: var(--cl-l, #{color(primary)});
+			}
+		}
+	}
+}
+
 .x-svg {
 	&,
 	svg {
