@@ -1,5 +1,12 @@
 Xamu style system
 
+# [5.0.0-next.5](https://github.com/xamu-co/style-system/compare/v5.0.0-next.4...v5.0.0-next.5) (2021-03-17)
+
+
+### Bug Fixes
+
+* svgicon active state inside link ([6e97534](https://github.com/xamu-co/style-system/commit/6e97534f980fec498f0e176a37d334fb44e01068))
+
 # [5.0.0-next.4](https://github.com/xamu-co/style-system/compare/v5.0.0-next.3...v5.0.0-next.4) (2021-03-17)
 
 
