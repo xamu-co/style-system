@@ -197,7 +197,21 @@
 		}
 	}
 }
-[class*="__flx-"] {
+[class*="u__flx-"]:not(.x-grd) {
 	justify-content: var(--fj, initial);
+}
+.x-grd {
+	&[class*="u__flx-"] {
+		justify-items: var(--fj, initial);
+	}
+	&[class*="u__flx-"] > [class*="u__flx-"].xm__flxSelf,
+	&:not([class*="u__flx-"]) > .xm__flxSelf {
+		justify-self: var(--fj, initial);
+		align-self: var(--fa, initial);
+	}
+}
+
+[class*="u__flx-"],
+.x-grd[class*="u__flx-"] {
 	align-items: var(--fa, initial);
 }
