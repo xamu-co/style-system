@@ -1,5 +1,12 @@
 Xamu style system
 
+# [5.0.0-next.6](https://github.com/xamu-co/style-system/compare/v5.0.0-next.5...v5.0.0-next.6) (2021-03-18)
+
+
+### Bug Fixes
+
+* handle new nested toggle case ([77a64e8](https://github.com/xamu-co/style-system/commit/77a64e864b68e8dfcee0ad6f2a571c299b5ef3d3))
+
 # [5.0.0-next.5](https://github.com/xamu-co/style-system/compare/v5.0.0-next.4...v5.0.0-next.5) (2021-03-17)
 
 
