@@ -4,12 +4,19 @@
 /// this element is expected to be an <button>, <a> or <label> element
 ///
 /// @group Components
-.x-btn {
-	/// button round handling
-	&.m__round {
+/// button round handling
+:not([class*="toggle__"]) > :not([class*="toggle__"]).x-btn.m__round {
+	@include extend-viewports-classes(true, $viewports) {
+		:not(:last-child) {
+			display: none;
+		}
+	}
+}
+:not([class*="toggle__"]) > [class*="toggle__"],
+[class*="toggle__"] > :not([class*="toggle__"]) {
+	&.x-btn.m__round {
 		@include extend-viewports-classes(true, $viewports) {
-			&:not([class*="toggle__"]) :not(:last-child),
-			&[class*="toggle__"] :not(:nth-child(2)) {
+			:not(:nth-child(2)) {
 				display: none;
 			}
 		}

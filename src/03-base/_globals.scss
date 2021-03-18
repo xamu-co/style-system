@@ -181,8 +181,16 @@ select {
 	&:not(:disabled):not([disabled]):hover {
 		cursor: pointer;
 	}
-	&.is__routeExact:not([class*="toggle__"]) {
-		pointer-events: none;
+}
+
+:not([class*="toggle__"]) {
+	> a,
+	> button,
+	> label,
+	> select {
+		&.is__routeExact:not([class*="toggle__"]) {
+			pointer-events: none;
+		}
 	}
 }
 
