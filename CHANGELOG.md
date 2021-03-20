@@ -1,5 +1,12 @@
 Xamu style system
 
+# [5.0.0-next.7](https://github.com/xamu-co/style-system/compare/v5.0.0-next.6...v5.0.0-next.7) (2021-03-20)
+
+
+### Features
+
+* invalid state on text inputs ([39352b7](https://github.com/xamu-co/style-system/commit/39352b79b5f3c609aa3c0902b64b32cfebc3fbc6))
+
 # [5.0.0-next.6](https://github.com/xamu-co/style-system/compare/v5.0.0-next.5...v5.0.0-next.6) (2021-03-18)
 
 
