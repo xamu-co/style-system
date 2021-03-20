@@ -20,8 +20,8 @@
 			@include flexbox(
 				row,
 				nowrap !important,
-				flex-start,
-				flex-start,
+				flex-start !important,
+				flex-start !important,
 				inline-flex
 			);
 			&[class*="x-grd"]:after {
