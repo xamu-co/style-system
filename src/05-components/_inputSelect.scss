@@ -13,6 +13,7 @@ select.x-inSelect {
 	background-size: auto 0.5em;
 	padding: var(--spa, 0 2.2rem 0 0.8rem);
 	background-position: var(--sbp, calc(100% - 0.8rem) 50%);
+	background-image: var(--sbi, initial);
 
 	/// Theme
 	///
@@ -20,87 +21,87 @@ select.x-inSelect {
 	&.u__tm-light {
 		&-secondary {
 			//chevron-light down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}'#{$selectPathEnd}");
 			&:hover {
 				//chevron-light down-hover
-				background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 			&:focus {
 				//chevron-light up
-				background-image: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}'#{$selectPathEnd}");
 			}
 			&:focus:hover,
 			&:focus-within:hover {
 				//chevron-light up-hover
-				background-image: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 		}
 		&-dark {
 			//chevron-light down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.7'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			&:hover {
 				//chevron-light down-hover
-				background-image: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.5'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.5'#{$selectPathEnd}");
 			}
 			&:focus {
 				//chevron-light up
-				background-image: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 			&:focus:hover,
 			&:focus-within:hover {
 				//chevron-light up-hover
-				background-image: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.5'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.5'#{$selectPathEnd}");
 			}
 		}
 		&-primaryAlt {
 			//chevron-light down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}'#{$selectPathEnd}");
 			&:hover {
 				//chevron-light down-hover
-				background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 			&:focus {
 				//chevron-light up
-				background-image: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}'#{$selectPathEnd}");
 			}
 			&:focus:hover,
 			&:focus-within:hover {
 				//chevron-light up-hover
-				background-image: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 		}
 		&-primary {
 			//chevron-light down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}'#{$selectPathEnd}");
 			&:hover {
 				//chevron-light down-hover
-				background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 			&:focus {
 				//chevron-light up
-				background-image: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}'#{$selectPathEnd}");
 			}
 			&:focus:hover,
 			&:focus-within:hover {
 				//chevron-light up-hover
-				background-image: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 		}
 		&-danger {
 			//chevron-light down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}'#{$selectPathEnd}");
 			&:hover {
 				//chevron-light down-hover
-				background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 			&:focus {
 				//chevron-light up
-				background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}'#{$selectPathEnd}");
 			}
 			&:focus:hover,
 			&:focus-within:hover {
 				//chevron-light up-hover
-				background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}' opacity='0.7'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}' opacity='0.7'#{$selectPathEnd}");
 			}
 		}
 		&-secondary,
@@ -110,7 +111,7 @@ select.x-inSelect {
 			&:disabled,
 			&[disabled] {
 				//chevron-light down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3'#{$selectPathEnd}");
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3'#{$selectPathEnd}");
 			}
 		}
 	}
@@ -120,40 +121,40 @@ select.x-inSelect {
 	&.u__tm-secondary-light,
 	&.u__tm-danger-light {
 		//chevron-light down
-		background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}'#{$selectPathEnd}");
+		--sbi: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}'#{$selectPathEnd}");
 		&:hover {
 			//chevron-light down-hover
-			background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.7'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.7'#{$selectPathEnd}");
 		}
 		&:focus {
 			//chevron-light up
-			background-image: url("#{$selectPathUp}#{str-replace(#{$light}, '#')}'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathUp}#{str-replace(#{$light}, '#')}'#{$selectPathEnd}");
 		}
 		&:focus:hover,
 		&:focus-within:hover {
 			//chevron-light up-hover
-			background-image: url("#{$selectPathUp}#{str-replace(#{$light}, '#')}' opacity='0.7'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathUp}#{str-replace(#{$light}, '#')}' opacity='0.7'#{$selectPathEnd}");
 		}
 	}
 	&.u__tm-primary-light {
 		&:disabled,
 		&[disabled] {
 			//chevron-primary down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3'#{$selectPathEnd}");
 		}
 	}
 	&.u__tm-primaryAlt-light {
 		&:disabled,
 		&[disabled] {
 			//chevron-primaryAlt down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3'#{$selectPathEnd}");
 		}
 	}
 	&.u__tm-danger-light {
 		&:disabled,
 		&[disabled] {
 			//chevron-danger down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3'#{$selectPathEnd}");
 		}
 	}
 	/// default
@@ -162,7 +163,7 @@ select.x-inSelect {
 		&:disabled,
 		&[disabled] {
 			//chevron-secondary down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.3'#{$selectPathEnd}");
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.3'#{$selectPathEnd}");
 		}
 	}
 
