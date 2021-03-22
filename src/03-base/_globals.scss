@@ -116,7 +116,7 @@ p {
 
 	/* Adds a hyphen where the word breaks, if supported (No Blink) */
 	hyphens: auto;
-	a {
+	> a {
 		display: inline !important;
 		// white-space: normal !important;
 	}
