@@ -1,8 +1,8 @@
 /** @format */
 
-/// back component
-///
-/// @group Components
+// back component
+//
+// @group Components
 .x-back {
 	top: 0;
 	left: 0;
@@ -15,12 +15,12 @@
 	transition: background 0.3s ease-out;
 
 	&:not([class*="__in"]) {
-		/// Index
+		// Index
 		z-index: -1;
 	}
 
 	&:not([class*="__po"]) {
-		/// Position
+		// Position
 		position: absolute;
 	}
 

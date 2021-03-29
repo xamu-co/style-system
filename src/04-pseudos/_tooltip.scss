@@ -1,8 +1,8 @@
 /** @format */
 
-/// tooltip
-///
-/// @group Pseudos
+// tooltip
+//
+// @group Pseudos
 &[data-tooltip] {
 	overflow: visible;
 	&:before {
@@ -29,7 +29,7 @@
 	}
 	&:hover:not([disabled]):not(.is__routeExact):not(.is__open) {
 		@media (hover: hover) {
-			/// dektop only
+			// dektop only
 			cursor: pointer;
 			&:before {
 				opacity: 1;
@@ -37,35 +37,35 @@
 		}
 	}
 
-	/// tooltip bgColor
-	///
-	/// @group PseudoModifiers
+	// tooltip bgColor
+	//
+	// @group PseudoModifiers
 	@each $name, $color in $colors {
 		&[data-tooltip-bg="#{$name}"]:before {
 			--tb: #{color($name)};
 		}
 	}
-	/// default tooltip bgcolor
+	// default tooltip bgcolor
 	// &:not([data-tooltip-bg]):before {
 	// 	--tb: color(dark);
 	// }
 
-	/// tooltip text behavior
-	///
-	/// @group PseudoModifiers
+	// tooltip text behavior
+	//
+	// @group PseudoModifiers
 	&[data-tooltip-text]:before {
 		max-width: 40ch;
 	}
-	///default text behavior
+	//default text behavior
 	&:not([data-tooltip-text]):before {
 		white-space: nowrap;
 		text-transform: capitalize;
 	}
 
-	/// tooltip position
-	///
-	/// @group PseudoModifiers
-	/// top position
+	// tooltip position
+	//
+	// @group PseudoModifiers
+	// top position
 	&[data-tooltip-top="left"],
 	&[data-tooltip-p="top-left"] {
 		&:before {
@@ -92,7 +92,7 @@
 		}
 	}
 
-	/// right position
+	// right position
 	&[data-tooltip-right="top"],
 	&[data-tooltip-p="right-top"] {
 		&:before {
@@ -119,7 +119,7 @@
 		}
 	}
 
-	/// left position
+	// left position
 	&[data-tooltip-left="top"],
 	&[data-tooltip-p="left-top"] {
 		&:before {
@@ -146,7 +146,7 @@
 		}
 	}
 
-	/// bottom position
+	// bottom position
 	&[data-tooltip-bottom="left"],
 	&[data-tooltip-p="bottom-left"] {
 		&:before {
@@ -163,7 +163,7 @@
 			--tt: translateY(calc(100% + 0.5em));
 		}
 	}
-	/// default value
+	// default value
 	&[data-tooltip-bottom],
 	&[data-tooltip-p="bottom"],
 	&[data-tooltip-position="bottom"],

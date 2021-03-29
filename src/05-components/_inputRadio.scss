@@ -1,7 +1,7 @@
 /** @format */
-/// Radio
-///
-/// @group Components
+// Radio
+//
+// @group Components
 input[type^="r"].x-inRadio {
 	display: none;
 	+ label {
@@ -58,17 +58,17 @@ input[type^="r"].x-inRadio {
 		}
 	}
 
-	/// Full width
-	///
-	/// @group Modifiers
+	// Full width
+	//
+	// @group Modifiers
 	&.m__full + label {
 		width: 100%;
 		@include flexbox(row, nowrap, space-between, center);
 	}
 
-	/// Radio theme
-	///
-	/// @group Modifiers
+	// Radio theme
+	//
+	// @group Modifiers
 	&.m__tm-light {
 		+ label {
 			--cl: #{color(light)};

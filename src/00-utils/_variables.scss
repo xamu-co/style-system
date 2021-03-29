@@ -53,7 +53,7 @@ $viewports: (
 	xl: $viewportXl,
 );
 
-/// font size
+// font size
 $fontSizeExtraSmall: 0.7rem;
 $fontSizeSmall: 0.9rem;
 $fontSize: 1rem;
@@ -73,20 +73,20 @@ $fontSizes: (
 	max: $fontSizeMaximum,
 );
 
-/// font weight
+// font weight
 $fontWeightRegular: 400;
 $fontWeightBold: 600;
-/// firefox fix: font weight
+// firefox fix: font weight
 $fontWeightRegularAlt: 300;
 $fontWeightBoldAlt: 500;
 
-/// line height
+// line height
 $lineHeight: 1.2em;
 $lineHeightMedium: 1.4em;
 $lineHeightBig: 1.6em;
 
-/// min column size
+// min column size
 $minColumnSize: 18rem; // 280px aprox
 
-/// max text block width
+// max text block width
 $maxTextWidth: 66ch; // 780px aprox

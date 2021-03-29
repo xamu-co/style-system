@@ -1,14 +1,14 @@
 /** @format */
 
-///
-/// inicia GLOBAL UNIONS
-///
+//
+// inicia GLOBAL UNIONS
+//
 
-/// flexbox shortcuts: Set justify-content & align-items
+// flexbox shortcuts: Set justify-content & align-items
 
-///  Justify Space between...
-///
-/// @group GlobalUnions
+//  Justify Space between...
+//
+// @group GlobalUnions
 .xu__flx-between {
 	&,
 	&-stretch,
@@ -22,9 +22,9 @@
 	}
 }
 
-///  Justify space around...
-///
-/// @group GlobalUnions
+//  Justify space around...
+//
+// @group GlobalUnions
 .xu__flx-around {
 	&,
 	&-stretch,
@@ -38,9 +38,9 @@
 	}
 }
 
-///  Justify space evenly...
-///
-/// @group GlobalUnions
+//  Justify space evenly...
+//
+// @group GlobalUnions
 .xu__flx-evenly {
 	&,
 	&-stretch,
@@ -76,7 +76,7 @@
 			--fa: baseline;
 		}
 	}
-	/// default
+	// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
@@ -85,9 +85,9 @@
 	}
 }
 
-///  Justify flex start...
-///
-/// @group GlobalUnions
+//  Justify flex start...
+//
+// @group GlobalUnions
 .xu__flx-start {
 	&-center {
 		@include extend-viewports-classes {
@@ -109,7 +109,7 @@
 			--fj: flex-start;
 		}
 	}
-	/// default
+	// default
 	&,
 	&-start {
 		@include extend-viewports-classes {
@@ -118,9 +118,9 @@
 	}
 }
 
-/// Justify center...
-///
-/// @group GlobalUnions
+// Justify center...
+//
+// @group GlobalUnions
 .xu__flx-center {
 	&-start {
 		@include extend-viewports-classes {
@@ -142,7 +142,7 @@
 			--fj: center;
 		}
 	}
-	/// default
+	// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
@@ -151,9 +151,9 @@
 	}
 }
 
-/// Justify flex-end...
-///
-/// @group GlobalUnions
+// Justify flex-end...
+//
+// @group GlobalUnions
 .xu__flx-end {
 	&-start {
 		@include extend-viewports-classes {
@@ -175,7 +175,7 @@
 			--fj: flex-end;
 		}
 	}
-	/// default
+	// default
 	&,
 	&-end {
 		@include extend-viewports-classes {

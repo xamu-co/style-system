@@ -1,10 +1,10 @@
 /** @format */
 
-/// Default button element
-/// this element is expected to be an <button>, <a> or <label> element
-///
-/// @group Components
-/// button round handling
+// Default button element
+// this element is expected to be an <button>, <a> or <label> element
+//
+// @group Components
+// button round handling
 :not([class*="toggle__"]) > :not([class*="toggle__"]).x-btn.m__round {
 	@include extend-viewports-classes(true, $viewports) {
 		:not(:last-child) {
@@ -23,10 +23,10 @@
 	}
 }
 
-/// Toggle button Vertical
-/// this element is expected to be an <button>, <a> or <label> element
-///
-/// @group Components
+// Toggle button Vertical
+// this element is expected to be an <button>, <a> or <label> element
+//
+// @group Components
 .x-btnY {
 	padding: 0.8rem 0.2rem;
 	border-radius: 0.4rem;

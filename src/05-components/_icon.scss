@@ -1,16 +1,16 @@
 /** @format */
 
-/// icon components
-///
-/// @group Components
-/// this element is expected to be an <i> tag
+// icon components
+//
+// @group Components
+// this element is expected to be an <i> tag
 i.x-icon {
 	vertical-align: middle;
 	// text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 
 	&:not([class*="__txtC"]) {
-		/// Color
+		// Color
 		color: inherit;
 	}
 }

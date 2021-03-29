@@ -1,29 +1,33 @@
 /** @format */
 
-/// flex container
-///
-/// @group Layouts
+// flex container
+//
+// @name Columns
+// @group Layouts
+
 .x-flx {
 	@include extend-interactions {
 		display: flex;
 	}
 }
 
-/// flex inline container
-///
-/// @group Layouts
+// flex inline container
+//
+// @name Columns
+// @group Layouts
+
 .x-flxInline {
 	@include extend-interactions {
 		display: inline-flex;
-		position: static; /// why?
+		position: static; // why? (27/03/2021)
 	}
 }
 
-/// flexbox container
+// flexbox container
 [class*="x-flx"] {
-	/// flexbox row container
-	///
-	/// @group Modifiers
+	// flexbox row container
+	//
+	// @group Modifiers
 	&.m__flxRow {
 		&,
 		&-wrap,
@@ -46,12 +50,12 @@
 	}
 	&.m__flxRow,
 	&.m__flxRowReverse {
-		/// default
+		// default
 		&,
 		&-nowrap {
 			@include extend-viewports-classes {
 				&:not([class*="__gapi"]) > :not(br):not(:last-child) {
-					/// Gaping
+					// Gaping
 					&:not([class*="__m"]),
 					&[class*="__min"],
 					&[class*="__max"] {
@@ -62,9 +66,9 @@
 		}
 	}
 
-	/// flexbox column container
-	///
-	/// @group Modifiers
+	// flexbox column container
+	//
+	// @group Modifiers
 	&.m__flxColumn {
 		&,
 		&-wrap,
@@ -87,12 +91,12 @@
 	}
 	&.m__flxColumn,
 	&.m__flxColumnReverse {
-		/// default
+		// default
 		&,
 		&-nowrap {
 			@include extend-viewports-classes {
 				&:not([class*="__gapi"]) > :not(br):not(:last-child) {
-					/// Gaping
+					// Gaping
 					&:not([class*="__m"]),
 					&[class*="__min"],
 					&[class*="__max"] {
@@ -103,7 +107,7 @@
 		}
 	}
 
-	/// an union could be a shorter solution, but is a huge breaking change
+	// an union could be a shorter solution, but is a huge breaking change
 	&.m__flxRow,
 	&.m__flxColumn,
 	&.m__flxRowReverse,
@@ -122,8 +126,8 @@
 		&-reverse {
 			@include extend-viewports-classes {
 				&:not([class*="__gapi"]) {
-					/// Gaping
-					/// this is a very special class to omit this specific fix
+					// Gaping
+					// this is a very special class to omit this specific fix
 					&:not(.unfix__gaping) {
 						--gc: calc(-1 * var(--g, 1rem)); // calculated gap
 						margin: -0.1px var(--gc) var(--gc) -0.1px;
@@ -145,7 +149,7 @@
 				}
 			}
 		}
-		/// default
+		// default
 		&,
 		&-nowrap {
 			@include extend-viewports-classes {

@@ -1,10 +1,10 @@
 /** @format */
-/// TODO: swicht to svg to create different themes
+// TODO: swicht to svg to create different themes
 $hrPatternX: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAFklEQVQYV2Pkd1//nwENfNwZyIguBgByogQC7WHnJwAAAABJRU5ErkJggg==";
 $hrPatternY: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKCAYAAAB10jRKAAAAE0lEQVQYV2Pgd1//nwEbwYADAAByIwoV0EDsZAAAAABJRU5ErkJggg==";
-/// Delimiter
-///
-/// @group Components
+// Delimiter
+//
+// @group Components
 hr {
 	&.m__hrX {
 		@include extend-viewports-classes {
@@ -13,10 +13,10 @@ hr {
 			height: 2px;
 			margin: 0 -0.5rem 0 -0.5rem;
 
-			/// Tema del delimitador
-			///
-			/// @group Modifiers
-			/// default theme
+			// Tema del delimitador
+			//
+			// @group Modifiers
+			// default theme
 			&:not([class*="__tm"]),
 			&.m__tm-secondary {
 				background-image: url($hrPatternX);
@@ -30,10 +30,10 @@ hr {
 			height: calc(100% + 1rem);
 			margin: -0.5rem 0 -0.5rem 0;
 
-			/// Tema del delimitador
-			///
-			/// @group Modifiers
-			/// default theme
+			// Tema del delimitador
+			//
+			// @group Modifiers
+			// default theme
 			&:not([class*="__tm"]),
 			&.m__tm-secondary {
 				background-image: url($hrPatternY);
@@ -52,7 +52,7 @@ hr {
 			}
 		}
 	}
-	/// default: horizontal
+	// default: horizontal
 	&:not([id]):not([class]) {
 		// max-height: 2px;
 		width: calc(100% + 1rem);

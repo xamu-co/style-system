@@ -1,8 +1,10 @@
 /** @format */
 
-/// Grid container
-///
-/// @group Layouts
+// Grid container
+//
+// @name Columns
+// @group Layouts
+
 .x-grd {
 	@include extend-interactions {
 		display: grid;
@@ -15,18 +17,18 @@
 		}
 	}
 
-	/// columns grid
-	///
-	/// @group Modifiers
+	// columns grid
+	//
+	// @group Modifiers
 	&.m__grdColumns {
 		& {
-			/// default
+			// default
 			@include extend-viewports-classes(false, $viewports) {
 				--gc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
 			}
 		}
 		&-single {
-			/// default
+			// default
 			@include extend-viewports-classes {
 				--gc: 1fr;
 			}
@@ -57,10 +59,10 @@
 			}
 		}
 	}
-	/// bi columns grid
-	/// always left to right
-	///
-	/// @group Unions
+	// bi columns grid
+	// always left to right
+	//
+	// @group Unions
 	&.u__grdVoidLeft {
 		&,
 		&-1,
@@ -102,7 +104,7 @@
 			}
 		}
 	}
-	/// left to right too
+	// left to right too
 	&.u__grdVoidRight {
 		&,
 		&-1,
@@ -139,18 +141,20 @@
 	}
 }
 
-/// item in grid
-///
-/// @group Layouts
+// item in grid
+//
+// @name Columns
+// @group Layouts
+
 .x-grd-item {
 	@include extend-interactions {
 		width: 100%;
 		height: 100%;
 	}
 
-	/// grid column span, restricted to wide viewports
-	///
-	/// @group Modifiers
+	// grid column span, restricted to wide viewports
+	//
+	// @group Modifiers
 	@for $i from 2 through 10 {
 		&.m__grdColumnSpan-#{$i} {
 			@include extend-viewports-classes {
@@ -163,7 +167,7 @@
 			}
 		}
 	}
-	/// defaults
+	// defaults
 	&.m__grdColumnSpan {
 		@include extend-viewports-classes {
 			grid-column: span 2;

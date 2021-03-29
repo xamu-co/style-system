@@ -1,14 +1,14 @@
 /** @format */
 
-/// avatar proporcion 1:1
-///
-/// @group Components
+// avatar proporcion 1:1
+//
+// @group Components
 .x-avatar {
 	width: var(--sz, 3rem);
 	height: var(--sz, 3rem);
-	/// avatar size
-	///
-	/// @group Modifiers
+	// avatar size
+	//
+	// @group Modifiers
 	&.m__size-lg {
 		--sz: 9rem;
 	}

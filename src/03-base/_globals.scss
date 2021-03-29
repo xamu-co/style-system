@@ -53,7 +53,7 @@
 }
 
 h1:not([class*="__txtSi"]):not([class*="swal"]) {
-	/// Size
+	// Size
 	font-size: $fontSizeExtraLarge;
 	br {
 		display: none;
@@ -66,7 +66,7 @@ h1:not([class*="__txtSi"]):not([class*="swal"]) {
 	}
 }
 h2:not([class*="__txtSi"]):not([class*="swal"]) {
-	/// Size
+	// Size
 	font-size: $fontSizeLarge;
 	br {
 		display: none;
@@ -79,11 +79,11 @@ h2:not([class*="__txtSi"]):not([class*="swal"]) {
 	}
 }
 h3:not([class*="__txtSi"]):not([class*="swal"]) {
-	/// Size
+	// Size
 	font-size: $fontSizeLarge;
 }
 h4:not([class*="__txtSi"]):not([class*="swal"]) {
-	/// Size
+	// Size
 	font-size: $fontSizeMedium;
 }
 
@@ -165,7 +165,7 @@ iframe {
 		@include flexbox(column, nowrap, center, center);
 	}
 	&:not([class*="__bgC"]) {
-		/// Color
+		// Color
 		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
 	}
 }
@@ -204,14 +204,14 @@ h6 {
 	--wrap: normal;
 }
 
-/// global font weight
-/// breaking it because it is too long
+// global font weight
+// breaking it because it is too long
 :not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong) {
 	// xamu
 	&:not(label[class|="x"]):not([class*="__txtWe"]) {
 		// external brands
 		&:not(.fas):not(.far):not(.fab):not([class*="swal"]) {
-			/// Weight
+			// Weight
 			font-weight: inherit;
 		}
 	}
@@ -230,7 +230,7 @@ strong,
 .x-btn,
 .x-btnToggle {
 	&:not([class*="__txtWe"]) {
-		/// Weight
+		// Weight
 		font-weight: $fontWeightBold;
 		@supports (-moz-appearance: none) {
 			// firefox fix
@@ -239,14 +239,14 @@ strong,
 	}
 }
 
-/// gaping fix
-/// flx & flxInline
-///
-/// @group SharedStyles
+// gaping fix
+// flx & flxInline
+//
+// @group SharedStyles
 [class*="x-flx"] {
 	&:last-child:not([class*="x-item"]) {
 		&[class*="__flxR"] {
-			/// row fix
+			// row fix
 			> :not(.unfix__gaping) {
 				&[class*="__flx"][class*="-wrap"],
 				&[class*="__flx"][class*="-reverse"],
@@ -261,7 +261,7 @@ strong,
 			}
 		}
 		&[class*="__flxC"] {
-			/// column fix
+			// column fix
 			> :not(.unfix__gaping) {
 				&[class*="__flx"][class*="-wrap"],
 				&[class*="__flx"][class*="-reverse"],
@@ -279,7 +279,7 @@ strong,
 	// column & row fix
 	&[class*="__flxR"],
 	&[class*="__flxC"] {
-		/// Row, Column
+		// Row, Column
 		&:last-child:not([class*="x-item"]) > :last-child:not(.unfix__gaping) {
 			&[class*="__flx"][class*="-wrap"],
 			&[class*="__flx"][class*="-reverse"],
@@ -290,9 +290,9 @@ strong,
 	}
 }
 
-/// basic transition
-///
-/// @group SharedStyles
+// basic transition
+//
+// @group SharedStyles
 [class*="x-btn"],
 .x-inTxt,
 .x-link,

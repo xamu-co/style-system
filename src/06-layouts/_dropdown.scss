@@ -1,8 +1,8 @@
 /** @format */
 
-/// dropdown
-///
-/// @group Components
+// dropdown
+//
+// @group Components
 .toggle__dropdown {
 	@media (max-width: $viewportMd) {
 		//mobile
@@ -14,7 +14,7 @@
 		}
 	}
 	@media (min-width: $viewportMd + 1) {
-		/// desktop only
+		// desktop only
 		i.x-icon,
 		.x-svg {
 			&:last-child {
@@ -27,7 +27,7 @@
 .toggle__dropdown:hover:not(.no__hover),
 .toggle__dropdown.is__active {
 	@media (min-width: $viewportMd + 1) {
-		/// desktop only
+		// desktop only
 		i.x-icon,
 		.x-svg {
 			&:last-child {
@@ -57,10 +57,10 @@
 		display: none;
 	}
 
-	/// Position
-	///
-	/// @group Modifiers
-	/// Right
+	// Position
+	//
+	// @group Modifiers
+	// Right
 	&.u__position-right {
 		&,
 		&-top,
@@ -75,7 +75,7 @@
 			}
 		}
 	}
-	/// Left
+	// Left
 	&.u__position-left {
 		&,
 		&-top,
@@ -90,7 +90,7 @@
 			}
 		}
 	}
-	/// Right & Left
+	// Right & Left
 	&.u__position-right,
 	&.u__position-left {
 		&-center {
@@ -104,7 +104,7 @@
 				bottom: -1rem;
 			}
 		}
-		/// Default right position
+		// Default right position
 		&,
 		&-top {
 			@include extend-viewports-classes {
@@ -112,7 +112,7 @@
 			}
 		}
 	}
-	/// Top
+	// Top
 	&.u__position-top {
 		&,
 		&-left,
@@ -127,7 +127,7 @@
 			}
 		}
 	}
-	/// Bottom
+	// Bottom
 	&.u__position-bottom {
 		&,
 		&-left,
@@ -142,7 +142,7 @@
 			}
 		}
 	}
-	/// Top & Bottom
+	// Top & Bottom
 	&.u__position-top,
 	&.u__position-bottom {
 		&-right {
@@ -156,7 +156,7 @@
 				transform: translateX(-50%);
 			}
 		}
-		/// Default bottom position
+		// Default bottom position
 		&,
 		&-left {
 			@include extend-viewports-classes {
@@ -164,9 +164,9 @@
 			}
 		}
 	}
-	/// default: bottom-left
+	// default: bottom-left
 	&:not([class*="__po"]) {
-		/// Position
+		// Position
 		left: -0.7rem;
 		top: calc(100% + 0.5rem);
 		&:before {
