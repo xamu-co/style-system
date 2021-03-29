@@ -1,5 +1,6 @@
 dist/
 sassdoc/
+docs/
 node_modules/
 package-lock.json
 *.log

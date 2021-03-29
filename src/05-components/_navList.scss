@@ -1,8 +1,10 @@
 /** @format */
 
-/// list element
-///
-/// @group Layouts
+// list element
+//
+// @name Columns
+// @group Layouts
+
 .toggle__list {
 	display: block;
 	@include flexbox(row, nowrap, space-between, center);
@@ -53,19 +55,19 @@ ul.x-list-group,
 ol.x-list-group {
 	overflow: hidden;
 
-	/// flow direction
-	///
-	/// @group Modifiers
+	// flow direction
+	//
+	// @group Modifiers
 	&.m__flow-row {
 		@include flexbox(row, nowrap, flex-start, center);
 		> li:not(:last-child) {
 			margin-right: 1rem;
 		}
 	}
-	/// default flow
+	// default flow
 	&:not([class*="__flo"]),
 	&.m__flow-column {
-		/// Flow
+		// Flow
 		@include flexbox(column, nowrap, flex-start, stretch);
 		> li:not(:last-child) {
 			margin-bottom: 0.5rem;

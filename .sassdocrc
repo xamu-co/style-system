@@ -1,0 +1,10 @@
+theme: herman
+herman:
+  extraDocs:
+    - './README.md'
+  displayColors:
+    - hex
+    - rgba
+  customCSS: './dist/index.min.css'
+  nunjucks:
+    templatePath: './template.njk'

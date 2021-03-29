@@ -1,9 +1,9 @@
 /** @format */
-/// There are some components that share common styles
+// There are some components that share common styles
 
-/// avatar & avatarAureo shared styles
-///
-/// @group SharedStyles
+// avatar & avatarAureo shared styles
+//
+// @group SharedStyles
 [class*="x-avatar"] {
 	display: block;
 	overflow: hidden;
@@ -11,13 +11,13 @@
 	border-radius: var(--br, 1rem);
 	transition: all 0.1s ease-out;
 	&:not([class*="__bgC"]) {
-		/// Color
+		// Color
 		background-color: color(light);
 	}
 
-	/// avatar size
-	///
-	/// @group Modifiers
+	// avatar size
+	//
+	// @group Modifiers
 	&.m__size {
 		&-lg {
 			--br: 1.667rem;
@@ -35,16 +35,16 @@
 		}
 	}
 
-	/// avatar border
-	///
-	/// @group Modifiers
+	// avatar border
+	//
+	// @group Modifiers
 	&.m__bdr,
 	&.m__border {
 		border-style: solid;
 		box-sizing: border-box;
 		border-width: var(--bw, 2px);
 		&:not([class*="__bdrC"]) {
-			/// Color
+			// Color
 			border-color: color(light);
 		}
 	}
@@ -63,9 +63,9 @@ a[class*="x-avatar"] {
 			opacity: 0.7;
 		}
 	}
-	/// avatar border
-	///
-	/// @group Modifiers
+	// avatar border
+	//
+	// @group Modifiers
 	&.m__bdr,
 	&.m__border {
 		&:not(:hover),
@@ -76,9 +76,9 @@ a[class*="x-avatar"] {
 	}
 }
 
-/// icon & svgIcon
-///
-/// @group SharedStyles
+// icon & svgIcon
+//
+// @group SharedStyles
 .x-svg,
 i.x-icon {
 	// --sz could be inherited, we don't want that
@@ -86,9 +86,9 @@ i.x-icon {
 	height: var(--isz, 1rem);
 	font-size: var(--isz, 1rem);
 
-	/// icon margin
-	///
-	/// @group Modifiers
+	// icon margin
+	//
+	// @group Modifiers
 	&.m__m,
 	&.m__margin {
 		&:not(:first-child) {
@@ -99,9 +99,9 @@ i.x-icon {
 		}
 	}
 
-	/// icon size
-	///
-	/// @group Modifiers
+	// icon size
+	//
+	// @group Modifiers
 	@for $i from 2 through 10 {
 		&.m__size-#{$i*5} {
 			--isz: #{$i/3}rem;
@@ -109,17 +109,17 @@ i.x-icon {
 	}
 }
 
-/// button defaults & round modifier
-///
-/// @group SharedStyles
+// button defaults & round modifier
+//
+// @group SharedStyles
 [class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
-	/// this is the default value
-	/// Size
+	// this is the default value
+	// Size
 	padding: var(--bp, 0 0.8rem);
 
-	/// round button
-	///
-	/// @group Modifiers
+	// round button
+	//
+	// @group Modifiers
 	&.m__round {
 		@include extend-viewports-classes(true, $viewports) {
 			--bp: 0; // button padding
@@ -135,18 +135,18 @@ i.x-icon {
 	}
 }
 
-/// content alignment
-///
-/// @group SharedStyles
+// content alignment
+//
+// @group SharedStyles
 [class*="x-btn"] {
 	flex: 0 0 auto;
 	text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 }
 
-/// icon behavior
-///
-/// @group SharedStyles
+// icon behavior
+//
+// @group SharedStyles
 [class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
 .x-link {
 	> * + * {
@@ -154,9 +154,9 @@ i.x-icon {
 	}
 }
 
-/// is alert
-///
-/// @group SharedStyles
+// is alert
+//
+// @group SharedStyles
 .x-link,
 .x-btnToggle {
 	&.is__alert:after {
@@ -175,16 +175,16 @@ i.x-icon {
 	}
 }
 
-/// buttons & select themes
-/// Invalid state does not make sense on selects
-///
-/// @group SharedStyles
+// buttons & select themes
+// Invalid state does not make sense on selects
+//
+// @group SharedStyles
 [class*="x-btn"]:not(.x-btnToggle),
 select.x-inSelect {
-	/// first value is the bgColor
-	/// second value is the textColor
-	///
-	/// @group Unions
+	// first value is the bgColor
+	// second value is the textColor
+	//
+	// @group Unions
 	&.u__tm-light {
 		&-secondary {
 			--cl: #{color(secondary)};
@@ -324,7 +324,7 @@ select.x-inSelect {
 			--cl: #{color(danger, 0.3)};
 		}
 	}
-	/// default theme
+	// default theme
 	&:not([class*="__tm"]),
 	&.u__tm-secondary-light {
 		--cl: #{color(light)};
@@ -355,7 +355,7 @@ select.x-inSelect {
 		}
 	}
 
-	/// OVERRIDE: dejar en el final
+	// OVERRIDE: dejar en el final
 	&.is__active,
 	&.is__route,
 	&.is__routeExact {
@@ -382,22 +382,22 @@ select.x-inSelect {
 	}
 }
 
-/// default size
-///
-/// @group SharedStyles
+// default size
+//
+// @group SharedStyles
 [class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
 .x-inTxt,
 select.x-inSelect {
-	/// Size
-	/// this is the default value
+	// Size
+	// this is the default value
 	height: var(--sz, 2.4rem);
 	border-radius: var(--br, 1rem);
 	border-width: var(--bw, 2px);
 }
 
-/// capitalize
-///
-/// @group SharedStyles
+// capitalize
+//
+// @group SharedStyles
 [class*="x-btn"]:not(.x-btnY),
 .x-link,
 select.x-inSelect {
@@ -409,9 +409,9 @@ select.x-inSelect {
 	}
 }
 
-/// disabled behavior
-///
-/// @group SharedStyles
+// disabled behavior
+//
+// @group SharedStyles
 [class*="x-btn"]:not(.x-btnY),
 .x-inTxt,
 .x-link,
@@ -423,9 +423,9 @@ select.x-inSelect {
 	}
 }
 
-/// basic styling
-///
-/// @group SharedStyles
+// basic styling
+//
+// @group SharedStyles
 [class*="x-btn"],
 .x-inTxt,
 .x-link,
@@ -439,16 +439,16 @@ select.x-inSelect {
 	text-shadow: none;
 	box-sizing: border-box;
 	&:not([class*="__txtSi"]) {
-		/// Size
+		// Size
 		font-size: 1em;
 	}
 }
 
-/// LOOPS
+// LOOPS
 @each $name, $size in $fontSizes {
-	/// button & buttonToggle shared styles
-	///
-	/// @group SharedStyles
+	// button & buttonToggle shared styles
+	//
+	// @group SharedStyles
 	[class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
 		&.m__size-#{$name} {
 			// --p could be inherited, we don't want that
@@ -456,9 +456,9 @@ select.x-inSelect {
 		}
 	}
 
-	/// text, select, button & buttonToggle shared styles
-	///
-	/// @group SharedStyles
+	// text, select, button & buttonToggle shared styles
+	//
+	// @group SharedStyles
 	[class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
 	.x-inTxt,
 	select.x-inSelect {
@@ -470,7 +470,7 @@ select.x-inSelect {
 	}
 }
 
-/// tag associated
+// tag associated
 @import "icon";
 @import "inputText";
 @import "inputCheckbox";
@@ -478,7 +478,7 @@ select.x-inSelect {
 @import "inputSelect";
 @import "navList";
 
-/// non tag associated
+// non tag associated
 @import "text";
 @import "emoji";
 @import "svgIcon";

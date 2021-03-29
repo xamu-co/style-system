@@ -1,10 +1,10 @@
 /** @format */
 
-/// Toggle button
-/// this element is expected to be an <button>, <a> or <label> element
-/// aditionally you have to provide a fas(solid) far(regular) icons
-///
-/// @group Components
+// Toggle button
+// this element is expected to be an <button>, <a> or <label> element
+// aditionally you have to provide a fas(solid) far(regular) icons
+//
+// @group Components
 .x-btnToggle {
 	--cl-a: var(--cl);
 	&.is__alert:after {
@@ -38,11 +38,11 @@
 		}
 	}
 
-	/// button theme
-	/// first value is the bgColor
-	/// second value is the textColor
-	///
-	/// @group Modifiers
+	// button theme
+	// first value is the bgColor
+	// second value is the textColor
+	//
+	// @group Modifiers
 	&.m__tm {
 		&-dark7 {
 			--cl: #{color(dark, 0.7)};
@@ -145,7 +145,7 @@
 			}
 		}
 	}
-	/// default theme
+	// default theme
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		--cl: #{color(secondary)};

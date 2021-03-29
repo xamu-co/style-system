@@ -44,11 +44,11 @@
 // Compass (v1.0.1)
 // ----
 
-/// Convert angle
-/// @author Chris Eppstein
-/// @param {Number} $value - Value to convert
-/// @param {String} $unit - Unit to convert to
-/// @return {Number} Converted angle
+// Convert angle
+// @author Chris Eppstein
+// @param {Number} $value - Value to convert
+// @param {String} $unit - Unit to convert to
+// @return {Number} Converted angle
 @function convert-angle($value, $unit) {
 	$convertable-units: deg grad turn rad;
 	$conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
@@ -63,9 +63,9 @@
 	@warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
 }
 
-/// Test if `$value` is an angle
-/// @param {*} $value - Value to test
-/// @return {Bool}
+// Test if `$value` is an angle
+// @param {*} $value - Value to test
+// @return {Bool}
 @function is-direction($value) {
 	$is-direction: index(
 		(
@@ -90,10 +90,10 @@
 	@return $is-direction or $is-angle;
 }
 
-/// Convert a direction to legacy syntax
-/// @param {Keyword | Angle} $value - Value to convert
-/// @require {function} is-direction
-/// @require {function} convert-angle
+// Convert a direction to legacy syntax
+// @param {Keyword | Angle} $value - Value to convert
+// @require {function} is-direction
+// @require {function} convert-angle
 @function legacy-direction($value) {
 	@if is-direction($value) == false {
 		@warn "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be an angle or a direction";

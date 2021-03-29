@@ -43,7 +43,7 @@
 		font-weight: $fontWeightRegular;
 		text-rendering: optimizeLegibility;
 		@supports (-moz-appearance: none) {
-			/// firefox fix, font weight bug
+			// firefox fix, font weight bug
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: $fontWeightRegularAlt;
@@ -57,7 +57,7 @@
 		overflow: hidden;
 		@media (max-width: $viewportMd) and (hover: none) {
 			@supports (-moz-appearance: none) {
-				/// firefox fix, scroll bug on android
+				// firefox fix, scroll bug on android
 				width: 100%;
 				height: 100%;
 				overflow-y: auto;

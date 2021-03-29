@@ -1,7 +1,7 @@
 /** @format */
-/// Checkbox
-///
-/// @group Components
+// Checkbox
+//
+// @group Components
 input[type^="c"].x-inCheckbox {
 	display: none;
 	+ label {
@@ -58,17 +58,17 @@ input[type^="c"].x-inCheckbox {
 		}
 	}
 
-	/// Full width
-	///
-	/// @group Modifiers
+	// Full width
+	//
+	// @group Modifiers
 	&.m__full + label {
 		width: 100%;
 		@include flexbox(row, nowrap, space-between, center);
 	}
 
-	/// Checkbox theme
-	///
-	/// @group Modifiers
+	// Checkbox theme
+	//
+	// @group Modifiers
 	&.m__tm-light {
 		+ label {
 			--cl: #{color(light)};

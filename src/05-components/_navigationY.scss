@@ -10,16 +10,16 @@ nav.x-navY {
 	@include flexbox(column, nowrap, center, stretch);
 	// box-sizing: border-box;
 
-	/// es barra de navegacion principal
-	///
-	/// @group Statuses
+	// es barra de navegacion principal
+	//
+	// @group Statuses
 	&:not(.is__sub) {
 		@include flexbox(column, nowrap, space-between, center);
 	}
 
-	/// es barra de navegacion secundaria
-	///
-	/// @group Statuses
+	// es barra de navegacion secundaria
+	//
+	// @group Statuses
 	&.is__sub {
 		overflow-x: hidden;
 		overflow-y: auto;
@@ -27,8 +27,8 @@ nav.x-navY {
 	}
 }
 
-/// Navigation nav list
-/// this element is expected to be an <ul> or <ol> list
+// Navigation nav list
+// this element is expected to be an <ul> or <ol> list
 ul.x-navY-menu-list,
 ol.x-navY-menu-list {
 	@include flexbox(column, nowrap, center, flex-start);

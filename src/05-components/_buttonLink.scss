@@ -1,13 +1,13 @@
 /** @format */
 
-/// link Navigation element
-///
-/// @group Components
+// link Navigation element
+//
+// @group Components
 .x-btnLink {
 	@media (max-width: $viewportMd) {
-		/// mobile
-		/// Size
-		/// this is the default value
+		// mobile
+		// Size
+		// this is the default value
 		height: var(--sz, 2.4rem);
 		border-radius: var(--br, 1rem);
 		border-width: var(--bw, 2px);
@@ -49,13 +49,13 @@
 	}
 
 	@media (min-width: $viewportMd + 1) {
-		/// desktop
+		// desktop
 		--cl: var(--rw) !important;
 		--bg: transparent !important;
 
-		/// ruta activa
-		///
-		/// @group Statuses
+		// ruta activa
+		//
+		// @group Statuses
 		&.is__route:before {
 			content: "...";
 			display: block;
@@ -67,9 +67,9 @@
 			font-size: 1.3em;
 		}
 
-		/// nav link themes
-		///
-		/// @group Modifiers
+		// nav link themes
+		//
+		// @group Modifiers
 		&.u__tm {
 			&-light-primaryAlt {
 				&:hover,
@@ -100,7 +100,7 @@
 				--rw: #{color(light)};
 			}
 		}
-		/// default theme: secondary
+		// default theme: secondary
 		&:not([class*="u__tm"]),
 		&.u__tm-secondary-light {
 			--rw: #{color(secondary)};

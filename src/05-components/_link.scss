@@ -1,9 +1,9 @@
 /** @format */
 
-/// Default link element
-/// this element is expected to be an <a> tag
-///
-/// @group Components
+// Default link element
+// this element is expected to be an <a> tag
+//
+// @group Components
 .x-link {
 	display: inline-block;
 	--bg: transparent;
@@ -16,9 +16,9 @@
 		color: var(--cl-a);
 	}
 
-	/// link theme
-	///
-	/// @group Modifiers
+	// link theme
+	//
+	// @group Modifiers
 	&.m__tm {
 		&-light {
 			--cl: #{color(light)};
@@ -42,7 +42,7 @@
 			}
 		}
 	}
-	/// default theme: secondary
+	// default theme: secondary
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		--cl: #{color(secondary)};
@@ -53,7 +53,7 @@
 		}
 	}
 
-	/// link round handling
+	// link round handling
 	&.m__round {
 		@include extend-viewports-classes(true, $viewports) {
 			i.x-icon,
@@ -66,14 +66,14 @@
 	}
 }
 
-/// hover status
+// hover status
 *:hover > .toggle__dropdown.x-link,
 *:hover > .toggle__dropdown > .x-link,
 .x-link:hover:not(.is__active):not(.is__routeExact) {
 	color: var(--cl-h, var(--cl-a));
 }
 
-/// link shadow
+// link shadow
 *:hover > .toggle__dropdown.x-link.m__shadow,
 *:hover > .toggle__dropdown > .x-link.m__shadow,
 .x-link.m__shadow:hover,

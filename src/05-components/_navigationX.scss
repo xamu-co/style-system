@@ -1,17 +1,19 @@
 /** @format */
 
-/// Main navigation
-/// this element is expected to be an <nav> wrapper
-///
-/// @group Layouts
+// Main navigation
+// this element is expected to be an <nav> wrapper
+//
+// @name Columns
+// @group Layouts
+
 .x-navX {
 	width: 100%;
 	@include flexbox(column, nowrap, center, stretch);
 	// box-sizing: border-box;
 
-	/// es barra de navegacion principal
-	///
-	/// @group Statuses
+	// es barra de navegacion principal
+	//
+	// @group Statuses
 	&:not(.is__sub) {
 		&:not(.is__relative) {
 			z-index: 16;
@@ -22,9 +24,9 @@
 			transition: all 0.3s ease-out;
 		}
 
-		/// tema de la barra de navegacion principal
-		///
-		/// @group ConditionalModifiers
+		// tema de la barra de navegacion principal
+		//
+		// @group ConditionalModifiers
 		&[class*="__tm-light"] {
 			.x-navX-list-item {
 				>,
@@ -51,7 +53,7 @@
 		&.m__tm-lightAlt {
 			--sh: #{color(primaryAlt, 0.7)};
 		}
-		/// default theme
+		// default theme
 		&:not([class*="__tm"]),
 		&.m__tm-secondary {
 			> .x-navX-wrapper {
@@ -63,9 +65,9 @@
 		}
 	}
 
-	/// es barra de navegacion secundaria
-	///
-	/// @group Statuses
+	// es barra de navegacion secundaria
+	//
+	// @group Statuses
 	&.is__sub {
 		position: absolute;
 		left: 0;
@@ -75,9 +77,9 @@
 		border-top: 2px solid transparent;
 		border-bottom: 2px solid transparent;
 
-		/// tema de la barra de navegacion secundaria
-		///
-		/// @group ConditionalModifiers
+		// tema de la barra de navegacion secundaria
+		//
+		// @group ConditionalModifiers
 		&.m__tm-light .x-navX-list-item {
 			&:hover > .toggle__dropdown {
 				&.x-link,
@@ -120,7 +122,7 @@
 				}
 			}
 		}
-		/// default theme
+		// default theme
 		&:not([class*="__tm"]),
 		&.m__tm-secondary {
 			border-bottom-color: color(secondary, 0.05);
@@ -128,7 +130,7 @@
 	}
 }
 
-/// Navigation wrapper
+// Navigation wrapper
 .x-navX-wrapper {
 	&,
 	> .x-holder {
@@ -139,8 +141,8 @@
 	}
 }
 
-/// Navigation nav list
-/// this element is expected to be an <ul> or <ol> list
+// Navigation nav list
+// this element is expected to be an <ul> or <ol> list
 ul.x-navX-list,
 ol.x-navX-list {
 	position: static;
@@ -153,8 +155,8 @@ ol.x-navX-list {
 	}
 }
 
-/// Navigation nav list item
-/// this element is expected to be an <li> list item
+// Navigation nav list item
+// this element is expected to be an <li> list item
 li.x-navX-list-item {
 	@include flexbox(column, nowrap, center, flex-start);
 }

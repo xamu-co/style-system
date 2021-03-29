@@ -1,8 +1,8 @@
 /** @format */
 
-/// inicia vue transitions
-/// this is tied to vueRouter naming
-/// don't change
+// inicia vue transitions
+// this is tied to vueRouter naming
+// don't change
 
 // nuxt page fade
 .page,
@@ -77,8 +77,8 @@
 // termina vue transitions
 
 // inicia animations
-///
-/// @group Status
+//
+// @group Status
 .is__animated {
 	&,
 	&:before,
@@ -109,7 +109,7 @@
 	}
 }
 
-/// animate only on pc
+// animate only on pc
 @media (hover: hover) {
 	[class*="a-"].is__animated {
 		&,
@@ -119,9 +119,9 @@
 			animation-duration: var(--ad, initial);
 		}
 	}
-	/// grows from the center
-	///
-	/// @group Animations
+	// grows from the center
+	//
+	// @group Animations
 	.a-growingIn {
 		max-height: 0;
 		// opacity: 0;
@@ -132,9 +132,9 @@
 		}
 	}
 
-	/// fades from the center
-	///
-	/// @group Animations
+	// fades from the center
+	//
+	// @group Animations
 	.a-fadeIn {
 		opacity: 0;
 		// transform: translateY(-5vh);
@@ -144,9 +144,9 @@
 		}
 	}
 
-	/// grows from the top
-	///
-	/// @group Animations
+	// grows from the top
+	//
+	// @group Animations
 	.a-topFade {
 		opacity: 0;
 		transform: translateY(-5vh);
@@ -156,9 +156,9 @@
 		}
 	}
 
-	/// grows from the bottom
-	///
-	/// @group Animations
+	// grows from the bottom
+	//
+	// @group Animations
 	.a-bottomFade {
 		opacity: 0;
 		transform: translateY(5vh);
@@ -168,9 +168,9 @@
 		}
 	}
 
-	/// grows from the left
-	///
-	/// @group Animations
+	// grows from the left
+	//
+	// @group Animations
 	.a-leftFade {
 		opacity: 0;
 		transform: translateX(-5vh);
@@ -180,9 +180,9 @@
 		}
 	}
 
-	/// grows from the right
-	///
-	/// @group Animations
+	// grows from the right
+	//
+	// @group Animations
 	.a-rightFade {
 		opacity: 0;
 		transform: translateX(5vh);

@@ -1,7 +1,7 @@
 /** @format */
-/// svg icon
-///
-/// @group Components
+// svg icon
+//
+// @group Components
 
 a,
 label,
@@ -35,9 +35,9 @@ button {
 		}
 	}
 
-	/// logo theme
-	///
-	/// @group Modifiers
+	// logo theme
+	//
+	// @group Modifiers
 	&.m__tm {
 		&-light {
 			--cl: #{color(light)};

@@ -1,7 +1,7 @@
 /** @format */
-/// Comment
-///
-/// @group Components
+// Comment
+//
+// @group Components
 .x-box {
 	// width: 100%;
 	border-radius: 1.6rem;
@@ -19,7 +19,7 @@
 	&:not([class*="x-flx"]) {
 		@include flexbox(column, nowrap, flex-start, stretch);
 		> :not([class*="__mB"]):not(:last-child) {
-			/// Bottom
+			// Bottom
 			margin-bottom: var(--gy);
 			&[class*="x-flx"][class*="-wrap"],
 			&[class*="x-flx"][class*="-reverse"],
@@ -29,9 +29,9 @@
 		}
 	}
 
-	/// Comment theme
-	///
-	/// @group Modifiers
+	// Comment theme
+	//
+	// @group Modifiers
 	&.m__tm-light {
 		background: color(light, 0.1);
 		&:hover {
@@ -52,7 +52,7 @@
 		&.m__btn,
 		&.m__button {
 			&:not([class*="__txtC"]) {
-				/// Color
+				// Color
 				color: color(light);
 			}
 		}
@@ -77,12 +77,12 @@
 		&.m__btn,
 		&.m__button {
 			&:not([class*="__txtC"]) {
-				/// Color
+				// Color
 				color: color(light);
 			}
 		}
 	}
-	/// default theme
+	// default theme
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		background: color(secondary, 0.1);
@@ -104,15 +104,15 @@
 		&.m__btn,
 		&.m__button {
 			&:not([class*="__txtC"]) {
-				/// Color
+				// Color
 				color: color(secondary);
 			}
 		}
 	}
 
-	/// button behavior
-	///
-	/// @group Modifiers
+	// button behavior
+	//
+	// @group Modifiers
 	&.m__btn,
 	&.m__button {
 		padding: 0.8rem;
@@ -127,10 +127,10 @@
 	.x-box {
 		border-radius: 1rem;
 
-		/// Square shape
-		/// this assummes there is only one child
-		///
-		/// @group Modifiers
+		// Square shape
+		// this assummes there is only one child
+		//
+		// @group Modifiers
 		&.m__square {
 			&-xs {
 				width: 3rem;

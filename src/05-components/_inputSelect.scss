@@ -3,9 +3,9 @@ $selectPathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 $selectPathUp: "#{$selectPathStart} fill='%23";
 $selectPathDown: "#{$selectPathStart} transform='rotate(180 8.236 5)' fill='%23";
 $selectPathEnd: "/%3E%3C/svg%3E";
-/// website logo
-///
-/// @group Components
+// website logo
+//
+// @group Components
 select.x-inSelect {
 	width: 100%;
 	display: inline-block;
@@ -15,9 +15,9 @@ select.x-inSelect {
 	background-position: var(--sbp, calc(100% - 0.8rem) 50%);
 	background-image: var(--sbi, initial);
 
-	/// Theme
-	///
-	/// @group Unions
+	// Theme
+	//
+	// @group Unions
 	&.u__tm-light {
 		&-secondary {
 			//chevron-light down
@@ -157,7 +157,7 @@ select.x-inSelect {
 			--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3'#{$selectPathEnd}");
 		}
 	}
-	/// default
+	// default
 	&:not([class*="u__tm"]),
 	&.u__tm-secondary-light {
 		&:disabled,
