@@ -36,7 +36,7 @@
 ///  </div>
 
 .x-cols {
-	@include extend-interactions {
+	@include extend-device-interactions {
 		columns: var(--cc, initial); // count
 	}
 }
