@@ -80,7 +80,7 @@
 }
 
 // device type extend
-@mixin extend-interactions($touch: false) {
+@mixin extend-device-interactions($touch: false) {
 	@content;
 	@if $responsive {
 		@each $selector in & {

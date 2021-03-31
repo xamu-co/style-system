@@ -6,7 +6,7 @@
 // @group Layouts
 
 .x-grd {
-	@include extend-interactions {
+	@include extend-device-interactions {
 		display: grid;
 		// height: auto;
 		grid-template-columns: var(--gc, unset);
@@ -147,7 +147,7 @@
 // @group Layouts
 
 .x-grd-item {
-	@include extend-interactions {
+	@include extend-device-interactions {
 		width: 100%;
 		height: 100%;
 	}

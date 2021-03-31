@@ -6,7 +6,7 @@
 // when the time comes flx would join here
 .x-cols,
 .x-grd {
-	@include extend-interactions {
+	@include extend-device-interactions {
 		overflow: visible;
 		// Gaping will trigger this but that is not a problem
 		&:not([class*="__gap"]) {

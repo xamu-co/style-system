@@ -6,7 +6,7 @@
 // @group Layouts
 
 .x-flx {
-	@include extend-interactions {
+	@include extend-device-interactions {
 		display: flex;
 	}
 }
@@ -17,7 +17,7 @@
 // @group Layouts
 
 .x-flxInline {
-	@include extend-interactions {
+	@include extend-device-interactions {
 		display: inline-flex;
 		position: static; // why? (27/03/2021)
 	}
