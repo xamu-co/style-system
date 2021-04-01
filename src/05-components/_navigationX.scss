@@ -78,21 +78,45 @@
 		/// tema de la barra de navegacion secundaria
 		///
 		/// @group ConditionalModifiers
-		&.m__tm-light .x-navX-list-item > {
-			.x-link,
-			.x-btnLink {
-				&:not(:hover):not(.is__active):not(.is__routeExact) {
-					text-shadow: 1px 1px 1px color(dark, 0.3);
+		&.m__tm-light .x-navX-list-item {
+			&:hover > .toggle__dropdown {
+				&.x-link,
+				&.x-btnLink,
+				> .x-link,
+				> .x-btnLink {
+					text-shadow: none;
+				}
+			}
+			> * {
+				&.x-link,
+				&.x-btnLink,
+				> .x-link,
+				> .x-btnLink {
+					&:not(:hover):not(.is__active):not(.is__routeExact) {
+						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+					}
 				}
 			}
 		}
-		&.m__tm-primaryAlt .x-navX-list-item > {
-			.x-link,
-			.x-btnLink {
-				&:hover,
-				&.is__active,
-				&.is__routeExact {
-					text-shadow: 1px 1px 1px color(dark, 0.3);
+		&.m__tm-primaryAlt .x-navX-list-item {
+			&:hover > .toggle__dropdown {
+				&.x-link,
+				&.x-btnLink,
+				> .x-link,
+				> .x-btnLink {
+					text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+				}
+			}
+			> * {
+				&.x-link,
+				&.x-btnLink,
+				> .x-link,
+				> .x-btnLink {
+					&:hover,
+					&.is__active,
+					&.is__routeExact {
+						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+					}
 				}
 			}
 		}

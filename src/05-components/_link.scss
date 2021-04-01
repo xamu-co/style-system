@@ -11,9 +11,6 @@
 		--bc: var(--cl-h, var(--cl-a));
 		background-color: var(--cl, var(--bg));
 	}
-	&:hover:not(.is__active):not(.is__routeExact) {
-		color: var(--cl-h, var(--cl-a));
-	}
 	&.is__active,
 	&.is__routeExact {
 		color: var(--cl-a);
@@ -56,17 +53,6 @@
 		}
 	}
 
-	/// link shadow
-	///
-	/// @group Modifiers
-	&.m__shadow {
-		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-		}
-	}
-
 	/// link round handling
 	&.m__round {
 		@include extend-viewports-classes(true, $viewports) {
@@ -78,4 +64,20 @@
 			}
 		}
 	}
+}
+
+/// hover status
+*:hover > .toggle__dropdown.x-link,
+*:hover > .toggle__dropdown > .x-link,
+.x-link:hover:not(.is__active):not(.is__routeExact) {
+	color: var(--cl-h, var(--cl-a));
+}
+
+/// link shadow
+*:hover > .toggle__dropdown.x-link.m__shadow,
+*:hover > .toggle__dropdown > .x-link.m__shadow,
+.x-link.m__shadow:hover,
+.x-link.m__shadow.is__active,
+.x-link.m__shadow.is__routeExact {
+	text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 }

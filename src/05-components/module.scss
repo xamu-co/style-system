@@ -18,18 +18,20 @@
 	/// avatar size
 	///
 	/// @group Modifiers
-	&.m__size-lg {
-		--br: 1.667rem;
-		&.m__bdr,
-		&.m__border {
-			--bw: 4px;
+	&.m__size {
+		&-lg {
+			--br: 1.667rem;
+			&.m__bdr,
+			&.m__border {
+				--bw: 4px;
+			}
 		}
-	}
-	&.m__size-md {
-		--br: 1.333rem;
-		&.m__bdr,
-		&.m__border {
-			--bw: 3px;
+		&-md {
+			--br: 1.333rem;
+			&.m__bdr,
+			&.m__border {
+				--bw: 3px;
+			}
 		}
 	}
 
@@ -429,6 +431,7 @@ select.x-inSelect {
 .x-link,
 select.x-inSelect {
 	white-space: var(--wrap, nowrap);
+	text-align: var(--txt-align, center);
 	color: var(--cl, transparent);
 	background: var(--bg, transparent);
 	border-color: var(--bc, transparent); // by default

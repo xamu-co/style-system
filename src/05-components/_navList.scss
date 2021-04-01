@@ -13,27 +13,29 @@
 }
 nav.x-list {
 	// width: 100%;
-	&.is__toggle {
-		// width: 100%;
-		> input[type^="c"] {
-			display: none;
-		}
-		&.is__active,
-		> input[type^="c"]:checked ~ {
-			.toggle__list {
-				font-weight: $fontWeightBold;
-				margin-bottom: 1rem;
-				i.x-icon,
-				.x-svg {
-					transform: rotate(180deg);
-				}
+	// width: 100%;
+	> input[type^="c"] {
+		display: none;
+	}
+	&.is__active,
+	> input[type^="c"]:checked ~ {
+		.toggle__list {
+			font-weight: $fontWeightBold;
+			margin-bottom: 1rem;
+			i.x-icon,
+			.x-svg {
+				transform: rotate(180deg);
 			}
+		}
+		.toggle__list + {
 			ul.x-list-group,
 			ol.x-list-group {
 				max-height: none;
 			}
 		}
+	}
 
+	.toggle__list + {
 		ul.x-list-group,
 		ol.x-list-group {
 			max-height: 0;

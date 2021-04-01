@@ -4,6 +4,14 @@
 </a>
 </p>
 
+# Setup
+
+```
+ npm i --ignore-scripts
+ # or
+ yarn--ignore-scripts
+```
+
 This file should be improved
 
 # CLASS NAMING CONVENTION
