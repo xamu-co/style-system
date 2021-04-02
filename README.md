@@ -4,7 +4,7 @@
 </a>
 </p>
 
-# Setup
+# Basic setup
 
 ```
  npm i --ignore-scripts
@@ -14,26 +14,36 @@
 
 This file should be improved
 
-# CLASS NAMING CONVENTION
+# Class naming convention
+
+These are the basic guidelines behind this project.
 
 - based in BEM but reinterpreted for sass and vue
 - prefixes prevent the collision with vendor styling
 - the "x" stands for xamu
 
-## ELEMENT or LAYOUT:
+## Elements & layouts
+They are the main building blocks of any design.
 
-.x-elementName{}
-EJ: .x-view{}
-- some of this will expect certain tag
-EJ: a.x-link{}
-- whenever possible avoid using long names
+**.x-elementName{}**
+```css
+ .x-view{}
+```
+Some of them will expect certain tag
+```css
+ a.x-link{}
+```
+Whenever possible avoid using long names. **x-flx** will always be better than **x-flexbox** while mantaining legibility
 
-### CHILDS:
-- a "-" will be used to showcase nested elements
-.x-parentName-childName{}
-EJ: .x-view-item{}
+## Childs:
+Elements & layouts can also have nested elements, to differentiate them a **"-"** will be used
 
-### UTILITY CLASSES:
+**.x-parentName-childName{}**
+```css
+ .x-view-item{}
+```
+
+## UTILITY CLASSES:
 
 - each element comes tied with a set classes to alter it
 EJ: .x-view.is__active{}
@@ -65,7 +75,7 @@ EJ: .x-view.u__flexAlign-center{} //merged
 EJ: *[data-tip]{}
 - for this case we will be using data atributes
 
-### MODIFIERS:
+## MODIFIERS:
 
 *[data-atributeName-modifierName="expectedValue"]{}
 EJ: *[data-tip-position="top"]{}
@@ -76,7 +86,7 @@ EJ: *[data-tip-position="top"]{}
 .a-animationName{}
 EJ: .a-fadeIn{}
 
-### UTILITY CLASSES:
+## UTILITY CLASSES:
 
 - each animation comes tied with a set classes to alter it
 EJ: .a-fadeIn.is__animated{}
@@ -123,20 +133,19 @@ EJ: .xu__flexAlign-center{} //merged
 
 - sass is an amazing preprocesor but some of their rules could become overused
 
-### 1. NO MORE THAN 3 LEVES OF NESTING
-
-### 2. DONT USE THE AMPERSAND TO NEST ELEMENTS CHILDS
+1. NO MORE THAN 3 LEVES OF NESTING
+2. DONT USE THE AMPERSAND TO NEST ELEMENTS CHILDS
 
 EJ: .x{&-name{&-child{}}}
 - avoid that
 
-### 3. AMPERSAND USAGE IS ALLOWED FOR MODIFIERS & SIMILAR
+3. AMPERSAND USAGE IS ALLOWED FOR MODIFIERS & SIMILAR
 
 EJ: .x-elementName{&.m__modifierName{&__modifierValue{}&__otherModifierValue{}}}
 - this is because usually you would be only searching for the element or the modifier name
 - as you can see this doesn't break the first rule
 
-### 4. FOR CONDITIONAL MODIFIERS PREPENDING IS PREFERED
+4. FOR CONDITIONAL MODIFIERS PREPENDING IS PREFERED
 
 EJ: 
 .x-elementName{&.m__requiredModifier.conditionalModifier{&__modifierValue{}&__otherModifierValue{}}}

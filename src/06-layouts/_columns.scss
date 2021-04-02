@@ -47,9 +47,6 @@
 ///   </div>
 ///  </div>
 
-/// Column styles
-/// @name Column layout
-/// @group layout-column
 .x-cols {
 	@include extend-device-interactions {
 		columns: var(--cc, initial); // count

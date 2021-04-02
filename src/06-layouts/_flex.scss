@@ -1,10 +1,52 @@
 /** @format */
 
-// flex container
-//
-// @name Columns
-// @group Layouts
+/// # Flexbox layout
+/// Flexbox layout system
+/// ```css
+///  .x-flx
+///  /** or inline */
+///  .x-flxInline
+/// ```
+/// This layout makes use of the global flx union
+///
+/// ## Requirements:
+/// none
+///
+/// ## Modifiers:
+/// ### Row flex flow
+/// Row direction and wrapping behavior.
+/// ```css
+///  .x-flx.m__flxRow
+///
+///  /** it can be reversed */
+///  .x-flx.m__flxRowReverse
+///
+///  /** or allow content wrapping */
+///  .x-flx.m__flxRow-wrap
+///  .x-flx.m__flxRowReverse-wrap
+/// ```
+/// ### Column flex flow
+/// Column direction and wrapping behavior.
+/// ```css
+///  .x-flx.m__flxColumn
+///
+///  /** it can be reversed */
+///  .x-flx.m__flxColumnReverse
+///
+///  /** or allow content wrapping */
+///  .x-flx.m__flxColumn-wrap
+///  .x-flx.m__flxColumnReverse-wrap
+/// ```
+///
+/// ## Unions:
+/// none
+///
+/// @group layout-flex
+/// @example njk
+///  <div class="x-flx m__flxColumn">
+///  </div>
 
+// flex container
 .x-flx {
 	@include extend-device-interactions {
 		display: flex;
@@ -12,10 +54,6 @@
 }
 
 // flex inline container
-//
-// @name Columns
-// @group Layouts
-
 .x-flxInline {
 	@include extend-device-interactions {
 		display: inline-flex;
@@ -66,7 +104,7 @@
 		}
 	}
 
-	// flexbox column container
+	// flexbox flex container
 	//
 	// @group Modifiers
 	&.m__flxColumn {
@@ -75,7 +113,7 @@
 		&-reverse,
 		&-nowrap {
 			@include extend-viewports-classes {
-				flex-direction: column;
+				flex-direction: flex;
 			}
 		}
 	}
@@ -85,7 +123,7 @@
 		&-reverse,
 		&-nowrap {
 			@include extend-viewports-classes {
-				flex-direction: column-reverse;
+				flex-direction: flex-reverse;
 			}
 		}
 	}

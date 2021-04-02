@@ -13,7 +13,7 @@
     "watch": "yarn sass --watch",
     "lint": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
     "prepare": "npm run build",
-    "docs:compile": "sassdoc src/{**/_*,**/**/_*} --dest docs",
+    "docs:compile": "sassdoc src/{**/{_*,summary},**/**/{_*,summary}}.scss --dest docs",
     "docs": "yarn docs:compile && start http://localhost:5000 && serve docs"
   },
   "repository": {

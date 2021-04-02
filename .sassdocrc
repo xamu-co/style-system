@@ -1,11 +1,69 @@
 theme: herman
-trackingCode: '<link href="../hernan/overrides.css" rel="stylesheet" type="text/css">'
+trackingCode: '<style type="text/css">
+  @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap);
+  :root{
+    font-family: "Poppins", sans-serif;
+  }
+  .project-name:link,
+  .project-name:visited,
+  .breadcrumb a:link,
+  .breadcrumb a:visited {
+    color: #0f47af;
+    text-decoration: none;
+  }
+  .text-block,
+  .project-name:hover,
+  .breadcrumb a:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  .breadcrumb{
+    background: rgba(15, 71, 175, 0.1);
+  }
+  [data-region=banner] {
+    box-shadow: none;
+    border-bottom-color: #f39c12;
+  }
+  [data-region=banner]:before {
+    border-top-color: #f39c12;
+  }
+  [data-region=nav] {
+    background: #f39c12;
+  }
+  .nav-home + ul > .nav-item:first-child {
+    margin-top: 1rem;
+  }
+  .nav-title {
+    color: #61320f;
+    padding-top: 10px;
+    margin: 1.5rem 0 1rem;
+  }
+  .nav-home + ul > .nav-item,
+  .nav-subsection > ul > .nav-subsection > ul > .nav-item {
+    font-size: 0.9em;
+  }
+  .nav-subsection > ul > .nav-subsection > ul > .nav-item:first-child{
+    font-weight: bold;
+  }
+  .nav-subsection > ul > .nav-subsection > ul > .nav-item:not(:first-child){
+    font-style: italic;
+    font-weight: 300;
+  }
+  [data-nav]:link:before,
+  [data-nav]:visited:before {
+    background: #0f47af;
+    bottom: -5px;
+  }
+</style>'
 groups:
   Layouts:
-    layout-flex: Flex
+    layout: DEFINITION
+    layout-flex: Flexbox
     layout-grid: Grid
     layout-column: Column
     layout-dropdown: Dropdown
+  Unions:
+    union: DEFINITION
+    union-flex: flex justify-align
 herman:
   extraDocs:
     - './README.md'
