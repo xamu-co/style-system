@@ -1,4 +1,11 @@
 theme: herman
+trackingCode: '<link href="../hernan/overrides.css" rel="stylesheet" type="text/css">'
+groups:
+  Layouts:
+    layout-flex: Flex
+    layout-grid: Grid
+    layout-column: Column
+    layout-dropdown: Dropdown
 herman:
   extraDocs:
     - './README.md'
@@ -7,4 +14,4 @@ herman:
     - rgba
   customCSS: './dist/index.min.css'
   nunjucks:
-    templatePath: './template.njk'
+    templatePath: './hernan/template.njk'

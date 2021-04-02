@@ -401,10 +401,12 @@ select.x-inSelect {
 [class*="x-btn"]:not(.x-btnY),
 .x-link,
 select.x-inSelect {
-	&,
-	> :not(.x-icon) {
-		&::first-letter {
-			text-transform: capitalize;
+	&:not([class*="__txtTransform"]) {
+		&,
+		> :not(.x-icon) {
+			::first-letter {
+				text-transform: capitalize;
+			}
 		}
 	}
 }
