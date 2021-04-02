@@ -80,6 +80,36 @@
 	position: var(--po, relative);
 }
 
+// text tranform
+//
+// @group GlobalModifiers
+.xm__txtTransform {
+	&-lower,
+	&-lowercase {
+		@include extend-viewports-classes {
+			text-transform: lowercase;
+		}
+	}
+	&-upper,
+	&-uppercase {
+		@include extend-viewports-classes {
+			text-transform: uppercase;
+		}
+	}
+	&-capitalize {
+		@include extend-viewports-classes {
+			text-transform: capitalize;
+		}
+	}
+	// default
+	&,
+	&-none {
+		@include extend-viewports-classes {
+			text-transform: none;
+		}
+	}
+}
+
 // text wrap
 //
 // @group GlobalModifiers
@@ -94,6 +124,29 @@
 	&-wrap {
 		@include extend-viewports-classes {
 			white-space: normal;
+		}
+	}
+}
+
+// text style
+//
+// @group GlobalModifiers
+.xm__txtStyle {
+	&-normal {
+		@include extend-viewports-classes {
+			font-style: normal;
+		}
+	}
+	&-oblique {
+		@include extend-viewports-classes {
+			font-style: oblique;
+		}
+	}
+	// default
+	&,
+	&-italic {
+		@include extend-viewports-classes {
+			font-style: italic;
 		}
 	}
 }
