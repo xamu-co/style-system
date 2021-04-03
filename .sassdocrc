@@ -1,4 +1,30 @@
 theme: herman
+groups:
+  Layouts:
+    layouts: About layouts
+    layout-flex: Flexbox
+    layout-grid: Grid
+    layout-column: Column
+    layout-dropdown: Dropdown
+  Components:
+    components: About components
+  Modifiers:
+    modifiers: About modifiers
+    modifier-flex: flex justify-align
+  Unions:
+    unions: About unions
+    union-flex: flex justify-align
+  animations: Animations
+herman:
+  extraDocs:
+    - './README.md'
+    - './SETUP.md'
+  displayColors:
+    - hex
+    - rgba
+  customCSS: './dist/index.min.css'
+  nunjucks:
+    templatePath: './hernan/template.njk'
 trackingCode: '<style type="text/css">
   @import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap);
   :root{
@@ -37,7 +63,14 @@ trackingCode: '<style type="text/css">
     padding-top: 10px;
     margin: 1.5rem 0 1rem;
   }
-  .nav-home + ul > .nav-item,
+  .nav-item {
+    font-weight: 300;
+  }
+  .nav-title,
+  .nav-item {
+    border-color: #61320f !important;
+  }
+  .nav-item,
   .nav-subsection > ul > .nav-subsection > ul > .nav-item {
     font-size: 0.9em;
   }
@@ -54,22 +87,3 @@ trackingCode: '<style type="text/css">
     bottom: -5px;
   }
 </style>'
-groups:
-  Layouts:
-    layout: DEFINITION
-    layout-flex: Flexbox
-    layout-grid: Grid
-    layout-column: Column
-    layout-dropdown: Dropdown
-  Unions:
-    union: DEFINITION
-    union-flex: flex justify-align
-herman:
-  extraDocs:
-    - './README.md'
-  displayColors:
-    - hex
-    - rgba
-  customCSS: './dist/index.min.css'
-  nunjucks:
-    templatePath: './hernan/template.njk'

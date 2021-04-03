@@ -1,5 +1,53 @@
 /** @format */
 
+/// # Animations
+/// Animations are also taken into account
+/// They are his own kind of component so all animations comes with a shared set of classes to alter them.
+///
+/// **.a-animationName{}**
+/// ```css
+///  .a-fadeIn{}
+/// ```
+///
+/// ## Animated status:
+/// Animations by default should be disabled unless the activation status is provided
+/// Without it class no animation will run
+///
+/// **.a-animationName.is__animated{}**
+/// ```css
+///  .a-fadeIn.is__animated{}
+/// ```
+/// This status is very powerfull & comes with his own set of modifiers
+///
+/// ## Animated delay:
+/// How much time needs to happen before the animation starts.
+/// Measured in tenths of a second
+/// It goes from 0.1s as **"1"** to 2s as **"20"**
+///
+/// **.is__animated.m__delay-value{}**
+/// ```css
+///  .is__animated.m__delay-2{
+///      animation-delay: 0.2s;
+///  }
+/// ```
+///
+/// ## Animated iterations:
+/// Amount of times an animation needs to repeat itself
+/// Allowed values are **"infinite"** or a range from 1 to 20
+///
+/// **.is__animated.m__iterations__value{}**
+/// ```css
+///  .is__animated.m__iterations-2{
+///      animation-iteration-count: 2;
+///  }
+/// ```
+///
+/// @group animations
+/// @example njk
+///  <div class="x-flx m__flxColumn">
+///   TODO: animation example
+///  </div>
+
 // inicia vue transitions
 // this is tied to vueRouter naming
 // don't change

@@ -3,10 +3,28 @@
 // inicia GLOBAL MODIFIERS
 // Can be used in any element
 
+/// # Global modifiers
+/// These modify the behavior of any element
+///
+/// **.xm__globalModifierName-value{}**
+/// ```css
+///  .xm__maxWidth-none{}
+/// ```
+/// Just like the component modifiers but these work in any element
+/// Some modifier could be conditionated to the presence of another one
+/// ```css
+///  .xm__theme-light.xm__shadow{}
+/// ```
+///
+/// @group modifiers
+/// @example njk
+///  <div class="x-flx m__flxColumn">
+///   TODO: modifier example
+///  </div>
+
 // hidden element, hide visually only
 //
 // @group GlobalModifiers
-
 .xm__hidden {
 	@include extend-viewports-classes(true, $viewports) {
 		width: 0.1px;
