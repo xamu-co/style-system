@@ -63,7 +63,7 @@
 }
 
 // flexbox container
-[class*="x-flx"] {
+[class*="-flx"] {
 	// flexbox row container
 	//
 	// @group Modifiers
@@ -114,7 +114,7 @@
 		&-reverse,
 		&-nowrap {
 			@include extend-viewports-classes {
-				flex-direction: flex;
+				flex-direction: column;
 			}
 		}
 	}
@@ -124,7 +124,7 @@
 		&-reverse,
 		&-nowrap {
 			@include extend-viewports-classes {
-				flex-direction: flex-reverse;
+				flex-direction: column-reverse;
 			}
 		}
 	}

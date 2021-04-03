@@ -145,10 +145,10 @@ If both values are equal the could be merged
 We are following a similar approach to the tailwind framework (only for global modifiers & unions)
 ```css
  /** Hide if element has less than 640px of width */
- .xm__hidden\:sm {}
+ .xm__hidden:sm {}
 
  /** Hide if element has more than 640px of width */
- .xm__hidden\:sm-inv {}
+ .xm__hidden:sm-inv {}
 ```
 
 - **xs**: 358px, extra small, enabled in specific cases
