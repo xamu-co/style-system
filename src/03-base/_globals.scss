@@ -243,7 +243,7 @@ strong,
 // flx & flxInline
 //
 // @group SharedStyles
-[class*="x-flx"] {
+[class*="-flx"] {
 	&:last-child:not([class*="x-item"]) {
 		&[class*="__flxR"] {
 			// row fix
