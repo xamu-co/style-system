@@ -1,7 +1,7 @@
 /** @format */
 
 /// # Animations
-/// Animations are also taken into account
+/// Animations are also taken into account.\
 /// They are his own kind of component so all animations comes with a shared set of classes to alter them.
 ///
 /// **.a-animationName{}**
@@ -10,8 +10,8 @@
 /// ```
 ///
 /// ## Animated status:
-/// Animations by default should be disabled unless the activation status is provided
-/// Without it class no animation will run
+/// Animations by default should be disabled unless the activation status is provided.\
+/// Without this class no animation will run.
 ///
 /// **.a-animationName.is__animated{}**
 /// ```css
@@ -20,13 +20,13 @@
 /// This status is very powerfull & comes with his own set of modifiers
 ///
 /// ## Animated delay:
-/// How much time needs to happen before the animation starts.
+/// How much time needs to happen before the animation starts.\
 /// Measured in tenths of a second
 /// It goes from 0.1s as **"1"** to 2s as **"20"**
 ///
 /// **.is__animated.m__delay-value{}**
 /// ```css
-///  .is__animated.m__delay-2{
+///  .is__animated.m__delay-2 {
 ///      animation-delay: 0.2s;
 ///  }
 /// ```
@@ -37,7 +37,7 @@
 ///
 /// **.is__animated.m__iterations__value{}**
 /// ```css
-///  .is__animated.m__iterations-2{
+///  .is__animated.m__iterations-2 {
 ///      animation-iteration-count: 2;
 ///  }
 /// ```

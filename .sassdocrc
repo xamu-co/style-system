@@ -14,7 +14,10 @@ groups:
   Unions:
     unions: About unions
     union-flex: flex justify-align
-  animations: Animations
+  Pseudo components:
+    pseudos: About pseudos
+  Animations:
+    animations: About animations
 herman:
   extraDocs:
     - './SETUP.md'
@@ -42,9 +45,12 @@ trackingCode: '<style type="text/css">
     color: rgba(0, 0, 0, 0.7);
     background-color: rgba(15, 71, 175, 0.2);
   }
+  code,
+  pre {
+    font-family: "Courier New", Courier, monospace;
+  }
   .hljs-pre,
   .text-block pre {
-    font-family: "Courier New", Courier, monospace;
     background-color: rgba(15, 71, 175, 0.1);
     border: 1px solid rgba(15, 71, 175, 0.3);
     color: #a743a9;
@@ -143,7 +149,7 @@ trackingCode: '<style type="text/css">
   }
   .nav-title,
   .nav-item {
-    border-color: #61320f !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
   }
   .nav-item,
   .nav-subsection > ul > .nav-subsection > ul > .nav-item {
