@@ -12,7 +12,7 @@ Sass is an amazing preprocesor but some of their rules could become missused
 
 #### No more than 3 leves of nesting
 
-#### Dont use the ampersand to nest elements childs, avoit this:
+#### Dont use the ampersand to nest elements childs, avoid this:
 ```scss
  .x {
      &-name {

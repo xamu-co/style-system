@@ -105,7 +105,7 @@ textarea {
 }
 
 p {
-	--wrap: normal;
+	--tw: normal;
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -201,7 +201,7 @@ h4,
 h5,
 h6 {
 	// font-family: font(second);
-	--wrap: normal;
+	--tw: normal;
 }
 
 // global font weight

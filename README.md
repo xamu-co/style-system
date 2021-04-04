@@ -18,6 +18,7 @@ They are the main building blocks of any design.
 
 ### Root components
 Elements & layouts all share a root component
+
 **.x-componentName{}**
 ```css
  .x-view {}
@@ -50,7 +51,7 @@ Each element comes tied with a set classes to alter it
 ```
 This allows the duplication without collision
 
-### Status:
+### Status
 As the name implies these are for management of the design state and are usually called upon in a dinamyc way using js or related languages
 It can be **"has"** but we recommend using **"is"**, These usually don't have need params
 
@@ -59,7 +60,7 @@ It can be **"has"** but we recommend using **"is"**, These usually don't have ne
  .x-view.is__active {}
 ```
 
-### Modifiers:
+### Modifiers
 These could modify the behavioir of the component they are applied on
 
 **.x-elementName.m__modifierName-optionaParam{}**
@@ -71,7 +72,7 @@ Some modifier could be conditionated to the presence of another one
  .x-view.m__theme-light.m__shadow {}
 ```
 
-### Unions:
+### Unions
 While modifiers are useful they can also get to verbose. That is whe unions come handy.
 Combination of modifiers, shortcuts for common modifier combinations
 

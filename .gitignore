@@ -1,7 +1,6 @@
 dist/
 sassdoc/
-docs/*
-!docs/overrides.css
+docs/
 node_modules/
 package-lock.json
 *.log

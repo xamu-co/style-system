@@ -140,7 +140,6 @@ i.x-icon {
 // @group SharedStyles
 [class*="x-btn"] {
 	flex: 0 0 auto;
-	text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 }
 
@@ -432,8 +431,8 @@ select.x-inSelect {
 .x-inTxt,
 .x-link,
 select.x-inSelect {
-	white-space: var(--wrap, nowrap);
-	text-align: var(--txt-align, center);
+	white-space: var(--tw, nowrap);
+	text-align: var(--ta, center);
 	color: var(--cl, transparent);
 	background: var(--bg, transparent);
 	border-color: var(--bc, transparent); // by default
@@ -473,6 +472,7 @@ select.x-inSelect {
 }
 
 // tag associated
+@import "hr";
 @import "icon";
 @import "inputText";
 @import "inputCheckbox";
