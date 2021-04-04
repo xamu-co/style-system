@@ -15,8 +15,8 @@
     "lint": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
     "prepare": "npm run css:compile",
     "docs:compile": "sassdoc src/{**/{_*,summary},**/**/{_*,summary}}.scss --dest docs",
-    "docs:serve": "serve docs",
-    "docs": "yarn docs:compile && start http://localhost:5000 && serve docs"
+    "docs:serve": "yarn serve docs",
+    "docs": "yarn docs:compile && start http://localhost:5000 && yarn serve docs"
   },
   "repository": {
     "type": "git",
@@ -39,7 +39,8 @@
   "homepage": "https://github.com/xamu-co/style-system#readme",
   "dependencies": {
     "sassdoc": "^2.7.3",
-    "sassdoc-theme-herman": "^4.0.0"
+    "sassdoc-theme-herman": "^4.0.0",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
@@ -60,7 +61,6 @@
     "prettier": "^2.0.5",
     "sass": "^1.26.10",
     "semantic-release": "^17.1.1",
-    "serve": "^11.3.2",
     "stylelint": "^13.6.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-prettier": "^1.1.2"
