@@ -9,11 +9,13 @@
     "format": "copy-files-from-to && prettier dist/*.formatted.css --no-config --write",
     "sass": "sass src/index.scss dist/index.css",
     "postcss": "postcss dist/index.css -o dist/index.min.css --no-map",
-    "build": "yarn sass && yarn postcss --verbose && yarn format",
+    "css:compile": "yarn sass && yarn postcss --verbose && yarn format",
+    "build": "yarn css:compile && yarn docs:compile",
     "watch": "yarn sass --watch",
     "lint": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
-    "prepare": "npm run build",
+    "prepare": "npm run css:compile",
     "docs:compile": "sassdoc src/{**/{_*,summary},**/**/{_*,summary}}.scss --dest docs",
+    "docs:serve": "serve docs",
     "docs": "yarn docs:compile && start http://localhost:5000 && serve docs"
   },
   "repository": {
