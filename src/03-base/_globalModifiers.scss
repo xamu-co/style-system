@@ -348,60 +348,39 @@
 // text align
 //
 // @group FamilyGlobalModifiers
+[class*="__txtA"] {
+	text-align: var(--ta, initial);
+	&:not([class*="__gapi"]) > :not([class|="x"]) {
+		// Gaping
+		display: inline-block;
+	}
+	> :not([class*="__txtA"]):not([class|="x"]) {
+		// Align
+		text-align: var(--ta, initial);
+	}
+}
 .xm__txtAlign,
 .xm__txtAlignFlx {
 	&-right {
 		@include extend-viewports-classes {
-			text-align: right;
-			&:not([class*="__gapi"]) > :not([class|="x"]) {
-				// Gaping
-				display: inline-block;
-			}
-			> :not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				text-align: right;
-			}
+			--ta: right;
 		}
 	}
 	&-center {
 		@include extend-viewports-classes {
-			text-align: center;
-			&:not([class*="__gapi"]) > :not([class|="x"]) {
-				// Gaping
-				display: inline-block;
-			}
-			> :not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				text-align: center;
-			}
+			--ta: center;
 		}
 	}
 	&-justify {
 		@include extend-viewports-classes {
-			text-align: justify;
-			&:not([class*="__gapi"]) > :not([class|="x"]) {
-				// Gaping
-				display: inline-block;
-			}
-			> :not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				text-align: justify;
-			}
+			--ta: justify;
 		}
 	}
 	// default
 	&,
 	&-left {
 		@include extend-viewports-classes {
-			text-align: left;
-			&:not([class*="__gapi"]) > :not([class|="x"]) {
-				// Gaping
-				display: inline-block;
-			}
-			> :not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				text-align: left;
-			}
+			--ta: left;
 		}
 	}
 }
@@ -409,73 +388,46 @@
 // text align flex
 //
 // @group FamilyGlobalModifiers
+[class*="__txtAlignF"] {
+	@include flexbox(
+		column,
+		nowrap,
+		flex-start,
+		var(--tfa, initial),
+		inline-flex
+	);
+	> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+		// Align
+		@include flexbox(
+			column,
+			nowrap,
+			flex-start,
+			var(--tfa, initial),
+			inline-flex
+		);
+	}
+}
 .xm__txtAlignFlx {
 	&-right {
 		@include extend-viewports-classes {
-			@include flexbox(column, nowrap, flex-start, flex-end, inline-flex);
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					flex-end,
-					inline-flex
-				);
-			}
+			--tfa: flex-end;
 		}
 	}
 	&-center {
 		@include extend-viewports-classes {
-			@include flexbox(column, nowrap, flex-start, center, inline-flex);
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					center,
-					inline-flex
-				);
-			}
+			--tfa: center;
 		}
 	}
 	&-justify {
 		@include extend-viewports-classes {
-			@include flexbox(column, nowrap, flex-start, stretch, inline-flex);
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					stretch,
-					inline-flex
-				);
-			}
+			--tfa: stretch;
 		}
 	}
 	// default
 	&,
 	&-left {
 		@include extend-viewports-classes {
-			@include flexbox(
-				column,
-				nowrap,
-				flex-start,
-				flex-start,
-				inline-flex
-			);
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				// Align
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					flex-start,
-					inline-flex
-				);
-			}
+			--tfa: flex-start;
 		}
 	}
 }
@@ -580,7 +532,7 @@ $dimensions: width, height;
 	.xm__#{$dimension} {
 		&-quarter {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,1)}: 50%;
+				--#{str-slice($dimension,1,1)}: 25%;
 			}
 		}
 		&-third {

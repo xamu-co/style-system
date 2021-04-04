@@ -17,7 +17,6 @@ groups:
   animations: Animations
 herman:
   extraDocs:
-    - './README.md'
     - './SETUP.md'
   displayColors:
     - hex
@@ -30,16 +29,92 @@ trackingCode: '<style type="text/css">
   :root{
     font-family: "Poppins", sans-serif;
   }
+  input[type="text"] {
+    background: #fff;
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+    border: 0;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  .code-header {
+    color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(15, 71, 175, 0.2);
+  }
+  .hljs-pre,
+  .text-block pre {
+    font-family: "Courier New", Courier, monospace;
+    background-color: rgba(15, 71, 175, 0.1);
+    border: 1px solid rgba(15, 71, 175, 0.3);
+    color: #a743a9;
+  }
+  .hljs-name,
+  .hljs-section,
+  .hljs-selector-class,
+  .hljs-selector-id,
+  .hljs-title {
+    color: #0f47af; /** blue, basic highlight */
+  }
+  .hljs-bullet,
+  .hljs-link,
+  .hljs-meta,
+  .hljs-meta
+  .hljs-keyword,
+  .hljs-selector-attr,
+  .hljs-selector-pseudo,
+  .hljs-subst,
+  .hljs-symbol {
+    color: #f39c12; /** warning */
+  }
+  .hljs-attr,
+  .hljs-attribute,
+  .hljs-class
+  .hljs-title,
+  .hljs-template-variable,
+  .hljs-type,
+  .hljs-variable {
+    color: #d35400; /** warning v2 */
+    color: #61320f; /** warning v2 */
+    color: #ff806a; /** warning */
+  }
+  .hljs-addition,
+  .hljs-keyword,
+  .hljs-selector-tag {
+    color: #ef518c; /** success */
+  }
+  .hljs-doctag,
+  .hljs-literal,
+  .hljs-meta
+  .hljs-meta-string,
+  .hljs-number,
+  .hljs-regexp,
+  .hljs-string {
+    color: #008a65; /** success v2 */
+    color: #16a085; /** success v2 */
+  }
+  .project-link:link,
+  .project-link:visited {
+    color: #0f47af;
+    border-color: #0f47af;
+  }
+  .project-link:hover {
+    color: #fff;
+    background-color: #0f47af;
+  }
   .project-name:link,
   .project-name:visited,
   .breadcrumb a:link,
-  .breadcrumb a:visited {
+  .breadcrumb a:visited,
+  .text-block [href]:not(:hover):link,
+  .text-block [href]:not(:hover):visited {
     color: #0f47af;
     text-decoration: none;
   }
   .text-block,
   .project-name:hover,
-  .breadcrumb a:hover {
+  .breadcrumb a:hover,
+  .text-block [href]:hover {
     color: rgba(0, 0, 0, 0.7);
   }
   .breadcrumb{
