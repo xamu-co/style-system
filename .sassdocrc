@@ -32,6 +32,15 @@ trackingCode: '<style type="text/css">
   :root{
     font-family: "Poppins", sans-serif;
   }
+  [data-nav-toggle] {
+    color: #0f47af;
+  }
+  [data-nav-toggle]:active,
+  [data-nav-toggle]:focus,
+  [data-nav-toggle]:hover,
+  [data-nav-toggle][aria-pressed=true] {
+    color: rgba(0, 0, 0, 0.7);
+  }
   input[type="text"] {
     background: #fff;
     color: rgba(0, 0, 0, 0.7);

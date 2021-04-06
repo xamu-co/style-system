@@ -11,7 +11,7 @@ These are the basic guidelines behind this project.
 - prefixes prevent the collision with vendor styling
 - the "x" stands for xamu
 
-To learn how to setup the project for development go to [Setup](SETUP).
+Explore the [docs](https://styles.xamu.com.co/) or learn how to setup the project for development at: [Setup](SETUP)
 
 ## Elements & layouts:
 They are the main building blocks of any design.
