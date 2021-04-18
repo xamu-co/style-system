@@ -1,4 +1,3 @@
-/** @format */
 const nano = {
 	preset: [
 		"advanced",

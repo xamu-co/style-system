@@ -1,0 +1,282 @@
+/// # Dropdown layout
+/// Multipurpose dropdown
+/// ```css
+///  .x-dropdown
+/// ```
+///
+/// ## Requirements:
+///
+/// ### Toggle
+/// It requires a toggler as previous sibling element to trigger the opening
+/// ```css
+///  .toggle__dropdown
+/// ```
+/// Or with action components:
+/// ```html
+///  <div class="x-flx m__flxColumn xu__flx-center xm__pY-100">
+///   <x-link toggle="dropdown">trigger</x-link>
+///   <ul class="x-dropdown x-flx m__flxColumn xu__flx-start xm__gapingY-5">
+///    <li>
+///     <a href="#" class="x-link">aguacate</a>
+///    </li>
+///    <li>
+///     <a href="#" class="x-link">cereza</a>
+///    </li>
+///    <li>
+///     <a href="#" class="x-link">platano</a>
+///    </li>
+///   </ul>
+///  </div>
+/// ```
+/// If an icon is provided this will rotate accordignly.
+/// It is recomended that this points to the oposite direction where the dropdown is located.
+/// ```html
+///  <div class="x-flx m__flxColumn xu__flx-center xm__pY-100">
+///   <a href="#" class="toggle__dropdown x-link">
+///    <span>trigger</span>
+///    <i class="x-icon fa-chevron-up fas"></i>
+///   </a>
+///   <ul class="x-dropdown x-flx m__flxColumn xu__flx-start xm__gapingY-5">
+///    <li>
+///     <a href="#" class="x-link">aguacate</a>
+///    </li>
+///    <li>
+///     <a href="#" class="x-link">cereza</a>
+///    </li>
+///    <li>
+///     <a href="#" class="x-link">platano</a>
+///    </li>
+///   </ul>
+///  </div>
+/// ```
+///
+/// ## Modifiers:
+/// None
+///
+/// ## Unions:
+/// ### Position
+/// This component can be aligned at almost any position, the default being bottom-left.
+/// The second value is optional and fallbacks to center.
+/// ```css
+///  .x-dropdown.u__position-bottom-left
+/// ```
+///
+/// @group layout-dropdown
+/// @example njk
+///  {% set positions = [
+///   {name: 'u__position-top-left', icon: 'down'},
+///   {name: 'u__position-top-right', icon: 'down'},
+///   {name: 'u__position-top-center', icon: 'down'},
+///   {name: 'u__position-right-top', icon: 'left'},
+///   {name: 'u__position-right-bottom', icon: 'left'},
+///   {name: 'u__position-right-center', icon: 'left'},
+///   {name: 'u__position-bottom-left', icon: 'up'},
+///   {name: 'u__position-bottom-right', icon: 'up'},
+///   {name: 'u__position-bottom-center', icon: 'up'},
+///   {name: 'u__position-left-top', icon: 'right'},
+///   {name: 'u__position-left-bottom', icon: 'right'},
+///   {name: 'u__position-left-center', icon: 'right'}
+///  ] %}
+///  <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
+///  <div class="x-flx m__flxColumn xu__flx-center xm__pY-100">
+///   <ul class="x-list xm__gapingY-25">
+///    {% for position in positions %}
+///     <li class="xm__p-5 xm__bgColor-dark1">
+///      <a href="#" class="toggle__dropdown x-link xm__txtStyle xm__txtTransform">
+///       <span>.{{position.name}}</span>
+///       <i class="x-icon fa-chevron-{{position.icon}} fas"></i>
+///      </a>
+///      <ul class="x-dropdown {{position.name}} x-flx m__flxColumn xu__flx-start xm__gapingY-5">
+///       {% for link in ['aguacate','cereza','platano'] %}
+///        <li>
+///         <a href="#" class="x-link">{{link}}</a>
+///        </li>
+///       {% endfor %}
+///      </ul>
+///     </li>
+///    {% endfor %}
+///   </ul>
+///  </div>
+
+.toggle__dropdown {
+	@media (max-width: $viewportMd) {
+		//mobile
+		i.x-icon,
+		.x-svg {
+			&:last-child {
+				display: none;
+			}
+		}
+	}
+	@media (min-width: $viewportMd + 1) {
+		// desktop only
+		i.x-icon,
+		.x-svg {
+			&:last-child {
+				transition: all 0.1s ease-out;
+			}
+		}
+	}
+}
+*:hover > .toggle__dropdown,
+.toggle__dropdown:hover:not(.no__hover),
+.toggle__dropdown.is__active {
+	@media (min-width: $viewportMd + 1) {
+		// desktop only
+		i.x-icon,
+		.x-svg {
+			&:last-child {
+				transform: rotate(180deg);
+			}
+		}
+		~ .x-dropdown {
+			display: block;
+		}
+	}
+}
+
+.x-dropdown {
+	z-index: 10;
+	padding: 0.7rem 1rem;
+	border-radius: 1rem;
+	background: color(light);
+	box-shadow: 3px 3px 9px color(dark, 0.3);
+	position: absolute;
+	&:before {
+		content: "";
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	&:not(:hover) {
+		display: none;
+	}
+
+	// Position
+	//
+	// @group Modifiers
+	// Right
+	&.u__position-right {
+		&,
+		&-top,
+		&-center,
+		&-bottom {
+			@include extend-viewports-classes {
+				left: calc(100% + 0.5rem);
+				&:before {
+					left: -0.5rem;
+					top: 0;
+				}
+			}
+		}
+	}
+	// Left
+	&.u__position-left {
+		&,
+		&-top,
+		&-center,
+		&-bottom {
+			@include extend-viewports-classes {
+				right: calc(100% + 0.5rem);
+				&:before {
+					right: -0.5rem;
+					top: 0;
+				}
+			}
+		}
+	}
+	// Right & Left
+	&.u__position-right,
+	&.u__position-left {
+		&-center {
+			@include extend-viewports-classes {
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+		&-bottom {
+			@include extend-viewports-classes {
+				bottom: -1rem;
+			}
+		}
+		// Default right position
+		&,
+		&-top {
+			@include extend-viewports-classes {
+				top: -1rem;
+			}
+		}
+	}
+	// Top
+	&.u__position-top {
+		&,
+		&-left,
+		&-right,
+		&-center {
+			@include extend-viewports-classes {
+				bottom: calc(100% + 0.5rem);
+				&:before {
+					left: 0;
+					bottom: -0.5rem;
+				}
+			}
+		}
+	}
+	// Bottom
+	&.u__position-bottom {
+		&,
+		&-left,
+		&-right,
+		&-center {
+			@include extend-viewports-classes {
+				top: calc(100% + 0.5rem);
+				&:before {
+					right: 0;
+					top: -0.5rem;
+				}
+			}
+		}
+	}
+	// Top & Bottom
+	&.u__position-top,
+	&.u__position-bottom {
+		&-right {
+			@include extend-viewports-classes {
+				right: -0.7rem;
+			}
+		}
+		&-center {
+			@include extend-viewports-classes {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+		// Default bottom position
+		&,
+		&-left {
+			@include extend-viewports-classes {
+				left: -0.7rem;
+			}
+		}
+	}
+	// default: bottom-left
+	&:not([class*="__po"]) {
+		// Position
+		left: -0.7rem;
+		top: calc(100% + 0.5rem);
+		&:before {
+			right: 0;
+			top: -0.5rem;
+		}
+	}
+
+	li {
+		&:not(:first-child) a {
+			padding-top: 0.2rem;
+		}
+		&:not(:last-child) a {
+			padding-bottom: 0.2rem;
+		}
+	}
+}

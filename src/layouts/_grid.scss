@@ -1,0 +1,279 @@
+/// # Grid layout
+/// Grid layout system
+/// ```css
+///  .x-grd
+/// ```
+/// This layout makes use of the global flx union
+///
+/// ## Requirements:
+/// Define the amount of columns & rows making use of the modifiers or unions
+///
+/// ## Modifiers:
+/// ### Columns count
+/// Defines not only the column count but also the behavior.
+/// Rows are calculated autamatically when using auto-fit or auto-fill
+/// ```css
+///  /** auto-fit with min column size of 18rem (270px aprox) & no max size (flexible) */
+///  .x-grd.m__grdColumns
+///
+///  /** auto-fit with min column size of 6rem (90px aprox) & fitting content max size */
+///  .x-grd.m__grdColumns-autoMin
+///
+///  /** auto-fit without min column size & no max size (flexible) */
+///  .x-grd.m__grdColumns-auto
+///
+///  /** auto-fill without min column size & no max size (flexible) */
+///  .x-grd.m__grdColumns-autoFill
+///
+///  /** single column */
+///  .x-grd.m__grdColumns-single
+///
+///  /** fixed amount of columns (2-12) */
+///  .x-grd.m__grdColumns-2
+/// ```
+///
+/// ## Unions:
+/// ### Left aligned voids
+/// Allows the usage of common void usecases with the content at the left.\
+/// First value represents the void proportional size.
+/// A single row is defined.
+/// ```css
+///  /** 1 to 1 proportion */
+///  .x-grd.u__grdVoidLeft
+///  .x-grd.u__grdVoidLeft-1
+///  .x-grd.u__grdVoidLeft-1-1
+///
+///  /** 1 to 4 proportion */
+///  .x-grd.u__grdVoidLeft-1-4
+///
+///  /** 2 to 3 proportion */
+///  .x-grd.u__grdVoidLeft-2-3
+///
+///  /** 3 to 2 proportion */
+///  .x-grd.u__grdVoidLeft-3-2
+/// ```
+/// ### Right aligned voids
+/// Allows the usage of common void usecases with the content at the right.\
+/// Second value represents the void proportional size.
+/// A single row is defined.
+/// ```css
+///  /** 1 to 1 proportion */
+///  .x-grd.u__grdVoidRight
+///  .x-grd.u__grdVoidRight-1
+///  .x-grd.u__grdVoidRight-1-1
+///
+///  /** 4 to 1 proportion */
+///  .x-grd.u__grdVoidRight-4-4
+///
+///  /** 2 to 3 proportion */
+///  .x-grd.u__grdVoidRight-2-3
+///
+///  /** 3 to 2 proportion */
+///  .x-grd.u__grdVoidRight-3-2
+/// ```
+///
+/// @group layout-grid
+/// @example njk
+///  <div class="x-flx m__flxColumn">
+///   TODO: grid example
+///  </div>
+
+.x-grd {
+	@include extend-device-interactions {
+		display: grid;
+		// height: auto;
+		grid-template-columns: var(--gc, unset);
+		grid-template-areas: var(--ga, unset);
+		grid-auto-rows: var(--gr, minmax(min-content, 100%));
+		> * {
+			box-sizing: border-box;
+		}
+	}
+
+	// columns grid
+	//
+	// @group Modifiers
+	&.m__grdColumns {
+		& {
+			// default
+			@include extend-viewports-classes(false, $viewports) {
+				--gc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+			}
+		}
+		&-single {
+			// default
+			@include extend-viewports-classes {
+				--gc: 1fr;
+			}
+		}
+		&-autoMin {
+			@include extend-viewports-classes {
+				--gc: repeat(
+					auto-fit,
+					minmax(#{$minColumnSize/3}, max-content)
+				);
+			}
+		}
+		&-auto {
+			@include extend-viewports-classes {
+				--gc: repeat(auto-fit, minmax(0, 1fr));
+			}
+		}
+		&-autoFill {
+			@include extend-viewports-classes {
+				--gc: repeat(auto-fill, minmax(0, 1fr));
+			}
+		}
+	}
+	@for $i from 2 through 12 {
+		&.m__grdColumns-#{$i} {
+			@include extend-viewports-classes {
+				--gc: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
+			}
+		}
+	}
+
+	// bi columns grid
+	// always left to right
+	//
+	// @group Unions
+	&.u__grdVoidLeft {
+		&,
+		&-1,
+		&-1-1 {
+			@include extend-viewports-classes {
+				--gc: repeat(2, 1fr);
+				--ga: ". a";
+			}
+		}
+		&-1-4 {
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: ". a a a a";
+			}
+		}
+		&-2-3 {
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: ". . a a a";
+			}
+		}
+		&-3-2 {
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: ". . . a a";
+			}
+		}
+		&,
+		&-1,
+		&-1-1,
+		&-1-4,
+		&-2-3,
+		&-3-2 {
+			@include extend-viewports-classes {
+				> *:last-child {
+					// The compiler converts this to "a" always causing issues if other word is used
+					grid-area: a;
+				}
+			}
+		}
+	}
+	// left to right too
+	&.u__grdVoidRight {
+		&,
+		&-1,
+		&-1-1 {
+			@include extend-viewports-classes {
+				--gc: repeat(2, 1fr);
+				--ga: "a .";
+			}
+		}
+		&-4-1 {
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: "a a a a .";
+			}
+		}
+		&-3-2 {
+			@include extend-viewports-classes {
+				--gc: repeat(5, 1fr);
+				--ga: "a a a . .";
+			}
+		}
+		&,
+		&-1,
+		&-1-1,
+		&-4-1,
+		&-3-2,
+		&-2-3 {
+			@include extend-viewports-classes {
+				> *:first-child {
+					grid-area: a;
+				}
+			}
+		}
+	}
+}
+
+/// # Grid item
+/// Optional class with the common styles for the grid layout item
+/// ```css
+///  .x-grd
+/// ```
+///
+/// ## Requirements:
+/// None, not even being inside of a grid component
+///
+/// ## Modifiers:
+/// ### Item column span
+/// How many columns the item can occupy
+/// ```css
+///  /** 2 columns by default */
+///  .x-grd.m__grdColumnSpan
+///
+///  /** Column range from (2-12)  */
+///  .x-grd.m__grdColumnSpan-2
+/// ```
+///
+/// ## Unions:
+/// None
+///
+/// @group layout-grid
+/// @example njk
+///  <div class="x-flx m__flxColumn">
+///   TODO: grid item example
+///  </div>
+
+.x-grd-item {
+	@include extend-device-interactions {
+		width: 100%;
+		height: 100%;
+	}
+
+	// grid column span, restricted to wide viewports
+	//
+	// @group Modifiers
+	@for $i from 2 through 12 {
+		&.m__grdColumnSpan-#{$i} {
+			@include extend-viewports-classes {
+				grid-column: span #{$i};
+			}
+		}
+		&.m__grdRowSpan-#{$i} {
+			@include extend-viewports-classes {
+				grid-row: span #{$i};
+			}
+		}
+	}
+	// defaults
+	&.m__grdColumnSpan {
+		@include extend-viewports-classes {
+			grid-column: span 2;
+		}
+	}
+	&.m__grdRowSpan {
+		@include extend-viewports-classes {
+			grid-row: span 2;
+		}
+	}
+}

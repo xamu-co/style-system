@@ -1,0 +1,301 @@
+/// # Animations
+/// Animations are also taken into account.\
+/// They are his own kind of component so all animations comes with a shared set of classes to alter them.
+///
+/// **.a-animationName{}**
+/// ```css
+///  .a-fadeIn{}
+/// ```
+///
+/// ## Animated status:
+/// Animations by default should be disabled unless the activation status is provided.\
+/// Without this class no animation will run.
+///
+/// **.a-animationName.is__animated{}**
+/// ```css
+///  .a-fadeIn.is__animated{}
+/// ```
+/// This status is very powerfull & comes with his own set of modifiers
+///
+/// ## Animated delay:
+/// How much time needs to happen before the animation starts.\
+/// Measured in tenths of a second
+/// It goes from 0.1s as **"1"** to 2s as **"20"**
+///
+/// **.is__animated.m__delay-value{}**
+/// ```css
+///  .is__animated.m__delay-2 {
+///      animation-delay: 0.2s;
+///  }
+/// ```
+///
+/// ## Animated iterations:
+/// Amount of times an animation needs to repeat itself
+/// Allowed values are **"infinite"** or a range from 1 to 20
+///
+/// **.is__animated.m__iterations__value{}**
+/// ```css
+///  .is__animated.m__iterations-2 {
+///      animation-iteration-count: 2;
+///  }
+/// ```
+///
+/// @group animations
+/// @example njk
+///  <div class="x-flx m__flxColumn">
+///   TODO: animation example
+///  </div>
+
+// inicia vue transitions
+// this is tied to vueRouter naming
+// don't change
+
+// nuxt page fade
+.page,
+.layout {
+	&-enter-active {
+		transition-delay: 0.3s;
+	}
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+	}
+	&-enter-active,
+	&-leave-active {
+		transition: all 0.3s ease-out;
+	}
+}
+// fade
+.fade {
+	&-top {
+		&-enter,
+		&-leave-to {
+			transform: translateY(-30vh);
+		}
+	}
+	&-left {
+		&-enter,
+		&-leave-to {
+			transform: translateX(-30vh);
+		}
+	}
+	&-right {
+		&-enter,
+		&-leave-to {
+			transform: translateX(30vh);
+		}
+	}
+	&-bottom {
+		&-enter,
+		&-leave-to {
+			transform: translateY(30vh);
+		}
+	}
+	&-enter,
+	&-leave-to {
+		opacity: 0;
+	}
+	&-top,
+	&-left,
+	&-right,
+	&-bottom {
+		&-enter,
+		&-leave-to {
+			opacity: 0;
+			position: absolute;
+			pointer-events: none;
+		}
+	}
+	&,
+	&-top,
+	&-left,
+	&-right,
+	&-bottom {
+		&-enter-active {
+			transition-delay: 0.3s;
+		}
+		&-enter-active,
+		&-leave-active {
+			transition: all 0.3s ease-out;
+		}
+	}
+}
+// termina vue transitions
+
+// inicia animations
+//
+// @group Status
+.is__animated {
+	&,
+	&:before,
+	&:after {
+		-webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+		animation-fill-mode: forwards;
+		animation-timing-function: ease-out;
+	}
+
+	&.m__iterations-infinite {
+		--ai: infinite;
+	}
+
+	@for $i from 1 through 20 {
+		&.m__delay-#{$i} {
+			--ad: #{$i/10}s;
+		}
+		&.m__iterations-#{$i} {
+			--ai: #{$i};
+		}
+	}
+
+	&[class*="__delay"] {
+		animation-delay: var(--ad, initial);
+	}
+	&[class*="__iterations"] {
+		animation-iteration-count: var(--ai, initial);
+	}
+}
+
+// animate only on pc
+@media (hover: hover) {
+	[class*="a-"].is__animated {
+		&,
+		&:before,
+		&:after {
+			animation-name: var(--an, initial);
+			animation-duration: var(--ad, initial);
+		}
+	}
+	// grows from the center
+	//
+	// @group Animations
+	.a-growingIn {
+		max-height: 0;
+		// opacity: 0;
+		// transform: translateY(-5vh);
+		&.is__animated {
+			--an: growingIn;
+			--ad: 6s;
+		}
+	}
+
+	// fades from the center
+	//
+	// @group Animations
+	.a-fadeIn {
+		opacity: 0;
+		// transform: translateY(-5vh);
+		&.is__animated {
+			--an: fadeIn;
+			--ad: 1.2s;
+		}
+	}
+
+	// grows from the top
+	//
+	// @group Animations
+	.a-topFade {
+		opacity: 0;
+		transform: translateY(-5vh);
+		&.is__animated {
+			--an: topFade;
+			--ad: 0.6s;
+		}
+	}
+
+	// grows from the bottom
+	//
+	// @group Animations
+	.a-bottomFade {
+		opacity: 0;
+		transform: translateY(5vh);
+		&.is__animated {
+			--an: bottomFade;
+			--ad: 0.6s;
+		}
+	}
+
+	// grows from the left
+	//
+	// @group Animations
+	.a-leftFade {
+		opacity: 0;
+		transform: translateX(-5vh);
+		&.is__animated {
+			--an: bottomFade;
+			--ad: 0.6s;
+		}
+	}
+
+	// grows from the right
+	//
+	// @group Animations
+	.a-rightFade {
+		opacity: 0;
+		transform: translateX(5vh);
+		&.is__animated {
+			--an: bottomFade;
+			--ad: 0.6s;
+		}
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	*,
+	::before,
+	::after {
+		animation-duration: 0.001s !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001s !important;
+	}
+}
+
+@keyframes growingIn {
+	0% {
+	}
+	100% {
+		// opacity: 1;
+		max-height: 1000px;
+		overflow: visible;
+		// transform: translateY(0);
+	}
+}
+@keyframes fadeIn {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		// transform: translateY(0);
+	}
+}
+@keyframes topFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes bottomFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+@keyframes leftFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes rightFade {
+	0% {
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+// termina animations

@@ -94,7 +94,7 @@
     "tabWidth": 4,
     "useTabs": true,
     "endOfLine": "auto",
-    "requirePragma": true,
+    "requirePragma": false,
     "insertPragma": false
   },
   "stylelint": {

@@ -1,0 +1,84 @@
+// Striped child color
+.xm__striped {
+	@include extend-viewports-classes {
+		> :nth-child(odd) {
+			--cbg: #{color(secondary, 0.1)};
+		}
+	}
+}
+
+// Background color
+.xm__bgColor {
+	@include extend-viewports-classes {
+		--cbg: #{color(light)};
+	}
+}
+
+// Border color
+.xm__bdrColor {
+	@include extend-viewports-classes {
+		--cbc: #{color(secondary, 0.1)};
+	}
+}
+
+// defaults
+[class*="__st"] {
+	// Striped
+	> :nth-child(odd) {
+		background-color: var(--cbg);
+	}
+}
+[class*="__bgC"]:not([class*="or-no"]) {
+	// Color
+	background-color: var(--cbg);
+}
+[class*="__bdrC"] {
+	// Color
+	border-color: var(--cbc);
+}
+
+// text color & text shadow & background color & borderColor
+// color based modifiers
+//
+// @group ColorGlobalModifiers
+@each $name, $color in $colors {
+	// striped childs
+	.xm__striped-#{$name} {
+		@include extend-viewports-classes {
+			> :nth-child(odd) {
+				--cbg: #{color($name, 0.1)};
+			}
+		}
+	}
+
+	// background color
+	.xm__bgColor-#{$name} {
+		@include extend-viewports-classes {
+			--cbg: #{color($name)};
+		}
+	}
+
+	// borderColor
+	.xm__bdrColor-#{$name} {
+		@include extend-viewports-classes {
+			--cbc: #{color($name)};
+		}
+	}
+
+	// shades of color
+	@for $i from 1 through 9 {
+		// background color
+		.xm__bgColor-#{$name}#{$i} {
+			@include extend-viewports-classes {
+				--cbg: #{color($name, $i/10)};
+			}
+		}
+
+		// borderColor
+		.xm__bdrColor-#{$name}#{$i} {
+			@include extend-viewports-classes {
+				--cbc: #{color($name, $i/10)};
+			}
+		}
+	}
+}

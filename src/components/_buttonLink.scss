@@ -1,0 +1,120 @@
+// link Navigation element
+//
+// @group Components
+.x-btnLink {
+	@media (max-width: $viewportMd) {
+		// mobile
+		// Size
+		// this is the default value
+		height: var(--sz, 2.4rem);
+		border-radius: var(--br, 1rem);
+		border-width: var(--bw, 2px);
+		padding: var(--bp, 0 0.8rem);
+		&:not(.is__route):not(.is__active) {
+			--bp: 0;
+			span {
+				display: none;
+			}
+		}
+		&.is__route,
+		&.is__active {
+			// text only
+			i.x-icon,
+			.x-svg {
+				display: none;
+			}
+		}
+		&:not(.is__route):not(.is__active) {
+			// icon only
+			width: var(--sz, 2.4rem);
+		}
+
+		i.x-icon,
+		.x-svg {
+			&:first-child {
+				display: none;
+			}
+		}
+
+		@each $name, $size in $fontSizes {
+			&.m__size-#{$name} {
+				--sz: $size * 2.6;
+				--br: $size;
+				--bw: calc(2px + (#{$size} / 18));
+				--bp: 0 #{$size * 0.8};
+			}
+		}
+	}
+
+	@media (min-width: $viewportMd + 1) {
+		// desktop
+		--cl: var(--rw) !important;
+		--bg: transparent !important;
+
+		// ruta activa
+		//
+		// @group Statuses
+		&.is__route:before {
+			content: "...";
+			display: block;
+			position: absolute;
+			top: calc(100%);
+			left: 0;
+			line-height: 0;
+			overflow: visible;
+			font-size: 1.3em;
+		}
+
+		// nav link themes
+		//
+		// @group Modifiers
+		&.u__tm {
+			&-light-primaryAlt {
+				&:hover,
+				&.is__active,
+				&.is__routeExact {
+					--rw: #{color(primaryAlt)};
+				}
+			}
+			&-primary-light {
+				&:hover,
+				&.is__active,
+				&.is__routeExact {
+					--rw: #{color(primary)};
+				}
+			}
+			&-danger-light {
+				--rw: #{color(danger)};
+				&:hover:not(.is__active):not(.is__routeExact) {
+					--rw: #{color(danger, 0.5)};
+				}
+				&.is__active,
+				&.is__routeExact {
+					--rw: #{color(danger, 0.7)};
+				}
+			}
+			&-primary-light,
+			&-light-primaryAlt {
+				--rw: #{color(light)};
+			}
+		}
+		// default theme: secondary
+		&:not([class*="u__tm"]),
+		&.u__tm-secondary-light {
+			--rw: #{color(secondary)};
+			&:hover:not(.is__active):not(.is__routeExact) {
+				--rw: #{color(dark, 0.5)};
+			}
+			&.is__active,
+			&.is__routeExact {
+				--rw: #{color(dark, 0.7)};
+			}
+		}
+		i.x-icon,
+		.x-svg {
+			&:last-child {
+				display: none;
+			}
+		}
+	}
+}
