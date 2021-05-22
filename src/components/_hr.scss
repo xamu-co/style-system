@@ -1,6 +1,3 @@
-// TODO: swicht to svg to create different themes
-$hrPatternX: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAABCAYAAADn9T9+AAAAFklEQVQYV2Pkd1//nwENfNwZyIguBgByogQC7WHnJwAAAABJRU5ErkJggg==";
-$hrPatternY: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKCAYAAAB10jRKAAAAE0lEQVQYV2Pgd1//nwEbwYADAAByIwoV0EDsZAAAAABJRU5ErkJggg==";
 // Delimiter
 //
 // @group Components
@@ -18,7 +15,7 @@ hr {
 			// default theme
 			&:not([class*="__tm"]),
 			&.m__tm-secondary {
-				background-image: url($hrPatternX);
+				background-image: url("#{$rulerPatternX}");
 			}
 		}
 	}
@@ -35,7 +32,7 @@ hr {
 			// default theme
 			&:not([class*="__tm"]),
 			&.m__tm-secondary {
-				background-image: url($hrPatternY);
+				background-image: url("#{$rulerPatternY}");
 			}
 		}
 	}
@@ -62,7 +59,7 @@ hr {
 		background-repeat: round;
 		background-position: 50% 50%;
 		flex: 0 0 auto;
-		background-image: url($hrPatternX);
+		background-image: url("#{$rulerPatternX}");
 		&:last-child:not(:nth-child(2)) {
 			display: none;
 		}

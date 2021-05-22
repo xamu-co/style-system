@@ -4,7 +4,7 @@
 .x-txt {
 	--tw: normal;
 	text-align: var(--ta, initial);
-	color: var(--ccl, #{color(dark, 0.7)});
+	color: var(--ccl, color(dark, 0.7));
 	&:not([class*="-flx"]):not([class*="x-grd"]):not([class*="__txtAlignF"]) {
 		// Flx
 		display: block;

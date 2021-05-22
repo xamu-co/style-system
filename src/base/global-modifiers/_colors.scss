@@ -1,40 +1,22 @@
-// Striped child color
-.xm__striped {
-	@include extend-viewports-classes {
+// Striped
+[class*="__str"] {
+	&:not(.x-table),
+	&.x-table tbody {
 		> :nth-child(odd) {
-			--cbg: #{color(secondary, 0.1)};
+			background-color: var(--cbg, color(secondary, 0.1));
 		}
 	}
+	// &.x-table thead > :nth-last-child(odd) {
+	// 	background-color: var(--cbg, color(secondary, 0.1));
+	// }
 }
-
-// Background color
-.xm__bgColor {
-	@include extend-viewports-classes {
-		--cbg: #{color(light)};
-	}
-}
-
-// Border color
-.xm__bdrColor {
-	@include extend-viewports-classes {
-		--cbc: #{color(secondary, 0.1)};
-	}
-}
-
-// defaults
-[class*="__st"] {
-	// Striped
-	> :nth-child(odd) {
-		background-color: var(--cbg);
-	}
-}
+// Color
 [class*="__bgC"]:not([class*="or-no"]) {
-	// Color
-	background-color: var(--cbg);
+	background-color: var(--cbg, color(light));
 }
+// Color
 [class*="__bdrC"] {
-	// Color
-	border-color: var(--cbc);
+	border-color: var(--cbc, color(secondary, 0.1));
 }
 
 // text color & text shadow & background color & borderColor
@@ -45,9 +27,7 @@
 	// striped childs
 	.xm__striped-#{$name} {
 		@include extend-viewports-classes {
-			> :nth-child(odd) {
-				--cbg: #{color($name, 0.1)};
-			}
+			--cbg: #{color($name, 0.1)};
 		}
 	}
 

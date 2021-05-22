@@ -6,8 +6,9 @@
 	module concatenation
 */
 
+@import "utils/module";
+
 @media only screen {
-	@import "utils/module";
 	// @import "vendor/module"; // the vendors are independent in this built
 
 	:root {

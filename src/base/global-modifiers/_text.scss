@@ -200,39 +200,21 @@
 	}
 }
 
-// default color
-.xm__txtColor {
-	@include extend-viewports-classes {
-		&,
-		> :not([class*="__txtC"]):not([class|="x"]) {
-			// Color
-			--ccl: #{color(dark, 0.7)};
-		}
-	}
-}
+// Text color
 [class*="__txtC"] {
 	&,
 	> :not([class*="__txtC"]):not([class|="x"]) {
 		// Color
-		color: var(--ccl);
+		color: var(--ccl, color(dark, 0.7));
 	}
 }
 
-// default text color
-.xm__txtShadow {
-	@include extend-viewports-classes {
-		&,
-		> :not([class*="__txtSh"]):not([class|="x"]) {
-			// Shadow
-			--csh: #{color(dark, 0.3)};
-		}
-	}
-}
+// Shadow color
 [class*="__txtSh"] {
 	&,
 	> :not([class*="__txtSh"]):not([class|="x"]) {
 		// Shadow
-		text-shadow: 1px 1px 1px var(--csh);
+		text-shadow: 1px 1px 1px var(--csh, color(dark, 0.3));
 	}
 }
 

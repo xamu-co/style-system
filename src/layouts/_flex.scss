@@ -195,4 +195,50 @@
 			}
 		}
 	}
+
+	// gaping fix
+	&:last-child:not([class*="x-item"]) {
+		&[class*="__flxR"] {
+			// row fix
+			> :not(.unfix__gaping) {
+				&[class*="__flx"][class*="-wrap"],
+				&[class*="__flx"][class*="-reverse"],
+				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
+					&:first-child:only-of-type,
+					&:last-child {
+						// margin-bottom: 0;
+						margin-right: calc(-1 * (var(--g) - var(--gx)));
+						margin-bottom: calc(-1 * (var(--g) - var(--gx)));
+					}
+				}
+			}
+		}
+		&[class*="__flxC"] {
+			// column fix
+			> :not(.unfix__gaping) {
+				&[class*="__flx"][class*="-wrap"],
+				&[class*="__flx"][class*="-reverse"],
+				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
+					&:first-child:only-of-type,
+					&:last-child {
+						// margin-bottom: 0;
+						margin-right: calc(-1 * (var(--g) - var(--gy)));
+						margin-bottom: calc(-1 * (var(--g) - var(--gy)));
+					}
+				}
+			}
+		}
+	}
+	// column & row fix
+	&[class*="__flxR"],
+	&[class*="__flxC"] {
+		// Row, Column
+		&:last-child:not([class*="x-item"]) > :last-child:not(.unfix__gaping) {
+			&[class*="__flx"][class*="-wrap"],
+			&[class*="__flx"][class*="-reverse"],
+			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
+				margin: 0;
+			}
+		}
+	}
 }

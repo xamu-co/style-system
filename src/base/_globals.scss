@@ -7,27 +7,6 @@
 	color: color(light);
 }
 
-// ::placeholder{
-// 	color: color(secondary);
-// }
-
-// &::-webkit-scrollbar{
-// 	width: 13px;
-// 	background-color: color(dark);
-// }
-// &::-webkit-scrollbar-track{
-// 	-webkit-box-shadow: none;
-// }
-// &::-webkit-scrollbar-thumb{
-// 	background-color: color(secondary);
-// 	border-style: solid;
-// 	border-width: 0 3px;
-// 	border-color:color(dark);
-// 	&:hover{
-// 		background-color: color(primary);
-// 	}
-// }
-
 * {
 	margin: 0;
 	padding: 0;
@@ -205,7 +184,7 @@ h6 {
 
 // global font weight
 // breaking it because it is too long
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(button):not(strong) {
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(th):not(button):not(strong) {
 	// xamu
 	&:not(label[class|="x"]):not([class*="__txtWe"]) {
 		// external brands
@@ -224,6 +203,7 @@ h3,
 h4,
 h5,
 h6,
+th,
 button,
 strong,
 .x-btn,
@@ -234,57 +214,6 @@ strong,
 		@supports (-moz-appearance: none) {
 			// firefox fix
 			font-weight: $fontWeightBoldAlt;
-		}
-	}
-}
-
-// gaping fix
-// flx & flxInline
-//
-// @group SharedStyles
-[class*="-flx"] {
-	&:last-child:not([class*="x-item"]) {
-		&[class*="__flxR"] {
-			// row fix
-			> :not(.unfix__gaping) {
-				&[class*="__flx"][class*="-wrap"],
-				&[class*="__flx"][class*="-reverse"],
-				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-					&:first-child:only-of-type,
-					&:last-child {
-						// margin-bottom: 0;
-						margin-right: calc(-1 * (var(--g) - var(--gx)));
-						margin-bottom: calc(-1 * (var(--g) - var(--gx)));
-					}
-				}
-			}
-		}
-		&[class*="__flxC"] {
-			// column fix
-			> :not(.unfix__gaping) {
-				&[class*="__flx"][class*="-wrap"],
-				&[class*="__flx"][class*="-reverse"],
-				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-					&:first-child:only-of-type,
-					&:last-child {
-						// margin-bottom: 0;
-						margin-right: calc(-1 * (var(--g) - var(--gy)));
-						margin-bottom: calc(-1 * (var(--g) - var(--gy)));
-					}
-				}
-			}
-		}
-	}
-	// column & row fix
-	&[class*="__flxR"],
-	&[class*="__flxC"] {
-		// Row, Column
-		&:last-child:not([class*="x-item"]) > :last-child:not(.unfix__gaping) {
-			&[class*="__flx"][class*="-wrap"],
-			&[class*="__flx"][class*="-reverse"],
-			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-				margin: 0;
-			}
 		}
 	}
 }
