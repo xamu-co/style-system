@@ -142,6 +142,9 @@
 	background: color(light);
 	box-shadow: 3px 3px 9px color(dark, 0.3);
 	position: absolute;
+	&:not([class*="__txtS"]) {
+		font-size: size(sm);
+	}
 	&:before {
 		content: "";
 		position: absolute;
