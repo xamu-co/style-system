@@ -75,20 +75,20 @@
 .xm__txtWeight {
 	&-bold {
 		@include extend-viewports-classes {
-			font-weight: $fontWeightBold;
+			font-weight: weight(bold);
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				font-weight: $fontWeightBoldAlt;
+				font-weight: weight(bold-alt);
 			}
 		}
 	}
 	&,
 	&-regular {
 		@include extend-viewports-classes {
-			font-weight: $fontWeightRegular;
+			font-weight: weight();
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				font-weight: $fontWeightRegularAlt;
+				font-weight: weight(regular-alt);
 			}
 		}
 	}
@@ -189,7 +189,7 @@
 .xm__txtSize,
 .xm__txtSize-normal {
 	@include extend-viewports-classes {
-		font-size: $fontSize;
+		font-size: size();
 	}
 }
 @each $name, $size in $fontSizes {

@@ -32,12 +32,12 @@
 
 h1:not([class*="__txtSi"]):not([class*="swal"]) {
 	// Size
-	font-size: $fontSizeExtraLarge;
+	font-size: size(xl);
 	br {
 		display: none;
 	}
 	@media (min-width: $viewportMd + 1) {
-		font-size: $fontSizeExtraExtraLarge;
+		font-size: size(xx);
 		br {
 			display: inline;
 		}
@@ -45,12 +45,12 @@ h1:not([class*="__txtSi"]):not([class*="swal"]) {
 }
 h2:not([class*="__txtSi"]):not([class*="swal"]) {
 	// Size
-	font-size: $fontSizeLarge;
+	font-size: size(lg);
 	br {
 		display: none;
 	}
 	@media (min-width: $viewportMd + 1) {
-		font-size: $fontSizeExtraLarge;
+		font-size: size(xl);
 		br {
 			display: inline;
 		}
@@ -58,15 +58,15 @@ h2:not([class*="__txtSi"]):not([class*="swal"]) {
 }
 h3:not([class*="__txtSi"]):not([class*="swal"]) {
 	// Size
-	font-size: $fontSizeLarge;
+	font-size: size(lg);
 }
 h4:not([class*="__txtSi"]):not([class*="swal"]) {
 	// Size
-	font-size: $fontSizeMedium;
+	font-size: size(md);
 }
 
 code {
-	font-family: font(code);
+	font-family: family(code);
 }
 
 svg {
@@ -129,10 +129,10 @@ iframe {
 	color: color(light);
 	&:before {
 		content: "\f7a9";
-		font-family: font(awesome);
+		font-family: family(awesome);
 		font-weight: 900;
 		color: color(danger);
-		font-size: $fontSizeExtraExtraLarge;
+		font-size: size(xx);
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -178,7 +178,7 @@ h3,
 h4,
 h5,
 h6 {
-	// font-family: font(second);
+	// font-family: family(second);
 	--tw: normal;
 }
 
@@ -210,10 +210,10 @@ strong,
 .x-btnToggle {
 	&:not([class*="__txtWe"]) {
 		// Weight
-		font-weight: $fontWeightBold;
+		font-weight: weight(bold);
 		@supports (-moz-appearance: none) {
 			// firefox fix
-			font-weight: $fontWeightBoldAlt;
+			font-weight: weight(bold-alt);
 		}
 	}
 }

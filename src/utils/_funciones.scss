@@ -6,10 +6,21 @@
 }
 
 //retorna la fuente del mapa de fuentes
-@function font($font-name) {
+@function family($font-name: primary) {
 	$index: index(($fonts), ($font-name map-get($fonts, $font-name)));
 	@return var(--f-#{$index}, #{map-get($fonts, $font-name)});
 }
+
+//returns the size from the map of sizes
+@function size($font-size: nm) {
+	@return map-get($fontSizes, $font-size);
+}
+
+//returns the weight from the map of weights
+@function weight($font-weight: regular) {
+	@return map-get($fontWeights, $font-weight);
+}
+
 //retorna el color del mapa de colores
 @function color($color-name, $rgb: false) {
 	$index: index(($colors), ($color-name map-get($colors, $color-name)));

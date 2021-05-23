@@ -7094,7 +7094,7 @@ sort-css-media-queries@1.5.4:
 
 sort-css-media-queries@vis97c/sort-css-media-queries:
   version "1.5.4"
-  resolved "https://codeload.github.com/vis97c/sort-css-media-queries/tar.gz/54c6c88b5d3eba014df563a57f76fd05ccc1cbf4"
+  resolved "https://codeload.github.com/vis97c/sort-css-media-queries/tar.gz/7a76ebe44c9d3088934aaa828a1aa1ed20f25261"
 
 source-map-js@^0.6.2:
   version "0.6.2"

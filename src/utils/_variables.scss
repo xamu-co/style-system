@@ -52,32 +52,25 @@ $viewports: (
 	xl: $viewportXl,
 );
 
-// font size
-$fontSizeExtraSmall: 0.7rem;
-$fontSizeSmall: 0.9rem;
-$fontSize: 1rem;
-$fontSizeMedium: 1.2rem;
-$fontSizeLarge: 1.8rem;
-$fontSizeExtraLarge: 2.8rem;
-$fontSizeExtraExtraLarge: 3.8rem;
-$fontSizeMaximum: 4.8rem;
-
+// font sizes
 $fontSizes: (
-	xs: $fontSizeExtraSmall,
-	sm: $fontSizeSmall,
-	md: $fontSizeMedium,
-	lg: $fontSizeLarge,
-	xl: $fontSizeExtraLarge,
-	xxl: $fontSizeExtraExtraLarge,
-	max: $fontSizeMaximum,
+	xs: 0.7rem,
+	sm: 0.9rem,
+	nm: 1rem,
+	md: 1.2rem,
+	lg: 1.8rem,
+	xl: 2.8rem,
+	xx: 3.8rem,
+	mx: 4.8rem,
 );
 
-// font weight
-$fontWeightRegular: 400;
-$fontWeightBold: 600;
-// firefox fix: font weight
-$fontWeightRegularAlt: 300;
-$fontWeightBoldAlt: 500;
+// font weights
+$fontWeights: (
+	regular: 400,
+	bold: 600,
+	regular-alt: 300,
+	bold-alt: 500,
+);
 
 // line height
 $lineHeight: 1.2em;

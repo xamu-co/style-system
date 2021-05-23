@@ -41,20 +41,20 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		font-size: 100%;
-		font-weight: $fontWeightRegular;
+		font-weight: weight();
 		text-rendering: optimizeLegibility;
 		@supports (-moz-appearance: none) {
 			// firefox fix, font weight bug
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			font-weight: $fontWeightRegularAlt;
+			font-weight: weight(regular-alt);
 		}
 	}
 
 	body {
 		width: 100%;
-		font-family: font(primary);
-		font-size: $fontSize;
+		font-family: family(primary);
+		font-size: size();
 		overflow: hidden;
 		@media (max-width: $viewportMd) and (hover: none) {
 			@supports (-moz-appearance: none) {

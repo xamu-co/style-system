@@ -20,7 +20,7 @@ nav.x-list {
 	&.is__active,
 	> input[type^="c"]:checked ~ {
 		.toggle__list {
-			font-weight: $fontWeightBold;
+			font-weight: weight(bold);
 			margin-bottom: 1rem;
 			i.x-icon,
 			.x-svg {

@@ -18,7 +18,7 @@
 		font-size: 0.7rem;
 		opacity: 0;
 		border-radius: 0.5rem;
-		font-weight: $fontWeightRegular;
+		font-weight: weight();
 		box-shadow: 3px 3px 9px color(dark, 0.3);
 		box-sizing: content-box;
 		border: 2px solid color(light, 0.1);

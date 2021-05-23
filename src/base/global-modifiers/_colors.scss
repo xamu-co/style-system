@@ -1,20 +1,26 @@
-// Striped
+// Default striped
 [class*="__str"] {
-	&:not(.x-table),
-	&.x-table tbody {
-		> :nth-child(odd) {
+	&:not(.x-table) {
+		> :nth-child(even) {
 			background-color: var(--cbg, color(secondary, 0.1));
 		}
 	}
-	// &.x-table thead > :nth-last-child(odd) {
-	// 	background-color: var(--cbg, color(secondary, 0.1));
-	// }
+	&.x-table tbody tr:nth-child(even) td:before {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: var(--cbg, color(secondary, 0.1));
+	}
 }
-// Color
+// Default color
 [class*="__bgC"]:not([class*="or-no"]) {
 	background-color: var(--cbg, color(light));
 }
-// Color
+// Default border color
 [class*="__bdrC"] {
 	border-color: var(--cbc, color(secondary, 0.1));
 }

@@ -14,7 +14,7 @@ input[type^="r"].x-inRadio {
 			border-radius: 50%;
 			border-width: 2px;
 			border-style: solid;
-			font-family: font(awesome);
+			font-family: family(awesome);
 			font-weight: 900;
 			text-align: center;
 			line-height: 1.7rem;
@@ -34,7 +34,7 @@ input[type^="r"].x-inRadio {
 		}
 	}
 	&:checked + label {
-		font-weight: $fontWeightBold;
+		font-weight: weight(bold);
 		&:after {
 			content: "\f111";
 			// color: var(--cl, color(light));
