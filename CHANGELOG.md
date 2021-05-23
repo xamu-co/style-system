@@ -1,5 +1,12 @@
 Xamu style system
 
+# [5.0.0-next.9](https://github.com/xamu-co/style-system/compare/v5.0.0-next.8...v5.0.0-next.9) (2021-05-23)
+
+
+### Features
+
+* font size small as default on dropdowns ([4d91282](https://github.com/xamu-co/style-system/commit/4d912821edb6358691f8ac0c5105bfa7b99abd2d))
+
 # [5.0.0-next.8](https://github.com/xamu-co/style-system/compare/v5.0.0-next.7...v5.0.0-next.8) (2021-05-23)
 
 
