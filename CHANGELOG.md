@@ -1,5 +1,24 @@
 Xamu style system
 
+# [5.0.0-next.8](https://github.com/xamu-co/style-system/compare/v5.0.0-next.7...v5.0.0-next.8) (2021-05-23)
+
+
+### Bug Fixes
+
+* a in paragraph display ([658cc62](https://github.com/xamu-co/style-system/commit/658cc624595a94dbf9cf079a248a823771854ea0))
+* broken postcss-precision ([ba8afc4](https://github.com/xamu-co/style-system/commit/ba8afc442310d15b2ce3423c52e9dc8f270e94f9))
+* highlight on hover over dropdown toggle ([ce35354](https://github.com/xamu-co/style-system/commit/ce35354ce2abaac00c84dedbb235dbc6dbdfadd8))
+* media queries order ([880067e](https://github.com/xamu-co/style-system/commit/880067e1600d9ff3fd94f4638460c89ab7d5f19c))
+* restore column wrap ([7f299b2](https://github.com/xamu-co/style-system/commit/7f299b2902e27ccfdfa474e703a849839d30edd3))
+* scroll padding ([b81996b](https://github.com/xamu-co/style-system/commit/b81996b897dab30e236e62276dd0518f0dc6d7e9))
+* text align in components ([ed09b11](https://github.com/xamu-co/style-system/commit/ed09b11c78f35c88c6915b961d30ee319c1e1cdd))
+* use local serve version ([303ac66](https://github.com/xamu-co/style-system/commit/303ac665e84c05e14756e0108541d92ecf3207e0))
+
+
+### Features
+
+* basic table ([ef36e12](https://github.com/xamu-co/style-system/commit/ef36e12665f07700ce54adf43e56cfeef420244c))
+
 # [5.0.0-next.7](https://github.com/xamu-co/style-system/compare/v5.0.0-next.6...v5.0.0-next.7) (2021-03-20)
 
 
