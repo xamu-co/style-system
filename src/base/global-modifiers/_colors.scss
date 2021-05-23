@@ -1,0 +1,70 @@
+// Default striped
+[class*="__str"] {
+	&:not(.x-table) {
+		> :nth-child(even) {
+			background-color: var(--cbg, color(secondary, 0.1));
+		}
+	}
+	&.x-table tbody tr:nth-child(even) td:before {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: var(--cbg, color(secondary, 0.1));
+	}
+}
+// Default color
+[class*="__bgC"]:not([class*="or-no"]) {
+	background-color: var(--cbg, color(light));
+}
+// Default border color
+[class*="__bdrC"] {
+	border-color: var(--cbc, color(secondary, 0.1));
+}
+
+// text color & text shadow & background color & borderColor
+// color based modifiers
+//
+// @group ColorGlobalModifiers
+@each $name, $color in $colors {
+	// striped childs
+	.xm__striped-#{$name} {
+		@include extend-viewports-classes {
+			--cbg: #{color($name, 0.1)};
+		}
+	}
+
+	// background color
+	.xm__bgColor-#{$name} {
+		@include extend-viewports-classes {
+			--cbg: #{color($name)};
+		}
+	}
+
+	// borderColor
+	.xm__bdrColor-#{$name} {
+		@include extend-viewports-classes {
+			--cbc: #{color($name)};
+		}
+	}
+
+	// shades of color
+	@for $i from 1 through 9 {
+		// background color
+		.xm__bgColor-#{$name}#{$i} {
+			@include extend-viewports-classes {
+				--cbg: #{color($name, $i/10)};
+			}
+		}
+
+		// borderColor
+		.xm__bdrColor-#{$name}#{$i} {
+			@include extend-viewports-classes {
+				--cbc: #{color($name, $i/10)};
+			}
+		}
+	}
+}

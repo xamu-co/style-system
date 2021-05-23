@@ -1,0 +1,78 @@
+table.x-table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	box-sizing: border-box;
+	border-spacing: 0;
+
+	&:not([class*="__txtA"]) {
+		// Align
+		tr {
+			th,
+			td {
+				&:not([class*="__txtA"]) {
+					text-align: var(--ta, left);
+				}
+			}
+		}
+	}
+	&:not([class*="__txtC"]) {
+		// Color
+		tr {
+			th:not([class*="__txtC"]) {
+				color: var(--ccl, color(secondary));
+			}
+			td:not([class*="__txtC"]) {
+				color: var(--ccl, color(dark, 0.7));
+			}
+		}
+	}
+
+	thead {
+		tr {
+			&:not(:first-child) {
+				border-top: 2px solid transparent;
+				&:after {
+					content: "";
+					width: calc(100% + 1rem);
+					display: block;
+					height: 2px;
+					position: absolute;
+					left: 0;
+					margin-top: -2px;
+					margin-left: -0.5rem;
+					margin-right: -0.5rem;
+					opacity: 0.2;
+					background-repeat: round;
+					background-position: 50% 50%;
+					flex: 0 0 auto;
+					background-image: var(--rbg, url("#{$rulerPatternX}"));
+				}
+			}
+		}
+	}
+	tbody {
+		box-shadow: 3px 3px 9px color(dark, 0.1);
+		tr {
+			&:not(:first-child) {
+				border-top: 2px solid color(secondary, 0.1);
+			}
+			td {
+				background: color(light);
+			}
+			th {
+				background: color(secondary, 0.1);
+			}
+		}
+	}
+	thead,
+	tbody {
+		width: 100%;
+		box-sizing: border-box;
+	}
+	tr {
+		td,
+		th {
+			padding: 0.7rem 1rem;
+		}
+	}
+}

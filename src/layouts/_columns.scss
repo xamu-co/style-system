@@ -1,0 +1,77 @@
+/// # Column layout
+/// Useful for representing columns layouts like in old newspapers
+/// ```css
+///  .x-cols
+/// ```
+/// Aditionally it defines a max column width making it automatically responsive no matter the ammout of columns
+///
+/// ## Requirements:
+/// None
+///
+/// ## Modifiers:
+/// ### Column count
+/// Columns range goes from 2 to 12, 2 is the default.
+/// ```css
+///  .x-cols.m__count-2
+/// ```
+///
+/// ## Unions:
+/// None
+///
+/// @group layout-column
+/// @example njk
+///  <div class="x-flx m__flxColumn">
+///   <div class="x-txt xm__txtAlignFlex-start">
+///    <h4>Displaying two columns</h4>
+///    <p>just <b class="xm__txtColor-secondary xm__txtStyle">.x-cols</b> or <b class="xm__txtColor-secondary xm__txtStyle">.x-cols.m__count</b> or <b class="xm__txtColor-secondary xm__txtStyle">.x-cols.m__count-2</b></p>
+///   </div>
+///   <div class="x-cols xm__width-full xm__gapingY-30">
+///    {% for avatar in ['aguacate','cereza'] %}
+///     <a href="#" class="x-avatarAureo m__size-lg" >
+///      <img src="https://picsum.photos/seed/{{avatar}}/400/300" alt="Random" loading="lazy">
+///     </a>
+///    {% endfor %}
+///   </div>
+///   <div class="x-txt xm__txtAlignFlex-start">
+///    <h4>Displaying three columns</h4>
+///    <p><b class="xm__txtColor-secondary xm__txtStyle">.x-cols.m__count-3</b></p>
+///   </div>
+///   <div class="x-cols m__count-3 xm__width-full xm__gapingY-30">
+///    {% for avatar in ['aguacate','cereza','platano'] %}
+///     <a href="#" class="x-avatarAureo m__size-lg" >
+///      <img src="https://picsum.photos/seed/{{avatar}}/400/300" alt="Random" loading="lazy">
+///     </a>
+///    {% endfor %}
+///   </div>
+///  </div>
+
+.x-cols {
+	@include extend-device-interactions {
+		columns: var(--cc, initial); // count
+	}
+
+	@for $i from 3 through 12 {
+		&.m__count-#{$i} {
+			@include extend-viewports-classes {
+				--cc: #{$minColumnSize/$i * 3} #{$i};
+			}
+		}
+	}
+	// default
+	&.m__count,
+	&.m__count-2,
+	&:not([class*="__co"]) {
+		// Count
+		--cc: #{$minColumnSize/2 * 3} 2;
+	}
+
+	> * {
+		// margin: 0;
+		// display: inline-block;
+		break-inside: avoid;
+	}
+	&:not([class*="__gapi"]) > :not(br):not(:last-child):not([class*="__mB"]) {
+		// Gaping, Bottom
+		margin-bottom: 2rem;
+	}
+}

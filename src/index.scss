@@ -1,5 +1,3 @@
-/** @format */
-
 /**
 	MAIN STYLESHEET
 
@@ -8,9 +6,10 @@
 	module concatenation
 */
 
+@import "utils/module";
+
 @media only screen {
-	@import "00-utils/module";
-	// @import "01-vendor/module"; // the vendors are independent in this built
+	// @import "vendor/module"; // the vendors are independent in this built
 
 	:root {
 		@each $name, $font in $fonts {
@@ -25,14 +24,16 @@
 			// rgb
 			--r-c#{$color-index}: #{to-rgb($color)};
 		}
-		// --full-height: calc(100vh - 60px);
 	}
 
-	// @import '02-fonts/module'; // this project use google fonts
-	@import "03-base/module";
-	@import "04-pseudos/module";
-	@import "05-components/module";
-	@import "06-layouts/module";
+	// @import "fonts/module"; // this project uses google fonts
+
+	@import "base/module";
+	@import "base/global-modifiers/module"; // nested imports take longer to compile
+
+	@import "pseudos/module";
+	@import "components/module";
+	@import "layouts/module";
 
 	html {
 		width: 100%;
@@ -40,24 +41,24 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 		font-size: 100%;
-		font-weight: $fontWeightRegular;
+		font-weight: weight();
 		text-rendering: optimizeLegibility;
 		@supports (-moz-appearance: none) {
-			/// firefox fix, font weight bug
+			// firefox fix, font weight bug
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			font-weight: $fontWeightRegularAlt;
+			font-weight: weight(regular-alt);
 		}
 	}
 
 	body {
 		width: 100%;
-		font-family: font(primary);
-		font-size: $fontSize;
+		font-family: family(primary);
+		font-size: size();
 		overflow: hidden;
 		@media (max-width: $viewportMd) and (hover: none) {
 			@supports (-moz-appearance: none) {
-				/// firefox fix, scroll bug on android
+				// firefox fix, scroll bug on android
 				width: 100%;
 				height: 100%;
 				overflow-y: auto;

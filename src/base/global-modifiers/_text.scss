@@ -1,0 +1,272 @@
+// text tranform
+//
+// @group GlobalModifiers
+.xm__txtTransform {
+	&-lower,
+	&-lowercase {
+		@include extend-viewports-classes {
+			text-transform: lowercase;
+		}
+	}
+	&-upper,
+	&-uppercase {
+		@include extend-viewports-classes {
+			text-transform: uppercase;
+		}
+	}
+	&-capitalize {
+		@include extend-viewports-classes {
+			text-transform: capitalize;
+		}
+	}
+	// default
+	&,
+	&-none {
+		@include extend-viewports-classes {
+			text-transform: none;
+		}
+	}
+}
+
+// text wrap
+//
+// @group GlobalModifiers
+.xm__txtWrap {
+	&-nowrap {
+		@include extend-viewports-classes {
+			white-space: nowrap;
+		}
+	}
+	// default
+	&,
+	&-wrap {
+		@include extend-viewports-classes {
+			white-space: normal;
+		}
+	}
+}
+
+// text style
+//
+// @group GlobalModifiers
+.xm__txtStyle {
+	&-normal {
+		@include extend-viewports-classes {
+			font-style: normal;
+		}
+	}
+	&-oblique {
+		@include extend-viewports-classes {
+			font-style: oblique;
+		}
+	}
+	// default
+	&,
+	&-italic {
+		@include extend-viewports-classes {
+			font-style: italic;
+		}
+	}
+}
+
+// font weight
+//
+// @group GlobalModifiers
+.xm__txtWeight {
+	&-bold {
+		@include extend-viewports-classes {
+			font-weight: weight(bold);
+			@supports (-moz-appearance: none) {
+				// firefox fix
+				font-weight: weight(bold-alt);
+			}
+		}
+	}
+	&,
+	&-regular {
+		@include extend-viewports-classes {
+			font-weight: weight();
+			@supports (-moz-appearance: none) {
+				// firefox fix
+				font-weight: weight(regular-alt);
+			}
+		}
+	}
+}
+
+// text align
+//
+// @group FamilyGlobalModifiers
+[class*="__txtA"] {
+	text-align: var(--ta, initial);
+	&:not([class*="__gapi"]) > :not([class|="x"]) {
+		// Gaping
+		display: inline-block;
+	}
+	> :not([class*="__txtA"]):not([class|="x"]) {
+		// Align
+		text-align: var(--ta, initial);
+	}
+}
+
+.xm__txtAlign,
+.xm__txtAlignFlx {
+	&-right {
+		@include extend-viewports-classes {
+			--ta: right;
+		}
+	}
+	&-center {
+		@include extend-viewports-classes {
+			--ta: center;
+		}
+	}
+	&-justify {
+		@include extend-viewports-classes {
+			--ta: justify;
+		}
+	}
+	// default
+	&,
+	&-left {
+		@include extend-viewports-classes {
+			--ta: left;
+		}
+	}
+}
+
+// text align flex
+//
+// @group FamilyGlobalModifiers
+[class*="__txtAlignF"] {
+	@include flexbox(
+		column,
+		nowrap,
+		flex-start,
+		var(--tfa, initial),
+		inline-flex
+	);
+	> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+		// Align
+		@include flexbox(
+			column,
+			nowrap,
+			flex-start,
+			var(--tfa, initial),
+			inline-flex
+		);
+	}
+}
+
+.xm__txtAlignFlx {
+	&-right {
+		@include extend-viewports-classes {
+			--tfa: flex-end;
+		}
+	}
+	&-center {
+		@include extend-viewports-classes {
+			--tfa: center;
+		}
+	}
+	&-justify {
+		@include extend-viewports-classes {
+			--tfa: stretch;
+		}
+	}
+	// default
+	&,
+	&-left {
+		@include extend-viewports-classes {
+			--tfa: flex-start;
+		}
+	}
+}
+
+// text size
+//
+// @group GlobalModifiers
+.xm__txtSize,
+.xm__txtSize-normal {
+	@include extend-viewports-classes {
+		font-size: size();
+	}
+}
+@each $name, $size in $fontSizes {
+	.xm__txtSize-#{$name} {
+		@include extend-viewports-classes {
+			font-size: #{$size};
+		}
+	}
+}
+
+// Text color
+[class*="__txtC"] {
+	&,
+	> :not([class*="__txtC"]):not([class|="x"]) {
+		// Color
+		color: var(--ccl, color(dark, 0.7));
+	}
+}
+
+// Shadow color
+[class*="__txtSh"] {
+	&,
+	> :not([class*="__txtSh"]):not([class|="x"]) {
+		// Shadow
+		text-shadow: 1px 1px 1px var(--csh, color(dark, 0.3));
+	}
+}
+
+// text color & text shadow & background color & borderColor
+// color based modifiers
+//
+// @group ColorGlobalModifiers
+@each $name, $color in $colors {
+	// text color
+	.xm__txtColor-#{$name} {
+		@include extend-viewports-classes {
+			&,
+			> :not([class*="__txtC"]):not([class|="x"]) {
+				// Color
+				--ccl: #{color($name)};
+			}
+		}
+	}
+
+	// text shadow
+	.xm__txtShadow-#{$name} {
+		@include extend-viewports-classes {
+			&,
+			> :not([class*="__txtSh"]):not([class|="x"]) {
+				// Shadow
+				--csh: #{color($name)};
+			}
+		}
+	}
+
+	// shades of color
+	@for $i from 1 through 9 {
+		// text color
+		.xm__txtColor-#{$name}#{$i} {
+			@include extend-viewports-classes {
+				&,
+				> :not([class*="__txtC"]):not([class|="x"]) {
+					// Shadow
+					--ccl: #{color($name, $i/10)};
+				}
+			}
+		}
+
+		// text shadow
+		.xm__txtShadow-#{$name}#{$i} {
+			@include extend-viewports-classes {
+				&,
+				> :not([class*="__txtSh"]):not([class|="x"]) {
+					// Shadow
+					--csh: #{color($name, $i/10)};
+				}
+			}
+		}
+	}
+}

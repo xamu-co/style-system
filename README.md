@@ -4,161 +4,156 @@
 </a>
 </p>
 
-This file should be improved
-
-# CLASS NAMING CONVENTION
+# Class naming convention
+These are the basic guidelines behind this project.
 
 - based in BEM but reinterpreted for sass and vue
 - prefixes prevent the collision with vendor styling
 - the "x" stands for xamu
 
-## ELEMENT or LAYOUT:
+Explore the [docs](https://styles.xamu.com.co/) or learn how to setup the project for development at: [Setup](SETUP)
 
-.x-elementName{}
-EJ: .x-view{}
-- some of this will expect certain tag
-EJ: a.x-link{}
-- whenever possible avoid using long names
+## Elements & layouts:
+They are the main building blocks of any design.
 
-### CHILDS:
-- a "-" will be used to showcase nested elements
-.x-parentName-childName{}
-EJ: .x-view-item{}
+### Root components
+Elements & layouts all share a root component
 
-### UTILITY CLASSES:
+**.x-componentName{}**
+```css
+ .x-view {}
+```
+Some of them will expect certain tag
+```css
+ a.x-link {}
+```
+Whenever possible avoid using long names. **x-flx** will always be better than **x-flexbox** while mantaining legibility
 
-- each element comes tied with a set classes to alter it
-EJ: .x-view.is__active{}
-- this allows the duplication without collision
+### Nested components
+Elements & layouts could have nested components, to differentiate them from their parent a **"-"** will be used
 
-STATUS: (is or has)
+**.x-parentComponentName-childComponentName{}**
+```css
+ .x-view-item {}
+```
 
-.x-elementName.is__statusName{}
-EJ: .x-view.is__active{}
+## Utility classes:
+Each element comes tied with a set classes to alter it
+```scss
+ .x-componentName.utilityType__utilityName-utilityfirstOptionalParam-utilitysecondOptionalParam {}
+ .x-componentName {
+     &.utilityType__utilityName {
+         &-utilityfirstOptionalParam {
+             &-utilitysecondOptionalParam {}
+         }
+     }
+ }
+```
+This allows the duplication without collision
 
-MODIFIERS:
+### Status
+As the name implies these are for management of the design state and are usually called upon in a dinamyc way using js or related languages
+It can be **"has"** but we recommend using **"is"**, These usually don't have need params
 
-.x-elementName.m__modifierName-value{}
-EJ: .x-view.m__maxWidth-none{}
-- some modifier could be conditionated to the presence of another one
-EJ: .x-view.m__theme-light.m__shadow{}
+**.x-elementName.is__statusName{}**
+```css
+ .x-view.is__active {}
+```
 
-UNIONS: (combination of modifiers, shortcuts for common modifier combinations)
+### Modifiers
+These could modify the behavioir of the component they are applied on
 
-.x-elementName.u__unionName-firstModifier-secondModifier{}
-EJ: .x-view.u__flexAlign-center-stretch{}
-- if both values are equal the could be merged
-EJ: .x-view.u__flexAlign-center-center{} //spread
-EJ: .x-view.u__flexAlign-center{} //merged
+**.x-elementName.m__modifierName-optionaParam{}**
+```css
+ .x-view.m__maxWidth-none {}
+```
+Some modifier could be conditionated to the presence of another one
+```css
+ .x-view.m__theme-light.m__shadow {}
+```
 
-## PSEUDOS:
+### Unions
+While modifiers are useful they can also get to verbose. That is whe unions come handy.
+Combination of modifiers, shortcuts for common modifier combinations
 
-*[data-atributeName]{}
-EJ: *[data-tip]{}
-- for this case we will be using data atributes
+**.x-elementName.u__unionName-firstModifier-secondModifier{}**
+```css
+ .x-view.u__flexAlign-center-stretch {}
+```
+If both values are equal the could be merged
+```css
+ /** Long version */
+ .x-view.u__flexAlign-center-center {}
 
-### MODIFIERS:
+ /** Short version */
+ .x-view.u__flexAlign-center {}
+```
 
-*[data-atributeName-modifierName="expectedValue"]{}
-EJ: *[data-tip-position="top"]{}
-- these are almost always expecting some argument
+## Pseudos
+Components, but this time making use of pseudo elements (:before, :after)
+For the pseudos we will be using data atributes.
 
-## ANIMATIONS:
+**[data-pseudoName]{}**
+```css
+ [data-tip] {}
+```
 
-.a-animationName{}
-EJ: .a-fadeIn{}
+### Modifiers & Unions:
+Slightly different syntax, but don't worry the concept is mantained.
+Some of them are expecting an argument
 
-### UTILITY CLASSES:
+**[data-pseudoName-modifierNameOrParam-optionalParam="optionalArgument"]{}**
+```css
+ [data-tip-position="top"] {}
+```
 
-- each animation comes tied with a set classes to alter it
-EJ: .a-fadeIn.is__animated{}
-- the disponible classes are listed here
+## Globals
+Some properties can be used across the design.
+Global classes are prepended with **"x"**
+They also tend to override component modifiers and unions
 
-ANIMATED STATUS:
+### Modifiers
+These modify the behavior of any element
 
-.a-animationName.is__animated{}
-EJ: .a-fadeIn.is__animated{}
-- without this class no animation will run
-- 
-MODIFIERS:
+**.xm__globalModifierName-value{}**
+```css
+ .xm__maxWidth-none {}
+```
+Just like the component modifiers but these work in any element
+Some modifier could be conditionated to the presence of another one
+```css
+ .xm__theme-light.xm__shadow {}
+```
 
-- this status comes with his own set of modifiers
+### Unions:
+Condense most common modifiers of rules that require multiple parameters
 
-DELAY:
+**.xu__globalUnionName-firstValue-SecondValue{}**
+```css
+ .xu__flexAlign-center-stretch {}
+```
+As any other union but work in any element
+If both values are equal the could be merged
+```css
+ /** Long version */
+ .xu__flexAlign-center-center {}
 
-.is__animated.m__delay-value{}
-EJ: .is__animated.m__delay-2{animation-delay: 0.2s;}
+ /** Short version */
+ .xu__flexAlign-center {}
+```
 
-ITERATIONS:
+## Responsive styles
+We are following a similar approach to the tailwind framework (only for global modifiers & unions)
+```css
+ /** Hide if element has less than 640px of width */
+ .xm__hidden:sm {}
 
-.is__animated.m__iterations__value{}
-EJ: .is__animated.m__iterations-2{animation-iteration-count: 2;}
+ /** Hide if element has more than 640px of width */
+ .xm__hidden:sm-inv {}
+```
 
-## GLOBAL MODIFIERS:
-
-.xm__modifierName-value{}
-EJ: .xm__maxWidth-none{}
-- these work as any other modifier but work in any element
-- some modifier could be conditionated to the presence of another one
-EJ: .xm__theme-light.xm__shadow{}
-
-## GLOBAL UNIONS:
-
-.xu__unionName-firstValue-SecondValue{}
-EJ: .xu__flexAlign-center-stretch{}
-- these work as any other union but work in any element
-- if both values are equal the could be merged
-EJ: .xu__flexAlign-center-center{} //spread
-EJ: .xu__flexAlign-center{} //merged
-
-# SASS / CSS RULES
-
-- sass is an amazing preprocesor but some of their rules could become overused
-
-### 1. NO MORE THAN 3 LEVES OF NESTING
-
-### 2. DONT USE THE AMPERSAND TO NEST ELEMENTS CHILDS
-
-EJ: .x{&-name{&-child{}}}
-- avoid that
-
-### 3. AMPERSAND USAGE IS ALLOWED FOR MODIFIERS & SIMILAR
-
-EJ: .x-elementName{&.m__modifierName{&__modifierValue{}&__otherModifierValue{}}}
-- this is because usually you would be only searching for the element or the modifier name
-- as you can see this doesn't break the first rule
-
-### 4. FOR CONDITIONAL MODIFIERS PREPENDING IS PREFERED
-
-EJ: 
-.x-elementName{&.m__requiredModifier.conditionalModifier{&__modifierValue{}&__otherModifierValue{}}}
-- this limits the nesting and shows the required modifier
-
-### 5. EACH PROPERTY SHOULD FOLLOW THE NEXT ORDER
-
-- TAG, ELEMENT or LAYOUT (a, .x-elementName, etc...)
-- PSEUDOSELECTORS (:hover, :focus, etc...)
-- STATUSES (.is__statusName, etc...)
-- MODIFIERS (.m__modifierName-value, etc...)
-- SUBELEMENTS or CHILDS
-- OVERWRITES
-- MEDIA QUERIES
-
-### 6. AND FOR EACH GROUPED RULES SHOULD GO IN THE END
-
-EJ: .x-element1{}
-.x-element2{}
-.x-element1, .x-element2{}
-
-
-# Responsive styles
-
-We are following a similar approach to the tailwind framework (global & layout modifiers only)
-
-.xm__hidden:sm => Hide if element has less than 640px of width;
-.xm__hidden:sm-inv => Hide if element has more than 640px of width;
-
-sm => 640px // small
-md => 640px // medium, disabled
-lg => 640px // large
-xl => 640px // extralarge, disabled
+- **xs**: 358px, extra small, enabled in specific cases
+- **sm**: 576px, small
+- **md**: 768px, medium, enabled in specific cases
+- **lg**: 1080px, large
+- **xl**: 1280px, extralarge, enabled in specific cases

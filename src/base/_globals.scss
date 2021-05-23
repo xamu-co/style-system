@@ -1,0 +1,237 @@
+/*
+	General styling, layout agnostig classes and rules
+*/
+
+::selection {
+	background: color(secondary);
+	color: color(light);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	position: relative;
+	font-family: inherit;
+	font-size: 1em;
+	line-height: $lineHeight;
+	appearance: none;
+	scroll-behavior: smooth;
+	-webkit-tap-highlight-color: transparent;
+	&:before,
+	&:after {
+		// line-height: 1.2em;
+		box-sizing: inherit;
+	}
+	&:active,
+	&:focus,
+	&:hover {
+		outline: 0;
+	}
+}
+
+h1:not([class*="__txtSi"]):not([class*="swal"]) {
+	// Size
+	font-size: size(xl);
+	br {
+		display: none;
+	}
+	@media (min-width: $viewportMd + 1) {
+		font-size: size(xx);
+		br {
+			display: inline;
+		}
+	}
+}
+h2:not([class*="__txtSi"]):not([class*="swal"]) {
+	// Size
+	font-size: size(lg);
+	br {
+		display: none;
+	}
+	@media (min-width: $viewportMd + 1) {
+		font-size: size(xl);
+		br {
+			display: inline;
+		}
+	}
+}
+h3:not([class*="__txtSi"]):not([class*="swal"]) {
+	// Size
+	font-size: size(lg);
+}
+h4:not([class*="__txtSi"]):not([class*="swal"]) {
+	// Size
+	font-size: size(md);
+}
+
+code {
+	font-family: family(code);
+}
+
+svg {
+	width: inherit;
+	height: inherit;
+	[_fill] {
+		fill: none;
+		stroke: none;
+	}
+}
+
+textarea {
+	resize: vertical;
+}
+
+p {
+	--tw: normal;
+	/* These are technically the same, but use both */
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	/* This is the dangerous one in WebKit, as it breaks things wherever */
+	// word-break: break-all;
+	/* Instead use this non-standard one: */
+	word-break: break-word;
+
+	/* Adds a hyphen where the word breaks, if supported (No Blink) */
+	hyphens: auto;
+	> a {
+		display: inline !important;
+		// white-space: normal !important;
+	}
+}
+
+button {
+	background: transparent;
+}
+
+small {
+	font-size: 0.7em;
+}
+
+a {
+	text-decoration: none;
+}
+
+i:not(.x-icon) {
+	font-style: italic;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+// broken asset fallback styles
+img,
+iframe {
+	display: block;
+	overflow: hidden;
+	color: color(light);
+	&:before {
+		content: "\f7a9";
+		font-family: family(awesome);
+		font-weight: 900;
+		color: color(danger);
+		font-size: size(xx);
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 1rem;
+		box-sizing: border-box;
+		@include flexbox(column, nowrap, center, center);
+	}
+	&:not([class*="__bgC"]) {
+		// Color
+		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
+	}
+}
+
+a,
+button,
+label,
+select {
+	&,
+	* {
+		vertical-align: middle;
+	}
+	&:not(:disabled):not([disabled]):hover {
+		cursor: pointer;
+	}
+}
+
+:not([class*="toggle__"]) {
+	> a,
+	> button,
+	> label,
+	> select {
+		&.is__routeExact:not([class*="toggle__"]) {
+			pointer-events: none;
+		}
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	// font-family: family(second);
+	--tw: normal;
+}
+
+// global font weight
+// breaking it because it is too long
+:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(th):not(button):not(strong) {
+	// xamu
+	&:not(label[class|="x"]):not([class*="__txtWe"]) {
+		// external brands
+		&:not(.fas):not(.far):not(.fab):not([class*="swal"]) {
+			// Weight
+			font-weight: inherit;
+		}
+	}
+}
+
+a,
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+button,
+strong,
+.x-btn,
+.x-btnToggle {
+	&:not([class*="__txtWe"]) {
+		// Weight
+		font-weight: weight(bold);
+		@supports (-moz-appearance: none) {
+			// firefox fix
+			font-weight: weight(bold-alt);
+		}
+	}
+}
+
+// basic transition
+//
+// @group SharedStyles
+[class*="x-btn"],
+.x-inTxt,
+.x-link,
+.x-box,
+select.x-inSelect,
+input[type^="c"].x-inCheckbox + label,
+input[type^="c"].x-inCheckbox + label:after,
+input[type^="r"].x-inRadio + label,
+input[type^="r"].x-inRadio + label:after,
+.x-svg [fill]:not([fill="none"]),
+*[data-tooltip]:before,
+[class*="x-avatar"] img {
+	transition: all 0.2s ease-out, background-image 0s;
+}

@@ -1,0 +1,104 @@
+@import "box-model";
+@import "dimensions";
+@import "text";
+@import "gaping";
+@import "flexbox";
+@import "colors";
+
+// hidden element, hide visually only
+//
+// @group GlobalModifiers
+.xm__hidden {
+	@include extend-viewports-classes(true, $viewports) {
+		width: 0.1px;
+		height: 0.1px;
+		opacity: 0;
+		overflow: hidden;
+		position: absolute;
+		z-index: -1;
+		&:first-child + {
+			i.x-icon,
+			.x-svg {
+				margin-left: 0;
+			}
+		}
+	}
+	&-full {
+		@include extend-viewports-classes(true, $viewports) {
+			display: none !important;
+			&:first-child + {
+				i.x-icon,
+				.x-svg {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+// positon
+//
+// @group GlobalModifiers
+.xm__position {
+	&-fixed {
+		@include extend-viewports-classes {
+			--po: fixed;
+		}
+	}
+	&-sticky {
+		@include extend-viewports-classes {
+			--po: sticky;
+		}
+	}
+	&-relative {
+		@include extend-viewports-classes {
+			--po: relative;
+		}
+	}
+	&-absolute {
+		@include extend-viewports-classes {
+			--po: absolute;
+		}
+	}
+	// default
+	&,
+	&-static {
+		@include extend-viewports-classes {
+			--po: static;
+		}
+	}
+}
+[class*="__position"] {
+	position: var(--po, relative);
+}
+
+// order
+//
+// @group GlobalModifiers
+.xm__order {
+	@include extend-viewports-classes(false, $viewports) {
+		order: 1;
+	}
+}
+
+// z index
+//
+// @group GlobalModifiers
+.xm__index {
+	@include extend-viewports-classes {
+		z-index: 999;
+	}
+}
+
+@for $i from 1 through 10 {
+	.xm__order-#{$i} {
+		@include extend-viewports-classes(false, $viewports) {
+			order: #{$i};
+		}
+	}
+	.xm__index-#{$i} {
+		@include extend-viewports-classes {
+			z-index: #{$i};
+		}
+	}
+}
