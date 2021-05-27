@@ -35,8 +35,8 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			height: 12vh; // triangle size
 		}
 	}
-	&:not([class*="__bgC"]):first-child
-		+ .x-view-item[class*="__bgColor"]:not(.m__noShapes) {
+	&:not([class*="__bgCo"]):first-child
+		+ .x-view-item[class*="__bgCo"]:not(.m__noShapes) {
 		// Color
 		padding-top: 2.4rem;
 		&:before {
@@ -54,7 +54,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			border-bottom: 1px solid color(light);
 		}
 	}
-	&[class*="__bgC"] {
+	&[class*="__bgCo"] {
 		// Color
 		padding-bottom: 4rem;
 		&:not(.m__p-normal):first-child {

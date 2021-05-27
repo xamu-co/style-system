@@ -142,7 +142,7 @@
 	background: color(light);
 	box-shadow: 3px 3px 9px color(dark, 0.3);
 	position: absolute;
-	&:not([class*="__txtS"]) {
+	&:not([class*="__txtSi"]) {
 		font-size: size(sm);
 	}
 	&:before {

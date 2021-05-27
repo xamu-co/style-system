@@ -201,9 +201,9 @@
 }
 
 // Text color
-[class*="__txtC"] {
+[class*="__txtCo"] {
 	&,
-	> :not([class*="__txtC"]):not([class|="x"]) {
+	> :not([class*="__txtCo"]):not([class|="x"]) {
 		// Color
 		color: var(--ccl, color(dark, 0.7));
 	}
@@ -227,7 +227,7 @@
 	.xm__txtColor-#{$name} {
 		@include extend-viewports-classes {
 			&,
-			> :not([class*="__txtC"]):not([class|="x"]) {
+			> :not([class*="__txtCo"]):not([class|="x"]) {
 				// Color
 				--ccl: #{color($name)};
 			}
@@ -251,7 +251,7 @@
 		.xm__txtColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				&,
-				> :not([class*="__txtC"]):not([class|="x"]) {
+				> :not([class*="__txtCo"]):not([class|="x"]) {
 					// Shadow
 					--ccl: #{color($name, $i/10)};
 				}

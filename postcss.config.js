@@ -12,7 +12,9 @@ const nano = {
 	],
 };
 
-const sortCSSmq = require("sort-css-media-queries");
+const sortCSSmq = require("sort-css-media-queries")({
+	unitlessMqAlwaysFirst: true,
+});
 
 module.exports = {
 	// Add plugin names as key and arguments as value
@@ -25,7 +27,9 @@ module.exports = {
 		require("postcss-merge-selectors")({}),
 		require("postcss-precision")({}),
 		// optimize again
-		require("node-css-mqpacker")({ sort: sortCSSmq.desktopFirst }),
+		require("node-css-mqpacker")({
+			sort: sortCSSmq.desktopFirst,
+		}),
 		require("cssnano")(nano),
 		// More weight by polyfilling
 		require("autoprefixer")({}),

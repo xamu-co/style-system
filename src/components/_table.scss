@@ -15,13 +15,13 @@ table.x-table {
 			}
 		}
 	}
-	&:not([class*="__txtC"]) {
+	&:not([class*="__txtCo"]) {
 		// Color
 		tr {
-			th:not([class*="__txtC"]) {
+			th:not([class*="__txtCo"]) {
 				color: var(--ccl, color(secondary));
 			}
-			td:not([class*="__txtC"]) {
+			td:not([class*="__txtCo"]) {
 				color: var(--ccl, color(dark, 0.7));
 			}
 		}
