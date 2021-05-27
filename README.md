@@ -78,15 +78,15 @@ Combination of modifiers, shortcuts for common modifier combinations
 
 **.x-elementName.u__unionName-firstModifier-secondModifier{}**
 ```css
- .x-view.u__flexAlign-center-stretch {}
+ .x-view.u__flxAlign-center-stretch {}
 ```
 If both values are equal the could be merged
 ```css
  /** Long version */
- .x-view.u__flexAlign-center-center {}
+ .x-view.u__flxAlign-center-center {}
 
  /** Short version */
- .x-view.u__flexAlign-center {}
+ .x-view.u__flxAlign-center {}
 ```
 
 ## Pseudos
@@ -130,16 +130,16 @@ Condense most common modifiers of rules that require multiple parameters
 
 **.xu__globalUnionName-firstValue-SecondValue{}**
 ```css
- .xu__flexAlign-center-stretch {}
+ .xu__flxAlign-center-stretch {}
 ```
 As any other union but work in any element
 If both values are equal the could be merged
 ```css
  /** Long version */
- .xu__flexAlign-center-center {}
+ .xu__flxAlign-center-center {}
 
  /** Short version */
- .xu__flexAlign-center {}
+ .xu__flxAlign-center {}
 ```
 
 ## Responsive styles
