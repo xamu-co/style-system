@@ -7,7 +7,7 @@ i.x-icon {
 	// text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 
-	&:not([class*="__txtC"]) {
+	&:not([class*="__txtCo"]) {
 		// Color
 		color: inherit;
 	}

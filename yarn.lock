@@ -7093,8 +7093,10 @@ sort-css-media-queries@1.5.4:
   integrity sha512-YP5W/h4Sid/YP7Lp87ejJ5jP13/Mtqt2vx33XyhO+IAugKlufRPbOrPlIiEUuxmpNBSBd3EeeQpFhdu3RfI2Ag==
 
 sort-css-media-queries@vis97c/sort-css-media-queries:
-  version "1.5.4"
-  resolved "https://codeload.github.com/vis97c/sort-css-media-queries/tar.gz/7a76ebe44c9d3088934aaa828a1aa1ed20f25261"
+  version "2.0.1"
+  resolved "https://codeload.github.com/vis97c/sort-css-media-queries/tar.gz/a8c48c12590e66920b19e1f7f099eee68ab80dbf"
+  dependencies:
+    mkdirp "^1.0.4"
 
 source-map-js@^0.6.2:
   version "0.6.2"

@@ -9,7 +9,7 @@
 	flex: 0 0 auto;
 	border-radius: var(--br, 1rem);
 	transition: all 0.1s ease-out;
-	&:not([class*="__bgC"]) {
+	&:not([class*="__bgCo"]) {
 		// Color
 		background-color: color(light);
 	}
@@ -42,7 +42,7 @@
 		border-style: solid;
 		box-sizing: border-box;
 		border-width: var(--bw, 2px);
-		&:not([class*="__bdrC"]) {
+		&:not([class*="__bdrCo"]) {
 			// Color
 			border-color: color(light);
 		}

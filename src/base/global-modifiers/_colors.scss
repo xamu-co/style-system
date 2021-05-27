@@ -17,11 +17,11 @@
 	}
 }
 // Default color
-[class*="__bgC"]:not([class*="or-no"]) {
+[class*="__bgCo"]:not([class*="or-no"]) {
 	background-color: var(--cbg, color(light));
 }
 // Default border color
-[class*="__bdrC"] {
+[class*="__bdrCo"] {
 	border-color: var(--cbc, color(secondary, 0.1));
 }
 

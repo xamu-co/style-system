@@ -5,7 +5,7 @@
 	--tw: normal;
 	text-align: var(--ta, initial);
 	color: var(--ccl, color(dark, 0.7));
-	&:not([class*="-flx"]):not([class*="x-grd"]):not([class*="__txtAlignF"]) {
+	&:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
 		// Flx
 		display: block;
 	}
@@ -13,7 +13,7 @@
 		// Align
 		--ta: left;
 		&:not([class*="__gapi"])
-			> *:not([class*="-flx"]):not([class*="x-grd"]) {
+			> *:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
 			// Gaping
 			display: inline-block;
 		}

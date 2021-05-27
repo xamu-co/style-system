@@ -50,7 +50,7 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="__txtC"]) {
+			&:not([class*="__txtCo"]) {
 				// Color
 				color: color(light);
 			}
@@ -75,7 +75,7 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="__txtC"]) {
+			&:not([class*="__txtCo"]) {
 				// Color
 				color: color(light);
 			}
@@ -102,7 +102,7 @@
 		}
 		&.m__btn,
 		&.m__button {
-			&:not([class*="__txtC"]) {
+			&:not([class*="__txtCo"]) {
 				// Color
 				color: color(secondary);
 			}

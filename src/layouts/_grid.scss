@@ -218,7 +218,7 @@
 /// # Grid item
 /// Optional class with the common styles for the grid layout item
 /// ```css
-///  .x-grd
+///  .x-grd-item
 /// ```
 ///
 /// ## Requirements:
@@ -229,10 +229,10 @@
 /// How many columns the item can occupy
 /// ```css
 ///  /** 2 columns by default */
-///  .x-grd.m__grdColumnSpan
+///  .x-grd-item.m__grdColumnSpan
 ///
 ///  /** Column range from (2-12)  */
-///  .x-grd.m__grdColumnSpan-2
+///  .x-grd-item.m__grdColumnSpan-2
 /// ```
 ///
 /// ## Unions:
