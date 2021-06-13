@@ -33,6 +33,10 @@ textarea.x-inTxt {
 	padding: 0 0.8rem;
 	@include flexbox(column, nowrap, center, center);
 
+	&:not([class*="__txtA"]) {
+		--ta: left;
+	}
+
 	// theme
 	//
 	// @group Modifiers

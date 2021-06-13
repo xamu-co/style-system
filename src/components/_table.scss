@@ -18,15 +18,11 @@ table.x-table {
 	&:not([class*="__txtCo"]) {
 		// Color
 		tr {
-			th:not([class*="__txtCo"]) {
-				color: var(--ccl, color(secondary));
-			}
 			td:not([class*="__txtCo"]) {
 				color: var(--ccl, color(dark, 0.7));
 			}
 		}
 	}
-
 	thead {
 		tr {
 			&:not(:first-child) {
@@ -45,6 +41,7 @@ table.x-table {
 					background-repeat: round;
 					background-position: 50% 50%;
 					flex: 0 0 auto;
+					// switch to svg to allow proper theming
 					background-image: var(--rbg, url("#{$rulerPatternX}"));
 				}
 			}
@@ -53,14 +50,8 @@ table.x-table {
 	tbody {
 		box-shadow: 3px 3px 9px color(dark, 0.1);
 		tr {
-			&:not(:first-child) {
-				border-top: 2px solid color(secondary, 0.1);
-			}
 			td {
 				background: color(light);
-			}
-			th {
-				background: color(secondary, 0.1);
 			}
 		}
 	}
@@ -72,7 +63,121 @@ table.x-table {
 	tr {
 		td,
 		th {
+			box-sizing: border-box;
+			min-width: $minColumnSize/3;
 			padding: 0.7rem 1rem;
+			&:empty:after {
+				content: "";
+				display: block;
+				width: 100%;
+				min-height: calc(42px - 1.4rem);
+			}
+		}
+	}
+
+	&.m__tm-dark7 {
+		&:not([class*="__txtCo"]) {
+			// Color
+			tr {
+				th:not([class*="__txtCo"]) {
+					color: var(--ccl, color(dark, 0.7));
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:not(:first-child) {
+					border-top: 2px solid color(dark, 0.1);
+				}
+				th {
+					background: color(dark, 0.1);
+				}
+			}
+		}
+	}
+
+	&.m__tm-primaryAlt {
+		&:not([class*="__txtCo"]) {
+			// Color
+			tr {
+				th:not([class*="__txtCo"]) {
+					color: var(--ccl, color(primaryAlt));
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:not(:first-child) {
+					border-top: 2px solid color(primaryAlt, 0.1);
+				}
+				th {
+					background: color(primaryAlt, 0.1);
+				}
+			}
+		}
+	}
+
+	&.m__tm-primary {
+		&:not([class*="__txtCo"]) {
+			// Color
+			tr {
+				th:not([class*="__txtCo"]) {
+					color: var(--ccl, color(primary));
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:not(:first-child) {
+					border-top: 2px solid color(primary, 0.1);
+				}
+				th {
+					background: color(primary, 0.1);
+				}
+			}
+		}
+	}
+
+	&.m__tm-danger {
+		&:not([class*="__txtCo"]) {
+			// Color
+			tr {
+				th:not([class*="__txtCo"]) {
+					color: var(--ccl, color(danger));
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:not(:first-child) {
+					border-top: 2px solid color(danger, 0.1);
+				}
+				th {
+					background: color(danger, 0.1);
+				}
+			}
+		}
+	}
+
+	&:not([class*="__tm"]),
+	&.m__tm-secondary {
+		&:not([class*="__txtCo"]) {
+			// Color
+			tr {
+				th:not([class*="__txtCo"]) {
+					color: var(--ccl, color(secondary));
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:not(:first-child) {
+					border-top: 2px solid color(secondary, 0.1);
+				}
+				th {
+					background: color(secondary, 0.1);
+				}
+			}
 		}
 	}
 }
