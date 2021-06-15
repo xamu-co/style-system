@@ -1,5 +1,18 @@
 Xamu style system
 
+# [5.0.0-next.10](https://github.com/xamu-co/style-system/compare/v5.0.0-next.9...v5.0.0-next.10) (2021-06-15)
+
+
+### Bug Fixes
+
+* sort library temp update ([72d0e2f](https://github.com/xamu-co/style-system/commit/72d0e2fb86cefe60b96f21f52a68c649927b6313))
+
+
+### Features
+
+* basic theming for tables ([dc88ea2](https://github.com/xamu-co/style-system/commit/dc88ea2240bbeb602bc78dd14b3f01e4f3141baf))
+* improve theming for box & buttons ([c009dbe](https://github.com/xamu-co/style-system/commit/c009dbe7536ec55aea992caf679cef643c632ce2))
+
 # [5.0.0-next.9](https://github.com/xamu-co/style-system/compare/v5.0.0-next.8...v5.0.0-next.9) (2021-05-23)
 
 
