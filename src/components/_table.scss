@@ -159,6 +159,27 @@ table.x-table {
 		}
 	}
 
+	&.m__tm-success {
+		&:not([class*="__txtCo"]) {
+			// Color
+			tr {
+				th:not([class*="__txtCo"]) {
+					color: var(--ccl, color(success));
+				}
+			}
+		}
+		tbody {
+			tr {
+				&:not(:first-child) {
+					border-top: 2px solid color(success, 0.1);
+				}
+				th {
+					background: color(success, 0.1);
+				}
+			}
+		}
+	}
+
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
 		&:not([class*="__txtCo"]) {
