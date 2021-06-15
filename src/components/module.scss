@@ -194,7 +194,7 @@ select.x-inSelect {
 				}
 			}
 		}
-		&-dark {
+		&-dark7 {
 			--cl: #{color(dark, 0.7)};
 			&:not(.is__route):not(.is__active) {
 				&:hover,
@@ -224,6 +224,16 @@ select.x-inSelect {
 				}
 			}
 		}
+		&-success {
+			--cl: #{color(success)};
+			&:not(.is__route):not(.is__active) {
+				&:hover,
+				&:focus {
+					--cl: #{color(success, 0.7)};
+					--bc: #{color(success, 0.3)};
+				}
+			}
+		}
 		&-primary {
 			--cl: #{color(primary)};
 			--bg: #{color(light)};
@@ -241,7 +251,8 @@ select.x-inSelect {
 		&-secondary,
 		&-dark,
 		&-primaryAlt,
-		&-danger {
+		&-danger,
+		&-success {
 			--bg: #{color(light)};
 			&.is__active,
 			&.is__route:not(.is__routeExact) {
@@ -320,6 +331,28 @@ select.x-inSelect {
 		&:disabled,
 		&[disabled] {
 			--cl: #{color(danger, 0.3)};
+		}
+	}
+	&.u__tm-success-light {
+		--cl: #{color(light)};
+		--bg: #{color(success)};
+		&:not(.is__route):not(.is__active) {
+			&:hover,
+			&:focus {
+				--cl: #{color(light, 0.7)};
+				--bc: #{color(light, 0.3)};
+			}
+		}
+		&.is__active,
+		&.is__route:not(.is__routeExact) {
+			&:hover,
+			&:focus {
+				--cl: #{color(success, 0.7)};
+			}
+		}
+		&:disabled,
+		&[disabled] {
+			--cl: #{color(success, 0.3)};
 		}
 	}
 	// default theme

@@ -93,6 +93,16 @@
 					--rw: #{color(danger, 0.7)};
 				}
 			}
+			&-success-light {
+				--rw: #{color(success)};
+				&:hover:not(.is__active):not(.is__routeExact) {
+					--rw: #{color(success, 0.5)};
+				}
+				&.is__active,
+				&.is__routeExact {
+					--rw: #{color(success, 0.7)};
+				}
+			}
 			&-primary-light,
 			&-light-primaryAlt {
 				--rw: #{color(light)};

@@ -81,6 +81,111 @@
 			}
 		}
 	}
+
+	&.m__tm-primary {
+		background: color(primary, 0.1);
+		&:hover {
+			border-color: color(primary, 0.1);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
+			&.m__btn,
+			&.m__button {
+				background: color(primary, 0.2);
+				// border-color: color(primary, 0.3);
+				.x-box {
+					box-shadow: 3px 3px 9px color(primary, 0.3);
+				}
+			}
+		}
+		&.m__btn,
+		&.m__button {
+			&:not([class*="__txtCo"]) {
+				// Color
+				color: color(primary);
+			}
+		}
+	}
+
+	&.m__tm-primaryAlt {
+		background: color(primaryAlt, 0.1);
+		&:hover {
+			border-color: color(primaryAlt, 0.1);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
+			&.m__btn,
+			&.m__button {
+				background: color(primaryAlt, 0.2);
+				// border-color: color(primaryAlt, 0.3);
+				.x-box {
+					box-shadow: 3px 3px 9px color(primaryAlt, 0.3);
+				}
+			}
+		}
+		&.m__btn,
+		&.m__button {
+			&:not([class*="__txtCo"]) {
+				// Color
+				color: color(primaryAlt);
+			}
+		}
+	}
+
+	&.m__tm-danger {
+		background: color(danger, 0.1);
+		&:hover {
+			border-color: color(danger, 0.1);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
+			&.m__btn,
+			&.m__button {
+				background: color(danger, 0.2);
+				// border-color: color(danger, 0.3);
+				.x-box {
+					box-shadow: 3px 3px 9px color(danger, 0.3);
+				}
+			}
+		}
+		&.m__btn,
+		&.m__button {
+			&:not([class*="__txtCo"]) {
+				// Color
+				color: color(danger);
+			}
+		}
+	}
+
+	&.m__tm-success {
+		background: color(success, 0.1);
+		&:hover {
+			border-color: color(success, 0.1);
+		}
+		&:hover,
+		&.is__active,
+		&.is__routeExact {
+			&.m__btn,
+			&.m__button {
+				background: color(success, 0.2);
+				// border-color: color(success, 0.3);
+				.x-box {
+					box-shadow: 3px 3px 9px color(success, 0.3);
+				}
+			}
+		}
+		&.m__btn,
+		&.m__button {
+			&:not([class*="__txtCo"]) {
+				// Color
+				color: color(success);
+			}
+		}
+	}
+
 	// default theme
 	&:not([class*="__tm"]),
 	&.m__tm-secondary {
