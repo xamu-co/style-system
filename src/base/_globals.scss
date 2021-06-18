@@ -83,7 +83,7 @@ textarea {
 }
 
 p {
-	--tw: normal;
+	--twr: normal;
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -178,8 +178,7 @@ h3,
 h4,
 h5,
 h6 {
-	// font-family: family(second);
-	--tw: normal;
+	--twr: normal;
 }
 
 // global font weight
@@ -208,6 +207,7 @@ button,
 strong,
 .x-btn,
 .x-btnToggle {
+	// ignore inherit
 	&:not([class*="__txtWe"]) {
 		// Weight
 		font-weight: weight(bold);

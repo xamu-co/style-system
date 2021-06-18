@@ -2,8 +2,8 @@
 //
 // @group Components
 .x-txt {
-	--tw: normal;
-	text-align: var(--ta, initial);
+	--twr: normal;
+	text-align: var(--ta);
 	color: var(--ccl, color(dark, 0.7));
 	&:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
 		// Flx
