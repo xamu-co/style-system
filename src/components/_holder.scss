@@ -9,7 +9,6 @@
 	max-width: var(--mxw, none);
 	// display: block;
 	&:not(.m__p-none) {
-		padding: 0 1rem;
 		box-sizing: border-box;
 		transition: padding 0.3s ease-out;
 		&.xm__maxWidth-1200,
@@ -31,5 +30,8 @@
 	&:not([class*="__maxWidth-"]) {
 		$mildos: 1200;
 		--mxw: #{round($mildos/16)}rem;
+		&:not(.m__p-none) {
+			padding: 0 1rem;
+		}
 	}
 }
