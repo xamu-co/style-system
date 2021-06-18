@@ -5,27 +5,30 @@
 	&-lower,
 	&-lowercase {
 		@include extend-viewports-classes {
-			text-transform: lowercase;
+			--ttr: lowercase;
 		}
 	}
 	&-upper,
 	&-uppercase {
 		@include extend-viewports-classes {
-			text-transform: uppercase;
+			--ttr: uppercase;
 		}
 	}
 	&-capitalize {
 		@include extend-viewports-classes {
-			text-transform: capitalize;
+			--ttr: capitalize;
 		}
 	}
 	// default
 	&,
 	&-none {
 		@include extend-viewports-classes {
-			text-transform: none;
+			--ttr: none;
 		}
 	}
+}
+[class*="__txtTr"] {
+	text-transform: var(--ttr);
 }
 
 // text wrap
@@ -34,16 +37,19 @@
 .xm__txtWrap {
 	&-nowrap {
 		@include extend-viewports-classes {
-			white-space: nowrap;
+			--twr: nowrap;
 		}
 	}
 	// default
 	&,
 	&-wrap {
 		@include extend-viewports-classes {
-			white-space: normal;
+			--twr: normal;
 		}
 	}
+}
+[class*="__txtWr"] {
+	white-space: var(--twr);
 }
 
 // text style
@@ -52,21 +58,24 @@
 .xm__txtStyle {
 	&-normal {
 		@include extend-viewports-classes {
-			font-style: normal;
+			--tst: normal;
 		}
 	}
 	&-oblique {
 		@include extend-viewports-classes {
-			font-style: oblique;
+			--tst: oblique;
 		}
 	}
 	// default
 	&,
 	&-italic {
 		@include extend-viewports-classes {
-			font-style: italic;
+			--tst: italic;
 		}
 	}
+}
+[class*="__txtSt"] {
+	font-style: var(--tst);
 }
 
 // font weight
@@ -75,29 +84,33 @@
 .xm__txtWeight {
 	&-bold {
 		@include extend-viewports-classes {
-			font-weight: weight(bold);
+			--twg: #{weight(bold)};
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				font-weight: weight(bold-alt);
+				--twg: #{weight(bold-alt)};
 			}
 		}
 	}
 	&,
 	&-regular {
 		@include extend-viewports-classes {
-			font-weight: weight();
+			--twg: #{weight()};
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				font-weight: weight(regular-alt);
+				--twg: #{weight(regular-alt)};
 			}
 		}
 	}
+}
+[class*="__txtWe"] {
+	// Heaviness
+	font-weight: var(--twg);
 }
 
 // text align
 //
 // @group FamilyGlobalModifiers
-[class*="__txtA"] {
+[class*="__txtAl"] {
 	text-align: var(--ta, initial);
 	&:not([class*="__gapi"]) > :not([class|="x"]) {
 		// Gaping
@@ -105,7 +118,7 @@
 	}
 	> :not([class*="__txtA"]):not([class|="x"]) {
 		// Align
-		text-align: var(--ta, initial);
+		text-align: var(--ta);
 	}
 }
 
@@ -189,16 +202,21 @@
 .xm__txtSize,
 .xm__txtSize-normal {
 	@include extend-viewports-classes {
-		font-size: size();
+		--tsz: #{size()};
 	}
 }
 @each $name, $size in $fontSizes {
 	.xm__txtSize-#{$name} {
 		@include extend-viewports-classes {
-			font-size: #{$size};
+			--tsz: #{$size};
 		}
 	}
 }
+[class*="__txtSi"] {
+	font-size: var(--tsz);
+}
+
+// COLOR RELATED
 
 // Text color
 [class*="__txtCo"] {
