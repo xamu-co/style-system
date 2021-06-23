@@ -166,6 +166,9 @@ ol.x-navX-list {
 	> * {
 		&:not(:first-child) {
 			margin-left: 1rem;
+			@media (max-width: $viewportSm) {
+				margin-left: 0.5rem;
+			}
 		}
 	}
 }
