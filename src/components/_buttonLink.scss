@@ -2,37 +2,46 @@
 //
 // @group Components
 .x-btnLink {
+	@media (max-width: $viewportSm) {
+		width: var(--sz, 2.4rem);
+		span {
+			display: none;
+		}
+	}
 	@media (max-width: $viewportMd) {
-		// mobile
+		// tablet
 		// Size
 		// this is the default value
 		height: var(--sz, 2.4rem);
 		border-radius: var(--br, 1rem);
 		border-width: var(--bw, 2px);
 		padding: var(--bp, 0 0.8rem);
-		&:not(.is__route):not(.is__active) {
-			--bp: 0;
-			span {
-				display: none;
+		width: auto;
+		@media (min-width: $viewportSm +1) {
+			&:not(.is__route):not(.is__active) {
+				--bp: 0;
+				span {
+					display: none;
+				}
 			}
-		}
-		&.is__route,
-		&.is__active {
-			// text only
+			&.is__route,
+			&.is__active {
+				// text only
+				i.x-icon,
+				.x-svg {
+					display: none;
+				}
+			}
+			&:not(.is__route):not(.is__active) {
+				// icon only
+				width: var(--sz, 2.4rem);
+			}
+
 			i.x-icon,
 			.x-svg {
-				display: none;
-			}
-		}
-		&:not(.is__route):not(.is__active) {
-			// icon only
-			width: var(--sz, 2.4rem);
-		}
-
-		i.x-icon,
-		.x-svg {
-			&:first-child {
-				display: none;
+				&:first-child {
+					display: none;
+				}
 			}
 		}
 

@@ -84,6 +84,9 @@ i.x-icon {
 	width: auto;
 	height: var(--isz, 1rem);
 	font-size: var(--isz, 1rem);
+	&:not(.is__logo) {
+		width: var(--isz, 1rem);
+	}
 
 	// icon margin
 	//
@@ -136,7 +139,8 @@ i.x-icon {
 
 // content alignment
 //
-// @group SharedStyles
+// @group SharedStyles,
+.x-link,
 [class*="x-btn"] {
 	flex: 0 0 auto;
 	@include flexbox(row, nowrap, center, center, inline-flex);
