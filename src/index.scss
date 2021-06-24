@@ -49,6 +49,13 @@
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: weight(regular-alt);
 		}
+		&.is__modalOpen {
+			overflow-y: hidden;
+			@media (hover: hover) {
+				box-sizing: border-box;
+				border-right: 1rem solid transparent;
+			}
+		}
 	}
 
 	body {
