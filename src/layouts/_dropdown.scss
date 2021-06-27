@@ -102,8 +102,13 @@
 	&.is__active {
 		i.x-icon,
 		.x-svg {
-			&:last-child {
+			&:last-child,
+			&.is__toggleIndicator {
 				transform: rotate(180deg);
+			}
+			&.is__toggleIndicator ~ :last-child {
+				// prevent tranform is toggle indicator is defined
+				transform: none;
 			}
 		}
 		~ .x-dropdown {
@@ -119,12 +124,17 @@
 }
 // desktop only
 @media (min-width: $viewportMd + 1) {
-	*:hover > .toggle__dropdown,
-	.toggle__dropdown:hover:not(.no__hover) {
+	*:hover > .toggle__dropdown:not(.only__active),
+	.toggle__dropdown:not(.only__active):hover:not(.no__hover) {
 		i.x-icon,
 		.x-svg {
-			&:last-child {
+			&:last-child,
+			&.is__toggleIndicator {
 				transform: rotate(180deg);
+			}
+			&.is__toggleIndicator ~ :last-child {
+				// prevent tranform is toggle indicator is defined
+				transform: none;
 			}
 		}
 		~ .x-dropdown {
@@ -134,11 +144,16 @@
 }
 // mobile only
 @media (max-width: $viewportMd) {
-	.toggle__dropdown:focus-within:not(.no__focus) {
+	.toggle__dropdown:not(.only__active):focus-within:not(.no__focus) {
 		i.x-icon,
 		.x-svg {
-			&:last-child {
+			&:last-child,
+			&.is__toggleIndicator {
 				transform: rotate(180deg);
+			}
+			&.is__toggleIndicator ~ :last-child {
+				// prevent tranform is toggle indicator is defined
+				transform: none;
 			}
 		}
 		~ .x-dropdown {
