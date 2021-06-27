@@ -1,10 +1,12 @@
 nav.x-navY {
 	background-color: color(light, 0.9);
 	width: auto;
+	// flex: 0 0 auto;
 	@include flexbox(row, nowrap, flex-start, stretch);
 }
 .x-navY-menu {
-	height: 100%;
+	min-height: 100%;
+	height: auto;
 	box-sizing: border-box;
 	@include flexbox(column, nowrap, center, stretch);
 	// box-sizing: border-box;
@@ -20,8 +22,7 @@ nav.x-navY {
 	//
 	// @group Statuses
 	&.is__sub {
-		overflow-x: hidden;
-		overflow-y: auto;
+		overflow: hidden;
 		@include flexbox(column, nowrap, space-between, flex-start);
 	}
 }

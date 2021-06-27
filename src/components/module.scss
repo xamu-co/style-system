@@ -84,7 +84,7 @@ i.x-icon {
 	width: auto;
 	height: var(--isz, 1rem);
 	font-size: var(--isz, 1rem);
-	&:not(.is__logo) {
+	&:not(.is__logo):not(.m__width-auto) {
 		width: var(--isz, 1rem);
 	}
 
