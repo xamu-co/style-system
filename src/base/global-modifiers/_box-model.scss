@@ -1,3 +1,19 @@
+// box sizing
+.xm__boxSizing {
+	&-content {
+		@include extend-viewports-classes {
+			box-sizing: content-box;
+		}
+	}
+	// default
+	&,
+	&-box {
+		@include extend-viewports-classes {
+			box-sizing: border-box;
+		}
+	}
+}
+
 // box margins
 // X axis
 //
