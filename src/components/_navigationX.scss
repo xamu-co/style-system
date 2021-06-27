@@ -48,56 +48,63 @@
 						}
 					}
 				}
-				> .toggle__dropdown.is__active,
-				> .toggle__dropdown.is__active > * {
-					&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="__tm-light"] {
-						text-shadow: none;
-					}
-					&.x-btnLink {
-						&:not(:hover):not(.is__active):not(.is__routeExact) {
-							@media (min-width: $viewportMd + 1) {
-								text-shadow: none;
-							}
-						}
-					}
-					&.x-btn {
-						&.is__active,
-						&.is__routeExact {
-							text-shadow: none;
-						}
-					}
-				}
-				// desktop only, use hover
-				@media (min-width: $viewportMd + 1) {
-					&:hover > .toggle__dropdown,
-					&:hover > .toggle__dropdown > * {
+				> .toggle__dropdown.is__active {
+					&,
+					> * {
 						&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="__tm-light"] {
 							text-shadow: none;
 						}
 						&.x-btnLink {
 							&:not(:hover):not(.is__active):not(.is__routeExact) {
-								text-shadow: none;
+								@media (min-width: $viewportMd + 1) {
+									text-shadow: none;
+								}
 							}
 						}
 						&.x-btn {
 							&.is__active,
 							&.is__routeExact {
 								text-shadow: none;
+							}
+						}
+					}
+				}
+				// desktop only, use hover
+				@media (min-width: $viewportMd + 1) {
+					&:hover > .toggle__dropdown:not(.only__active) {
+						&,
+						> * {
+							&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="__tm-light"] {
+								text-shadow: none;
+							}
+							&.x-btnLink {
+								&:not(:hover):not(.is__active):not(.is__routeExact) {
+									text-shadow: none;
+								}
+							}
+							&.x-btn {
+								&.is__active,
+								&.is__routeExact {
+									text-shadow: none;
+								}
 							}
 						}
 					}
 				}
 				// mobile only, use focus
 				@media (max-width: $viewportMd) {
-					&:focus-within:not(.no__focus) > .toggle__dropdown,
-					&:focus-within:not(.no__focus) > .toggle__dropdown > * {
-						&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="__tm-light"] {
-							text-shadow: none;
-						}
-						&.x-btn {
-							&.is__active,
-							&.is__routeExact {
+					&:focus-within:not(.no__focus)
+						> .toggle__dropdown:not(.only__active) {
+						&,
+						> * {
+							&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="__tm-light"] {
 								text-shadow: none;
+							}
+							&.x-btn {
+								&.is__active,
+								&.is__routeExact {
+									text-shadow: none;
+								}
 							}
 						}
 					}
@@ -144,30 +151,37 @@
 					}
 				}
 			}
-			> .toggle__dropdown.is__active,
-			> .toggle__dropdown.is__active > * {
-				&.x-link,
-				&.x-btnLink {
-					text-shadow: none;
-				}
-			}
-			// desktop only, use hover
-			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle__dropdown,
-				&:hover > .toggle__dropdown > * {
+			> .toggle__dropdown.is__active {
+				&,
+				> * {
 					&.x-link,
 					&.x-btnLink {
 						text-shadow: none;
 					}
 				}
 			}
+			// desktop only, use hover
+			@media (min-width: $viewportMd + 1) {
+				&:hover > .toggle__dropdown:not(.only__active) {
+					&,
+					> * {
+						&.x-link,
+						&.x-btnLink {
+							text-shadow: none;
+						}
+					}
+				}
+			}
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no__focus) > .toggle__dropdown,
-				&:focus-within:not(.no__focus) > .toggle__dropdown > * {
-					&.x-link,
-					&.x-btnLink {
-						text-shadow: none;
+				&:focus-within:not(.no__focus)
+					> .toggle__dropdown:not(.only__active) {
+					&,
+					> * {
+						&.x-link,
+						&.x-btnLink {
+							text-shadow: none;
+						}
 					}
 				}
 			}
@@ -184,30 +198,39 @@
 					}
 				}
 			}
-			> .toggle__dropdown.is__active,
-			> .toggle__dropdown.is__active > * {
-				&.x-link,
-				&.x-btnLink {
-					text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-				}
-			}
-			// desktop only, use hover
-			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle__dropdown,
-				&:hover > .toggle__dropdown > * {
+			> .toggle__dropdown.is__active {
+				&,
+				> * {
 					&.x-link,
 					&.x-btnLink {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
 				}
 			}
+			// desktop only, use hover
+			@media (min-width: $viewportMd + 1) {
+				&:hover > .toggle__dropdown:not(.only__active) {
+					&,
+					> * {
+						&.x-link,
+						&.x-btnLink {
+							text-shadow: 1px 1px 1px
+								var(--sh, #{color(dark, 0.3)});
+						}
+					}
+				}
+			}
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no__focus) > .toggle__dropdown,
-				&:focus-within:not(.no__focus) > .toggle__dropdown > * {
-					&.x-link,
-					&.x-btnLink {
-						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+				&:focus-within:not(.no__focus)
+					> .toggle__dropdown:not(.only__active) {
+					&,
+					> * {
+						&.x-link,
+						&.x-btnLink {
+							text-shadow: 1px 1px 1px
+								var(--sh, #{color(dark, 0.3)});
+						}
 					}
 				}
 			}

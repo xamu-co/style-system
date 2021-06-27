@@ -3,17 +3,12 @@
 //
 // @group Components
 // button round handling
-:not([class*="toggle__"]) > :not([class*="toggle__"]).x-btn.m__round {
-	@include extend-viewports-classes(true, $viewports) {
-		:not(:last-child) {
-			display: none;
-		}
-	}
-}
-:not([class*="toggle__"]) > [class*="toggle__"],
-[class*="toggle__"] > :not([class*="toggle__"]) {
+:not([class*="toggle__"]) > :not([class*="toggle__"]) {
 	&.x-btn.m__round {
 		@include extend-viewports-classes(true, $viewports) {
+			:not(:last-child) {
+				display: none;
+			}
 			:not(:nth-child(2)) {
 				display: none;
 			}

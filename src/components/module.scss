@@ -118,19 +118,22 @@ i.x-icon {
 	// this is the default value
 	// Size
 	padding: var(--bp, 0 0.8rem);
-
-	// round button
-	//
-	// @group Modifiers
-	&.m__round {
-		@include extend-viewports-classes(true, $viewports) {
-			--bp: 0; // button padding
-			width: var(--sz, 2.4rem);
-			i.x-icon,
-			.x-svg {
-				margin: 0 !important;
-				+ span {
-					display: none;
+}
+:not([class*="toggle__"]) > :not([class*="toggle__"]) {
+	&[class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
+		// round button
+		//
+		// @group Modifiers
+		&.m__round {
+			@include extend-viewports-classes(true, $viewports) {
+				--bp: 0; // button padding
+				width: var(--sz, 2.4rem);
+				i.x-icon,
+				.x-svg {
+					margin: 0 !important;
+					+ span {
+						display: none;
+					}
 				}
 			}
 		}

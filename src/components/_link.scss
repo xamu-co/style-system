@@ -83,29 +83,29 @@
 // desktop only, use hover
 @media (min-width: $viewportMd + 1) {
 	// hover status
-	*:hover > .toggle__dropdown.x-link,
-	*:hover > .toggle__dropdown > .x-link {
-		color: var(--cl-h, var(--cl-a));
-	}
-
-	// link shadow
-	*:hover > .toggle__dropdown.x-link.m__shadow,
-	*:hover > .toggle__dropdown > .x-link.m__shadow {
-		text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+	*:hover > .toggle__dropdown:not(.only__active) {
+		&.x-link,
+		> .x-link {
+			color: var(--cl-h, var(--cl-a));
+			// link shadow
+			&.m__shadow {
+				text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+			}
+		}
 	}
 }
 
 // mobile only, use focus
 @media (max-width: $viewportMd) {
 	// focus status
-	*:focus-within:not(.no__focus) > .toggle__dropdown.x-link,
-	*:focus-within:not(.no__focus) > .toggle__dropdown > .x-link {
-		color: var(--cl-h, var(--cl-a));
-	}
-
-	// link shadow
-	*:focus-within:not(.no__focus) > .toggle__dropdown.x-link.m__shadow,
-	*:focus-within:not(.no__focus) > .toggle__dropdown > .x-link.m__shadow {
-		text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+	*:focus-within:not(.no__focus) > .toggle__dropdown:not(.only__active) {
+		&.x-link,
+		> .x-link {
+			color: var(--cl-h, var(--cl-a));
+			// link shadow
+			&.m__shadow {
+				text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+			}
+		}
 	}
 }
