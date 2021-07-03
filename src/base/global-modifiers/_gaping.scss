@@ -56,7 +56,7 @@
 
 // grid/column gap default
 [class*="__gap"]:not([class*="__gapi"]) {
-	gap: var(--g); // omit fallback
+	gap: var(--g, var(--gy)) var(--g, var(--gx)); // omit fallback
 }
 
 // item spacing defaults
@@ -94,11 +94,13 @@
 	> :not(br):not(:last-child):not([class*="__mR"]):not(.unfix__gaping) {
 		// Right
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			margin-right: var(--gx); // omit fallback
+			// margin-right: var(--gx); // omit fallback
+			margin-right: var(--gxc, var(--gx)); // omit fallback
 			&[class*="__flx"][class*="-wrap"],
 			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-				--gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
+				// --gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
+				--gxc: calc(var(--gc) + var(--gx));
 			}
 		}
 	}
@@ -109,11 +111,13 @@
 	> :not(br):not(:last-child):not([class*="__mB"]):not(.unfix__gaping) {
 		// Bottom
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			margin-bottom: var(--gy); // omit fallback
+			// margin-bottom: var(--gy); // omit fallback
+			margin-bottom: var(--gyc, var(--gy)); // omit fallback
 			&[class*="__flx"][class*="-wrap"],
 			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-				--gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
+				// --gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
+				--gyc: calc(var(--gc) + var(--gy));
 			}
 		}
 	}

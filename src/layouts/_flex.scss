@@ -92,7 +92,8 @@
 		&,
 		&-nowrap {
 			@include extend-viewports-classes {
-				&:not([class*="__gapi"]) > :not(br):not(:last-child) {
+				&:not([class*="__gapi"])
+					> :not(br):not([class*="__hrX"]):not(:last-child) {
 					// Gaping
 					&:not([class*="__m"]),
 					&[class*="__min"],
@@ -133,7 +134,8 @@
 		&,
 		&-nowrap {
 			@include extend-viewports-classes {
-				&:not([class*="__gapi"]) > :not(br):not(:last-child) {
+				&:not([class*="__gapi"])
+					> :not(br):not([class*="__hrY"]):not(:last-child) {
 					// Gaping
 					&:not([class*="__m"]),
 					&[class*="__min"],

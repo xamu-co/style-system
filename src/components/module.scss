@@ -190,60 +190,116 @@ select.x-inSelect {
 	// second value is the textColor
 	//
 	// @group Unions
-	&.u__tm-light {
-		&-secondary {
-			--cl: #{color(secondary)};
-			&:not(.is__route):not(.is__active) {
-				&:hover,
-				&:focus {
-					--cl: #{color(secondary, 0.7)};
-					--bc: #{color(secondary, 0.3)};
+	&:not(.is__invalid) {
+		&.u__tm-light {
+			&-secondary {
+				--cl: #{color(secondary)};
+				&:not(.is__route):not(.is__active) {
+					&:hover,
+					&:focus {
+						--cl: #{color(secondary, 0.7)};
+						--bc: #{color(secondary, 0.3)};
+					}
+				}
+			}
+			&-dark7 {
+				--cl: #{color(dark, 0.7)};
+				&:not(.is__route):not(.is__active) {
+					&:hover,
+					&:focus {
+						--cl: #{color(dark, 0.3)};
+						--bc: var(--cl);
+					}
+				}
+			}
+			&-primaryAlt {
+				--cl: #{color(primaryAlt)};
+				&:not(.is__route):not(.is__active) {
+					&:hover,
+					&:focus {
+						--cl: #{color(primaryAlt, 0.7)};
+						--bc: #{color(primaryAlt, 0.3)};
+					}
+				}
+			}
+			&-danger {
+				--cl: #{color(danger)};
+				&:not(.is__route):not(.is__active) {
+					&:hover,
+					&:focus {
+						--cl: #{color(danger, 0.7)};
+						--bc: #{color(danger, 0.3)};
+					}
+				}
+			}
+			&-success {
+				--cl: #{color(success)};
+				&:not(.is__route):not(.is__active) {
+					&:hover,
+					&:focus {
+						--cl: #{color(success, 0.7)};
+						--bc: #{color(success, 0.3)};
+					}
+				}
+			}
+			&-primary {
+				--cl: #{color(primary)};
+				--bg: #{color(light)};
+				&:not(.is__route):not(.is__active) {
+					&:hover,
+					&:focus {
+						--cl: #{color(primary, 0.7)};
+						--bc: #{color(primary, 0.3)};
+					}
+				}
+				&:not(.is__active):not(.is__route) {
+					text-shadow: 0 0 1px color(dark, 0.2);
+				}
+			}
+			&-secondary,
+			&-dark,
+			&-primaryAlt,
+			&-danger,
+			&-success {
+				--bg: #{color(light)};
+				&.is__active,
+				&.is__route:not(.is__routeExact) {
+					&:hover,
+					&:focus {
+						--cl: #{color(light, 0.7)};
+					}
+				}
+				&:disabled,
+				&[disabled] {
+					--cl: #{color(light, 0.3)};
 				}
 			}
 		}
-		&-dark7 {
-			--cl: #{color(dark, 0.7)};
+		&.u__tm-primary-light {
+			--cl: #{color(light)};
+			--bg: #{color(primary)};
 			&:not(.is__route):not(.is__active) {
 				&:hover,
 				&:focus {
-					--cl: #{color(dark, 0.3)};
-					--bc: var(--cl);
+					--cl: #{color(light, 0.7)};
+					--bc: #{color(light, 0.3)};
 				}
 			}
-		}
-		&-primaryAlt {
-			--cl: #{color(primaryAlt)};
-			&:not(.is__route):not(.is__active) {
+			&.is__active,
+			&.is__route:not(.is__routeExact) {
 				&:hover,
 				&:focus {
-					--cl: #{color(primaryAlt, 0.7)};
-					--bc: #{color(primaryAlt, 0.3)};
+					--cl: #{color(primary, 0.7)};
 				}
 			}
-		}
-		&-danger {
-			--cl: #{color(danger)};
-			&:not(.is__route):not(.is__active) {
-				&:hover,
-				&:focus {
-					--cl: #{color(danger, 0.7)};
-					--bc: #{color(danger, 0.3)};
-				}
+			&:disabled,
+			&[disabled] {
+				--cl: #{color(primary, 0.3)};
 			}
 		}
-		&-success {
-			--cl: #{color(success)};
-			&:not(.is__route):not(.is__active) {
-				&:hover,
-				&:focus {
-					--cl: #{color(success, 0.7)};
-					--bc: #{color(success, 0.3)};
-				}
-			}
-		}
-		&-primary {
+		&.u__tm-primaryAlt-primary {
 			--cl: #{color(primary)};
-			--bg: #{color(light)};
+			--bg: #{color(primaryAlt)};
 			&:not(.is__route):not(.is__active) {
 				&:hover,
 				&:focus {
@@ -251,73 +307,72 @@ select.x-inSelect {
 					--bc: #{color(primary, 0.3)};
 				}
 			}
-			&:not(.is__active):not(.is__route) {
-				text-shadow: 0 0 1px color(dark, 0.2);
-			}
-		}
-		&-secondary,
-		&-dark,
-		&-primaryAlt,
-		&-danger,
-		&-success {
-			--bg: #{color(light)};
 			&.is__active,
 			&.is__route:not(.is__routeExact) {
 				&:hover,
 				&:focus {
-					--cl: #{color(light, 0.7)};
+					--cl: #{color(primaryAlt, 0.7)};
 				}
 			}
 			&:disabled,
 			&[disabled] {
-				--cl: #{color(light, 0.3)};
+				--cl: #{color(primaryAlt, 0.3)};
+			}
+		}
+		&.u__tm-success-light {
+			--cl: #{color(light)};
+			--bg: #{color(success)};
+			&:not(.is__route):not(.is__active) {
+				&:hover,
+				&:focus {
+					--cl: #{color(light, 0.7)};
+					--bc: #{color(light, 0.3)};
+				}
+			}
+			&.is__active,
+			&.is__route:not(.is__routeExact) {
+				&:hover,
+				&:focus {
+					--cl: #{color(success, 0.7)};
+				}
+			}
+			&:disabled,
+			&[disabled] {
+				--cl: #{color(success, 0.3)};
+			}
+		}
+		// default theme
+		&:not([class*="__tm"]),
+		&.u__tm-secondary-light {
+			--cl: #{color(light)};
+			--bg: #{color(secondary)};
+			&:not(.is__route):not(.is__active) {
+				&:hover,
+				&:focus {
+					--cl: #{color(light, 0.7)};
+					--bc: #{color(light, 0.3)};
+				}
+			}
+			&.is__active,
+			&.is__route:not(.is__routeExact) {
+				&:hover,
+				&:focus {
+					--cl: #{color(secondary, 0.7)};
+				}
+			}
+			&.is__route {
+				--cl: #{color(secondary)};
+			}
+			&.is__routeExact {
+				--cl: #{color(dark, 0.7)};
+			}
+			&:disabled,
+			&[disabled] {
+				--cl: #{color(secondary, 0.3)};
 			}
 		}
 	}
-	&.u__tm-primary-light {
-		--cl: #{color(light)};
-		--bg: #{color(primary)};
-		&:not(.is__route):not(.is__active) {
-			&:hover,
-			&:focus {
-				--cl: #{color(light, 0.7)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&.is__active,
-		&.is__route:not(.is__routeExact) {
-			&:hover,
-			&:focus {
-				--cl: #{color(primary, 0.7)};
-			}
-		}
-		&:disabled,
-		&[disabled] {
-			--cl: #{color(primary, 0.3)};
-		}
-	}
-	&.u__tm-primaryAlt-primary {
-		--cl: #{color(primary)};
-		--bg: #{color(primaryAlt)};
-		&:not(.is__route):not(.is__active) {
-			&:hover,
-			&:focus {
-				--cl: #{color(primary, 0.7)};
-				--bc: #{color(primary, 0.3)};
-			}
-		}
-		&.is__active,
-		&.is__route:not(.is__routeExact) {
-			&:hover,
-			&:focus {
-				--cl: #{color(primaryAlt, 0.7)};
-			}
-		}
-		&:disabled,
-		&[disabled] {
-			--cl: #{color(primaryAlt, 0.3)};
-		}
-	}
+	&.is__invalid,
 	&.u__tm-danger-light {
 		--cl: #{color(light)};
 		--bg: #{color(danger)};
@@ -338,58 +393,6 @@ select.x-inSelect {
 		&:disabled,
 		&[disabled] {
 			--cl: #{color(danger, 0.3)};
-		}
-	}
-	&.u__tm-success-light {
-		--cl: #{color(light)};
-		--bg: #{color(success)};
-		&:not(.is__route):not(.is__active) {
-			&:hover,
-			&:focus {
-				--cl: #{color(light, 0.7)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&.is__active,
-		&.is__route:not(.is__routeExact) {
-			&:hover,
-			&:focus {
-				--cl: #{color(success, 0.7)};
-			}
-		}
-		&:disabled,
-		&[disabled] {
-			--cl: #{color(success, 0.3)};
-		}
-	}
-	// default theme
-	&:not([class*="__tm"]),
-	&.u__tm-secondary-light {
-		--cl: #{color(light)};
-		--bg: #{color(secondary)};
-		&:not(.is__route):not(.is__active) {
-			&:hover,
-			&:focus {
-				--cl: #{color(light, 0.7)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&.is__active,
-		&.is__route:not(.is__routeExact) {
-			&:hover,
-			&:focus {
-				--cl: #{color(secondary, 0.7)};
-			}
-		}
-		&.is__route {
-			--cl: #{color(secondary)};
-		}
-		&.is__routeExact {
-			--cl: #{color(dark, 0.7)};
-		}
-		&:disabled,
-		&[disabled] {
-			--cl: #{color(secondary, 0.3)};
 		}
 	}
 

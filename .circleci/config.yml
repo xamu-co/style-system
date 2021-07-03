@@ -4,84 +4,84 @@
 #
 version: 2
 defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:12.18.2
+    working_directory: ~/repo
+    docker:
+        - image: circleci/node:12.18.2
 
 jobs:
-  setup:
-    <<: *defaults
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          key: v4-yarn-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install front-end dependencies
-          command: yarn --ignore-engines --ignore-scripts
-      - save_cache:
-          key: v4-yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-          - node_modules
+    setup:
+        <<: *defaults
+        steps:
+            - checkout
+            # Download and cache dependencies
+            - restore_cache:
+                  key: v4-yarn-{{ checksum "yarn.lock" }}
+            - run:
+                  name: Install front-end dependencies
+                  command: yarn --ignore-engines --ignore-scripts
+            - save_cache:
+                  key: v4-yarn-{{ checksum "yarn.lock" }}
+                  paths:
+                      - ./node_modules
+            - persist_to_workspace:
+                  root: ~/repo
+                  paths:
+                      - node_modules
 
-  lint_commit_message:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Define environment variable with lastest commit's message
-          command: |
-            echo 'export COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")' >> $BASH_ENV
-            source $BASH_ENV
-      - run:
-          name: Lint commit message
-          command: echo "$COMMIT_MESSAGE" | npx commitlint
+    lint_commit_message:
+        <<: *defaults
+        steps:
+            - checkout
+            - attach_workspace:
+                  at: ~/repo
+            - run:
+                  name: Define environment variable with lastest commit's message
+                  command: |
+                      echo 'export COMMIT_MESSAGE=$(git log -1 --pretty=format:"%s")' >> $BASH_ENV
+                      source $BASH_ENV
+            - run:
+                  name: Lint commit message
+                  command: echo "$COMMIT_MESSAGE" | npx commitlint
 
-  lint_format_code:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Stylelint check
-          command: npx stylelint "src/{*,**/*,**/**/*}.{css,scss}" --allow-empty-input
-      - run:
-          name: Prettier formatting check
-          command: npx prettier "src/{*,**/*,**/**/*}.{css,scss}" --check
+    lint_format_code:
+        <<: *defaults
+        steps:
+            - checkout
+            - attach_workspace:
+                  at: ~/repo
+            - run:
+                  name: Stylelint check
+                  command: npx stylelint "src/{*,**/*,**/**/*}.{css,scss}" --allow-empty-input
+            - run:
+                  name: Prettier formatting check
+                  command: npx prettier "src/{*,**/*,**/**/*}.{css,scss}" --check
 
-  release:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Release to npm
-          command: npx semantic-release
+    release:
+        <<: *defaults
+        steps:
+            - checkout
+            - attach_workspace:
+                  at: ~/repo
+            - run:
+                  name: Release to npm
+                  command: npx semantic-release
 
 workflows:
-  version: 2
-  release_workflow:
-    jobs:
-      - setup
-      - lint_commit_message:
-          requires: 
+    version: 2
+    release_workflow:
+        jobs:
             - setup
-      - lint_format_code:
-          requires: 
-            - lint_commit_message
-      - release:
-          requires: 
-            - lint_format_code
-          filters:
-            branches:
-              only:
-                - master
-                - next
+            - lint_commit_message:
+                  requires:
+                      - setup
+            - lint_format_code:
+                  requires:
+                      - lint_commit_message
+            - release:
+                  requires:
+                      - lint_format_code
+                  filters:
+                      branches:
+                          only:
+                              - master
+                              - next
