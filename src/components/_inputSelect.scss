@@ -17,101 +17,134 @@ select.x-inSelect {
 	// Theme
 	//
 	// @group Unions
-	&.u__tm-light {
-		&-secondary {
-			//chevron-light down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}#{$selectPathEnd}");
-			&:hover {
-				//chevron-light down-hover
-				--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.7#{$selectPathEnd}");
+	&:not(.is__invalid) {
+		&.u__tm-light {
+			&-secondary {
+				//chevron-light down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}#{$selectPathEnd}");
+				&:hover {
+					//chevron-light down-hover
+					--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+				&:focus {
+					//chevron-light up
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}#{$selectPathEnd}");
+				}
+				&:focus:hover,
+				&:focus-within:hover {
+					//chevron-light up-hover
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
 			}
-			&:focus {
-				//chevron-light up
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}#{$selectPathEnd}");
+			&-dark {
+				//chevron-light down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$selectPathEnd}");
+				&:hover {
+					//chevron-light down-hover
+					--sbi: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.5#{$selectPathEnd}");
+				}
+				&:focus {
+					//chevron-light up
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+				&:focus:hover,
+				&:focus-within:hover {
+					//chevron-light up-hover
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.5#{$selectPathEnd}");
+				}
 			}
-			&:focus:hover,
-			&:focus-within:hover {
-				//chevron-light up-hover
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}' opacity='0.7#{$selectPathEnd}");
+			&-primaryAlt {
+				//chevron-light down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}#{$selectPathEnd}");
+				&:hover {
+					//chevron-light down-hover
+					--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+				&:focus {
+					//chevron-light up
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}#{$selectPathEnd}");
+				}
+				&:focus:hover,
+				&:focus-within:hover {
+					//chevron-light up-hover
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+			}
+			&-primary {
+				//chevron-light down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}#{$selectPathEnd}");
+				&:hover {
+					//chevron-light down-hover
+					--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+				&:focus {
+					//chevron-light up
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}#{$selectPathEnd}");
+				}
+				&:focus:hover,
+				&:focus-within:hover {
+					//chevron-light up-hover
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+			}
+			&-danger {
+				//chevron-light down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
+				&:hover {
+					//chevron-light down-hover
+					--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+				&:focus {
+					//chevron-light up
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
+				}
+				&:focus:hover,
+				&:focus-within:hover {
+					//chevron-light up-hover
+					--sbi: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+			}
+			&-secondary,
+			&-danger,
+			&-dark,
+			&-primaryAlt {
+				&:disabled,
+				&[disabled] {
+					//chevron-light down
+					--sbi: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3#{$selectPathEnd}");
+				}
 			}
 		}
-		&-dark {
-			//chevron-light down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$selectPathEnd}");
-			&:hover {
-				//chevron-light down-hover
-				--sbi: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.5#{$selectPathEnd}");
-			}
-			&:focus {
-				//chevron-light up
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$selectPathEnd}");
-			}
-			&:focus:hover,
-			&:focus-within:hover {
-				//chevron-light up-hover
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.5#{$selectPathEnd}");
-			}
-		}
-		&-primaryAlt {
-			//chevron-light down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}#{$selectPathEnd}");
-			&:hover {
-				//chevron-light down-hover
-				--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7#{$selectPathEnd}");
-			}
-			&:focus {
-				//chevron-light up
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}#{$selectPathEnd}");
-			}
-			&:focus:hover,
-			&:focus-within:hover {
-				//chevron-light up-hover
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7#{$selectPathEnd}");
-			}
-		}
-		&-primary {
-			//chevron-light down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}#{$selectPathEnd}");
-			&:hover {
-				//chevron-light down-hover
-				--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.7#{$selectPathEnd}");
-			}
-			&:focus {
-				//chevron-light up
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}#{$selectPathEnd}");
-			}
-			&:focus:hover,
-			&:focus-within:hover {
-				//chevron-light up-hover
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}' opacity='0.7#{$selectPathEnd}");
-			}
-		}
-		&-danger {
-			//chevron-light down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
-			&:hover {
-				//chevron-light down-hover
-				--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
-			}
-			&:focus {
-				//chevron-light up
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
-			}
-			&:focus:hover,
-			&:focus-within:hover {
-				//chevron-light up-hover
-				--sbi: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
-			}
-		}
-		&-secondary,
-		&-danger,
-		&-dark,
-		&-primaryAlt {
+		&.u__tm-primary-light {
 			&:disabled,
 			&[disabled] {
-				//chevron-light down
-				--sbi: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3#{$selectPathEnd}");
+				//chevron-primary down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
+		}
+		&.u__tm-primaryAlt-light {
+			&:disabled,
+			&[disabled] {
+				//chevron-primaryAlt down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3#{$selectPathEnd}");
+			}
+		}
+		// default
+		&:not([class*="u__tm"]),
+		&.u__tm-secondary-light {
+			&:disabled,
+			&[disabled] {
+				//chevron-secondary down
+				--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.3#{$selectPathEnd}");
+			}
+		}
+	}
+	&.is__invalid,
+	&.u__tm-danger-light {
+		&:disabled,
+		&[disabled] {
+			//chevron-danger down
+			--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
 		}
 	}
 	&:not([class*="u__tm"]),
@@ -133,36 +166,6 @@ select.x-inSelect {
 		&:focus-within:hover {
 			//chevron-light up-hover
 			--sbi: url("#{$selectPathUp}#{str-replace(#{$light}, '#')}' opacity='0.7#{$selectPathEnd}");
-		}
-	}
-	&.u__tm-primary-light {
-		&:disabled,
-		&[disabled] {
-			//chevron-primary down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3#{$selectPathEnd}");
-		}
-	}
-	&.u__tm-primaryAlt-light {
-		&:disabled,
-		&[disabled] {
-			//chevron-primaryAlt down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3#{$selectPathEnd}");
-		}
-	}
-	&.u__tm-danger-light {
-		&:disabled,
-		&[disabled] {
-			//chevron-danger down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
-		}
-	}
-	// default
-	&:not([class*="u__tm"]),
-	&.u__tm-secondary-light {
-		&:disabled,
-		&[disabled] {
-			//chevron-secondary down
-			--sbi: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.3#{$selectPathEnd}");
 		}
 	}
 

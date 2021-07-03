@@ -82,9 +82,9 @@
 	@include extend-device-interactions {
 		display: grid;
 		// height: auto;
-		grid-template-columns: var(--gc, unset);
-		grid-template-areas: var(--ga, unset);
-		grid-auto-rows: var(--gr, minmax(min-content, 100%));
+		grid-template-columns: var(--gdc, unset);
+		grid-template-areas: var(--gda, unset);
+		grid-auto-rows: var(--gdr, minmax(min-content, 100%));
 		> * {
 			box-sizing: border-box;
 		}
@@ -97,18 +97,18 @@
 		& {
 			// default
 			@include extend-viewports-classes(false, $viewports) {
-				--gc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+				--gdc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
 			}
 		}
 		&-single {
 			// default
 			@include extend-viewports-classes {
-				--gc: 1fr;
+				--gdc: 1fr;
 			}
 		}
 		&-autoMin {
 			@include extend-viewports-classes {
-				--gc: repeat(
+				--gdc: repeat(
 					auto-fit,
 					minmax(#{$minColumnSize/3}, max-content)
 				);
@@ -116,19 +116,19 @@
 		}
 		&-auto {
 			@include extend-viewports-classes {
-				--gc: repeat(auto-fit, minmax(0, 1fr));
+				--gdc: repeat(auto-fit, minmax(0, 1fr));
 			}
 		}
 		&-autoFill {
 			@include extend-viewports-classes {
-				--gc: repeat(auto-fill, minmax(0, 1fr));
+				--gdc: repeat(auto-fill, minmax(0, 1fr));
 			}
 		}
 	}
 	@for $i from 2 through 12 {
 		&.m__grdColumns-#{$i} {
 			@include extend-viewports-classes {
-				--gc: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
+				--gdc: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
 			}
 		}
 	}
@@ -142,26 +142,26 @@
 		&-1,
 		&-1-1 {
 			@include extend-viewports-classes {
-				--gc: repeat(2, 1fr);
-				--ga: ". a";
+				--gdc: repeat(2, 1fr);
+				--gda: ". a";
 			}
 		}
 		&-1-4 {
 			@include extend-viewports-classes {
-				--gc: repeat(5, 1fr);
-				--ga: ". a a a a";
+				--gdc: repeat(5, 1fr);
+				--gda: ". a a a a";
 			}
 		}
 		&-2-3 {
 			@include extend-viewports-classes {
-				--gc: repeat(5, 1fr);
-				--ga: ". . a a a";
+				--gdc: repeat(5, 1fr);
+				--gda: ". . a a a";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
-				--gc: repeat(5, 1fr);
-				--ga: ". . . a a";
+				--gdc: repeat(5, 1fr);
+				--gda: ". . . a a";
 			}
 		}
 		&,
@@ -184,20 +184,20 @@
 		&-1,
 		&-1-1 {
 			@include extend-viewports-classes {
-				--gc: repeat(2, 1fr);
-				--ga: "a .";
+				--gdc: repeat(2, 1fr);
+				--gda: "a .";
 			}
 		}
 		&-4-1 {
 			@include extend-viewports-classes {
-				--gc: repeat(5, 1fr);
-				--ga: "a a a a .";
+				--gdc: repeat(5, 1fr);
+				--gda: "a a a a .";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
-				--gc: repeat(5, 1fr);
-				--ga: "a a a . .";
+				--gdc: repeat(5, 1fr);
+				--gda: "a a a . .";
 			}
 		}
 		&,
