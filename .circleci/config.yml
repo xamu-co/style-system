@@ -7,6 +7,14 @@ defaults: &defaults
     working_directory: ~/repo
     docker:
         - image: circleci/node:12.18.2
+release: &release
+    steps:
+        - checkout
+        - attach_workspace:
+              at: ~/repo
+        - run:
+              name: Release npm package
+              command: npx semantic-release
 
 jobs:
     setup:
@@ -56,15 +64,13 @@ jobs:
                   name: Prettier formatting check
                   command: npx prettier "src/{*,**/*,**/**/*}.{css,scss}" --check
 
-    release:
+    release_to_github:
         <<: *defaults
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: ~/repo
-            - run:
-                  name: Release to npm
-                  command: npx semantic-release
+        <<: *release
+
+    release_to_npm:
+        <<: *defaults
+        <<: *release
 
 workflows:
     version: 2
@@ -77,11 +83,19 @@ workflows:
             - lint_format_code:
                   requires:
                       - lint_commit_message
-            - release:
+            - release_to_github:
+                  context: github-deploy
                   requires:
                       - lint_format_code
                   filters:
                       branches:
                           only:
-                              - master
                               - next
+            - release_to_npm:
+                  context: npm-deploy
+                  requires:
+                      - release_to_github
+                  filters:
+                      branches:
+                          only:
+                              - master
