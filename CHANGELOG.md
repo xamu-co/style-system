@@ -1,5 +1,41 @@
 Xamu style system
 
+# [5.0.0-next.11](https://github.com/xamu-co/style-system/compare/v5.0.0-next.10...v5.0.0-next.11) (2021-07-03)
+
+
+### Bug Fixes
+
+* active state fixes for dropdown ([aa75739](https://github.com/xamu-co/style-system/commit/aa75739b6e9e1a82ac38a22fcc43c0c309e39743))
+* conditional root border color ([6c6d0ab](https://github.com/xamu-co/style-system/commit/6c6d0ab29c7e4ccc8a5df38dc1e5b8b73e4eac82))
+* global txt wrap ([259b2cb](https://github.com/xamu-co/style-system/commit/259b2cb7ffd137ff88c9cb865ee9de72defa6f76))
+* horizontal list gaping in small devices ([6e28511](https://github.com/xamu-co/style-system/commit/6e28511404bed9eb33d46b93700b6b313973a929))
+* icon width && minor nav-Y fixes ([fc74d4b](https://github.com/xamu-co/style-system/commit/fc74d4b12b8ceb4dadb61a6e421197dc793cd93e))
+
+
+### Code Refactoring
+
+* removed vue/nuxt transitions ([5e672e4](https://github.com/xamu-co/style-system/commit/5e672e441bfae258e64941fb97dafd751c924029))
+
+
+### Features
+
+* invalid state for btn & select ([be4dea1](https://github.com/xamu-co/style-system/commit/be4dea1bf288417929abc7f4aee3d08414b47d00))
+* modal open state class for root ([5b53730](https://github.com/xamu-co/style-system/commit/5b53730d1192091ec14a04069c7da53008c89aa5))
+* new only__active dropdown status & fixes ([a9afb68](https://github.com/xamu-co/style-system/commit/a9afb6861efbcd5cbd2940d18a88ba349e504a5c))
+* prioritize global bg in box component ([5338af8](https://github.com/xamu-co/style-system/commit/5338af811438a91cfdd6d93b6dcbce075e17f1ec))
+* theming for rulers ([2cee016](https://github.com/xamu-co/style-system/commit/2cee01664c108d00d885b783a13205a1fea5368c))
+
+
+### Performance Improvements
+
+* use context in the pipeline ([cd86343](https://github.com/xamu-co/style-system/commit/cd863431626f0403095b9f2f8dc91c04caac4d7d))
+
+
+### BREAKING CHANGES
+
+* removed vue/nuxt transitions
+* --tw >>> --twr
+
 # [5.0.0-next.10](https://github.com/xamu-co/style-system/compare/v5.0.0-next.9...v5.0.0-next.10) (2021-06-15)
 
 
