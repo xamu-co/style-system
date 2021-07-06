@@ -1,5 +1,11 @@
 # dist/
+.vscode/
+.circleci/
+docs/
 node_modules/
+.releaserc
+Procfile
+template.njk
 package-lock.json
 *.lock
 *.log
