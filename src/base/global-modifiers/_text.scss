@@ -112,7 +112,8 @@
 // @group FamilyGlobalModifiers
 [class*="__txtAl"] {
 	text-align: var(--ta, initial);
-	&:not([class*="__gapi"]) > :not([class|="x"]) {
+	&:not([class*="__gapi"])
+		> :not([class|="x"]):not(table):not(thead):not(tbody) {
 		// Gaping
 		display: inline-block;
 	}

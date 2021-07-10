@@ -16,6 +16,8 @@
 .xm__gapingX {
 	// X dimension
 	@include extend-viewports-classes {
+		--gxc: var(--gx);
+		--gyc: var(--gy);
 		> * {
 			--gx: 1rem;
 		}
@@ -24,6 +26,8 @@
 .xm__gapingY {
 	// Y dimension
 	@include extend-viewports-classes {
+		--gyc: var(--gy);
+		--gyc: var(--gy);
 		> * {
 			--gy: 1rem;
 		}
@@ -100,7 +104,7 @@
 			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 				// --gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
-				--gxc: calc(var(--gc) + var(--gx));
+				--gxc: var(--gxc, calc(var(--gc) + var(--gx)));
 			}
 		}
 	}
@@ -117,7 +121,7 @@
 			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 				// --gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
-				--gyc: calc(var(--gc) + var(--gy));
+				--gyc: var(--gyc, calc(var(--gc) + var(--gy)));
 			}
 		}
 	}

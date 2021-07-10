@@ -62,14 +62,17 @@ table.x-table {
 		td,
 		th {
 			box-sizing: border-box;
-			min-width: $minColumnSize/3;
 			padding: 0.7rem 1rem;
+			white-space: var(--twr, nowrap);
 			&:empty:after {
 				content: "";
 				display: block;
 				width: 100%;
 				min-height: calc(42px - 1.4rem);
 			}
+		}
+		td {
+			min-width: $minColumnSize/3;
 		}
 	}
 
