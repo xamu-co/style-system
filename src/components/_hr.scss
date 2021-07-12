@@ -1,0 +1,97 @@
+// Delimiter
+//
+// @group Components
+hr {
+	&.m__hrX {
+		@include extend-viewports-classes {
+			// max-height: 2px;
+			width: calc(100% + 1rem);
+			height: 2px;
+			margin: 0 -0.5rem var(--g, 1rem) -0.5rem;
+
+			// Tema del delimitador
+			//
+			// @group Modifiers
+			&.m__tm-dark7 {
+				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-primary {
+				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-primaryAlt {
+				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-danger {
+				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-success {
+				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
+			}
+			// default theme
+			&:not([class*="__tm"]),
+			&.m__tm-secondary {
+				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
+			}
+		}
+	}
+	&.m__hrY {
+		@include extend-viewports-classes {
+			// max-width: 2px;
+			width: 2px;
+			height: calc(100% + 1rem);
+			margin: -0.5rem var(--g, 1rem) -0.5rem 0;
+
+			// Tema del delimitador
+			//
+			// @group Modifiers
+			&.m__tm-dark7 {
+				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-primary {
+				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-primaryAlt {
+				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-danger {
+				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
+			}
+			&.m__tm-success {
+				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
+			}
+			// default theme
+			&:not([class*="__tm"]),
+			&.m__tm-secondary {
+				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
+			}
+		}
+	}
+	&.m__hrX,
+	&.m__hrY {
+		@include extend-viewports-classes {
+			opacity: 0.2;
+			background-repeat: round;
+			background-position: 50% 50%;
+			flex: 0 0 auto;
+			&:last-child:not(:nth-child(2)) {
+				display: none;
+			}
+		}
+	}
+	// default: horizontal
+	&:not([id]):not([class]) {
+		// max-height: 2px;
+		width: calc(100% + 1rem);
+		height: 2px;
+		margin-left: -0.5rem;
+		margin-right: -0.5rem;
+		opacity: 0.2;
+		background-repeat: round;
+		background-position: 50% 50%;
+		flex: 0 0 auto;
+		background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
+		&:last-child:not(:nth-child(2)) {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,41 @@
+nav.x-navY {
+	background-color: color(light, 0.9);
+	width: auto;
+	// flex: 0 0 auto;
+	@include flexbox(row, nowrap, flex-start, stretch);
+}
+.x-navY-menu {
+	min-height: 100%;
+	height: auto;
+	box-sizing: border-box;
+	@include flexbox(column, nowrap, center, stretch);
+	// box-sizing: border-box;
+
+	// es barra de navegacion principal
+	//
+	// @group Statuses
+	&:not(.is__sub) {
+		@include flexbox(column, nowrap, space-between, center);
+	}
+
+	// es barra de navegacion secundaria
+	//
+	// @group Statuses
+	&.is__sub {
+		overflow: hidden;
+		@include flexbox(column, nowrap, space-between, flex-start);
+	}
+}
+
+// Navigation nav list
+// this element is expected to be an <ul> or <ol> list
+ul.x-navY-menu-list,
+ol.x-navY-menu-list {
+	@include flexbox(column, nowrap, center, flex-start);
+	&,
+	> * {
+		&:not(:first-child) {
+			margin-top: 1rem;
+		}
+	}
+}

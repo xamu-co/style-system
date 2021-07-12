@@ -4,7 +4,8 @@
     "blade.format.enable": true,
     "files.associations": {
         // "*.blade.php": "html",
-        "*.svg": "html"
+        "*.svg": "html",
+        ".sassdocrc": "yaml"
     },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
