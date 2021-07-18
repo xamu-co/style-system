@@ -1,124 +1,124 @@
 {
-  "name": "@xamu-co/styles",
-  "version": "5.0.0-next.10",
-  "description": "Style system for the xamu project",
-  "main": "dist/index.css",
-  "browser": "dist/index.min.css",
-  "source": "src/index.scss",
-  "scripts": {
-    "format": "copy-files-from-to && prettier dist/*.formatted.css --no-config --write",
-    "sass": "sass src/index.scss dist/index.css",
-    "postcss": "postcss dist/index.css -o dist/index.min.css --no-map",
-    "css:compile": "yarn sass && yarn postcss --verbose && yarn format",
-    "build": "yarn css:compile && yarn docs:compile",
-    "watch": "yarn sass --watch",
-    "lint": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && cross-env prettier 'src/{*,**/*,**/**/*}.{css,scss}' --check",
-    "prepare": "npm run css:compile",
-    "docs:compile": "sassdoc src/{**/{_*,summary},**/**/{_*,summary}}.scss --dest docs",
-    "docs:serve": "yarn serve docs",
-    "docs": "yarn docs:compile && start http://localhost:5000 && yarn serve docs"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xamu-co/style-system.git"
-  },
-  "keywords": [
-    "style",
-    "css",
-    "style",
-    "system",
-    "sass",
-    "postcss",
-    "csso"
-  ],
-  "author": "@xamu-co",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/xamu-co/style-system/issues"
-  },
-  "homepage": "https://github.com/xamu-co/style-system#readme",
-  "dependencies": {
-    "sassdoc": "^2.7.3",
-    "sassdoc-theme-herman": "^4.0.0",
-    "serve": "^11.3.2"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^9.1.1",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "autoprefixer": "^9.8.6",
-    "copy-files-from-to": "^3.2.0",
-    "cssnano": "^4.1.10",
-    "cssnano-preset-advanced": "^4.0.7",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
-    "node-css-mqpacker": "^8.0.1",
-    "postcss": "^8.2.10",
-    "postcss-cli": "^8.3.1",
-    "postcss-combine-media-query": "^1.0.1",
-    "postcss-custom-properties": "^9.1.1",
-    "postcss-merge-selectors": "vis97c/postcss-merge-selectors",
-    "postcss-precision": "TedMeftah/postcss-precision#1.0.0",
-    "postcss-sort-media-queries": "^3.8.9",
-    "prettier": "^2.0.5",
-    "sass": "1.32.10",
-    "semantic-release": "^17.1.1",
-    "sort-css-media-queries": "vis97c/sort-css-media-queries",
-    "stylelint": "^13.6.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-prettier": "^1.1.2"
-  },
-  "engines": {
-    "node": ">=12.13.1",
-    "yarn": ">=1.22.4"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged && yarn sass"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "lint-staged": {
-    "*.css": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.scss": [
-      "stylelint --syntax=scss --fix",
-      "prettier --write"
-    ]
-  },
-  "prettier": {
-    "tabWidth": 4,
-    "useTabs": true,
-    "endOfLine": "auto",
-    "requirePragma": false,
-    "insertPragma": false
-  },
-  "stylelint": {
-    "extends": [
-      "stylelint-prettier/recommended"
-    ],
-    "rules": {
-      "indentation": null
-    }
-  },
-  "browserslist": [
-    "defaults"
-  ],
-  "copyFiles": [
-    {
-      "from": "dist/index.min.css",
-      "to": "dist/index.formatted.css"
-    }
-  ],
-  "copyFilesSettings": {
-    "whenFileExists": "overwrite"
-  }
+	"name": "@xamu-co/styles",
+	"version": "5.0.0-next.10",
+	"description": "Style system for the xamu project",
+	"main": "dist/index.css",
+	"browser": "dist/index.min.css",
+	"source": "src/index.scss",
+	"scripts": {
+		"format": "copy-files-from-to && prettier dist/*.formatted.css --no-config --write",
+		"sass": "sass src/index.scss dist/index.css",
+		"postcss": "postcss dist/index.css -o dist/index.min.css --no-map",
+		"css:compile": "yarn sass && yarn postcss --verbose && yarn format",
+		"build": "yarn css:compile && yarn docs:compile",
+		"watch": "yarn sass --watch",
+		"lint": "stylelint src/{*,**/*,**/**/*}.{css,scss} --syntax=scss && prettier src/{*,**/*,**/**/*}.{css,scss} --check",
+		"prepare": "npm run css:compile",
+		"docs:compile": "sassdoc src/{**/{_*,summary},**/**/{_*,summary}}.scss --dest docs",
+		"docs:serve": "yarn serve docs",
+		"docs": "yarn docs:compile && start http://localhost:5000 && yarn serve docs"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/xamu-co/style-system.git"
+	},
+	"keywords": [
+		"style",
+		"css",
+		"style",
+		"system",
+		"sass",
+		"postcss",
+		"csso"
+	],
+	"author": "@xamu-co",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/xamu-co/style-system/issues"
+	},
+	"homepage": "https://github.com/xamu-co/style-system#readme",
+	"dependencies": {
+		"sassdoc": "^2.7.3",
+		"sassdoc-theme-herman": "^4.0.0",
+		"serve": "^11.3.2"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^9.1.1",
+		"@commitlint/config-conventional": "^9.1.1",
+		"@semantic-release/changelog": "^5.0.1",
+		"@semantic-release/git": "^9.0.0",
+		"autoprefixer": "^9.8.6",
+		"copy-files-from-to": "^3.2.0",
+		"cssnano": "^4.1.10",
+		"cssnano-preset-advanced": "^4.0.7",
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.11",
+		"node-css-mqpacker": "^8.0.1",
+		"postcss": "^8.2.10",
+		"postcss-cli": "^8.3.1",
+		"postcss-combine-media-query": "^1.0.1",
+		"postcss-custom-properties": "^9.1.1",
+		"postcss-merge-selectors": "vis97c/postcss-merge-selectors",
+		"postcss-precision": "TedMeftah/postcss-precision#1.0.0",
+		"postcss-sort-media-queries": "^3.8.9",
+		"prettier": "^2.0.5",
+		"sass": "1.32.10",
+		"semantic-release": "^17.1.1",
+		"sort-css-media-queries": "vis97c/sort-css-media-queries",
+		"stylelint": "^13.6.1",
+		"stylelint-config-prettier": "^8.0.2",
+		"stylelint-prettier": "^1.1.2"
+	},
+	"engines": {
+		"node": ">=12.13.1",
+		"yarn": ">=1.22.4"
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+			"pre-commit": "lint-staged && yarn sass"
+		}
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"lint-staged": {
+		"*.css": [
+			"stylelint --fix",
+			"prettier --write"
+		],
+		"*.scss": [
+			"stylelint --syntax=scss --fix",
+			"prettier --write"
+		]
+	},
+	"prettier": {
+		"tabWidth": 4,
+		"useTabs": true,
+		"endOfLine": "auto",
+		"requirePragma": false,
+		"insertPragma": false
+	},
+	"stylelint": {
+		"extends": [
+			"stylelint-prettier/recommended"
+		],
+		"rules": {
+			"indentation": null
+		}
+	},
+	"browserslist": [
+		"defaults"
+	],
+	"copyFiles": [
+		{
+			"from": "dist/index.min.css",
+			"to": "dist/index.formatted.css"
+		}
+	],
+	"copyFilesSettings": {
+		"whenFileExists": "overwrite"
+	}
 }
