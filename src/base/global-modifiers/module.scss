@@ -48,6 +48,8 @@
 	&-sticky {
 		@include extend-viewports-classes {
 			--po: sticky;
+			left: 0;
+			top: 0;
 		}
 	}
 	&-relative {
