@@ -94,7 +94,7 @@ workflows:
             - release_to_npm:
                   context: npm-deploy
                   requires:
-                      - release_to_github
+                      - lint_format_code
                   filters:
                       branches:
                           only:
