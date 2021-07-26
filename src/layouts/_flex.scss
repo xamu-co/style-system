@@ -71,7 +71,7 @@
 		&-wrap,
 		&-reverse,
 		&-nowrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				flex-direction: row;
 			}
 		}
@@ -81,7 +81,7 @@
 		&-wrap,
 		&-reverse,
 		&-nowrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				flex-direction: row-reverse;
 			}
 		}
@@ -91,7 +91,7 @@
 		// default
 		&,
 		&-nowrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				&:not([class*="__gapi"])
 					> :not(br):not([class*="__hrX"]):not(:last-child) {
 					// Gaping
@@ -113,7 +113,7 @@
 		&-wrap,
 		&-reverse,
 		&-nowrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				flex-direction: column;
 			}
 		}
@@ -123,7 +123,7 @@
 		&-wrap,
 		&-reverse,
 		&-nowrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				flex-direction: column-reverse;
 			}
 		}
@@ -133,7 +133,7 @@
 		// default
 		&,
 		&-nowrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				&:not([class*="__gapi"])
 					> :not(br):not([class*="__hrY"]):not(:last-child) {
 					// Gaping
@@ -153,23 +153,24 @@
 	&.m__flxRowReverse,
 	&.m__flxColumnReverse {
 		&-wrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				flex-wrap: wrap;
 			}
 		}
 		&-reverse {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				flex-wrap: wrap-reverse;
 			}
 		}
 		&-wrap,
 		&-reverse {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				&:not([class*="__gapi"]) {
 					// Gaping
 					// this is a very special class to omit this specific fix
 					&:not(.unfix__gaping) {
 						--gc: calc(-1 * var(--g, 1rem)); // calculated gap
+						// TODO: fix mX & mY collision in flex layout
 						margin: -0.1px var(--gc) var(--gc) -0.1px;
 						box-sizing: border-box;
 						&:last-child > :first-child:last-child {
@@ -192,7 +193,7 @@
 		// default
 		&,
 		&-nowrap {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(true, $viewports) {
 				flex-wrap: nowrap;
 			}
 		}

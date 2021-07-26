@@ -74,6 +74,32 @@
 	position: var(--po, relative);
 }
 
+// clear
+//
+// @group GlobalModifiers
+.xm__clear {
+	@include extend-viewports-classes {
+		clear: both;
+	}
+}
+
+// float
+//
+// @group GlobalModifiers
+.xm__float {
+	&-right {
+		@include extend-viewports-classes {
+			float: left;
+		}
+	}
+	&,
+	&-left {
+		@include extend-viewports-classes {
+			float: left;
+		}
+	}
+}
+
 // order
 //
 // @group GlobalModifiers

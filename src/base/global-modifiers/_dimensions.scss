@@ -20,6 +20,11 @@ $dimensions: width, height;
 				--#{str-slice($dimension,1,1)}: 50%;
 			}
 		}
+		&-auto {
+			@include extend-viewports-classes {
+				--#{str-slice($dimension,1,1)}: auto;
+			}
+		}
 		&,
 		&-full {
 			@include extend-viewports-classes {

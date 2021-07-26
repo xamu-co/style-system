@@ -87,7 +87,7 @@ table.x-table {
 
 			&.m__sticky {
 				position: sticky;
-				z-index: 1;
+				z-index: 2;
 				background: color(light);
 				left: 0;
 				&:last-child {

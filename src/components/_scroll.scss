@@ -2,36 +2,32 @@
 //
 // @group Components
 .x-scroll {
+	// TODO: rethink component, is doing more than it should or at least in a weird way
+
+	&::-webkit-scrollbar {
+		width: 0.5rem;
+		height: 0.5rem;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: #eee;
+		border-radius: 100px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 100px;
+		background-color: color(dark, 0.3);
+	}
+
 	// table mode modifier
 	&.m__table {
 		width: 100%;
-
-		@media (min-width: $viewportMd + 1) {
-			overflow-x: auto;
-			overflow-y: hidden;
-		}
-		@media (max-width: $viewportMd) {
-		}
-
-		&::-webkit-scrollbar {
-			width: 0.5rem;
-			height: 0.5rem;
-		}
-
-		&::-webkit-scrollbar-track {
-			background-color: #eee;
-			border-radius: 100px;
-		}
-
-		&::-webkit-scrollbar-thumb {
-			border-radius: 100px;
-			background-color: color(dark, 0.3);
-		}
+		overflow-x: auto;
+		overflow-y: hidden;
 
 		.x-table {
 			min-width: 100%;
 			box-sizing: border-box;
-			// border-right: 0.5rem solid transparent;
 			&:last-child {
 				margin-bottom: 0.5rem;
 			}

@@ -68,6 +68,7 @@
 	// this is a very special class to omit this specific fix
 	&:not(.unfix__gaping) {
 		--gc: calc(-1 * var(--g, 1rem)); // calculated gap
+		// TODO: fix mX & mY collision in gaping modifier
 		margin: -0.1px var(--gc) var(--gc) -0.1px;
 		box-sizing: border-box;
 		&:last-child > :first-child:last-child {

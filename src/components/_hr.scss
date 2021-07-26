@@ -3,7 +3,7 @@
 // @group Components
 hr {
 	&.m__hrX {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(true, $viewports) {
 			// max-height: 2px;
 			width: calc(100% + 1rem);
 			height: 2px;
@@ -35,7 +35,7 @@ hr {
 		}
 	}
 	&.m__hrY {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(true, $viewports) {
 			// max-width: 2px;
 			width: 2px;
 			height: calc(100% + 1rem);
@@ -68,11 +68,12 @@ hr {
 	}
 	&.m__hrX,
 	&.m__hrY {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(true, $viewports) {
 			opacity: 0.2;
 			background-repeat: round;
 			background-position: 50% 50%;
 			flex: 0 0 auto;
+			display: block;
 			&:last-child:not(:nth-child(2)) {
 				display: none;
 			}
@@ -90,6 +91,7 @@ hr {
 		background-position: 50% 50%;
 		flex: 0 0 auto;
 		background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
+		display: block;
 		&:last-child:not(:nth-child(2)) {
 			display: none;
 		}

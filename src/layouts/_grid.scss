@@ -29,7 +29,7 @@
 ///  .x-grd.m__grdColumns-single
 ///
 ///  /** fixed amount of columns (2-12) */
-///  .x-grd.m__grdColumns-2
+///  .x-grd.m__grdColumns-auto2
 /// ```
 ///
 /// ## Unions:
@@ -82,6 +82,7 @@
 	@include extend-device-interactions {
 		display: grid;
 		// height: auto;
+		width: 100%;
 		grid-template-columns: var(--gdc, unset);
 		grid-template-areas: var(--gda, unset);
 		grid-auto-rows: var(--gdr, minmax(min-content, 100%));
@@ -94,19 +95,17 @@
 	//
 	// @group Modifiers
 	&.m__grdColumns {
-		& {
-			// default
-			@include extend-viewports-classes(false, $viewports) {
-				--gdc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
-			}
-		}
 		&-single {
-			// default
 			@include extend-viewports-classes {
 				--gdc: 1fr;
 			}
 		}
-		&-autoMin {
+		&-autoFit {
+			@include extend-viewports-classes {
+				--gdc: repeat(auto-fit, minmax(0, 1fr));
+			}
+		}
+		&-autoFitMin {
 			@include extend-viewports-classes {
 				--gdc: repeat(
 					auto-fit,
@@ -114,21 +113,40 @@
 				);
 			}
 		}
-		&-auto {
+		&-autoFillMin {
 			@include extend-viewports-classes {
-				--gdc: repeat(auto-fit, minmax(0, 1fr));
+				--gdc: repeat(
+					auto-fill,
+					minmax(#{$minColumnSize/3}, max-content)
+				);
 			}
 		}
-		&-autoFill {
+		&-autoFitColumn {
 			@include extend-viewports-classes {
-				--gdc: repeat(auto-fill, minmax(0, 1fr));
+				--gdc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+			}
+		}
+		&-autoFillColumn {
+			@include extend-viewports-classes {
+				--gdc: repeat(auto-fill, minmax(#{$minColumnSize}, 1fr));
+			}
+		}
+		& {
+			// default, the same as .m__grdColumns-auto3
+			@include extend-viewports-classes(false, $viewports) {
+				--gdc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
 			}
 		}
 	}
 	@for $i from 2 through 12 {
-		&.m__grdColumns-#{$i} {
+		&.m__grdColumns-auto#{$i} {
 			@include extend-viewports-classes {
 				--gdc: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
+			}
+		}
+		&.m__grdColumns-#{$i} {
+			@include extend-viewports-classes {
+				--gdc: repeat(#{$i}, minmax(#{$minColumnSize/$i * 3}, 1fr));
 			}
 		}
 	}
