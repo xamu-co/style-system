@@ -12,7 +12,7 @@ These are the basic guidelines behind this project.
 -   prefixes prevent the collision with vendor styling
 -   the "x" stands for xamu
 
-Explore the [docs](https://styles.xamu.com.co/) or learn how to setup the project for development at: [Setup](SETUP)
+Explore the [docs](https://styles.xamu.com.co/) or learn how to setup the project for development at: [Setup](SETUP.md)
 
 ## Elements & layouts:
 
