@@ -1,5 +1,12 @@
 Xamu style system
 
+## [1.0.2](https://github.com/xamu-co/style-system/compare/v1.0.1...v1.0.2) (2021-07-26)
+
+
+### Bug Fixes
+
+* package name & badge in readme ([97b0dc5](https://github.com/xamu-co/style-system/commit/97b0dc56c77cfbc14a7a35cf02a9c7a4da125309))
+
 ## [1.0.1](https://github.com/xamu-co/style-system/compare/v1.0.0...v1.0.1) (2021-07-26)
 
 
