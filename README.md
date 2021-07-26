@@ -1,6 +1,6 @@
 <p align="center">
-<a href="https://www.npmjs.com/package/@xamu-co/styles">
-<img src="https://img.shields.io/npm/v/@xamu-co/styles.svg?sanitize=true" alt="Version">
+<a href="https://www.npmjs.com/package/@xamu-co/style-system">
+<img src="https://img.shields.io/npm/v/@xamu-co/style-system.svg?sanitize=true" alt="Version">
 </a>
 </p>
 
