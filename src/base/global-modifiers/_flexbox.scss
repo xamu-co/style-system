@@ -25,39 +25,36 @@
 .xm__flxJustify {
 	&-end {
 		@include extend-viewports-classes {
-			--fj: flex-end;
+			justify-content: flex-end;
 		}
 	}
 	&-start {
 		@include extend-viewports-classes {
-			--fj: flex-start;
+			justify-content: flex-start;
 		}
 	}
 	&-around {
 		@include extend-viewports-classes {
-			--fj: space-around;
+			justify-content: space-around;
 		}
 	}
 	&-evenly {
 		@include extend-viewports-classes {
-			--fj: space-evenly;
+			justify-content: space-evenly;
 		}
 	}
 	&-between {
 		@include extend-viewports-classes {
-			--fj: space-between;
+			justify-content: space-between;
 		}
 	}
 	// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--fj: center;
+			justify-content: center;
 		}
 	}
-}
-[class*="__flxJu"] {
-	justify-content: var(--fj, initial);
 }
 
 // flexbox align items
@@ -66,32 +63,29 @@
 .xm__flxAlign {
 	&-end {
 		@include extend-viewports-classes {
-			--fa: flex-end;
+			align-items: flex-end;
 		}
 	}
 	&-start {
 		@include extend-viewports-classes {
-			--fa: flex-start;
+			align-items: flex-start;
 		}
 	}
 	&-stretch {
 		@include extend-viewports-classes {
-			--fa: stretch;
+			align-items: stretch;
 		}
 	}
 	&-baseline {
 		@include extend-viewports-classes {
-			--fa: baseline;
+			align-items: baseline;
 		}
 	}
 	// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--fa: center;
+			align-items: center;
 		}
 	}
-}
-[class*="__flxA"] {
-	align-items: var(--fa, initial);
 }
