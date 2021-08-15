@@ -46,14 +46,10 @@
 ///  </div>
 
 .x-cols {
-	@include extend-device-interactions {
-		columns: var(--cc, initial); // count
-	}
-
 	@for $i from 3 through 12 {
 		&.m__count-#{$i} {
 			@include extend-viewports-classes {
-				--cc: #{$minColumnSize/$i * 3} #{$i};
+				columns: #{$minColumnSize/$i * 3} #{$i};
 			}
 		}
 	}
@@ -62,7 +58,7 @@
 	&.m__count-2,
 	&:not([class*="__co"]) {
 		// Count
-		--cc: #{$minColumnSize/2 * 3} 2;
+		columns: #{$minColumnSize/2 * 3} 2;
 	}
 
 	> * {
