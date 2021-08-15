@@ -5,30 +5,27 @@
 	&-lower,
 	&-lowercase {
 		@include extend-viewports-classes {
-			--ttr: lowercase;
+			text-transform: lowercase;
 		}
 	}
 	&-upper,
 	&-uppercase {
 		@include extend-viewports-classes {
-			--ttr: uppercase;
+			text-transform: uppercase;
 		}
 	}
 	&-capitalize {
 		@include extend-viewports-classes {
-			--ttr: capitalize;
+			text-transform: capitalize;
 		}
 	}
 	// default
 	&,
 	&-none {
 		@include extend-viewports-classes {
-			--ttr: none;
+			text-transform: none;
 		}
 	}
-}
-[class*="__txtTr"] {
-	text-transform: var(--ttr);
 }
 
 // text wrap
@@ -37,19 +34,16 @@
 .xm__txtWrap {
 	&-nowrap {
 		@include extend-viewports-classes {
-			--twr: nowrap;
+			white-space: nowrap;
 		}
 	}
 	// default
 	&,
 	&-wrap {
 		@include extend-viewports-classes {
-			--twr: normal;
+			white-space: normal;
 		}
 	}
-}
-[class*="__txtWr"] {
-	white-space: var(--twr);
 }
 
 // text style
@@ -58,24 +52,21 @@
 .xm__txtStyle {
 	&-normal {
 		@include extend-viewports-classes {
-			--tst: normal;
+			font-style: normal;
 		}
 	}
 	&-oblique {
 		@include extend-viewports-classes {
-			--tst: oblique;
+			font-style: oblique;
 		}
 	}
 	// default
 	&,
 	&-italic {
 		@include extend-viewports-classes {
-			--tst: italic;
+			font-style: italic;
 		}
 	}
-}
-[class*="__txtSt"] {
-	font-style: var(--tst);
 }
 
 // font weight
@@ -84,34 +75,29 @@
 .xm__txtWeight {
 	&-bold {
 		@include extend-viewports-classes {
-			--twg: #{weight(bold)};
+			font-weight: weight(bold);
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				--twg: #{weight(bold-alt)};
+				font-weight: weight(bold-alt);
 			}
 		}
 	}
 	&,
 	&-regular {
 		@include extend-viewports-classes {
-			--twg: #{weight()};
+			font-weight: weight();
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				--twg: #{weight(regular-alt)};
+				font-weight: weight(regular-alt);
 			}
 		}
 	}
-}
-[class*="__txtWe"] {
-	// Heaviness
-	font-weight: var(--twg);
 }
 
 // text align
 //
 // @group FamilyGlobalModifiers
 [class*="__txtAl"] {
-	text-align: var(--ta, initial);
 	&:not([class*="__gapi"])
 		> :not([class|="x"]):not(table):not(thead):not(tbody) {
 		// Gaping
@@ -119,7 +105,7 @@
 	}
 	> :not([class*="__txtA"]):not([class|="x"]) {
 		// Align
-		text-align: var(--ta);
+		text-align: left;
 	}
 }
 
@@ -127,24 +113,24 @@
 .xm__txtAlignFlx {
 	&-right {
 		@include extend-viewports-classes {
-			--ta: right;
+			text-align: right;
 		}
 	}
 	&-center {
 		@include extend-viewports-classes {
-			--ta: center;
+			text-align: center;
 		}
 	}
 	&-justify {
 		@include extend-viewports-classes {
-			--ta: justify;
+			text-align: justify;
 		}
 	}
 	// default
 	&,
 	&-left {
 		@include extend-viewports-classes {
-			--ta: left;
+			text-align: left;
 		}
 	}
 }
@@ -152,47 +138,63 @@
 // text align flex
 //
 // @group FamilyGlobalModifiers
-[class*="__txtAlignF"] {
-	@include flexbox(
-		column,
-		nowrap,
-		flex-start,
-		var(--tfa, initial),
-		inline-flex
-	);
-	> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-		// Align
-		@include flexbox(
-			column,
-			nowrap,
-			flex-start,
-			var(--tfa, initial),
-			inline-flex
-		);
-	}
-}
-
 .xm__txtAlignFlx {
 	&-right {
 		@include extend-viewports-classes {
-			--tfa: flex-end;
+			&,
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+				@include flexbox(
+					column,
+					nowrap,
+					flex-start,
+					flex-end,
+					inline-flex
+				);
+			}
 		}
 	}
 	&-center {
 		@include extend-viewports-classes {
-			--tfa: center;
+			&,
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+				@include flexbox(
+					column,
+					nowrap,
+					flex-start,
+					center,
+					inline-flex
+				);
+			}
 		}
 	}
 	&-justify {
 		@include extend-viewports-classes {
-			--tfa: stretch;
+			&,
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+				@include flexbox(
+					column,
+					nowrap,
+					flex-start,
+					stretch,
+					inline-flex
+				);
+			}
 		}
 	}
 	// default
 	&,
 	&-left {
 		@include extend-viewports-classes {
-			--tfa: flex-start;
+			&,
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+				@include flexbox(
+					column,
+					nowrap,
+					flex-start,
+					flex-start,
+					inline-flex
+				);
+			}
 		}
 	}
 }
@@ -203,18 +205,15 @@
 .xm__txtSize,
 .xm__txtSize-normal {
 	@include extend-viewports-classes {
-		--tsz: #{size()};
+		-font-size: size();
 	}
 }
 @each $name, $size in $fontSizes {
 	.xm__txtSize-#{$name} {
 		@include extend-viewports-classes {
-			--tsz: #{$size};
+			-font-size: $size;
 		}
 	}
-}
-[class*="__txtSi"] {
-	font-size: var(--tsz);
 }
 
 // COLOR RELATED

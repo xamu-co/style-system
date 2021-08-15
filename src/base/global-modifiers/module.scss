@@ -42,36 +42,33 @@
 .xm__position {
 	&-fixed {
 		@include extend-viewports-classes {
-			--po: fixed;
+			position: fixed;
 		}
 	}
 	&-sticky {
 		@include extend-viewports-classes {
-			--po: sticky;
+			position: sticky;
 			left: 0;
 			top: 0;
 		}
 	}
 	&-relative {
 		@include extend-viewports-classes {
-			--po: relative;
+			position: relative;
 		}
 	}
 	&-absolute {
 		@include extend-viewports-classes {
-			--po: absolute;
+			position: absolute;
 		}
 	}
 	// default
 	&,
 	&-static {
 		@include extend-viewports-classes {
-			--po: static;
+			position: static;
 		}
 	}
-}
-[class*="__position"] {
-	position: var(--po, relative);
 }
 
 // clear

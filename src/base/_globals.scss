@@ -83,7 +83,7 @@ textarea {
 }
 
 p {
-	--twr: normal;
+	white-space: inherit;
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -178,7 +178,7 @@ h3,
 h4,
 h5,
 h6 {
-	--twr: normal;
+	white-space: normal;
 }
 
 // global font weight

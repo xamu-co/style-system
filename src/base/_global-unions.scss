@@ -37,7 +37,16 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			--fj: space-between;
+			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+				justify-content: space-between;
+			}
+			&.x-grd {
+				justify-items: space-between;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: space-between;
+			}
 		}
 	}
 }
@@ -53,7 +62,16 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			--fj: space-around;
+			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+				justify-content: space-around;
+			}
+			&.x-grd {
+				justify-items: space-around;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: space-around;
+			}
 		}
 	}
 }
@@ -69,71 +87,16 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			--fj: space-evenly;
-		}
-	}
-}
-.xu__flx-between,
-.xu__flx-around,
-.xu__flx-evenly {
-	&-stretch {
-		@include extend-viewports-classes {
-			--fa: stretch;
-		}
-	}
-	&-start {
-		@include extend-viewports-classes {
-			--fa: flex-start;
-		}
-	}
-	&-end {
-		@include extend-viewports-classes {
-			--fa: flex-end;
-		}
-	}
-	&-baseline {
-		@include extend-viewports-classes {
-			--fa: baseline;
-		}
-	}
-	// default
-	&,
-	&-center {
-		@include extend-viewports-classes {
-			--fa: center;
-		}
-	}
-}
-
-//  Justify flex start...
-//
-// @group GlobalUnions
-.xu__flx-start {
-	&-center {
-		@include extend-viewports-classes {
-			--fa: center;
-		}
-	}
-	&-end {
-		@include extend-viewports-classes {
-			--fa: flex-end;
-		}
-	}
-	&,
-	&-stretch,
-	&-baseline,
-	&-start,
-	&-center,
-	&-end {
-		@include extend-viewports-classes {
-			--fj: flex-start;
-		}
-	}
-	// default
-	&,
-	&-start {
-		@include extend-viewports-classes {
-			--fa: flex-start;
+			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+				justify-content: space-evenly;
+			}
+			&.x-grd {
+				justify-items: space-evenly;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: space-evenly;
+			}
 		}
 	}
 }
@@ -142,16 +105,6 @@
 //
 // @group GlobalUnions
 .xu__flx-center {
-	&-start {
-		@include extend-viewports-classes {
-			--fa: flex-start;
-		}
-	}
-	&-end {
-		@include extend-viewports-classes {
-			--fa: flex-end;
-		}
-	}
 	&,
 	&-stretch,
 	&-baseline,
@@ -159,14 +112,68 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			--fj: center;
+			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+				justify-content: center;
+			}
+			&.x-grd {
+				justify-items: center;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: center;
+			}
 		}
 	}
+}
+
+.xu__flx-between,
+.xu__flx-around,
+.xu__flx-evenly,
+.xu__flx-center {
 	// default
+	@include extend-viewports-classes {
+		&:not([class*="__flxSelf"]) {
+			align-items: center;
+		}
+		&.x-grd > .xm__flxSelf,
+		&.xm__flxSelf {
+			align-self: center;
+		}
+	}
+}
+
+//  Justify flex start...
+//
+// @group GlobalUnions
+.xu__flx-start {
+	// default
+	@include extend-viewports-classes {
+		&:not([class*="__flxSelf"]) {
+			align-items: flex-start;
+		}
+		&.x-grd > .xm__flxSelf,
+		&.xm__flxSelf {
+			align-self: flex-start;
+		}
+	}
+
 	&,
-	&-center {
+	&-stretch,
+	&-baseline,
+	&-start,
+	&-center,
+	&-end {
 		@include extend-viewports-classes {
-			--fa: center;
+			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+				justify-content: flex-start;
+			}
+			&.x-grd {
+				justify-items: flex-start;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: flex-start;
+			}
 		}
 	}
 }
@@ -175,16 +182,17 @@
 //
 // @group GlobalUnions
 .xu__flx-end {
-	&-start {
-		@include extend-viewports-classes {
-			--fa: flex-start;
+	// default
+	@include extend-viewports-classes {
+		&:not([class*="__flxSelf"]) {
+			align-items: flex-end;
+		}
+		&.x-grd > .xm__flxSelf,
+		&.xm__flxSelf {
+			align-self: flex-end;
 		}
 	}
-	&-center {
-		@include extend-viewports-classes {
-			--fa: center;
-		}
-	}
+
 	&,
 	&-stretch,
 	&-baseline,
@@ -192,46 +200,78 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			--fj: flex-end;
-		}
-	}
-	// default
-	&,
-	&-end {
-		@include extend-viewports-classes {
-			--fa: flex-end;
+			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+				justify-content: flex-end;
+			}
+			&.x-grd {
+				justify-items: flex-end;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: flex-end;
+			}
 		}
 	}
 }
 .xu__flx-start,
 .xu__flx-center,
-.xu__flx-end {
+.xu__flx-end,
+.xu__flx-between,
+.xu__flx-around,
+.xu__flx-evenly {
+	&-start {
+		@include extend-viewports-classes {
+			&:not([class*="__flxSelf"]) {
+				align-items: flex-start;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: flex-start;
+			}
+		}
+	}
+	&-center {
+		@include extend-viewports-classes {
+			&:not([class*="__flxSelf"]) {
+				align-items: center;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: center;
+			}
+		}
+	}
+	&-end {
+		@include extend-viewports-classes {
+			&:not([class*="__flxSelf"]) {
+				align-items: flex-end;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: flex-end;
+			}
+		}
+	}
 	&-stretch {
 		@include extend-viewports-classes {
-			--fa: stretch;
+			&:not([class*="__flxSelf"]) {
+				align-items: stretch;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: stretch;
+			}
 		}
 	}
 	&-baseline {
 		@include extend-viewports-classes {
-			--fa: baseline;
+			&:not([class*="__flxSelf"]) {
+				align-items: baseline;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: baseline;
+			}
 		}
 	}
-}
-[class*="u__flx-"]:not(.x-grd) {
-	justify-content: var(--fj, initial);
-}
-.x-grd {
-	&[class*="u__flx-"] {
-		justify-items: var(--fj, initial);
-	}
-	&[class*="u__flx-"] > [class*="u__flx-"].xm__flxSelf,
-	&:not([class*="u__flx-"]) > .xm__flxSelf {
-		justify-self: var(--fj, initial);
-		align-self: var(--fa, initial);
-	}
-}
-
-[class*="u__flx-"],
-.x-grd[class*="u__flx-"] {
-	align-items: var(--fa, initial);
 }
