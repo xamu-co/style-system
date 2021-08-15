@@ -7,7 +7,6 @@
 	display: block;
 	overflow: hidden;
 	flex: 0 0 auto;
-	border-radius: var(--br, 1rem);
 	transition: all 0.1s ease-out;
 	&:not([class*="__bgCo"]) {
 		// Color
@@ -17,20 +16,27 @@
 	// avatar size
 	//
 	// @group Modifiers
-	&.m__size {
-		&-lg {
-			--br: 1.667rem;
-			&.m__bdr,
-			&.m__border {
-				--bw: 4px;
-			}
+
+	&.m__size-lg {
+		border-radius: 1.667rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 4px;
 		}
-		&-md {
-			--br: 1.333rem;
-			&.m__bdr,
-			&.m__border {
-				--bw: 3px;
-			}
+	}
+	&.m__size-md {
+		border-radius: 1.333rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 3px;
+		}
+	}
+	&.m__size,
+	&:not([class*="__size"]) {
+		border-radius: 1rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 2px;
 		}
 	}
 
@@ -41,7 +47,6 @@
 	&.m__border {
 		border-style: solid;
 		box-sizing: border-box;
-		border-width: var(--bw, 2px);
 		&:not([class*="__bdrCo"]) {
 			// Color
 			border-color: color(light);
@@ -473,8 +478,9 @@ select.x-inSelect {
 .x-inTxt,
 .x-link,
 select.x-inSelect {
-	white-space: var(--twr, nowrap);
-	text-align: var(--ta, center);
+	// should inherit?
+	white-space: nowrap;
+	text-align: center;
 	color: var(--cl, transparent);
 	background: var(--bg, transparent);
 	border-color: var(--bc, transparent); // by default

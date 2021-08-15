@@ -59,36 +59,21 @@
 	}
 
 	&.m__iterations-infinite {
-		--ai: infinite;
+		animation-iteration-count: infinite;
 	}
 
 	@for $i from 1 through 20 {
 		&.m__delay-#{$i} {
-			--ad: #{$i/10}s;
+			animation-delay: #{$i/10}s;
 		}
 		&.m__iterations-#{$i} {
-			--ai: #{$i};
+			animation-iteration-count: #{$i};
 		}
-	}
-
-	&[class*="__delay"] {
-		animation-delay: var(--ad, initial);
-	}
-	&[class*="__iterations"] {
-		animation-iteration-count: var(--ai, initial);
 	}
 }
 
 // animate only on pc
 @media (hover: hover) {
-	[class*="a-"].is__animated {
-		&,
-		&:before,
-		&:after {
-			animation-name: var(--an, initial);
-			animation-duration: var(--ad, initial);
-		}
-	}
 	// grows from the center
 	//
 	// @group Animations
@@ -97,8 +82,8 @@
 		// opacity: 0;
 		// transform: translateY(-5vh);
 		&.is__animated {
-			--an: growingIn;
-			--ad: 6s;
+			animation-name: growingIn;
+			animation-duration: 6s;
 		}
 	}
 
@@ -109,8 +94,8 @@
 		opacity: 0;
 		// transform: translateY(-5vh);
 		&.is__animated {
-			--an: fadeIn;
-			--ad: 1.2s;
+			animation-name: fadeIn;
+			animation-duration: 1.2s;
 		}
 	}
 
@@ -121,8 +106,8 @@
 		opacity: 0;
 		transform: translateY(-5vh);
 		&.is__animated {
-			--an: topFade;
-			--ad: 0.6s;
+			animation-name: topFade;
+			animation-duration: 0.6s;
 		}
 	}
 
@@ -133,8 +118,8 @@
 		opacity: 0;
 		transform: translateY(5vh);
 		&.is__animated {
-			--an: bottomFade;
-			--ad: 0.6s;
+			animation-name: bottomFade;
+			animation-duration: 0.6s;
 		}
 	}
 
@@ -145,8 +130,8 @@
 		opacity: 0;
 		transform: translateX(-5vh);
 		&.is__animated {
-			--an: bottomFade;
-			--ad: 0.6s;
+			animation-name: leftFade;
+			animation-duration: 0.6s;
 		}
 	}
 
@@ -157,15 +142,15 @@
 		opacity: 0;
 		transform: translateX(5vh);
 		&.is__animated {
-			--an: bottomFade;
-			--ad: 0.6s;
+			animation-name: rightFade;
+			animation-duration: 0.6s;
 		}
 	}
 }
 @media (prefers-reduced-motion: reduce) {
 	*,
-	::before,
-	::after {
+	*:before,
+	*:after {
 		animation-duration: 0.001s !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.001s !important;

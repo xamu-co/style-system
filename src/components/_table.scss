@@ -10,7 +10,7 @@ table.x-table {
 			th,
 			td {
 				&:not([class*="__txtA"]) {
-					text-align: var(--ta, left);
+					text-align: left;
 				}
 			}
 		}

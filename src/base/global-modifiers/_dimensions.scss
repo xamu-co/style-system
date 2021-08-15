@@ -36,10 +36,9 @@ $dimensions: width, height;
 	// max width, max height
 	$constrains: min, max;
 	@each $constrain in $constrains {
-		$dc: $constrain + capitalize($dimension);
 		// default pixel based constrains
-		.xm__#{$dc},
-		.xm__#{$dc}-1200 {
+		.xm__#{$constrain + capitalize($dimension)},
+		.xm__#{$constrain + capitalize($dimension)}-1200 {
 			$mildos: 1200;
 			@include extend-viewports-classes {
 				#{$constrain}-#{$dimension}: #{round($mildos/16)}rem;
@@ -51,7 +50,7 @@ $dimensions: width, height;
 		// @group GlobalModifiers
 		$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
 		@each $size in $maxSizes {
-			.xm__#{$dc}-#{$size} {
+			.xm__#{$constrain + capitalize($dimension)}-#{$size} {
 				@include extend-viewports-classes {
 					#{$constrain}-#{$dimension}: #{round($size/15)}rem;
 				}
@@ -60,12 +59,12 @@ $dimensions: width, height;
 
 		// default viewport based constrains
 		// __maxW, __maxH, __minW, __minH
-		.xm__#{$dc}Vw {
+		.xm__#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
 				#{$constrain}-#{$dimension}: 25vw;
 			}
 		}
-		.xm__#{$dc}Vh {
+		.xm__#{$constrain + capitalize($dimension)}Vh {
 			@include extend-viewports-classes {
 				#{$constrain}-#{$dimension}: 25vh;
 			}
@@ -76,12 +75,12 @@ $dimensions: width, height;
 		//
 		// @group GlobalModifiers
 		@for $i from 3 through 10 {
-			.xm__#{$dc}Vw-#{$i*10} {
+			.xm__#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
 				@include extend-viewports-classes {
 					#{$constrain}-#{$dimension}: #{$i * 10}vw;
 				}
 			}
-			.xm__#{$dc}Vh-#{$i*10} {
+			.xm__#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
 				@include extend-viewports-classes {
 					#{$constrain}-#{$dimension}: #{$i * 10}vh;
 				}

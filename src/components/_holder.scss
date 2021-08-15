@@ -6,7 +6,6 @@
 .x-holder {
 	margin: 0 auto;
 	width: 100%;
-	max-width: var(--mxw, none);
 	// display: block;
 	&:not(.m__p-none) {
 		box-sizing: border-box;
@@ -29,7 +28,7 @@
 	}
 	&:not([class*="__maxWidth-"]) {
 		$mildos: 1200;
-		--mxw: #{round($mildos/16)}rem;
+		max-width: #{round($mildos/16)}rem;
 		&:not(.m__p-none) {
 			padding: 0 1rem;
 		}
