@@ -63,6 +63,10 @@
 
 // flexbox container
 [class*="-flx"] {
+	&:not([class*="__gapi"]) {
+		gap: var(--g, var(--gy, 1rem)) var(--g, var(--gx, 1rem));
+	}
+
 	// flexbox row container
 	//
 	// @group Modifiers
@@ -92,12 +96,9 @@
 		&,
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gapi"])
-					> :not(br):not([class*="__hrX"]):not(:last-child) {
-					// Gaping
-					&:not([class*="__m"]),
-					&[class*="__min"],
-					&[class*="__max"] {
+				&:not([class*="__gapi"]) {
+					> :not(br):not([class*="__hrX"]):not(:last-child):not([class*="__mR"]) {
+						// Gaping
 						margin-right: var(--g, 1rem);
 					}
 				}
@@ -134,12 +135,9 @@
 		&,
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gapi"])
-					> :not(br):not([class*="__hrY"]):not(:last-child) {
-					// Gaping
-					&:not([class*="__m"]),
-					&[class*="__min"],
-					&[class*="__max"] {
+				&:not([class*="__gapi"]) {
+					> :not(br):not([class*="__hrY"]):not(:last-child):not([class*="__mB"]) {
+						// Gaping
 						margin-bottom: var(--g, 1rem);
 					}
 				}
@@ -195,6 +193,16 @@
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
 				flex-wrap: nowrap;
+			}
+		}
+		&,
+		&-wrap,
+		&-reverse,
+		&-nowrap {
+			@include extend-viewports-classes(true, $viewports) {
+				&:not([class*="__gapi"]) {
+					gap: 0;
+				}
 			}
 		}
 	}

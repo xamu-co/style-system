@@ -88,13 +88,16 @@
 	&-end {
 		@include extend-viewports-classes {
 			&:not([class*="-grd"]):not(.xm__flxSelf) {
+				justify-content: space-around; // for unsupported browsers
 				justify-content: space-evenly;
 			}
 			&.x-grd {
+				justify-items: space-around; // for unsupported browsers
 				justify-items: space-evenly;
 			}
 			&.x-grd > .xm__flxSelf,
 			&.xm__flxSelf {
+				justify-self: space-around; // for unsupported browsers
 				justify-self: space-evenly;
 			}
 		}
