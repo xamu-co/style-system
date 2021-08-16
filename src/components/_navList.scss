@@ -73,12 +73,17 @@ ol.x-list-group {
 	}
 
 	> li {
-		white-space: normal;
-		text-align: left;
+		&,
+		:not([class*="__txtA"]) {
+			text-align: left;
+		}
+		&,
+		:not([class*="__txtWr"]) {
+			white-space: normal;
+		}
 		a,
 		label,
 		button {
-			white-space: normal;
 			line-height: $lineHeightMedium;
 		}
 	}

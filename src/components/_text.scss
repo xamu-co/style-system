@@ -2,7 +2,10 @@
 //
 // @group Components
 .x-txt {
-	white-space: normal;
+	&,
+	:not([class*="__txtWr"]) {
+		white-space: normal;
+	}
 	color: var(--ccl, color(dark, 0.7));
 	&:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
 		// Flx
@@ -10,7 +13,10 @@
 	}
 	&:not([class*="__txtA"]) {
 		// Align
-		text-align: left;
+		&,
+		:not([class*="__txtA"]) {
+			text-align: left;
+		}
 		&:not([class*="__gapi"])
 			> *:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
 			// Gaping

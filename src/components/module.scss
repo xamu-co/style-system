@@ -479,8 +479,6 @@ select.x-inSelect {
 .x-link,
 select.x-inSelect {
 	// should inherit?
-	white-space: nowrap;
-	text-align: center;
 	color: var(--cl, transparent);
 	background: var(--bg, transparent);
 	border-color: var(--bc, transparent); // by default

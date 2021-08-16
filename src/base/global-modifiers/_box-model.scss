@@ -83,18 +83,6 @@ $models: margin, padding;
 		}
 	}
 
-	// X axis
-	.xm__#{$m}X {
-		#{$model}-left: 1rem;
-		#{$model}-right: 1rem;
-	}
-
-	// Y axis
-	.xm__#{$m}Y {
-		#{$model}-top: 1rem;
-		#{$model}-bottom: 1rem;
-	}
-
 	@for $i from 1 through 20 {
 		// all sides
 		.xm__#{$m}-#{$i*5} {

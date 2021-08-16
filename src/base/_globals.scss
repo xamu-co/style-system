@@ -152,6 +152,8 @@ a,
 button,
 label,
 select {
+	white-space: nowrap;
+	text-align: center;
 	&,
 	* {
 		vertical-align: middle;
@@ -178,7 +180,10 @@ h3,
 h4,
 h5,
 h6 {
-	white-space: normal;
+	&,
+	:not([class*="__txtA"]) {
+		white-space: normal;
+	}
 }
 
 // global font weight
@@ -204,9 +209,7 @@ h5,
 h6,
 th,
 button,
-strong,
-.x-btn,
-.x-btnToggle {
+strong {
 	// ignore inherit
 	&:not([class*="__txtWe"]) {
 		// Weight
@@ -221,15 +224,12 @@ strong,
 // basic transition
 //
 // @group SharedStyles
-[class*="x-btn"],
-.x-inTxt,
-.x-link,
+a,
+button,
+select,
+label,
+label:after,
 .x-box,
-select.x-inSelect,
-input[type^="c"].x-inCheckbox + label,
-input[type^="c"].x-inCheckbox + label:after,
-input[type^="r"].x-inRadio + label,
-input[type^="r"].x-inRadio + label:after,
 .x-svg [fill]:not([fill="none"]),
 *[data-tooltip]:before,
 [class*="x-avatar"] img {
