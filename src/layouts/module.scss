@@ -6,7 +6,7 @@
 .x-grd {
 	@include extend-device-interactions {
 		overflow: visible;
-		gap: var(--g, var(--gy, 2rem)) var(--g, var(--gx, 2rem));
+		gap: var(--gp, var(--gpy, 2rem)) var(--gp, var(--gpx, 2rem));
 	}
 }
 

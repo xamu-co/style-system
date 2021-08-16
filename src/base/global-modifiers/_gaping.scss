@@ -8,20 +8,36 @@
 //
 // @group GlobalModifiers
 .xm__gap {
+	// flex, column & grid only
 	@include extend-viewports-classes {
-		--g: 1rem;
+		--gp: 1rem;
+	}
+	&-none {
+		@include extend-viewports-classes {
+			--gp: 0;
+		}
 	}
 }
 .xm__gapX {
-	// X dimension
+	// flex, column & grid only, X axis
 	@include extend-viewports-classes {
-		--gx: 1rem;
+		--gpx: 1rem;
+	}
+	&-none {
+		@include extend-viewports-classes {
+			--gpx: 0;
+		}
 	}
 }
 .xm__gapY {
-	// Y dimension
+	// flex, column & grid only, Y axis
 	@include extend-viewports-classes {
-		--gy: 1rem;
+		--gpy: 1rem;
+	}
+	&-none {
+		@include extend-viewports-classes {
+			--gpy: 0;
+		}
 	}
 }
 
@@ -50,18 +66,21 @@
 @for $i from 1 through 10 {
 	// grid Gap, future flex gap
 	.xm__gap-#{$i*5} {
+		// flex, column & grid only
 		@include extend-viewports-classes {
-			--g: #{$i/3}rem;
+			--gp: #{$i/3}rem;
 		}
 	}
 	.xm__gapX-#{$i*5} {
+		// flex, column & grid only, X axis
 		@include extend-viewports-classes {
-			--gx: #{$i/3}rem;
+			--gpx: #{$i/3}rem;
 		}
 	}
 	.xm__gapY-#{$i*5} {
+		// flex, column & grid only, Y axis
 		@include extend-viewports-classes {
-			--gy: #{$i/3}rem;
+			--gpy: #{$i/3}rem;
 		}
 	}
 
@@ -108,7 +127,7 @@
 				// Wrap, omit fallback
 				margin-bottom: var(--g);
 				margin-right: var(--g);
-				&:not([class*="__gapi"]) > :not([class*="__gapi"]) {
+				&:not([class*="__gap"]) > :not([class*="__gap"]) {
 					--g: initial;
 				}
 			}

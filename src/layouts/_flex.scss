@@ -64,7 +64,7 @@
 // flexbox container
 [class*="-flx"] {
 	&:not([class*="__gapi"]) {
-		gap: var(--g, var(--gy, 1rem)) var(--g, var(--gx, 1rem));
+		gap: var(--gp, var(--gpy, 1rem)) var(--gp, var(--gpx, 1rem));
 	}
 
 	// flexbox row container
@@ -96,7 +96,7 @@
 		&,
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gapi"]) {
+				&:not([class*="__gap"]) {
 					> :not(br):not([class*="__hrX"]):not(:last-child):not([class*="__mR"]) {
 						// Gaping
 						margin-right: var(--g, 1rem);
@@ -135,7 +135,7 @@
 		&,
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gapi"]) {
+				&:not([class*="__gap"]) {
 					> :not(br):not([class*="__hrY"]):not(:last-child):not([class*="__mB"]) {
 						// Gaping
 						margin-bottom: var(--g, 1rem);
@@ -163,7 +163,7 @@
 		&-wrap,
 		&-reverse {
 			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gapi"]) {
+				&:not([class*="__gap"]) {
 					// Gaping
 					// this is a very special class to omit this specific fix
 					&:not(.unfix__gaping) {
@@ -200,7 +200,7 @@
 		&-reverse,
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gapi"]) {
+				&:not([class*="__gap"]) {
 					gap: 0;
 				}
 			}
