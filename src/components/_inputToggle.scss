@@ -1,6 +1,30 @@
-// Checkbox
+// radio input
+input[type^="r"].x-inRadio {
+	+ label:after {
+		border-radius: 50%;
+	}
+
+	&:checked + label:after {
+		content: "\f111";
+	}
+}
+
+// checkbox input
+input[type^="c"].x-inCheckbox {
+	+ label:after {
+		border-radius: 0.7rem;
+	}
+
+	&:checked + label:after {
+		content: "\f00c";
+	}
+}
+
+// Toggle input
+// radio & checkbox
 //
 // @group Components
+input[type^="r"].x-inRadio,
 input[type^="c"].x-inCheckbox {
 	display: none;
 	+ label {
@@ -11,7 +35,6 @@ input[type^="c"].x-inCheckbox {
 			display: inline-block;
 			width: 1.8rem;
 			height: 1.8rem;
-			border-radius: 0.7rem;
 			border-width: 2px;
 			border-style: solid;
 			font-family: family(awesome);
@@ -36,7 +59,6 @@ input[type^="c"].x-inCheckbox {
 	&:checked + label {
 		font-weight: weight(bold);
 		&:after {
-			content: "\f00c";
 			// color: var(--cl, color(light));
 			--bg: #{color(secondary, 0.5)};
 		}
@@ -50,10 +72,8 @@ input[type^="c"].x-inCheckbox {
 	}
 	&:not(:disabled),
 	&:not([disabled]) {
-		+ label {
-			&:hover {
-				cursor: pointer;
-			}
+		+ label:hover {
+			cursor: pointer;
 		}
 	}
 
@@ -65,7 +85,7 @@ input[type^="c"].x-inCheckbox {
 		@include flexbox(row, nowrap, space-between, center);
 	}
 
-	// Checkbox theme
+	// Radio theme
 	//
 	// @group Modifiers
 	&.m__tm-light {
