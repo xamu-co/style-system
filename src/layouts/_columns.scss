@@ -66,8 +66,4 @@
 		// display: inline-block;
 		break-inside: avoid;
 	}
-	&:not([class*="__gapi"]) > :not(br):not(:last-child):not([class*="__mB"]) {
-		// Gaping, Bottom
-		margin-bottom: 2rem;
-	}
 }
