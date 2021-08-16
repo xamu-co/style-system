@@ -7,7 +7,24 @@
 // this class applies to any container, not just flex containers, so it can't be polyfilled
 //
 // @group GlobalModifiers
-.xm__gap,
+.xm__gap {
+	@include extend-viewports-classes {
+		--g: 1rem;
+	}
+}
+.xm__gapX {
+	// X dimension
+	@include extend-viewports-classes {
+		--gx: 1rem;
+	}
+}
+.xm__gapY {
+	// Y dimension
+	@include extend-viewports-classes {
+		--gy: 1rem;
+	}
+}
+
 .xm__gaping {
 	@include extend-viewports-classes {
 		--g: 1rem;
@@ -16,8 +33,6 @@
 .xm__gapingX {
 	// X dimension
 	@include extend-viewports-classes {
-		--gxc: var(--gx);
-		--gyc: var(--gy);
 		> * {
 			--gx: 1rem;
 		}
@@ -26,8 +41,6 @@
 .xm__gapingY {
 	// Y dimension
 	@include extend-viewports-classes {
-		--gyc: var(--gy);
-		--gyc: var(--gy);
 		> * {
 			--gy: 1rem;
 		}
@@ -35,8 +48,24 @@
 }
 
 @for $i from 1 through 10 {
-	// grid Gap
-	.xm__gap-#{$i*5},
+	// grid Gap, future flex gap
+	.xm__gap-#{$i*5} {
+		@include extend-viewports-classes {
+			--g: #{$i/3}rem;
+		}
+	}
+	.xm__gapX-#{$i*5} {
+		@include extend-viewports-classes {
+			--gx: #{$i/3}rem;
+		}
+	}
+	.xm__gapY-#{$i*5} {
+		@include extend-viewports-classes {
+			--gy: #{$i/3}rem;
+		}
+	}
+
+	// Gaping
 	.xm__gaping-#{$i*5} {
 		@include extend-viewports-classes {
 			--g: #{$i/3}rem;
@@ -56,11 +85,6 @@
 			}
 		}
 	}
-}
-
-// grid/column gap default
-[class*="__gap"]:not([class*="__gapi"]) {
-	gap: var(--g, var(--gy)) var(--g, var(--gx)); // omit fallback
 }
 
 // item spacing defaults

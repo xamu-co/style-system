@@ -6,11 +6,7 @@
 .x-grd {
 	@include extend-device-interactions {
 		overflow: visible;
-		// Gaping will trigger this but that is not a problem
-		&:not([class*="__gap"]) {
-			// Gap
-			gap: var(--g, var(--gy, 2rem)) var(--g, var(--gx, 2rem));
-		}
+		gap: var(--g, var(--gy, 2rem)) var(--g, var(--gx, 2rem));
 	}
 }
 
