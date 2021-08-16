@@ -37,7 +37,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+			&:not([class*="-grd"]):not(.xm__flxSelf) {
 				justify-content: space-between;
 			}
 			&.x-grd {
@@ -62,7 +62,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+			&:not([class*="-grd"]):not(.xm__flxSelf) {
 				justify-content: space-around;
 			}
 			&.x-grd {
@@ -87,7 +87,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+			&:not([class*="-grd"]):not(.xm__flxSelf) {
 				justify-content: space-evenly;
 			}
 			&.x-grd {
@@ -112,7 +112,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+			&:not([class*="-grd"]):not(.xm__flxSelf) {
 				justify-content: center;
 			}
 			&.x-grd {
@@ -132,7 +132,7 @@
 .xu__flx-center {
 	// default
 	@include extend-viewports-classes {
-		&:not([class*="__flxSelf"]) {
+		&:not(.xm__flxSelf) {
 			align-items: center;
 		}
 		&.x-grd > .xm__flxSelf,
@@ -148,7 +148,7 @@
 .xu__flx-start {
 	// default
 	@include extend-viewports-classes {
-		&:not([class*="__flxSelf"]) {
+		&:not(.xm__flxSelf) {
 			align-items: flex-start;
 		}
 		&.x-grd > .xm__flxSelf,
@@ -164,7 +164,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+			&:not([class*="-grd"]):not(.xm__flxSelf) {
 				justify-content: flex-start;
 			}
 			&.x-grd {
@@ -184,7 +184,7 @@
 .xu__flx-end {
 	// default
 	@include extend-viewports-classes {
-		&:not([class*="__flxSelf"]) {
+		&:not(.xm__flxSelf) {
 			align-items: flex-end;
 		}
 		&.x-grd > .xm__flxSelf,
@@ -200,7 +200,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not([class*="__flxSelf"]) {
+			&:not([class*="-grd"]):not(.xm__flxSelf) {
 				justify-content: flex-end;
 			}
 			&.x-grd {
@@ -221,7 +221,7 @@
 .xu__flx-evenly {
 	&-start {
 		@include extend-viewports-classes {
-			&:not([class*="__flxSelf"]) {
+			&:not(.xm__flxSelf) {
 				align-items: flex-start;
 			}
 			&.x-grd > .xm__flxSelf,
@@ -232,7 +232,7 @@
 	}
 	&-center {
 		@include extend-viewports-classes {
-			&:not([class*="__flxSelf"]) {
+			&:not(.xm__flxSelf) {
 				align-items: center;
 			}
 			&.x-grd > .xm__flxSelf,
@@ -243,7 +243,7 @@
 	}
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="__flxSelf"]) {
+			&:not(.xm__flxSelf) {
 				align-items: flex-end;
 			}
 			&.x-grd > .xm__flxSelf,
@@ -254,7 +254,7 @@
 	}
 	&-stretch {
 		@include extend-viewports-classes {
-			&:not([class*="__flxSelf"]) {
+			&:not(.xm__flxSelf) {
 				align-items: stretch;
 			}
 			&.x-grd > .xm__flxSelf,
@@ -265,7 +265,7 @@
 	}
 	&-baseline {
 		@include extend-viewports-classes {
-			&:not([class*="__flxSelf"]) {
+			&:not(.xm__flxSelf) {
 				align-items: baseline;
 			}
 			&.x-grd > .xm__flxSelf,
