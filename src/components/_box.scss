@@ -20,8 +20,6 @@
 		> :not([class*="__mB"]):not(:last-child) {
 			// Bottom
 			margin-bottom: var(--gy);
-			&[class*="-flx"][class*="-wrap"],
-			&[class*="-flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 				margin-bottom: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
 			}

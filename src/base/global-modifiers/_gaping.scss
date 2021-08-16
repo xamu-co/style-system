@@ -45,6 +45,13 @@
 	@include extend-viewports-classes {
 		--g: 1rem;
 	}
+	&-none {
+		@include extend-viewports-classes {
+			> * {
+				--g: 0;
+			}
+		}
+	}
 }
 .xm__gapingX {
 	// X dimension
@@ -53,12 +60,26 @@
 			--gx: 1rem;
 		}
 	}
+	&-none {
+		@include extend-viewports-classes {
+			> * {
+				--gx: 0;
+			}
+		}
+	}
 }
 .xm__gapingY {
 	// Y dimension
 	@include extend-viewports-classes {
 		> * {
 			--gy: 1rem;
+		}
+	}
+	&-none {
+		@include extend-viewports-classes {
+			> * {
+				--gy: 0;
+			}
 		}
 	}
 }
@@ -122,15 +143,13 @@
 	}
 	> :not(br):not(.xm__m):not(.xm__margin):not([class*="__mX"]):not([class*="__mY"]) {
 		&:not([class*="__mT"]):not([class*="__mL"]):not([class*="__mB"]):not([class*="__mR"]) {
-			&[class*="__txtWr"]:not([class*="__flx"]),
-			&:not([class*="-wrap"]):not([class*="-reverse"]) {
-				// Wrap, omit fallback
-				margin-bottom: var(--g);
-				margin-right: var(--g);
-				&:not([class*="__gap"]) > :not([class*="__gap"]) {
-					--g: initial;
-				}
+			// Wrap, omit fallback
+			margin-bottom: var(--g);
+			margin-right: var(--g);
+			&:not([class*="__gap"]) > :not([class*="__gap"]) {
+				--g: initial;
 			}
+
 			// override gapinp fix on childs (affects wrap)
 			--gc: 0 var(--g) var(--g) 0;
 		}
@@ -145,8 +164,6 @@
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
 			// margin-right: var(--gx); // omit fallback
 			margin-right: var(--gxc, var(--gx)); // omit fallback
-			&[class*="__flx"][class*="-wrap"],
-			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 				// --gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
 				--gxc: var(--gxc, calc(var(--gc) + var(--gx)));
@@ -162,8 +179,6 @@
 		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
 			// margin-bottom: var(--gy); // omit fallback
 			margin-bottom: var(--gyc, var(--gy)); // omit fallback
-			&[class*="__flx"][class*="-wrap"],
-			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 				// --gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
 				--gyc: var(--gyc, calc(var(--gc) + var(--gy)));

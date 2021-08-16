@@ -63,40 +63,7 @@
 ///
 /// @group layout-dropdown
 /// @example njk
-///  {% set positions = [
-///   {name: 'u__position-top-left', icon: 'down'},
-///   {name: 'u__position-top-right', icon: 'down'},
-///   {name: 'u__position-top-center', icon: 'down'},
-///   {name: 'u__position-right-top', icon: 'left'},
-///   {name: 'u__position-right-bottom', icon: 'left'},
-///   {name: 'u__position-right-center', icon: 'left'},
-///   {name: 'u__position-bottom-left', icon: 'up'},
-///   {name: 'u__position-bottom-right', icon: 'up'},
-///   {name: 'u__position-bottom-center', icon: 'up'},
-///   {name: 'u__position-left-top', icon: 'right'},
-///   {name: 'u__position-left-bottom', icon: 'right'},
-///   {name: 'u__position-left-center', icon: 'right'}
-///  ] %}
-///  <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet">
-///  <div class="x-flx m__flxColumn xu__flx-center xm__pY-100">
-///   <ul class="x-list xm__gapingY-25">
-///    {% for position in positions %}
-///     <li class="xm__p-5 xm__bgColor-dark1">
-///      <a href="#" class="toggle__dropdown x-link xm__txtStyle xm__txtTransform">
-///       <span>.{{position.name}}</span>
-///       <i class="x-icon fa-chevron-{{position.icon}} fas"></i>
-///      </a>
-///      <ul class="x-dropdown {{position.name}} x-flx m__flxColumn xu__flx-start xm__gapingY-5">
-///       {% for link in ['aguacate','cereza','platano'] %}
-///        <li>
-///         <a href="#" class="x-link">{{link}}</a>
-///        </li>
-///       {% endfor %}
-///      </ul>
-///     </li>
-///    {% endfor %}
-///   </ul>
-///  </div>
+///  {% extends "dropdown.njk" %}
 
 .toggle__dropdown {
 	&.is__active {

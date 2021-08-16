@@ -84,6 +84,7 @@
 		// height: auto;
 		width: 100%;
 		grid-auto-rows: minmax(min-content, 100%);
+		overflow: visible;
 		> * {
 			width: 100%;
 			box-sizing: border-box;

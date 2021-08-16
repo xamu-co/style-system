@@ -7,6 +7,9 @@
 		"*.svg": "html",
 		".sassdocrc": "yaml"
 	},
+	"[nunjucks]": {
+		"editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+	},
 	"[html]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},

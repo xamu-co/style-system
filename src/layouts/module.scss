@@ -2,12 +2,29 @@
 //
 // @group SharedStyles
 // when the time comes flx would join here
-.x-cols,
-.x-grd {
+
+@mixin gap-support($gap: 2rem) {
 	@include extend-device-interactions {
-		overflow: visible;
-		gap: var(--gp, var(--gpy, 2rem)) var(--gp, var(--gpx, 2rem));
+		gap: var(--gpy, var(--gp)) var(--gpx, var(--gp));
+		&:not(.xm__gap):not([class*="__gap-"]):not([class*="__gap:"]) {
+			--gp: #{$gap};
+		}
+		&:not(.xm__gapX):not([class*="__gapX-"]):not([class*="__gapX:"]) {
+			--gpx: #{$gap};
+		}
+		&:not(.xm__gapY):not([class*="__gapY-"]):not([class*="__gapY:"]) {
+			--gpy: #{$gap};
+		}
 	}
+}
+
+.x-grd {
+	@include gap-support;
+}
+
+:not([class*="__gapi"]).x-flx,
+:not([class*="__gapi"]).x-flxInline {
+	@include gap-support(1rem);
 }
 
 @import "dropdown";

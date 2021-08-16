@@ -7,8 +7,7 @@
 
 //retorna la fuente del mapa de fuentes
 @function family($font-name: primary) {
-	$index: index(($fonts), ($font-name map-get($fonts, $font-name)));
-	@return var(--f-#{$index}, #{map-get($fonts, $font-name)});
+	@return map-get($fonts, $font-name);
 }
 
 //returns the size from the map of sizes
