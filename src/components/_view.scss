@@ -109,8 +109,6 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 		> :not([class*="__mB"]):not(:last-child) {
 			// Bottom
 			margin-bottom: var(--gy, 2rem);
-			&[class*="__flx"][class*="-wrap"],
-			&[class*="__flx"][class*="-reverse"],
 			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
 				margin-bottom: calc(-1 * (var(--g) - var(--gy)));
 			}

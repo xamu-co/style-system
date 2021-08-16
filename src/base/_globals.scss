@@ -112,7 +112,7 @@ a {
 	text-decoration: none;
 }
 
-i:not(.x-icon) {
+i:not(.x-icon):not(.x-svg) {
 	font-style: italic;
 }
 
@@ -181,7 +181,7 @@ h4,
 h5,
 h6 {
 	&,
-	:not([class*="__txtA"]) {
+	:not([class*="__txtWr"]) {
 		white-space: normal;
 	}
 }

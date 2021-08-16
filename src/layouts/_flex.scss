@@ -62,11 +62,8 @@
 }
 
 // flexbox container
-[class*="-flx"] {
-	&:not([class*="__gapi"]) {
-		gap: var(--gp, var(--gpy, 1rem)) var(--gp, var(--gpx, 1rem));
-	}
-
+.x-flx,
+.x-flxInline {
 	// flexbox row container
 	//
 	// @group Modifiers
@@ -87,21 +84,6 @@
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
 				flex-direction: row-reverse;
-			}
-		}
-	}
-	&.m__flxRow,
-	&.m__flxRowReverse {
-		// default
-		&,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gap"]) {
-					> :not(br):not([class*="__hrX"]):not(:last-child):not([class*="__mR"]) {
-						// Gaping
-						margin-right: var(--g, 1rem);
-					}
-				}
 			}
 		}
 	}
@@ -129,21 +111,6 @@
 			}
 		}
 	}
-	&.m__flxColumn,
-	&.m__flxColumnReverse {
-		// default
-		&,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gap"]) {
-					> :not(br):not([class*="__hrY"]):not(:last-child):not([class*="__mB"]) {
-						// Gaping
-						margin-bottom: var(--g, 1rem);
-					}
-				}
-			}
-		}
-	}
 
 	// an union could be a shorter solution, but is a huge breaking change
 	&.m__flxRow,
@@ -160,34 +127,6 @@
 				flex-wrap: wrap-reverse;
 			}
 		}
-		&-wrap,
-		&-reverse {
-			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gap"]) {
-					// Gaping
-					// this is a very special class to omit this specific fix
-					&:not(.unfix__gaping) {
-						--gc: calc(-1 * var(--g, 1rem)); // calculated gap
-						// TODO: fix mX & mY collision in flex layout
-						margin: -0.1px var(--gc) var(--gc) -0.1px;
-						box-sizing: border-box;
-						&:last-child > :first-child:last-child {
-							// only child, text nodes can break this
-							margin: 0;
-						}
-					}
-					> :not(br):not(.xm__m):not(.xm__margin):not([class*="__mX"]):not([class*="__mY"]) {
-						&:not([class*="__mT"]):not([class*="__mL"]):not([class*="__mB"]):not([class*="__mR"]) {
-							&[class*="__txtWr"]:not([class*="__flx"]),
-							&:not([class*="-wrap"]):not([class*="-reverse"]) {
-								margin-bottom: var(--g, 1rem);
-								margin-right: var(--g, 1rem);
-							}
-						}
-					}
-				}
-			}
-		}
 		// default
 		&,
 		&-nowrap {
@@ -195,60 +134,48 @@
 				flex-wrap: nowrap;
 			}
 		}
-		&,
-		&-wrap,
-		&-reverse,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				&:not([class*="__gap"]) {
-					gap: 0;
-				}
-			}
-		}
 	}
 
 	// gaping fix
-	&:last-child:not([class*="x-item"]) {
-		&[class*="__flxR"] {
-			// row fix
-			> :not(.unfix__gaping) {
-				&[class*="__flx"][class*="-wrap"],
-				&[class*="__flx"][class*="-reverse"],
-				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-					&:first-child:only-of-type,
-					&:last-child {
-						// margin-bottom: 0;
-						margin-right: calc(-1 * (var(--g) - var(--gx)));
-						margin-bottom: calc(-1 * (var(--g) - var(--gx)));
+	// gaping has to be explicit now to take effect
+	&[class*="__gapi"] {
+		&:last-child:not([class*="x-item"]) {
+			&[class*="__flxR"] {
+				// row fix
+				> :not(.unfix__gaping) {
+					&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
+						&:first-child:only-of-type,
+						&:last-child {
+							// margin-bottom: 0;
+							margin-right: calc(-1 * (var(--g) - var(--gx)));
+							margin-bottom: calc(-1 * (var(--g) - var(--gx)));
+						}
+					}
+				}
+			}
+			&[class*="__flxC"] {
+				// column fix
+				> :not(.unfix__gaping) {
+					&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
+						&:first-child:only-of-type,
+						&:last-child {
+							// margin-bottom: 0;
+							margin-right: calc(-1 * (var(--g) - var(--gy)));
+							margin-bottom: calc(-1 * (var(--g) - var(--gy)));
+						}
 					}
 				}
 			}
 		}
+		// column & row fix
+		&[class*="__flxR"],
 		&[class*="__flxC"] {
-			// column fix
-			> :not(.unfix__gaping) {
-				&[class*="__flx"][class*="-wrap"],
-				&[class*="__flx"][class*="-reverse"],
+			// Row, Column
+			&:last-child:not([class*="x-item"])
+				> :last-child:not(.unfix__gaping) {
 				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-					&:first-child:only-of-type,
-					&:last-child {
-						// margin-bottom: 0;
-						margin-right: calc(-1 * (var(--g) - var(--gy)));
-						margin-bottom: calc(-1 * (var(--g) - var(--gy)));
-					}
+					margin: 0;
 				}
-			}
-		}
-	}
-	// column & row fix
-	&[class*="__flxR"],
-	&[class*="__flxC"] {
-		// Row, Column
-		&:last-child:not([class*="x-item"]) > :last-child:not(.unfix__gaping) {
-			&[class*="__flx"][class*="-wrap"],
-			&[class*="__flx"][class*="-reverse"],
-			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-				margin: 0;
 			}
 		}
 	}

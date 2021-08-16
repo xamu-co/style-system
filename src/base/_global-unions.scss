@@ -37,7 +37,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not(.xm__flxSelf) {
+			&:not(.x-grd):not(.xm__flxSelf) {
 				justify-content: space-between;
 			}
 			&.x-grd {
@@ -62,7 +62,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not(.xm__flxSelf) {
+			&:not(.x-grd):not(.xm__flxSelf) {
 				justify-content: space-around;
 			}
 			&.x-grd {
@@ -87,7 +87,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not(.xm__flxSelf) {
+			&:not(.x-grd):not(.xm__flxSelf) {
 				justify-content: space-around; // for unsupported browsers
 				justify-content: space-evenly;
 			}
@@ -115,7 +115,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not(.xm__flxSelf) {
+			&:not(.x-grd):not(.xm__flxSelf) {
 				justify-content: center;
 			}
 			&.x-grd {
@@ -167,7 +167,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not(.xm__flxSelf) {
+			&:not(.x-grd):not(.xm__flxSelf) {
 				justify-content: flex-start;
 			}
 			&.x-grd {
@@ -203,7 +203,7 @@
 	&-center,
 	&-end {
 		@include extend-viewports-classes {
-			&:not([class*="-grd"]):not(.xm__flxSelf) {
+			&:not(.x-grd):not(.xm__flxSelf) {
 				justify-content: flex-end;
 			}
 			&.x-grd {

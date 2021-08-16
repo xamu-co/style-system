@@ -12,11 +12,6 @@
 	// @import "vendor/module"; // the vendors are independent in this built
 
 	:root {
-		@each $name, $font in $fonts {
-			$font-index: index(($fonts), ($name $font));
-			// font
-			--f-#{$font-index}: #{$font};
-		}
 		@each $name, $color in $colors {
 			$color-index: index(($colors), ($name $color));
 			// hex
