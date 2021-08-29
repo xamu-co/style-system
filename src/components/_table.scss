@@ -19,7 +19,7 @@ table.x-table {
 		// Color
 		tr {
 			td:not([class*="__txtCo"]) {
-				color: var(--ccl, color(dark, 0.7));
+				color: color(dark, 0.7);
 			}
 		}
 	}
@@ -105,7 +105,7 @@ table.x-table {
 			// Color
 			tr {
 				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(dark, 0.7));
+					color: color(dark, 0.7);
 				}
 			}
 		}
@@ -132,7 +132,7 @@ table.x-table {
 			// Color
 			tr {
 				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(primaryAlt));
+					color: color(primaryAlt);
 				}
 			}
 		}
@@ -159,7 +159,7 @@ table.x-table {
 			// Color
 			tr {
 				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(primary));
+					color: color(primary);
 				}
 			}
 		}
@@ -186,7 +186,7 @@ table.x-table {
 			// Color
 			tr {
 				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(danger));
+					color: color(danger);
 				}
 			}
 		}
@@ -213,7 +213,7 @@ table.x-table {
 			// Color
 			tr {
 				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(success));
+					color: color(success);
 				}
 			}
 		}
@@ -241,7 +241,7 @@ table.x-table {
 			// Color
 			tr {
 				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(secondary));
+					color: color(secondary);
 				}
 			}
 		}

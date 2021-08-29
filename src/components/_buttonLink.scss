@@ -3,7 +3,7 @@
 // @group Components
 .x-btnLink {
 	@media (max-width: $viewportSm) {
-		width: var(--sz, 2.4rem);
+		width: 2.4rem;
 		span {
 			display: none;
 		}
@@ -12,14 +12,14 @@
 		// tablet
 		// Size
 		// this is the default value
-		height: var(--sz, 2.4rem);
-		border-radius: var(--br, 1rem);
-		border-width: var(--bw, 2px);
-		padding: var(--bp, 0 0.8rem);
+		height: 2.4rem;
+		border-radius: 1rem;
+		border-width: 2px;
+		padding: 0 0.8rem;
 		width: auto;
-		@media (min-width: $viewportSm +1) {
+		@media (min-width: $viewportSm + 1) {
 			&:not(.is__route):not(.is__active) {
-				--bp: 0;
+				padding: 0;
 				span {
 					display: none;
 				}
@@ -34,7 +34,7 @@
 			}
 			&:not(.is__route):not(.is__active) {
 				// icon only
-				width: var(--sz, 2.4rem);
+				width: 2.4rem;
 			}
 
 			i.x-icon,
@@ -47,10 +47,16 @@
 
 		@each $name, $size in $fontSizes {
 			&.m__size-#{$name} {
-				--sz: $size * 2.6;
-				--br: $size;
-				--bw: calc(2px + (#{$size} / 18));
-				--bp: 0 #{$size * 0.8};
+				height: $size * 2.6;
+				border-radius: $size;
+				border-width: calc(2px + (#{$size} / 18));
+				padding: 0 #{$size * 0.8};
+				@media (min-width: $viewportSm + 1) {
+					&:not(.is__route):not(.is__active) {
+						// icon only
+						width: $size * 2.6;
+					}
+				}
 			}
 		}
 	}

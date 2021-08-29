@@ -1,11 +1,9 @@
 // basic styling
 //
 // @group SharedStyles
-// when the time comes flx would join here
-
 @mixin gap-support($gap: 2rem) {
 	@include extend-device-interactions {
-		gap: var(--gpy, var(--gp)) var(--gpx, var(--gp));
+		gap: var(--gpy, var(--gp, $gap)) var(--gpx, var(--gp, $gap));
 		&:not(.xm__gap):not([class*="__gap-"]):not([class*="__gap:"]) {
 			--gp: #{$gap};
 		}
@@ -22,9 +20,11 @@
 	@include gap-support;
 }
 
-:not([class*="__gapi"]).x-flx,
-:not([class*="__gapi"]).x-flxInline {
-	@include gap-support(1rem);
+.x-flx,
+.x-flxInline {
+	&:not([class*="__gapi"]) {
+		@include gap-support(1rem);
+	}
 }
 
 @import "dropdown";

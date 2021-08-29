@@ -15,7 +15,7 @@
 	&:not(.m__btn):not(.m__button) {
 		padding: 1rem;
 	}
-	&:not([class*="-flx"]) {
+	&:not(.x-flx):not(.x-Inline) {
 		@include flexbox(column, nowrap, flex-start, stretch);
 		> :not([class*="__mB"]):not(:last-child) {
 			// Bottom

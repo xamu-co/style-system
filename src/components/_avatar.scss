@@ -5,6 +5,11 @@
 	// avatar size
 	//
 	// @group Modifiers
+	&,
+	&.m__size {
+		width: 3rem;
+		height: 3rem;
+	}
 	&.m__size-lg {
 		width: 9rem;
 		height: 9rem;
@@ -12,11 +17,6 @@
 	&.m__size-md {
 		width: 6rem;
 		height: 6rem;
-	}
-	&.m__size,
-	&:not([class*="__size"]) {
-		width: 3rem;
-		height: 3rem;
 	}
 
 	img {
