@@ -97,59 +97,22 @@
 // text align
 //
 // @group FamilyGlobalModifiers
-.xm__txtAlign,
-.xm__txtAlignFlx {
+.xm__txtAlign {
+	&,
+	&-left,
+	&-justify,
+	&-center,
 	&-right {
 		@include extend-viewports-classes {
-			text-align: right;
-			&:not([class*="__gapi"])
-				:not([class|="x"]):not(table):not(thead):not(tbody) {
+			&:not([class|="x"]):not(table):not(thead):not(tbody) {
 				// Gaping
 				display: inline-block;
 			}
-			:not([class*="__txtA"]) {
-				text-align: right;
-			}
-		}
-	}
-	&-center {
-		@include extend-viewports-classes {
-			text-align: center;
-			&:not([class*="__gapi"])
-				:not([class|="x"]):not(table):not(thead):not(tbody) {
-				// Gaping
-				display: inline-block;
-			}
-			:not([class*="__txtA"]) {
-				text-align: center;
-			}
-		}
-	}
-	&-justify {
-		@include extend-viewports-classes {
-			text-align: justify;
-			&:not([class*="__gapi"])
-				:not([class|="x"]):not(table):not(thead):not(tbody) {
-				// Gaping
-				display: inline-block;
-			}
-			:not([class*="__txtA"]) {
-				text-align: justify;
-			}
-		}
-	}
-	// default
-	&,
-	&-left {
-		@include extend-viewports-classes {
-			text-align: left;
-			&:not([class*="__gapi"])
-				:not([class|="x"]):not(table):not(thead):not(tbody) {
-				// Gaping
-				display: inline-block;
-			}
-			:not([class*="__txtA"]) {
-				text-align: left;
+			&,
+			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+				display: inline-flex;
+				flex-flow: column nowrap;
+				justify-content: flex-start;
 			}
 		}
 	}
@@ -163,13 +126,7 @@
 		@include extend-viewports-classes {
 			&,
 			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					flex-end,
-					inline-flex
-				);
+				align-items: flex-end;
 			}
 		}
 	}
@@ -177,13 +134,7 @@
 		@include extend-viewports-classes {
 			&,
 			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					center,
-					inline-flex
-				);
+				align-items: center;
 			}
 		}
 	}
@@ -191,13 +142,7 @@
 		@include extend-viewports-classes {
 			&,
 			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					stretch,
-					inline-flex
-				);
+				align-items: stretch;
 			}
 		}
 	}
@@ -207,14 +152,37 @@
 		@include extend-viewports-classes {
 			&,
 			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-				@include flexbox(
-					column,
-					nowrap,
-					flex-start,
-					flex-start,
-					inline-flex
-				);
+				align-items: flex-start;
 			}
+		}
+	}
+}
+
+// text align
+//
+// @group FamilyGlobalModifiers
+.xm__txtAlign,
+.xm__txtAlignFlx {
+	&-right {
+		@include extend-viewports-classes {
+			text-align: right;
+		}
+	}
+	&-center {
+		@include extend-viewports-classes {
+			text-align: center;
+		}
+	}
+	&-justify {
+		@include extend-viewports-classes {
+			text-align: justify;
+		}
+	}
+	// default
+	&,
+	&-left {
+		@include extend-viewports-classes {
+			text-align: left;
 		}
 	}
 }
@@ -239,20 +207,20 @@
 // COLOR RELATED
 
 // Text color
-[class*="__txtCo"] {
+.xm__txtColor {
 	&,
 	> :not([class*="__txtCo"]):not([class|="x"]) {
 		// Color
-		color: var(--ccl, color(dark, 0.7));
+		color: color(dark, 0.7);
 	}
 }
 
 // Shadow color
-[class*="__txtSh"] {
+.xm__txtShadow {
 	&,
 	> :not([class*="__txtSh"]):not([class|="x"]) {
 		// Shadow
-		text-shadow: 1px 1px 1px var(--csh, color(dark, 0.3));
+		text-shadow: 1px 1px 1px color(dark, 0.3);
 	}
 }
 
@@ -267,7 +235,7 @@
 			&,
 			> :not([class*="__txtCo"]):not([class|="x"]) {
 				// Color
-				--ccl: #{color($name)};
+				color: color($name);
 			}
 		}
 	}
@@ -278,7 +246,7 @@
 			&,
 			> :not([class*="__txtSh"]):not([class|="x"]) {
 				// Shadow
-				--csh: #{color($name)};
+				text-shadow: 1px 1px 1px color($name);
 			}
 		}
 	}
@@ -291,7 +259,7 @@
 				&,
 				> :not([class*="__txtCo"]):not([class|="x"]) {
 					// Shadow
-					--ccl: #{color($name, $i/10)};
+					color: color($name, $i/10);
 				}
 			}
 		}
@@ -302,7 +270,7 @@
 				&,
 				> :not([class*="__txtSh"]):not([class|="x"]) {
 					// Shadow
-					--csh: #{color($name, $i/10)};
+					text-shadow: 1px 1px 1px color($name, $i/10);
 				}
 			}
 		}

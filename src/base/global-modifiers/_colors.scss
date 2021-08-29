@@ -1,21 +1,27 @@
 // Default striped
-[class*="__str"] {
-	&:not(.x-table) {
-		> :nth-child(even) {
-			background-color: var(--cbg, color(secondary, 0.1));
+.xm__striped {
+	@include extend-viewports-classes {
+		&:not(.x-table) {
+			> :nth-child(even) {
+				background-color: color(secondary, 0.1);
+			}
 		}
-	}
-	&.x-table tbody tr:nth-child(even) td:after {
-		background-color: var(--cbg, color(secondary, 0.1));
+		&.x-table tbody tr:nth-child(even) td:after {
+			background-color: color(secondary, 0.1);
+		}
 	}
 }
 // Default color
-[class*="__bgCo"]:not([class*="or-no"]) {
-	background-color: var(--cbg, color(light));
+.xm__bgColor {
+	@include extend-viewports-classes {
+		background-color: color(light);
+	}
 }
 // Default border color
-[class*="__bdrCo"] {
-	border-color: var(--cbc, color(secondary, 0.1));
+.xm__bdrColor {
+	@include extend-viewports-classes {
+		border-color: color(secondary, 0.1);
+	}
 }
 
 // text color & text shadow & background color & borderColor
@@ -26,21 +32,28 @@
 	// striped childs
 	.xm__striped-#{$name} {
 		@include extend-viewports-classes {
-			--cbg: #{color($name, 0.1)};
+			&:not(.x-table) {
+				> :nth-child(even) {
+					background-color: color($name, 0.1);
+				}
+			}
+			&.x-table tbody tr:nth-child(even) td:after {
+				background-color: color($name, 0.1);
+			}
 		}
 	}
 
 	// background color
 	.xm__bgColor-#{$name} {
 		@include extend-viewports-classes {
-			--cbg: #{color($name)};
+			background-color: color($name);
 		}
 	}
 
 	// borderColor
 	.xm__bdrColor-#{$name} {
 		@include extend-viewports-classes {
-			--cbc: #{color($name)};
+			border-color: color($name);
 		}
 	}
 
@@ -49,14 +62,14 @@
 		// background color
 		.xm__bgColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
-				--cbg: #{color($name, $i/10)};
+				background-color: color($name, $i/10);
 			}
 		}
 
 		// borderColor
 		.xm__bdrColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
-				--cbc: #{color($name, $i/10)};
+				border-color: color($name, $i/10);
 			}
 		}
 	}

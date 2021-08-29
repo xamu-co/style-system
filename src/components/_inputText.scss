@@ -34,7 +34,7 @@ textarea.x-inTxt {
 	@include flexbox(column, nowrap, center, center);
 
 	&:not([class*="__txtA"]) {
-		--ta: left;
+		text-align: left;
 	}
 
 	// theme

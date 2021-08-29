@@ -6,7 +6,9 @@
 	:not([class*="__txtWr"]) {
 		white-space: normal;
 	}
-	color: var(--ccl, color(dark, 0.7));
+	&:not([class*="__txtCo"]) {
+		color: color(dark, 0.7);
+	}
 	&:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
 		// Flx
 		display: block;

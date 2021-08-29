@@ -4,11 +4,7 @@
 // this element is expected to be an <i> tag
 i.x-icon {
 	vertical-align: middle;
+	color: inherit;
 	// text-align: center;
 	@include flexbox(row, nowrap, center, center, inline-flex);
-
-	&:not([class*="__txtCo"]) {
-		// Color
-		color: inherit;
-	}
 }

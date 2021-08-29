@@ -11,16 +11,8 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	transition: background 0.3s ease-out;
-
-	&:not([class*="__in"]) {
-		// Index
-		z-index: -1;
-	}
-
-	&:not([class*="__po"]) {
-		// Position
-		position: absolute;
-	}
+	z-index: -1;
+	position: absolute;
 
 	&.is__header {
 		top: -5rem;
