@@ -10,33 +10,33 @@
 .xm__gap {
 	// flex, column & grid only
 	@include extend-viewports-classes {
-		--gp: 1rem;
+		gap: 1rem;
 	}
 	&-none {
 		@include extend-viewports-classes {
-			--gp: 0;
+			gap: 0;
 		}
 	}
 }
 .xm__gapX {
 	// flex, column & grid only, X axis
 	@include extend-viewports-classes {
-		--gpx: 1rem;
+		column-gap: 1rem;
 	}
 	&-none {
 		@include extend-viewports-classes {
-			--gpx: 0;
+			column-gap: 0;
 		}
 	}
 }
 .xm__gapY {
 	// flex, column & grid only, Y axis
 	@include extend-viewports-classes {
-		--gpy: 1rem;
+		row-gap: 1rem;
 	}
 	&-none {
 		@include extend-viewports-classes {
-			--gpy: 0;
+			row-gap: 0;
 		}
 	}
 }
@@ -89,19 +89,19 @@
 	.xm__gap-#{$i*5} {
 		// flex, column & grid only
 		@include extend-viewports-classes {
-			--gp: #{$i/3}rem;
+			gap: #{$i/3}rem;
 		}
 	}
 	.xm__gapX-#{$i*5} {
 		// flex, column & grid only, X axis
 		@include extend-viewports-classes {
-			--gpx: #{$i/3}rem;
+			column-gap: #{$i/3}rem;
 		}
 	}
 	.xm__gapY-#{$i*5} {
 		// flex, column & grid only, Y axis
 		@include extend-viewports-classes {
-			--gpy: #{$i/3}rem;
+			row-gap: #{$i/3}rem;
 		}
 	}
 
