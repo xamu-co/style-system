@@ -64,6 +64,12 @@
 // flexbox container
 .x-flx,
 .x-flxInline {
+	@include extend-device-interactions {
+		&:not([class*="__gap"]) {
+			// this already matches .xm__gaping classes
+			gap: 1rem;
+		}
+	}
 	// flexbox row container
 	//
 	// @group Modifiers

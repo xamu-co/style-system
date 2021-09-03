@@ -85,6 +85,11 @@
 		width: 100%;
 		grid-auto-rows: minmax(min-content, 100%);
 		overflow: visible;
+
+		&:not([class*="__gap"]) {
+			gap: 2rem;
+		}
+
 		> * {
 			width: 100%;
 			box-sizing: border-box;
