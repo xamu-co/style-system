@@ -65,6 +65,16 @@ jobs:
                   name: Prettier formatting check
                   command: npx prettier "src/{*,**/*,**/**/*}.{css,scss}" --check
 
+    get_release_version:
+        <<: *defaults
+        steps:
+            - checkout
+            - attach_workspace:
+                  at: ~/repo
+            - run:
+                  name: Dry release
+                  command: npx semantic-release --dry-run
+
     release_to_github:
         <<: *defaults
         <<: *release
@@ -92,10 +102,19 @@ workflows:
                       branches:
                           only:
                               - next
-            - release_to_npm:
+            - get_release_version:
+                  type: approval
                   context: npm-deploy
                   requires:
                       - check_code
+                  filters:
+                      branches:
+                          only:
+                              - master
+            - release_to_npm:
+                  context: npm-deploy
+                  requires:
+                      - get_release_version
                   filters:
                       branches:
                           only:
