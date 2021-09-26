@@ -43,7 +43,7 @@
 	&.m__border {
 		border-style: solid;
 		box-sizing: border-box;
-		&:not([class*="__bdrCo"]) {
+		&:not([class*="_bdrCo"]) {
 			// Color
 			border-color: color(light);
 		}
@@ -346,7 +346,7 @@ select.x-inSelect {
 			}
 		}
 		// default theme
-		&:not([class*="__tm"]),
+		&:not([class*="_tm"]),
 		&.u__tm-secondary-light {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
@@ -447,7 +447,7 @@ select.x-inSelect {
 [class*="x-btn"]:not(.x-btnY),
 .x-link,
 select.x-inSelect {
-	&:not([class*="__txtTransform"]) {
+	&:not([class*="_txtTransform"]) {
 		&,
 		> :not(.x-icon) {
 			::first-letter {

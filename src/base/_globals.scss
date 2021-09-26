@@ -30,7 +30,7 @@
 	}
 }
 
-h1:not([class*="__txtSi"]):not([class*="swal"]) {
+h1:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(xl);
 	br {
@@ -43,7 +43,7 @@ h1:not([class*="__txtSi"]):not([class*="swal"]) {
 		}
 	}
 }
-h2:not([class*="__txtSi"]):not([class*="swal"]) {
+h2:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(lg);
 	br {
@@ -56,11 +56,11 @@ h2:not([class*="__txtSi"]):not([class*="swal"]) {
 		}
 	}
 }
-h3:not([class*="__txtSi"]):not([class*="swal"]) {
+h3:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(lg);
 }
-h4:not([class*="__txtSi"]):not([class*="swal"]) {
+h4:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(md);
 }
@@ -127,7 +127,7 @@ iframe {
 	display: block;
 	overflow: hidden;
 	color: color(light);
-	&:not([class*="__bgCo"]) {
+	&:not([class*="_bgCo"]) {
 		// Color
 		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
 	}
@@ -182,7 +182,7 @@ h4,
 h5,
 h6 {
 	&,
-	:not([class*="__txtWr"]) {
+	:not([class*="_txtWr"]) {
 		white-space: normal;
 	}
 }
@@ -191,7 +191,7 @@ h6 {
 // breaking it because it is too long
 :not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(th):not(button):not(strong) {
 	// xamu
-	&:not(label[class|="x"]):not([class*="__txtWe"]) {
+	&:not(label[class|="x"]):not([class*="_txtWe"]) {
 		// external brands
 		&:not(.fas):not(.far):not(.fab):not([class*="swal"]) {
 			// Weight
@@ -212,7 +212,7 @@ th,
 button,
 strong {
 	// ignore inherit
-	&:not([class*="__txtWe"]) {
+	&:not([class*="_txtWe"]) {
 		// Weight
 		font-weight: weight(bold);
 		@supports (-moz-appearance: none) {

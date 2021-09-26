@@ -35,8 +35,8 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			height: 12vh; // triangle size
 		}
 	}
-	&:not([class*="__bgCo"]):first-child
-		+ .x-view-item[class*="__bgCo"]:not(.m__noShapes) {
+	&:not([class*="_bgCo"]):first-child
+		+ .x-view-item[class*="_bgCo"]:not(.m__noShapes) {
 		// Color
 		padding-top: 2.4rem;
 		&:before {
@@ -54,7 +54,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			border-bottom: 1px solid color(light);
 		}
 	}
-	&[class*="__bgCo"] {
+	&[class*="_bgCo"] {
 		// Color
 		padding-bottom: 4rem;
 		&:not(.m__p-normal):first-child {
@@ -91,7 +91,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 	// min height
 	//
 	// @group Modifiers
-	&:not([class*="__minH"]) {
+	&:not([class*="_minH"]) {
 		// Height
 		min-height: 60vh;
 	}
@@ -106,12 +106,9 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 
 	> .x-holder {
 		@include flexbox(column, nowrap, center, stretch);
-		> :not([class*="__mB"]):not(:last-child) {
+		> :not([class*="_mB"]):not(:last-child) {
 			// Bottom
-			margin-bottom: var(--gy, 2rem);
-			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-				margin-bottom: calc(-1 * (var(--g) - var(--gy)));
-			}
+			margin-bottom: 2rem;
 		}
 	}
 }

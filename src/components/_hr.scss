@@ -28,7 +28,7 @@ hr {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
 			}
 			// default theme
-			&:not([class*="__tm"]),
+			&:not([class*="_tm"]),
 			&.m__tm-secondary {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
 			}
@@ -60,7 +60,7 @@ hr {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
 			}
 			// default theme
-			&:not([class*="__tm"]),
+			&:not([class*="_tm"]),
 			&.m__tm-secondary {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
 			}
@@ -94,19 +94,6 @@ hr {
 		display: block;
 		&:last-child:not(:nth-child(2)) {
 			display: none;
-		}
-	}
-}
-
-[class*="__gapi"] > hr {
-	&.m__hrX {
-		@include extend-viewports-classes(true, $viewports) {
-			margin-bottom: var(--g, var(--gy, 1rem));
-		}
-	}
-	&.m__hrY {
-		@include extend-viewports-classes(true, $viewports) {
-			margin-right: var(--g, var(--gx, 1rem));
 		}
 	}
 }

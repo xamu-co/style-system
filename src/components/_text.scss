@@ -3,33 +3,32 @@
 // @group Components
 .x-txt {
 	&,
-	:not([class*="__txtWr"]) {
+	:not([class*="_txtWr"]) {
 		white-space: normal;
 	}
-	&:not([class*="__txtCo"]) {
+	&:not([class*="_txtCo"]) {
 		color: color(dark, 0.7);
 	}
-	&:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
+	&:not([class*="-flx"]):not(.x-grd):not([class*="_txtAlignF"]) {
 		// Flx
 		display: block;
 	}
-	&:not([class*="__txtA"]) {
+	&:not([class*="_txtA"]) {
 		// Align
 		&,
-		:not([class*="__txtA"]) {
+		:not([class*="_txtA"]) {
 			text-align: left;
 		}
-		&:not([class*="__gapi"])
-			> *:not([class*="-flx"]):not(.x-grd):not([class*="__txtAlignF"]) {
+		> *:not([class*="-flx"]):not(.x-grd):not([class*="_txtAlignF"]) {
 			// Gaping
 			display: inline-block;
 		}
 	}
-	&:not([class*="__maxW"]) {
+	&:not([class*="_maxW"]) {
 		// Width
 		max-width: $maxTextWidth;
 	}
-	&:not([class*="__gapi"]) > *:not([class*="__mB"]):not(:last-child) {
+	&:not([class*="_gapi"]) > *:not([class*="_mB"]):not(:last-child) {
 		// Gaping, Bottom
 		margin-bottom: 1rem;
 	}

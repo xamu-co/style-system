@@ -65,7 +65,7 @@
 .x-flx,
 .x-flxInline {
 	@include extend-device-interactions {
-		&:not([class*="__gap"]) {
+		&:not([class*="_gap"]) {
 			// this already matches .xm__gaping classes
 			gap: 1rem;
 		}
@@ -138,50 +138,6 @@
 		&-nowrap {
 			@include extend-viewports-classes(true, $viewports) {
 				flex-wrap: nowrap;
-			}
-		}
-	}
-
-	// gaping fix
-	// gaping has to be explicit now to take effect
-	&[class*="__gapi"] {
-		&:last-child:not([class*="x-item"]) {
-			&[class*="__flxR"] {
-				// row fix
-				> :not(.unfix__gaping) {
-					&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-						&:first-child:only-of-type,
-						&:last-child {
-							// margin-bottom: 0;
-							margin-right: calc(-1 * (var(--g) - var(--gx)));
-							margin-bottom: calc(-1 * (var(--g) - var(--gx)));
-						}
-					}
-				}
-			}
-			&[class*="__flxC"] {
-				// column fix
-				> :not(.unfix__gaping) {
-					&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-						&:first-child:only-of-type,
-						&:last-child {
-							// margin-bottom: 0;
-							margin-right: calc(-1 * (var(--g) - var(--gy)));
-							margin-bottom: calc(-1 * (var(--g) - var(--gy)));
-						}
-					}
-				}
-			}
-		}
-		// column & row fix
-		&[class*="__flxR"],
-		&[class*="__flxC"] {
-			// Row, Column
-			&:last-child:not([class*="x-item"])
-				> :last-child:not(.unfix__gaping) {
-				&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-					margin: 0;
-				}
 			}
 		}
 	}

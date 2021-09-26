@@ -4,21 +4,21 @@ table.x-table {
 	box-sizing: border-box;
 	border-spacing: 0;
 
-	&:not([class*="__txtA"]) {
+	&:not([class*="_txtA"]) {
 		// Align
 		tr {
 			th,
 			td {
-				&:not([class*="__txtA"]) {
+				&:not([class*="_txtA"]) {
 					text-align: left;
 				}
 			}
 		}
 	}
-	&:not([class*="__txtCo"]) {
+	&:not([class*="_txtCo"]) {
 		// Color
 		tr {
-			td:not([class*="__txtCo"]) {
+			td:not([class*="_txtCo"]) {
 				color: color(dark, 0.7);
 			}
 		}
@@ -101,10 +101,10 @@ table.x-table {
 	}
 
 	&.m__tm-dark7 {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
+				th:not([class*="_txtCo"]) {
 					color: color(dark, 0.7);
 				}
 			}
@@ -125,10 +125,10 @@ table.x-table {
 	}
 
 	&.m__tm-primaryAlt {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
+				th:not([class*="_txtCo"]) {
 					color: color(primaryAlt);
 				}
 			}
@@ -149,10 +149,10 @@ table.x-table {
 	}
 
 	&.m__tm-primary {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
+				th:not([class*="_txtCo"]) {
 					color: color(primary);
 				}
 			}
@@ -173,10 +173,10 @@ table.x-table {
 	}
 
 	&.m__tm-danger {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
+				th:not([class*="_txtCo"]) {
 					color: color(danger);
 				}
 			}
@@ -197,10 +197,10 @@ table.x-table {
 	}
 
 	&.m__tm-success {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
+				th:not([class*="_txtCo"]) {
 					color: color(success);
 				}
 			}
@@ -220,12 +220,12 @@ table.x-table {
 		}
 	}
 
-	&:not([class*="__tm"]),
+	&:not([class*="_tm"]),
 	&.m__tm-secondary {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
+				th:not([class*="_txtCo"]) {
 					color: color(secondary);
 				}
 			}
