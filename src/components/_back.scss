@@ -11,8 +11,14 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	transition: background 0.3s ease-out;
-	z-index: -1;
-	position: absolute;
+	&:not([class*="-index"]) {
+		// Index
+		z-index: -1;
+	}
+	&:not([class*="-position"]) {
+		// Position
+		position: absolute;
+	}
 
 	&.is--header {
 		top: -5rem;
