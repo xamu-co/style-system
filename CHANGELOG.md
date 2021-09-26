@@ -1,5 +1,12 @@
 Xamu style system
 
+## [2.0.1](https://github.com/xamu-co/style-system/compare/v2.0.0...v2.0.1) (2021-09-26)
+
+
+### Bug Fixes
+
+* rename modifiers ([2c6ff3f](https://github.com/xamu-co/style-system/commit/2c6ff3fa2332d4f22373bda5253f2bec7f3c48f0))
+
 # [2.0.0](https://github.com/xamu-co/style-system/compare/v1.0.2...v2.0.0) (2021-09-26)
 
 
