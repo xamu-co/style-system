@@ -32,7 +32,7 @@ Sass is an amazing preprocesor but some of their rules could become missused
 
 ```scss
 .x-elementName {
-	&.m__modifierName {
+	&.--modifierName {
 		&__modifierValue {
 		}
 		&__otherModifierValue {
@@ -47,7 +47,7 @@ Sass is an amazing preprocesor but some of their rules could become missused
 
 ```scss
 .x-elementName {
-	&.m__requiredModifier.conditionalModifier {
+	&.--requiredModifier.conditionalModifier {
 		&__modifierValue {
 		}
 		&__otherModifierValue {
@@ -61,7 +61,7 @@ Sass is an amazing preprocesor but some of their rules could become missused
 -   Tag, element or layout (a, .x-elementname, etc...)
 -   Pseudoselectors (:hover, :focus, etc...)
 -   Statuses (.is\_\_statusname, etc...)
--   Modifiers (.m\_\_modifiername-value, etc...)
+-   Modifiers (.--modifiername-value, etc...)
 -   Subelements or childs
 -   Overwrites
 -   Media queries

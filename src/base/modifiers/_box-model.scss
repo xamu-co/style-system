@@ -1,5 +1,5 @@
 // box sizing
-.xm__boxSizing {
+.--boxSizing {
 	&-content {
 		@include extend-viewports-classes {
 			box-sizing: content-box;
@@ -18,7 +18,7 @@
 // X axis
 //
 // @group GlobalModifiers
-.xm__mX {
+.--mX {
 	&-left {
 		@include extend-viewports-classes {
 			margin-left: 0;
@@ -45,7 +45,7 @@
 // Y axis
 //
 // @group GlobalModifiers
-.xm__mY {
+.--mY {
 	&-top {
 		@include extend-viewports-classes {
 			margin-top: 0;
@@ -76,8 +76,8 @@ $models: margin, padding;
 	$m: str-slice($model, 1, 1);
 	// default: all sides
 	// margin & padding already have defaults for X & Y axles
-	.xm__#{$model},
-	.xm__#{$m} {
+	.--#{$model},
+	.--#{$m} {
 		@include extend-viewports-classes {
 			#{$model}: 1rem;
 		}
@@ -85,20 +85,20 @@ $models: margin, padding;
 
 	@for $i from 1 through 20 {
 		// all sides
-		.xm__#{$m}-#{$i*5} {
+		.--#{$m}-#{$i*5} {
 			@include extend-viewports-classes {
 				#{$model}: #{$i/3}rem;
 			}
 		}
 		// X axis
-		.xm__#{$m}X-#{$i*5} {
+		.--#{$m}X-#{$i*5} {
 			@include extend-viewports-classes {
 				#{$model}-left: #{$i/3}rem;
 				#{$model}-right: #{$i/3}rem;
 			}
 		}
 		// Y axis
-		.xm__#{$m}Y-#{$i*5} {
+		.--#{$m}Y-#{$i*5} {
 			@include extend-viewports-classes {
 				#{$model}-top: #{$i/3}rem;
 				#{$model}-bottom: #{$i/3}rem;
@@ -114,14 +114,14 @@ $models: margin, padding;
 		$mcd: $m + capitalize($direction);
 
 		// model direction defaults
-		.xm__#{$mcd} {
+		.--#{$mcd} {
 			@include extend-viewports-classes {
 				#{$model}-#{$direction}: 1rem;
 			}
 		}
 
 		@for $i from 1 through 20 {
-			.xm__#{$mcd}-#{$i * 5} {
+			.--#{$mcd}-#{$i * 5} {
 				@include extend-viewports-classes {
 					#{$model}-#{$direction}: #{$i/3}rem;
 				}

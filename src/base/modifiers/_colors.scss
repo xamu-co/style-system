@@ -1,24 +1,24 @@
 // Default striped
-.xm__striped {
+.--striped {
 	@include extend-viewports-classes {
-		&:not(.x-table) {
+		&:not(.table) {
 			> :nth-child(even) {
 				background-color: color(secondary, 0.1);
 			}
 		}
-		&.x-table tbody tr:nth-child(even) td:after {
+		&.table tbody tr:nth-child(even) td:after {
 			background-color: color(secondary, 0.1);
 		}
 	}
 }
 // Default color
-.xm__bgColor {
+.--bgColor {
 	@include extend-viewports-classes {
 		background-color: color(light);
 	}
 }
 // Default border color
-.xm__bdrColor {
+.--bdrColor {
 	@include extend-viewports-classes {
 		border-color: color(secondary, 0.1);
 	}
@@ -30,28 +30,28 @@
 // @group ColorGlobalModifiers
 @each $name, $color in $colors {
 	// striped childs
-	.xm__striped-#{$name} {
+	.--striped-#{$name} {
 		@include extend-viewports-classes {
-			&:not(.x-table) {
+			&:not(.table) {
 				> :nth-child(even) {
 					background-color: color($name, 0.1);
 				}
 			}
-			&.x-table tbody tr:nth-child(even) td:after {
+			&.table tbody tr:nth-child(even) td:after {
 				background-color: color($name, 0.1);
 			}
 		}
 	}
 
 	// background color
-	.xm__bgColor-#{$name} {
+	.--bgColor-#{$name} {
 		@include extend-viewports-classes {
 			background-color: color($name);
 		}
 	}
 
 	// borderColor
-	.xm__bdrColor-#{$name} {
+	.--bdrColor-#{$name} {
 		@include extend-viewports-classes {
 			border-color: color($name);
 		}
@@ -60,14 +60,14 @@
 	// shades of color
 	@for $i from 1 through 9 {
 		// background color
-		.xm__bgColor-#{$name}#{$i} {
+		.--bgColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				background-color: color($name, $i/10);
 			}
 		}
 
 		// borderColor
-		.xm__bdrColor-#{$name}#{$i} {
+		.--bdrColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				border-color: color($name, $i/10);
 			}

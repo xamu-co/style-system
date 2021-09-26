@@ -3,32 +3,32 @@
 // aditionally you have to provide a fas(solid) far(regular) icons
 //
 // @group Components
-.x-btnToggle {
+.btnToggle {
 	--cl-a: var(--cl);
-	&.is__alert:after {
+	&.is--alert:after {
 		background-color: var(--bg, transparent);
 	}
 
-	&.is__alert,
-	&.is__active,
-	&.is__routeExact {
+	&.is--alert,
+	&.is--active,
+	&.is--routeExact {
 		//hide regular
 		&,
-		.x-btnToggle-icon {
-			i.x-icon,
-			.x-svg {
+		.btnToggle-icon {
+			i.icon,
+			.svg {
 				&:first-of-type {
 					display: none;
 				}
 			}
 		}
 	}
-	&:not(.is__alert):not(.is__active):not(.is__routeExact) {
+	&:not(.is--alert):not(.is--active):not(.is--routeExact) {
 		//hide solid
 		&,
-		.x-btnToggle-icon {
-			i.x-icon,
-			.x-svg {
+		.btnToggle-icon {
+			i.icon,
+			.svg {
 				&:last-of-type {
 					display: none;
 				}
@@ -41,22 +41,22 @@
 	// second value is the textColor
 	//
 	// @group Modifiers
-	&.m__tm {
+	&.--tm {
 		&-dark7 {
 			--cl: #{color(dark, 0.7)};
 			--bg: #{color(dark, 0.1)};
 			&:hover {
 				--bc: #{color(dark, 0.3)};
 			}
-			&.is__alert,
-			&.is__active {
+			&.is--alert,
+			&.is--active {
 				--bg: #{color(dark, 0.5)};
 			}
-			&.is__alert:after {
+			&.is--alert:after {
 				--bc: #{color(dark, 0.7)};
 				--bg: #{color(light)};
 			}
-			&.is__routeExact {
+			&.is--routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(dark, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -68,15 +68,15 @@
 			&:hover {
 				--bc: #{color(light, 0.3)};
 			}
-			&.is__alert:after {
+			&.is--alert:after {
 				--bg: #{color(light)};
 				--bc: #{color(light)};
 			}
-			&.is__alert,
-			&.is__active {
+			&.is--alert,
+			&.is--active {
 				--bg: #{color(light, 0.5)};
 			}
-			&.is__routeExact {
+			&.is--routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(light, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -88,15 +88,15 @@
 			&:hover {
 				--bc: #{color(primaryAlt, 0.3)};
 			}
-			&.is__alert:after {
+			&.is--alert:after {
 				--bg: #{color(light)};
 				--bc: #{color(dark, 0.3)};
 			}
-			&.is__alert,
-			&.is__active {
+			&.is--alert,
+			&.is--active {
 				--bg: #{color(primaryAlt, 0.5)};
 			}
-			&.is__routeExact {
+			&.is--routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(primaryAlt, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -108,15 +108,15 @@
 			&:hover {
 				--bc: #{color(primaryAlt)};
 			}
-			&.is__alert:after {
+			&.is--alert:after {
 				--bg: #{color(light)};
 				--bc: #{color(dark, 0.3)};
 			}
-			&.is__alert,
-			&.is__active {
+			&.is--alert,
+			&.is--active {
 				--bg: #{color(primaryAlt, 0.5)};
 			}
-			&.is__routeExact {
+			&.is--routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(primaryAlt, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -128,15 +128,15 @@
 			&:hover {
 				--bc: #{color(danger)};
 			}
-			&.is__alert:after {
+			&.is--alert:after {
 				--bg: #{color(light)};
 				--bc: #{color(dark, 0.3)};
 			}
-			&.is__alert,
-			&.is__active {
+			&.is--alert,
+			&.is--active {
 				--bg: #{color(danger, 0.5)};
 			}
-			&.is__routeExact {
+			&.is--routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(danger, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -148,15 +148,15 @@
 			&:hover {
 				--bc: #{color(success)};
 			}
-			&.is__alert:after {
+			&.is--alert:after {
 				--bg: #{color(light)};
 				--bc: #{color(dark, 0.3)};
 			}
-			&.is__alert,
-			&.is__active {
+			&.is--alert,
+			&.is--active {
 				--bg: #{color(success, 0.5)};
 			}
-			&.is__routeExact {
+			&.is--routeExact {
 				--cl: #{color(light)};
 				--bg: #{color(success, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -164,22 +164,22 @@
 		}
 	}
 	// default theme
-	&:not([class*="_tm"]),
-	&.m__tm-secondary {
+	&:not([class*="-tm"]),
+	&.--tm-secondary {
 		--cl: #{color(secondary)};
 		--bg: #{color(secondary, 0.1)};
 		&:hover {
 			--bc: #{color(secondary, 0.3)};
 		}
-		&.is__alert:after {
+		&.is--alert:after {
 			--bg: #{color(light)};
 			--bc: #{color(secondary)};
 		}
-		&.is__alert,
-		&.is__active {
+		&.is--alert,
+		&.is--active {
 			--bg: #{color(secondary, 0.5)};
 		}
-		&.is__routeExact {
+		&.is--routeExact {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
 			--bc: #{color(light, 0.3)};

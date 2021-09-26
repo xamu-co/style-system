@@ -18,7 +18,7 @@
 	// @import "fonts/module"; // this project uses google fonts
 
 	@import "base/module";
-	@import "base/global-modifiers/module"; // nested imports take longer to compile
+	@import "base/modifiers/module"; // nested imports take longer to compile
 
 	@import "pseudos/module";
 	@import "components/module";
@@ -38,7 +38,7 @@
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: weight(regular-alt);
 		}
-		&.is__modalOpen {
+		&.is--modalOpen {
 			overflow-y: hidden;
 			@media (hover: hover) {
 				box-sizing: border-box;

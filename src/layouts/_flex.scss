@@ -1,10 +1,10 @@
 /// # Flexbox layout
 /// Flexbox layout system
 /// ```css
-///  .x-flx
+///  .flx
 ///
 ///  /** or inline */
-///  .x-flxInline
+///  .flxInline
 /// ```
 /// This layout makes use of the global flx union
 ///
@@ -15,26 +15,26 @@
 /// ### Row flex flow
 /// Row direction and wrapping behavior.
 /// ```css
-///  .x-flx.m__flxRow
+///  .flx.--flxRow
 ///
 ///  /** it can be reversed */
-///  .x-flx.m__flxRowReverse
+///  .flx.--flxRowReverse
 ///
 ///  /** or allow content wrapping */
-///  .x-flx.m__flxRow-wrap
-///  .x-flx.m__flxRowReverse-wrap
+///  .flx.--flxRow-wrap
+///  .flx.--flxRowReverse-wrap
 /// ```
 /// ### Column flex flow
 /// Column direction and wrapping behavior.
 /// ```css
-///  .x-flx.m__flxColumn
+///  .flx.--flxColumn
 ///
 ///  /** it can be reversed */
-///  .x-flx.m__flxColumnReverse
+///  .flx.--flxColumnReverse
 ///
 ///  /** or allow content wrapping */
-///  .x-flx.m__flxColumn-wrap
-///  .x-flx.m__flxColumnReverse-wrap
+///  .flx.--flxColumn-wrap
+///  .flx.--flxColumnReverse-wrap
 /// ```
 ///
 /// ## Unions:
@@ -42,19 +42,19 @@
 ///
 /// @group layout-flex
 /// @example njk
-///  <div class="x-flx m__flxColumn">
+///  <div class="flx --flxColumn">
 ///   TODO: flexbox example
 ///  </div>
 
 // flex container
-.x-flx {
+.flx {
 	@include extend-device-interactions {
 		display: flex;
 	}
 }
 
 // flex inline container
-.x-flxInline {
+.flxInline {
 	@include extend-device-interactions {
 		display: inline-flex;
 		position: static; // why? (27/03/2021)
@@ -62,18 +62,18 @@
 }
 
 // flexbox container
-.x-flx,
-.x-flxInline {
+.flx,
+.flxInline {
 	@include extend-device-interactions {
-		&:not([class*="_gap"]) {
-			// this already matches .xm__gaping classes
+		&:not([class*="-gap"]) {
+			// this already matches .--gaping classes
 			gap: 1rem;
 		}
 	}
 	// flexbox row container
 	//
 	// @group Modifiers
-	&.m__flxRow {
+	&.--flxRow {
 		&,
 		&-wrap,
 		&-reverse,
@@ -83,7 +83,7 @@
 			}
 		}
 	}
-	&.m__flxRowReverse {
+	&.--flxRowReverse {
 		&,
 		&-wrap,
 		&-reverse,
@@ -97,7 +97,7 @@
 	// flexbox flex container
 	//
 	// @group Modifiers
-	&.m__flxColumn {
+	&.--flxColumn {
 		&,
 		&-wrap,
 		&-reverse,
@@ -107,7 +107,7 @@
 			}
 		}
 	}
-	&.m__flxColumnReverse {
+	&.--flxColumnReverse {
 		&,
 		&-wrap,
 		&-reverse,
@@ -119,10 +119,10 @@
 	}
 
 	// an union could be a shorter solution, but is a huge breaking change
-	&.m__flxRow,
-	&.m__flxColumn,
-	&.m__flxRowReverse,
-	&.m__flxColumnReverse {
+	&.--flxRow,
+	&.--flxColumn,
+	&.--flxRowReverse,
+	&.--flxColumnReverse {
 		&-wrap {
 			@include extend-viewports-classes(true, $viewports) {
 				flex-wrap: wrap;

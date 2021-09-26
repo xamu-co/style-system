@@ -8,7 +8,7 @@
 // hidden element, hide visually only
 //
 // @group GlobalModifiers
-.xm__hidden {
+.--hidden {
 	@include extend-viewports-classes(true, $viewports) {
 		width: 0.1px;
 		height: 0.1px;
@@ -17,8 +17,8 @@
 		position: absolute;
 		z-index: -1;
 		&:first-child + {
-			i.x-icon,
-			.x-svg {
+			i.icon,
+			.svg {
 				margin-left: 0;
 			}
 		}
@@ -27,8 +27,8 @@
 		@include extend-viewports-classes(true, $viewports) {
 			display: none !important;
 			&:first-child + {
-				i.x-icon,
-				.x-svg {
+				i.icon,
+				.svg {
 					margin-left: 0;
 				}
 			}
@@ -39,7 +39,7 @@
 // positon
 //
 // @group GlobalModifiers
-.xm__position {
+.--position {
 	&-fixed {
 		@include extend-viewports-classes {
 			position: fixed;
@@ -74,7 +74,7 @@
 // clear
 //
 // @group GlobalModifiers
-.xm__clear {
+.--clear {
 	@include extend-viewports-classes {
 		clear: both;
 	}
@@ -83,7 +83,7 @@
 // float
 //
 // @group GlobalModifiers
-.xm__float {
+.--float {
 	&-right {
 		@include extend-viewports-classes {
 			float: left;
@@ -100,7 +100,7 @@
 // order
 //
 // @group GlobalModifiers
-.xm__order {
+.--order {
 	@include extend-viewports-classes(false, $viewports) {
 		order: 1;
 	}
@@ -109,19 +109,19 @@
 // z index
 //
 // @group GlobalModifiers
-.xm__index {
+.--index {
 	@include extend-viewports-classes {
 		z-index: 999;
 	}
 }
 
 @for $i from 1 through 10 {
-	.xm__order-#{$i} {
+	.--order-#{$i} {
 		@include extend-viewports-classes(false, $viewports) {
 			order: #{$i};
 		}
 	}
-	.xm__index-#{$i} {
+	.--index-#{$i} {
 		@include extend-viewports-classes {
 			z-index: #{$i};
 		}

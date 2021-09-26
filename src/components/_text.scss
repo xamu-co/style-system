@@ -1,34 +1,34 @@
 // Text block component
 //
 // @group Components
-.x-txt {
+.txt {
 	&,
-	:not([class*="_txtWr"]) {
+	:not([class*="-txtWr"]) {
 		white-space: normal;
 	}
-	&:not([class*="_txtCo"]) {
+	&:not([class*="-txtCo"]) {
 		color: color(dark, 0.7);
 	}
-	&:not([class*="-flx"]):not(.x-grd):not([class*="_txtAlignF"]) {
+	&:not([class*="-flx"]):not(.grd):not([class*="-txtAlignF"]) {
 		// Flx
 		display: block;
 	}
-	&:not([class*="_txtA"]) {
+	&:not([class*="-txtA"]) {
 		// Align
 		&,
-		:not([class*="_txtA"]) {
+		:not([class*="-txtA"]) {
 			text-align: left;
 		}
-		> *:not([class*="-flx"]):not(.x-grd):not([class*="_txtAlignF"]) {
+		> *:not([class*="-flx"]):not(.grd):not([class*="-txtAlignF"]) {
 			// Gaping
 			display: inline-block;
 		}
 	}
-	&:not([class*="_maxW"]) {
+	&:not([class*="-maxW"]) {
 		// Width
 		max-width: $maxTextWidth;
 	}
-	&:not([class*="_gapi"]) > *:not([class*="_mB"]):not(:last-child) {
+	&:not([class*="-gapi"]) > *:not([class*="-mB"]):not(:last-child) {
 		// Gaping, Bottom
 		margin-bottom: 1rem;
 	}
@@ -36,8 +36,8 @@
 	// Text block component
 	//
 	// @group Components
-	&.m__box,
-	&.m__miniBox {
+	&.--box,
+	&.--miniBox {
 		padding: 0.5rem 1rem;
 	}
 

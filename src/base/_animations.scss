@@ -11,9 +11,9 @@
 /// Animations by default should be disabled unless the activation status is provided.\
 /// Without this class no animation will run.
 ///
-/// **.a-animationName.is__animated{}**
+/// **.a-animationName.is--animated{}**
 /// ```css
-///  .a-fadeIn.is__animated{}
+///  .a-fadeIn.is--animated{}
 /// ```
 /// This status is very powerfull & comes with his own set of modifiers
 ///
@@ -22,9 +22,9 @@
 /// Measured in tenths of a second
 /// It goes from 0.1s as **"1"** to 2s as **"20"**
 ///
-/// **.is__animated.m__delay-value{}**
+/// **.is--animated.--delay-value{}**
 /// ```css
-///  .is__animated.m__delay-2 {
+///  .is--animated.--delay-2 {
 ///      animation-delay: 0.2s;
 ///  }
 /// ```
@@ -33,23 +33,23 @@
 /// Amount of times an animation needs to repeat itself
 /// Allowed values are **"infinite"** or a range from 1 to 20
 ///
-/// **.is__animated.m__iterations__value{}**
+/// **.is--animated.--iterations__value{}**
 /// ```css
-///  .is__animated.m__iterations-2 {
+///  .is--animated.--iterations-2 {
 ///      animation-iteration-count: 2;
 ///  }
 /// ```
 ///
 /// @group animations
 /// @example njk
-///  <div class="x-flx m__flxColumn">
+///  <div class="flx --flxColumn">
 ///   TODO: animation example
 ///  </div>
 
 // inicia animations
 //
 // @group Status
-.is__animated {
+.is--animated {
 	&,
 	&:before,
 	&:after {
@@ -58,15 +58,15 @@
 		animation-timing-function: ease-out;
 	}
 
-	&.m__iterations-infinite {
+	&.--iterations-infinite {
 		animation-iteration-count: infinite;
 	}
 
 	@for $i from 1 through 20 {
-		&.m__delay-#{$i} {
+		&.--delay-#{$i} {
 			animation-delay: #{$i/10}s;
 		}
-		&.m__iterations-#{$i} {
+		&.--iterations-#{$i} {
 			animation-iteration-count: #{$i};
 		}
 	}
@@ -81,7 +81,7 @@
 		max-height: 0;
 		// opacity: 0;
 		// transform: translateY(-5vh);
-		&.is__animated {
+		&.is--animated {
 			animation-name: growingIn;
 			animation-duration: 6s;
 		}
@@ -93,7 +93,7 @@
 	.a-fadeIn {
 		opacity: 0;
 		// transform: translateY(-5vh);
-		&.is__animated {
+		&.is--animated {
 			animation-name: fadeIn;
 			animation-duration: 1.2s;
 		}
@@ -105,7 +105,7 @@
 	.a-topFade {
 		opacity: 0;
 		transform: translateY(-5vh);
-		&.is__animated {
+		&.is--animated {
 			animation-name: topFade;
 			animation-duration: 0.6s;
 		}
@@ -117,7 +117,7 @@
 	.a-bottomFade {
 		opacity: 0;
 		transform: translateY(5vh);
-		&.is__animated {
+		&.is--animated {
 			animation-name: bottomFade;
 			animation-duration: 0.6s;
 		}
@@ -129,7 +129,7 @@
 	.a-leftFade {
 		opacity: 0;
 		transform: translateX(-5vh);
-		&.is__animated {
+		&.is--animated {
 			animation-name: leftFade;
 			animation-duration: 0.6s;
 		}
@@ -141,7 +141,7 @@
 	.a-rightFade {
 		opacity: 0;
 		transform: translateX(5vh);
-		&.is__animated {
+		&.is--animated {
 			animation-name: rightFade;
 			animation-duration: 0.6s;
 		}

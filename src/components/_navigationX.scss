@@ -4,7 +4,7 @@
 // @name Columns
 // @group Layouts
 
-.x-navX {
+.navX {
 	width: 100%;
 	@include flexbox(column, nowrap, center, stretch);
 	// box-sizing: border-box;
@@ -12,12 +12,12 @@
 	// es barra de navegacion principal
 	//
 	// @group Statuses
-	&:not(.is__sub) {
-		&:not(.is__relative) {
+	&:not(.is--sub) {
+		&:not(.is--relative) {
 			z-index: 16;
 		}
 		&,
-		.x-navX-wrapper {
+		.navX-wrapper {
 			height: 5rem;
 			transition: all 0.3s ease-out, padding 0s;
 		}
@@ -25,45 +25,45 @@
 		// tema de la barra de navegacion principal
 		//
 		// @group ConditionalModifiers
-		&[class*="_tm-light"] {
-			.x-navX-list-item {
+		&[class*="-tm-light"] {
+			.navX-list-item {
 				> *,
 				> * > * {
-					&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="_tm-light"] {
+					&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
-					&.x-btnLink {
-						&:not(:hover):not(.is__active):not(.is__routeExact) {
+					&.btnLink {
+						&:not(:hover):not(.is--active):not(.is--routeExact) {
 							@media (min-width: $viewportMd + 1) {
 								text-shadow: 1px 1px 1px
 									var(--sh, #{color(dark, 0.3)});
 							}
 						}
 					}
-					&.x-btn {
-						&.is__active,
-						&.is__routeExact {
+					&.btn {
+						&.is--active,
+						&.is--routeExact {
 							text-shadow: 1px 1px 1px
 								var(--sh, #{color(dark, 0.3)});
 						}
 					}
 				}
-				> .toggle__dropdown.is__active {
+				> .toggle--dropdown.is--active {
 					&,
 					> * {
-						&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="_tm-light"] {
+						&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 							text-shadow: none;
 						}
-						&.x-btnLink {
-							&:not(:hover):not(.is__active):not(.is__routeExact) {
+						&.btnLink {
+							&:not(:hover):not(.is--active):not(.is--routeExact) {
 								@media (min-width: $viewportMd + 1) {
 									text-shadow: none;
 								}
 							}
 						}
-						&.x-btn {
-							&.is__active,
-							&.is__routeExact {
+						&.btn {
+							&.is--active,
+							&.is--routeExact {
 								text-shadow: none;
 							}
 						}
@@ -71,20 +71,20 @@
 				}
 				// desktop only, use hover
 				@media (min-width: $viewportMd + 1) {
-					&:hover > .toggle__dropdown:not(.only__active) {
+					&:hover > .toggle--dropdown:not(.only__active) {
 						&,
 						> * {
-							&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="_tm-light"] {
+							&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 								text-shadow: none;
 							}
-							&.x-btnLink {
-								&:not(:hover):not(.is__active):not(.is__routeExact) {
+							&.btnLink {
+								&:not(:hover):not(.is--active):not(.is--routeExact) {
 									text-shadow: none;
 								}
 							}
-							&.x-btn {
-								&.is__active,
-								&.is__routeExact {
+							&.btn {
+								&.is--active,
+								&.is--routeExact {
 									text-shadow: none;
 								}
 							}
@@ -94,15 +94,15 @@
 				// mobile only, use focus
 				@media (max-width: $viewportMd) {
 					&:focus-within:not(.no__focus)
-						> .toggle__dropdown:not(.only__active) {
+						> .toggle--dropdown:not(.only__active) {
 						&,
 						> * {
-							&.x-link:not(:hover):not(.is__active):not(.is__routeExact)[class*="_tm-light"] {
+							&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 								text-shadow: none;
 							}
-							&.x-btn {
-								&.is__active,
-								&.is__routeExact {
+							&.btn {
+								&.is--active,
+								&.is--routeExact {
 									text-shadow: none;
 								}
 							}
@@ -111,16 +111,16 @@
 				}
 			}
 		}
-		&.m__tm-lightAlt {
+		&.--tm-lightAlt {
 			--sh: #{color(primaryAlt, 0.7)};
 		}
 		// default theme
-		&:not([class*="_tm"]),
-		&.m__tm-secondary {
-			> .x-navX-wrapper {
+		&:not([class*="-tm"]),
+		&.--tm-secondary {
+			> .navX-wrapper {
 				background: color(light);
 			}
-			&:not(.is__relative) > .x-navX-wrapper {
+			&:not(.is--relative) > .navX-wrapper {
 				box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
 			}
 		}
@@ -129,7 +129,7 @@
 	// es barra de navegacion secundaria
 	//
 	// @group Statuses
-	&.is__sub {
+	&.is--sub {
 		position: absolute;
 		left: 0;
 		top: 100%;
@@ -141,32 +141,32 @@
 		// tema de la barra de navegacion secundaria
 		//
 		// @group ConditionalModifiers
-		&.m__tm-light .x-navX-list-item {
+		&.--tm-light .navX-list-item {
 			> *,
 			> * > * {
-				&.x-link,
-				&.x-btnLink {
-					&:not(:hover):not(.is__active):not(.is__routeExact) {
+				&.link,
+				&.btnLink {
+					&:not(:hover):not(.is--active):not(.is--routeExact) {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
 				}
 			}
-			> .toggle__dropdown.is__active {
+			> .toggle--dropdown.is--active {
 				&,
 				> * {
-					&.x-link,
-					&.x-btnLink {
+					&.link,
+					&.btnLink {
 						text-shadow: none;
 					}
 				}
 			}
 			// desktop only, use hover
 			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle__dropdown:not(.only__active) {
+				&:hover > .toggle--dropdown:not(.only__active) {
 					&,
 					> * {
-						&.x-link,
-						&.x-btnLink {
+						&.link,
+						&.btnLink {
 							text-shadow: none;
 						}
 					}
@@ -175,45 +175,45 @@
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
 				&:focus-within:not(.no__focus)
-					> .toggle__dropdown:not(.only__active) {
+					> .toggle--dropdown:not(.only__active) {
 					&,
 					> * {
-						&.x-link,
-						&.x-btnLink {
+						&.link,
+						&.btnLink {
 							text-shadow: none;
 						}
 					}
 				}
 			}
 		}
-		&.m__tm-primaryAlt .x-navX-list-item {
+		&.--tm-primaryAlt .navX-list-item {
 			> *,
 			> * > * {
-				&.x-link,
-				&.x-btnLink {
+				&.link,
+				&.btnLink {
 					&:hover,
-					&.is__active,
-					&.is__routeExact {
+					&.is--active,
+					&.is--routeExact {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
 				}
 			}
-			> .toggle__dropdown.is__active {
+			> .toggle--dropdown.is--active {
 				&,
 				> * {
-					&.x-link,
-					&.x-btnLink {
+					&.link,
+					&.btnLink {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
 				}
 			}
 			// desktop only, use hover
 			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle__dropdown:not(.only__active) {
+				&:hover > .toggle--dropdown:not(.only__active) {
 					&,
 					> * {
-						&.x-link,
-						&.x-btnLink {
+						&.link,
+						&.btnLink {
 							text-shadow: 1px 1px 1px
 								var(--sh, #{color(dark, 0.3)});
 						}
@@ -223,11 +223,11 @@
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
 				&:focus-within:not(.no__focus)
-					> .toggle__dropdown:not(.only__active) {
+					> .toggle--dropdown:not(.only__active) {
 					&,
 					> * {
-						&.x-link,
-						&.x-btnLink {
+						&.link,
+						&.btnLink {
 							text-shadow: 1px 1px 1px
 								var(--sh, #{color(dark, 0.3)});
 						}
@@ -236,17 +236,17 @@
 			}
 		}
 		// default theme
-		&:not([class*="_tm"]),
-		&.m__tm-secondary {
+		&:not([class*="-tm"]),
+		&.--tm-secondary {
 			border-bottom-color: color(secondary, 0.05);
 		}
 	}
 }
 
 // Navigation wrapper
-.x-navX-wrapper {
+.navX-wrapper {
 	&,
-	> .x-holder {
+	> .holder {
 		width: 100%;
 		height: 100%;
 		position: static;
@@ -256,8 +256,8 @@
 
 // Navigation nav list
 // this element is expected to be an <ul> or <ol> list
-ul.x-navX-list,
-ol.x-navX-list {
+ul.navX-list,
+ol.navX-list {
 	position: static;
 	@include flexbox(row, nowrap, center, center);
 	&,
@@ -273,6 +273,6 @@ ol.x-navX-list {
 
 // Navigation nav list item
 // this element is expected to be an <li> list item
-li.x-navX-list-item {
+li.navX-list-item {
 	@include flexbox(column, nowrap, center, flex-start);
 }

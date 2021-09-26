@@ -22,17 +22,17 @@ They are the main building blocks of any design.
 
 Elements & layouts all share a root component
 
-**.x-componentName{}**
+**.componentName{}**
 
 ```css
-.x-view {
+.view {
 }
 ```
 
 Some of them will expect certain tag
 
 ```css
-a.x-link {
+a.link {
 }
 ```
 
@@ -42,10 +42,10 @@ Whenever possible avoid using long names. **x-flx** will always be better than *
 
 Elements & layouts could have nested components, to differentiate them from their parent a **"-"** will be used
 
-**.x-parentComponentName-childComponentName{}**
+**.parentComponentName-childComponentName{}**
 
 ```css
-.x-view-item {
+.view-item {
 }
 ```
 
@@ -54,10 +54,10 @@ Elements & layouts could have nested components, to differentiate them from thei
 Each element comes tied with a set classes to alter it
 
 ```scss
-.x-componentName.utilityType__utilityName-utilityfirstOptionalParam-utilitysecondOptionalParam {
+.componentName.optionalUtilityType--utilityName-utilityfirstOptionalParam-utilitysecondOptionalParam {
 }
-.x-componentName {
-	&.utilityType__utilityName {
+.componentName {
+	&.optionalUtilityType--utilityName {
 		&-utilityfirstOptionalParam {
 			&-utilitysecondOptionalParam {
 			}
@@ -73,10 +73,10 @@ This allows the duplication without collision
 As the name implies these are for management of the design state and are usually called upon in a dinamyc way using js or related languages
 It can be **"has"** but we recommend using **"is"**, These usually don't have need params
 
-**.x-elementName.is\_\_statusName{}**
+**.elementName.is\_\_statusName{}**
 
 ```css
-.x-view.is__active {
+.view.is--active {
 }
 ```
 
@@ -84,17 +84,17 @@ It can be **"has"** but we recommend using **"is"**, These usually don't have ne
 
 These could modify the behavior of the component they are applied on
 
-**.x-elementName.m\_\_modifierName-optionaParam{}**
+**.elementName.--modifierName-optionaParam{}**
 
 ```css
-.x-view.m__maxWidth-none {
+.view.--maxWidth-none {
 }
 ```
 
 Some modifier could be conditionated to the presence of another one
 
 ```css
-.x-view.m__theme-light.m__shadow {
+.view.--tm-light.--shadow {
 }
 ```
 
@@ -103,10 +103,10 @@ Some modifier could be conditionated to the presence of another one
 While modifiers are useful they can also get to verbose. That is whe unions come handy.
 Combination of modifiers, shortcuts for common modifier combinations
 
-**.x-elementName.u\_\_unionName-firstModifier-secondModifier{}**
+**.elementName.--unionName-firstModifier-secondModifier{}**
 
 ```css
-.x-view.u__flxAlign-center-stretch {
+.view.--flxAlign-center-stretch {
 }
 ```
 
@@ -114,11 +114,11 @@ If both values are equal the could be merged
 
 ```css
 /** Long version */
-.x-view.u__flxAlign-center-center {
+.view.--flxAlign-center-center {
 }
 
 /** Short version */
-.x-view.u__flxAlign-center {
+.view.--flxAlign-center {
 }
 ```
 
@@ -156,10 +156,10 @@ They also tend to override component modifiers and unions
 
 These modify the behavior of any element
 
-**.xm\_\_globalModifierName-value{}**
+**.--globalModifierName-value{}**
 
 ```css
-.xm__maxWidth-none {
+.--maxWidth-none {
 }
 ```
 
@@ -167,7 +167,7 @@ Just like the component modifiers but these work in any element
 Some modifier could be conditionated to the presence of another one
 
 ```css
-.xm__theme-light.xm__shadow {
+.--tm-light.--shadow {
 }
 ```
 
@@ -175,10 +175,10 @@ Some modifier could be conditionated to the presence of another one
 
 Condense most common modifiers of rules that require multiple parameters
 
-**.xu\_\_globalUnionName-firstValue-SecondValue{}**
+**.--globalUnionName-firstValue-SecondValue{}**
 
 ```css
-.xu__flxAlign-center-stretch {
+.--flxAlign-center-stretch {
 }
 ```
 
@@ -187,11 +187,11 @@ If both values are equal the could be merged
 
 ```css
 /** Long version */
-.xu__flxAlign-center-center {
+.--flxAlign-center-center {
 }
 
 /** Short version */
-.xu__flxAlign-center {
+.--flxAlign-center {
 }
 ```
 
@@ -201,16 +201,16 @@ We are following a similar approach to the tailwind framework (only for global m
 
 ```css
 /** Hide if element has less than 640px of width */
-.xm__hidden:sm {
+.--hidden:sm {
 }
 
 /** Hide if element has more than 640px of width */
-.xm__hidden:sm-inv {
+.--hidden:sm-inv {
 }
 ```
 
 -   **xs**: 358px, extra small, enabled in specific cases
--   **sm**: 576px, small
--   **md**: 768px, medium, enabled in specific cases
--   **lg**: 1080px, large
--   **xl**: 1280px, extralarge, enabled in specific cases
+-   **sm**: 576px, small, enabled in specific cases
+-   **md**: 768px, medium
+-   **lg**: 1080px, large, enabled in specific cases
+-   **xl**: 1280px, extralarge

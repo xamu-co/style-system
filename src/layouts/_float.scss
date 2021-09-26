@@ -1,18 +1,18 @@
 // float container
-.x-float {
+.float {
 	@include extend-device-interactions {
 		display: block;
-		&:not([class*="_floatDir"]) {
-			> *:not([class*="_float"]) {
+		&:not([class*="-floatDir"]) {
+			> *:not([class*="-float"]) {
 				float: left;
 			}
 		}
 	}
 
-	&.m__floatDir {
+	&.--floatDir {
 		&-right {
 			@include extend-viewports-classes {
-				> *:not([class*="_float"]) {
+				> *:not([class*="-float"]) {
 					float: right;
 				}
 			}
@@ -20,7 +20,7 @@
 		&,
 		&-left {
 			@include extend-viewports-classes {
-				> *:not([class*="_float"]) {
+				> *:not([class*="-float"]) {
 					float: left;
 				}
 			}

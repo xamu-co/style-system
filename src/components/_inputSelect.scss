@@ -5,7 +5,7 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 // website logo
 //
 // @group Components
-select.x-inSelect {
+select.iSelect {
 	width: 100%;
 	display: inline-block;
 	background-repeat: no-repeat;
@@ -16,8 +16,8 @@ select.x-inSelect {
 	// Theme
 	//
 	// @group Unions
-	&:not(.is__invalid) {
-		&.u__tm-light {
+	&:not(.is--invalid) {
+		&.--tm-light {
 			&-secondary {
 				//chevron-light down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}#{$selectPathEnd}");
@@ -114,14 +114,14 @@ select.x-inSelect {
 				}
 			}
 		}
-		&.u__tm-primary-light {
+		&.--tm-primary-light {
 			&:disabled,
 			&[disabled] {
 				//chevron-primary down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
 		}
-		&.u__tm-primaryAlt-light {
+		&.--tm-primaryAlt-light {
 			&:disabled,
 			&[disabled] {
 				//chevron-primaryAlt down
@@ -129,8 +129,8 @@ select.x-inSelect {
 			}
 		}
 		// default
-		&:not([class*="u__tm"]),
-		&.u__tm-secondary-light {
+		&:not([class*="--tm"]),
+		&.--tm-secondary-light {
 			&:disabled,
 			&[disabled] {
 				//chevron-secondary down
@@ -138,19 +138,19 @@ select.x-inSelect {
 			}
 		}
 	}
-	&.is__invalid,
-	&.u__tm-danger-light {
+	&.is--invalid,
+	&.--tm-danger-light {
 		&:disabled,
 		&[disabled] {
 			//chevron-danger down
 			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
 		}
 	}
-	&:not([class*="u__tm"]),
-	&.u__tm-primary-light,
-	&.u__tm-primaryAlt-light,
-	&.u__tm-secondary-light,
-	&.u__tm-danger-light {
+	&:not([class*="--tm"]),
+	&.--tm-primary-light,
+	&.--tm-primaryAlt-light,
+	&.--tm-secondary-light,
+	&.--tm-danger-light {
 		//chevron-light down
 		background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}#{$selectPathEnd}");
 		&:hover {
@@ -169,7 +169,7 @@ select.x-inSelect {
 	}
 
 	@each $name, $size in $fontSizes {
-		&.m__size-#{$name} {
+		&.--size-#{$name} {
 			padding: 0 #{$size * 2.2} 0 #{$size * 0.8};
 			background-position: calc(100% - #{$size * 0.8}) 50%;
 		}

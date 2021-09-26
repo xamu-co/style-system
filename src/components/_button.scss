@@ -3,8 +3,8 @@
 //
 // @group Components
 // button round handling
-:not([class*="toggle__"]) > :not([class*="toggle__"]) {
-	&.x-btn.m__round {
+:not([class*="toggle--"]) > :not([class*="toggle--"]) {
+	&.btn.--round {
 		@include extend-viewports-classes(true, $viewports) {
 			:not(:only-child) {
 				&:not(:last-child),
@@ -20,7 +20,7 @@
 // this element is expected to be an <button>, <a> or <label> element
 //
 // @group Components
-.x-btnY {
+.btnY {
 	padding: 0.8rem 0.2rem;
 	border-radius: 0.4rem;
 	border-width: 2px;

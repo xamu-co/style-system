@@ -1,7 +1,7 @@
 // Comment
 //
 // @group Components
-.x-box {
+.box {
 	// width: 100%;
 	border-radius: 1.6rem;
 	border: 2px solid transparent;
@@ -11,12 +11,12 @@
 		pointer-events: none;
 		opacity: 0.3;
 	}
-	&:not(.m__btn):not(.m__button) {
+	&:not(.--btn):not(.--button) {
 		padding: 1rem;
 	}
-	&:not(.x-flx):not(.x-Inline) {
+	&:not(.flx):not(.Inline) {
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> :not([class*="__mB"]):not(:last-child) {
+		> :not([class*="-mB"]):not(:last-child) {
 			// Bottom
 			margin-bottom: 1rem;
 		}
@@ -25,167 +25,167 @@
 	// Comment theme
 	//
 	// @group Modifiers
-	&.m__tm-light {
-		&:not([class*="__bgCo"]) {
+	&.--tm-light {
+		&:not([class*="-bgCo"]) {
 			background: color(light, 0.1);
 		}
 		&:hover {
 			border-color: color(light, 0.1);
 		}
 		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			&.m__btn,
-			&.m__button {
+		&.is--active,
+		&.is--routeExact {
+			&.--btn,
+			&.--button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
-				.x-box {
+				.box {
 					box-shadow: 3px 3px 9px color(light, 0.3);
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="__txtCo"]) {
+		&.--btn,
+		&.--button {
+			&:not([class*="-txtCo"]) {
 				// Color
 				color: color(light);
 			}
 		}
 	}
-	&.m__tm-lightAlt {
-		&:not([class*="__bgCo"]) {
+	&.--tm-lightAlt {
+		&:not([class*="-bgCo"]) {
 			background: color(light);
 		}
 		&:hover {
 			border-color: color(dark, 0.1);
 		}
 		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			&.m__btn,
-			&.m__button {
+		&.is--active,
+		&.is--routeExact {
+			&.--btn,
+			&.--button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
-				.x-box {
+				.box {
 					box-shadow: 3px 3px 9px color(light, 0.3);
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="__txtCo"]) {
+		&.--btn,
+		&.--button {
+			&:not([class*="-txtCo"]) {
 				// Color
 				color: color(light);
 			}
 		}
 	}
 
-	&.m__tm-primary {
-		&:not([class*="__bgCo"]) {
+	&.--tm-primary {
+		&:not([class*="-bgCo"]) {
 			background: color(primary, 0.1);
 		}
 		&:hover {
 			border-color: color(primary, 0.1);
 		}
 		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			&.m__btn,
-			&.m__button {
+		&.is--active,
+		&.is--routeExact {
+			&.--btn,
+			&.--button {
 				background: color(primary, 0.2);
 				// border-color: color(primary, 0.3);
-				.x-box {
+				.box {
 					box-shadow: 3px 3px 9px color(primary, 0.3);
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="__txtCo"]) {
+		&.--btn,
+		&.--button {
+			&:not([class*="-txtCo"]) {
 				// Color
 				color: color(primary);
 			}
 		}
 	}
 
-	&.m__tm-primaryAlt {
-		&:not([class*="__bgCo"]) {
+	&.--tm-primaryAlt {
+		&:not([class*="-bgCo"]) {
 			background: color(primaryAlt, 0.1);
 		}
 		&:hover {
 			border-color: color(primaryAlt, 0.1);
 		}
 		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			&.m__btn,
-			&.m__button {
+		&.is--active,
+		&.is--routeExact {
+			&.--btn,
+			&.--button {
 				background: color(primaryAlt, 0.2);
 				// border-color: color(primaryAlt, 0.3);
-				.x-box {
+				.box {
 					box-shadow: 3px 3px 9px color(primaryAlt, 0.3);
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="__txtCo"]) {
+		&.--btn,
+		&.--button {
+			&:not([class*="-txtCo"]) {
 				// Color
 				color: color(primaryAlt);
 			}
 		}
 	}
 
-	&.m__tm-danger {
-		&:not([class*="__bgCo"]) {
+	&.--tm-danger {
+		&:not([class*="-bgCo"]) {
 			background: color(danger, 0.1);
 		}
 		&:hover {
 			border-color: color(danger, 0.1);
 		}
 		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			&.m__btn,
-			&.m__button {
+		&.is--active,
+		&.is--routeExact {
+			&.--btn,
+			&.--button {
 				background: color(danger, 0.2);
 				// border-color: color(danger, 0.3);
-				.x-box {
+				.box {
 					box-shadow: 3px 3px 9px color(danger, 0.3);
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="__txtCo"]) {
+		&.--btn,
+		&.--button {
+			&:not([class*="-txtCo"]) {
 				// Color
 				color: color(danger);
 			}
 		}
 	}
 
-	&.m__tm-success {
-		&:not([class*="__bgCo"]) {
+	&.--tm-success {
+		&:not([class*="-bgCo"]) {
 			background: color(success, 0.1);
 		}
 		&:hover {
 			border-color: color(success, 0.1);
 		}
 		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			&.m__btn,
-			&.m__button {
+		&.is--active,
+		&.is--routeExact {
+			&.--btn,
+			&.--button {
 				background: color(success, 0.2);
 				// border-color: color(success, 0.3);
-				.x-box {
+				.box {
 					box-shadow: 3px 3px 9px color(success, 0.3);
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="__txtCo"]) {
+		&.--btn,
+		&.--button {
+			&:not([class*="-txtCo"]) {
 				// Color
 				color: color(success);
 			}
@@ -193,29 +193,29 @@
 	}
 
 	// default theme
-	&:not([class*="__tm"]),
-	&.m__tm-secondary {
-		&:not([class*="__bgCo"]) {
+	&:not([class*="-tm"]),
+	&.--tm-secondary {
+		&:not([class*="-bgCo"]) {
 			background: color(secondary, 0.1);
 		}
 		&:hover {
 			border-color: color(secondary, 0.1);
 		}
 		&:hover,
-		&.is__active,
-		&.is__routeExact {
-			&.m__btn,
-			&.m__button {
+		&.is--active,
+		&.is--routeExact {
+			&.--btn,
+			&.--button {
 				background: color(secondary, 0.2);
 				// border-color: color(secondary, 0.3);
-				.x-box {
+				.box {
 					box-shadow: 3px 3px 9px color(secondary, 0.3);
 				}
 			}
 		}
-		&.m__btn,
-		&.m__button {
-			&:not([class*="__txtCo"]) {
+		&.--btn,
+		&.--button {
+			&:not([class*="-txtCo"]) {
 				// Color
 				color: color(secondary);
 			}
@@ -225,10 +225,10 @@
 	// button behavior
 	//
 	// @group Modifiers
-	&.m__btn,
-	&.m__button {
+	&.--btn,
+	&.--button {
 		padding: 0.8rem;
-		.x-box {
+		.box {
 			border-color: transparent !important;
 		}
 		p {
@@ -236,14 +236,14 @@
 		}
 	}
 
-	.x-box {
+	.box {
 		border-radius: 1rem;
 
 		// Square shape
 		// this assummes there is only one child
 		//
 		// @group Modifiers
-		&.m__square {
+		&.--square {
 			&-xs {
 				width: 3rem;
 			}
@@ -258,7 +258,7 @@
 				width: 6rem;
 			}
 		}
-		&[class*="__square"] {
+		&[class*="-square"] {
 			margin: 0 auto;
 			&:before {
 				content: "";

@@ -1,7 +1,7 @@
 // link Navigation element
 //
 // @group Components
-.x-btnLink {
+.btnLink {
 	@media (max-width: $viewportSm) {
 		width: 2.4rem;
 		span {
@@ -18,27 +18,27 @@
 		padding: 0 0.8rem;
 		width: auto;
 		@media (min-width: $viewportSm + 1) {
-			&:not(.is__route):not(.is__active) {
+			&:not(.is--route):not(.is--active) {
 				padding: 0;
 				span {
 					display: none;
 				}
 			}
-			&.is__route,
-			&.is__active {
+			&.is--route,
+			&.is--active {
 				// text only
-				i.x-icon,
-				.x-svg {
+				i.icon,
+				.svg {
 					display: none;
 				}
 			}
-			&:not(.is__route):not(.is__active) {
+			&:not(.is--route):not(.is--active) {
 				// icon only
 				width: 2.4rem;
 			}
 
-			i.x-icon,
-			.x-svg {
+			i.icon,
+			.svg {
 				&:first-child {
 					display: none;
 				}
@@ -46,13 +46,13 @@
 		}
 
 		@each $name, $size in $fontSizes {
-			&.m__size-#{$name} {
+			&.--size-#{$name} {
 				height: $size * 2.6;
 				border-radius: $size;
 				border-width: calc(2px + (#{$size} / 18));
 				padding: 0 #{$size * 0.8};
 				@media (min-width: $viewportSm + 1) {
-					&:not(.is__route):not(.is__active) {
+					&:not(.is--route):not(.is--active) {
 						// icon only
 						width: $size * 2.6;
 					}
@@ -69,7 +69,7 @@
 		// ruta activa
 		//
 		// @group Statuses
-		&.is__route:before {
+		&.is--route:before {
 			content: "...";
 			display: block;
 			position: absolute;
@@ -83,38 +83,38 @@
 		// nav link themes
 		//
 		// @group Modifiers
-		&.u__tm {
+		&.--tm {
 			&-light-primaryAlt {
 				&:hover,
-				&.is__active,
-				&.is__routeExact {
+				&.is--active,
+				&.is--routeExact {
 					--rw: #{color(primaryAlt)};
 				}
 			}
 			&-primary-light {
 				&:hover,
-				&.is__active,
-				&.is__routeExact {
+				&.is--active,
+				&.is--routeExact {
 					--rw: #{color(primary)};
 				}
 			}
 			&-danger-light {
 				--rw: #{color(danger)};
-				&:hover:not(.is__active):not(.is__routeExact) {
+				&:hover:not(.is--active):not(.is--routeExact) {
 					--rw: #{color(danger, 0.5)};
 				}
-				&.is__active,
-				&.is__routeExact {
+				&.is--active,
+				&.is--routeExact {
 					--rw: #{color(danger, 0.7)};
 				}
 			}
 			&-success-light {
 				--rw: #{color(success)};
-				&:hover:not(.is__active):not(.is__routeExact) {
+				&:hover:not(.is--active):not(.is--routeExact) {
 					--rw: #{color(success, 0.5)};
 				}
-				&.is__active,
-				&.is__routeExact {
+				&.is--active,
+				&.is--routeExact {
 					--rw: #{color(success, 0.7)};
 				}
 			}
@@ -124,19 +124,19 @@
 			}
 		}
 		// default theme: secondary
-		&:not([class*="u__tm"]),
-		&.u__tm-secondary-light {
+		&:not([class*="--tm"]),
+		&.--tm-secondary-light {
 			--rw: #{color(secondary)};
-			&:hover:not(.is__active):not(.is__routeExact) {
+			&:hover:not(.is--active):not(.is--routeExact) {
 				--rw: #{color(dark, 0.5)};
 			}
-			&.is__active,
-			&.is__routeExact {
+			&.is--active,
+			&.is--routeExact {
 				--rw: #{color(dark, 0.7)};
 			}
 		}
-		i.x-icon,
-		.x-svg {
+		i.icon,
+		.svg {
 			&:last-child {
 				display: none;
 			}

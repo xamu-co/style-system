@@ -6,18 +6,18 @@ a,
 label,
 button {
 	&:hover,
-	&.is__active,
-	&.is__routeExact {
-		.x-svg {
+	&.is--active,
+	&.is--routeExact {
+		.svg {
 			--cl: var(--cl-a, #{color(dark, 0.7)});
-			&.is__logo {
+			&.is--logo {
 				--cl: var(--cl-l, #{color(primary)});
 			}
 		}
 	}
 }
 
-.x-svg {
+.svg {
 	&,
 	svg {
 		@include flexbox(row, nowrap, center, center, inline-flex);
@@ -26,10 +26,10 @@ button {
 		fill: var(--cl, #{color(secondary)});
 	}
 	&:hover,
-	&.is__active,
-	&.is__routeExact {
+	&.is--active,
+	&.is--routeExact {
 		--cl: var(--cl-a, #{color(dark, 0.7)});
-		&.is__logo {
+		&.is--logo {
 			--cl: var(--cl-l, #{color(primary)});
 		}
 	}
@@ -37,7 +37,7 @@ button {
 	// logo theme
 	//
 	// @group Modifiers
-	&.m__tm {
+	&.--tm {
 		&-light {
 			--cl: #{color(light)};
 			--cl-a: #{color(primary)};

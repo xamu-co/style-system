@@ -2,7 +2,7 @@
 //
 // @group Components
 hr {
-	&.m__hrX {
+	&.--hrX {
 		@include extend-viewports-classes(true, $viewports) {
 			// max-height: 2px;
 			width: calc(100% + 1rem);
@@ -12,29 +12,29 @@ hr {
 			// Tema del delimitador
 			//
 			// @group Modifiers
-			&.m__tm-dark7 {
+			&.--tm-dark7 {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-primary {
+			&.--tm-primary {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-primaryAlt {
+			&.--tm-primaryAlt {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-danger {
+			&.--tm-danger {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-success {
+			&.--tm-success {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
 			}
 			// default theme
-			&:not([class*="_tm"]),
-			&.m__tm-secondary {
+			&:not([class*="-tm"]),
+			&.--tm-secondary {
 				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
 			}
 		}
 	}
-	&.m__hrY {
+	&.--hrY {
 		@include extend-viewports-classes(true, $viewports) {
 			// max-width: 2px;
 			width: 2px;
@@ -44,30 +44,30 @@ hr {
 			// Tema del delimitador
 			//
 			// @group Modifiers
-			&.m__tm-dark7 {
+			&.--tm-dark7 {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-primary {
+			&.--tm-primary {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-primaryAlt {
+			&.--tm-primaryAlt {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-danger {
+			&.--tm-danger {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
 			}
-			&.m__tm-success {
+			&.--tm-success {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
 			}
 			// default theme
-			&:not([class*="_tm"]),
-			&.m__tm-secondary {
+			&:not([class*="-tm"]),
+			&.--tm-secondary {
 				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
 			}
 		}
 	}
-	&.m__hrX,
-	&.m__hrY {
+	&.--hrX,
+	&.--hrY {
 		@include extend-viewports-classes(true, $viewports) {
 			opacity: 0.2;
 			background-repeat: round;
