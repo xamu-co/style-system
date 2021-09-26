@@ -1,7 +1,7 @@
 // Scroll area component
 //
 // @group Components
-.x-scroll {
+.scroll {
 	// TODO: rethink component, is doing more than it should or at least in a weird way
 
 	&::-webkit-scrollbar {
@@ -20,12 +20,12 @@
 	}
 
 	// table mode modifier
-	&.m__table {
+	&.--table {
 		width: 100%;
 		overflow-x: auto;
 		overflow-y: hidden;
 
-		.x-table {
+		.table {
 			min-width: 100%;
 			box-sizing: border-box;
 			&:last-child {
@@ -42,7 +42,7 @@
 	}
 
 	@media (max-width: $viewportMd) and (hover: none) {
-		&:not(.m__table) {
+		&:not(.--table) {
 			width: auto;
 			max-width: 100vw;
 			height: auto;
@@ -62,7 +62,7 @@
 					flex-start !important,
 					inline-flex
 				);
-				&[class*="x-grd"]:after {
+				&[class*="grd"]:after {
 					width: 1px;
 				}
 				&:after {

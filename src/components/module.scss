@@ -3,7 +3,7 @@
 // avatar & avatarAureo shared styles
 //
 // @group SharedStyles
-[class*="x-avatar"] {
+[class*="avatar"] {
 	display: block;
 	overflow: hidden;
 	flex: 0 0 auto;
@@ -14,24 +14,24 @@
 	//
 	// @group Modifiers
 	&,
-	&.m__size {
+	&.--size {
 		border-radius: 1rem;
-		&.m__bdr,
-		&.m__border {
+		&.--bdr,
+		&.--border {
 			border-width: 2px;
 		}
 	}
-	&.m__size-lg {
+	&.--size-lg {
 		border-radius: 1.667rem;
-		&.m__bdr,
-		&.m__border {
+		&.--bdr,
+		&.--border {
 			border-width: 4px;
 		}
 	}
-	&.m__size-md {
+	&.--size-md {
 		border-radius: 1.333rem;
-		&.m__bdr,
-		&.m__border {
+		&.--bdr,
+		&.--border {
 			border-width: 3px;
 		}
 	}
@@ -39,11 +39,11 @@
 	// avatar border
 	//
 	// @group Modifiers
-	&.m__bdr,
-	&.m__border {
+	&.--bdr,
+	&.--border {
 		border-style: solid;
 		box-sizing: border-box;
-		&:not([class*="_bdrCo"]) {
+		&:not([class*="-bdrCo"]) {
 			// Color
 			border-color: color(light);
 		}
@@ -54,10 +54,10 @@
 		object-position: 50% 50%;
 	}
 }
-a[class*="x-avatar"] {
+a[class*="avatar"] {
 	&:hover,
-	&.is__active,
-	&.is__routeExact {
+	&.is--active,
+	&.is--routeExact {
 		// box-shadow: 1px 1px 3px color(dark, 0.2);
 		img {
 			opacity: 0.7;
@@ -66,11 +66,11 @@ a[class*="x-avatar"] {
 	// avatar border
 	//
 	// @group Modifiers
-	&.m__bdr,
-	&.m__border {
+	&.--bdr,
+	&.--border {
 		&:not(:hover),
-		&:not(.is__active),
-		&:not(.is__routeExact) {
+		&:not(.is--active),
+		&:not(.is--routeExact) {
 			border-color: transparent;
 		}
 	}
@@ -79,21 +79,21 @@ a[class*="x-avatar"] {
 // icon & svgIcon
 //
 // @group SharedStyles
-.x-svg,
-i.x-icon {
+.svg,
+i.icon {
 	// --sz could be inherited, we don't want that
 	width: auto;
 	height: 1em;
 	font-size: 1rem;
-	&:not(.is__logo):not(.m__width-auto) {
+	&:not(.is--logo):not(.--width-auto) {
 		width: 1em;
 	}
 
 	// icon margin
 	//
 	// @group Modifiers
-	&.m__m,
-	&.m__margin {
+	&.--m,
+	&.--margin {
 		&:not(:first-child) {
 			margin-left: 0.4em;
 		}
@@ -106,7 +106,7 @@ i.x-icon {
 	//
 	// @group Modifiers
 	@for $i from 2 through 10 {
-		&.m__size-#{$i*5} {
+		&.--size-#{$i*5} {
 			font-size: #{$i/3}rem;
 		}
 	}
@@ -115,24 +115,24 @@ i.x-icon {
 // button defaults & round modifier
 //
 // @group SharedStyles
-.x-btn,
-.x-btnToggle {
+.btn,
+.btnToggle {
 	// this is the default value
 	// Size
 	padding: 0 0.8rem;
 }
-:not([class*="toggle__"]) > :not([class*="toggle__"]) {
-	&.x-btn,
-	&.x-btnToggle {
+:not([class*="toggle--"]) > :not([class*="toggle--"]) {
+	&.btn,
+	&.btnToggle {
 		// round button
 		//
 		// @group Modifiers
-		&.m__round {
+		&.--round {
 			@include extend-viewports-classes(true, $viewports) {
 				padding: 0; // button padding
 				width: 2.4rem;
-				i.x-icon,
-				.x-svg {
+				i.icon,
+				.svg {
 					margin: 0 !important;
 					+ span {
 						display: none;
@@ -146,8 +146,8 @@ i.x-icon {
 // content alignment
 //
 // @group SharedStyles,
-.x-link,
-[class*="x-btn"] {
+.link,
+[class*="btn"] {
 	flex: 0 0 auto;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 }
@@ -155,9 +155,9 @@ i.x-icon {
 // icon behavior
 //
 // @group SharedStyles
-.x-btn,
-.x-btnToggle,
-.x-link {
+.btn,
+.btnToggle,
+.link {
 	> * + * {
 		margin-left: 0.4em;
 	}
@@ -166,9 +166,9 @@ i.x-icon {
 // is alert
 //
 // @group SharedStyles
-.x-link,
-.x-btnToggle {
-	&.is__alert:after {
+.link,
+.btnToggle {
+	&.is--alert:after {
 		content: "";
 		display: block;
 		width: 1rem;
@@ -188,17 +188,17 @@ i.x-icon {
 // Invalid state does not make sense on selects
 //
 // @group SharedStyles
-[class*="x-btn"]:not(.x-btnToggle),
-select.x-inSelect {
+[class*="btn"]:not(.btnToggle),
+select.iSelect {
 	// first value is the bgColor
 	// second value is the textColor
 	//
 	// @group Unions
-	&:not(.is__invalid) {
-		&.u__tm-light {
+	&:not(.is--invalid) {
+		&.--tm-light {
 			&-secondary {
 				--cl: #{color(secondary)};
-				&:not(.is__route):not(.is__active) {
+				&:not(.is--route):not(.is--active) {
 					&:hover,
 					&:focus {
 						--cl: #{color(secondary, 0.7)};
@@ -208,7 +208,7 @@ select.x-inSelect {
 			}
 			&-dark7 {
 				--cl: #{color(dark, 0.7)};
-				&:not(.is__route):not(.is__active) {
+				&:not(.is--route):not(.is--active) {
 					&:hover,
 					&:focus {
 						--cl: #{color(dark, 0.3)};
@@ -218,7 +218,7 @@ select.x-inSelect {
 			}
 			&-primaryAlt {
 				--cl: #{color(primaryAlt)};
-				&:not(.is__route):not(.is__active) {
+				&:not(.is--route):not(.is--active) {
 					&:hover,
 					&:focus {
 						--cl: #{color(primaryAlt, 0.7)};
@@ -228,7 +228,7 @@ select.x-inSelect {
 			}
 			&-danger {
 				--cl: #{color(danger)};
-				&:not(.is__route):not(.is__active) {
+				&:not(.is--route):not(.is--active) {
 					&:hover,
 					&:focus {
 						--cl: #{color(danger, 0.7)};
@@ -238,7 +238,7 @@ select.x-inSelect {
 			}
 			&-success {
 				--cl: #{color(success)};
-				&:not(.is__route):not(.is__active) {
+				&:not(.is--route):not(.is--active) {
 					&:hover,
 					&:focus {
 						--cl: #{color(success, 0.7)};
@@ -249,14 +249,14 @@ select.x-inSelect {
 			&-primary {
 				--cl: #{color(primary)};
 				--bg: #{color(light)};
-				&:not(.is__route):not(.is__active) {
+				&:not(.is--route):not(.is--active) {
 					&:hover,
 					&:focus {
 						--cl: #{color(primary, 0.7)};
 						--bc: #{color(primary, 0.3)};
 					}
 				}
-				&:not(.is__active):not(.is__route) {
+				&:not(.is--active):not(.is--route) {
 					text-shadow: 0 0 1px color(dark, 0.2);
 				}
 			}
@@ -266,8 +266,8 @@ select.x-inSelect {
 			&-danger,
 			&-success {
 				--bg: #{color(light)};
-				&.is__active,
-				&.is__route:not(.is__routeExact) {
+				&.is--active,
+				&.is--route:not(.is--routeExact) {
 					&:hover,
 					&:focus {
 						--cl: #{color(light, 0.7)};
@@ -279,18 +279,18 @@ select.x-inSelect {
 				}
 			}
 		}
-		&.u__tm-primary-light {
+		&.--tm-primary-light {
 			--cl: #{color(light)};
 			--bg: #{color(primary)};
-			&:not(.is__route):not(.is__active) {
+			&:not(.is--route):not(.is--active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
 					--bc: #{color(light, 0.3)};
 				}
 			}
-			&.is__active,
-			&.is__route:not(.is__routeExact) {
+			&.is--active,
+			&.is--route:not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
@@ -301,18 +301,18 @@ select.x-inSelect {
 				--cl: #{color(primary, 0.3)};
 			}
 		}
-		&.u__tm-primaryAlt-primary {
+		&.--tm-primaryAlt-primary {
 			--cl: #{color(primary)};
 			--bg: #{color(primaryAlt)};
-			&:not(.is__route):not(.is__active) {
+			&:not(.is--route):not(.is--active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
 					--bc: #{color(primary, 0.3)};
 				}
 			}
-			&.is__active,
-			&.is__route:not(.is__routeExact) {
+			&.is--active,
+			&.is--route:not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primaryAlt, 0.7)};
@@ -323,18 +323,18 @@ select.x-inSelect {
 				--cl: #{color(primaryAlt, 0.3)};
 			}
 		}
-		&.u__tm-success-light {
+		&.--tm-success-light {
 			--cl: #{color(light)};
 			--bg: #{color(success)};
-			&:not(.is__route):not(.is__active) {
+			&:not(.is--route):not(.is--active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
 					--bc: #{color(light, 0.3)};
 				}
 			}
-			&.is__active,
-			&.is__route:not(.is__routeExact) {
+			&.is--active,
+			&.is--route:not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(success, 0.7)};
@@ -346,28 +346,28 @@ select.x-inSelect {
 			}
 		}
 		// default theme
-		&:not([class*="_tm"]),
-		&.u__tm-secondary-light {
+		&:not([class*="-tm"]),
+		&.--tm-secondary-light {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
-			&:not(.is__route):not(.is__active) {
+			&:not(.is--route):not(.is--active) {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
 					--bc: #{color(light, 0.3)};
 				}
 			}
-			&.is__active,
-			&.is__route:not(.is__routeExact) {
+			&.is--active,
+			&.is--route:not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(secondary, 0.7)};
 				}
 			}
-			&.is__route {
+			&.is--route {
 				--cl: #{color(secondary)};
 			}
-			&.is__routeExact {
+			&.is--routeExact {
 				--cl: #{color(dark, 0.7)};
 			}
 			&:disabled,
@@ -376,19 +376,19 @@ select.x-inSelect {
 			}
 		}
 	}
-	&.is__invalid,
-	&.u__tm-danger-light {
+	&.is--invalid,
+	&.--tm-danger-light {
 		--cl: #{color(light)};
 		--bg: #{color(danger)};
-		&:not(.is__route):not(.is__active) {
+		&:not(.is--route):not(.is--active) {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
 				--bc: #{color(light, 0.3)};
 			}
 		}
-		&.is__active,
-		&.is__route:not(.is__routeExact) {
+		&.is--active,
+		&.is--route:not(.is--routeExact) {
 			&:hover,
 			&:focus {
 				--cl: #{color(danger, 0.7)};
@@ -401,14 +401,14 @@ select.x-inSelect {
 	}
 
 	// OVERRIDE: dejar en el final
-	&.is__active,
-	&.is__route,
-	&.is__routeExact {
+	&.is--active,
+	&.is--route,
+	&.is--routeExact {
 		--cl: var(--bg);
 		--bc: var(--cl);
 	}
-	&.is__active,
-	&.is__route:not(.is__routeExact) {
+	&.is--active,
+	&.is--route:not(.is--routeExact) {
 		&:hover,
 		&:focus {
 			--bc: var(--cl);
@@ -418,9 +418,9 @@ select.x-inSelect {
 	&[disabled] {
 		--bc: var(--cl);
 	}
-	&.is__routeExact,
-	&.is__route,
-	&.is__active,
+	&.is--routeExact,
+	&.is--route,
+	&.is--active,
 	&:disabled,
 	&[disabled] {
 		background-color: var(--bg-a, transparent);
@@ -430,10 +430,10 @@ select.x-inSelect {
 // default size
 //
 // @group SharedStyles
-.x-btn,
-.x-btnToggle,
-.x-inTxt,
-select.x-inSelect {
+.btn,
+.btnToggle,
+.iTxt,
+select.iSelect {
 	// Size
 	// this is the default value
 	height: 2.4rem;
@@ -444,12 +444,12 @@ select.x-inSelect {
 // capitalize
 //
 // @group SharedStyles
-[class*="x-btn"]:not(.x-btnY),
-.x-link,
-select.x-inSelect {
-	&:not([class*="_txtTransform"]) {
+[class*="btn"]:not(.btnY),
+.link,
+select.iSelect {
+	&:not([class*="-txtTransform"]) {
 		&,
-		> :not(.x-icon) {
+		> :not(.icon) {
 			::first-letter {
 				text-transform: capitalize;
 			}
@@ -460,10 +460,10 @@ select.x-inSelect {
 // disabled behavior
 //
 // @group SharedStyles
-[class*="x-btn"]:not(.x-btnY),
-.x-inTxt,
-.x-link,
-select.x-inSelect {
+[class*="btn"]:not(.btnY),
+.iTxt,
+.link,
+select.iSelect {
 	&:disabled,
 	&[disabled] {
 		opacity: 0.3;
@@ -474,10 +474,10 @@ select.x-inSelect {
 // basic styling
 //
 // @group SharedStyles
-[class*="x-btn"],
-.x-inTxt,
-.x-link,
-select.x-inSelect {
+[class*="btn"],
+.iTxt,
+.link,
+select.iSelect {
 	// should inherit?
 	color: var(--cl, transparent);
 	background-color: var(--bg, transparent);
@@ -493,9 +493,9 @@ select.x-inSelect {
 	// button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	.x-btn,
-	.x-btnToggle {
-		&.m__size-#{$name} {
+	.btn,
+	.btnToggle {
+		&.--size-#{$name} {
 			// --p could be inherited, we don't want that
 			padding: 0 #{$size * 0.8}; // button padding
 		}
@@ -504,15 +504,15 @@ select.x-inSelect {
 	// text, select, button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	.x-btn,
-	.x-btnToggle,
-	.x-inTxt,
-	select.x-inSelect {
-		&.m__size-#{$name} {
+	.btn,
+	.btnToggle,
+	.iTxt,
+	select.iSelect {
+		&.--size-#{$name} {
 			height: #{$size * 2.6}; // button size: height/width
 			border-radius: #{$size}; // button border radius
 			border-width: calc(2px + #{$size/18}); // button border width
-			&.m__round {
+			&.--round {
 				width: #{$size * 2.6};
 			}
 		}

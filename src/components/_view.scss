@@ -5,7 +5,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 // @name Columns
 // @group Layouts
 
-.x-view {
+.view {
 	@include flexbox(column, nowrap, center, stretch);
 }
 
@@ -14,7 +14,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 // @name Columns
 // @group Layouts
 
-.x-view-item {
+.view-item {
 	overflow: visible;
 	height: auto;
 	box-sizing: border-box;
@@ -35,8 +35,8 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			height: 12vh; // triangle size
 		}
 	}
-	&:not([class*="_bgCo"]):first-child
-		+ .x-view-item[class*="_bgCo"]:not(.m__noShapes) {
+	&:not([class*="-bgCo"]):first-child
+		+ .view-item[class*="-bgCo"]:not(.--noShapes) {
 		// Color
 		padding-top: 2.4rem;
 		&:before {
@@ -54,18 +54,18 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			border-bottom: 1px solid color(light);
 		}
 	}
-	&[class*="_bgCo"] {
+	&[class*="-bgCo"] {
 		// Color
 		padding-bottom: 4rem;
-		&:not(.m__p-normal):first-child {
+		&:not(.--p-normal):first-child {
 			padding-top: 4.8rem;
 		}
-		&.m__p-normal:first-child {
+		&.--p-normal:first-child {
 			padding-top: 2.4rem;
 		}
 		&:last-child {
 			padding-bottom: 2.4rem;
-			&:not(.m__noShapes) {
+			&:not(.--noShapes) {
 				margin-bottom: 6vh; // triangle size
 				&:after {
 					content: "";
@@ -91,11 +91,11 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 	// min height
 	//
 	// @group Modifiers
-	&:not([class*="_minH"]) {
+	&:not([class*="-minH"]) {
 		// Height
 		min-height: 60vh;
 	}
-	&.m__minHeight-100 {
+	&.--minHeight-100 {
 		min-height: calc(100vh - 5rem);
 
 		@media (max-device-width: $viewportMd) {
@@ -104,9 +104,9 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 		}
 	}
 
-	> .x-holder {
+	> .holder {
 		@include flexbox(column, nowrap, center, stretch);
-		> :not([class*="_mB"]):not(:last-child) {
+		> :not([class*="-mB"]):not(:last-child) {
 			// Bottom
 			margin-bottom: 2rem;
 		}

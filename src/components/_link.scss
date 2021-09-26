@@ -2,22 +2,22 @@
 // this element is expected to be an <a> tag
 //
 // @group Components
-.x-link {
+.link {
 	// display: inline-block;
 	--bg: transparent;
-	&.is__alert:after {
+	&.is--alert:after {
 		--bc: var(--cl-h, var(--cl-a));
 		background-color: var(--cl, var(--bg));
 	}
-	&.is__active,
-	&.is__routeExact {
+	&.is--active,
+	&.is--routeExact {
 		color: var(--cl-a);
 	}
 
 	// link theme
 	//
 	// @group Modifiers
-	&.m__tm {
+	&.--tm {
 		&-light {
 			--cl: #{color(light)};
 			--cl-a: #{color(primary)};
@@ -35,27 +35,27 @@
 			--cl: #{color(danger)};
 			--cl-a: #{color(danger, 0.7)};
 			--cl-h: #{color(dark, 0.5)};
-			&.is__alert:after {
+			&.is--alert:after {
 				--cl-h: #{color(light, 0.5)};
 			}
 		}
 	}
 	// default theme: secondary
-	&:not([class*="_tm"]),
-	&.m__tm-secondary {
+	&:not([class*="-tm"]),
+	&.--tm-secondary {
 		--cl: #{color(secondary)};
 		--cl-a: #{color(dark, 0.7)};
 		--cl-h: #{color(dark, 0.5)};
-		&.is__alert:after {
+		&.is--alert:after {
 			--cl-h: #{color(light, 0.5)};
 		}
 	}
 
 	// link round handling
-	&.m__round {
+	&.--round {
 		@include extend-viewports-classes(true, $viewports) {
-			i.x-icon,
-			.x-svg {
+			i.icon,
+			.svg {
 				&:last-child {
 					display: none;
 				}
@@ -65,30 +65,30 @@
 }
 
 // hover status
-.toggle__dropdown.is__active.x-link,
-.toggle__dropdown.is__active > .x-link,
-.x-link:hover:not(.is__active):not(.is__routeExact) {
+.toggle--dropdown.is--active.link,
+.toggle--dropdown.is--active > .link,
+.link:hover:not(.is--active):not(.is--routeExact) {
 	color: var(--cl-h, var(--cl-a));
 }
 
 // link shadow
-.toggle__dropdown.is__active.x-link.m__shadow,
-.toggle__dropdown.is__active > .x-link.m__shadow,
-.x-link.m__shadow:hover,
-.x-link.m__shadow.is__active,
-.x-link.m__shadow.is__routeExact {
+.toggle--dropdown.is--active.link.--shadow,
+.toggle--dropdown.is--active > .link.--shadow,
+.link.--shadow:hover,
+.link.--shadow.is--active,
+.link.--shadow.is--routeExact {
 	text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 }
 
 // desktop only, use hover
 @media (min-width: $viewportMd + 1) {
 	// hover status
-	*:hover > .toggle__dropdown:not(.only__active) {
-		&.x-link,
-		> .x-link {
+	*:hover > .toggle--dropdown:not(.only__active) {
+		&.link,
+		> .link {
 			color: var(--cl-h, var(--cl-a));
 			// link shadow
-			&.m__shadow {
+			&.--shadow {
 				text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 			}
 		}
@@ -98,12 +98,12 @@
 // mobile only, use focus
 @media (max-width: $viewportMd) {
 	// focus status
-	*:focus-within:not(.no__focus) > .toggle__dropdown:not(.only__active) {
-		&.x-link,
-		> .x-link {
+	*:focus-within:not(.no__focus) > .toggle--dropdown:not(.only__active) {
+		&.link,
+		> .link {
 			color: var(--cl-h, var(--cl-a));
 			// link shadow
-			&.m__shadow {
+			&.--shadow {
 				text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 			}
 		}

@@ -1,24 +1,24 @@
-table.x-table {
+table.table {
 	table-layout: fixed;
 	border-collapse: collapse;
 	box-sizing: border-box;
 	border-spacing: 0;
 
-	&:not([class*="_txtA"]) {
+	&:not([class*="-txtA"]) {
 		// Align
 		tr {
 			th,
 			td {
-				&:not([class*="_txtA"]) {
+				&:not([class*="-txtA"]) {
 					text-align: left;
 				}
 			}
 		}
 	}
-	&:not([class*="_txtCo"]) {
+	&:not([class*="-txtCo"]) {
 		// Color
 		tr {
-			td:not([class*="_txtCo"]) {
+			td:not([class*="-txtCo"]) {
 				color: color(dark, 0.7);
 			}
 		}
@@ -85,7 +85,7 @@ table.x-table {
 				min-height: calc(42px - 1.4rem);
 			}
 
-			&.m__sticky {
+			&.--sticky {
 				position: sticky;
 				z-index: 2;
 				background: color(light);
@@ -100,11 +100,11 @@ table.x-table {
 		}
 	}
 
-	&.m__tm-dark7 {
-		&:not([class*="_txtCo"]) {
+	&.--tm-dark7 {
+		&:not([class*="-txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="_txtCo"]) {
+				th:not([class*="-txtCo"]) {
 					color: color(dark, 0.7);
 				}
 			}
@@ -124,11 +124,11 @@ table.x-table {
 		}
 	}
 
-	&.m__tm-primaryAlt {
-		&:not([class*="_txtCo"]) {
+	&.--tm-primaryAlt {
+		&:not([class*="-txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="_txtCo"]) {
+				th:not([class*="-txtCo"]) {
 					color: color(primaryAlt);
 				}
 			}
@@ -148,11 +148,11 @@ table.x-table {
 		}
 	}
 
-	&.m__tm-primary {
-		&:not([class*="_txtCo"]) {
+	&.--tm-primary {
+		&:not([class*="-txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="_txtCo"]) {
+				th:not([class*="-txtCo"]) {
 					color: color(primary);
 				}
 			}
@@ -172,11 +172,11 @@ table.x-table {
 		}
 	}
 
-	&.m__tm-danger {
-		&:not([class*="_txtCo"]) {
+	&.--tm-danger {
+		&:not([class*="-txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="_txtCo"]) {
+				th:not([class*="-txtCo"]) {
 					color: color(danger);
 				}
 			}
@@ -196,11 +196,11 @@ table.x-table {
 		}
 	}
 
-	&.m__tm-success {
-		&:not([class*="_txtCo"]) {
+	&.--tm-success {
+		&:not([class*="-txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="_txtCo"]) {
+				th:not([class*="-txtCo"]) {
 					color: color(success);
 				}
 			}
@@ -220,12 +220,12 @@ table.x-table {
 		}
 	}
 
-	&:not([class*="_tm"]),
-	&.m__tm-secondary {
-		&:not([class*="_txtCo"]) {
+	&:not([class*="-tm"]),
+	&.--tm-secondary {
+		&:not([class*="-txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="_txtCo"]) {
+				th:not([class*="-txtCo"]) {
 					color: color(secondary);
 				}
 			}
@@ -246,7 +246,7 @@ table.x-table {
 	}
 
 	@media (max-width: $viewportMd) {
-		&.m__collapseOnMobile {
+		&.--collapseOnMobile {
 			&,
 			thead,
 			tbody,

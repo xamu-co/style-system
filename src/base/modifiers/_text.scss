@@ -1,7 +1,7 @@
 // text tranform
 //
 // @group GlobalModifiers
-.xm__txtTransform {
+.--txtTransform {
 	&-lower,
 	&-lowercase {
 		@include extend-viewports-classes {
@@ -31,7 +31,7 @@
 // text wrap
 //
 // @group GlobalModifiers
-.xm__txtWrap {
+.--txtWrap {
 	&-nowrap {
 		@include extend-viewports-classes {
 			white-space: nowrap;
@@ -49,7 +49,7 @@
 // text style
 //
 // @group GlobalModifiers
-.xm__txtStyle {
+.--txtStyle {
 	&-normal {
 		@include extend-viewports-classes {
 			font-style: normal;
@@ -72,7 +72,7 @@
 // font weight
 //
 // @group GlobalModifiers
-.xm__txtWeight {
+.--txtWeight {
 	&-bold {
 		@include extend-viewports-classes {
 			font-weight: weight(bold);
@@ -94,10 +94,44 @@
 	}
 }
 
-// text align
+// text align flex
 //
 // @group FamilyGlobalModifiers
-.xm__txtAlign {
+.--txtAlignFlx {
+	&-right {
+		@include extend-viewports-classes {
+			&,
+			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+				align-items: flex-end;
+			}
+		}
+	}
+	&-center {
+		@include extend-viewports-classes {
+			&,
+			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+				align-items: center;
+			}
+		}
+	}
+	&-justify {
+		@include extend-viewports-classes {
+			&,
+			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+				align-items: stretch;
+			}
+		}
+	}
+	// default
+	&,
+	&-left {
+		@include extend-viewports-classes {
+			&,
+			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+				align-items: flex-start;
+			}
+		}
+	}
 	&,
 	&-left,
 	&-justify,
@@ -109,7 +143,7 @@
 				display: inline-block;
 			}
 			&,
-			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
 				display: inline-flex;
 				flex-flow: column nowrap;
 				justify-content: flex-start;
@@ -118,51 +152,11 @@
 	}
 }
 
-// text align flex
-//
-// @group FamilyGlobalModifiers
-.xm__txtAlignFlx {
-	&-right {
-		@include extend-viewports-classes {
-			&,
-			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
-				align-items: flex-end;
-			}
-		}
-	}
-	&-center {
-		@include extend-viewports-classes {
-			&,
-			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
-				align-items: center;
-			}
-		}
-	}
-	&-justify {
-		@include extend-viewports-classes {
-			&,
-			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
-				align-items: stretch;
-			}
-		}
-	}
-	// default
-	&,
-	&-left {
-		@include extend-viewports-classes {
-			&,
-			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
-				align-items: flex-start;
-			}
-		}
-	}
-}
-
 // text align
 //
 // @group FamilyGlobalModifiers
-.xm__txtAlign,
-.xm__txtAlignFlx {
+.--txtAlign,
+.--txtAlignFlx {
 	&-right {
 		@include extend-viewports-classes {
 			text-align: right;
@@ -190,14 +184,14 @@
 // text size
 //
 // @group GlobalModifiers
-.xm__txtSize,
-.xm__txtSize-normal {
+.--txtSize,
+.--txtSize-normal {
 	@include extend-viewports-classes {
 		font-size: size();
 	}
 }
 @each $name, $size in $fontSizes {
-	.xm__txtSize-#{$name} {
+	.--txtSize-#{$name} {
 		@include extend-viewports-classes {
 			font-size: $size;
 		}
@@ -207,18 +201,18 @@
 // COLOR RELATED
 
 // Text color
-.xm__txtColor {
+.--txtColor {
 	&,
-	> :not([class*="_txtCo"]):not([class|="x"]) {
+	> :not([class*="-txtCo"]):not([class|="x"]) {
 		// Color
 		color: color(dark, 0.7);
 	}
 }
 
 // Shadow color
-.xm__txtShadow {
+.--txtShadow {
 	&,
-	> :not([class*="_txtSh"]):not([class|="x"]) {
+	> :not([class*="-txtSh"]):not([class|="x"]) {
 		// Shadow
 		text-shadow: 1px 1px 1px color(dark, 0.3);
 	}
@@ -230,10 +224,10 @@
 // @group ColorGlobalModifiers
 @each $name, $color in $colors {
 	// text color
-	.xm__txtColor-#{$name} {
+	.--txtColor-#{$name} {
 		@include extend-viewports-classes {
 			&,
-			> :not([class*="_txtCo"]):not([class|="x"]) {
+			> :not([class*="-txtCo"]):not([class|="x"]) {
 				// Color
 				color: color($name);
 			}
@@ -241,10 +235,10 @@
 	}
 
 	// text shadow
-	.xm__txtShadow-#{$name} {
+	.--txtShadow-#{$name} {
 		@include extend-viewports-classes {
 			&,
-			> :not([class*="_txtSh"]):not([class|="x"]) {
+			> :not([class*="-txtSh"]):not([class|="x"]) {
 				// Shadow
 				text-shadow: 1px 1px 1px color($name);
 			}
@@ -254,10 +248,10 @@
 	// shades of color
 	@for $i from 1 through 9 {
 		// text color
-		.xm__txtColor-#{$name}#{$i} {
+		.--txtColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				&,
-				> :not([class*="_txtCo"]):not([class|="x"]) {
+				> :not([class*="-txtCo"]):not([class|="x"]) {
 					// Shadow
 					color: color($name, $i/10);
 				}
@@ -265,10 +259,10 @@
 		}
 
 		// text shadow
-		.xm__txtShadow-#{$name}#{$i} {
+		.--txtShadow-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				&,
-				> :not([class*="_txtSh"]):not([class|="x"]) {
+				> :not([class*="-txtSh"]):not([class|="x"]) {
 					// Shadow
 					text-shadow: 1px 1px 1px color($name, $i/10);
 				}

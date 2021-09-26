@@ -4,7 +4,7 @@ $dimensions: width, height;
 	// width, height
 	//
 	// @group GlobalModifiers
-	.xm__#{$dimension} {
+	.--#{$dimension} {
 		&-quarter {
 			@include extend-viewports-classes {
 				#{$dimension}: 25%;
@@ -37,8 +37,8 @@ $dimensions: width, height;
 	$constrains: min, max;
 	@each $constrain in $constrains {
 		// default pixel based constrains
-		.xm__#{$constrain + capitalize($dimension)},
-		.xm__#{$constrain + capitalize($dimension)}-1200 {
+		.--#{$constrain + capitalize($dimension)},
+		.--#{$constrain + capitalize($dimension)}-1200 {
 			$mildos: 1200;
 			@include extend-viewports-classes {
 				#{$constrain}-#{$dimension}: #{round($mildos/16)}rem;
@@ -50,7 +50,7 @@ $dimensions: width, height;
 		// @group GlobalModifiers
 		$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
 		@each $size in $maxSizes {
-			.xm__#{$constrain + capitalize($dimension)}-#{$size} {
+			.--#{$constrain + capitalize($dimension)}-#{$size} {
 				@include extend-viewports-classes {
 					#{$constrain}-#{$dimension}: #{round($size/15)}rem;
 				}
@@ -59,12 +59,12 @@ $dimensions: width, height;
 
 		// default viewport based constrains
 		// __maxW, __maxH, __minW, __minH
-		.xm__#{$constrain + capitalize($dimension)}Vw {
+		.--#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
 				#{$constrain}-#{$dimension}: 25vw;
 			}
 		}
-		.xm__#{$constrain + capitalize($dimension)}Vh {
+		.--#{$constrain + capitalize($dimension)}Vh {
 			@include extend-viewports-classes {
 				#{$constrain}-#{$dimension}: 25vh;
 			}
@@ -75,12 +75,12 @@ $dimensions: width, height;
 		//
 		// @group GlobalModifiers
 		@for $i from 3 through 10 {
-			.xm__#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
+			.--#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
 				@include extend-viewports-classes {
 					#{$constrain}-#{$dimension}: #{$i * 10}vw;
 				}
 			}
-			.xm__#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
+			.--#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
 				@include extend-viewports-classes {
 					#{$constrain}-#{$dimension}: #{$i * 10}vh;
 				}

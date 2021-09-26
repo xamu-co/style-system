@@ -1,5 +1,5 @@
 // radio input
-input[type^="r"].x-inRadio {
+input[type^="r"].iRadio {
 	+ label:after {
 		border-radius: 50%;
 	}
@@ -10,7 +10,7 @@ input[type^="r"].x-inRadio {
 }
 
 // checkbox input
-input[type^="c"].x-inCheckbox {
+input[type^="c"].iCheckbox {
 	+ label:after {
 		border-radius: 0.7rem;
 	}
@@ -24,8 +24,8 @@ input[type^="c"].x-inCheckbox {
 // radio & checkbox
 //
 // @group Components
-input[type^="r"].x-inRadio,
-input[type^="c"].x-inCheckbox {
+input[type^="r"].iRadio,
+input[type^="c"].iCheckbox {
 	display: none;
 	+ label {
 		color: var(--cl, #{color(secondary)});
@@ -80,7 +80,7 @@ input[type^="c"].x-inCheckbox {
 	// Full width
 	//
 	// @group Modifiers
-	&.m__full + label {
+	&.--full + label {
 		width: 100%;
 		@include flexbox(row, nowrap, space-between, center);
 	}
@@ -88,7 +88,7 @@ input[type^="c"].x-inCheckbox {
 	// Radio theme
 	//
 	// @group Modifiers
-	&.m__tm-light {
+	&.--tm-light {
 		+ label {
 			--cl: #{color(light)};
 			&:after {

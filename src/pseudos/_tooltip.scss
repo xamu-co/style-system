@@ -24,7 +24,7 @@
 		border: 2px solid color(light, 0.1);
 		background: color(dark);
 	}
-	&:hover:not([disabled]):not(.is__routeExact):not(.is__open) {
+	&:hover:not([disabled]):not(.is--routeExact):not(.is--open) {
 		@media (hover: hover) {
 			// dektop only
 			cursor: pointer;

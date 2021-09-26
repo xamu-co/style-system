@@ -3,15 +3,15 @@
 // @name Columns
 // @group Layouts
 
-.x-holder {
+.holder {
 	margin: 0 auto;
 	width: 100%;
 	// display: block;
-	&:not(.m__p-none) {
+	&:not(.--p-none) {
 		box-sizing: border-box;
 		transition: padding 0.3s ease-out;
-		&.xm__maxWidth-1200,
-		&:not([class*="_maxWidth-"]) {
+		&.--maxWidth-1200,
+		&:not([class*="-maxWidth-"]) {
 			@media (min-width: $viewportMd + 1) {
 				padding: 0 2rem;
 			}
@@ -19,17 +19,17 @@
 				padding: 0;
 			}
 		}
-		.x-scroll {
+		.scroll {
 			@media (max-width: $viewportMd) and (hover: none) {
 				margin-left: -1rem;
 				margin-right: -1rem;
 			}
 		}
 	}
-	&:not([class*="_maxWidth-"]) {
+	&:not([class*="-maxWidth-"]) {
 		$mildos: 1200;
 		max-width: #{round($mildos/16)}rem;
-		&:not(.m__p-none) {
+		&:not(.--p-none) {
 			padding: 0 1rem;
 		}
 	}

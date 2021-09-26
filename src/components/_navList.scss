@@ -3,41 +3,41 @@
 // @name Columns
 // @group Layouts
 
-.toggle__list {
+.toggle--list {
 	display: block;
 	@include flexbox(row, nowrap, space-between, center);
-	i.x-icon,
-	.x-svg {
+	i.icon,
+	.svg {
 		width: 1.8rem;
 	}
 }
-nav.x-list {
+nav.list {
 	// width: 100%;
 	// width: 100%;
 	> input[type^="c"] {
 		display: none;
 	}
-	&.is__active,
+	&.is--active,
 	> input[type^="c"]:checked ~ {
-		.toggle__list {
+		.toggle--list {
 			font-weight: weight(bold);
 			margin-bottom: 1rem;
-			i.x-icon,
-			.x-svg {
+			i.icon,
+			.svg {
 				transform: rotate(180deg);
 			}
 		}
-		.toggle__list + {
-			ul.x-list-group,
-			ol.x-list-group {
+		.toggle--list + {
+			ul.list-group,
+			ol.list-group {
 				max-height: none;
 			}
 		}
 	}
 
-	.toggle__list + {
-		ul.x-list-group,
-		ol.x-list-group {
+	.toggle--list + {
+		ul.list-group,
+		ol.list-group {
 			max-height: 0;
 			> li {
 				width: 100%;
@@ -45,26 +45,26 @@ nav.x-list {
 		}
 	}
 }
-span.x-list-title {
+span.list-title {
 	display: block;
 	margin-bottom: 1rem;
 }
-ul.x-list-group,
-ol.x-list-group {
+ul.list-group,
+ol.list-group {
 	overflow: hidden;
 
 	// flow direction
 	//
 	// @group Modifiers
-	&.m__flow-row {
+	&.--flow-row {
 		@include flexbox(row, nowrap, flex-start, center);
 		> li:not(:last-child) {
 			margin-right: 1rem;
 		}
 	}
 	// default flow
-	&:not([class*="_flo"]),
-	&.m__flow-column {
+	&:not([class*="-flo"]),
+	&.--flow-column {
 		// Flow
 		@include flexbox(column, nowrap, flex-start, stretch);
 		> li:not(:last-child) {
@@ -74,11 +74,11 @@ ol.x-list-group {
 
 	> li {
 		&,
-		:not([class*="_txtA"]) {
+		:not([class*="-txtA"]) {
 			text-align: left;
 		}
 		&,
-		:not([class*="_txtWr"]) {
+		:not([class*="-txtWr"]) {
 			white-space: normal;
 		}
 		a,
