@@ -103,7 +103,6 @@ workflows:
                           only:
                               - next
             - get_release_version:
-                  type: approval
                   context: npm-deploy
                   requires:
                       - check_code
@@ -112,6 +111,7 @@ workflows:
                           only:
                               - master
             - release_to_npm:
+                  type: approval
                   context: npm-deploy
                   requires:
                       - get_release_version
