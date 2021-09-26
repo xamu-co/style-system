@@ -28,7 +28,6 @@ input[type^="r"].iRadio,
 input[type^="c"].iCheckbox {
 	display: none;
 	+ label {
-		color: var(--cl, #{color(secondary)});
 		&:after {
 			content: "";
 			vertical-align: middle;
@@ -42,14 +41,6 @@ input[type^="c"].iCheckbox {
 			text-align: center;
 			line-height: 1.7rem;
 			box-sizing: border-box;
-			background-color: var(--bg, #{color(secondary, 0.1)});
-			border-color: var(--bc, #{color(secondary, 0.1)});
-		}
-		&:hover {
-			--cl: #{color(secondary, 0.7)};
-			&:after {
-				--bc: #{color(secondary, 0.3)};
-			}
 		}
 
 		> * {
@@ -58,10 +49,6 @@ input[type^="c"].iCheckbox {
 	}
 	&:checked + label {
 		font-weight: weight(bold);
-		&:after {
-			// color: var(--cl, color(light));
-			--bg: #{color(secondary, 0.5)};
-		}
 	}
 	&:disabled,
 	&[disabled] {
@@ -90,21 +77,40 @@ input[type^="c"].iCheckbox {
 	// @group Modifiers
 	&.--tm-light {
 		+ label {
-			--cl: #{color(light)};
+			color: color(light);
 			&:after {
-				--bg: color(light, 0.1);
-				--bc: color(light, 0.1);
+				background-color: color(light, 0.1);
+				border-color: color(light, 0.1);
 			}
 			&:hover {
-				--cl: color(light, 0.7);
+				color: color(light, 0.7);
 				&:after {
-					--bc: color(light, 0.3);
+					border-color: color(light, 0.3);
 				}
 			}
 		}
 		&:checked + label:after {
-			// color: color(light);
-			--bg: color(light, 0.5);
+			background-color: color(light, 0.5);
+		}
+	}
+	// default
+	&:not([class*="-tm"]),
+	&.--tm-secondary {
+		+ label {
+			color: color(secondary);
+			&:after {
+				background-color: color(secondary, 0.1);
+				border-color: color(secondary, 0.1);
+			}
+			&:hover {
+				color: color(secondary, 0.7);
+				&:after {
+					border-color: color(secondary, 0.3);
+				}
+			}
+		}
+		&:checked + label:after {
+			background-color: color(secondary, 0.5);
 		}
 	}
 }
