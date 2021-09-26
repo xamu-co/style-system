@@ -3,7 +3,7 @@
 // aditionally you have to provide a fas(solid) far(regular) icons
 //
 // @group Components
-.btnToggle {
+.bttnToggle {
 	--cl-a: var(--cl);
 	&.is--alert:after {
 		background-color: var(--bg, transparent);
@@ -14,7 +14,7 @@
 	&.is--routeExact {
 		//hide regular
 		&,
-		.btnToggle-icon {
+		.bttnToggle-icon {
 			i.icon,
 			.svg {
 				&:first-of-type {
@@ -26,7 +26,7 @@
 	&:not(.is--alert):not(.is--active):not(.is--routeExact) {
 		//hide solid
 		&,
-		.btnToggle-icon {
+		.bttnToggle-icon {
 			i.icon,
 			.svg {
 				&:last-of-type {

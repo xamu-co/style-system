@@ -115,15 +115,15 @@ i.icon {
 // button defaults & round modifier
 //
 // @group SharedStyles
-.btn,
-.btnToggle {
+.bttn,
+.bttnToggle {
 	// this is the default value
 	// Size
 	padding: 0 0.8rem;
 }
 :not([class*="toggle--"]) > :not([class*="toggle--"]) {
-	&.btn,
-	&.btnToggle {
+	&.bttn,
+	&.bttnToggle {
 		// round button
 		//
 		// @group Modifiers
@@ -147,7 +147,7 @@ i.icon {
 //
 // @group SharedStyles,
 .link,
-[class*="btn"] {
+[class*="bttn"] {
 	flex: 0 0 auto;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 }
@@ -155,8 +155,8 @@ i.icon {
 // icon behavior
 //
 // @group SharedStyles
-.btn,
-.btnToggle,
+.bttn,
+.bttnToggle,
 .link {
 	> * + * {
 		margin-left: 0.4em;
@@ -167,7 +167,7 @@ i.icon {
 //
 // @group SharedStyles
 .link,
-.btnToggle {
+.bttnToggle {
 	&.is--alert:after {
 		content: "";
 		display: block;
@@ -188,7 +188,7 @@ i.icon {
 // Invalid state does not make sense on selects
 //
 // @group SharedStyles
-[class*="btn"]:not(.btnToggle),
+[class*="bttn"]:not(.bttnToggle),
 select.iSelect {
 	// first value is the bgColor
 	// second value is the textColor
@@ -430,8 +430,8 @@ select.iSelect {
 // default size
 //
 // @group SharedStyles
-.btn,
-.btnToggle,
+.bttn,
+.bttnToggle,
 .iTxt,
 select.iSelect {
 	// Size
@@ -444,7 +444,7 @@ select.iSelect {
 // capitalize
 //
 // @group SharedStyles
-[class*="btn"]:not(.btnY),
+[class*="bttn"]:not(.bttnY),
 .link,
 select.iSelect {
 	&:not([class*="-txtTransform"]) {
@@ -460,7 +460,7 @@ select.iSelect {
 // disabled behavior
 //
 // @group SharedStyles
-[class*="btn"]:not(.btnY),
+[class*="bttn"]:not(.bttnY),
 .iTxt,
 .link,
 select.iSelect {
@@ -474,7 +474,7 @@ select.iSelect {
 // basic styling
 //
 // @group SharedStyles
-[class*="btn"],
+[class*="bttn"],
 .iTxt,
 .link,
 select.iSelect {
@@ -493,8 +493,8 @@ select.iSelect {
 	// button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	.btn,
-	.btnToggle {
+	.bttn,
+	.bttnToggle {
 		&.--size-#{$name} {
 			// --p could be inherited, we don't want that
 			padding: 0 #{$size * 0.8}; // button padding
@@ -504,8 +504,8 @@ select.iSelect {
 	// text, select, button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	.btn,
-	.btnToggle,
+	.bttn,
+	.bttnToggle,
 	.iTxt,
 	select.iSelect {
 		&.--size-#{$name} {

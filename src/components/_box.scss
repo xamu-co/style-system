@@ -11,7 +11,7 @@
 		pointer-events: none;
 		opacity: 0.3;
 	}
-	&:not(.--btn):not(.--button) {
+	&:not(.--bttn):not(.--button) {
 		padding: 1rem;
 	}
 	&:not(.flx):not(.Inline) {
@@ -35,7 +35,7 @@
 		&:hover,
 		&.is--active,
 		&.is--routeExact {
-			&.--btn,
+			&.--bttn,
 			&.--button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -44,7 +44,7 @@
 				}
 			}
 		}
-		&.--btn,
+		&.--bttn,
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
@@ -62,7 +62,7 @@
 		&:hover,
 		&.is--active,
 		&.is--routeExact {
-			&.--btn,
+			&.--bttn,
 			&.--button {
 				background: color(light, 0.2);
 				// border-color: color(light, 0.3);
@@ -71,7 +71,7 @@
 				}
 			}
 		}
-		&.--btn,
+		&.--bttn,
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
@@ -90,7 +90,7 @@
 		&:hover,
 		&.is--active,
 		&.is--routeExact {
-			&.--btn,
+			&.--bttn,
 			&.--button {
 				background: color(primary, 0.2);
 				// border-color: color(primary, 0.3);
@@ -99,7 +99,7 @@
 				}
 			}
 		}
-		&.--btn,
+		&.--bttn,
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
@@ -118,7 +118,7 @@
 		&:hover,
 		&.is--active,
 		&.is--routeExact {
-			&.--btn,
+			&.--bttn,
 			&.--button {
 				background: color(primaryAlt, 0.2);
 				// border-color: color(primaryAlt, 0.3);
@@ -127,7 +127,7 @@
 				}
 			}
 		}
-		&.--btn,
+		&.--bttn,
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
@@ -146,7 +146,7 @@
 		&:hover,
 		&.is--active,
 		&.is--routeExact {
-			&.--btn,
+			&.--bttn,
 			&.--button {
 				background: color(danger, 0.2);
 				// border-color: color(danger, 0.3);
@@ -155,7 +155,7 @@
 				}
 			}
 		}
-		&.--btn,
+		&.--bttn,
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
@@ -174,7 +174,7 @@
 		&:hover,
 		&.is--active,
 		&.is--routeExact {
-			&.--btn,
+			&.--bttn,
 			&.--button {
 				background: color(success, 0.2);
 				// border-color: color(success, 0.3);
@@ -183,7 +183,7 @@
 				}
 			}
 		}
-		&.--btn,
+		&.--bttn,
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
@@ -204,7 +204,7 @@
 		&:hover,
 		&.is--active,
 		&.is--routeExact {
-			&.--btn,
+			&.--bttn,
 			&.--button {
 				background: color(secondary, 0.2);
 				// border-color: color(secondary, 0.3);
@@ -213,7 +213,7 @@
 				}
 			}
 		}
-		&.--btn,
+		&.--bttn,
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
@@ -225,7 +225,7 @@
 	// button behavior
 	//
 	// @group Modifiers
-	&.--btn,
+	&.--bttn,
 	&.--button {
 		padding: 0.8rem;
 		.box {
