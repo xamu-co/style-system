@@ -1,5 +1,31 @@
 Xamu style system
 
+# [2.0.0](https://github.com/xamu-co/style-system/compare/v1.0.2...v2.0.0) (2021-09-26)
+
+
+### Bug Fixes
+
+* cols gaping ([a3563ec](https://github.com/xamu-co/style-system/commit/a3563ecbe6c85bcfc6ce5069288c6592e472c074))
+* gap issues on flex and non flex elements ([4444ab2](https://github.com/xamu-co/style-system/commit/4444ab29bb6bdd4e8c8ad101b0fd29bcd218b3f8))
+* hr margin issue on gap containers ([fdac255](https://github.com/xamu-co/style-system/commit/fdac25526b6e3c63b2a5d8d9a3d0bc7cea735d79))
+* legacy grid, text & box-model fixes ([485b613](https://github.com/xamu-co/style-system/commit/485b613c70fb4510a4740c40b9ee7ea8b230d9cc))
+
+
+### Features
+
+* extend browser support ([8816b75](https://github.com/xamu-co/style-system/commit/8816b7502ca35d6e1f55333a9f4a4f70cb37bdc9))
+* extend gap global modifier & flex gap support ([69441b2](https://github.com/xamu-co/style-system/commit/69441b22ff7fdf925289c1a91006f973faa8bcac))
+* extend global flxSelf modifier ([f686198](https://github.com/xamu-co/style-system/commit/f686198a1540e087bdb2e24805f580434e2f3cd7))
+* gap using gap property without custom properties ([8dd70e3](https://github.com/xamu-co/style-system/commit/8dd70e31a0e932ce5e15114da7cc11266eddd7e2))
+* legacy box-model ([e0d1a7c](https://github.com/xamu-co/style-system/commit/e0d1a7c1ccbd46907078e4895b4d75b09bdb2204))
+* legacy modifiers ([a2c7e47](https://github.com/xamu-co/style-system/commit/a2c7e47028f26a078b7ab90ec71c53721a3827ae))
+* remove colors as vars ([6f166bb](https://github.com/xamu-co/style-system/commit/6f166bb779e1987bf36cf7de6e5201669ed4de27))
+
+
+### BREAKING CHANGES
+
+* gaping should be explicit on flx elements, gap is used by default
+
 ## [1.0.2](https://github.com/xamu-co/style-system/compare/v1.0.1...v1.0.2) (2021-07-26)
 
 
