@@ -33,7 +33,7 @@ textarea.x-inTxt {
 	padding: 0 0.8rem;
 	@include flexbox(column, nowrap, center, center);
 
-	&:not([class*="__txtA"]) {
+	&:not([class*="_txtA"]) {
 		text-align: left;
 	}
 
@@ -90,7 +90,7 @@ textarea.x-inTxt {
 		}
 
 		// default theme
-		&:not([class*="__tm"]),
+		&:not([class*="_tm"]),
 		&.m__tm-secondary {
 			--bg: #{color(secondary, 0.1)};
 			--bc: #{color(secondary, 0.05)};

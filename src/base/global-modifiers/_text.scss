@@ -109,7 +109,7 @@
 				display: inline-block;
 			}
 			&,
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
 				display: inline-flex;
 				flex-flow: column nowrap;
 				justify-content: flex-start;
@@ -125,7 +125,7 @@
 	&-right {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
 				align-items: flex-end;
 			}
 		}
@@ -133,7 +133,7 @@
 	&-center {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
 				align-items: center;
 			}
 		}
@@ -141,7 +141,7 @@
 	&-justify {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
 				align-items: stretch;
 			}
 		}
@@ -151,7 +151,7 @@
 	&-left {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="__txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
 				align-items: flex-start;
 			}
 		}
@@ -209,7 +209,7 @@
 // Text color
 .xm__txtColor {
 	&,
-	> :not([class*="__txtCo"]):not([class|="x"]) {
+	> :not([class*="_txtCo"]):not([class|="x"]) {
 		// Color
 		color: color(dark, 0.7);
 	}
@@ -218,7 +218,7 @@
 // Shadow color
 .xm__txtShadow {
 	&,
-	> :not([class*="__txtSh"]):not([class|="x"]) {
+	> :not([class*="_txtSh"]):not([class|="x"]) {
 		// Shadow
 		text-shadow: 1px 1px 1px color(dark, 0.3);
 	}
@@ -233,7 +233,7 @@
 	.xm__txtColor-#{$name} {
 		@include extend-viewports-classes {
 			&,
-			> :not([class*="__txtCo"]):not([class|="x"]) {
+			> :not([class*="_txtCo"]):not([class|="x"]) {
 				// Color
 				color: color($name);
 			}
@@ -244,7 +244,7 @@
 	.xm__txtShadow-#{$name} {
 		@include extend-viewports-classes {
 			&,
-			> :not([class*="__txtSh"]):not([class|="x"]) {
+			> :not([class*="_txtSh"]):not([class|="x"]) {
 				// Shadow
 				text-shadow: 1px 1px 1px color($name);
 			}
@@ -257,7 +257,7 @@
 		.xm__txtColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				&,
-				> :not([class*="__txtCo"]):not([class|="x"]) {
+				> :not([class*="_txtCo"]):not([class|="x"]) {
 					// Shadow
 					color: color($name, $i/10);
 				}
@@ -268,7 +268,7 @@
 		.xm__txtShadow-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				&,
-				> :not([class*="__txtSh"]):not([class|="x"]) {
+				> :not([class*="_txtSh"]):not([class|="x"]) {
 					// Shadow
 					text-shadow: 1px 1px 1px color($name, $i/10);
 				}

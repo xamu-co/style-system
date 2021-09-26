@@ -41,7 +41,7 @@
 		}
 	}
 	// default theme: secondary
-	&:not([class*="__tm"]),
+	&:not([class*="_tm"]),
 	&.m__tm-secondary {
 		--cl: #{color(secondary)};
 		--cl-a: #{color(dark, 0.7)};

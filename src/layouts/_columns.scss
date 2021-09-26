@@ -31,7 +31,7 @@
 			// display: inline-block;
 			break-inside: avoid;
 		}
-		&:not([class*="__gapi"]) {
+		&:not([class*="_gapi"]) {
 			> *:not(:last-child) {
 				margin-bottom: var(--gx, var(--g, 2rem));
 			}
@@ -47,7 +47,7 @@
 	}
 	// default
 	&.m__count,
-	&:not([class*="__co"]) {
+	&:not([class*="_co"]) {
 		// Count
 		columns: #{$minColumnSize/2 * 3} 2;
 	}

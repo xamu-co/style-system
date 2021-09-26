@@ -86,7 +86,7 @@
 		grid-auto-rows: minmax(min-content, 100%);
 		overflow: visible;
 
-		&:not([class*="__gap"]) {
+		&:not([class*="_gap"]) {
 			gap: 2rem;
 		}
 

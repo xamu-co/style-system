@@ -11,7 +11,7 @@
 		box-sizing: border-box;
 		transition: padding 0.3s ease-out;
 		&.xm__maxWidth-1200,
-		&:not([class*="__maxWidth-"]) {
+		&:not([class*="_maxWidth-"]) {
 			@media (min-width: $viewportMd + 1) {
 				padding: 0 2rem;
 			}
@@ -26,7 +26,7 @@
 			}
 		}
 	}
-	&:not([class*="__maxWidth-"]) {
+	&:not([class*="_maxWidth-"]) {
 		$mildos: 1200;
 		max-width: #{round($mildos/16)}rem;
 		&:not(.m__p-none) {
