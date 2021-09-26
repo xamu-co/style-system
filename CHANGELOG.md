@@ -1,5 +1,12 @@
 Xamu style system
 
+## [2.0.2](https://github.com/xamu-co/style-system/compare/v2.0.1...v2.0.2) (2021-09-26)
+
+
+### Bug Fixes
+
+* default index issue on back component ([d624ef8](https://github.com/xamu-co/style-system/commit/d624ef8556cbe3134b9d3cfc5e81fbd094472a93))
+
 ## [2.0.1](https://github.com/xamu-co/style-system/compare/v2.0.0...v2.0.1) (2021-09-26)
 
 

@@ -1,6 +1,6 @@
 {
 	"name": "@xamu-co/style-system",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "Style system for the xamu project",
 	"main": "dist/index.css",
 	"browser": "dist/index.min.css",
