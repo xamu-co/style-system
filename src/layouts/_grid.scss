@@ -83,10 +83,15 @@
 		display: grid;
 		// height: auto;
 		width: 100%;
-		grid-template-columns: var(--gdc, unset);
-		grid-template-areas: var(--gda, unset);
-		grid-auto-rows: var(--gdr, minmax(min-content, 100%));
+		grid-auto-rows: minmax(min-content, 100%);
+		overflow: visible;
+
+		&:not([class*="_gap"]) {
+			gap: 2rem;
+		}
+
 		> * {
+			width: 100%;
 			box-sizing: border-box;
 		}
 	}
@@ -97,17 +102,17 @@
 	&.m__grdColumns {
 		&-single {
 			@include extend-viewports-classes {
-				--gdc: 1fr;
+				grid-template-columns: 1fr;
 			}
 		}
 		&-autoFit {
 			@include extend-viewports-classes {
-				--gdc: repeat(auto-fit, minmax(0, 1fr));
+				grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
 			}
 		}
 		&-autoFitMin {
 			@include extend-viewports-classes {
-				--gdc: repeat(
+				grid-template-columns: repeat(
 					auto-fit,
 					minmax(#{$minColumnSize/3}, max-content)
 				);
@@ -115,7 +120,7 @@
 		}
 		&-autoFillMin {
 			@include extend-viewports-classes {
-				--gdc: repeat(
+				grid-template-columns: repeat(
 					auto-fill,
 					minmax(#{$minColumnSize/3}, max-content)
 				);
@@ -123,30 +128,45 @@
 		}
 		&-autoFitColumn {
 			@include extend-viewports-classes {
-				--gdc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(#{$minColumnSize}, 1fr)
+				);
 			}
 		}
 		&-autoFillColumn {
 			@include extend-viewports-classes {
-				--gdc: repeat(auto-fill, minmax(#{$minColumnSize}, 1fr));
+				grid-template-columns: repeat(
+					auto-fill,
+					minmax(#{$minColumnSize}, 1fr)
+				);
 			}
 		}
 		& {
 			// default, the same as .m__grdColumns-auto3
 			@include extend-viewports-classes(false, $viewports) {
-				--gdc: repeat(auto-fit, minmax(#{$minColumnSize}, 1fr));
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(#{$minColumnSize}, 1fr)
+				);
 			}
 		}
 	}
 	@for $i from 2 through 12 {
 		&.m__grdColumns-auto#{$i} {
 			@include extend-viewports-classes {
-				--gdc: repeat(auto-fit, minmax(#{$minColumnSize/$i * 3}, 1fr));
+				grid-template-columns: repeat(
+					auto-fit,
+					minmax(#{$minColumnSize/$i * 3}, 1fr)
+				);
 			}
 		}
 		&.m__grdColumns-#{$i} {
 			@include extend-viewports-classes {
-				--gdc: repeat(#{$i}, minmax(#{$minColumnSize/$i * 3}, 1fr));
+				grid-template-columns: repeat(
+					#{$i},
+					minmax(#{$minColumnSize/$i * 3}, 1fr)
+				);
 			}
 		}
 	}
@@ -160,26 +180,26 @@
 		&-1,
 		&-1-1 {
 			@include extend-viewports-classes {
-				--gdc: repeat(2, 1fr);
-				--gda: ". a";
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-areas: ". a";
 			}
 		}
 		&-1-4 {
 			@include extend-viewports-classes {
-				--gdc: repeat(5, 1fr);
-				--gda: ". a a a a";
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: ". a a a a";
 			}
 		}
 		&-2-3 {
 			@include extend-viewports-classes {
-				--gdc: repeat(5, 1fr);
-				--gda: ". . a a a";
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: ". . a a a";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
-				--gdc: repeat(5, 1fr);
-				--gda: ". . . a a";
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: ". . . a a";
 			}
 		}
 		&,
@@ -202,20 +222,20 @@
 		&-1,
 		&-1-1 {
 			@include extend-viewports-classes {
-				--gdc: repeat(2, 1fr);
-				--gda: "a .";
+				grid-template-columns: repeat(2, 1fr);
+				grid-template-areas: "a .";
 			}
 		}
 		&-4-1 {
 			@include extend-viewports-classes {
-				--gdc: repeat(5, 1fr);
-				--gda: "a a a a .";
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: "a a a a .";
 			}
 		}
 		&-3-2 {
 			@include extend-viewports-classes {
-				--gdc: repeat(5, 1fr);
-				--gda: "a a a . .";
+				grid-template-columns: repeat(5, 1fr);
+				grid-template-areas: "a a a . .";
 			}
 		}
 		&,
@@ -264,7 +284,6 @@
 
 .x-grd-item {
 	@include extend-device-interactions {
-		width: 100%;
 		height: 100%;
 	}
 

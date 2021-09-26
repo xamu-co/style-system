@@ -6,6 +6,7 @@
 	"browser": "dist/index.min.css",
 	"source": "src/index.scss",
 	"scripts": {
+		"i": "yarn --frozen-lockfile",
 		"format": "copy-files-from-to && prettier dist/*.formatted.css --no-config --write",
 		"sass": "sass src/index.scss dist/index.css",
 		"postcss": "postcss dist/index.css -o dist/index.min.css --no-map",
@@ -110,7 +111,7 @@
 		}
 	},
 	"browserslist": [
-		"defaults"
+		"last 2 versions, > 0.5%, ie >= 11"
 	],
 	"copyFiles": [
 		{

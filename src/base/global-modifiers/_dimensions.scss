@@ -7,38 +7,44 @@ $dimensions: width, height;
 	.xm__#{$dimension} {
 		&-quarter {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,1)}: 25%;
+				#{$dimension}: 25%;
 			}
 		}
 		&-third {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,1)}: 33%;
+				#{$dimension}: 33%;
 			}
 		}
 		&-half {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,1)}: 50%;
+				#{$dimension}: 50%;
 			}
 		}
 		&-auto {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,1)}: auto;
+				#{$dimension}: auto;
 			}
 		}
 		&,
 		&-full {
 			@include extend-viewports-classes {
-				--#{str-slice($dimension,1,1)}: 100%;
+				#{$dimension}: 100%;
 			}
 		}
-	}
-	[class*="__#{str-slice($dimension,1,2)}"] {
-		#{$dimension}: var(--#{str-slice($dimension, 1, 1)}, initial);
 	}
 
 	// max width, max height
 	$constrains: min, max;
 	@each $constrain in $constrains {
+		// default pixel based constrains
+		.xm__#{$constrain + capitalize($dimension)},
+		.xm__#{$constrain + capitalize($dimension)}-1200 {
+			$mildos: 1200;
+			@include extend-viewports-classes {
+				#{$constrain}-#{$dimension}: #{round($mildos/16)}rem;
+			}
+		}
+
 		// pixel based
 		//
 		// @group GlobalModifiers
@@ -46,20 +52,21 @@ $dimensions: width, height;
 		@each $size in $maxSizes {
 			.xm__#{$constrain + capitalize($dimension)}-#{$size} {
 				@include extend-viewports-classes {
-					--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{round(
-							$size/15
-						)}rem;
+					#{$constrain}-#{$dimension}: #{round($size/15)}rem;
 				}
 			}
 		}
-		// default pixel based constrains
-		.xm__#{$constrain + capitalize($dimension)},
-		.xm__#{$constrain + capitalize($dimension)}-1200 {
-			$mildos: 1200;
+
+		// default viewport based constrains
+		// __maxW, __maxH, __minW, __minH
+		.xm__#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{round(
-						$mildos/16
-					)}rem;
+				#{$constrain}-#{$dimension}: 25vw;
+			}
+		}
+		.xm__#{$constrain + capitalize($dimension)}Vh {
+			@include extend-viewports-classes {
+				#{$constrain}-#{$dimension}: 25vh;
 			}
 		}
 
@@ -70,33 +77,13 @@ $dimensions: width, height;
 		@for $i from 3 through 10 {
 			.xm__#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
 				@include extend-viewports-classes {
-					--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{$i *
-						10}vw;
+					#{$constrain}-#{$dimension}: #{$i * 10}vw;
 				}
 			}
 			.xm__#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
 				@include extend-viewports-classes {
-					--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: #{$i *
-						10}vh;
+					#{$constrain}-#{$dimension}: #{$i * 10}vh;
 				}
-			}
-		}
-		// default viewport based constrains
-		// __maxW, __maxH, __minW, __minH
-		[class*="__#{$constrain + capitalize(str-slice($dimension,1,1))}"] {
-			#{$constrain}-#{$dimension}: var(
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)},
-				initial
-			);
-		}
-		.xm__#{$constrain + capitalize($dimension)}Vw {
-			@include extend-viewports-classes {
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 25vw;
-			}
-		}
-		.xm__#{$constrain + capitalize($dimension)}Vh {
-			@include extend-viewports-classes {
-				--m#{str-slice($constrain, 3)}#{str-slice($dimension, 1, 1)}: 25vh;
 			}
 		}
 	}

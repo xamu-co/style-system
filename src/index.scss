@@ -12,18 +12,7 @@
 	// @import "vendor/module"; // the vendors are independent in this built
 
 	:root {
-		@each $name, $font in $fonts {
-			$font-index: index(($fonts), ($name $font));
-			// font
-			--f-#{$font-index}: #{$font};
-		}
-		@each $name, $color in $colors {
-			$color-index: index(($colors), ($name $color));
-			// hex
-			--h-c#{$color-index}: #{$color};
-			// rgb
-			--r-c#{$color-index}: #{to-rgb($color)};
-		}
+		// global custom properties
 	}
 
 	// @import "fonts/module"; // this project uses google fonts

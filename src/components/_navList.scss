@@ -63,7 +63,7 @@ ol.x-list-group {
 		}
 	}
 	// default flow
-	&:not([class*="__flo"]),
+	&:not([class*="_flo"]),
 	&.m__flow-column {
 		// Flow
 		@include flexbox(column, nowrap, flex-start, stretch);
@@ -73,12 +73,17 @@ ol.x-list-group {
 	}
 
 	> li {
-		--tw: normal;
-		--ta: left;
+		&,
+		:not([class*="_txtA"]) {
+			text-align: left;
+		}
+		&,
+		:not([class*="_txtWr"]) {
+			white-space: normal;
+		}
 		a,
 		label,
 		button {
-			white-space: normal;
 			line-height: $lineHeightMedium;
 		}
 	}

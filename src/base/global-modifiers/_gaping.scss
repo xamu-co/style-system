@@ -7,122 +7,125 @@
 // this class applies to any container, not just flex containers, so it can't be polyfilled
 //
 // @group GlobalModifiers
-.xm__gap,
+.xm__gap {
+	// flex, column & grid only
+	@include extend-viewports-classes {
+		gap: 1rem;
+	}
+	&-none {
+		@include extend-viewports-classes {
+			gap: 0;
+		}
+	}
+}
+.xm__gapX {
+	// flex, column & grid only, X axis
+	@include extend-viewports-classes {
+		column-gap: 1rem;
+	}
+	&-none {
+		@include extend-viewports-classes {
+			column-gap: 0;
+		}
+	}
+}
+.xm__gapY {
+	// flex, column & grid only, Y axis
+	@include extend-viewports-classes {
+		row-gap: 1rem;
+	}
+	&-none {
+		@include extend-viewports-classes {
+			row-gap: 0;
+		}
+	}
+}
+
 .xm__gaping {
 	@include extend-viewports-classes {
 		--g: 1rem;
+	}
+	&-none {
+		@include extend-viewports-classes {
+			> * {
+				--g: 0;
+			}
+		}
 	}
 }
 .xm__gapingX {
 	// X dimension
 	@include extend-viewports-classes {
-		--gxc: var(--gx);
-		--gyc: var(--gy);
 		> * {
 			--gx: 1rem;
+		}
+	}
+	&-none {
+		@include extend-viewports-classes {
+			> * {
+				--gx: 0;
+			}
 		}
 	}
 }
 .xm__gapingY {
 	// Y dimension
 	@include extend-viewports-classes {
-		--gyc: var(--gy);
-		--gyc: var(--gy);
 		> * {
 			--gy: 1rem;
+		}
+	}
+	&-none {
+		@include extend-viewports-classes {
+			> * {
+				--gy: 0;
+			}
 		}
 	}
 }
 
 @for $i from 1 through 10 {
-	// grid Gap
-	.xm__gap-#{$i*5},
+	// grid Gap, future flex gap
+	.xm__gap-#{$i*5} {
+		// flex, column & grid only
+		@include extend-viewports-classes {
+			gap: #{$i/3}rem;
+		}
+	}
+	.xm__gapX-#{$i*5} {
+		// flex, column & grid only, X axis
+		@include extend-viewports-classes {
+			column-gap: #{$i/3}rem;
+		}
+	}
+	.xm__gapY-#{$i*5} {
+		// flex, column & grid only, Y axis
+		@include extend-viewports-classes {
+			row-gap: #{$i/3}rem;
+		}
+	}
+
+	// Gaping
+	// Fallback for gap on non supporting browsers
 	.xm__gaping-#{$i*5} {
 		@include extend-viewports-classes {
-			--g: #{$i/3}rem;
+			margin: 0 -#{$i/3}rem -#{$i/3}rem 0;
+			> * {
+				margin: 0 #{$i/3}rem #{$i/3}rem 0;
+			}
 		}
 	}
 	.xm__gapingX-#{$i*5} {
 		@include extend-viewports-classes {
-			> * {
-				--gx: #{$i/3}rem;
+			> *:not(:last-child) {
+				margin-right: #{$i/3}rem;
 			}
 		}
 	}
 	.xm__gapingY-#{$i*5} {
 		@include extend-viewports-classes {
-			> * {
-				--gy: #{$i/3}rem;
-			}
-		}
-	}
-}
-
-// grid/column gap default
-[class*="__gap"]:not([class*="__gapi"]) {
-	gap: var(--g, var(--gy)) var(--g, var(--gx)); // omit fallback
-}
-
-// item spacing defaults
-[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-	// this is a very special class to omit this specific fix
-	&:not(.unfix__gaping) {
-		--gc: calc(-1 * var(--g, 1rem)); // calculated gap
-		// TODO: fix mX & mY collision in gaping modifier
-		margin: -0.1px var(--gc) var(--gc) -0.1px;
-		box-sizing: border-box;
-		&:last-child > :first-child:last-child {
-			// only child, text nodes can break this
-			margin: 0;
-		}
-	}
-	> :not(br):not(.xm__m):not(.xm__margin):not([class*="__mX"]):not([class*="__mY"]) {
-		&:not([class*="__mT"]):not([class*="__mL"]):not([class*="__mB"]):not([class*="__mR"]) {
-			&[class*="__txtWr"]:not([class*="__flx"]),
-			&:not([class*="-wrap"]):not([class*="-reverse"]) {
-				// Wrap, omit fallback
-				margin-bottom: var(--g);
-				margin-right: var(--g);
-				&:not([class*="__gapi"]) > :not([class*="__gapi"]) {
-					--g: initial;
-				}
-			}
-			// override gapinp fix on childs (affects wrap)
-			--gc: 0 var(--g) var(--g) 0;
-		}
-	}
-}
-
-// X axis
-// because of the fix is necesary to transfer the margin to the sibling element
-[class*="ngX"]:not([class*="ngX-no"]) {
-	> :not(br):not(:last-child):not([class*="__mR"]):not(.unfix__gaping) {
-		// Right
-		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			// margin-right: var(--gx); // omit fallback
-			margin-right: var(--gxc, var(--gx)); // omit fallback
-			&[class*="__flx"][class*="-wrap"],
-			&[class*="__flx"][class*="-reverse"],
-			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-				// --gx: calc(-1 * (var(--g, 1rem) - var(--gx, 1rem)));
-				--gxc: var(--gxc, calc(var(--gc) + var(--gx)));
-			}
-		}
-	}
-}
-// Y axis
-// because of the fix is necesary to transfer the margin to the sibling element
-[class*="ngY"]:not([class*="ngY-no"]) {
-	> :not(br):not(:last-child):not([class*="__mB"]):not(.unfix__gaping) {
-		// Bottom
-		&:not(.xm__gaping):not([class*="__gaping:"]):not([class*="__gaping-"]) {
-			// margin-bottom: var(--gy); // omit fallback
-			margin-bottom: var(--gyc, var(--gy)); // omit fallback
-			&[class*="__flx"][class*="-wrap"],
-			&[class*="__flx"][class*="-reverse"],
-			&[class*="__gapi"]:not([class*="ngX"]):not([class*="ngY"]):not([class*="__gaping-no"]) {
-				// --gy: calc(-1 * (var(--g, 1rem) - var(--gy, 1rem)));
-				--gyc: var(--gyc, calc(var(--gc) + var(--gy)));
+			> *:not(:last-child) {
+				margin-bottom: #{$i/3}rem;
 			}
 		}
 	}

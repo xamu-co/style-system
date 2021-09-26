@@ -25,39 +25,93 @@
 .xm__flxJustify {
 	&-end {
 		@include extend-viewports-classes {
-			--fj: flex-end;
+			&:not(.x-grd):not(.xm__flxSelf) {
+				justify-content: flex-end;
+			}
+			&.x-grd {
+				justify-items: flex-end;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: flex-end;
+			}
 		}
 	}
 	&-start {
 		@include extend-viewports-classes {
-			--fj: flex-start;
+			&:not(.x-grd):not(.xm__flxSelf) {
+				justify-content: flex-start;
+			}
+			&.x-grd {
+				justify-items: flex-start;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: flex-start;
+			}
 		}
 	}
 	&-around {
 		@include extend-viewports-classes {
-			--fj: space-around;
+			&:not(.x-grd):not(.xm__flxSelf) {
+				justify-content: space-around;
+			}
+			&.x-grd {
+				justify-items: space-around;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: space-around;
+			}
 		}
 	}
 	&-evenly {
 		@include extend-viewports-classes {
-			--fj: space-evenly;
+			&:not(.x-grd):not(.xm__flxSelf) {
+				justify-content: space-around; // for unsupported browsers
+				justify-content: space-evenly;
+			}
+			&.x-grd {
+				justify-items: space-around; // for unsupported browsers
+				justify-items: space-evenly;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: space-around; // for unsupported browsers
+				justify-self: space-evenly;
+			}
 		}
 	}
 	&-between {
 		@include extend-viewports-classes {
-			--fj: space-between;
+			&:not(.x-grd):not(.xm__flxSelf) {
+				justify-content: space-between;
+			}
+			&.x-grd {
+				justify-items: space-between;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: space-between;
+			}
 		}
 	}
 	// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--fj: center;
+			&:not(.x-grd):not(.xm__flxSelf) {
+				justify-content: center;
+			}
+			&.x-grd {
+				justify-items: center;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				justify-self: center;
+			}
 		}
 	}
-}
-[class*="__flxJu"] {
-	justify-content: var(--fj, initial);
 }
 
 // flexbox align items
@@ -66,32 +120,59 @@
 .xm__flxAlign {
 	&-end {
 		@include extend-viewports-classes {
-			--fa: flex-end;
+			&:not(.xm__flxSelf) {
+				align-items: flex-end;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: flex-end;
+			}
 		}
 	}
 	&-start {
 		@include extend-viewports-classes {
-			--fa: flex-start;
+			&:not(.xm__flxSelf) {
+				align-items: flex-start;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: flex-start;
+			}
 		}
 	}
 	&-stretch {
 		@include extend-viewports-classes {
-			--fa: stretch;
+			&:not(.xm__flxSelf) {
+				align-items: stretch;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: stretch;
+			}
 		}
 	}
 	&-baseline {
 		@include extend-viewports-classes {
-			--fa: baseline;
+			&:not(.xm__flxSelf) {
+				align-items: baseline;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: baseline;
+			}
 		}
 	}
 	// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--fa: center;
+			&:not(.xm__flxSelf) {
+				align-items: center;
+			}
+			&.x-grd > .xm__flxSelf,
+			&.xm__flxSelf {
+				align-self: center;
+			}
 		}
 	}
-}
-[class*="__flxA"] {
-	align-items: var(--fa, initial);
 }

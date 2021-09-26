@@ -21,21 +21,22 @@
 .xm__mX {
 	&-left {
 		@include extend-viewports-classes {
-			--ml: 0;
-			--mr: auto;
+			margin-left: 0;
+			margin-right: auto;
 		}
 	}
 	&-right {
 		@include extend-viewports-classes {
-			--ml: auto;
-			--mr: 0;
+			margin-left: auto;
+			margin-right: 0;
 		}
 	}
 	// default
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--mx: auto;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 }
@@ -47,69 +48,22 @@
 .xm__mY {
 	&-top {
 		@include extend-viewports-classes {
-			--mt: 0;
-			--mb: auto;
+			margin-top: 0;
+			margin-bottom: auto;
 		}
 	}
 	&-bottom {
 		@include extend-viewports-classes {
-			--mt: auto;
-			--mb: 0;
+			margin-top: auto;
+			margin-bottom: 0;
 		}
 	}
 	// default, not usual but there is cases where it works
 	&,
 	&-center {
 		@include extend-viewports-classes {
-			--my: auto;
-		}
-	}
-}
-
-// box padding
-// X axis
-//
-// @group GlobalModifiers
-.xm__pX {
-	// there is no thing such as padding auto
-	@include extend-viewports-classes {
-		--px: 1rem;
-	}
-}
-
-// box padding
-// Y axis
-//
-// @group GlobalModifiers
-.xm__pY {
-	// there is no thing such as padding auto
-	@include extend-viewports-classes {
-		--py: 1rem;
-	}
-}
-
-// maybe i'm overcomplicating this
-// I break this  two in multiple lines because of his complexity
-// margin
-[class*="__m"]:not([class*="__mY"]):not([class*="__mX"]) {
-	&:not([class*="__mT"]):not([class*="__mR"]):not([class*="__mB"]):not([class*="__mL"]) {
-		// Top, Right, Bottom, Left
-		&:not([class*="min"]):not([class*="max"]) {
-			// this could caue problems if min/max is set alongside margin/padding
-			&:not([class*="is__m"]):not([class*="__m-no"]) {
-				// this could cause problems in some statuses starting with m
-				margin: var(--m, initial);
-			}
-		}
-	}
-}
-// padding
-[class*="__p"]:not([class*="__pY"]):not([class*="__pX"]):not([class*="__po"]) {
-	&:not([class*="__pT"]):not([class*="__pR"]):not([class*="__pB"]):not([class*="__pL"]) {
-		// Top, Right, Bottom, Left
-		&:not([class*="is__p"]):not([class*="__p-no"]) {
-			// this could cause problems in some statuses starting with p
-			padding: var(--p, initial);
+			margin-top: auto;
+			margin-bottom: auto;
 		}
 	}
 }
@@ -119,107 +73,59 @@
 // @group GlobalModifiers
 $models: margin, padding;
 @each $model in $models {
+	$m: str-slice($model, 1, 1);
 	// default: all sides
 	// margin & padding already have defaults for X & Y axles
 	.xm__#{$model},
-	.xm__#{str-slice($model,1,1)} {
+	.xm__#{$m} {
 		@include extend-viewports-classes {
-			--#{str-slice($model, 1, 1)}: 1rem;
+			#{$model}: 1rem;
 		}
-	}
-
-	// X axis
-	[class*="__#{str-slice($model,1,1)}X"] {
-		#{$model}-left: var(
-			--#{$model}l,
-			var(--#{str-slice($model, 1, 1)}x, initial)
-		);
-		#{$model}-right: var(
-			--#{$model}r,
-			var(--#{str-slice($model, 1, 1)}x, initial)
-		);
-	}
-	// Y axis
-	[class*="__#{str-slice($model,1,1)}Y"] {
-		#{$model}-top: var(
-			--#{$model}t,
-			var(--#{str-slice($model, 1, 1)}y, initial)
-		);
-		#{$model}-bottom: var(
-			--#{$model}b,
-			var(--#{str-slice($model, 1, 1)}y, initial)
-		);
 	}
 
 	@for $i from 1 through 20 {
 		// all sides
-		.xm__#{str-slice($model,1,1) + "-" + $i*5} {
+		.xm__#{$m}-#{$i*5} {
 			@include extend-viewports-classes {
-				--#{str-slice($model, 1, 1)}: #{$i/3}rem;
+				#{$model}: #{$i/3}rem;
 			}
 		}
 		// X axis
-		.xm__#{str-slice($model,1,1) + "X-" + $i*5} {
+		.xm__#{$m}X-#{$i*5} {
 			@include extend-viewports-classes {
-				--#{str-slice($model, 1, 1)}x: #{$i/3}rem;
+				#{$model}-left: #{$i/3}rem;
+				#{$model}-right: #{$i/3}rem;
 			}
 		}
 		// Y axis
-		.xm__#{str-slice($model,1,1) + "Y-" + $i*5} {
+		.xm__#{$m}Y-#{$i*5} {
 			@include extend-viewports-classes {
-				--#{str-slice($model, 1, 1)}y: #{$i/3}rem;
+				#{$model}-top: #{$i/3}rem;
+				#{$model}-bottom: #{$i/3}rem;
 			}
 		}
 	}
-}
 
-// margin & padding
-//
-// @group GlobalModifiers
-$directions: top, right, bottom, left;
-@each $direction in $directions {
-	@for $i from 1 through 20 {
-		// margins
-		.xm__m#{capitalize($direction) + "-" + $i*5} {
+	// model directions
+	//
+	// @group GlobalModifiers
+	$directions: top, right, bottom, left;
+	@each $direction in $directions {
+		$mcd: $m + capitalize($direction);
+
+		// model direction defaults
+		.xm__#{$mcd} {
 			@include extend-viewports-classes {
-				--m#{str-slice($direction,1,1)}: #{$i/3}rem;
+				#{$model}-#{$direction}: 1rem;
 			}
 		}
-		// paddings
-		.xm__p#{capitalize($direction) + "-" + $i*5} {
-			@include extend-viewports-classes {
-				--p#{str-slice($direction,1,1)}: #{$i/3}rem;
+
+		@for $i from 1 through 20 {
+			.xm__#{$mcd}-#{$i * 5} {
+				@include extend-viewports-classes {
+					#{$model}-#{$direction}: #{$i/3}rem;
+				}
 			}
-		}
-	}
-	// margin defaults
-	[class*="__m#{capitalize($direction)}"] {
-		margin-#{$direction}: var(--m#{str-slice($direction, 1, 1)}, 0);
-		// target specific class (~) not range (*)
-		> *:not([class~="xm__m#{capitalize($direction)}"]) {
-			@include extend-viewports-attrs {
-				--m#{str-slice($direction,1,1)}: 0;
-			}
-		}
-	}
-	.xm__m#{capitalize($direction)} {
-		@include extend-viewports-classes {
-			--m#{str-slice($direction,1,1)}: 1rem;
-		}
-	}
-	// padding defaults
-	[class*="__p#{capitalize($direction)}"] {
-		padding-#{$direction}: var(--p#{str-slice($direction, 1, 1)}, 0);
-		// target specific class (~) not range (*)
-		> *:not([class~="xm__p#{capitalize($direction)}"]) {
-			@include extend-viewports-attrs {
-				--p#{str-slice($direction,1,1)}: 0;
-			}
-		}
-	}
-	.xm__p#{capitalize($direction)} {
-		@include extend-viewports-classes {
-			--p#{str-slice($direction,1,1)}: 1rem;
 		}
 	}
 }

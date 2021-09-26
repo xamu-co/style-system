@@ -5,30 +5,27 @@
 	&-lower,
 	&-lowercase {
 		@include extend-viewports-classes {
-			--ttr: lowercase;
+			text-transform: lowercase;
 		}
 	}
 	&-upper,
 	&-uppercase {
 		@include extend-viewports-classes {
-			--ttr: uppercase;
+			text-transform: uppercase;
 		}
 	}
 	&-capitalize {
 		@include extend-viewports-classes {
-			--ttr: capitalize;
+			text-transform: capitalize;
 		}
 	}
 	// default
 	&,
 	&-none {
 		@include extend-viewports-classes {
-			--ttr: none;
+			text-transform: none;
 		}
 	}
-}
-[class*="__txtTr"] {
-	text-transform: var(--ttr);
 }
 
 // text wrap
@@ -37,19 +34,16 @@
 .xm__txtWrap {
 	&-nowrap {
 		@include extend-viewports-classes {
-			--twr: nowrap;
+			white-space: nowrap;
 		}
 	}
 	// default
 	&,
 	&-wrap {
 		@include extend-viewports-classes {
-			--twr: normal;
+			white-space: normal;
 		}
 	}
-}
-[class*="__txtWr"] {
-	white-space: var(--twr);
 }
 
 // text style
@@ -58,24 +52,21 @@
 .xm__txtStyle {
 	&-normal {
 		@include extend-viewports-classes {
-			--tst: normal;
+			font-style: normal;
 		}
 	}
 	&-oblique {
 		@include extend-viewports-classes {
-			--tst: oblique;
+			font-style: oblique;
 		}
 	}
 	// default
 	&,
 	&-italic {
 		@include extend-viewports-classes {
-			--tst: italic;
+			font-style: italic;
 		}
 	}
-}
-[class*="__txtSt"] {
-	font-style: var(--tst);
 }
 
 // font weight
@@ -84,67 +75,45 @@
 .xm__txtWeight {
 	&-bold {
 		@include extend-viewports-classes {
-			--twg: #{weight(bold)};
+			font-weight: weight(bold);
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				--twg: #{weight(bold-alt)};
+				font-weight: weight(bold-alt);
 			}
 		}
 	}
 	&,
 	&-regular {
 		@include extend-viewports-classes {
-			--twg: #{weight()};
+			font-weight: weight();
 			@supports (-moz-appearance: none) {
 				// firefox fix
-				--twg: #{weight(regular-alt)};
+				font-weight: weight(regular-alt);
 			}
 		}
 	}
-}
-[class*="__txtWe"] {
-	// Heaviness
-	font-weight: var(--twg);
 }
 
 // text align
 //
 // @group FamilyGlobalModifiers
-[class*="__txtAl"] {
-	text-align: var(--ta, initial);
-	&:not([class*="__gapi"])
-		> :not([class|="x"]):not(table):not(thead):not(tbody) {
-		// Gaping
-		display: inline-block;
-	}
-	> :not([class*="__txtA"]):not([class|="x"]) {
-		// Align
-		text-align: var(--ta);
-	}
-}
-
-.xm__txtAlign,
-.xm__txtAlignFlx {
+.xm__txtAlign {
+	&,
+	&-left,
+	&-justify,
+	&-center,
 	&-right {
 		@include extend-viewports-classes {
-			--ta: right;
-		}
-	}
-	&-center {
-		@include extend-viewports-classes {
-			--ta: center;
-		}
-	}
-	&-justify {
-		@include extend-viewports-classes {
-			--ta: justify;
-		}
-	}
-	// default
-	&,
-	&-left {
-		@include extend-viewports-classes {
-			--ta: left;
+			&:not([class|="x"]):not(table):not(thead):not(tbody) {
+				// Gaping
+				display: inline-block;
+			}
+			&,
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
+				display: inline-flex;
+				flex-flow: column nowrap;
+				justify-content: flex-start;
+			}
 		}
 	}
 }
@@ -152,47 +121,68 @@
 // text align flex
 //
 // @group FamilyGlobalModifiers
-[class*="__txtAlignF"] {
-	@include flexbox(
-		column,
-		nowrap,
-		flex-start,
-		var(--tfa, initial),
-		inline-flex
-	);
-	> :not(p):not([class*="__txtA"]):not([class|="x"]) {
-		// Align
-		@include flexbox(
-			column,
-			nowrap,
-			flex-start,
-			var(--tfa, initial),
-			inline-flex
-		);
-	}
-}
-
 .xm__txtAlignFlx {
 	&-right {
 		@include extend-viewports-classes {
-			--tfa: flex-end;
+			&,
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
+				align-items: flex-end;
+			}
 		}
 	}
 	&-center {
 		@include extend-viewports-classes {
-			--tfa: center;
+			&,
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
+				align-items: center;
+			}
 		}
 	}
 	&-justify {
 		@include extend-viewports-classes {
-			--tfa: stretch;
+			&,
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
+				align-items: stretch;
+			}
 		}
 	}
 	// default
 	&,
 	&-left {
 		@include extend-viewports-classes {
-			--tfa: flex-start;
+			&,
+			> :not(p):not([class*="_txtA"]):not([class|="x"]) {
+				align-items: flex-start;
+			}
+		}
+	}
+}
+
+// text align
+//
+// @group FamilyGlobalModifiers
+.xm__txtAlign,
+.xm__txtAlignFlx {
+	&-right {
+		@include extend-viewports-classes {
+			text-align: right;
+		}
+	}
+	&-center {
+		@include extend-viewports-classes {
+			text-align: center;
+		}
+	}
+	&-justify {
+		@include extend-viewports-classes {
+			text-align: justify;
+		}
+	}
+	// default
+	&,
+	&-left {
+		@include extend-viewports-classes {
+			text-align: left;
 		}
 	}
 }
@@ -203,37 +193,34 @@
 .xm__txtSize,
 .xm__txtSize-normal {
 	@include extend-viewports-classes {
-		--tsz: #{size()};
+		font-size: size();
 	}
 }
 @each $name, $size in $fontSizes {
 	.xm__txtSize-#{$name} {
 		@include extend-viewports-classes {
-			--tsz: #{$size};
+			font-size: $size;
 		}
 	}
-}
-[class*="__txtSi"] {
-	font-size: var(--tsz);
 }
 
 // COLOR RELATED
 
 // Text color
-[class*="__txtCo"] {
+.xm__txtColor {
 	&,
-	> :not([class*="__txtCo"]):not([class|="x"]) {
+	> :not([class*="_txtCo"]):not([class|="x"]) {
 		// Color
-		color: var(--ccl, color(dark, 0.7));
+		color: color(dark, 0.7);
 	}
 }
 
 // Shadow color
-[class*="__txtSh"] {
+.xm__txtShadow {
 	&,
-	> :not([class*="__txtSh"]):not([class|="x"]) {
+	> :not([class*="_txtSh"]):not([class|="x"]) {
 		// Shadow
-		text-shadow: 1px 1px 1px var(--csh, color(dark, 0.3));
+		text-shadow: 1px 1px 1px color(dark, 0.3);
 	}
 }
 
@@ -246,9 +233,9 @@
 	.xm__txtColor-#{$name} {
 		@include extend-viewports-classes {
 			&,
-			> :not([class*="__txtCo"]):not([class|="x"]) {
+			> :not([class*="_txtCo"]):not([class|="x"]) {
 				// Color
-				--ccl: #{color($name)};
+				color: color($name);
 			}
 		}
 	}
@@ -257,9 +244,9 @@
 	.xm__txtShadow-#{$name} {
 		@include extend-viewports-classes {
 			&,
-			> :not([class*="__txtSh"]):not([class|="x"]) {
+			> :not([class*="_txtSh"]):not([class|="x"]) {
 				// Shadow
-				--csh: #{color($name)};
+				text-shadow: 1px 1px 1px color($name);
 			}
 		}
 	}
@@ -270,9 +257,9 @@
 		.xm__txtColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				&,
-				> :not([class*="__txtCo"]):not([class|="x"]) {
+				> :not([class*="_txtCo"]):not([class|="x"]) {
 					// Shadow
-					--ccl: #{color($name, $i/10)};
+					color: color($name, $i/10);
 				}
 			}
 		}
@@ -281,9 +268,9 @@
 		.xm__txtShadow-#{$name}#{$i} {
 			@include extend-viewports-classes {
 				&,
-				> :not([class*="__txtSh"]):not([class|="x"]) {
+				> :not([class*="_txtSh"]):not([class|="x"]) {
 					// Shadow
-					--csh: #{color($name, $i/10)};
+					text-shadow: 1px 1px 1px color($name, $i/10);
 				}
 			}
 		}

@@ -7,30 +7,32 @@
 	display: block;
 	overflow: hidden;
 	flex: 0 0 auto;
-	border-radius: var(--br, 1rem);
 	transition: all 0.1s ease-out;
-	&:not([class*="__bgCo"]) {
-		// Color
-		background-color: color(light);
-	}
+	background-color: color(light);
 
 	// avatar size
 	//
 	// @group Modifiers
+	&,
 	&.m__size {
-		&-lg {
-			--br: 1.667rem;
-			&.m__bdr,
-			&.m__border {
-				--bw: 4px;
-			}
+		border-radius: 1rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 2px;
 		}
-		&-md {
-			--br: 1.333rem;
-			&.m__bdr,
-			&.m__border {
-				--bw: 3px;
-			}
+	}
+	&.m__size-lg {
+		border-radius: 1.667rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 4px;
+		}
+	}
+	&.m__size-md {
+		border-radius: 1.333rem;
+		&.m__bdr,
+		&.m__border {
+			border-width: 3px;
 		}
 	}
 
@@ -41,8 +43,7 @@
 	&.m__border {
 		border-style: solid;
 		box-sizing: border-box;
-		border-width: var(--bw, 2px);
-		&:not([class*="__bdrCo"]) {
+		&:not([class*="_bdrCo"]) {
 			// Color
 			border-color: color(light);
 		}
@@ -82,10 +83,10 @@ a[class*="x-avatar"] {
 i.x-icon {
 	// --sz could be inherited, we don't want that
 	width: auto;
-	height: var(--isz, 1rem);
-	font-size: var(--isz, 1rem);
+	height: 1em;
+	font-size: 1rem;
 	&:not(.is__logo):not(.m__width-auto) {
-		width: var(--isz, 1rem);
+		width: 1em;
 	}
 
 	// icon margin
@@ -106,7 +107,7 @@ i.x-icon {
 	// @group Modifiers
 	@for $i from 2 through 10 {
 		&.m__size-#{$i*5} {
-			--isz: #{$i/3}rem;
+			font-size: #{$i/3}rem;
 		}
 	}
 }
@@ -114,20 +115,22 @@ i.x-icon {
 // button defaults & round modifier
 //
 // @group SharedStyles
-[class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
+.x-btn,
+.x-btnToggle {
 	// this is the default value
 	// Size
-	padding: var(--bp, 0 0.8rem);
+	padding: 0 0.8rem;
 }
 :not([class*="toggle__"]) > :not([class*="toggle__"]) {
-	&[class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
+	&.x-btn,
+	&.x-btnToggle {
 		// round button
 		//
 		// @group Modifiers
 		&.m__round {
 			@include extend-viewports-classes(true, $viewports) {
-				--bp: 0; // button padding
-				width: var(--sz, 2.4rem);
+				padding: 0; // button padding
+				width: 2.4rem;
 				i.x-icon,
 				.x-svg {
 					margin: 0 !important;
@@ -152,7 +155,8 @@ i.x-icon {
 // icon behavior
 //
 // @group SharedStyles
-[class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
+.x-btn,
+.x-btnToggle,
 .x-link {
 	> * + * {
 		margin-left: 0.4em;
@@ -342,7 +346,7 @@ select.x-inSelect {
 			}
 		}
 		// default theme
-		&:not([class*="__tm"]),
+		&:not([class*="_tm"]),
 		&.u__tm-secondary-light {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
@@ -426,14 +430,15 @@ select.x-inSelect {
 // default size
 //
 // @group SharedStyles
-[class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
+.x-btn,
+.x-btnToggle,
 .x-inTxt,
 select.x-inSelect {
 	// Size
 	// this is the default value
-	height: var(--sz, 2.4rem);
-	border-radius: var(--br, 1rem);
-	border-width: var(--bw, 2px);
+	height: 2.4rem;
+	border-radius: 1rem;
+	border-width: 2px;
 }
 
 // capitalize
@@ -442,7 +447,7 @@ select.x-inSelect {
 [class*="x-btn"]:not(.x-btnY),
 .x-link,
 select.x-inSelect {
-	&:not([class*="__txtTransform"]) {
+	&:not([class*="_txtTransform"]) {
 		&,
 		> :not(.x-icon) {
 			::first-letter {
@@ -473,18 +478,14 @@ select.x-inSelect {
 .x-inTxt,
 .x-link,
 select.x-inSelect {
-	white-space: var(--twr, nowrap);
-	text-align: var(--ta, center);
+	// should inherit?
 	color: var(--cl, transparent);
-	background: var(--bg, transparent);
+	background-color: var(--bg, transparent);
 	border-color: var(--bc, transparent); // by default
 	border-style: solid;
 	text-shadow: none;
 	box-sizing: border-box;
-	&:not([class*="__txtSi"]) {
-		// Size
-		font-size: 1em;
-	}
+	font-size: 1em;
 }
 
 // LOOPS
@@ -492,23 +493,28 @@ select.x-inSelect {
 	// button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	[class*="x-btn"]:not(.x-btnY):not(.x-btnLink) {
+	.x-btn,
+	.x-btnToggle {
 		&.m__size-#{$name} {
 			// --p could be inherited, we don't want that
-			--bp: 0 #{$size * 0.8}; // button padding
+			padding: 0 #{$size * 0.8}; // button padding
 		}
 	}
 
 	// text, select, button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	[class*="x-btn"]:not(.x-btnY):not(.x-btnLink),
+	.x-btn,
+	.x-btnToggle,
 	.x-inTxt,
 	select.x-inSelect {
 		&.m__size-#{$name} {
-			--sz: #{$size * 2.6}; // button size: height/width
-			--br: #{$size}; // button border radius
-			--bw: calc(2px + #{$size/18}); // button border width
+			height: #{$size * 2.6}; // button size: height/width
+			border-radius: #{$size}; // button border radius
+			border-width: calc(2px + #{$size/18}); // button border width
+			&.m__round {
+				width: #{$size * 2.6};
+			}
 		}
 	}
 }
@@ -517,8 +523,7 @@ select.x-inSelect {
 @import "hr";
 @import "icon";
 @import "inputText";
-@import "inputCheckbox";
-@import "inputRadio";
+@import "inputToggle";
 @import "inputSelect";
 @import "navList";
 @import "table";

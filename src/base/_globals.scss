@@ -30,7 +30,7 @@
 	}
 }
 
-h1:not([class*="__txtSi"]):not([class*="swal"]) {
+h1:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(xl);
 	br {
@@ -43,7 +43,7 @@ h1:not([class*="__txtSi"]):not([class*="swal"]) {
 		}
 	}
 }
-h2:not([class*="__txtSi"]):not([class*="swal"]) {
+h2:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(lg);
 	br {
@@ -56,11 +56,11 @@ h2:not([class*="__txtSi"]):not([class*="swal"]) {
 		}
 	}
 }
-h3:not([class*="__txtSi"]):not([class*="swal"]) {
+h3:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(lg);
 }
-h4:not([class*="__txtSi"]):not([class*="swal"]) {
+h4:not([class*="_txtSi"]):not([class*="swal"]) {
 	// Size
 	font-size: size(md);
 }
@@ -83,7 +83,7 @@ textarea {
 }
 
 p {
-	--twr: normal;
+	white-space: inherit;
 	/* These are technically the same, but use both */
 	overflow-wrap: break-word;
 	word-wrap: break-word;
@@ -112,7 +112,7 @@ a {
 	text-decoration: none;
 }
 
-i:not(.x-icon) {
+i:not(.x-icon):not(.x-svg) {
 	font-style: italic;
 }
 
@@ -127,6 +127,11 @@ iframe {
 	display: block;
 	overflow: hidden;
 	color: color(light);
+	&:not([class*="_bgCo"]) {
+		// Color
+		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
+	}
+
 	&:before {
 		content: "\f7a9";
 		font-family: family(awesome);
@@ -142,16 +147,14 @@ iframe {
 		box-sizing: border-box;
 		@include flexbox(column, nowrap, center, center);
 	}
-	&:not([class*="__bgCo"]) {
-		// Color
-		@include linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
-	}
 }
 
 a,
 button,
 label,
 select {
+	white-space: nowrap;
+	text-align: center;
 	&,
 	* {
 		vertical-align: middle;
@@ -178,14 +181,17 @@ h3,
 h4,
 h5,
 h6 {
-	--twr: normal;
+	&,
+	:not([class*="_txtWr"]) {
+		white-space: normal;
+	}
 }
 
 // global font weight
 // breaking it because it is too long
 :not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(th):not(button):not(strong) {
 	// xamu
-	&:not(label[class|="x"]):not([class*="__txtWe"]) {
+	&:not(label[class|="x"]):not([class*="_txtWe"]) {
 		// external brands
 		&:not(.fas):not(.far):not(.fab):not([class*="swal"]) {
 			// Weight
@@ -204,11 +210,9 @@ h5,
 h6,
 th,
 button,
-strong,
-.x-btn,
-.x-btnToggle {
+strong {
 	// ignore inherit
-	&:not([class*="__txtWe"]) {
+	&:not([class*="_txtWe"]) {
 		// Weight
 		font-weight: weight(bold);
 		@supports (-moz-appearance: none) {
@@ -221,15 +225,12 @@ strong,
 // basic transition
 //
 // @group SharedStyles
-[class*="x-btn"],
-.x-inTxt,
-.x-link,
+a,
+button,
+select,
+label,
+label:after,
 .x-box,
-select.x-inSelect,
-input[type^="c"].x-inCheckbox + label,
-input[type^="c"].x-inCheckbox + label:after,
-input[type^="r"].x-inRadio + label,
-input[type^="r"].x-inRadio + label:after,
 .x-svg [fill]:not([fill="none"]),
 *[data-tooltip]:before,
 [class*="x-avatar"] img {

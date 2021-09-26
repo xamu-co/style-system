@@ -6,13 +6,12 @@
 .x-holder {
 	margin: 0 auto;
 	width: 100%;
-	max-width: var(--mxw, none);
 	// display: block;
 	&:not(.m__p-none) {
 		box-sizing: border-box;
 		transition: padding 0.3s ease-out;
 		&.xm__maxWidth-1200,
-		&:not([class*="__maxWidth-"]) {
+		&:not([class*="_maxWidth-"]) {
 			@media (min-width: $viewportMd + 1) {
 				padding: 0 2rem;
 			}
@@ -27,9 +26,9 @@
 			}
 		}
 	}
-	&:not([class*="__maxWidth-"]) {
+	&:not([class*="_maxWidth-"]) {
 		$mildos: 1200;
-		--mxw: #{round($mildos/16)}rem;
+		max-width: #{round($mildos/16)}rem;
 		&:not(.m__p-none) {
 			padding: 0 1rem;
 		}

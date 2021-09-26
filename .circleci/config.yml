@@ -4,6 +4,7 @@
 #
 version: 2
 defaults: &defaults
+    parallelism: 1
     working_directory: ~/repo
     docker:
         - image: circleci/node:12.18.2
@@ -26,7 +27,7 @@ jobs:
                   key: v4-yarn-{{ checksum "yarn.lock" }}
             - run:
                   name: Install front-end dependencies
-                  command: yarn --ignore-engines --ignore-scripts
+                  command: yarn --frozen-lockfile --ignore-engines --ignore-scripts
             - save_cache:
                   key: v4-yarn-{{ checksum "yarn.lock" }}
                   paths:
@@ -36,7 +37,7 @@ jobs:
                   paths:
                       - node_modules
 
-    lint_commit_message:
+    check_commit_message:
         <<: *defaults
         steps:
             - checkout
@@ -51,7 +52,7 @@ jobs:
                   name: Lint commit message
                   command: echo "$COMMIT_MESSAGE" | npx commitlint
 
-    lint_format_code:
+    check_code:
         <<: *defaults
         steps:
             - checkout
@@ -74,19 +75,19 @@ jobs:
 
 workflows:
     version: 2
-    release_workflow:
+    check_and_release_workflow:
         jobs:
             - setup
-            - lint_commit_message:
+            - check_commit_message:
                   requires:
                       - setup
-            - lint_format_code:
+            - check_code:
                   requires:
-                      - lint_commit_message
+                      - check_commit_message
             - release_to_github:
                   context: github-deploy
                   requires:
-                      - lint_format_code
+                      - check_code
                   filters:
                       branches:
                           only:
@@ -94,7 +95,7 @@ workflows:
             - release_to_npm:
                   context: npm-deploy
                   requires:
-                      - lint_format_code
+                      - check_code
                   filters:
                       branches:
                           only:

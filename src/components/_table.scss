@@ -4,22 +4,22 @@ table.x-table {
 	box-sizing: border-box;
 	border-spacing: 0;
 
-	&:not([class*="__txtA"]) {
+	&:not([class*="_txtA"]) {
 		// Align
 		tr {
 			th,
 			td {
-				&:not([class*="__txtA"]) {
-					text-align: var(--ta, left);
+				&:not([class*="_txtA"]) {
+					text-align: left;
 				}
 			}
 		}
 	}
-	&:not([class*="__txtCo"]) {
+	&:not([class*="_txtCo"]) {
 		// Color
 		tr {
-			td:not([class*="__txtCo"]) {
-				color: var(--ccl, color(dark, 0.7));
+			td:not([class*="_txtCo"]) {
+				color: color(dark, 0.7);
 			}
 		}
 	}
@@ -101,11 +101,11 @@ table.x-table {
 	}
 
 	&.m__tm-dark7 {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(dark, 0.7));
+				th:not([class*="_txtCo"]) {
+					color: color(dark, 0.7);
 				}
 			}
 		}
@@ -120,19 +120,16 @@ table.x-table {
 			}
 		}
 		thead tr:not(:first-child):after {
-			background-image: var(
-				--rbg,
-				url("#{$ruleSvgPathX}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}")
-			);
+			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
 		}
 	}
 
 	&.m__tm-primaryAlt {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(primaryAlt));
+				th:not([class*="_txtCo"]) {
+					color: color(primaryAlt);
 				}
 			}
 		}
@@ -147,19 +144,16 @@ table.x-table {
 			}
 		}
 		thead tr:not(:first-child):after {
-			background-image: var(
-				--rbg,
-				url("#{$ruleSvgPathX}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}")
-			);
+			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
 
 	&.m__tm-primary {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(primary));
+				th:not([class*="_txtCo"]) {
+					color: color(primary);
 				}
 			}
 		}
@@ -174,19 +168,16 @@ table.x-table {
 			}
 		}
 		thead tr:not(:first-child):after {
-			background-image: var(
-				--rbg,
-				url("#{$ruleSvgPathX}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}")
-			);
+			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
 
 	&.m__tm-danger {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(danger));
+				th:not([class*="_txtCo"]) {
+					color: color(danger);
 				}
 			}
 		}
@@ -201,19 +192,16 @@ table.x-table {
 			}
 		}
 		thead tr:not(:first-child):after {
-			background-image: var(
-				--rbg,
-				url("#{$ruleSvgPathX}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}")
-			);
+			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
 
 	&.m__tm-success {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(success));
+				th:not([class*="_txtCo"]) {
+					color: color(success);
 				}
 			}
 		}
@@ -228,20 +216,17 @@ table.x-table {
 			}
 		}
 		thead tr:not(:first-child):after {
-			background-image: var(
-				--rbg,
-				url("#{$ruleSvgPathX}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}")
-			);
+			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
 
-	&:not([class*="__tm"]),
+	&:not([class*="_tm"]),
 	&.m__tm-secondary {
-		&:not([class*="__txtCo"]) {
+		&:not([class*="_txtCo"]) {
 			// Color
 			tr {
-				th:not([class*="__txtCo"]) {
-					color: var(--ccl, color(secondary));
+				th:not([class*="_txtCo"]) {
+					color: color(secondary);
 				}
 			}
 		}
@@ -256,10 +241,7 @@ table.x-table {
 			}
 		}
 		thead tr:not(:first-child):after {
-			background-image: var(
-				--rbg,
-				url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}")
-			);
+			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
 

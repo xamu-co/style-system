@@ -2,32 +2,9 @@
 .x-float {
 	@include extend-device-interactions {
 		display: block;
-		&:not([class*="__floatDir"]) {
-			> *:not([class*="__float"]) {
+		&:not([class*="_floatDir"]) {
+			> *:not([class*="_float"]) {
 				float: left;
-			}
-		}
-		&:not([class*="__gapi"]) {
-			// Gaping
-			// this is a very special class to omit this specific fix
-			&:not(.unfix__gaping) {
-				--gc: calc(-1 * var(--g, 1rem)); // calculated gap
-				// TODO: fix mX & mY collision in float layout
-				margin: -0.1px var(--gc) var(--gc) -0.1px;
-				box-sizing: border-box;
-				&:last-child > :first-child:last-child {
-					// only child, text nodes can break this
-					margin: 0;
-				}
-			}
-			> :not(br):not(.xm__m):not(.xm__margin):not([class*="__mX"]):not([class*="__mY"]) {
-				&:not([class*="__mT"]):not([class*="__mL"]):not([class*="__mB"]):not([class*="__mR"]) {
-					&[class*="__txtWr"]:not([class*="__flx"]),
-					&:not([class*="-wrap"]):not([class*="-reverse"]) {
-						margin-bottom: var(--g, 1rem);
-						margin-right: var(--g, 1rem);
-					}
-				}
 			}
 		}
 	}
@@ -35,15 +12,15 @@
 	&.m__floatDir {
 		&-right {
 			@include extend-viewports-classes {
-				> *:not([class*="__float"]) {
+				> *:not([class*="_float"]) {
 					float: right;
 				}
 			}
 		}
-
+		&,
 		&-left {
 			@include extend-viewports-classes {
-				> *:not([class*="__float"]) {
+				> *:not([class*="_float"]) {
 					float: left;
 				}
 			}
