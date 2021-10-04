@@ -140,10 +140,6 @@
 		@include extend-viewports-classes {
 			&:not(table):not(thead):not(tbody) {
 				// Gaping
-				display: inline-block;
-			}
-			&,
-			> :not(p):not([class*="-txtA"]) {
 				display: inline-flex;
 				flex-flow: column nowrap;
 				justify-content: flex-start;
@@ -159,24 +155,36 @@
 .--txtAlignFlx {
 	&-right {
 		@include extend-viewports-classes {
-			text-align: right;
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: right;
+			}
 		}
 	}
 	&-center {
 		@include extend-viewports-classes {
-			text-align: center;
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: center;
+			}
 		}
 	}
 	&-justify {
 		@include extend-viewports-classes {
-			text-align: justify;
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: justify;
+			}
 		}
 	}
 	// default
 	&,
 	&-left {
 		@include extend-viewports-classes {
-			text-align: left;
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: left;
+			}
 		}
 	}
 }

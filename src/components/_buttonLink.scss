@@ -124,7 +124,7 @@
 			}
 		}
 		// default theme: secondary
-		&:not([class*="--tm"]),
+		&:not([class*="-tm"]),
 		&.--tm-secondary-light {
 			--rw: #{color(secondary)};
 			&:hover:not(.is--active):not(.is--routeExact) {

@@ -129,7 +129,7 @@ select.iSelect {
 			}
 		}
 		// default
-		&:not([class*="--tm"]),
+		&:not([class*="-tm"]),
 		&.--tm-secondary-light {
 			&:disabled,
 			&[disabled] {
@@ -146,7 +146,7 @@ select.iSelect {
 			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
 		}
 	}
-	&:not([class*="--tm"]),
+	&:not([class*="-tm"]),
 	&.--tm-primary-light,
 	&.--tm-primaryAlt-light,
 	&.--tm-secondary-light,

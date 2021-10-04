@@ -60,7 +60,7 @@ Sass is an amazing preprocesor but some of their rules could become missused
 
 -   Tag, element or layout (a, .x-elementname, etc...)
 -   Pseudoselectors (:hover, :focus, etc...)
--   Statuses (.is\_\_statusname, etc...)
+-   Statuses (.is--statusname, etc...)
 -   Modifiers (.--modifiername-value, etc...)
 -   Subelements or childs
 -   Overwrites
