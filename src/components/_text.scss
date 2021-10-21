@@ -2,11 +2,12 @@
 //
 // @group Components
 .txt {
+	width: 100%;
 	// Root
 	&,
 	> * {
 		&:not(.flx):not(.flxInline):not(.grd):not([class*="-txtAlignF"]) {
-			display: inline-block;
+			display: block;
 		}
 	}
 
