@@ -37,15 +37,14 @@
 	// tooltip bgColor
 	//
 	// @group PseudoModifiers
+	&[data-tooltip-bg="light"]:before {
+		color: color(dark, 0.7);
+	}
 	@each $name, $color in $colors {
 		&[data-tooltip-bg="#{$name}"]:before {
 			background: color($name);
 		}
 	}
-	// default tooltip bgcolor
-	// &:not([data-tooltip-bg]):before {
-	// 	--tb: color(dark);
-	// }
 
 	// tooltip text behavior
 	//
