@@ -24,8 +24,9 @@
 		width: 100%;
 		overflow-x: auto;
 		overflow-y: hidden;
+		padding-right: 0.5rem;
 
-		.table {
+		table.tbl {
 			min-width: 100%;
 			box-sizing: border-box;
 			&:last-child {

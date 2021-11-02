@@ -428,15 +428,20 @@ select.iSelect {
 }
 
 // default size
+// Size
+// this is the default value
 //
 // @group SharedStyles
 .bttn,
 .bttnToggle,
+.iTxt:not(textarea),
+select.iSelect {
+	height: 2.4rem;
+}
+.bttn,
+.bttnToggle,
 .iTxt,
 select.iSelect {
-	// Size
-	// this is the default value
-	height: 2.4rem;
 	border-radius: 1rem;
 	border-width: 2px;
 }
@@ -506,10 +511,17 @@ select.iSelect {
 	// @group SharedStyles
 	.bttn,
 	.bttnToggle,
-	.iTxt,
+	.iTxt:not(textarea),
 	select.iSelect {
 		&.--size-#{$name} {
 			height: #{$size * 2.6}; // button size: height/width
+		}
+	}
+	.bttn,
+	.bttnToggle,
+	.iTxt,
+	select.iSelect {
+		&.--size-#{$name} {
 			border-radius: #{$size}; // button border radius
 			border-width: calc(2px + #{$size/18}); // button border width
 			&.--round {

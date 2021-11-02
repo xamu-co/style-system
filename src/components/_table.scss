@@ -90,6 +90,7 @@ table.tbl {
 				z-index: 2;
 				background: color(light);
 				left: 0;
+				width: 0%; // fit width to content
 				&:last-child {
 					right: 0;
 				}
