@@ -471,8 +471,16 @@ select.iSelect {
 select.iSelect {
 	&:disabled,
 	&[disabled] {
-		opacity: 0.3;
 		pointer-events: none;
+	}
+}
+.bttnToggle,
+.bttnLink,
+.iTxt,
+.link {
+	&:disabled,
+	&[disabled] {
+		opacity: 0.3;
 	}
 }
 

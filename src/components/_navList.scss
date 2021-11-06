@@ -51,7 +51,7 @@ span.list-title {
 }
 ul.list-group,
 ol.list-group {
-	overflow: hidden;
+	overflow: visible;
 
 	// flow direction
 	//
@@ -67,7 +67,7 @@ ol.list-group {
 	&.--flow-column {
 		// Flow
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> li:not(:last-child) {
+		> *:not(:last-child) {
 			margin-bottom: 0.5rem;
 		}
 	}
