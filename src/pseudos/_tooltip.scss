@@ -40,6 +40,10 @@
 	&[data-tooltip-bg="light"]:before {
 		color: color(dark, 0.7);
 	}
+	&[data-tooltip-bg="lightAlt"]:before {
+		color: color(primaryAlt);
+		background: color(light);
+	}
 	@each $name, $color in $colors {
 		&[data-tooltip-bg="#{$name}"]:before {
 			background: color($name);
