@@ -2,10 +2,12 @@ $selectPathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 $selectPathUp: "#{$selectPathStart} fill='%23";
 $selectPathDown: "#{$selectPathStart} transform='rotate(180 8.236 5)' fill='%23";
 $selectPathEnd: "'/%3E%3C/svg%3E";
+
 // website logo
+// select or datalist
 //
 // @group Components
-select.iSelect {
+.iSelect {
 	width: 100%;
 	display: inline-block;
 	background-repeat: no-repeat;

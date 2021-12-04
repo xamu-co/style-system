@@ -189,7 +189,7 @@ i.icon {
 //
 // @group SharedStyles
 [class*="bttn"]:not(.bttnToggle),
-select.iSelect {
+.iSelect {
 	// first value is the bgColor
 	// second value is the textColor
 	//
@@ -435,13 +435,13 @@ select.iSelect {
 .bttn,
 .bttnToggle,
 .iTxt:not(textarea),
-select.iSelect {
+.iSelect {
 	height: 2.4rem;
 }
 .bttn,
 .bttnToggle,
 .iTxt,
-select.iSelect {
+.iSelect {
 	border-radius: 1rem;
 	border-width: 2px;
 }
@@ -451,7 +451,7 @@ select.iSelect {
 // @group SharedStyles
 [class*="bttn"]:not(.bttnY),
 .link,
-select.iSelect {
+.iSelect {
 	&:not([class*="-txtTransform"]) {
 		&,
 		> :not(.icon) {
@@ -468,7 +468,7 @@ select.iSelect {
 [class*="bttn"]:not(.bttnY),
 .iTxt,
 .link,
-select.iSelect {
+.iSelect {
 	&:disabled,
 	&[disabled] {
 		pointer-events: none;
@@ -490,7 +490,7 @@ select.iSelect {
 [class*="bttn"],
 .iTxt,
 .link,
-select.iSelect {
+.iSelect {
 	// should inherit?
 	color: var(--cl, transparent);
 	background-color: var(--bg, transparent);
@@ -520,7 +520,7 @@ select.iSelect {
 	.bttn,
 	.bttnToggle,
 	.iTxt:not(textarea),
-	select.iSelect {
+	.iSelect {
 		&.--size-#{$name} {
 			height: #{$size * 2.6}; // button size: height/width
 		}
@@ -528,7 +528,7 @@ select.iSelect {
 	.bttn,
 	.bttnToggle,
 	.iTxt,
-	select.iSelect {
+	.iSelect {
 		&.--size-#{$name} {
 			border-radius: #{$size}; // button border radius
 			border-width: calc(2px + #{$size/18}); // button border width

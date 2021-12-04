@@ -36,7 +36,7 @@ h1:not([class*="-txtSi"]):not([class*="swal"]) {
 	br {
 		display: none;
 	}
-	@media (min-width: $viewportMd + 1) {
+	@media (min-width: ($viewportMd + 1)) {
 		font-size: size(xx);
 		br {
 			display: inline;
@@ -49,7 +49,7 @@ h2:not([class*="-txtSi"]):not([class*="swal"]) {
 	br {
 		display: none;
 	}
-	@media (min-width: $viewportMd + 1) {
+	@media (min-width: ($viewportMd + 1)) {
 		font-size: size(xl);
 		br {
 			display: inline;
@@ -158,7 +158,8 @@ label {
 a,
 button,
 label,
-select {
+select,
+datalist {
 	white-space: nowrap;
 	&,
 	* {
@@ -173,7 +174,8 @@ select {
 	> a,
 	> button,
 	> label,
-	> select {
+	> select,
+	> datalist {
 		&.is--routeExact:not([class*="toggle--"]) {
 			pointer-events: none;
 		}
@@ -233,6 +235,7 @@ strong {
 a,
 button,
 select,
+datalist,
 label,
 label:after,
 .box,
