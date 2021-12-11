@@ -81,9 +81,9 @@
 }
 
 // desktop only, use hover
-@media (min-width: $viewportMd + 1) {
+@media (min-width: ($viewportMd + 1)) {
 	// hover status
-	*:hover > .toggle--dropdown:not(.only__active) {
+	*:hover > .toggle--dropdown:not(.only--active) {
 		&.link,
 		> .link {
 			color: var(--cl-h, var(--cl-a));
@@ -98,7 +98,7 @@
 // mobile only, use focus
 @media (max-width: $viewportMd) {
 	// focus status
-	*:focus-within:not(.no__focus) > .toggle--dropdown:not(.only__active) {
+	*:focus-within:not(.no--focus) > .toggle--dropdown:not(.only--active) {
 		&.link,
 		> .link {
 			color: var(--cl-h, var(--cl-a));

@@ -33,9 +33,9 @@ Sass is an amazing preprocesor but some of their rules could become missused
 ```scss
 .x-elementName {
 	&.--modifierName {
-		&__modifierValue {
+		&--modifierValue {
 		}
-		&__otherModifierValue {
+		&--otherModifierValue {
 		}
 	}
 }
@@ -48,9 +48,9 @@ Sass is an amazing preprocesor but some of their rules could become missused
 ```scss
 .x-elementName {
 	&.--requiredModifier.conditionalModifier {
-		&__modifierValue {
+		&--modifierValue {
 		}
-		&__otherModifierValue {
+		&--otherModifierValue {
 		}
 	}
 }

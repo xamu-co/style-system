@@ -12,7 +12,9 @@
 		opacity: 0.3;
 	}
 	&:not(.--bttn):not(.--button) {
-		padding: 1rem;
+		&:not([class*="-p-"]):not([class*="-pT"]):not([class*="-pR"]):not([class*="-pB"]):not([class*="-pL"]):not([class*="-pY"]):not([class*="-pX"]) {
+			padding: 1rem;
+		}
 	}
 	&:not(.flx):not(.Inline) {
 		@include flexbox(column, nowrap, flex-start, stretch);

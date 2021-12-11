@@ -120,6 +120,12 @@ i.icon {
 	// this is the default value
 	// Size
 	padding: 0 0.8rem;
+	&.--round {
+		@include extend-viewports-classes(true, $viewports) {
+			padding: 0; // button padding
+			width: 2.4rem;
+		}
+	}
 }
 :not([class*="toggle--"]) > :not([class*="toggle--"]) {
 	&.bttn,
@@ -129,8 +135,6 @@ i.icon {
 		// @group Modifiers
 		&.--round {
 			@include extend-viewports-classes(true, $viewports) {
-				padding: 0; // button padding
-				width: 2.4rem;
 				i.icon,
 				.svg {
 					margin: 0 !important;

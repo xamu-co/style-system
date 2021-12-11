@@ -68,6 +68,28 @@
 	}
 }
 
+// box paddings
+// X axis
+//
+// @group GlobalModifiers
+.--pX {
+	@include extend-viewports-classes {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+
+// box paddings
+// Y axis
+//
+// @group GlobalModifiers
+.--pY {
+	@include extend-viewports-classes {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+}
+
 // box model: margin & padding
 //
 // @group GlobalModifiers

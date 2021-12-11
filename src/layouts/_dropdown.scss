@@ -89,10 +89,14 @@
 		}
 	}
 }
-// desktop only
-@media (min-width: $viewportMd + 1) {
-	*:hover > .toggle--dropdown:not(.only__active),
-	.toggle--dropdown:not(.only__active):hover:not(.no__hover) {
+// hover devices only any size (mostly desktop)
+// use hover
+@media (hover: hover) {
+	.dropdown:not(:hover) {
+		display: none;
+	}
+	*:hover > .toggle--dropdown:not(.only--active),
+	.toggle--dropdown:not(.only--active):hover:not(.no--hover) {
 		i.icon,
 		.svg {
 			&:last-child,
@@ -109,9 +113,13 @@
 		}
 	}
 }
-// mobile only
-@media (max-width: $viewportMd) {
-	.toggle--dropdown:not(.only__active):focus-within:not(.no__focus) {
+// tablet with no hover only (tablets & mobile devices)
+// use focus & .is--active class
+@media (max-width: $viewportMd) and (hover: none) {
+	.dropdown {
+		display: none;
+	}
+	.toggle--dropdown:not(.only--active):focus-within:not(.no--focus) {
 		i.icon,
 		.svg {
 			&:last-child,
@@ -131,14 +139,7 @@
 
 .dropdown {
 	z-index: 10;
-	padding: 0.7rem 1rem;
-	border-radius: 1rem;
-	background: color(light);
-	box-shadow: 3px 3px 9px color(dark, 0.3);
 	position: absolute;
-	&:not([class*="-txtSi"]) {
-		font-size: size(sm);
-	}
 	&:before {
 		content: "";
 		position: absolute;
@@ -146,11 +147,15 @@
 		width: 100%;
 		height: 100%;
 	}
-	&:not(:hover) {
-		display: none;
-	}
-	@media (max-width: $viewportMd) {
-		display: none;
+	&:not(.has--items),
+	&-item {
+		padding: 0.7rem 1rem;
+		border-radius: 1rem;
+		background: color(light);
+		box-shadow: 3px 3px 9px color(dark, 0.3);
+		&:not([class*="-txtSi"]) {
+			font-size: size(sm);
+		}
 	}
 
 	// Position

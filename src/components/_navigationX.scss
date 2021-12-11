@@ -34,7 +34,7 @@
 					}
 					&.bttnLink {
 						&:not(:hover):not(.is--active):not(.is--routeExact) {
-							@media (min-width: $viewportMd + 1) {
+							@media (min-width: ($viewportMd + 1)) {
 								text-shadow: 1px 1px 1px
 									var(--sh, #{color(dark, 0.3)});
 							}
@@ -56,7 +56,7 @@
 						}
 						&.bttnLink {
 							&:not(:hover):not(.is--active):not(.is--routeExact) {
-								@media (min-width: $viewportMd + 1) {
+								@media (min-width: ($viewportMd + 1)) {
 									text-shadow: none;
 								}
 							}
@@ -70,8 +70,8 @@
 					}
 				}
 				// desktop only, use hover
-				@media (min-width: $viewportMd + 1) {
-					&:hover > .toggle--dropdown:not(.only__active) {
+				@media (min-width: ($viewportMd + 1)) {
+					&:hover > .toggle--dropdown:not(.only--active) {
 						&,
 						> * {
 							&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
@@ -93,8 +93,8 @@
 				}
 				// mobile only, use focus
 				@media (max-width: $viewportMd) {
-					&:focus-within:not(.no__focus)
-						> .toggle--dropdown:not(.only__active) {
+					&:focus-within:not(.no--focus)
+						> .toggle--dropdown:not(.only--active) {
 						&,
 						> * {
 							&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
@@ -161,8 +161,8 @@
 				}
 			}
 			// desktop only, use hover
-			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle--dropdown:not(.only__active) {
+			@media (min-width: ($viewportMd + 1)) {
+				&:hover > .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,
@@ -174,8 +174,8 @@
 			}
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no__focus)
-					> .toggle--dropdown:not(.only__active) {
+				&:focus-within:not(.no--focus)
+					> .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,
@@ -208,8 +208,8 @@
 				}
 			}
 			// desktop only, use hover
-			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle--dropdown:not(.only__active) {
+			@media (min-width: ($viewportMd + 1)) {
+				&:hover > .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,
@@ -222,8 +222,8 @@
 			}
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no__focus)
-					> .toggle--dropdown:not(.only__active) {
+				&:focus-within:not(.no--focus)
+					> .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,

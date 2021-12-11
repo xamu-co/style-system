@@ -58,7 +58,7 @@ $dimensions: width, height;
 		}
 
 		// default viewport based constrains
-		// __maxW, __maxH, __minW, __minH
+		// --maxW, --maxH, --minW, --minH
 		.--#{$constrain + capitalize($dimension)}Vw {
 			@include extend-viewports-classes {
 				#{$constrain}-#{$dimension}: 25vw;

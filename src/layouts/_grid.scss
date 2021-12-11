@@ -79,19 +79,24 @@
 ///  </div>
 
 .grd {
-	display: grid;
-	width: 100%;
+	@include extend-device-interactions {
+		display: grid;
+		width: 100%;
+	}
 }
 .grdInline {
-	display: inline-grid;
-	width: max-content;
-	max-width: 100%;
+	@include extend-device-interactions {
+		display: inline-grid;
+		width: max-content;
+		max-width: 100%;
+	}
 }
 
 .grd,
 .grdInline {
 	@include extend-device-interactions {
 		// height: auto;
+		grid-template-columns: 1fr;
 		grid-auto-rows: minmax(min-content, 100%);
 		overflow: visible;
 
