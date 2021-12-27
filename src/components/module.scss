@@ -7,7 +7,6 @@
 	display: block;
 	overflow: hidden;
 	flex: 0 0 auto;
-	transition: all 0.1s ease-out;
 	background-color: color(light);
 
 	// avatar size
@@ -137,7 +136,6 @@ i.icon {
 			@include extend-viewports-classes(true, $viewports) {
 				i.icon,
 				.svg {
-					margin: 0 !important;
 					+ span {
 						display: none;
 					}
@@ -162,10 +160,17 @@ i.icon {
 .bttn,
 .bttnToggle,
 .link {
-	> * + * {
+	&:not(.--round) > * + * {
 		margin-left: 0.4em;
 	}
 }
+// .bttn,
+// .bttnToggle,
+// .link {
+// 	> * + * {
+// 		margin-left: 0.4em;
+// 	}
+// }
 
 // is alert
 //

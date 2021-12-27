@@ -240,7 +240,9 @@ label,
 label:after,
 .box,
 .svg [fill]:not([fill="none"]),
+i.icon:before,
 *[data-tooltip]:before,
+[class*="avatar"],
 [class*="avatar"] img {
-	transition: all 0.2s ease-out, background-image 0s;
+	transition: all 0.1s ease-out, background-image 0s;
 }
