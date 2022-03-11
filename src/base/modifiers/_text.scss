@@ -101,7 +101,7 @@
 	&-right {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="-txtA"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: flex-end;
 			}
 		}
@@ -109,7 +109,7 @@
 	&-center {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="-txtA"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: center;
 			}
 		}
@@ -117,7 +117,7 @@
 	&-justify {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="-txtA"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: stretch;
 			}
 		}
@@ -127,7 +127,7 @@
 	&-left {
 		@include extend-viewports-classes {
 			&,
-			> :not(p):not([class*="-txtA"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: flex-start;
 			}
 		}
