@@ -163,7 +163,7 @@ datalist {
 	white-space: nowrap;
 	&,
 	* {
-		vertical-align: middle;
+		vertical-align: inherit;
 	}
 	&:not(:disabled):not([disabled]):hover {
 		cursor: pointer;
