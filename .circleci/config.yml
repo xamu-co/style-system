@@ -1,13 +1,15 @@
-# Javascript Node CircleCI 2.0 configuration file
+# Javascript Node CircleCI 2.1 configuration file
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+    node: circleci/node@5.0.0
 defaults: &defaults
     parallelism: 1
     working_directory: ~/repo
     docker:
-        - image: circleci/node:12.18.2
+        - image: cimg/node:14.17.0
 release: &release
     steps:
         - checkout
@@ -23,15 +25,8 @@ jobs:
         steps:
             - checkout
             # Download and cache dependencies
-            - restore_cache:
-                  key: v4-yarn-{{ checksum "yarn.lock" }}
-            - run:
-                  name: Install front-end dependencies
-                  command: yarn --frozen-lockfile --ignore-engines --ignore-scripts
-            - save_cache:
-                  key: v4-yarn-{{ checksum "yarn.lock" }}
-                  paths:
-                      - ./node_modules
+            - node/install-packages:
+                  pkg-manager: yarn
             - persist_to_workspace:
                   root: ~/repo
                   paths:
@@ -84,7 +79,6 @@ jobs:
         <<: *release
 
 workflows:
-    version: 2
     check_and_release_workflow:
         jobs:
             - setup
