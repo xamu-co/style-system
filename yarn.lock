@@ -5936,7 +5936,7 @@ postcss-merge-rules@^4.0.3:
     postcss-selector-parser "^3.0.0"
     vendors "^1.0.0"
 
-postcss-merge-selectors@vis97c/postcss-merge-selectors, postcss-precision@vis97c/postcss-merge-selectors:
+postcss-merge-selectors@vis97c/postcss-merge-selectors:
   version "0.0.6"
   resolved "https://codeload.github.com/vis97c/postcss-merge-selectors/tar.gz/8836a06bbdc926b516bce3f80a27d02f42aaa98f"
   dependencies:
@@ -6071,6 +6071,12 @@ postcss-ordered-values@^4.1.2:
     cssnano-util-get-arguments "^4.0.0"
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
+
+postcss-precision@vis97c/postcss-precision:
+  version "1.0.0"
+  resolved "https://codeload.github.com/vis97c/postcss-precision/tar.gz/ee47ca3a8a09273d7bed9328de5cc8b2996f6124"
+  dependencies:
+    postcss "^5.2.5"
 
 postcss-reduce-idents@^4.0.2:
   version "4.0.2"
@@ -6215,7 +6221,7 @@ postcss-zindex@^4.0.1:
     postcss "^7.0.0"
     uniqs "^2.0.0"
 
-postcss@^5.0.21:
+postcss@^5.0.21, postcss@^5.2.5:
   version "5.2.18"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.18.tgz#badfa1497d46244f6390f58b319830d9107853c5"
   integrity sha512-zrUjRRe1bpXKsX1qAJNJjqZViErVuyEkMTRrwu4ud4sbTtIBRmtaYDrHmcGgmrbsW3MHfmtIf+vJumgQn+PrXg==
