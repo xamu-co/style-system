@@ -51,14 +51,14 @@ input[type^="c"].iCheckbox {
 		font-weight: weight(bold);
 	}
 	&:disabled,
-	&[disabled] {
+	&[disabled]:not([disabled="false"]) {
 		+ label {
 			opacity: 0.3;
 			pointer-events: none;
 		}
 	}
 	&:not(:disabled),
-	&:not([disabled]) {
+	&:not([disabled]:not([disabled="false"])) {
 		+ label:hover {
 			cursor: pointer;
 		}

@@ -24,7 +24,7 @@
 		border: 2px solid color(light, 0.1);
 		background: color(dark);
 	}
-	&:hover:not([disabled]):not(.is--routeExact):not(.is--open):not([class*="toggle--"].only--active.is--active) {
+	&:hover:not([disabled]:not([disabled="false"])):not(.is--routeExact):not(.is--open):not([class*="toggle--"].only--active.is--active) {
 		@media (hover: hover) {
 			// dektop only
 

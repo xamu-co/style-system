@@ -31,7 +31,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 		background-repeat: no-repeat;
 		pointer-events: none;
 		box-sizing: border-box;
-		@media (min-width: $viewportMd + 1) {
+		@media (min-width: ($viewportMd + 1)) {
 			height: 12vh; // triangle size
 		}
 	}
@@ -81,7 +81,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 					top: calc(100% - 1px);
 					border-top: 1px solid color(light);
 				}
-				@media (min-width: $viewportMd + 1) {
+				@media (min-width: ($viewportMd + 1)) {
 					margin-bottom: 12vh; // triangle size
 				}
 			}

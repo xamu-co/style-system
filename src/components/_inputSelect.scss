@@ -110,7 +110,7 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 			&-dark,
 			&-primaryAlt {
 				&:disabled,
-				&[disabled] {
+				&[disabled]:not([disabled="false"]) {
 					//chevron-light down
 					background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3#{$selectPathEnd}");
 				}
@@ -118,14 +118,14 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 		}
 		&.--tm-primary-light {
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				//chevron-primary down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
 		}
 		&.--tm-primaryAlt-light {
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				//chevron-primaryAlt down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
@@ -134,7 +134,7 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 		&:not([class*="-tm"]),
 		&.--tm-secondary-light {
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				//chevron-secondary down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
@@ -143,7 +143,7 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 	&.is--invalid,
 	&.--tm-danger-light {
 		&:disabled,
-		&[disabled] {
+		&[disabled]:not([disabled="false"]) {
 			//chevron-danger down
 			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
 		}

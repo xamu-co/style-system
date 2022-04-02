@@ -283,7 +283,7 @@ i.icon {
 					}
 				}
 				&:disabled,
-				&[disabled] {
+				&[disabled]:not([disabled="false"]) {
 					--cl: #{color(light, 0.3)};
 				}
 			}
@@ -306,7 +306,7 @@ i.icon {
 				}
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(primary, 0.3)};
 			}
 		}
@@ -328,7 +328,7 @@ i.icon {
 				}
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(primaryAlt, 0.3)};
 			}
 		}
@@ -350,7 +350,7 @@ i.icon {
 				}
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(success, 0.3)};
 			}
 		}
@@ -380,7 +380,7 @@ i.icon {
 				--cl: #{color(dark, 0.7)};
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(secondary, 0.3)};
 			}
 		}
@@ -404,7 +404,7 @@ i.icon {
 			}
 		}
 		&:disabled,
-		&[disabled] {
+		&[disabled]:not([disabled="false"]) {
 			--cl: #{color(danger, 0.3)};
 		}
 	}
@@ -424,14 +424,14 @@ i.icon {
 		}
 	}
 	&:disabled,
-	&[disabled] {
+	&[disabled]:not([disabled="false"]) {
 		--bc: var(--cl);
 	}
 	&.is--routeExact,
 	&.is--route,
 	&.is--active,
 	&:disabled,
-	&[disabled] {
+	&[disabled]:not([disabled="false"]) {
 		background-color: var(--bg-a, transparent);
 	}
 }
@@ -479,7 +479,7 @@ i.icon {
 .link,
 .iSelect {
 	&:disabled,
-	&[disabled] {
+	&[disabled]:not([disabled="false"]) {
 		pointer-events: none;
 	}
 }
@@ -488,7 +488,7 @@ i.icon {
 .iTxt,
 .link {
 	&:disabled,
-	&[disabled] {
+	&[disabled]:not([disabled="false"]) {
 		opacity: 0.3;
 	}
 }

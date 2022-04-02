@@ -165,7 +165,7 @@ datalist {
 	* {
 		vertical-align: inherit;
 	}
-	&:not(:disabled):not([disabled]):hover {
+	&:not(:disabled):not([disabled]:not([disabled="false"])):hover {
 		cursor: pointer;
 	}
 }
