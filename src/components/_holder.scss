@@ -27,8 +27,7 @@
 		}
 	}
 	&:not([class*="-maxWidth-"]) {
-		$mildos: 1200;
-		max-width: #{round($mildos/16)}rem;
+		max-width: 75rem;
 		&:not(.--p-none) {
 			padding: 0 1rem;
 		}

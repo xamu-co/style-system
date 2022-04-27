@@ -37,52 +37,73 @@ $dimensions: width, height;
 	$constrains: min, max;
 	@each $constrain in $constrains {
 		// default pixel based constrains
-		.--#{$constrain + capitalize($dimension)},
-		.--#{$constrain + capitalize($dimension)}-1200 {
-			$mildos: 1200;
-			@include extend-viewports-classes {
-				#{$constrain}-#{$dimension}: #{round($mildos/16)}rem;
-			}
-		}
-
-		// pixel based
-		//
-		// @group GlobalModifiers
-		$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
-		@each $size in $maxSizes {
-			.--#{$constrain + capitalize($dimension)}-#{$size} {
+		.--#{$constrain + capitalize($dimension)} {
+			&-quarter {
 				@include extend-viewports-classes {
-					#{$constrain}-#{$dimension}: #{round($size/15)}rem;
+					#{$constrain}-#{$dimension}: 25%;
 				}
 			}
-		}
-
-		// default viewport based constrains
-		// --maxW, --maxH, --minW, --minH
-		.--#{$constrain + capitalize($dimension)}Vw {
-			@include extend-viewports-classes {
-				#{$constrain}-#{$dimension}: 25vw;
-			}
-		}
-		.--#{$constrain + capitalize($dimension)}Vh {
-			@include extend-viewports-classes {
-				#{$constrain}-#{$dimension}: 25vh;
-			}
-		}
-
-		// min width, max width
-		// viewport width based
-		//
-		// @group GlobalModifiers
-		@for $i from 3 through 10 {
-			.--#{$constrain + capitalize($dimension)}Vw-#{$i*10} {
+			&-third {
 				@include extend-viewports-classes {
-					#{$constrain}-#{$dimension}: #{$i * 10}vw;
+					#{$constrain}-#{$dimension}: 33%;
 				}
 			}
-			.--#{$constrain + capitalize($dimension)}Vh-#{$i*10} {
+			&-half {
 				@include extend-viewports-classes {
-					#{$constrain}-#{$dimension}: #{$i * 10}vh;
+					#{$constrain}-#{$dimension}: 50%;
+				}
+			}
+			&-full {
+				@include extend-viewports-classes {
+					#{$constrain}-#{$dimension}: 100%;
+				}
+			}
+			&,
+			&-1200 {
+				@include extend-viewports-classes {
+					#{$constrain}-#{$dimension}: 75rem;
+				}
+			}
+
+			// pixel based
+			//
+			// @group GlobalModifiers
+			$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
+			@each $size in $maxSizes {
+				&-#{$size} {
+					@include extend-viewports-classes {
+						#{$constrain}-#{$dimension}: #{round($size/15)}rem;
+					}
+				}
+			}
+
+			// default viewport based constrains
+			// --maxW, --maxH, --minW, --minH
+			&Vw {
+				@include extend-viewports-classes {
+					#{$constrain}-#{$dimension}: 25vw;
+				}
+			}
+			&Vh {
+				@include extend-viewports-classes {
+					#{$constrain}-#{$dimension}: 25vh;
+				}
+			}
+
+			// min width, max width
+			// viewport width based
+			//
+			// @group GlobalModifiers
+			@for $i from 3 through 10 {
+				&Vw-#{$i*10} {
+					@include extend-viewports-classes {
+						#{$constrain}-#{$dimension}: #{$i * 10}vw;
+					}
+				}
+				&Vh-#{$i*10} {
+					@include extend-viewports-classes {
+						#{$constrain}-#{$dimension}: #{$i * 10}vh;
+					}
 				}
 			}
 		}
