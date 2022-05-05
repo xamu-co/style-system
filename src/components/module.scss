@@ -207,7 +207,8 @@ i.icon {
 		&.--tm-light {
 			&-secondary {
 				--cl: #{color(secondary)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(secondary, 0.7)};
@@ -217,7 +218,8 @@ i.icon {
 			}
 			&-dark7 {
 				--cl: #{color(dark, 0.7)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(dark, 0.3)};
@@ -227,7 +229,8 @@ i.icon {
 			}
 			&-primaryAlt {
 				--cl: #{color(primaryAlt)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(primaryAlt, 0.7)};
@@ -237,7 +240,8 @@ i.icon {
 			}
 			&-danger {
 				--cl: #{color(danger)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(danger, 0.7)};
@@ -247,7 +251,8 @@ i.icon {
 			}
 			&-success {
 				--cl: #{color(success)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(success, 0.7)};
@@ -258,7 +263,8 @@ i.icon {
 			&-primary {
 				--cl: #{color(primary)};
 				--bg: #{color(light)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(primary, 0.7)};
@@ -276,7 +282,7 @@ i.icon {
 			&-success {
 				--bg: #{color(light)};
 				&.is--active,
-				&.is--route:not(.is--routeExact) {
+				&.is--route:not(.no--route):not(.is--routeExact) {
 					&:hover,
 					&:focus {
 						--cl: #{color(light, 0.7)};
@@ -291,7 +297,8 @@ i.icon {
 		&.--tm-primary-light {
 			--cl: #{color(light)};
 			--bg: #{color(primary)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
@@ -299,7 +306,7 @@ i.icon {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
@@ -313,7 +320,8 @@ i.icon {
 		&.--tm-primaryAlt-primary {
 			--cl: #{color(primary)};
 			--bg: #{color(primaryAlt)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
@@ -321,7 +329,7 @@ i.icon {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primaryAlt, 0.7)};
@@ -335,7 +343,8 @@ i.icon {
 		&.--tm-success-light {
 			--cl: #{color(light)};
 			--bg: #{color(success)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
@@ -343,7 +352,7 @@ i.icon {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(success, 0.7)};
@@ -359,7 +368,8 @@ i.icon {
 		&.--tm-secondary-light {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
@@ -367,7 +377,7 @@ i.icon {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(secondary, 0.7)};
@@ -389,7 +399,8 @@ i.icon {
 	&.--tm-danger-light {
 		--cl: #{color(light)};
 		--bg: #{color(danger)};
-		&:not(.is--route):not(.is--active) {
+		&:not(.is--route):not(.is--active),
+		&.is--route.no--route {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
@@ -397,7 +408,7 @@ i.icon {
 			}
 		}
 		&.is--active,
-		&.is--route:not(.is--routeExact) {
+		&.is--route:not(.no--route):not(.is--routeExact) {
 			&:hover,
 			&:focus {
 				--cl: #{color(danger, 0.7)};
@@ -411,13 +422,13 @@ i.icon {
 
 	// OVERRIDE: dejar en el final
 	&.is--active,
-	&.is--route,
+	&.is--route:not(.no--route),
 	&.is--routeExact {
 		--cl: var(--bg);
 		--bc: var(--cl);
 	}
 	&.is--active,
-	&.is--route:not(.is--routeExact) {
+	&.is--route:not(.no--route):not(.is--routeExact) {
 		&:hover,
 		&:focus {
 			--bc: var(--cl);
@@ -428,7 +439,7 @@ i.icon {
 		--bc: var(--cl);
 	}
 	&.is--routeExact,
-	&.is--route,
+	&.is--route:not(.no--route),
 	&.is--active,
 	&:disabled,
 	&[disabled]:not([disabled="false"]) {
