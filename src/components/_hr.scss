@@ -2,12 +2,16 @@
 //
 // @group Components
 hr {
+	box-sizing: border-box;
 	&.--hrX {
 		@include extend-viewports-classes(true, $viewports) {
 			// max-height: 2px;
-			width: calc(100% + 1rem);
 			height: 2px;
-			margin: 0 -0.5rem;
+			width: 100%;
+			&:not([class*="--m"]) {
+				width: calc(100% + 1rem);
+				margin: 0 -0.5rem;
+			}
 
 			// Tema del delimitador
 			//
@@ -38,8 +42,11 @@ hr {
 		@include extend-viewports-classes(true, $viewports) {
 			// max-width: 2px;
 			width: 2px;
-			height: calc(100% + 1rem);
-			margin: -0.5rem 0;
+			height: 100%;
+			&:not([class*="--m"]) {
+				height: calc(100% + 1rem);
+				margin: -0.5rem 0;
+			}
 
 			// Tema del delimitador
 			//
@@ -74,7 +81,7 @@ hr {
 			background-position: 50% 50%;
 			flex: 0 0 auto;
 			display: block;
-			&:last-child:not(:nth-child(2)) {
+			&:last-child:not(:nth-child(2)):not(:only-child) {
 				display: none;
 			}
 		}
@@ -92,7 +99,7 @@ hr {
 		flex: 0 0 auto;
 		background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
 		display: block;
-		&:last-child:not(:nth-child(2)) {
+		&:last-child:not(:nth-child(2)):not(:only-child) {
 			display: none;
 		}
 	}
