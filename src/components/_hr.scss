@@ -9,6 +9,7 @@ hr {
 			height: 2px;
 			width: 100%;
 			&:not([class*="--m"]) {
+				height: 2px;
 				width: calc(100% + 1rem);
 				margin: 0 -0.5rem;
 			}
@@ -44,6 +45,7 @@ hr {
 			width: 2px;
 			height: 100%;
 			&:not([class*="--m"]) {
+				width: 2px;
 				height: calc(100% + 1rem);
 				margin: -0.5rem 0;
 			}
