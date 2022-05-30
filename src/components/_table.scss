@@ -3,7 +3,6 @@ table.tbl {
 	border-collapse: collapse;
 	box-sizing: border-box;
 	border-spacing: 0;
-
 	&:not([class*="-txtA"]) {
 		// Align
 		tr {
@@ -17,41 +16,34 @@ table.tbl {
 	}
 	&:not([class*="-txtCo"]) {
 		// Color
-		tr {
-			td:not([class*="-txtCo"]) {
-				color: color(dark, 0.7);
-			}
-		}
+		color: color(dark, 0.7);
 	}
 	thead {
+		z-index: 3;
 		tr {
-			&:not(:first-child) {
-				border-top: 2px solid transparent;
-				&:after {
-					content: "";
-					width: calc(100% + 1rem);
-					display: block;
-					height: 2px;
-					position: absolute;
-					left: 0;
-					margin-top: -2px;
-					margin-left: -0.5rem;
-					margin-right: -0.5rem;
-					opacity: 0.2;
-					background-repeat: round;
-					background-position: 50% 50%;
-					flex: 0 0 auto;
+			th,
+			td {
+				&.is--selected {
+					font-weight: weight(bold);
+				}
+				* {
+					font-weight: inherit;
 				}
 			}
 		}
 	}
+	thead,
 	tbody {
-		z-index: 1;
-		box-shadow: 3px 3px 9px color(dark, 0.1);
+		width: 100%;
 		tr {
+			border-bottom: 2px solid transparent;
+			transition: all 0.1s ease-out;
 			th,
 			td {
-				&:after {
+				padding: 0.5rem 1rem;
+				transition: color 0.1s ease-out;
+				font-weight: weight();
+				&:before {
 					content: "";
 					display: block;
 					width: 100%;
@@ -61,192 +53,329 @@ table.tbl {
 					left: 0;
 					z-index: 0;
 					pointer-events: none;
+					transition: all 0.1s ease-out;
+					border-top: 2px solid transparent;
+					border-bottom: 2px solid transparent;
+					box-sizing: border-box;
 				}
-				> * {
-					z-index: 1;
+				&:empty:before {
+					content: "";
+					display: block;
+					width: 100%;
+					min-height: calc(42px - 1.4rem);
+				}
+				&:first-child:before {
+					border-top-left-radius: 0.7rem;
+					border-bottom-left-radius: 0.7rem;
+					border-left: 2px solid transparent;
+				}
+				&.--sticky {
+					position: sticky;
+					z-index: 2;
+					background: color(light);
+					left: 0;
+					width: 0%; // fit width to content
+					&:last-child {
+						right: 0;
+					}
+				}
+			}
+			td {
+				min-width: $minColumnSize/3;
+				&.--sticky:before,
+				&:last-child:before {
+					border-top-right-radius: 0.7rem;
+					border-bottom-right-radius: 0.7rem;
+					border-right: 2px solid transparent;
 				}
 			}
 		}
 	}
-	thead,
-	tbody {
-		width: 100%;
-		box-sizing: border-box;
-	}
-	tr {
-		td,
-		th {
-			box-sizing: border-box;
-			padding: 0.7rem 1rem;
-			&:empty:after {
-				content: "";
-				display: block;
-				width: 100%;
-				min-height: calc(42px - 1.4rem);
-			}
 
-			&.--sticky {
-				position: sticky;
-				z-index: 2;
-				background: color(light);
-				left: 0;
-				width: 0%; // fit width to content
-				&:last-child {
-					right: 0;
-				}
-			}
-		}
-		td {
-			min-width: $minColumnSize/3;
-		}
-	}
-
+	// table theme
+	//
+	// @group Modifiers
 	&.--tm-dark7 {
-		&:not([class*="-txtCo"]) {
-			// Color
+		thead {
 			tr {
-				th:not([class*="-txtCo"]) {
-					color: color(dark, 0.7);
+				color: color(dark, 0.6);
+				&:hover {
+					th:before,
+					td:before {
+						border-color: color(dark, 0.05);
+					}
+				}
+				th,
+				td {
+					&.is--selected {
+						color: color(dark);
+					}
+					&:before {
+						background: color(dark, 0.1);
+					}
 				}
 			}
 		}
 		tbody {
 			tr {
-				&:not(:first-child) {
-					border-top: 2px solid color(dark, 0.1);
+				&.is--selected {
+					&:hover {
+						th:before,
+						td:before {
+							border-color: color(dark, 0.3);
+						}
+					}
+					th:before,
+					td:before {
+						border-color: color(dark, 0.1);
+					}
 				}
-				th:after {
-					background: color(dark, 0.1);
+				&:hover,
+				&.is--selected {
+					color: color(dark);
+					th:before,
+					td:before {
+						background: color(dark, 0.1);
+					}
 				}
 			}
 		}
-		thead tr:not(:first-child):after {
-			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
-		}
 	}
-
 	&.--tm-primaryAlt {
-		&:not([class*="-txtCo"]) {
-			// Color
+		thead {
 			tr {
-				th:not([class*="-txtCo"]) {
+				color: color(primaryAlt, 0.6);
+				&:hover {
+					th:before,
+					td:before {
+						border-color: color(primaryAlt, 0.05);
+					}
+				}
+				th,
+				td {
+					&.is--selected {
+						color: color(primaryAlt);
+					}
+					&:before {
+						background: color(primaryAlt, 0.1);
+					}
+				}
+			}
+		}
+		tbody {
+			tr {
+				&.is--selected {
+					&:hover {
+						th:before,
+						td:before {
+							border-color: color(primaryAlt, 0.3);
+						}
+					}
+					th:before,
+					td:before {
+						border-color: color(primaryAlt, 0.1);
+					}
+				}
+				&:hover,
+				&.is--selected {
 					color: color(primaryAlt);
+					th:before,
+					td:before {
+						background: color(primaryAlt, 0.1);
+					}
 				}
 			}
-		}
-		tbody {
-			tr {
-				&:not(:first-child) {
-					border-top: 2px solid color(primaryAlt, 0.1);
-				}
-				th:after {
-					background: color(primaryAlt, 0.1);
-				}
-			}
-		}
-		thead tr:not(:first-child):after {
-			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
-
 	&.--tm-primary {
-		&:not([class*="-txtCo"]) {
-			// Color
+		thead {
 			tr {
-				th:not([class*="-txtCo"]) {
+				color: color(primary, 0.6);
+				&:hover {
+					th:before,
+					td:before {
+						border-color: color(primary, 0.05);
+					}
+				}
+				th,
+				td {
+					&.is--selected {
+						color: color(primary);
+					}
+					&:before {
+						background: color(primary, 0.1);
+					}
+				}
+			}
+		}
+		tbody {
+			tr {
+				&.is--selected {
+					&:hover {
+						th:before,
+						td:before {
+							border-color: color(primary, 0.3);
+						}
+					}
+					th:before,
+					td:before {
+						border-color: color(primary, 0.1);
+					}
+				}
+				&:hover,
+				&.is--selected {
 					color: color(primary);
+					th:before,
+					td:before {
+						background: color(primary, 0.1);
+					}
 				}
 			}
-		}
-		tbody {
-			tr {
-				&:not(:first-child) {
-					border-top: 2px solid color(primary, 0.1);
-				}
-				th:after {
-					background: color(primary, 0.1);
-				}
-			}
-		}
-		thead tr:not(:first-child):after {
-			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
-
 	&.--tm-danger {
-		&:not([class*="-txtCo"]) {
-			// Color
+		thead {
 			tr {
-				th:not([class*="-txtCo"]) {
+				color: color(danger, 0.6);
+				&:hover {
+					th:before,
+					td:before {
+						border-color: color(danger, 0.05);
+					}
+				}
+				th,
+				td {
+					&.is--selected {
+						color: color(danger);
+					}
+					&:before {
+						background: color(danger, 0.1);
+					}
+				}
+			}
+		}
+		tbody {
+			tr {
+				&.is--selected {
+					&:hover {
+						th:before,
+						td:before {
+							border-color: color(danger, 0.3);
+						}
+					}
+					th:before,
+					td:before {
+						border-color: color(danger, 0.1);
+					}
+				}
+				&:hover,
+				&.is--selected {
 					color: color(danger);
+					th:before,
+					td:before {
+						background: color(danger, 0.1);
+					}
 				}
 			}
-		}
-		tbody {
-			tr {
-				&:not(:first-child) {
-					border-top: 2px solid color(danger, 0.1);
-				}
-				th:after {
-					background: color(danger, 0.1);
-				}
-			}
-		}
-		thead tr:not(:first-child):after {
-			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
-
 	&.--tm-success {
-		&:not([class*="-txtCo"]) {
-			// Color
+		thead {
 			tr {
-				th:not([class*="-txtCo"]) {
-					color: color(success);
+				color: color(success, 0.6);
+				&:hover {
+					th:before,
+					td:before {
+						border-color: color(success, 0.05);
+					}
+				}
+				th,
+				td {
+					&.is--selected {
+						color: color(success);
+					}
+					&:before {
+						background: color(success, 0.1);
+					}
 				}
 			}
 		}
 		tbody {
 			tr {
-				&:not(:first-child) {
-					border-top: 2px solid color(success, 0.1);
+				&.is--selected {
+					&:hover {
+						th:before,
+						td:before {
+							border-color: color(success, 0.3);
+						}
+					}
+					th:before,
+					td:before {
+						border-color: color(success, 0.1);
+					}
 				}
-				th:after {
-					background: color(success, 0.1);
+				&:hover,
+				&.is--selected {
+					color: color(success);
+					th:before,
+					td:before {
+						background: color(success, 0.1);
+					}
 				}
 			}
 		}
-		thead tr:not(:first-child):after {
-			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
-		}
 	}
-
+	// default theme: secondary
 	&:not([class*="-tm"]),
 	&.--tm-secondary {
-		&:not([class*="-txtCo"]) {
-			// Color
+		thead {
 			tr {
-				th:not([class*="-txtCo"]) {
-					color: color(secondary);
+				color: color(secondary, 0.6);
+				&:hover {
+					th:before,
+					td:before {
+						border-color: color(secondary, 0.05);
+					}
+				}
+				th,
+				td {
+					&.is--selected {
+						color: color(secondary);
+					}
+					&:before {
+						background: color(secondary, 0.1);
+					}
 				}
 			}
 		}
 		tbody {
 			tr {
-				&:not(:first-child) {
-					border-top: 2px solid color(secondary, 0.1);
+				&.is--selected {
+					&:hover {
+						th:before,
+						td:before {
+							border-color: color(secondary, 0.3);
+						}
+					}
+					th:before,
+					td:before {
+						border-color: color(secondary, 0.1);
+					}
 				}
-				th:after {
-					background: color(secondary, 0.1);
+				&:hover,
+				&.is--selected {
+					color: color(secondary);
+					th:before,
+					td:before {
+						background: color(secondary, 0.1);
+					}
 				}
 			}
-		}
-		thead tr:not(:first-child):after {
-			background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
 		}
 	}
 
 	@media (max-width: $viewportMd) {
+		// TODO: fix this
 		&.--collapseOnMobile {
 			&,
 			thead,

@@ -16,6 +16,10 @@ nav.navY {
 	// @group Statuses
 	&:not(.is--sub) {
 		@include flexbox(column, nowrap, space-between, center);
+		ul.navY-menu-list,
+		ol.navY-menu-list {
+			align-items: center;
+		}
 	}
 
 	// es barra de navegacion secundaria

@@ -1,12 +1,12 @@
 // Default striped
 .--striped {
 	@include extend-viewports-classes {
-		&:not(.table) {
+		&:not(.tbl) {
 			> :nth-child(even) {
 				background-color: color(secondary, 0.1);
 			}
 		}
-		&.table tbody tr:nth-child(even) td:after {
+		&.tbl tbody tr:nth-child(even) td:after {
 			background-color: color(secondary, 0.1);
 		}
 	}
@@ -32,12 +32,12 @@
 	// striped childs
 	.--striped-#{$name} {
 		@include extend-viewports-classes {
-			&:not(.table) {
+			&:not(.tbl) {
 				> :nth-child(even) {
 					background-color: color($name, 0.1);
 				}
 			}
-			&.table tbody tr:nth-child(even) td:after {
+			&.tbl tbody tr:nth-child(even) td:after {
 				background-color: color($name, 0.1);
 			}
 		}
