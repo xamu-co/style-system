@@ -39,6 +39,14 @@
 				--cl-h: #{color(light, 0.5)};
 			}
 		}
+		&-secondaryAlt {
+			--cl: #{color(secondary)};
+			--cl-a: #{color(secondary, 0.7)};
+			--cl-h: #{color(secondary, 0.5)};
+			&.is--alert:after {
+				--cl-h: #{color(light, 0.5)};
+			}
+		}
 	}
 	// default theme: secondary
 	&:not([class*="-tm"]),

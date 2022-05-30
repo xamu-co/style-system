@@ -13,6 +13,7 @@
 	border: 0;
 	position: relative;
 	font-family: inherit;
+	font-weight: inherit;
 	font-size: 1em;
 	line-height: $lineHeight;
 	appearance: none;
@@ -191,19 +192,6 @@ h6 {
 	&,
 	:not([class*="-txtWr"]) {
 		white-space: normal;
-	}
-}
-
-// global font weight
-// breaking it because it is too long
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(th):not(button):not(strong) {
-	// xamu
-	&:not(input + label):not([class*="-txtWe"]) {
-		// external brands
-		&:not(.fas):not(.far):not(.fab):not([class*="swal"]) {
-			// Weight
-			font-weight: inherit;
-		}
 	}
 }
 

@@ -45,6 +45,9 @@
 		color: color(primaryAlt);
 		background: color(light);
 	}
+	&[data-tooltip-bg="secondaryAlt"]:before {
+		background: color(secondary);
+	}
 	@each $name, $color in $colors {
 		&[data-tooltip-bg="#{$name}"]:before {
 			background: color($name);

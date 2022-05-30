@@ -9,8 +9,11 @@
 // @group GlobalModifiers
 .--gap {
 	// flex, column & grid only
-	@include extend-viewports-classes {
-		gap: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes {
+			gap: 1rem;
+		}
 	}
 	&-none {
 		@include extend-viewports-classes {
@@ -20,8 +23,11 @@
 }
 .--gapX {
 	// flex, column & grid only, X axis
-	@include extend-viewports-classes {
-		column-gap: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes {
+			column-gap: 1rem;
+		}
 	}
 	&-none {
 		@include extend-viewports-classes {
@@ -31,8 +37,11 @@
 }
 .--gapY {
 	// flex, column & grid only, Y axis
-	@include extend-viewports-classes {
-		row-gap: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes {
+			row-gap: 1rem;
+		}
 	}
 	&-none {
 		@include extend-viewports-classes {
@@ -42,8 +51,11 @@
 }
 
 .--gaping {
-	@include extend-viewports-classes {
-		--g: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes {
+			--g: 1rem;
+		}
 	}
 	&-none {
 		@include extend-viewports-classes {
@@ -55,9 +67,12 @@
 }
 .--gapingX {
 	// X dimension
-	@include extend-viewports-classes {
-		> * {
-			--gx: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes {
+			> * {
+				--gx: 1rem;
+			}
 		}
 	}
 	&-none {
@@ -70,9 +85,12 @@
 }
 .--gapingY {
 	// Y dimension
-	@include extend-viewports-classes {
-		> * {
-			--gy: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes {
+			> * {
+				--gy: 1rem;
+			}
 		}
 	}
 	&-none {
