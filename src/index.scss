@@ -9,9 +9,6 @@
 @import "utils/module";
 
 @media only screen {
-	// @import "vendor/module"; // the vendors are independent in this built
-	// @import "fonts/module"; // this project uses google fonts
-
 	@import "base/module";
 	@import "base/modifiers/module"; // nested imports take longer to compile
 
