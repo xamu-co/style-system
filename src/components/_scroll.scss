@@ -1,5 +1,4 @@
 // Scroll area component
-// TODO: rethink component, is doing more than it should or at least in a weird way
 //
 // @group Components
 .scroll {
@@ -19,64 +18,67 @@
 		border-radius: 100px;
 		background-color: color(dark, 0.3);
 	}
+	&.--horizontal {
+		// always only mode
+		// @modifier
+		&.--always {
+			width: 100%;
+			overflow-x: auto;
+			overflow-y: hidden;
 
-	// table mode modifier
-	&.--always {
-		width: 100%;
-		overflow-x: auto;
-		overflow-y: hidden;
-
-		> * {
-			min-width: 100%;
-			box-sizing: border-box;
-			&:last-child {
-				margin-bottom: 0.5rem;
-			}
-			// TODO: improve this, handle edge cases and text that are too  large
-			tr {
-				td,
-				th {
-					white-space: nowrap;
+			> * {
+				min-width: 100%;
+				box-sizing: border-box;
+				&:last-child {
+					margin-bottom: 0.5rem;
+				}
+				// TODO: improve this, handle edge cases and text that are too  large
+				tr {
+					td,
+					th {
+						white-space: nowrap;
+					}
 				}
 			}
 		}
-	}
 
-	@media (max-width: $viewportMd) and (hover: none) {
-		&:not(.--always) {
-			width: auto;
-			max-width: 100vw;
-			height: auto;
-			padding-left: 1rem;
-			box-sizing: border-box;
-			overflow-x: auto;
-			overflow-y: hidden;
-			> * {
-				overflow: visible;
+		// mobile & hover only
+		@media (max-width: $viewportMd) and (hover: none) {
+			&:not(.--always) {
 				width: auto;
-				margin-left: 0 !important;
-				margin-right: 0 !important;
-				@include flexbox(
-					row,
-					nowrap !important,
-					flex-start !important,
-					flex-start !important,
-					inline-flex
-				);
-				&[class*="grd"]:after {
-					width: 1px;
-				}
-				&:after {
-					content: "";
-					display: block;
-					width: 1rem;
-					height: 1rem;
-					flex: 0 0 auto;
-				}
+				max-width: 100vw;
+				height: auto;
+				padding-left: 1rem;
+				box-sizing: border-box;
+				overflow-x: auto;
+				overflow-y: hidden;
 				> * {
-					flex: 0 0 auto;
-					&:last-child {
-						margin-right: 0 !important;
+					overflow: visible;
+					width: auto;
+					margin-left: 0 !important;
+					margin-right: 0 !important;
+					@include flexbox(
+						row,
+						nowrap !important,
+						flex-start !important,
+						flex-start !important,
+						inline-flex
+					);
+					&[class*="grd"]:after {
+						width: 1px;
+					}
+					&:after {
+						content: "";
+						display: block;
+						width: 1rem;
+						height: 1rem;
+						flex: 0 0 auto;
+					}
+					> * {
+						flex: 0 0 auto;
+						&:last-child {
+							margin-right: 0 !important;
+						}
 					}
 				}
 			}
