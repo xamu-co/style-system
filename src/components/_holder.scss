@@ -10,14 +10,12 @@
 	&:not(.--p-none) {
 		box-sizing: border-box;
 		transition: padding 0.3s ease-out;
-		&.--maxWidth-1200,
-		&:not([class*="-maxWidth-"]) {
-			@media (min-width: ($viewportMd + 1)) {
-				padding: 0 2rem;
-			}
-			@media (min-width: ($viewportXl + 1)) {
-				padding: 0;
-			}
+		padding: 0 1rem;
+		@media (min-width: ($viewportMd + 1)) {
+			padding: 0 2rem;
+		}
+		@media (min-width: ($viewportXl + 1)) {
+			padding: 0;
 		}
 		.scroll {
 			@media (max-width: $viewportMd) and (hover: none) {
@@ -28,8 +26,5 @@
 	}
 	&:not([class*="-maxWidth-"]) {
 		max-width: 75rem;
-		&:not(.--p-none) {
-			padding: 0 1rem;
-		}
 	}
 }
