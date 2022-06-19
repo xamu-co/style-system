@@ -5,7 +5,8 @@
 	overflow: visible;
 	&:before {
 		content: attr(data-tooltip);
-		white-space: nowrap;
+		width: max-content;
+		white-space: normal;
 		pointer-events: none;
 		display: block;
 		overflow: hidden;
