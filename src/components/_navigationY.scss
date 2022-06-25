@@ -8,7 +8,6 @@ nav.navY {
 	min-height: 100%;
 	height: auto;
 	box-sizing: border-box;
-	@include flexbox(column, nowrap, center, stretch);
 	// box-sizing: border-box;
 
 	// es barra de navegacion principal
@@ -25,9 +24,12 @@ nav.navY {
 	// es barra de navegacion secundaria
 	//
 	// @group Statuses
+
 	&.is--sub {
-		overflow: hidden;
-		@include flexbox(column, nowrap, space-between, flex-start);
+		@media (min-width: ($viewportMd + 1)) {
+			overflow: hidden;
+			@include flexbox(column, nowrap, space-between, flex-start);
+		}
 	}
 }
 

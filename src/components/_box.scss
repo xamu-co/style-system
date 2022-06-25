@@ -3,7 +3,6 @@
 // @group Components
 .box {
 	// width: 100%;
-	border-radius: 1.6rem;
 	border: 2px solid transparent;
 	overflow: visible;
 	&:disabled,
@@ -22,6 +21,20 @@
 			// Bottom
 			margin-bottom: 1rem;
 		}
+	}
+
+	// size
+	//
+	// @group Modifiers
+	&.--size {
+		border-radius: 1rem;
+	}
+	&,
+	&.--size-lg {
+		border-radius: 1.667rem;
+	}
+	&.--size-md {
+		border-radius: 1.333rem;
 	}
 
 	// Comment theme

@@ -1,5 +1,6 @@
 // Dimensions
 $dimensions: width, height;
+$sizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
 @each $dimension in $dimensions {
 	// width, height
 	//
@@ -29,6 +30,17 @@ $dimensions: width, height;
 		&-full {
 			@include extend-viewports-classes {
 				#{$dimension}: 100%;
+			}
+		}
+
+		// pixel based
+		//
+		// @group GlobalModifiers
+		@each $size in $sizes {
+			&-#{$size} {
+				@include extend-viewports-classes {
+					#{$dimension}: #{round($size/15)}rem;
+				}
 			}
 		}
 	}
@@ -68,8 +80,7 @@ $dimensions: width, height;
 			// pixel based
 			//
 			// @group GlobalModifiers
-			$maxSizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
-			@each $size in $maxSizes {
+			@each $size in $sizes {
 				&-#{$size} {
 					@include extend-viewports-classes {
 						#{$constrain}-#{$dimension}: #{round($size/15)}rem;
