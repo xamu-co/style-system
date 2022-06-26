@@ -26,10 +26,10 @@
 	// size
 	//
 	// @group Modifiers
+	&,
 	&.--size {
 		border-radius: 1rem;
 	}
-	&,
 	&.--size-lg {
 		border-radius: 1.667rem;
 	}
