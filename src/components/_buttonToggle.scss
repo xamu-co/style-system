@@ -19,6 +19,9 @@
 			.svg {
 				&:first-of-type {
 					display: none;
+					&:first-child + * {
+						margin-left: 0;
+					}
 				}
 			}
 		}
