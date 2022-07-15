@@ -77,6 +77,9 @@ table.tbl {
 					background: color(light);
 					left: 0;
 					width: 0%; // fit width to content
+					&:hover {
+						z-index: 3;
+					}
 					&:empty {
 						padding: 0.5rem 0.35rem;
 						pointer-events: none;
