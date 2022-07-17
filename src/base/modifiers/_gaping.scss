@@ -11,12 +11,12 @@
 	// flex, column & grid only
 	&,
 	&-15 {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			gap: 1rem;
 		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			gap: 0;
 		}
 	}
@@ -25,12 +25,12 @@
 	// flex, column & grid only, X axis
 	&,
 	&-15 {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			column-gap: 1rem;
 		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			column-gap: 0;
 		}
 	}
@@ -39,12 +39,12 @@
 	// flex, column & grid only, Y axis
 	&,
 	&-15 {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			row-gap: 1rem;
 		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			row-gap: 0;
 		}
 	}
@@ -53,12 +53,12 @@
 .--gaping {
 	&,
 	&-15 {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			--g: 1rem;
 		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> * {
 				--g: 0;
 			}
@@ -69,14 +69,14 @@
 	// X dimension
 	&,
 	&-15 {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> * {
 				--gx: 1rem;
 			}
 		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> * {
 				--gx: 0;
 			}
@@ -87,14 +87,14 @@
 	// Y dimension
 	&,
 	&-15 {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> * {
 				--gy: 1rem;
 			}
 		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> * {
 				--gy: 0;
 			}
@@ -106,19 +106,19 @@
 	// grid Gap, future flex gap
 	.--gap-#{$i*5} {
 		// flex, column & grid only
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			gap: #{$i/3}rem;
 		}
 	}
 	.--gapX-#{$i*5} {
 		// flex, column & grid only, X axis
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			column-gap: #{$i/3}rem;
 		}
 	}
 	.--gapY-#{$i*5} {
 		// flex, column & grid only, Y axis
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			row-gap: #{$i/3}rem;
 		}
 	}
@@ -126,7 +126,7 @@
 	// Gaping
 	// Fallback for gap on non supporting browsers
 	.--gaping-#{$i*5} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			margin: 0 -#{$i/3}rem -#{$i/3}rem 0;
 			> * {
 				margin: 0 #{$i/3}rem #{$i/3}rem 0;
@@ -134,14 +134,14 @@
 		}
 	}
 	.--gapingX-#{$i*5} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> *:not(:last-child) {
 				margin-right: #{$i/3}rem;
 			}
 		}
 	}
 	.--gapingY-#{$i*5} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> *:not(:last-child) {
 				margin-bottom: #{$i/3}rem;
 			}
