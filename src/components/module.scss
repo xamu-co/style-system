@@ -421,9 +421,10 @@ i.icon {
 	}
 
 	// OVERRIDE: dejar en el final
-	&.is--active,
+	// increased specificity
+	&.is--active.is--active,
 	&.is--route:not(.no--route),
-	&.is--routeExact {
+	&.is--routeExact.is--routeExact {
 		--cl: var(--bg);
 		--bc: var(--cl);
 	}
