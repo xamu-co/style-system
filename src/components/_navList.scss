@@ -12,8 +12,6 @@
 	}
 }
 nav.list {
-	// width: 100%;
-	// width: 100%;
 	> input[type^="c"] {
 		display: none;
 	}
@@ -39,6 +37,7 @@ nav.list {
 		ul.list-group,
 		ol.list-group {
 			max-height: 0;
+			overflow: hidden;
 			> li {
 				width: 100%;
 			}
