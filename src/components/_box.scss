@@ -275,6 +275,7 @@
 		}
 		&[class*="-square"] {
 			margin: 0 auto;
+			overflow: hidden;
 			&:before {
 				content: "";
 				display: block;
