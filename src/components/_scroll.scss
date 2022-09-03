@@ -18,6 +18,19 @@
 		border-radius: 100px;
 		background-color: color(dark, 0.3);
 	}
+
+	&.--vertical {
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		> * {
+			box-sizing: border-box;
+			&:last-child {
+				margin-bottom: 0.5rem;
+			}
+		}
+	}
+
 	&.--horizontal {
 		// always only mode
 		// @modifier
