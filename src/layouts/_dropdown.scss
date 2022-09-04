@@ -65,84 +65,73 @@
 /// @example njk
 ///  {% extends "dropdown.njk" %}
 
+@mixin toggleStyles {
+	&:not(.bttnToggle) >,
+	> :not(.bttnToggle) > {
+		i.icon,
+		.svg {
+			&:last-child {
+				transform: rotate(180deg);
+			}
+			&.is--toggleIndicator ~ :last-child {
+				// prevent tranform is toggle indicator is defined
+				transform: none;
+			}
+		}
+	}
+	i.icon,
+	.svg {
+		&.is--toggleIndicator {
+			transform: rotate(180deg);
+		}
+	}
+	+ .dropdown {
+		display: block;
+		&.flx {
+			display: flex;
+		}
+		&.flxInline {
+			display: inline-flex;
+		}
+		&.grd {
+			display: grid;
+		}
+		&.grdInline {
+			display: inline-grid;
+		}
+	}
+}
+
 .toggle--dropdown {
 	&.is--active,
 	&:not(.only--active):hover {
-		&:not(.bttnToggle) >,
-		> :not(.bttnToggle) > {
-			i.icon,
-			.svg {
-				&:last-child {
-					transform: rotate(180deg);
-				}
-				&.is--toggleIndicator ~ :last-child {
-					// prevent tranform is toggle indicator is defined
-					transform: none;
-				}
-			}
-		}
-		i.icon,
-		.svg {
-			&.is--toggleIndicator {
-				transform: rotate(180deg);
-			}
-		}
-		+ .dropdown {
-			display: block;
-		}
+		@include toggleStyles;
 	}
 }
 // hover devices only any size (mostly desktop)
 // use hover
 @media (hover: hover) {
-	.dropdown:not(:hover) {
-		display: none;
-	}
 	*:hover > .toggle--dropdown:not(.only--active),
 	.toggle--dropdown:not(.only--active):hover:not(.no--hover) {
-		i.icon,
-		.svg {
-			&:last-child,
-			&.is--toggleIndicator {
-				transform: rotate(180deg);
-			}
-			&.is--toggleIndicator ~ :last-child {
-				// prevent tranform is toggle indicator is defined
-				transform: none;
-			}
-		}
-		+ .dropdown {
-			display: block;
-		}
+		@include toggleStyles;
 	}
 }
 // tablet with no hover only (tablets & mobile devices)
 // use focus & .is--active class
 @media (max-width: $viewportMd) and (hover: none) {
-	.dropdown {
-		display: none;
-	}
 	.toggle--dropdown:not(.only--active):focus-within:not(.no--focus) {
-		i.icon,
-		.svg {
-			&:last-child,
-			&.is--toggleIndicator {
-				transform: rotate(180deg);
-			}
-			&.is--toggleIndicator ~ :last-child {
-				// prevent tranform is toggle indicator is defined
-				transform: none;
-			}
-		}
-		+ .dropdown {
-			display: block;
-		}
+		@include toggleStyles;
 	}
 }
 
 .dropdown {
 	z-index: 10;
 	position: absolute;
+	&,
+	&.flx,
+	&.grd {
+		display: none;
+	}
 	&:before {
 		content: "";
 		position: absolute;
