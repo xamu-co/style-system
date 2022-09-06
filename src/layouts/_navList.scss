@@ -78,7 +78,7 @@ ol.list-group {
 		}
 		&,
 		:not([class*="-txtWr"]) {
-			white-space: normal;
+			white-space: pre-line;
 		}
 		a,
 		label,

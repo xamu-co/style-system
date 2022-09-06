@@ -191,7 +191,7 @@ h5,
 h6 {
 	&,
 	:not([class*="-txtWr"]) {
-		white-space: normal;
+		white-space: pre-line;
 	}
 }
 

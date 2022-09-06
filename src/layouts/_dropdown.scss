@@ -141,12 +141,24 @@
 	}
 	&:not(.has--items),
 	&-item {
-		padding: 0.7rem 1rem;
-		border-radius: 1rem;
 		background: color(light);
 		box-shadow: 3px 3px 9px color(dark, 0.3);
 		&:not([class*="-txtSi"]) {
 			font-size: size(sm);
+		}
+		&.--size-lg {
+			padding: 1rem 1.333rem;
+			border-radius: 1.667rem;
+		}
+		&:not([class*="--size"]),
+		&.--size,
+		&.--size-md {
+			padding: 0.7rem 1rem;
+			border-radius: 1.333rem;
+		}
+		&.--size-sm {
+			padding: 0.5rem 0.7rem;
+			border-radius: 0.5rem;
 		}
 	}
 

@@ -417,7 +417,7 @@ table.tbl {
 						flex: 0 0 auto;
 						height: 100%;
 						padding-right: 1rem;
-						white-space: normal;
+						white-space: pre-line;
 						overflow: hidden;
 						text-overflow: ellipsis;
 						@include flexbox(row, nowrap, flex-start, center);

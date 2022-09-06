@@ -41,7 +41,7 @@
 	&,
 	&-wrap {
 		@include extend-viewports-classes(false, $viewports) {
-			white-space: normal;
+			white-space: pre-line;
 		}
 	}
 }

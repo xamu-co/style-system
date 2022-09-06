@@ -11,7 +11,7 @@
 	}
 
 	&:not([class*="-txtWr"]) {
-		white-space: normal;
+		white-space: pre-line;
 	}
 	&:not([class*="-txtCo"]) {
 		color: color(dark, 0.7);
