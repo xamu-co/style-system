@@ -54,13 +54,9 @@
 	&,
 	&-15 {
 		@include extend-viewports-classes(false, $viewports) {
-			--g: 1rem;
-		}
-	}
-	&-none {
-		@include extend-viewports-classes(false, $viewports) {
-			> * {
-				--g: 0;
+			> *:not(:last-child) {
+				margin-bottom: 1rem;
+				margin-bottom: 1rem;
 			}
 		}
 	}
@@ -70,15 +66,8 @@
 	&,
 	&-15 {
 		@include extend-viewports-classes(false, $viewports) {
-			> * {
-				--gx: 1rem;
-			}
-		}
-	}
-	&-none {
-		@include extend-viewports-classes(false, $viewports) {
-			> * {
-				--gx: 0;
+			> *:not(:last-child) {
+				margin-right: 1rem;
 			}
 		}
 	}
@@ -88,15 +77,8 @@
 	&,
 	&-15 {
 		@include extend-viewports-classes(false, $viewports) {
-			> * {
-				--gy: 1rem;
-			}
-		}
-	}
-	&-none {
-		@include extend-viewports-classes(false, $viewports) {
-			> * {
-				--gy: 0;
+			> *:not(:last-child) {
+				margin-bottom: 1rem;
 			}
 		}
 	}
