@@ -21,7 +21,7 @@
 		height: 100%;
 		overflow-y: auto;
 		overflow-x: hidden;
-		font-size: 93.75%; // 15px
+		font-size: 95%;
 		font-weight: weight();
 		text-rendering: optimizeLegibility;
 		@supports (-moz-appearance: none) {
@@ -29,6 +29,23 @@
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: weight(regular-alt);
+		}
+		@media (hover: none) {
+			@media (max-width: $viewportXl) {
+				font-size: 100%;
+			}
+			@media (max-width: $viewportLg) {
+				font-size: 105%;
+			}
+			@media (max-width: $viewportMd) {
+				font-size: 110%;
+			}
+			@media (max-width: $viewportSm) {
+				font-size: 115%;
+			}
+			@media (max-width: $viewportXs) {
+				font-size: 120%;
+			}
 		}
 	}
 
