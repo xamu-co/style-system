@@ -82,7 +82,6 @@
 					padding-right: 0;
 					> * {
 						overflow: visible;
-						width: auto;
 						margin-left: 0 !important;
 						margin-right: 0 !important;
 						@include flexbox(
@@ -92,10 +91,13 @@
 							flex-start !important,
 							inline-flex
 						);
+						&:not([class*="--width"]) {
+							width: auto;
+						}
 						&[class*="grd"]:after {
 							width: 1px;
 						}
-						&:after {
+						&:not(:first-child):after {
 							content: "";
 							display: block;
 							width: 1rem;
