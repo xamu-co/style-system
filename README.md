@@ -36,7 +36,7 @@ a.link {
 }
 ```
 
-Whenever possible avoid using long names. **x-flx** will always be better than **x-flexbox** while mantaining legibility
+Whenever possible avoid using long names. **flx** will always be better than **flexbox** while mantaining legibility
 
 ### Nested components
 
@@ -73,7 +73,7 @@ This allows the duplication without collision
 As the name implies these are for management of the design state and are usually called upon in a dinamyc way using js or related languages
 It can be **"has"** but we recommend using **"is"**, These usually don't have need params
 
-**.elementName.is\_\_statusName{}**
+**.elementName.is--statusName{}**
 
 ```css
 .view.is--active {

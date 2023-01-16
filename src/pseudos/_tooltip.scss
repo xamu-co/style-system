@@ -5,11 +5,12 @@
 	overflow: visible;
 	&:before {
 		content: attr(data-tooltip);
-		white-space: nowrap;
+		width: max-content;
+		white-space: pre-line;
 		pointer-events: none;
 		display: block;
 		overflow: hidden;
-		z-index: 10;
+		z-index: 15;
 		position: absolute;
 		// vertical-align: bottom;
 		color: color(light);
@@ -24,9 +25,10 @@
 		border: 2px solid color(light, 0.1);
 		background: color(dark);
 	}
-	&:hover:not([disabled]):not(.is--routeExact):not(.is--open) {
+	&:hover:not([disabled]:not([disabled="false"])):not(.is--routeExact):not(.is--open):not([class*="toggle--"].only--active.is--active) {
 		@media (hover: hover) {
 			// dektop only
+
 			cursor: pointer;
 			&:before {
 				opacity: 1;
@@ -37,15 +39,21 @@
 	// tooltip bgColor
 	//
 	// @group PseudoModifiers
+	&[data-tooltip-bg="light"]:before {
+		color: color(dark, 0.7);
+	}
+	&[data-tooltip-bg="lightAlt"]:before {
+		color: color(primaryAlt);
+		background: color(light);
+	}
+	&[data-tooltip-bg="secondaryAlt"]:before {
+		background: color(secondary);
+	}
 	@each $name, $color in $colors {
 		&[data-tooltip-bg="#{$name}"]:before {
 			background: color($name);
 		}
 	}
-	// default tooltip bgcolor
-	// &:not([data-tooltip-bg]):before {
-	// 	--tb: color(dark);
-	// }
 
 	// tooltip text behavior
 	//

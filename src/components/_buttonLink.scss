@@ -1,7 +1,7 @@
 // link Navigation element
 //
 // @group Components
-.btnLink {
+.bttnLink {
 	@media (max-width: $viewportSm) {
 		width: 2.4rem;
 		span {
@@ -17,7 +17,11 @@
 		border-width: 2px;
 		padding: 0 0.8rem;
 		width: auto;
-		@media (min-width: $viewportSm + 1) {
+		&:disabled,
+		&[disabled]:not([disabled="false"]) {
+			opacity: 1;
+		}
+		@media (min-width: ($viewportSm + 1)) {
 			&:not(.is--route):not(.is--active) {
 				padding: 0;
 				span {
@@ -51,7 +55,7 @@
 				border-radius: $size;
 				border-width: calc(2px + (#{$size} / 18));
 				padding: 0 #{$size * 0.8};
-				@media (min-width: $viewportSm + 1) {
+				@media (min-width: ($viewportSm + 1)) {
 					&:not(.is--route):not(.is--active) {
 						// icon only
 						width: $size * 2.6;
@@ -61,7 +65,7 @@
 		}
 	}
 
-	@media (min-width: $viewportMd + 1) {
+	@media (min-width: ($viewportMd + 1)) {
 		// desktop
 		--cl: var(--rw) !important;
 		--bg: transparent !important;
@@ -124,7 +128,7 @@
 			}
 		}
 		// default theme: secondary
-		&:not([class*="--tm"]),
+		&:not([class*="-tm"]),
 		&.--tm-secondary-light {
 			--rw: #{color(secondary)};
 			&:hover:not(.is--active):not(.is--routeExact) {

@@ -12,8 +12,6 @@
 	}
 }
 nav.list {
-	// width: 100%;
-	// width: 100%;
 	> input[type^="c"] {
 		display: none;
 	}
@@ -39,6 +37,7 @@ nav.list {
 		ul.list-group,
 		ol.list-group {
 			max-height: 0;
+			overflow: hidden;
 			> li {
 				width: 100%;
 			}
@@ -51,7 +50,7 @@ span.list-title {
 }
 ul.list-group,
 ol.list-group {
-	overflow: hidden;
+	overflow: visible;
 
 	// flow direction
 	//
@@ -67,7 +66,7 @@ ol.list-group {
 	&.--flow-column {
 		// Flow
 		@include flexbox(column, nowrap, flex-start, stretch);
-		> li:not(:last-child) {
+		> *:not(:last-child) {
 			margin-bottom: 0.5rem;
 		}
 	}
@@ -79,7 +78,7 @@ ol.list-group {
 		}
 		&,
 		:not([class*="-txtWr"]) {
-			white-space: normal;
+			white-space: pre-line;
 		}
 		a,
 		label,

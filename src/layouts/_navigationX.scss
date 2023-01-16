@@ -32,15 +32,15 @@
 					&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
-					&.btnLink {
+					&.bttnLink {
 						&:not(:hover):not(.is--active):not(.is--routeExact) {
-							@media (min-width: $viewportMd + 1) {
+							@media (min-width: ($viewportMd + 1)) {
 								text-shadow: 1px 1px 1px
 									var(--sh, #{color(dark, 0.3)});
 							}
 						}
 					}
-					&.btn {
+					&.bttn {
 						&.is--active,
 						&.is--routeExact {
 							text-shadow: 1px 1px 1px
@@ -54,14 +54,14 @@
 						&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 							text-shadow: none;
 						}
-						&.btnLink {
+						&.bttnLink {
 							&:not(:hover):not(.is--active):not(.is--routeExact) {
-								@media (min-width: $viewportMd + 1) {
+								@media (min-width: ($viewportMd + 1)) {
 									text-shadow: none;
 								}
 							}
 						}
-						&.btn {
+						&.bttn {
 							&.is--active,
 							&.is--routeExact {
 								text-shadow: none;
@@ -70,19 +70,19 @@
 					}
 				}
 				// desktop only, use hover
-				@media (min-width: $viewportMd + 1) {
-					&:hover > .toggle--dropdown:not(.only__active) {
+				@media (min-width: ($viewportMd + 1)) {
+					&:hover > .toggle--dropdown:not(.only--active) {
 						&,
 						> * {
 							&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 								text-shadow: none;
 							}
-							&.btnLink {
+							&.bttnLink {
 								&:not(:hover):not(.is--active):not(.is--routeExact) {
 									text-shadow: none;
 								}
 							}
-							&.btn {
+							&.bttn {
 								&.is--active,
 								&.is--routeExact {
 									text-shadow: none;
@@ -93,14 +93,14 @@
 				}
 				// mobile only, use focus
 				@media (max-width: $viewportMd) {
-					&:focus-within:not(.no__focus)
-						> .toggle--dropdown:not(.only__active) {
+					&:focus-within:not(.no--focus)
+						> .toggle--dropdown:not(.only--active) {
 						&,
 						> * {
 							&.link:not(:hover):not(.is--active):not(.is--routeExact)[class*="-tm-light"] {
 								text-shadow: none;
 							}
-							&.btn {
+							&.bttn {
 								&.is--active,
 								&.is--routeExact {
 									text-shadow: none;
@@ -145,7 +145,7 @@
 			> *,
 			> * > * {
 				&.link,
-				&.btnLink {
+				&.bttnLink {
 					&:not(:hover):not(.is--active):not(.is--routeExact) {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
@@ -155,18 +155,18 @@
 				&,
 				> * {
 					&.link,
-					&.btnLink {
+					&.bttnLink {
 						text-shadow: none;
 					}
 				}
 			}
 			// desktop only, use hover
-			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle--dropdown:not(.only__active) {
+			@media (min-width: ($viewportMd + 1)) {
+				&:hover > .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,
-						&.btnLink {
+						&.bttnLink {
 							text-shadow: none;
 						}
 					}
@@ -174,12 +174,12 @@
 			}
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no__focus)
-					> .toggle--dropdown:not(.only__active) {
+				&:focus-within:not(.no--focus)
+					> .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,
-						&.btnLink {
+						&.bttnLink {
 							text-shadow: none;
 						}
 					}
@@ -190,7 +190,7 @@
 			> *,
 			> * > * {
 				&.link,
-				&.btnLink {
+				&.bttnLink {
 					&:hover,
 					&.is--active,
 					&.is--routeExact {
@@ -202,18 +202,18 @@
 				&,
 				> * {
 					&.link,
-					&.btnLink {
+					&.bttnLink {
 						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 					}
 				}
 			}
 			// desktop only, use hover
-			@media (min-width: $viewportMd + 1) {
-				&:hover > .toggle--dropdown:not(.only__active) {
+			@media (min-width: ($viewportMd + 1)) {
+				&:hover > .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,
-						&.btnLink {
+						&.bttnLink {
 							text-shadow: 1px 1px 1px
 								var(--sh, #{color(dark, 0.3)});
 						}
@@ -222,12 +222,12 @@
 			}
 			// mobile only, use focus
 			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no__focus)
-					> .toggle--dropdown:not(.only__active) {
+				&:focus-within:not(.no--focus)
+					> .toggle--dropdown:not(.only--active) {
 					&,
 					> * {
 						&.link,
-						&.btnLink {
+						&.bttnLink {
 							text-shadow: 1px 1px 1px
 								var(--sh, #{color(dark, 0.3)});
 						}

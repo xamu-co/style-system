@@ -54,6 +54,7 @@
 }
 
 // flex inline container
+.txt > .flx,
 .flxInline {
 	@include extend-device-interactions {
 		display: inline-flex;

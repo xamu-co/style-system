@@ -6072,9 +6072,9 @@ postcss-ordered-values@^4.1.2:
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
 
-postcss-precision@TedMeftah/postcss-precision#1.0.0:
+postcss-precision@vis97c/postcss-precision:
   version "1.0.0"
-  resolved "https://codeload.github.com/TedMeftah/postcss-precision/tar.gz/30e270051c8e7878f7aa63d9b37101f0c99cbc8b"
+  resolved "https://codeload.github.com/vis97c/postcss-precision/tar.gz/ee47ca3a8a09273d7bed9328de5cc8b2996f6124"
   dependencies:
     postcss "^5.2.5"
 

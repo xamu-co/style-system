@@ -13,7 +13,7 @@
 	@if $responsive {
 		@each $name, $viewport in $localViewports {
 			// mobile first
-			@media (min-width: $viewport + 1) {
+			@media (min-width: ($viewport + 1)) {
 				// default: class selector
 				&\:#{$name} {
 					@content;
@@ -49,7 +49,7 @@
 					'"]'
 				);
 				// mobile first
-				@media (min-width: $viewport + 1) {
+				@media (min-width: ($viewport + 1)) {
 					// attr selector support
 					$end: if($not, '"])', '"]');
 					@at-root #{str-slice($newSelector, 1, $minus)

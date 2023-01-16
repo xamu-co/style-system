@@ -9,76 +9,76 @@
 // @group GlobalModifiers
 .--gap {
 	// flex, column & grid only
-	@include extend-viewports-classes {
-		gap: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes(false, $viewports) {
+			gap: 1rem;
+		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			gap: 0;
 		}
 	}
 }
 .--gapX {
 	// flex, column & grid only, X axis
-	@include extend-viewports-classes {
-		column-gap: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes(false, $viewports) {
+			column-gap: 1rem;
+		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			column-gap: 0;
 		}
 	}
 }
 .--gapY {
 	// flex, column & grid only, Y axis
-	@include extend-viewports-classes {
-		row-gap: 1rem;
+	&,
+	&-15 {
+		@include extend-viewports-classes(false, $viewports) {
+			row-gap: 1rem;
+		}
 	}
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			row-gap: 0;
 		}
 	}
 }
 
 .--gaping {
-	@include extend-viewports-classes {
-		--g: 1rem;
-	}
-	&-none {
-		@include extend-viewports-classes {
-			> * {
-				--g: 0;
+	&,
+	&-15 {
+		@include extend-viewports-classes(false, $viewports) {
+			> *:not(:last-child) {
+				margin-bottom: 1rem;
+				margin-bottom: 1rem;
 			}
 		}
 	}
 }
 .--gapingX {
 	// X dimension
-	@include extend-viewports-classes {
-		> * {
-			--gx: 1rem;
-		}
-	}
-	&-none {
-		@include extend-viewports-classes {
-			> * {
-				--gx: 0;
+	&,
+	&-15 {
+		@include extend-viewports-classes(false, $viewports) {
+			> *:not(:last-child) {
+				margin-right: 1rem;
 			}
 		}
 	}
 }
 .--gapingY {
 	// Y dimension
-	@include extend-viewports-classes {
-		> * {
-			--gy: 1rem;
-		}
-	}
-	&-none {
-		@include extend-viewports-classes {
-			> * {
-				--gy: 0;
+	&,
+	&-15 {
+		@include extend-viewports-classes(false, $viewports) {
+			> *:not(:last-child) {
+				margin-bottom: 1rem;
 			}
 		}
 	}
@@ -88,19 +88,19 @@
 	// grid Gap, future flex gap
 	.--gap-#{$i*5} {
 		// flex, column & grid only
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			gap: #{$i/3}rem;
 		}
 	}
 	.--gapX-#{$i*5} {
 		// flex, column & grid only, X axis
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			column-gap: #{$i/3}rem;
 		}
 	}
 	.--gapY-#{$i*5} {
 		// flex, column & grid only, Y axis
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			row-gap: #{$i/3}rem;
 		}
 	}
@@ -108,7 +108,7 @@
 	// Gaping
 	// Fallback for gap on non supporting browsers
 	.--gaping-#{$i*5} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			margin: 0 -#{$i/3}rem -#{$i/3}rem 0;
 			> * {
 				margin: 0 #{$i/3}rem #{$i/3}rem 0;
@@ -116,14 +116,14 @@
 		}
 	}
 	.--gapingX-#{$i*5} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> *:not(:last-child) {
 				margin-right: #{$i/3}rem;
 			}
 		}
 	}
 	.--gapingY-#{$i*5} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			> *:not(:last-child) {
 				margin-bottom: #{$i/3}rem;
 			}

@@ -4,25 +4,25 @@
 .--txtTransform {
 	&-lower,
 	&-lowercase {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			text-transform: lowercase;
 		}
 	}
 	&-upper,
 	&-uppercase {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			text-transform: uppercase;
 		}
 	}
 	&-capitalize {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			text-transform: capitalize;
 		}
 	}
 	// default
 	&,
 	&-none {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			text-transform: none;
 		}
 	}
@@ -33,15 +33,15 @@
 // @group GlobalModifiers
 .--txtWrap {
 	&-nowrap {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			white-space: nowrap;
 		}
 	}
 	// default
 	&,
 	&-wrap {
-		@include extend-viewports-classes {
-			white-space: normal;
+		@include extend-viewports-classes(false, $viewports) {
+			white-space: pre-line;
 		}
 	}
 }
@@ -51,19 +51,19 @@
 // @group GlobalModifiers
 .--txtStyle {
 	&-normal {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			font-style: normal;
 		}
 	}
 	&-oblique {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			font-style: oblique;
 		}
 	}
 	// default
 	&,
 	&-italic {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			font-style: italic;
 		}
 	}
@@ -74,7 +74,7 @@
 // @group GlobalModifiers
 .--txtWeight {
 	&-bold {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			font-weight: weight(bold);
 			@supports (-moz-appearance: none) {
 				// firefox fix
@@ -84,7 +84,7 @@
 	}
 	&,
 	&-regular {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			font-weight: weight();
 			@supports (-moz-appearance: none) {
 				// firefox fix
@@ -99,25 +99,25 @@
 // @group FamilyGlobalModifiers
 .--txtAlignFlx {
 	&-right {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&,
-			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: flex-end;
 			}
 		}
 	}
 	&-center {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&,
-			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: center;
 			}
 		}
 	}
 	&-justify {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&,
-			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: stretch;
 			}
 		}
@@ -125,9 +125,9 @@
 	// default
 	&,
 	&-left {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&,
-			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
+			> :not(p):not([class*="-txtA"]):not(.flx):not(.grd) {
 				align-items: flex-start;
 			}
 		}
@@ -137,13 +137,9 @@
 	&-justify,
 	&-center,
 	&-right {
-		@include extend-viewports-classes {
-			&:not([class|="x"]):not(table):not(thead):not(tbody) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(table):not(thead):not(tbody) {
 				// Gaping
-				display: inline-block;
-			}
-			&,
-			> :not(p):not([class*="-txtA"]):not([class|="x"]) {
 				display: inline-flex;
 				flex-flow: column nowrap;
 				justify-content: flex-start;
@@ -158,25 +154,37 @@
 .--txtAlign,
 .--txtAlignFlx {
 	&-right {
-		@include extend-viewports-classes {
-			text-align: right;
+		@include extend-viewports-classes(false, $viewports) {
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: right;
+			}
 		}
 	}
 	&-center {
-		@include extend-viewports-classes {
-			text-align: center;
+		@include extend-viewports-classes(false, $viewports) {
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: center;
+			}
 		}
 	}
 	&-justify {
-		@include extend-viewports-classes {
-			text-align: justify;
+		@include extend-viewports-classes(false, $viewports) {
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: justify;
+			}
 		}
 	}
 	// default
 	&,
 	&-left {
-		@include extend-viewports-classes {
-			text-align: left;
+		@include extend-viewports-classes(false, $viewports) {
+			&,
+			*:not([class*="-txtA"]) {
+				text-align: left;
+			}
 		}
 	}
 }
@@ -186,13 +194,13 @@
 // @group GlobalModifiers
 .--txtSize,
 .--txtSize-normal {
-	@include extend-viewports-classes {
+	@include extend-viewports-classes(false, $viewports) {
 		font-size: size();
 	}
 }
 @each $name, $size in $fontSizes {
 	.--txtSize-#{$name} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			font-size: $size;
 		}
 	}
@@ -203,7 +211,7 @@
 // Text color
 .--txtColor {
 	&,
-	> :not([class*="-txtCo"]):not([class|="x"]) {
+	> :not([class*="-txtCo"]) {
 		// Color
 		color: color(dark, 0.7);
 	}
@@ -212,7 +220,7 @@
 // Shadow color
 .--txtShadow {
 	&,
-	> :not([class*="-txtSh"]):not([class|="x"]) {
+	> :not([class*="-txtSh"]) {
 		// Shadow
 		text-shadow: 1px 1px 1px color(dark, 0.3);
 	}
@@ -225,9 +233,9 @@
 @each $name, $color in $colors {
 	// text color
 	.--txtColor-#{$name} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&,
-			> :not([class*="-txtCo"]):not([class|="x"]) {
+			> :not([class*="-txtCo"]) {
 				// Color
 				color: color($name);
 			}
@@ -236,9 +244,9 @@
 
 	// text shadow
 	.--txtShadow-#{$name} {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&,
-			> :not([class*="-txtSh"]):not([class|="x"]) {
+			> :not([class*="-txtSh"]) {
 				// Shadow
 				text-shadow: 1px 1px 1px color($name);
 			}
@@ -249,9 +257,9 @@
 	@for $i from 1 through 9 {
 		// text color
 		.--txtColor-#{$name}#{$i} {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(false, $viewports) {
 				&,
-				> :not([class*="-txtCo"]):not([class|="x"]) {
+				> :not([class*="-txtCo"]) {
 					// Shadow
 					color: color($name, $i/10);
 				}
@@ -260,9 +268,9 @@
 
 		// text shadow
 		.--txtShadow-#{$name}#{$i} {
-			@include extend-viewports-classes {
+			@include extend-viewports-classes(false, $viewports) {
 				&,
-				> :not([class*="-txtSh"]):not([class|="x"]) {
+				> :not([class*="-txtSh"]) {
 					// Shadow
 					text-shadow: 1px 1px 1px color($name, $i/10);
 				}

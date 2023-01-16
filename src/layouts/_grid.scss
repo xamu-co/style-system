@@ -81,8 +81,22 @@
 .grd {
 	@include extend-device-interactions {
 		display: grid;
-		// height: auto;
 		width: 100%;
+	}
+}
+.grdInline {
+	@include extend-device-interactions {
+		display: inline-grid;
+		width: max-content;
+		max-width: 100%;
+	}
+}
+
+.grd,
+.grdInline {
+	@include extend-device-interactions {
+		// height: auto;
+		grid-template-columns: 1fr;
 		grid-auto-rows: minmax(min-content, 100%);
 		overflow: visible;
 

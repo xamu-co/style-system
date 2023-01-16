@@ -2,10 +2,12 @@ $selectPathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 $selectPathUp: "#{$selectPathStart} fill='%23";
 $selectPathDown: "#{$selectPathStart} transform='rotate(180 8.236 5)' fill='%23";
 $selectPathEnd: "'/%3E%3C/svg%3E";
+
 // website logo
+// select or datalist
 //
 // @group Components
-select.iSelect {
+.iSelect {
 	width: 100%;
 	display: inline-block;
 	background-repeat: no-repeat;
@@ -108,7 +110,7 @@ select.iSelect {
 			&-dark,
 			&-primaryAlt {
 				&:disabled,
-				&[disabled] {
+				&[disabled]:not([disabled="false"]) {
 					//chevron-light down
 					background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3#{$selectPathEnd}");
 				}
@@ -116,23 +118,23 @@ select.iSelect {
 		}
 		&.--tm-primary-light {
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				//chevron-primary down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
 		}
 		&.--tm-primaryAlt-light {
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				//chevron-primaryAlt down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
 		}
 		// default
-		&:not([class*="--tm"]),
+		&:not([class*="-tm"]),
 		&.--tm-secondary-light {
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				//chevron-secondary down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
@@ -141,12 +143,12 @@ select.iSelect {
 	&.is--invalid,
 	&.--tm-danger-light {
 		&:disabled,
-		&[disabled] {
+		&[disabled]:not([disabled="false"]) {
 			//chevron-danger down
 			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
 		}
 	}
-	&:not([class*="--tm"]),
+	&:not([class*="-tm"]),
 	&.--tm-primary-light,
 	&.--tm-primaryAlt-light,
 	&.--tm-secondary-light,

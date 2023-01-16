@@ -25,7 +25,7 @@
 		height: auto;
 		bottom: 0;
 		background-color: color(secondary);
-		@media (min-width: $viewportMd + 1) {
+		@media (min-width: ($viewportMd + 1)) {
 			background-attachment: fixed;
 			@supports (-webkit-overflow-scrolling: touch) {
 				// ios fix

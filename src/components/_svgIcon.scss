@@ -5,13 +5,15 @@
 a,
 label,
 button {
-	&:hover,
-	&.is--active,
-	&.is--routeExact {
-		.svg {
-			--cl: var(--cl-a, #{color(dark, 0.7)});
-			&.is--logo {
-				--cl: var(--cl-l, #{color(primary)});
+	&:not(.bttnToggle) {
+		&:hover,
+		&.is--active,
+		&.is--routeExact {
+			.svg {
+				--cl: var(--cl-a, #{color(dark, 0.7)});
+				&.is--logo {
+					--cl: var(--cl-l, #{color(primary)});
+				}
 			}
 		}
 	}
@@ -52,6 +54,18 @@ button {
 			--cl: #{color(primaryAlt)};
 			--cl-a: #{color(light)};
 			// --cl-l: #{color(primary)};
+		}
+		&-secondary {
+			--cl: #{color(secondary)};
+			--cl-a: #{color(light)};
+		}
+		&-danger {
+			--cl: #{color(danger)};
+			--cl-a: #{color(light)};
+		}
+		&-success {
+			--cl: #{color(success)};
+			--cl-a: #{color(light)};
 		}
 		&-light,
 		&-lightAlt {

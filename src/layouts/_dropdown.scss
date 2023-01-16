@@ -65,79 +65,72 @@
 /// @example njk
 ///  {% extends "dropdown.njk" %}
 
-.toggle--dropdown {
-	&.is--active {
+@mixin toggleStyles {
+	&:not(.bttnToggle) >,
+	> :not(.bttnToggle) > {
 		i.icon,
 		.svg {
-			&:last-child,
-			&.is--toggleIndicator {
+			&:last-child {
 				transform: rotate(180deg);
 			}
 			&.is--toggleIndicator ~ :last-child {
 				// prevent tranform is toggle indicator is defined
 				transform: none;
 			}
-		}
-		+ .dropdown {
-			display: block;
 		}
 	}
 	i.icon,
 	.svg {
-		&:last-child {
-			transition: all 0.1s ease-out;
+		&.is--toggleIndicator {
+			transform: rotate(180deg);
+		}
+	}
+	+ .dropdown {
+		display: block;
+		&.flx {
+			display: flex;
+		}
+		&.flxInline {
+			display: inline-flex;
+		}
+		&.grd {
+			display: grid;
+		}
+		&.grdInline {
+			display: inline-grid;
 		}
 	}
 }
-// desktop only
-@media (min-width: $viewportMd + 1) {
-	*:hover > .toggle--dropdown:not(.only__active),
-	.toggle--dropdown:not(.only__active):hover:not(.no__hover) {
-		i.icon,
-		.svg {
-			&:last-child,
-			&.is--toggleIndicator {
-				transform: rotate(180deg);
-			}
-			&.is--toggleIndicator ~ :last-child {
-				// prevent tranform is toggle indicator is defined
-				transform: none;
-			}
-		}
-		+ .dropdown {
-			display: block;
-		}
+
+.toggle--dropdown {
+	&.is--active,
+	&:not(.only--active):hover {
+		@include toggleStyles;
 	}
 }
-// mobile only
-@media (max-width: $viewportMd) {
-	.toggle--dropdown:not(.only__active):focus-within:not(.no__focus) {
-		i.icon,
-		.svg {
-			&:last-child,
-			&.is--toggleIndicator {
-				transform: rotate(180deg);
-			}
-			&.is--toggleIndicator ~ :last-child {
-				// prevent tranform is toggle indicator is defined
-				transform: none;
-			}
-		}
-		+ .dropdown {
-			display: block;
-		}
+// hover devices only any size (mostly desktop)
+// use hover
+@media (hover: hover) {
+	*:hover > .toggle--dropdown:not(.only--active),
+	.toggle--dropdown:not(.only--active):hover:not(.no--hover) {
+		@include toggleStyles;
+	}
+}
+// tablet with no hover only (tablets & mobile devices)
+// use focus & .is--active class
+@media (max-width: $viewportMd) and (hover: none) {
+	.toggle--dropdown:not(.only--active):focus-within:not(.no--focus) {
+		@include toggleStyles;
 	}
 }
 
 .dropdown {
 	z-index: 10;
-	padding: 0.7rem 1rem;
-	border-radius: 1rem;
-	background: color(light);
-	box-shadow: 3px 3px 9px color(dark, 0.3);
 	position: absolute;
-	&:not([class*="-txtSi"]) {
-		font-size: size(sm);
+	&,
+	&.flx,
+	&.grd {
+		display: none;
 	}
 	&:before {
 		content: "";
@@ -146,11 +139,27 @@
 		width: 100%;
 		height: 100%;
 	}
-	&:not(:hover) {
-		display: none;
-	}
-	@media (max-width: $viewportMd) {
-		display: none;
+	&:not(.has--items),
+	&-item {
+		background: color(light);
+		box-shadow: 3px 3px 9px color(dark, 0.3);
+		&:not([class*="-txtSi"]) {
+			font-size: size(sm);
+		}
+		&.--size-lg {
+			padding: 1rem 1.333rem;
+			border-radius: 1.667rem;
+		}
+		&:not([class*="--size"]),
+		&.--size,
+		&.--size-md {
+			padding: 0.7rem 1rem;
+			border-radius: 1.333rem;
+		}
+		&.--size-sm {
+			padding: 0.5rem 0.7rem;
+			border-radius: 0.5rem;
+		}
 	}
 
 	// Position

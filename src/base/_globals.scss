@@ -13,6 +13,7 @@
 	border: 0;
 	position: relative;
 	font-family: inherit;
+	font-weight: inherit;
 	font-size: 1em;
 	line-height: $lineHeight;
 	appearance: none;
@@ -36,7 +37,7 @@ h1:not([class*="-txtSi"]):not([class*="swal"]) {
 	br {
 		display: none;
 	}
-	@media (min-width: $viewportMd + 1) {
+	@media (min-width: ($viewportMd + 1)) {
 		font-size: size(xx);
 		br {
 			display: inline;
@@ -49,7 +50,7 @@ h2:not([class*="-txtSi"]):not([class*="swal"]) {
 	br {
 		display: none;
 	}
-	@media (min-width: $viewportMd + 1) {
+	@media (min-width: ($viewportMd + 1)) {
 		font-size: size(xl);
 		br {
 			display: inline;
@@ -93,10 +94,24 @@ p {
 	word-break: break-word;
 
 	/* Adds a hyphen where the word breaks, if supported (No Blink) */
-	hyphens: auto;
+	hyphens: none;
 	> a {
 		display: inline !important;
 		// white-space: normal !important;
+	}
+}
+
+input {
+	&[type="number"]:not(.--arrows) {
+		/* Chrome, Safari, Edge, Opera */
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		/* Firefox */
+		-moz-appearance: textfield;
 	}
 }
 
@@ -151,15 +166,21 @@ iframe {
 
 a,
 button,
-label,
-select {
-	white-space: nowrap;
+label {
 	text-align: center;
+}
+
+a,
+button,
+label,
+select,
+datalist {
+	white-space: nowrap;
 	&,
 	* {
-		vertical-align: middle;
+		vertical-align: inherit;
 	}
-	&:not(:disabled):not([disabled]):hover {
+	&:not(:disabled):not([disabled]:not([disabled="false"])):hover {
 		cursor: pointer;
 	}
 }
@@ -168,7 +189,8 @@ select {
 	> a,
 	> button,
 	> label,
-	> select {
+	> select,
+	> datalist {
 		&.is--routeExact:not([class*="toggle--"]) {
 			pointer-events: none;
 		}
@@ -183,20 +205,7 @@ h5,
 h6 {
 	&,
 	:not([class*="-txtWr"]) {
-		white-space: normal;
-	}
-}
-
-// global font weight
-// breaking it because it is too long
-:not(a):not(b):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(th):not(button):not(strong) {
-	// xamu
-	&:not(label[class|="x"]):not([class*="-txtWe"]) {
-		// external brands
-		&:not(.fas):not(.far):not(.fab):not([class*="swal"]) {
-			// Weight
-			font-weight: inherit;
-		}
+		white-space: pre-line;
 	}
 }
 
@@ -228,11 +237,14 @@ strong {
 a,
 button,
 select,
+datalist,
 label,
 label:after,
 .box,
 .svg [fill]:not([fill="none"]),
+i.icon:before,
 *[data-tooltip]:before,
+[class*="avatar"],
 [class*="avatar"] img {
-	transition: all 0.2s ease-out, background-image 0s;
+	transition: all 0.1s ease-out, background-image 0s;
 }

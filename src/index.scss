@@ -9,14 +9,6 @@
 @import "utils/module";
 
 @media only screen {
-	// @import "vendor/module"; // the vendors are independent in this built
-
-	:root {
-		// global custom properties
-	}
-
-	// @import "fonts/module"; // this project uses google fonts
-
 	@import "base/module";
 	@import "base/modifiers/module"; // nested imports take longer to compile
 
@@ -29,7 +21,7 @@
 		height: 100%;
 		overflow-y: auto;
 		overflow-x: hidden;
-		font-size: 100%;
+		font-size: 95%;
 		font-weight: weight();
 		text-rendering: optimizeLegibility;
 		@supports (-moz-appearance: none) {
@@ -38,11 +30,21 @@
 			-moz-osx-font-smoothing: grayscale;
 			font-weight: weight(regular-alt);
 		}
-		&.is--modalOpen {
-			overflow-y: hidden;
-			@media (hover: hover) {
-				box-sizing: border-box;
-				border-right: 1rem solid color(light);
+		@media (hover: none) {
+			@media (max-width: $viewportXl) {
+				font-size: 100%;
+			}
+			@media (max-width: $viewportLg) {
+				font-size: 105%;
+			}
+			@media (max-width: $viewportMd) {
+				font-size: 110%;
+			}
+			@media (max-width: $viewportSm) {
+				font-size: 115%;
+			}
+			@media (max-width: $viewportXs) {
+				font-size: 120%;
 			}
 		}
 	}
@@ -61,9 +63,5 @@
 				overflow-x: hidden;
 			}
 		}
-	}
-	#appex {
-		width: 100%;
-		@include flexbox(column, nowrap, flex-start, stretch);
 	}
 }

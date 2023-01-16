@@ -7,7 +7,6 @@
 	display: block;
 	overflow: hidden;
 	flex: 0 0 auto;
-	transition: all 0.1s ease-out;
 	background-color: color(light);
 
 	// avatar size
@@ -115,25 +114,28 @@ i.icon {
 // button defaults & round modifier
 //
 // @group SharedStyles
-.btn,
-.btnToggle {
+.bttn,
+.bttnToggle {
 	// this is the default value
 	// Size
 	padding: 0 0.8rem;
+	&.--round {
+		@include extend-viewports-classes(true, $viewports) {
+			padding: 0; // button padding
+			width: 2.4rem;
+		}
+	}
 }
 :not([class*="toggle--"]) > :not([class*="toggle--"]) {
-	&.btn,
-	&.btnToggle {
+	&.bttn,
+	&.bttnToggle {
 		// round button
 		//
 		// @group Modifiers
 		&.--round {
 			@include extend-viewports-classes(true, $viewports) {
-				padding: 0; // button padding
-				width: 2.4rem;
 				i.icon,
 				.svg {
-					margin: 0 !important;
 					+ span {
 						display: none;
 					}
@@ -147,7 +149,7 @@ i.icon {
 //
 // @group SharedStyles,
 .link,
-[class*="btn"] {
+[class*="bttn"] {
 	flex: 0 0 auto;
 	@include flexbox(row, nowrap, center, center, inline-flex);
 }
@@ -155,11 +157,18 @@ i.icon {
 // icon behavior
 //
 // @group SharedStyles
-.btn,
-.btnToggle,
+.bttn,
+.bttnToggle,
 .link {
 	> * + * {
 		margin-left: 0.4em;
+	}
+	&.--round {
+		@include extend-viewports-classes(true, $viewports) {
+			> * + * {
+				margin-left: 0;
+			}
+		}
 	}
 }
 
@@ -167,7 +176,7 @@ i.icon {
 //
 // @group SharedStyles
 .link,
-.btnToggle {
+.bttnToggle {
 	&.is--alert:after {
 		content: "";
 		display: block;
@@ -188,8 +197,8 @@ i.icon {
 // Invalid state does not make sense on selects
 //
 // @group SharedStyles
-[class*="btn"]:not(.btnToggle),
-select.iSelect {
+[class*="bttn"]:not(.bttnToggle),
+.iSelect {
 	// first value is the bgColor
 	// second value is the textColor
 	//
@@ -198,7 +207,8 @@ select.iSelect {
 		&.--tm-light {
 			&-secondary {
 				--cl: #{color(secondary)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(secondary, 0.7)};
@@ -208,7 +218,8 @@ select.iSelect {
 			}
 			&-dark7 {
 				--cl: #{color(dark, 0.7)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(dark, 0.3)};
@@ -218,7 +229,8 @@ select.iSelect {
 			}
 			&-primaryAlt {
 				--cl: #{color(primaryAlt)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(primaryAlt, 0.7)};
@@ -228,7 +240,8 @@ select.iSelect {
 			}
 			&-danger {
 				--cl: #{color(danger)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(danger, 0.7)};
@@ -238,7 +251,8 @@ select.iSelect {
 			}
 			&-success {
 				--cl: #{color(success)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(success, 0.7)};
@@ -249,7 +263,8 @@ select.iSelect {
 			&-primary {
 				--cl: #{color(primary)};
 				--bg: #{color(light)};
-				&:not(.is--route):not(.is--active) {
+				&:not(.is--route):not(.is--active),
+				&.is--route.no--route {
 					&:hover,
 					&:focus {
 						--cl: #{color(primary, 0.7)};
@@ -267,14 +282,14 @@ select.iSelect {
 			&-success {
 				--bg: #{color(light)};
 				&.is--active,
-				&.is--route:not(.is--routeExact) {
+				&.is--route:not(.no--route):not(.is--routeExact) {
 					&:hover,
 					&:focus {
 						--cl: #{color(light, 0.7)};
 					}
 				}
 				&:disabled,
-				&[disabled] {
+				&[disabled]:not([disabled="false"]) {
 					--cl: #{color(light, 0.3)};
 				}
 			}
@@ -282,7 +297,8 @@ select.iSelect {
 		&.--tm-primary-light {
 			--cl: #{color(light)};
 			--bg: #{color(primary)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
@@ -290,21 +306,22 @@ select.iSelect {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
 				}
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(primary, 0.3)};
 			}
 		}
 		&.--tm-primaryAlt-primary {
 			--cl: #{color(primary)};
 			--bg: #{color(primaryAlt)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(primary, 0.7)};
@@ -312,21 +329,22 @@ select.iSelect {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(primaryAlt, 0.7)};
 				}
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(primaryAlt, 0.3)};
 			}
 		}
 		&.--tm-success-light {
 			--cl: #{color(light)};
 			--bg: #{color(success)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
@@ -334,14 +352,14 @@ select.iSelect {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(success, 0.7)};
 				}
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(success, 0.3)};
 			}
 		}
@@ -350,7 +368,8 @@ select.iSelect {
 		&.--tm-secondary-light {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
-			&:not(.is--route):not(.is--active) {
+			&:not(.is--route):not(.is--active),
+			&.is--route.no--route {
 				&:hover,
 				&:focus {
 					--cl: #{color(light, 0.7)};
@@ -358,20 +377,20 @@ select.iSelect {
 				}
 			}
 			&.is--active,
-			&.is--route:not(.is--routeExact) {
+			&.is--route:not(.no--route):not(.is--routeExact) {
 				&:hover,
 				&:focus {
 					--cl: #{color(secondary, 0.7)};
 				}
 			}
-			&.is--route {
+			&.is--route:not(.no--route) {
 				--cl: #{color(secondary)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route) {
 				--cl: #{color(dark, 0.7)};
 			}
 			&:disabled,
-			&[disabled] {
+			&[disabled]:not([disabled="false"]) {
 				--cl: #{color(secondary, 0.3)};
 			}
 		}
@@ -380,7 +399,8 @@ select.iSelect {
 	&.--tm-danger-light {
 		--cl: #{color(light)};
 		--bg: #{color(danger)};
-		&:not(.is--route):not(.is--active) {
+		&:not(.is--route):not(.is--active),
+		&.is--route.no--route {
 			&:hover,
 			&:focus {
 				--cl: #{color(light, 0.7)};
@@ -388,55 +408,61 @@ select.iSelect {
 			}
 		}
 		&.is--active,
-		&.is--route:not(.is--routeExact) {
+		&.is--route:not(.no--route):not(.is--routeExact) {
 			&:hover,
 			&:focus {
 				--cl: #{color(danger, 0.7)};
 			}
 		}
 		&:disabled,
-		&[disabled] {
+		&[disabled]:not([disabled="false"]) {
 			--cl: #{color(danger, 0.3)};
 		}
 	}
 
 	// OVERRIDE: dejar en el final
-	&.is--active,
-	&.is--route,
-	&.is--routeExact {
+	// increased specificity
+	&.is--active.is--active,
+	&.is--route:not(.no--route),
+	&.is--routeExact.is--routeExact {
 		--cl: var(--bg);
 		--bc: var(--cl);
 	}
 	&.is--active,
-	&.is--route:not(.is--routeExact) {
+	&.is--route:not(.no--route):not(.is--routeExact) {
 		&:hover,
 		&:focus {
 			--bc: var(--cl);
 		}
 	}
 	&:disabled,
-	&[disabled] {
+	&[disabled]:not([disabled="false"]) {
 		--bc: var(--cl);
 	}
 	&.is--routeExact,
-	&.is--route,
+	&.is--route:not(.no--route),
 	&.is--active,
 	&:disabled,
-	&[disabled] {
+	&[disabled]:not([disabled="false"]) {
 		background-color: var(--bg-a, transparent);
 	}
 }
 
 // default size
+// Size
+// this is the default value
 //
 // @group SharedStyles
-.btn,
-.btnToggle,
-.iTxt,
-select.iSelect {
-	// Size
-	// this is the default value
+.bttn,
+.bttnToggle,
+.iTxt:not(textarea),
+.iSelect {
 	height: 2.4rem;
+}
+.bttn,
+.bttnToggle,
+.iTxt,
+.iSelect {
 	border-radius: 1rem;
 	border-width: 2px;
 }
@@ -444,9 +470,9 @@ select.iSelect {
 // capitalize
 //
 // @group SharedStyles
-[class*="btn"]:not(.btnY),
+[class*="bttn"]:not(.bttnY),
 .link,
-select.iSelect {
+.iSelect {
 	&:not([class*="-txtTransform"]) {
 		&,
 		> :not(.icon) {
@@ -460,24 +486,32 @@ select.iSelect {
 // disabled behavior
 //
 // @group SharedStyles
-[class*="btn"]:not(.btnY),
+[class*="bttn"]:not(.bttnY),
 .iTxt,
 .link,
-select.iSelect {
+.iSelect {
 	&:disabled,
-	&[disabled] {
-		opacity: 0.3;
+	&[disabled]:not([disabled="false"]) {
 		pointer-events: none;
+	}
+}
+.bttnToggle,
+.bttnLink,
+.iTxt,
+.link {
+	&:disabled,
+	&[disabled]:not([disabled="false"]) {
+		opacity: 0.3;
 	}
 }
 
 // basic styling
 //
 // @group SharedStyles
-[class*="btn"],
+[class*="bttn"],
 .iTxt,
 .link,
-select.iSelect {
+.iSelect {
 	// should inherit?
 	color: var(--cl, transparent);
 	background-color: var(--bg, transparent);
@@ -493,8 +527,8 @@ select.iSelect {
 	// button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	.btn,
-	.btnToggle {
+	.bttn,
+	.bttnToggle {
 		&.--size-#{$name} {
 			// --p could be inherited, we don't want that
 			padding: 0 #{$size * 0.8}; // button padding
@@ -504,12 +538,19 @@ select.iSelect {
 	// text, select, button & buttonToggle shared styles
 	//
 	// @group SharedStyles
-	.btn,
-	.btnToggle,
-	.iTxt,
-	select.iSelect {
+	.bttn,
+	.bttnToggle,
+	.iTxt:not(textarea),
+	.iSelect {
 		&.--size-#{$name} {
 			height: #{$size * 2.6}; // button size: height/width
+		}
+	}
+	.bttn,
+	.bttnToggle,
+	.iTxt,
+	.iSelect {
+		&.--size-#{$name} {
 			border-radius: #{$size}; // button border radius
 			border-width: calc(2px + #{$size/18}); // button border width
 			&.--round {
@@ -525,8 +566,6 @@ select.iSelect {
 @import "inputText";
 @import "inputToggle";
 @import "inputSelect";
-@import "navList";
-@import "table";
 
 // non tag associated
 @import "text";
@@ -540,8 +579,3 @@ select.iSelect {
 @import "button";
 @import "buttonLink";
 @import "buttonToggle";
-@import "holder";
-@import "scroll";
-@import "view";
-@import "navigationX";
-@import "navigationY";

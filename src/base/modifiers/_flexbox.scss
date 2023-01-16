@@ -3,7 +3,7 @@
 // @group GlobalModifiers
 .--flx {
 	&-fit {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			flex: 0 0 auto;
 			max-width: 100%;
 			max-height: 100%;
@@ -11,7 +11,7 @@
 	}
 	&,
 	&-auto {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			flex: 1 1 auto;
 			max-width: 100%;
 			max-height: 100%;
@@ -24,58 +24,66 @@
 // @group GlobalModifiers
 .--flxJustify {
 	&-end {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: flex-end;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: flex-end;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: flex-end;
 			}
 		}
 	}
 	&-start {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: flex-start;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: flex-start;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: flex-start;
 			}
 		}
 	}
 	&-around {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: space-around;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: space-around;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: space-around;
 			}
 		}
 	}
 	&-evenly {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: space-around; // for unsupported browsers
 				justify-content: space-evenly;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: space-around; // for unsupported browsers
 				justify-items: space-evenly;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: space-around; // for unsupported browsers
 				justify-self: space-evenly;
@@ -83,14 +91,16 @@
 		}
 	}
 	&-between {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: space-between;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: space-between;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: space-between;
 			}
@@ -99,14 +109,16 @@
 	// default
 	&,
 	&-center {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: center;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: center;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: center;
 			}
@@ -119,44 +131,48 @@
 // @group GlobalModifiers
 .--flxAlign {
 	&-end {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: flex-end;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: flex-end;
 			}
 		}
 	}
 	&-start {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: flex-start;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: flex-start;
 			}
 		}
 	}
 	&-stretch {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: stretch;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: stretch;
 			}
 		}
 	}
 	&-baseline {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: baseline;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: baseline;
 			}
@@ -165,11 +181,12 @@
 	// default
 	&,
 	&-center {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: center;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: center;
 			}
@@ -188,14 +205,16 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: space-between;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: space-between;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: space-between;
 			}
@@ -213,14 +232,16 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: space-around;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: space-around;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: space-around;
 			}
@@ -238,16 +259,18 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: space-around; // for unsupported browsers
 				justify-content: space-evenly;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: space-around; // for unsupported browsers
 				justify-items: space-evenly;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: space-around; // for unsupported browsers
 				justify-self: space-evenly;
@@ -266,14 +289,16 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: center;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: center;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: center;
 			}
@@ -286,11 +311,12 @@
 .--flx-evenly,
 .--flx-center {
 	// default
-	@include extend-viewports-classes {
+	@include extend-viewports-classes(false, $viewports) {
 		&:not(.--flxSelf) {
 			align-items: center;
 		}
 		&.grd > .--flxSelf,
+		&.grdInline > .--flxSelf,
 		&.--flxSelf {
 			align-self: center;
 		}
@@ -302,11 +328,12 @@
 // @group GlobalUnions
 .--flx-start {
 	// default
-	@include extend-viewports-classes {
+	@include extend-viewports-classes(false, $viewports) {
 		&:not(.--flxSelf) {
 			align-items: flex-start;
 		}
 		&.grd > .--flxSelf,
+		&.grdInline > .--flxSelf,
 		&.--flxSelf {
 			align-self: flex-start;
 		}
@@ -318,14 +345,16 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: flex-start;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: flex-start;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: flex-start;
 			}
@@ -338,11 +367,12 @@
 // @group GlobalUnions
 .--flx-end {
 	// default
-	@include extend-viewports-classes {
+	@include extend-viewports-classes(false, $viewports) {
 		&:not(.--flxSelf) {
 			align-items: flex-end;
 		}
 		&.grd > .--flxSelf,
+		&.grdInline > .--flxSelf,
 		&.--flxSelf {
 			align-self: flex-end;
 		}
@@ -354,14 +384,16 @@
 	&-start,
 	&-center,
 	&-end {
-		@include extend-viewports-classes {
-			&:not(.grd):not(.--flxSelf) {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
 				justify-content: flex-end;
 			}
-			&.grd {
+			&.grd,
+			&.grdInline {
 				justify-items: flex-end;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				justify-self: flex-end;
 			}
@@ -375,55 +407,60 @@
 .--flx-around,
 .--flx-evenly {
 	&-start {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: flex-start;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: flex-start;
 			}
 		}
 	}
 	&-center {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: center;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: center;
 			}
 		}
 	}
 	&-end {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: flex-end;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: flex-end;
 			}
 		}
 	}
 	&-stretch {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: stretch;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: stretch;
 			}
 		}
 	}
 	&-baseline {
-		@include extend-viewports-classes {
+		@include extend-viewports-classes(false, $viewports) {
 			&:not(.--flxSelf) {
 				align-items: baseline;
 			}
 			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
 			&.--flxSelf {
 				align-self: baseline;
 			}
