@@ -1,5 +1,69 @@
 Xamu style system
 
+# [3.0.0](https://github.com/xamu-co/style-system/compare/v2.0.2...v3.0.0) (2023-01-16)
+
+
+### Bug Fixes
+
+* bttnToggle icon rotation on toggle--dropdown mode ([772d539](https://github.com/xamu-co/style-system/commit/772d539b9f3fb37818021b9075ae8dfc42d8eb6f))
+* bypass icon weight on tables ([b897851](https://github.com/xamu-co/style-system/commit/b897851aafc04bba11e5dd9f88384ee4260d4b57))
+* default box size ([5c0efdc](https://github.com/xamu-co/style-system/commit/5c0efdc1499ecdc7cc31f08c5e1ce4be48e82ec2))
+* dropdown showing on hover disabled ([82b5771](https://github.com/xamu-co/style-system/commit/82b577108d902c910ad198bc60eb4b6a6dea4ea7))
+* extend holder component padding ([0b83cb6](https://github.com/xamu-co/style-system/commit/0b83cb655399a3b97f7927ab672f60e27ce4430b))
+* gaping modifier using custom properties ([400812b](https://github.com/xamu-co/style-system/commit/400812bc7917f210d7b95842c7725cb094ba3f87))
+* hide next sibling margin on buttonToggle ([697679f](https://github.com/xamu-co/style-system/commit/697679f1bbe4a8c47d613d163710ba6bc9abcc31))
+* improve scroll on no hover ([c683fb0](https://github.com/xamu-co/style-system/commit/c683fb0ef0720f5310b2add2100a282d4effde1d))
+* improve sticky td zindex on hover ([7e37afa](https://github.com/xamu-co/style-system/commit/7e37afa1f511ced7e2b11e0fc6330eff2cce7906))
+* improvements ([#48](https://github.com/xamu-co/style-system/issues/48)) ([7c62ef2](https://github.com/xamu-co/style-system/commit/7c62ef2605cf1d712c7f1415aea127287c0ab5dc))
+* increase button override specificity ([cf68740](https://github.com/xamu-co/style-system/commit/cf687404a0232dbcdb03debb546e727393e003cb))
+* inputToggle flx growth issue ([884ef4d](https://github.com/xamu-co/style-system/commit/884ef4d3475b745a996a621705ec9d691aa0e8b2))
+* list toggle overflow issue ([a8b244e](https://github.com/xamu-co/style-system/commit/a8b244e3116fae1b775dd456d800c0b844a6171a))
+* margin issue when using round on buttons ([cdb765f](https://github.com/xamu-co/style-system/commit/cdb765f18602410eceb7aca9271d624ba04deee6))
+* minor icon & table fixes ([080438c](https://github.com/xamu-co/style-system/commit/080438cb31e2e227ce666e8f2f5731591c6a784c))
+* pipeline approval fix ([ca5d862](https://github.com/xamu-co/style-system/commit/ca5d8629c567d7fd33fc72954d61b7d198e31a03))
+* postcss-precision fix ([be268b4](https://github.com/xamu-co/style-system/commit/be268b48cb40b2438c31e0f9252f439a0a6acade))
+* rename button & table components to prevent collisions ([20edcd5](https://github.com/xamu-co/style-system/commit/20edcd5a3134181005c682ea47901cc3cc10a617))
+* resolve broken npm release approval step ([020b394](https://github.com/xamu-co/style-system/commit/020b3946a3b44ea671ec758450ce4ba630469f05))
+* square .box overflow ([5b67ace](https://github.com/xamu-co/style-system/commit/5b67acef7c188a4278d221918ef23671515a0b10))
+* support [disable=false] usecase ([8b9b224](https://github.com/xamu-co/style-system/commit/8b9b2244c5a5c05305dda88a1eeff6538fa1c84d))
+* text wrap issues on tooltip ([09336ce](https://github.com/xamu-co/style-system/commit/09336ce19a5c5d95c1e0f29aa4594841f72c0298))
+* txt & select alignment ([99c4323](https://github.com/xamu-co/style-system/commit/99c4323e4130a8d5e1cc2d356bca4013e0e8e501))
+* txt component width ([e518175](https://github.com/xamu-co/style-system/commit/e518175a9e03be90c7d560ef8b8af4438971cdd7))
+* txt container alignment ([138d69a](https://github.com/xamu-co/style-system/commit/138d69ab9b03d65a18bc4efe10e58d42e8ba0f5c))
+* txtAlignFlx collateral styling ([1001b7b](https://github.com/xamu-co/style-system/commit/1001b7becf7814c4296b95aa5a745cc7649d74ea))
+* vertical-align issue ([686d637](https://github.com/xamu-co/style-system/commit/686d6379423b4196692d1100552057e7715ba21c))
+* vertical-align issue ([ac652ae](https://github.com/xamu-co/style-system/commit/ac652ae799a02965ae303902844a093e2dd2db33))
+* wrong postcss-precision link ([0c65f1f](https://github.com/xamu-co/style-system/commit/0c65f1fc8665575f6e31554c444221bf9e168670))
+
+
+### Features
+
+* added .no--route to disable .is--route styling & inputText placeholder ellipsis ([b82301b](https://github.com/xamu-co/style-system/commit/b82301b0e412617da0bd3d4836b45bcdaa5300ed))
+* added modifiers to scroll component ([#54](https://github.com/xamu-co/style-system/issues/54)) ([7695f8e](https://github.com/xamu-co/style-system/commit/7695f8eedff4164d5a9fb72634c08f9e17e9e398))
+* datalist support for .iSelect component ([aeed301](https://github.com/xamu-co/style-system/commit/aeed30142e440781552dfa95ff03b5be98e7b716))
+* dropdown item & minor fixes ([c51d6d8](https://github.com/xamu-co/style-system/commit/c51d6d82cd3338ab0f34529555fa16379c91438e))
+* dropdown sizes & use pre-line for txtWrap ([acfd3ea](https://github.com/xamu-co/style-system/commit/acfd3ea3699fff26ca5877b398749f03e3573e98))
+* extend dimension modifiers & fix navX ([1d70714](https://github.com/xamu-co/style-system/commit/1d70714644d35ca4c5b6e389c5da4ea08cfd022d))
+* extend gaping viewports ([0603c71](https://github.com/xamu-co/style-system/commit/0603c7141177f1d830f2d272e940207964890f17))
+* extend min max dimension modifiers ([8da74d3](https://github.com/xamu-co/style-system/commit/8da74d32826e7593275344fcd49fe7cdc5f83d29))
+* extend txt modifiers viewports ([94b038b](https://github.com/xamu-co/style-system/commit/94b038bdf2b6c178a76aa1e1ed33b75650e956ab))
+* grdInline & flx modifiers extend ([f87b894](https://github.com/xamu-co/style-system/commit/f87b894972523f548462f373be4027547b424f5a))
+* hide number input arrows conditionally ([cfd392a](https://github.com/xamu-co/style-system/commit/cfd392a755b02533a4eff9f747e64054196a680a))
+* legacy toggleItem ([1474363](https://github.com/xamu-co/style-system/commit/1474363ff4aa693977a0d6e3f3331b7589292db4))
+* lightAlt theme for tooltip ([db67efe](https://github.com/xamu-co/style-system/commit/db67efe738c4f94134bac09712312067c73d9350))
+* list overflow visible ([638a049](https://github.com/xamu-co/style-system/commit/638a049860738db25509c2f8090ce2db828e2413))
+* redesign table component(desktop) ([#51](https://github.com/xamu-co/style-system/issues/51)) ([da07b9e](https://github.com/xamu-co/style-system/commit/da07b9e3115ba7a381eb11161a0de7e040070cea))
+* scale layout dynamically on touch devices ([5a65001](https://github.com/xamu-co/style-system/commit/5a6500179756ea7bc9d75ddaeb9aedb947ab6624))
+* vertical modifier for scroll component ([726c7f6](https://github.com/xamu-co/style-system/commit/726c7f612ffa9ec0f92743da3993b96eeab5337d))
+
+
+### BREAKING CHANGES
+
+* lg is no longer the default size
+* modifiers are required on scroll component
+* table modifiers & scroll table modifier => always
+* #appex styling is no longer part of the scope of the project
+
 ## [2.0.2](https://github.com/xamu-co/style-system/compare/v2.0.1...v2.0.2) (2021-09-26)
 
 
