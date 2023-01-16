@@ -160,17 +160,17 @@ i.icon {
 .bttn,
 .bttnToggle,
 .link {
-	&:not(.--round) > * + * {
+	> * + * {
 		margin-left: 0.4em;
 	}
+	&.--round {
+		@include extend-viewports-classes(true, $viewports) {
+			> * + * {
+				margin-left: 0;
+			}
+		}
+	}
 }
-// .bttn,
-// .bttnToggle,
-// .link {
-// 	> * + * {
-// 		margin-left: 0.4em;
-// 	}
-// }
 
 // is alert
 //
@@ -383,10 +383,10 @@ i.icon {
 					--cl: #{color(secondary, 0.7)};
 				}
 			}
-			&.is--route {
+			&.is--route:not(.no--route) {
 				--cl: #{color(secondary)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route) {
 				--cl: #{color(dark, 0.7)};
 			}
 			&:disabled,
