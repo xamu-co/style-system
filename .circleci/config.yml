@@ -60,7 +60,7 @@ jobs:
                   name: Prettier formatting check
                   command: npx prettier "src/{*,**/*,**/**/*}.{css,scss}" --check
 
-    get_release_version:
+    get_npm_release_version:
         <<: *defaults
         steps:
             - checkout
@@ -96,7 +96,7 @@ workflows:
                       branches:
                           only:
                               - next
-            - get_release_version:
+            - get_npm_release_version:
                   context: npm-deploy
                   requires:
                       - check_code
@@ -104,11 +104,18 @@ workflows:
                       branches:
                           only:
                               - master
-            - release_to_npm:
+            - approve_npm_release:
                   type: approval
+                  requires:
+                      - get_npm_release_version
+                  filters:
+                      branches:
+                          only:
+                              - master
+            - release_to_npm:
                   context: npm-deploy
                   requires:
-                      - get_release_version
+                      - approve_npm_release
                   filters:
                       branches:
                           only:
