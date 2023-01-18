@@ -55,8 +55,8 @@
 }
 a[class*="avatar"] {
 	&:hover,
-	&.is--active,
-	&.is--routeExact {
+	&.is--active:not(.no--route),
+	&.is--routeExact:not(.no--route) {
 		// box-shadow: 1px 1px 3px color(dark, 0.2);
 		img {
 			opacity: 0.7;
