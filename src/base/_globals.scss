@@ -191,7 +191,7 @@ datalist {
 	> label,
 	> select,
 	> datalist {
-		&.is--routeExact:not([class*="toggle--"]) {
+		&.is--routeExact:not(.no--route):not([class*="toggle--"]) {
 			pointer-events: none;
 		}
 	}

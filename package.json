@@ -57,7 +57,6 @@
 		"node-css-mqpacker": "^8.0.1",
 		"postcss": "^8.2.10",
 		"postcss-cli": "^8.3.1",
-		"postcss-combine-media-query": "^1.0.1",
 		"postcss-custom-properties": "^9.1.1",
 		"postcss-merge-selectors": "vis97c/postcss-merge-selectors",
 		"postcss-precision": "vis97c/postcss-precision",
