@@ -1,5 +1,12 @@
 Xamu style system
 
+## [3.0.1-next.1](https://github.com/xamu-co/style-system/compare/v3.0.0...v3.0.1-next.1) (2023-01-18)
+
+
+### Bug Fixes
+
+* handle no--route on avatar ([cb13d65](https://github.com/xamu-co/style-system/commit/cb13d653aa3584d44242efdf12fe9d1befa11df8))
+
 # [3.0.0](https://github.com/xamu-co/style-system/compare/v2.0.2...v3.0.0) (2023-01-16)
 
 
