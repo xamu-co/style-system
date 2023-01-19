@@ -55,8 +55,8 @@
 }
 a[class*="avatar"] {
 	&:hover,
-	&.is--active:not(.no--route),
-	&.is--routeExact:not(.no--route) {
+	&.is--active,
+	&.is--routeExact:not(.no--route):not(.no--routeExact) {
 		// box-shadow: 1px 1px 3px color(dark, 0.2);
 		img {
 			opacity: 0.7;
@@ -69,7 +69,9 @@ a[class*="avatar"] {
 	&.--border {
 		&:not(:hover),
 		&:not(.is--active),
-		&:not(.is--routeExact) {
+		&:not(.is--routeExact),
+		&.is--routeExact.no--route,
+		&.is--routeExact.no--routeExact {
 			border-color: transparent;
 		}
 	}
@@ -207,72 +209,82 @@ i.icon {
 		&.--tm-light {
 			&-secondary {
 				--cl: #{color(secondary)};
-				&:not(.is--route):not(.is--active),
-				&.is--route.no--route {
-					&:hover,
-					&:focus {
-						--cl: #{color(secondary, 0.7)};
-						--bc: #{color(secondary, 0.3)};
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						&:hover,
+						&:focus {
+							--cl: #{color(secondary, 0.7)};
+							--bc: #{color(secondary, 0.3)};
+						}
 					}
 				}
 			}
 			&-dark7 {
 				--cl: #{color(dark, 0.7)};
-				&:not(.is--route):not(.is--active),
-				&.is--route.no--route {
-					&:hover,
-					&:focus {
-						--cl: #{color(dark, 0.3)};
-						--bc: var(--cl);
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						&:hover,
+						&:focus {
+							--cl: #{color(dark, 0.3)};
+							--bc: var(--cl);
+						}
 					}
 				}
 			}
 			&-primaryAlt {
 				--cl: #{color(primaryAlt)};
-				&:not(.is--route):not(.is--active),
-				&.is--route.no--route {
-					&:hover,
-					&:focus {
-						--cl: #{color(primaryAlt, 0.7)};
-						--bc: #{color(primaryAlt, 0.3)};
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						&:hover,
+						&:focus {
+							--cl: #{color(primaryAlt, 0.7)};
+							--bc: #{color(primaryAlt, 0.3)};
+						}
 					}
 				}
 			}
 			&-danger {
 				--cl: #{color(danger)};
-				&:not(.is--route):not(.is--active),
-				&.is--route.no--route {
-					&:hover,
-					&:focus {
-						--cl: #{color(danger, 0.7)};
-						--bc: #{color(danger, 0.3)};
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						&:hover,
+						&:focus {
+							--cl: #{color(danger, 0.7)};
+							--bc: #{color(danger, 0.3)};
+						}
 					}
 				}
 			}
 			&-success {
 				--cl: #{color(success)};
-				&:not(.is--route):not(.is--active),
-				&.is--route.no--route {
-					&:hover,
-					&:focus {
-						--cl: #{color(success, 0.7)};
-						--bc: #{color(success, 0.3)};
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						&:hover,
+						&:focus {
+							--cl: #{color(success, 0.7)};
+							--bc: #{color(success, 0.3)};
+						}
 					}
 				}
 			}
 			&-primary {
 				--cl: #{color(primary)};
 				--bg: #{color(light)};
-				&:not(.is--route):not(.is--active),
-				&.is--route.no--route {
-					&:hover,
-					&:focus {
-						--cl: #{color(primary, 0.7)};
-						--bc: #{color(primary, 0.3)};
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						text-shadow: 0 0 1px color(dark, 0.2);
+						&:hover,
+						&:focus {
+							--cl: #{color(primary, 0.7)};
+							--bc: #{color(primary, 0.3)};
+						}
 					}
-				}
-				&:not(.is--active):not(.is--route) {
-					text-shadow: 0 0 1px color(dark, 0.2);
 				}
 			}
 			&-secondary,
@@ -282,7 +294,7 @@ i.icon {
 			&-success {
 				--bg: #{color(light)};
 				&.is--active,
-				&.is--route:not(.no--route):not(.is--routeExact) {
+				&.is--route:not(.no--route) {
 					&:hover,
 					&:focus {
 						--cl: #{color(light, 0.7)};
@@ -297,18 +309,17 @@ i.icon {
 		&.--tm-primary-light {
 			--cl: #{color(light)};
 			--bg: #{color(primary)};
-			&:not(.is--route):not(.is--active),
-			&.is--route.no--route {
-				&:hover,
-				&:focus {
-					--cl: #{color(light, 0.7)};
-					--bc: #{color(light, 0.3)};
+			&:hover,
+			&:focus {
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						--cl: #{color(light, 0.7)};
+						--bc: #{color(light, 0.3)};
+					}
 				}
-			}
-			&.is--active,
-			&.is--route:not(.no--route):not(.is--routeExact) {
-				&:hover,
-				&:focus {
+				&.is--active,
+				&.is--route:not(.no--route) {
 					--cl: #{color(primary, 0.7)};
 				}
 			}
@@ -320,18 +331,17 @@ i.icon {
 		&.--tm-primaryAlt-primary {
 			--cl: #{color(primary)};
 			--bg: #{color(primaryAlt)};
-			&:not(.is--route):not(.is--active),
-			&.is--route.no--route {
-				&:hover,
-				&:focus {
-					--cl: #{color(primary, 0.7)};
-					--bc: #{color(primary, 0.3)};
+			&:hover,
+			&:focus {
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						--cl: #{color(primary, 0.7)};
+						--bc: #{color(primary, 0.3)};
+					}
 				}
-			}
-			&.is--active,
-			&.is--route:not(.no--route):not(.is--routeExact) {
-				&:hover,
-				&:focus {
+				&.is--active,
+				&.is--route:not(.no--route) {
 					--cl: #{color(primaryAlt, 0.7)};
 				}
 			}
@@ -343,18 +353,17 @@ i.icon {
 		&.--tm-success-light {
 			--cl: #{color(light)};
 			--bg: #{color(success)};
-			&:not(.is--route):not(.is--active),
-			&.is--route.no--route {
-				&:hover,
-				&:focus {
-					--cl: #{color(light, 0.7)};
-					--bc: #{color(light, 0.3)};
+			&:hover,
+			&:focus {
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						--cl: #{color(light, 0.7)};
+						--bc: #{color(light, 0.3)};
+					}
 				}
-			}
-			&.is--active,
-			&.is--route:not(.no--route):not(.is--routeExact) {
-				&:hover,
-				&:focus {
+				&.is--active,
+				&.is--route:not(.no--route) {
 					--cl: #{color(success, 0.7)};
 				}
 			}
@@ -368,26 +377,25 @@ i.icon {
 		&.--tm-secondary-light {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
-			&:not(.is--route):not(.is--active),
-			&.is--route.no--route {
-				&:hover,
-				&:focus {
-					--cl: #{color(light, 0.7)};
-					--bc: #{color(light, 0.3)};
+			&:hover,
+			&:focus {
+				&:not(.is--active) {
+					&:not(.is--route),
+					&.is--route.no--route {
+						--cl: #{color(light, 0.7)};
+						--bc: #{color(light, 0.3)};
+					}
 				}
-			}
-			&.is--active,
-			&.is--route:not(.no--route):not(.is--routeExact) {
-				&:hover,
-				&:focus {
+				&.is--active,
+				&.is--route:not(.no--route) {
 					--cl: #{color(secondary, 0.7)};
 				}
-			}
-			&.is--route:not(.no--route) {
-				--cl: #{color(secondary)};
-			}
-			&.is--routeExact:not(.no--route) {
-				--cl: #{color(dark, 0.7)};
+				&.is--route:not(.no--route) {
+					--cl: #{color(secondary)};
+				}
+				&.is--routeExact:not(.no--route):not(.no--routeExact) {
+					--cl: #{color(dark, 0.7)};
+				}
 			}
 			&:disabled,
 			&[disabled]:not([disabled="false"]) {
@@ -399,18 +407,17 @@ i.icon {
 	&.--tm-danger-light {
 		--cl: #{color(light)};
 		--bg: #{color(danger)};
-		&:not(.is--route):not(.is--active),
-		&.is--route.no--route {
-			&:hover,
-			&:focus {
-				--cl: #{color(light, 0.7)};
-				--bc: #{color(light, 0.3)};
+		&:hover,
+		&:focus {
+			&:not(.is--active) {
+				&:not(.is--route),
+				&.is--route.no--route {
+					--cl: #{color(light, 0.7)};
+					--bc: #{color(light, 0.3)};
+				}
 			}
-		}
-		&.is--active,
-		&.is--route:not(.no--route):not(.is--routeExact) {
-			&:hover,
-			&:focus {
+			&.is--active,
+			&.is--route:not(.no--route) {
 				--cl: #{color(danger, 0.7)};
 			}
 		}
@@ -423,13 +430,13 @@ i.icon {
 	// OVERRIDE: dejar en el final
 	// increased specificity
 	&.is--active.is--active,
-	&.is--route:not(.no--route),
-	&.is--routeExact.is--routeExact {
+	&.is--route.is--route:not(.no--route),
+	&.is--routeExact.is--routeExact:not(.no--route):not(.no--routeExact) {
 		--cl: var(--bg);
 		--bc: var(--cl);
 	}
 	&.is--active,
-	&.is--route:not(.no--route):not(.is--routeExact) {
+	&.is--route:not(.no--route) {
 		&:hover,
 		&:focus {
 			--bc: var(--cl);
@@ -439,9 +446,9 @@ i.icon {
 	&[disabled]:not([disabled="false"]) {
 		--bc: var(--cl);
 	}
-	&.is--routeExact,
-	&.is--route:not(.no--route),
 	&.is--active,
+	&.is--routeExact:not(.no--route):not(.no--routeExact),
+	&.is--route:not(.no--route),
 	&:disabled,
 	&[disabled]:not([disabled="false"]) {
 		background-color: var(--bg-a, transparent);

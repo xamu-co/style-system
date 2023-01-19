@@ -49,7 +49,7 @@
 		}
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
 				background: color(light, 0.2);
@@ -76,7 +76,7 @@
 		}
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
 				background: color(light, 0.2);
@@ -104,7 +104,7 @@
 		}
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
 				background: color(primary, 0.2);
@@ -132,7 +132,7 @@
 		}
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
 				background: color(primaryAlt, 0.2);
@@ -160,7 +160,7 @@
 		}
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
 				background: color(danger, 0.2);
@@ -188,7 +188,7 @@
 		}
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
 				background: color(success, 0.2);
@@ -218,7 +218,7 @@
 		}
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
 				background: color(secondary, 0.2);
