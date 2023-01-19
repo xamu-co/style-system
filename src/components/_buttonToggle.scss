@@ -11,7 +11,7 @@
 
 	&.is--alert,
 	&.is--active,
-	&.is--routeExact {
+	&.is--routeExact:not(.no--route):not(.no--routeExact) {
 		//hide regular
 		&,
 		.bttnToggle-icon {
@@ -26,14 +26,18 @@
 			}
 		}
 	}
-	&:not(.is--alert):not(.is--active):not(.is--routeExact) {
-		//hide solid
-		&,
-		.bttnToggle-icon {
-			i.icon,
-			.svg {
-				&:last-of-type {
-					display: none;
+	&:not(.is--alert):not(.is--active) {
+		&:not(.is--routeExact),
+		&.is--routeExact.no--route,
+		&.is--routeExact.no--routeExact {
+			//hide solid
+			&,
+			.bttnToggle-icon {
+				i.icon,
+				.svg {
+					&:last-of-type {
+						display: none;
+					}
 				}
 			}
 		}
@@ -59,7 +63,7 @@
 				--bc: #{color(dark, 0.7)};
 				--bg: #{color(light)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route):not(.no--routeExact) {
 				--cl: #{color(light)};
 				--bg: #{color(dark, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -79,7 +83,7 @@
 			&.is--active {
 				--bg: #{color(light, 0.5)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route):not(.no--routeExact) {
 				--cl: #{color(light)};
 				--bg: #{color(light, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -99,7 +103,7 @@
 			&.is--active {
 				--bg: #{color(primaryAlt, 0.5)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route):not(.no--routeExact) {
 				--cl: #{color(light)};
 				--bg: #{color(primaryAlt, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -119,7 +123,7 @@
 			&.is--active {
 				--bg: #{color(primaryAlt, 0.5)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route):not(.no--routeExact) {
 				--cl: #{color(light)};
 				--bg: #{color(primaryAlt, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -139,7 +143,7 @@
 			&.is--active {
 				--bg: #{color(danger, 0.5)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route):not(.no--routeExact) {
 				--cl: #{color(light)};
 				--bg: #{color(danger, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -159,7 +163,7 @@
 			&.is--active {
 				--bg: #{color(success, 0.5)};
 			}
-			&.is--routeExact {
+			&.is--routeExact:not(.no--route):not(.no--routeExact) {
 				--cl: #{color(light)};
 				--bg: #{color(success, 0.5)};
 				--bc: #{color(light, 0.3)};
@@ -182,7 +186,7 @@
 		&.is--active {
 			--bg: #{color(secondary, 0.5)};
 		}
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			--cl: #{color(light)};
 			--bg: #{color(secondary)};
 			--bc: #{color(light, 0.3)};

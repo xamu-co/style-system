@@ -10,8 +10,31 @@
 		background-color: var(--cl, var(--bg));
 	}
 	&.is--active,
-	&.is--routeExact {
+	&.is--routeExact:not(.no--route):not(.no--routeExact) {
 		color: var(--cl-a);
+	}
+
+	// hover status
+	&.toggle--dropdown.is--active {
+		color: var(--cl-h, var(--cl-a));
+	}
+	&:not(.is--active) {
+		&:not(.is--routeExact),
+		&.is--routeExact.no--route,
+		&.is--routeExact.no--routeExact {
+			&:hover {
+				color: var(--cl-h, var(--cl-a));
+			}
+		}
+	}
+
+	// shadow
+	&.--shadow {
+		&:hover,
+		&.is--active,
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
+			text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
+		}
 	}
 
 	// link theme
@@ -72,33 +95,14 @@
 	}
 }
 
-// hover status
-.toggle--dropdown.is--active.link,
-.toggle--dropdown.is--active > .link,
-.link:hover:not(.is--active):not(.is--routeExact) {
-	color: var(--cl-h, var(--cl-a));
-}
-
-// link shadow
-.toggle--dropdown.is--active.link.--shadow,
-.toggle--dropdown.is--active > .link.--shadow,
-.link.--shadow:hover,
-.link.--shadow.is--active,
-.link.--shadow.is--routeExact {
-	text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-}
-
 // desktop only, use hover
 @media (min-width: ($viewportMd + 1)) {
 	// hover status
-	*:hover > .toggle--dropdown:not(.only--active) {
-		&.link,
-		> .link {
-			color: var(--cl-h, var(--cl-a));
-			// link shadow
-			&.--shadow {
-				text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-			}
+	*:hover > .toggle--dropdown:not(.only--active).link {
+		color: var(--cl-h, var(--cl-a));
+		// link shadow
+		&.--shadow {
+			text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 		}
 	}
 }
@@ -106,14 +110,11 @@
 // mobile only, use focus
 @media (max-width: $viewportMd) {
 	// focus status
-	*:focus-within:not(.no--focus) > .toggle--dropdown:not(.only--active) {
-		&.link,
-		> .link {
-			color: var(--cl-h, var(--cl-a));
-			// link shadow
-			&.--shadow {
-				text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-			}
+	*:focus-within:not(.no--focus) > .toggle--dropdown:not(.only--active).link {
+		color: var(--cl-h, var(--cl-a));
+		// link shadow
+		&.--shadow {
+			text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
 		}
 	}
 }

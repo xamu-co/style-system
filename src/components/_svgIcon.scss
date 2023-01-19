@@ -8,7 +8,7 @@ button {
 	&:not(.bttnToggle) {
 		&:hover,
 		&.is--active,
-		&.is--routeExact {
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			.svg {
 				--cl: var(--cl-a, #{color(dark, 0.7)});
 				&.is--logo {
@@ -29,7 +29,7 @@ button {
 	}
 	&:hover,
 	&.is--active,
-	&.is--routeExact {
+	&.is--routeExact:not(.no--route):not(.no--routeExact) {
 		--cl: var(--cl-a, #{color(dark, 0.7)});
 		&.is--logo {
 			--cl: var(--cl-l, #{color(primary)});
