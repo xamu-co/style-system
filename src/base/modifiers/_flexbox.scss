@@ -106,6 +106,22 @@
 			}
 		}
 	}
+	&-stretch {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
+				justify-content: stretch;
+			}
+			&.grd,
+			&.grdInline {
+				justify-items: stretch;
+			}
+			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
+			&.--flxSelf {
+				justify-self: stretch;
+			}
+		}
+	}
 	// default
 	&,
 	&-center {
@@ -249,6 +265,33 @@
 	}
 }
 
+//  Justify stretch...
+//
+// @group GlobalUnions
+.--flx-stretch {
+	&,
+	&-stretch,
+	&-baseline,
+	&-start,
+	&-center,
+	&-end {
+		@include extend-viewports-classes(false, $viewports) {
+			&:not(.grd):not(.grdInline):not(.--flxSelf) {
+				justify-content: stretch;
+			}
+			&.grd,
+			&.grdInline {
+				justify-items: stretch;
+			}
+			&.grd > .--flxSelf,
+			&.grdInline > .--flxSelf,
+			&.--flxSelf {
+				justify-self: stretch;
+			}
+		}
+	}
+}
+
 //  Justify space evenly...
 //
 // @group GlobalUnions
@@ -306,6 +349,7 @@
 	}
 }
 
+.--flx-stretch,
 .--flx-between,
 .--flx-around,
 .--flx-evenly,
@@ -403,6 +447,7 @@
 .--flx-start,
 .--flx-center,
 .--flx-end,
+.--flx-stretch,
 .--flx-between,
 .--flx-around,
 .--flx-evenly {
