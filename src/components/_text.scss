@@ -9,6 +9,9 @@
 			display: block;
 		}
 	}
+	* {
+		line-height: $lineHeightMedium;
+	}
 
 	&:not([class*="-txtWr"]) {
 		white-space: pre-line;
@@ -36,9 +39,6 @@
 	img {
 		max-width: 100%;
 		height: auto;
-	}
-	p {
-		line-height: $lineHeightBig;
 	}
 
 	// Text block component
