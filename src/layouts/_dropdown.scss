@@ -65,6 +65,22 @@
 /// @example njk
 ///  {% extends "dropdown.njk" %}
 
+@mixin dropdownVisibleStyles {
+	display: block;
+	&.flx {
+		display: flex;
+	}
+	&.flxInline {
+		display: inline-flex;
+	}
+	&.grd {
+		display: grid;
+	}
+	&.grdInline {
+		display: inline-grid;
+	}
+}
+
 @mixin toggleStyles {
 	&:not(.bttnToggle) >,
 	> :not(.bttnToggle) > {
@@ -86,18 +102,156 @@
 		}
 	}
 	+ .dropdown {
-		display: block;
-		&.flx {
-			display: flex;
+		position: absolute;
+		@include dropdownVisibleStyles;
+
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
 		}
-		&.flxInline {
-			display: inline-flex;
+
+		&:not(.has--items),
+		&-item {
+			background: color(light);
+			box-shadow: 3px 3px 9px color(dark, 0.3);
+			&:not([class*="-txtSi"]) {
+				font-size: size(sm);
+			}
+			&.--size-lg {
+				padding: 1rem 1.333rem;
+				border-radius: 1.667rem;
+			}
+			&:not([class*="--size"]),
+			&.--size,
+			&.--size-md {
+				padding: 0.7rem 1rem;
+				border-radius: 1.333rem;
+			}
+			&.--size-sm {
+				padding: 0.5rem 0.7rem;
+				border-radius: 0.5rem;
+			}
 		}
-		&.grd {
-			display: grid;
+
+		// Position
+		//
+		// @group Modifiers
+		// Right
+		&.--position-right {
+			&,
+			&-top,
+			&-center,
+			&-bottom {
+				@include extend-viewports-classes {
+					left: calc(100% + 0.5rem);
+					&:before {
+						left: -0.5rem;
+						top: 0;
+					}
+				}
+			}
 		}
-		&.grdInline {
-			display: inline-grid;
+		// Left
+		&.--position-left {
+			&,
+			&-top,
+			&-center,
+			&-bottom {
+				@include extend-viewports-classes {
+					right: calc(100% + 0.5rem);
+					&:before {
+						right: -0.5rem;
+						top: 0;
+					}
+				}
+			}
+		}
+		// Right & Left
+		&.--position-right,
+		&.--position-left {
+			&-center {
+				@include extend-viewports-classes {
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+			&-bottom {
+				@include extend-viewports-classes {
+					bottom: -1rem;
+				}
+			}
+			// Default right position
+			&,
+			&-top {
+				@include extend-viewports-classes {
+					top: -1rem;
+				}
+			}
+		}
+		// Top
+		&.--position-top {
+			&,
+			&-left,
+			&-right,
+			&-center {
+				@include extend-viewports-classes {
+					bottom: calc(100% + 0.5rem);
+					&:before {
+						left: 0;
+						bottom: -0.5rem;
+					}
+				}
+			}
+		}
+		// Bottom
+		&.--position-bottom {
+			&,
+			&-left,
+			&-right,
+			&-center {
+				@include extend-viewports-classes {
+					top: calc(100% + 0.5rem);
+					&:before {
+						right: 0;
+						top: -0.5rem;
+					}
+				}
+			}
+		}
+		// Top & Bottom
+		&.--position-top,
+		&.--position-bottom {
+			&-right {
+				@include extend-viewports-classes {
+					right: -0.7rem;
+				}
+			}
+			&-center {
+				@include extend-viewports-classes {
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+			// Default bottom position
+			&,
+			&-left {
+				@include extend-viewports-classes {
+					left: -0.7rem;
+				}
+			}
+		}
+		// default: bottom-left
+		&:not([class*="-po"]) {
+			// Position
+			left: -0.7rem;
+			top: calc(100% + 0.5rem);
+			&:before {
+				right: 0;
+				top: -0.5rem;
+			}
 		}
 	}
 }
@@ -126,158 +280,17 @@
 
 .dropdown {
 	z-index: 10;
-	position: absolute;
+
 	&,
 	&.flx,
-	&.grd {
+	&.flxInline,
+	&.grd,
+	&.grdInline {
 		display: none;
 	}
-	&:before {
-		content: "";
-		position: absolute;
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-	&:not(.has--items),
-	&-item {
-		background: color(light);
-		box-shadow: 3px 3px 9px color(dark, 0.3);
-		&:not([class*="-txtSi"]) {
-			font-size: size(sm);
-		}
-		&.--size-lg {
-			padding: 1rem 1.333rem;
-			border-radius: 1.667rem;
-		}
-		&:not([class*="--size"]),
-		&.--size,
-		&.--size-md {
-			padding: 0.7rem 1rem;
-			border-radius: 1.333rem;
-		}
-		&.--size-sm {
-			padding: 0.5rem 0.7rem;
-			border-radius: 0.5rem;
-		}
-	}
 
-	// Position
-	//
-	// @group Modifiers
-	// Right
-	&.--position-right {
-		&,
-		&-top,
-		&-center,
-		&-bottom {
-			@include extend-viewports-classes {
-				left: calc(100% + 0.5rem);
-				&:before {
-					left: -0.5rem;
-					top: 0;
-				}
-			}
-		}
-	}
-	// Left
-	&.--position-left {
-		&,
-		&-top,
-		&-center,
-		&-bottom {
-			@include extend-viewports-classes {
-				right: calc(100% + 0.5rem);
-				&:before {
-					right: -0.5rem;
-					top: 0;
-				}
-			}
-		}
-	}
-	// Right & Left
-	&.--position-right,
-	&.--position-left {
-		&-center {
-			@include extend-viewports-classes {
-				top: 50%;
-				transform: translateY(-50%);
-			}
-		}
-		&-bottom {
-			@include extend-viewports-classes {
-				bottom: -1rem;
-			}
-		}
-		// Default right position
-		&,
-		&-top {
-			@include extend-viewports-classes {
-				top: -1rem;
-			}
-		}
-	}
-	// Top
-	&.--position-top {
-		&,
-		&-left,
-		&-right,
-		&-center {
-			@include extend-viewports-classes {
-				bottom: calc(100% + 0.5rem);
-				&:before {
-					left: 0;
-					bottom: -0.5rem;
-				}
-			}
-		}
-	}
-	// Bottom
-	&.--position-bottom {
-		&,
-		&-left,
-		&-right,
-		&-center {
-			@include extend-viewports-classes {
-				top: calc(100% + 0.5rem);
-				&:before {
-					right: 0;
-					top: -0.5rem;
-				}
-			}
-		}
-	}
-	// Top & Bottom
-	&.--position-top,
-	&.--position-bottom {
-		&-right {
-			@include extend-viewports-classes {
-				right: -0.7rem;
-			}
-		}
-		&-center {
-			@include extend-viewports-classes {
-				left: 50%;
-				transform: translateX(-50%);
-			}
-		}
-		// Default bottom position
-		&,
-		&-left {
-			@include extend-viewports-classes {
-				left: -0.7rem;
-			}
-		}
-	}
-	// default: bottom-left
-	&:not([class*="-po"]) {
-		// Position
-		left: -0.7rem;
-		top: calc(100% + 0.5rem);
-		&:before {
-			right: 0;
-			top: -0.5rem;
-		}
+	&.is--active {
+		@include dropdownVisibleStyles;
 	}
 
 	li {
