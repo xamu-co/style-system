@@ -19,6 +19,7 @@
 	appearance: none;
 	scroll-behavior: smooth;
 	-webkit-tap-highlight-color: transparent;
+	vertical-align: middle;
 	&:before,
 	&:after {
 		// line-height: 1.2em;
@@ -185,15 +186,13 @@ datalist {
 	}
 }
 
-:not([class*="toggle--"]) {
-	> a,
-	> button,
-	> label,
-	> select,
-	> datalist {
-		&.is--routeExact:not(.no--route):not([class*="toggle--"]) {
-			pointer-events: none;
-		}
+a,
+button,
+label,
+select,
+datalist {
+	&:not([class*="toggle--"]).is--routeExact:not(.no--route):not(.no--routeExact):not([class*="toggle--"]) {
+		pointer-events: none;
 	}
 }
 
@@ -209,24 +208,26 @@ h6 {
 	}
 }
 
-a,
-b,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-th,
-button,
-strong {
-	// ignore inherit
-	&:not([class*="-txtWe"]) {
-		// Weight
-		font-weight: weight(bold);
-		@supports (-moz-appearance: none) {
-			// firefox fix
-			font-weight: weight(bold-alt);
+:not([class*="-txtWe"]) > {
+	a,
+	b,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	th,
+	button,
+	strong {
+		// ignore inherit
+		&:not([class*="-txtWe"]) {
+			// Weight
+			font-weight: weight(bold);
+			@supports (-moz-appearance: none) {
+				// firefox fix
+				font-weight: weight(bold-alt);
+			}
 		}
 	}
 }

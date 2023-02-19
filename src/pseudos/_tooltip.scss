@@ -25,13 +25,17 @@
 		border: 2px solid color(light, 0.1);
 		background: color(dark);
 	}
-	&:hover:not([disabled]:not([disabled="false"])):not(.is--routeExact):not(.is--open):not([class*="toggle--"].only--active.is--active) {
-		@media (hover: hover) {
-			// dektop only
+	&:hover:not([disabled]:not([disabled="false"])):not(.is--open):not([class*="toggle--"].only--active.is--active) {
+		&:not(.is--routeExact),
+		&.is--routeExact.no--route,
+		&.is--routeExact.no--routeExact {
+			@media (hover: hover) {
+				// dektop only
 
-			cursor: pointer;
-			&:before {
-				opacity: 1;
+				cursor: pointer;
+				&:before {
+					opacity: 1;
+				}
 			}
 		}
 	}

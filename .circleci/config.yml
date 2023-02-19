@@ -9,7 +9,7 @@ defaults: &defaults
     parallelism: 1
     working_directory: ~/repo
     docker:
-        - image: cimg/node:14.17.0
+        - image: cimg/node:16.19.0
 release: &release
     steps:
         - checkout
