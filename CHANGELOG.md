@@ -1,5 +1,18 @@
 Xamu style system
 
+# [3.1.0-next.1](https://github.com/xamu-co/style-system/compare/v3.0.1-next.1...v3.1.0-next.1) (2023-02-19)
+
+
+### Bug Fixes
+
+* improve line-height on icon & text ([a0f93db](https://github.com/xamu-co/style-system/commit/a0f93dbb17f0dd46418d2eac8b0fc545ab793c0a))
+
+
+### Features
+
+* extend no--route & add no--routeExact ([7e0474d](https://github.com/xamu-co/style-system/commit/7e0474d0d39d16147dce2ea8612f4bdc8191d276))
+* support justify stretch on flexbox ([9900695](https://github.com/xamu-co/style-system/commit/99006951c25a98945f689a267c358bac453caedf))
+
 ## [3.0.1-next.1](https://github.com/xamu-co/style-system/compare/v3.0.0...v3.0.1-next.1) (2023-01-18)
 
 
