@@ -14,6 +14,11 @@ These are the basic guidelines behind this project.
 
 Explore the [docs](https://styles.xamu.com.co/) or learn how to setup the project for development at: [Setup](SETUP.md)
 
+Older package names
+
+-   @xamu-co/style-system
+-   @xamu-co/styles
+
 ## Elements & layouts:
 
 They are the main building blocks of any design.
