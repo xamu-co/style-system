@@ -70,10 +70,6 @@ jobs:
                   name: Dry release
                   command: npx semantic-release --dry-run
 
-    release_to_github:
-        <<: *defaults
-        <<: *release
-
     release_to_npm:
         <<: *defaults
         <<: *release
@@ -88,14 +84,6 @@ workflows:
             - check_code:
                   requires:
                       - check_commit_message
-            - release_to_github:
-                  context: github-deploy
-                  requires:
-                      - check_code
-                  filters:
-                      branches:
-                          only:
-                              - next
             - get_npm_release_version:
                   context: npm-deploy
                   requires:

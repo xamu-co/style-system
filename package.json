@@ -1,5 +1,5 @@
 {
-	"name": "@xamu-co/style-system",
+	"name": "@open-xamu-co/style-system",
 	"version": "1.0.0",
 	"description": "Style system for the xamu project",
 	"main": "dist/index.css",
@@ -33,6 +33,9 @@
 		"csso"
 	],
 	"author": "@xamu-co",
+	"publishConfig": {
+		"access": "public"
+	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/xamu-co/style-system/issues"
