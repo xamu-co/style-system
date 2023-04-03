@@ -25,7 +25,11 @@
 		// tema de la barra de navegacion principal
 		//
 		// @group ConditionalModifiers
-		&[class*="-tm-light"] {
+		&.--tm-lightComplement {
+			--sh: #{color(primaryComplement, 0.7)};
+		}
+		&.--tm-light,
+		&.--tm-lightComplement {
 			.navX-list-item {
 				> *,
 				> * > * {
@@ -113,9 +117,6 @@
 				}
 			}
 		}
-		&.--tm-lightAlt {
-			--sh: #{color(primaryAlt, 0.7)};
-		}
 		// default theme
 		&:not([class*="-tm"]),
 		&.--tm-secondary {
@@ -184,7 +185,7 @@
 				}
 			}
 		}
-		&.--tm-primaryAlt .navX-list-item {
+		&.--tm-primaryComplement .navX-list-item {
 			> *,
 			> * > * {
 				&.link,

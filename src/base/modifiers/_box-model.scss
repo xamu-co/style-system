@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // box sizing
 .--boxSizing {
 	&-content {
@@ -109,21 +111,21 @@ $models: margin, padding;
 		// all sides
 		.--#{$m}-#{$i*5} {
 			@include extend-viewports-classes {
-				#{$model}: #{$i/3}rem;
+				#{$model}: #{math.div($i, 3)}rem;
 			}
 		}
 		// X axis
 		.--#{$m}X-#{$i*5} {
 			@include extend-viewports-classes {
-				#{$model}-left: #{$i/3}rem;
-				#{$model}-right: #{$i/3}rem;
+				#{$model}-left: #{math.div($i, 3)}rem;
+				#{$model}-right: #{math.div($i, 3)}rem;
 			}
 		}
 		// Y axis
 		.--#{$m}Y-#{$i*5} {
 			@include extend-viewports-classes {
-				#{$model}-top: #{$i/3}rem;
-				#{$model}-bottom: #{$i/3}rem;
+				#{$model}-top: #{math.div($i, 3)}rem;
+				#{$model}-bottom: #{math.div($i, 3)}rem;
 			}
 		}
 	}
@@ -145,7 +147,7 @@ $models: margin, padding;
 		@for $i from 1 through 20 {
 			.--#{$mcd}-#{$i * 5} {
 				@include extend-viewports-classes {
-					#{$model}-#{$direction}: #{$i/3}rem;
+					#{$model}-#{$direction}: #{math.div($i, 3)}rem;
 				}
 			}
 		}

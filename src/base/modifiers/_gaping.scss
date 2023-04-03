@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // grid Gap
 // both dimension
 //
@@ -89,19 +91,19 @@
 	.--gap-#{$i*5} {
 		// flex, column & grid only
 		@include extend-viewports-classes(false, $viewports) {
-			gap: #{$i/3}rem;
+			gap: #{math.div($i, 3)}rem;
 		}
 	}
 	.--gapX-#{$i*5} {
 		// flex, column & grid only, X axis
 		@include extend-viewports-classes(false, $viewports) {
-			column-gap: #{$i/3}rem;
+			column-gap: #{math.div($i, 3)}rem;
 		}
 	}
 	.--gapY-#{$i*5} {
 		// flex, column & grid only, Y axis
 		@include extend-viewports-classes(false, $viewports) {
-			row-gap: #{$i/3}rem;
+			row-gap: #{math.div($i, 3)}rem;
 		}
 	}
 
@@ -109,23 +111,23 @@
 	// Fallback for gap on non supporting browsers
 	.--gaping-#{$i*5} {
 		@include extend-viewports-classes(false, $viewports) {
-			margin: 0 -#{$i/3}rem -#{$i/3}rem 0;
+			margin: 0 -#{math.div($i, 3)}rem -#{math.div($i, 3)}rem 0;
 			> * {
-				margin: 0 #{$i/3}rem #{$i/3}rem 0;
+				margin: 0 #{math.div($i, 3)}rem #{math.div($i, 3)}rem 0;
 			}
 		}
 	}
 	.--gapingX-#{$i*5} {
 		@include extend-viewports-classes(false, $viewports) {
 			> *:not(:last-child) {
-				margin-right: #{$i/3}rem;
+				margin-right: #{math.div($i, 3)}rem;
 			}
 		}
 	}
 	.--gapingY-#{$i*5} {
 		@include extend-viewports-classes(false, $viewports) {
 			> *:not(:last-child) {
-				margin-bottom: #{$i/3}rem;
+				margin-bottom: #{math.div($i, 3)}rem;
 			}
 		}
 	}

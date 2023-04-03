@@ -1,6 +1,9 @@
 /*
 	Project variables
 */
+
+@use "sass:color";
+
 $responsive: true !default;
 $fonts: (
 	primary: (
@@ -15,29 +18,54 @@ $fonts: (
 	awesome: "Font Awesome 5 Free",
 );
 
-$primary: #f39c12;
-$primaryAlt: #61320f;
-$secondary: #0f47af;
-$light: #fff;
-$dark: #000;
-$danger: #e74c3c;
-$success: #259c21;
+$primary: #f39c12 !default;
+$primaryComplement: darken(
+	color.adjust($primary, $red: -90deg, $green: -90deg, $blue: -90deg),
+	10
+) !default;
 
-$colors: (
+$secondary: #0f47af !default;
+$secondaryComplement: color.adjust(
+	$secondary,
+	$red: 60deg,
+	$blue: -90deg
+) !default;
+// text color to be used across the system usually over light color
+$textColor: $secondaryComplement !default;
+
+$light: #fff !default;
+$dark: #000 !default;
+$danger: #e74c3c !default;
+$success: #259c21 !default;
+
+$themeColors: (
 	primary: $primary,
-	primaryAlt: $primaryAlt,
+	primaryComplement: $primaryComplement,
 	secondary: $secondary,
-	light: $light,
-	dark: $dark,
+	secondaryComplement: $secondaryComplement,
 	danger: $danger,
 	success: $success,
 );
 
-$viewportXs: 358px;
-$viewportSm: 576px;
-$viewportMd: 768px;
-$viewportLg: 1080px;
-$viewportXl: 1280px;
+$extendedThemeColors: map-merge(
+	$themeColors,
+	(
+		light: $light,
+	)
+);
+
+$baseColors: (
+	light: $light,
+	dark: $dark,
+);
+
+$colors: map-merge($themeColors, $baseColors);
+
+$viewportXs: 358px !default;
+$viewportSm: 576px !default;
+$viewportMd: 768px !default;
+$viewportLg: 1080px !default;
+$viewportXl: 1280px !default;
 
 $modifiersViewports: (
 	md: $viewportMd,
@@ -55,12 +83,11 @@ $viewports: (
 // font sizes
 $fontSizes: (
 	xs: 0.7rem,
-	sm: 0.9rem,
-	nm: 1rem,
-	md: 1.2rem,
-	lg: 1.8rem,
-	xl: 2.8rem,
-	xx: 3.8rem,
+	sm: 0.85rem,
+	md: 1rem,
+	lg: 1.4rem,
+	xl: 2.2rem,
+	xx: 3.6rem,
 	mx: 4.8rem,
 );
 
@@ -76,6 +103,14 @@ $fontWeights: (
 $lineHeight: 1.2em;
 $lineHeightMedium: 1.4em;
 $lineHeightBig: 1.6em;
+
+// element sizes
+$elementSizes: (
+	xs: 2rem,
+	sm: 3rem,
+	md: 6rem,
+	lg: 9rem,
+);
 
 // min column size
 $minColumnSize: 18rem; // 280px aprox

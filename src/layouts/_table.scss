@@ -1,3 +1,8 @@
+@use "sass:meta";
+@use "sass:math";
+
+// Table
+// tbl instead of table to not crash with other libraries such as bootstrap
 table.tbl {
 	table-layout: fixed;
 	border-collapse: collapse;
@@ -16,7 +21,7 @@ table.tbl {
 	}
 	&:not([class*="-txtCo"]) {
 		// Color
-		color: color(dark, 0.7);
+		color: $textColor;
 	}
 	thead {
 		z-index: 3;
@@ -90,7 +95,7 @@ table.tbl {
 				}
 			}
 			td {
-				min-width: $minColumnSize/3;
+				min-width: math.div($minColumnSize, 3);
 			}
 		}
 	}
@@ -98,69 +103,32 @@ table.tbl {
 	// table theme
 	//
 	// @group Modifiers
-	&.--tm-dark7 {
-		thead {
-			tr {
-				color: color(dark, 0.6);
-				&:hover {
-					th:before,
-					td:before {
-						border-color: color(dark, 0.05);
-					}
-				}
-				th,
-				td {
-					&.is--selected {
-						color: color(dark);
-					}
-					&:before {
-						background: color(dark, 0.1);
-					}
-				}
-			}
-		}
-		tbody {
-			tr {
-				&.is--selected {
-					&:hover {
-						th:before,
-						td:before {
-							border-color: color(dark, 0.3);
-						}
-					}
-					th:before,
-					td:before {
-						border-color: color(dark, 0.1);
-					}
-				}
-				&:hover,
-				&.is--selected {
-					color: color(dark);
-					th:before,
-					td:before {
-						background: color(dark, 0.1);
-					}
-				}
-			}
-		}
+	@function tableThemeSelector($name) {
+		@return ".--tm-#{$name}";
 	}
-	&.--tm-primaryAlt {
+	@include extend-map-modifiers(
+			$themeColors,
+			meta.get-function("tableThemeSelector"),
+			secondary,
+			':not([class*="-tm-"])'
+		)
+		using($name, $value) {
 		thead {
 			tr {
-				color: color(primaryAlt, 0.6);
+				color: color($name, 0.6);
 				&:hover {
 					th:before,
 					td:before {
-						border-color: color(primaryAlt, 0.05);
+						border-color: color($name, 0.05);
 					}
 				}
 				th,
 				td {
 					&.is--selected {
-						color: color(primaryAlt);
+						color: $value;
 					}
 					&:before {
-						background: color(primaryAlt, 0.1);
+						background: color($name, 0.1);
 					}
 				}
 			}
@@ -171,206 +139,20 @@ table.tbl {
 					&:hover {
 						th:before,
 						td:before {
-							border-color: color(primaryAlt, 0.3);
+							border-color: color($name, 0.3);
 						}
 					}
 					th:before,
 					td:before {
-						border-color: color(primaryAlt, 0.1);
+						border-color: color($name, 0.1);
 					}
 				}
 				&:hover,
 				&.is--selected {
-					color: color(primaryAlt);
+					color: $value;
 					th:before,
 					td:before {
-						background: color(primaryAlt, 0.1);
-					}
-				}
-			}
-		}
-	}
-	&.--tm-primary {
-		thead {
-			tr {
-				color: color(primary, 0.6);
-				&:hover {
-					th:before,
-					td:before {
-						border-color: color(primary, 0.05);
-					}
-				}
-				th,
-				td {
-					&.is--selected {
-						color: color(primary);
-					}
-					&:before {
-						background: color(primary, 0.1);
-					}
-				}
-			}
-		}
-		tbody {
-			tr {
-				&.is--selected {
-					&:hover {
-						th:before,
-						td:before {
-							border-color: color(primary, 0.3);
-						}
-					}
-					th:before,
-					td:before {
-						border-color: color(primary, 0.1);
-					}
-				}
-				&:hover,
-				&.is--selected {
-					color: color(primary);
-					th:before,
-					td:before {
-						background: color(primary, 0.1);
-					}
-				}
-			}
-		}
-	}
-	&.--tm-danger {
-		thead {
-			tr {
-				color: color(danger, 0.6);
-				&:hover {
-					th:before,
-					td:before {
-						border-color: color(danger, 0.05);
-					}
-				}
-				th,
-				td {
-					&.is--selected {
-						color: color(danger);
-					}
-					&:before {
-						background: color(danger, 0.1);
-					}
-				}
-			}
-		}
-		tbody {
-			tr {
-				&.is--selected {
-					&:hover {
-						th:before,
-						td:before {
-							border-color: color(danger, 0.3);
-						}
-					}
-					th:before,
-					td:before {
-						border-color: color(danger, 0.1);
-					}
-				}
-				&:hover,
-				&.is--selected {
-					color: color(danger);
-					th:before,
-					td:before {
-						background: color(danger, 0.1);
-					}
-				}
-			}
-		}
-	}
-	&.--tm-success {
-		thead {
-			tr {
-				color: color(success, 0.6);
-				&:hover {
-					th:before,
-					td:before {
-						border-color: color(success, 0.05);
-					}
-				}
-				th,
-				td {
-					&.is--selected {
-						color: color(success);
-					}
-					&:before {
-						background: color(success, 0.1);
-					}
-				}
-			}
-		}
-		tbody {
-			tr {
-				&.is--selected {
-					&:hover {
-						th:before,
-						td:before {
-							border-color: color(success, 0.3);
-						}
-					}
-					th:before,
-					td:before {
-						border-color: color(success, 0.1);
-					}
-				}
-				&:hover,
-				&.is--selected {
-					color: color(success);
-					th:before,
-					td:before {
-						background: color(success, 0.1);
-					}
-				}
-			}
-		}
-	}
-	// default theme: secondary
-	&:not([class*="-tm"]),
-	&.--tm-secondary {
-		thead {
-			tr {
-				color: color(secondary, 0.6);
-				&:hover {
-					th:before,
-					td:before {
-						border-color: color(secondary, 0.05);
-					}
-				}
-				th,
-				td {
-					&.is--selected {
-						color: color(secondary);
-					}
-					&:before {
-						background: color(secondary, 0.1);
-					}
-				}
-			}
-		}
-		tbody {
-			tr {
-				&.is--selected {
-					&:hover {
-						th:before,
-						td:before {
-							border-color: color(secondary, 0.3);
-						}
-					}
-					th:before,
-					td:before {
-						border-color: color(secondary, 0.1);
-					}
-				}
-				&:hover,
-				&.is--selected {
-					color: color(secondary);
-					th:before,
-					td:before {
-						background: color(secondary, 0.1);
+						background: color($name, 0.1);
 					}
 				}
 			}

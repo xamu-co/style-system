@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // link Navigation element
 //
 // @group Components
@@ -91,76 +93,49 @@
 		// nav link themes
 		//
 		// @group Modifiers
-		&.--tm {
-			&-light-primaryAlt {
-				&:hover,
-				&.is--active,
-				&.is--routeExact:not(.no--route):not(.no--routeExact) {
-					--rw: #{color(primaryAlt)};
-				}
-			}
-			&-primary-light {
-				&:hover,
-				&.is--active,
-				&.is--routeExact:not(.no--route):not(.no--routeExact) {
-					--rw: #{color(primary)};
-				}
-			}
-			&-danger-light {
-				--rw: #{color(danger)};
-				&:not(.is--active) {
-					&:not(.is--routeExact),
-					&.is--routeExact.no--route,
-					&.is--routeExact.no--routeExact {
-						&:hover {
-							--rw: #{color(danger, 0.5)};
-						}
-					}
-				}
-				&.is--active,
-				&.is--routeExact:not(.no--route):not(.no--routeExact) {
-					--rw: #{color(danger, 0.7)};
-				}
-			}
-			&-success-light {
-				--rw: #{color(success)};
-				&:not(.is--active) {
-					&:not(.is--routeExact),
-					&.is--routeExact.no--route,
-					&.is--routeExact.no--routeExact {
-						&:hover {
-							--rw: #{color(success, 0.5)};
-						}
-					}
-				}
-				&.is--active,
-				&.is--routeExact:not(.no--route):not(.no--routeExact) {
-					--rw: #{color(success, 0.7)};
-				}
-			}
-			&-primary-light,
-			&-light-primaryAlt {
-				--rw: #{color(light)};
-			}
+		@function buttonLinkThemeSelector($name) {
+			@return ".--tm-#{$name}-light";
 		}
-		// default theme: secondary
-		&:not([class*="-tm"]),
-		&.--tm-secondary-light {
-			--rw: #{color(secondary)};
+		@include extend-map-modifiers(
+				$extendedThemeColors,
+				meta.get-function("buttonLinkThemeSelector"),
+				secondary,
+				':not([class*="-tm-"])'
+			)
+			using($name, $value) {
+			--rw: #{color($name)};
 			&:not(.is--active) {
 				&:not(.is--routeExact),
 				&.is--routeExact.no--route,
 				&.is--routeExact.no--routeExact {
 					&:hover {
-						--rw: #{color(dark, 0.5)};
+						--rw: #{color($name, 0.5)};
 					}
 				}
 			}
 			&.is--active,
 			&.is--routeExact:not(.no--route):not(.no--routeExact) {
-				--rw: #{color(dark, 0.7)};
+				--rw: #{color($name, 0.7)};
 			}
 		}
+
+		// Alternative themes
+		@function buttonLinkThemeSelectorLight($name) {
+			@return ".--tm-light-#{$name}";
+		}
+		@include extend-map-modifiers(
+				$extendedThemeColors,
+				meta.get-function("buttonLinkThemeSelectorLight")
+			)
+			using($name, $value) {
+			--rw: #{color(light)};
+			&:hover,
+			&.is--active,
+			&.is--routeExact:not(.no--route):not(.no--routeExact) {
+				--rw: #{color($name)};
+			}
+		}
+
 		i.icon,
 		.svg {
 			&:last-child {

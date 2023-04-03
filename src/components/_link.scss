@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // Default link element
 // this element is expected to be an <a> tag
 //
@@ -40,46 +42,30 @@
 	// link theme
 	//
 	// @group Modifiers
-	&.--tm {
-		&-light {
-			--cl: #{color(light)};
-			--cl-a: #{color(primary)};
-		}
-		&-lightAlt {
-			--cl: #{color(light)};
-			--cl-a: #{color(primaryAlt)};
-		}
-		&-primaryAlt {
-			--cl: #{color(primaryAlt)};
-			--cl-a: #{color(light)};
-			--sh: #{color(primaryAlt, 0.7)};
-		}
-		&-danger {
-			--cl: #{color(danger)};
-			--cl-a: #{color(danger, 0.7)};
-			--cl-h: #{color(dark, 0.5)};
-			&.is--alert:after {
-				--cl-h: #{color(light, 0.5)};
-			}
-		}
-		&-secondaryAlt {
-			--cl: #{color(secondary)};
-			--cl-a: #{color(secondary, 0.7)};
-			--cl-h: #{color(secondary, 0.5)};
-			&.is--alert:after {
-				--cl-h: #{color(light, 0.5)};
-			}
-		}
+	@function linkThemeSelector($name) {
+		@return ".--tm-#{$name}";
 	}
-	// default theme: secondary
-	&:not([class*="-tm"]),
-	&.--tm-secondary {
-		--cl: #{color(secondary)};
-		--cl-a: #{color(dark, 0.7)};
-		--cl-h: #{color(dark, 0.5)};
+	@include extend-map-modifiers(
+			$themeColors,
+			meta.get-function("linkThemeSelector"),
+			secondary,
+			':not([class*="-tm-"])'
+		)
+		using($name, $value) {
+		--cl: #{color($name)};
+		--cl-a: #{color($name, 0.7)};
+		--cl-h: #{color($name, 0.5)};
 		&.is--alert:after {
 			--cl-h: #{color(light, 0.5)};
 		}
+	}
+	.--tm-light {
+		--cl: #{color(light)};
+		--cl-a: #{color(primary)};
+	}
+	.--tm-lightComplement {
+		--cl: #{color(light)};
+		--cl-a: #{color(primaryComplement)};
 	}
 
 	// link round handling

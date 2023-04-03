@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /// # Grid layout
 /// Grid layout system
 /// ```css
@@ -128,7 +130,7 @@
 			@include extend-viewports-classes {
 				grid-template-columns: repeat(
 					auto-fit,
-					minmax(#{$minColumnSize/3}, max-content)
+					minmax(#{math.div($minColumnSize, 3)}, max-content)
 				);
 			}
 		}
@@ -136,7 +138,7 @@
 			@include extend-viewports-classes {
 				grid-template-columns: repeat(
 					auto-fill,
-					minmax(#{$minColumnSize/3}, max-content)
+					minmax(#{math.div($minColumnSize, 3)}, max-content)
 				);
 			}
 		}
@@ -171,7 +173,7 @@
 			@include extend-viewports-classes {
 				grid-template-columns: repeat(
 					auto-fit,
-					minmax(#{$minColumnSize/$i * 3}, 1fr)
+					minmax(#{math.div($minColumnSize, $i) * 3}, 1fr)
 				);
 			}
 		}
@@ -179,7 +181,7 @@
 			@include extend-viewports-classes {
 				grid-template-columns: repeat(
 					#{$i},
-					minmax(#{$minColumnSize/$i * 3}, 1fr)
+					minmax(#{math.div($minColumnSize, $i) * 3}, 1fr)
 				);
 			}
 		}

@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // Comment
 //
 // @group Components
@@ -40,22 +42,31 @@
 	// Comment theme
 	//
 	// @group Modifiers
-	&.--tm-light {
+	@function boxThemeSelector($name) {
+		@return ".--tm-#{$name}";
+	}
+	@include extend-map-modifiers(
+			$extendedThemeColors,
+			meta.get-function("boxThemeSelector"),
+			secondary,
+			':not([class*="-tm-"])'
+		)
+		using($name, $value) {
 		&:not([class*="-bgCo"]) {
-			background: color(light, 0.1);
+			background: color($name, 0.1);
 		}
 		&:hover {
-			border-color: color(light, 0.1);
+			border-color: color($name, 0.1);
 		}
 		&:hover,
 		&.is--active,
 		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			&.--bttn,
 			&.--button {
-				background: color(light, 0.2);
-				// border-color: color(light, 0.3);
+				background: color($name, 0.2);
+				// border-color: color($name, 0.3);
 				.box {
-					box-shadow: 3px 3px 9px color(light, 0.3);
+					box-shadow: 3px 3px 9px color($name, 0.3);
 				}
 			}
 		}
@@ -63,11 +74,12 @@
 		&.--button {
 			&:not([class*="-txtCo"]) {
 				// Color
-				color: color(light);
+				color: color($name);
 			}
 		}
 	}
-	&.--tm-lightAlt {
+
+	&.--tm-lightComplement {
 		&:not([class*="-bgCo"]) {
 			background: color(light);
 		}
@@ -95,148 +107,6 @@
 		}
 	}
 
-	&.--tm-primary {
-		&:not([class*="-bgCo"]) {
-			background: color(primary, 0.1);
-		}
-		&:hover {
-			border-color: color(primary, 0.1);
-		}
-		&:hover,
-		&.is--active,
-		&.is--routeExact:not(.no--route):not(.no--routeExact) {
-			&.--bttn,
-			&.--button {
-				background: color(primary, 0.2);
-				// border-color: color(primary, 0.3);
-				.box {
-					box-shadow: 3px 3px 9px color(primary, 0.3);
-				}
-			}
-		}
-		&.--bttn,
-		&.--button {
-			&:not([class*="-txtCo"]) {
-				// Color
-				color: color(primary);
-			}
-		}
-	}
-
-	&.--tm-primaryAlt {
-		&:not([class*="-bgCo"]) {
-			background: color(primaryAlt, 0.1);
-		}
-		&:hover {
-			border-color: color(primaryAlt, 0.1);
-		}
-		&:hover,
-		&.is--active,
-		&.is--routeExact:not(.no--route):not(.no--routeExact) {
-			&.--bttn,
-			&.--button {
-				background: color(primaryAlt, 0.2);
-				// border-color: color(primaryAlt, 0.3);
-				.box {
-					box-shadow: 3px 3px 9px color(primaryAlt, 0.3);
-				}
-			}
-		}
-		&.--bttn,
-		&.--button {
-			&:not([class*="-txtCo"]) {
-				// Color
-				color: color(primaryAlt);
-			}
-		}
-	}
-
-	&.--tm-danger {
-		&:not([class*="-bgCo"]) {
-			background: color(danger, 0.1);
-		}
-		&:hover {
-			border-color: color(danger, 0.1);
-		}
-		&:hover,
-		&.is--active,
-		&.is--routeExact:not(.no--route):not(.no--routeExact) {
-			&.--bttn,
-			&.--button {
-				background: color(danger, 0.2);
-				// border-color: color(danger, 0.3);
-				.box {
-					box-shadow: 3px 3px 9px color(danger, 0.3);
-				}
-			}
-		}
-		&.--bttn,
-		&.--button {
-			&:not([class*="-txtCo"]) {
-				// Color
-				color: color(danger);
-			}
-		}
-	}
-
-	&.--tm-success {
-		&:not([class*="-bgCo"]) {
-			background: color(success, 0.1);
-		}
-		&:hover {
-			border-color: color(success, 0.1);
-		}
-		&:hover,
-		&.is--active,
-		&.is--routeExact:not(.no--route):not(.no--routeExact) {
-			&.--bttn,
-			&.--button {
-				background: color(success, 0.2);
-				// border-color: color(success, 0.3);
-				.box {
-					box-shadow: 3px 3px 9px color(success, 0.3);
-				}
-			}
-		}
-		&.--bttn,
-		&.--button {
-			&:not([class*="-txtCo"]) {
-				// Color
-				color: color(success);
-			}
-		}
-	}
-
-	// default theme
-	&:not([class*="-tm"]),
-	&.--tm-secondary {
-		&:not([class*="-bgCo"]) {
-			background: color(secondary, 0.1);
-		}
-		&:hover {
-			border-color: color(secondary, 0.1);
-		}
-		&:hover,
-		&.is--active,
-		&.is--routeExact:not(.no--route):not(.no--routeExact) {
-			&.--bttn,
-			&.--button {
-				background: color(secondary, 0.2);
-				// border-color: color(secondary, 0.3);
-				.box {
-					box-shadow: 3px 3px 9px color(secondary, 0.3);
-				}
-			}
-		}
-		&.--bttn,
-		&.--button {
-			&:not([class*="-txtCo"]) {
-				// Color
-				color: color(secondary);
-			}
-		}
-	}
-
 	// button behavior
 	//
 	// @group Modifiers
@@ -258,22 +128,16 @@
 		// this assummes there is only one child
 		//
 		// @group Modifiers
-		&.--square {
-			&-xs {
-				width: 3rem;
-			}
-			&-sm {
-				width: 5rem;
-			}
-			&-lg {
-				width: 9rem;
-			}
-			&,
-			&-md {
-				width: 6rem;
-			}
+		@function boxSquareSelector($name) {
+			@return ".--square-#{$name}";
 		}
-		&[class*="-square"] {
+		@include extend-map-modifiers(
+				$elementSizes,
+				meta.get-function("boxSquareSelector"),
+				md
+			)
+			using($name, $value) {
+			width: $value;
 			margin: 0 auto;
 			overflow: hidden;
 			&:before {

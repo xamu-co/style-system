@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // text tranform
 //
 // @group GlobalModifiers
@@ -213,7 +215,7 @@
 	&,
 	> :not([class*="-txtCo"]) {
 		// Color
-		color: color(dark, 0.7);
+		color: $textColor;
 	}
 }
 
@@ -261,7 +263,7 @@
 				&,
 				> :not([class*="-txtCo"]) {
 					// Shadow
-					color: color($name, $i/10);
+					color: color($name, math.div($i, 10));
 				}
 			}
 		}
@@ -272,7 +274,7 @@
 				&,
 				> :not([class*="-txtSh"]) {
 					// Shadow
-					text-shadow: 1px 1px 1px color($name, $i/10);
+					text-shadow: 1px 1px 1px color($name, math.div($i, 10));
 				}
 			}
 		}

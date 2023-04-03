@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Dimensions
 $dimensions: width, height;
 $sizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
@@ -39,7 +41,7 @@ $sizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
 		@each $size in $sizes {
 			&-#{$size} {
 				@include extend-viewports-classes {
-					#{$dimension}: #{round($size/15)}rem;
+					#{$dimension}: #{round(math.div($size, 15))}rem;
 				}
 			}
 		}
@@ -83,7 +85,9 @@ $sizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
 			@each $size in $sizes {
 				&-#{$size} {
 					@include extend-viewports-classes {
-						#{$constrain}-#{$dimension}: #{round($size/15)}rem;
+						#{$constrain}-#{$dimension}: #{round(
+								math.div($size, 15)
+							)}rem;
 					}
 				}
 			}

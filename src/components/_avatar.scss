@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // avatar proporcion 1:1
 //
 // @group Components
@@ -5,18 +7,17 @@
 	// avatar size
 	//
 	// @group Modifiers
-	&,
-	&.--size {
-		width: 3rem;
-		height: 3rem;
+	@function avatarSizeSelector($name) {
+		@return ".--size-#{$name}";
 	}
-	&.--size-lg {
-		width: 9rem;
-		height: 9rem;
-	}
-	&.--size-md {
-		width: 6rem;
-		height: 6rem;
+	@include extend-map-modifiers(
+			$elementSizes,
+			meta.get-function("avatarSizeSelector"),
+			sm
+		)
+		using($name, $value) {
+		width: $value;
+		height: $value;
 	}
 
 	img {

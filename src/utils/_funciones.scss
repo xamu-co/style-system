@@ -1,26 +1,28 @@
 // _funciones.scss
 
-//coverts color to rgb, making it compatible with custom vars and opacity
+@use "sass:math";
+
+// coverts color to rgb, making it compatible with custom vars and opacity
 @function to-rgb($color) {
 	@return red($color) + ", " + green($color) + ", " + blue($color);
 }
 
-//retorna la fuente del mapa de fuentes
+// retorna la fuente del mapa de fuentes
 @function family($font-name: primary) {
 	@return map-get($fonts, $font-name);
 }
 
-//returns the size from the map of sizes
-@function size($font-size: nm) {
+// returns the size from the map of sizes
+@function size($font-size: md) {
 	@return map-get($fontSizes, $font-size);
 }
 
-//returns the weight from the map of weights
+// returns the weight from the map of weights
 @function weight($font-weight: regular) {
 	@return map-get($fontWeights, $font-weight);
 }
 
-//retorna el color del mapa de colores
+// retorna el color del mapa de colores
 @function color($color-name, $rgb: false) {
 	@if $rgb {
 		$color: to-rgb(map-get($colors, $color-name));
@@ -56,13 +58,16 @@
 // @return {Number} Converted angle
 @function convert-angle($value, $unit) {
 	$convertable-units: deg grad turn rad;
-	$conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
+	$conversion-factors: 1 math.div(10grad, 9deg) math.div(1turn, 360deg)
+		math.div(3.1415926rad, 180deg);
 	@if index($convertable-units, unit($value)) and
 		index($convertable-units, $unit)
 	{
-		@return $value /
+		@return math.div(
+			$value,
 			nth($conversion-factors, index($convertable-units, unit($value))) *
-			nth($conversion-factors, index($convertable-units, $unit));
+				nth($conversion-factors, index($convertable-units, $unit))
+		);
 	}
 
 	@warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";

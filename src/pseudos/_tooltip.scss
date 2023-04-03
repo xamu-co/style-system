@@ -44,13 +44,13 @@
 	//
 	// @group PseudoModifiers
 	&[data-tooltip-bg="light"]:before {
-		color: color(dark, 0.7);
+		color: $textColor;
 	}
-	&[data-tooltip-bg="lightAlt"]:before {
-		color: color(primaryAlt);
+	&[data-tooltip-bg="lightComplement"]:before {
+		color: color(primaryComplement);
 		background: color(light);
 	}
-	&[data-tooltip-bg="secondaryAlt"]:before {
+	&[data-tooltip-bg="secondaryComplement"]:before {
 		background: color(secondary);
 	}
 	@each $name, $color in $colors {

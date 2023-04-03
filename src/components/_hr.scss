@@ -1,9 +1,14 @@
+@use "sass:meta";
+
 // Delimiter
 //
 // @group Components
 hr {
 	box-sizing: border-box;
 	&.--hrX {
+		@function hrXThemeSelector($name) {
+			@return ".--tm-#{$name}";
+		}
 		@include extend-viewports-classes(true, $viewports) {
 			// max-height: 2px;
 			height: 2px;
@@ -17,29 +22,21 @@ hr {
 			// Tema del delimitador
 			//
 			// @group Modifiers
-			&.--tm-dark7 {
-				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
-			}
-			&.--tm-primary {
-				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
-			}
-			&.--tm-primaryAlt {
-				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
-			}
-			&.--tm-danger {
-				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
-			}
-			&.--tm-success {
-				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
-			}
-			// default theme
-			&:not([class*="-tm"]),
-			&.--tm-secondary {
-				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
+			@include extend-map-modifiers(
+					$extendedThemeColors,
+					meta.get-function("hrXThemeSelector"),
+					secondary,
+					':not([class*="-tm-"])'
+				)
+				using($name, $value) {
+				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$value}, '#')}#{$ruleSvgPathEnd}");
 			}
 		}
 	}
 	&.--hrY {
+		@function hrYThemeSelector($name) {
+			@return ".--tm-#{$name}";
+		}
 		@include extend-viewports-classes(true, $viewports) {
 			// max-width: 2px;
 			width: 2px;
@@ -53,25 +50,14 @@ hr {
 			// Tema del delimitador
 			//
 			// @group Modifiers
-			&.--tm-dark7 {
-				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$ruleSvgPathEnd}");
-			}
-			&.--tm-primary {
-				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$primary}, '#')}#{$ruleSvgPathEnd}");
-			}
-			&.--tm-primaryAlt {
-				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$primaryAlt}, '#')}#{$ruleSvgPathEnd}");
-			}
-			&.--tm-danger {
-				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$danger}, '#')}#{$ruleSvgPathEnd}");
-			}
-			&.--tm-success {
-				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$success}, '#')}#{$ruleSvgPathEnd}");
-			}
-			// default theme
-			&:not([class*="-tm"]),
-			&.--tm-secondary {
-				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
+			@include extend-map-modifiers(
+					$extendedThemeColors,
+					meta.get-function("hrYThemeSelector"),
+					secondary,
+					':not([class*="-tm-"])'
+				)
+				using($name, $value) {
+				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$value}, '#')}#{$ruleSvgPathEnd}");
 			}
 		}
 	}

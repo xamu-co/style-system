@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // Toggle button
 // this element is expected to be an <button>, <a> or <label> element
 // aditionally you have to provide a fas(solid) far(regular) icons
@@ -48,147 +50,54 @@
 	// second value is the textColor
 	//
 	// @group Modifiers
-	&.--tm {
-		&-dark7 {
-			--cl: #{color(dark, 0.7)};
-			--bg: #{color(dark, 0.1)};
-			&:hover {
-				--bc: #{color(dark, 0.3)};
-			}
-			&.is--alert,
-			&.is--active {
-				--bg: #{color(dark, 0.5)};
-			}
-			&.is--alert:after {
-				--bc: #{color(dark, 0.7)};
-				--bg: #{color(light)};
-			}
-			&.is--routeExact:not(.no--route):not(.no--routeExact) {
-				--cl: #{color(light)};
-				--bg: #{color(dark, 0.5)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&-light {
-			--cl: #{color(light)};
-			--bg: #{color(light, 0.1)};
-			&:hover {
-				--bc: #{color(light, 0.3)};
-			}
-			&.is--alert:after {
-				--bg: #{color(light)};
-				--bc: #{color(light)};
-			}
-			&.is--alert,
-			&.is--active {
-				--bg: #{color(light, 0.5)};
-			}
-			&.is--routeExact:not(.no--route):not(.no--routeExact) {
-				--cl: #{color(light)};
-				--bg: #{color(light, 0.5)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&-lightAlt {
-			--cl: #{color(light)};
-			--bg: #{color(primaryAlt, 0.1)};
-			&:hover {
-				--bc: #{color(primaryAlt, 0.3)};
-			}
-			&.is--alert:after {
-				--bg: #{color(light)};
-				--bc: #{color(dark, 0.3)};
-			}
-			&.is--alert,
-			&.is--active {
-				--bg: #{color(primaryAlt, 0.5)};
-			}
-			&.is--routeExact:not(.no--route):not(.no--routeExact) {
-				--cl: #{color(light)};
-				--bg: #{color(primaryAlt, 0.5)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&-primaryAlt {
-			--cl: #{color(primaryAlt)};
-			--bg: #{color(primaryAlt, 0.1)};
-			&:hover {
-				--bc: #{color(primaryAlt)};
-			}
-			&.is--alert:after {
-				--bg: #{color(light)};
-				--bc: #{color(dark, 0.3)};
-			}
-			&.is--alert,
-			&.is--active {
-				--bg: #{color(primaryAlt, 0.5)};
-			}
-			&.is--routeExact:not(.no--route):not(.no--routeExact) {
-				--cl: #{color(light)};
-				--bg: #{color(primaryAlt, 0.5)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&-danger {
-			--cl: #{color(danger)};
-			--bg: #{color(danger, 0.1)};
-			&:hover {
-				--bc: #{color(danger)};
-			}
-			&.is--alert:after {
-				--bg: #{color(light)};
-				--bc: #{color(dark, 0.3)};
-			}
-			&.is--alert,
-			&.is--active {
-				--bg: #{color(danger, 0.5)};
-			}
-			&.is--routeExact:not(.no--route):not(.no--routeExact) {
-				--cl: #{color(light)};
-				--bg: #{color(danger, 0.5)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
-		&-success {
-			--cl: #{color(success)};
-			--bg: #{color(success, 0.1)};
-			&:hover {
-				--bc: #{color(success)};
-			}
-			&.is--alert:after {
-				--bg: #{color(light)};
-				--bc: #{color(dark, 0.3)};
-			}
-			&.is--alert,
-			&.is--active {
-				--bg: #{color(success, 0.5)};
-			}
-			&.is--routeExact:not(.no--route):not(.no--routeExact) {
-				--cl: #{color(light)};
-				--bg: #{color(success, 0.5)};
-				--bc: #{color(light, 0.3)};
-			}
-		}
+	@function buttonToggleThemeSelector($name) {
+		@return ".--tm-#{$name}";
 	}
-	// default theme
-	&:not([class*="-tm"]),
-	&.--tm-secondary {
-		--cl: #{color(secondary)};
-		--bg: #{color(secondary, 0.1)};
+	@include extend-map-modifiers(
+			$extendedThemeColors,
+			meta.get-function("buttonToggleThemeSelector"),
+			secondary,
+			':not([class*="-tm-"])'
+		)
+		using($name, $value) {
+		--cl: #{color($name)};
+		--bg: #{color($name, 0.1)};
 		&:hover {
-			--bc: #{color(secondary, 0.3)};
-		}
-		&.is--alert:after {
-			--bg: #{color(light)};
-			--bc: #{color(secondary)};
+			--bc: #{color($name, 0.3)};
 		}
 		&.is--alert,
 		&.is--active {
-			--bg: #{color(secondary, 0.5)};
+			--bg: #{color($name, 0.5)};
+		}
+		&.is--alert:after {
+			--bc: #{color($name)};
+			--bg: #{color(light)};
 		}
 		&.is--routeExact:not(.no--route):not(.no--routeExact) {
 			--cl: #{color(light)};
-			--bg: #{color(secondary)};
+			--bg: #{color($name, 0.5)};
+			--bc: #{color(light, 0.3)};
+		}
+	}
+
+	// Alternative color
+	&.--tm-lightComplement {
+		--cl: #{color(light)};
+		--bg: #{color(primaryComplement, 0.1)};
+		&:hover {
+			--bc: #{color(primaryComplement, 0.3)};
+		}
+		&.is--alert:after {
+			--bg: #{color(light)};
+			--bc: #{color(dark, 0.3)};
+		}
+		&.is--alert,
+		&.is--active {
+			--bg: #{color(primaryComplement, 0.5)};
+		}
+		&.is--routeExact:not(.no--route):not(.no--routeExact) {
+			--cl: #{color(light)};
+			--bg: #{color(primaryComplement, 0.5)};
 			--bc: #{color(light, 0.3)};
 		}
 	}

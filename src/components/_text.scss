@@ -17,7 +17,7 @@
 		white-space: pre-line;
 	}
 	&:not([class*="-txtCo"]) {
-		color: color(dark, 0.7);
+		color: $textColor;
 	}
 	&:not([class*="-txtA"]) {
 		&,

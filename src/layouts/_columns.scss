@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /// # Column layout
 /// Useful for representing columns layouts like in old newspapers
 /// ```css
@@ -41,7 +43,7 @@
 	@for $i from 2 through 12 {
 		&.--count-#{$i} {
 			@include extend-viewports-classes {
-				columns: #{$minColumnSize/$i * 3} #{$i};
+				columns: #{math.div($minColumnSize, $i) * 3} #{$i};
 			}
 		}
 	}
@@ -49,6 +51,6 @@
 	&.--count,
 	&:not([class*="-co"]) {
 		// Count
-		columns: #{$minColumnSize/2 * 3} 2;
+		columns: #{math.div($minColumnSize, 2) * 3} 2;
 	}
 }

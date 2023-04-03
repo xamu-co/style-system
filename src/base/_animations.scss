@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /// # Animations
 /// Animations are also taken into account.\
 /// They are his own kind of component so all animations comes with a shared set of classes to alter them.
@@ -64,7 +66,7 @@
 
 	@for $i from 1 through 20 {
 		&.--delay-#{$i} {
-			animation-delay: #{$i/10}s;
+			animation-delay: #{math.div($i, 10)}s;
 		}
 		&.--iterations-#{$i} {
 			animation-iteration-count: #{$i};

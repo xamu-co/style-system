@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Default striped
 .--striped {
 	@include extend-viewports-classes {
@@ -62,14 +64,14 @@
 		// background color
 		.--bgColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
-				background-color: color($name, $i/10);
+				background-color: color($name, math.div($i, 10));
 			}
 		}
 
 		// borderColor
 		.--bdrColor-#{$name}#{$i} {
 			@include extend-viewports-classes {
-				border-color: color($name, $i/10);
+				border-color: color($name, math.div($i, 10));
 			}
 		}
 	}

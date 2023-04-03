@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // radio input
 input[type^="r"].iRadio {
 	+ label:after {
@@ -76,42 +78,49 @@ input[type^="c"].iCheckbox {
 	// Radio theme
 	//
 	// @group Modifiers
-	&.--tm-light {
-		+ label {
-			color: color(light);
-			&:after {
-				background-color: color(light, 0.1);
-				border-color: color(light, 0.1);
-			}
-			&:hover {
-				color: color(light, 0.7);
-				&:after {
-					border-color: color(light, 0.3);
-				}
-			}
-		}
-		&:checked + label:after {
-			background-color: color(light, 0.5);
-		}
+	@function iToggleThemeSelector($name) {
+		@return ".--tm-#{$name}";
 	}
-	// default
-	&:not([class*="-tm"]),
-	&.--tm-secondary {
+	@include extend-map-modifiers(
+			$extendedThemeColors,
+			meta.get-function("iToggleThemeSelector"),
+			secondary,
+			':not([class*="-tm-"])'
+		)
+		using($name, $value) {
 		+ label {
-			color: color(secondary);
+			color: $value;
 			&:after {
-				background-color: color(secondary, 0.1);
-				border-color: color(secondary, 0.1);
+				background-color: color($name, 0.1);
+				border-color: color($name, 0.1);
 			}
 			&:hover {
-				color: color(secondary, 0.7);
+				color: color($name, 0.7);
 				&:after {
-					border-color: color(secondary, 0.3);
+					border-color: color($name, 0.3);
 				}
 			}
 		}
 		&:checked + label:after {
-			background-color: color(secondary, 0.5);
+			background-color: color($name, 0.5);
+		}
+		&.is--invalid {
+			+ label {
+				color: color(danger);
+				&:after {
+					background-color: color(danger, 0.1);
+					border-color: color(danger, 0.1);
+				}
+				&:hover {
+					color: color(danger, 0.7);
+					&:after {
+						border-color: color(danger, 0.3);
+					}
+				}
+			}
+			&:checked + label:after {
+				background-color: color(danger, 0.5);
+			}
 		}
 	}
 }

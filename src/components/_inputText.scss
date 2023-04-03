@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 // Envuelve cada vista
 // this element is expected to be an <input> or <textarea> tag but the text type
 //
@@ -43,73 +45,75 @@ textarea.iTxt {
 	// theme
 	//
 	// @group Modifiers
-	&:not(.is--invalid) {
-		&.--tm {
-			&-light {
-				--bg: #{color(light, 0.3)};
-				--bc: #{color(light, 0.7)};
-				--cl: #{color(light)};
-				--cl-a: #{color(light, 0.7)};
-				text-shadow: 1px 1px 1px color(dark, 0.3);
-				&:hover:not(:focus):not(:focus-within) {
-					--bc: var(--cl);
-				}
-				&:focus,
-				&:focus-within {
-					--bg: #{color(primary, 0.3)};
-					--bc: #{color(primary)};
-				}
-			}
-			&-lighter {
-				--bg: #{color(light)};
-				--bc: #{transparent};
-				--cl: #{color(primary)};
-				--cl-a: #{color(primary, 0.5)};
-				// showcase a shadow
-				//
-				// @group ConditionalModifiers
-				&.--shadow {
-					box-shadow: 1px 1px 3px color(dark, 0.3);
-				}
-			}
-			&-lightAlt {
-				--bg: #{color(light)};
-				--bc: #{transparent};
-				--cl: #{color(primaryAlt)};
-				--cl-a: #{color(primaryAlt, 0.3)};
-				// showcase a shadow
-				//
-				// @group ConditionalModifiers
-				&.--shadow {
-					box-shadow: 1px 1px 3px color(dark, 0.3);
-				}
-			}
-			&-primary {
-				--bg: #{color(primary, 0.1)};
-				--bc: #{color(primary, 0.05)};
-				--cl: #{color(light)};
-				--cl-a: #{color(light, 0.5)};
-			}
-		}
+	@function iTxtThemeSelector($name) {
+		@return ".--tm-#{$name}";
+	}
+	@include extend-map-modifiers(
+			$themeColors,
+			meta.get-function("iTxtThemeSelector"),
+			secondary,
+			':not([class*="-tm-"])'
+		)
+		using($name, $value) {
+		--bg: #{color($name, 0.1)};
+		--bc: #{color($name, 0.05)};
+		--cl: #{color(light)};
+		--cl-a: #{color(light, 0.5)};
 
-		// default theme
-		&:not([class*="-tm"]),
-		&.--tm-secondary {
-			--bg: #{color(secondary, 0.1)};
-			--bc: #{color(secondary, 0.05)};
-			--cl: #{color(secondary)};
-			--cl-a: #{color(secondary, 0.3)};
+		// invalid
+		&.is--invalid {
+			--bg: #{color(danger, 0.1)};
+			--bc: #{color(danger, 0.05)};
+			--cl: #{color(danger)};
+			--cl-a: #{color(danger, 0.3)};
 		}
 	}
 
-	// invalid
-	// TODO: invalid state for danger theme
-	&.is--invalid,
-	&.--tm-danger {
-		--bg: #{color(danger, 0.1)};
-		--bc: #{color(danger, 0.05)};
-		--cl: #{color(danger)};
-		--cl-a: #{color(danger, 0.3)};
+	// Aditional colors
+	&.--tm-light {
+		--bg: #{color(light, 0.3)};
+		--bc: #{color(light, 0.7)};
+		--cl: #{color(light)};
+		--cl-a: #{color(light, 0.7)};
+		text-shadow: 1px 1px 1px color(dark, 0.3);
+		&:hover:not(:focus):not(:focus-within) {
+			--bc: var(--cl);
+		}
+		&:focus,
+		&:focus-within {
+			--bg: #{color(primary, 0.3)};
+			--bc: #{color(primary)};
+		}
+	}
+	&.--tm-lighter {
+		--bg: #{color(light)};
+		--bc: #{transparent};
+		--cl: #{color(primary)};
+		--cl-a: #{color(primary, 0.5)};
+	}
+	&.--tm-lightComplement {
+		--bg: #{color(light)};
+		--bc: #{transparent};
+		--cl: #{color(primaryComplement)};
+		--cl-a: #{color(primaryComplement, 0.3)};
+	}
+	&.--tm-light,
+	&.--tm-lighter,
+	&.--tm-lightComplement {
+		// invalid
+		&.is--invalid {
+			--bg: #{color(danger, 0.1)};
+			--bc: #{color(danger, 0.05)};
+			--cl: #{color(danger)};
+			--cl-a: #{color(danger, 0.3)};
+		}
+
+		// showcase a shadow
+		//
+		// @group ConditionalModifiers
+		&.--shadow {
+			box-shadow: 1px 1px 3px color(dark, 0.3);
+		}
 	}
 
 	// OVERRIDES:

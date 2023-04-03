@@ -1,3 +1,5 @@
+@use "sass:meta";
+
 $selectPathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.478' height='10'%3E%3Cpath d='M7.598 9.736L.265 2.403c-.354-.354-.354-.927 0-1.28L1.12.267c.354-.352.925-.352 1.28 0l5.836 5.8 5.84-5.812c.354-.352.925-.352 1.28 0l.855.855c.354.354.354.927 0 1.28L8.875 9.734c-.353.352-.923.352-1.277.002z'";
 $selectPathUp: "#{$selectPathStart} fill='%23";
 $selectPathDown: "#{$selectPathStart} transform='rotate(180 8.236 5)' fill='%23";
@@ -18,141 +20,16 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 	// Theme
 	//
 	// @group Unions
-	&:not(.is--invalid) {
-		&.--tm-light {
-			&-secondary {
-				//chevron-light down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}#{$selectPathEnd}");
-				&:hover {
-					//chevron-light down-hover
-					background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-				&:focus {
-					//chevron-light up
-					background-image: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}#{$selectPathEnd}");
-				}
-				&:focus:hover,
-				&:focus-within:hover {
-					//chevron-light up-hover
-					background-image: url("#{$selectPathUp}#{str-replace(#{$secondary}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-			}
-			&-dark {
-				//chevron-light down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$selectPathEnd}");
-				&:hover {
-					//chevron-light down-hover
-					background-image: url("#{$selectPathDown}#{str-replace(#{$dark}, '#')}' opacity='0.5#{$selectPathEnd}");
-				}
-				&:focus {
-					//chevron-light up
-					background-image: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-				&:focus:hover,
-				&:focus-within:hover {
-					//chevron-light up-hover
-					background-image: url("#{$selectPathUp}#{str-replace(#{$dark}, '#')}' opacity='0.5#{$selectPathEnd}");
-				}
-			}
-			&-primaryAlt {
-				//chevron-light down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}#{$selectPathEnd}");
-				&:hover {
-					//chevron-light down-hover
-					background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-				&:focus {
-					//chevron-light up
-					background-image: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}#{$selectPathEnd}");
-				}
-				&:focus:hover,
-				&:focus-within:hover {
-					//chevron-light up-hover
-					background-image: url("#{$selectPathUp}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-			}
-			&-primary {
-				//chevron-light down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}#{$selectPathEnd}");
-				&:hover {
-					//chevron-light down-hover
-					background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-				&:focus {
-					//chevron-light up
-					background-image: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}#{$selectPathEnd}");
-				}
-				&:focus:hover,
-				&:focus-within:hover {
-					//chevron-light up-hover
-					background-image: url("#{$selectPathUp}#{str-replace(#{$primary}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-			}
-			&-danger {
-				//chevron-light down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
-				&:hover {
-					//chevron-light down-hover
-					background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-				&:focus {
-					//chevron-light up
-					background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
-				}
-				&:focus:hover,
-				&:focus-within:hover {
-					//chevron-light up-hover
-					background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
-				}
-			}
-			&-secondary,
-			&-danger,
-			&-dark,
-			&-primaryAlt {
-				&:disabled,
-				&[disabled]:not([disabled="false"]) {
-					//chevron-light down
-					background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3#{$selectPathEnd}");
-				}
-			}
-		}
-		&.--tm-primary-light {
-			&:disabled,
-			&[disabled]:not([disabled="false"]) {
-				//chevron-primary down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$primary}, '#')}' opacity='0.3#{$selectPathEnd}");
-			}
-		}
-		&.--tm-primaryAlt-light {
-			&:disabled,
-			&[disabled]:not([disabled="false"]) {
-				//chevron-primaryAlt down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$primaryAlt}, '#')}' opacity='0.3#{$selectPathEnd}");
-			}
-		}
-		// default
-		&:not([class*="-tm"]),
-		&.--tm-secondary-light {
-			&:disabled,
-			&[disabled]:not([disabled="false"]) {
-				//chevron-secondary down
-				background-image: url("#{$selectPathDown}#{str-replace(#{$secondary}, '#')}' opacity='0.3#{$selectPathEnd}");
-			}
-		}
+	@function iSelectThemeSelector($name) {
+		@return ".--tm-#{$name}-light";
 	}
-	&.is--invalid,
-	&.--tm-danger-light {
-		&:disabled,
-		&[disabled]:not([disabled="false"]) {
-			//chevron-danger down
-			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
-		}
-	}
-	&:not([class*="-tm"]),
-	&.--tm-primary-light,
-	&.--tm-primaryAlt-light,
-	&.--tm-secondary-light,
-	&.--tm-danger-light {
+	@include extend-map-modifiers(
+			$extendedThemeColors,
+			meta.get-function("iSelectThemeSelector"),
+			secondary,
+			':not([class*="-tm-"])'
+		)
+		using($name, $value) {
 		//chevron-light down
 		background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}#{$selectPathEnd}");
 		&:hover {
@@ -168,6 +45,66 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 			//chevron-light up-hover
 			background-image: url("#{$selectPathUp}#{str-replace(#{$light}, '#')}' opacity='0.7#{$selectPathEnd}");
 		}
+		&:disabled,
+		&[disabled]:not([disabled="false"]) {
+			//chevron-primary down
+			background-image: url("#{$selectPathDown}#{str-replace(#{$value}, '#')}' opacity='0.3#{$selectPathEnd}");
+		}
+		&.is--invalid {
+			&:disabled,
+			&[disabled]:not([disabled="false"]) {
+				//chevron-danger down
+				background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.3#{$selectPathEnd}");
+			}
+		}
+	}
+
+	// Alternative colors
+	@function iSelectThemeLightSelector($name) {
+		@return ".--tm-light-#{$name}";
+	}
+	@include extend-map-modifiers(
+			$themeColors,
+			meta.get-function("iSelectThemeLightSelector")
+		)
+		using($name, $value) {
+		//chevron-light down
+		background-image: url("#{$selectPathDown}#{str-replace(#{$value}, '#')}#{$selectPathEnd}");
+		&:hover {
+			//chevron-light down-hover
+			background-image: url("#{$selectPathDown}#{str-replace(#{$value}, '#')}' opacity='0.7#{$selectPathEnd}");
+		}
+		&:focus {
+			//chevron-light up
+			background-image: url("#{$selectPathUp}#{str-replace(#{$value}, '#')}#{$selectPathEnd}");
+		}
+		&:focus:hover,
+		&:focus-within:hover {
+			//chevron-light up-hover
+			background-image: url("#{$selectPathUp}#{str-replace(#{$value}, '#')}' opacity='0.7#{$selectPathEnd}");
+		}
+		&:disabled,
+		&[disabled]:not([disabled="false"]) {
+			//chevron-light down
+			background-image: url("#{$selectPathDown}#{str-replace(#{$light}, '#')}' opacity='0.3#{$selectPathEnd}");
+		}
+		&.is--invalid {
+			//chevron-light down
+			background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
+			&:hover {
+				//chevron-light down-hover
+				background-image: url("#{$selectPathDown}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
+			}
+			&:focus {
+				//chevron-light up
+				background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}#{$selectPathEnd}");
+			}
+			&:focus:hover,
+			&:focus-within:hover {
+				//chevron-light up-hover
+				background-image: url("#{$selectPathUp}#{str-replace(#{$danger}, '#')}' opacity='0.7#{$selectPathEnd}");
+			}
+		}
 	}
 
 	@each $name, $size in $fontSizes {
@@ -180,6 +117,6 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 	option {
 		background: color(light);
 		border: none;
-		color: color(dark, 0.7);
+		color: $textColor;
 	}
 }
