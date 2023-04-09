@@ -35,7 +35,7 @@
 				// display: inline-block;
 				break-inside: avoid;
 			}
-			&:not([class*="--gapi"]) {
+			&:not([class*="--gaping"]) {
 				> *:not(:last-child) {
 					margin-bottom: var(--gx, var(--g, 2rem));
 				}
@@ -45,15 +45,15 @@
 		@for $i from 2 through 12 {
 			&.#{utils.$prefix__default}--count-#{$i} {
 				@include utils.extend-viewports-classes {
-					columns: #{math.div(utils.$size__minColumnSize, $i) * 3} #{$i};
+					columns: (math.div(utils.$size__minColumnSize, $i) * 3) $i;
 				}
 			}
 		}
 		// default
 		&.#{utils.$prefix__default}--count,
-		&:not([class*="-co"]) {
+		&:not([class*="--count"]) {
 			// Count
-			columns: #{math.div(utils.$size__minColumnSize, 2) * 3} 2;
+			columns: (math.div(utils.$size__minColumnSize, 2) * 3) 2;
 		}
 	}
 }

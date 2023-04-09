@@ -83,7 +83,7 @@
 					text-align: left;
 				}
 				&,
-				:not([class*="--txtWr"]) {
+				:not([class*="--txtWrap"]) {
 					white-space: pre-line;
 				}
 				a,

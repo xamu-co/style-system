@@ -116,24 +116,14 @@
 ) {
 	@each $name, $value in $map {
 		$resolveSelector: meta.call($selector, $name);
-		@if $default {
-			@if $name==$default {
-				// first to be overriden, default
-				&#{$defaultCondition} {
-					@content ($name, $value, true);
-				}
-				&#{$resolveSelector} {
-					@content ($name, $value, false);
-				}
-			} @else {
-				&#{$resolveSelector} {
-					@content ($name, $value, false);
-				}
+		@if $default and $name==$default {
+			// first to be overriden, default
+			&#{$defaultCondition} {
+				@content ($name, $value, true);
 			}
-		} @else {
-			&#{$resolveSelector} {
-				@content ($name, $value, false);
-			}
+		}
+		&#{$resolveSelector} {
+			@content ($name, $value, false);
 		}
 	}
 }

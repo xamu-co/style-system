@@ -132,7 +132,7 @@
 	h5,
 	h6 {
 		&,
-		:not([class*="--txtWr"]) {
+		:not([class*="--txtWrap"]) {
 			white-space: pre-line;
 		}
 	}

@@ -62,7 +62,7 @@
 		&-item {
 			background: module.color(light);
 			box-shadow: 3px 3px 9px module.color(dark, 0.3);
-			&:not([class*="--txtSi"]) {
+			&:not([class*="--txtSize"]) {
 				font-size: module.size(sm);
 			}
 			&.#{module.$prefix__default}--size-lg {

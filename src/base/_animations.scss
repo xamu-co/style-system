@@ -68,10 +68,10 @@
 
 		@for $i from 1 through 20 {
 			&.#{utils.$prefix__default}--delay-#{$i} {
-				animation-delay: #{math.div($i, 10)}s;
+				animation-delay: math.div($i, 10) * 1s;
 			}
 			&.#{utils.$prefix__default}--iterations-#{$i} {
-				animation-iteration-count: #{$i};
+				animation-iteration-count: $i;
 			}
 		}
 	}

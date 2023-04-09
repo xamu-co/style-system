@@ -134,7 +134,7 @@
 				}
 			}
 			// default theme
-			&:not([class*="-tm"]),
+			&:not([class*="--tm-"]),
 			&.#{utils.$prefix__default}--tm-secondary {
 				> .#{utils.$layout__navigationX}-wrapper {
 					background: utils.color(light);
@@ -253,7 +253,7 @@
 				}
 			}
 			// default theme
-			&:not([class*="-tm"]),
+			&:not([class*="--tm-"]),
 			&.#{utils.$prefix__default}--tm-secondary {
 				border-bottom-color: utils.color(secondary, 0.05);
 			}

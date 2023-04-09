@@ -12,7 +12,7 @@
 		@for $i from 1 through 10 {
 			&-#{$i} {
 				@include utils.extend-viewports-classes {
-					z-index: #{$i};
+					z-index: $i;
 				}
 			}
 		}

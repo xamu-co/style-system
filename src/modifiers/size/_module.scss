@@ -12,21 +12,21 @@
 		// all sides
 		&-#{$i*5} {
 			@include module.extend-viewports-classes {
-				#{$property}: #{$value}rem;
+				#{$property}: $value * 1rem;
 			}
 		}
 		// X axis
 		&X-#{$i*5} {
 			@include module.extend-viewports-classes {
-				#{$property}-left: #{$value}rem;
-				#{$property}-right: #{$value}rem;
+				#{$property}-left: $value * 1rem;
+				#{$property}-right: $value * 1rem;
 			}
 		}
 		// Y axis
 		&Y-#{$i*5} {
 			@include module.extend-viewports-classes {
-				#{$property}-top: #{$value}rem;
-				#{$property}-bottom: #{$value}rem;
+				#{$property}-top: $value * 1rem;
+				#{$property}-bottom: $value * 1rem;
 			}
 		}
 	}
@@ -45,7 +45,7 @@
 			@for $i from 1 through 20 {
 				&-#{$i * 5} {
 					@include module.extend-viewports-classes {
-						#{$property}-#{$direction}: #{math.div($i, 3)}rem;
+						#{$property}-#{$direction}: math.div($i, 3) * 1rem;
 					}
 				}
 			}
@@ -86,27 +86,28 @@
 	@each $size in $sizes {
 		&-#{$size} {
 			@include module.extend-viewports-classes {
-				#{$property}: #{round(math.div($size, 15))}rem;
+				#{$property}: round(math.div($size, 15)) * 1rem;
 			}
 		}
 	}
 }
 
 // Viewport based dimensions
-// --maxW, --maxH, --minW, --minH
+// --maxWidth, --maxHeight, --minWidth, --minHeight
 @mixin extend-dimension-viewport($property, $model) {
-	$m: str-slice($model, 1, 1);
+	$vm: "v" + str-slice($model, 1, 1);
+	$unit: if($vm == "vh", 1vh, 1vw);
 
 	// default viewport based constrains
-	&V#{$m} {
+	&#{module.capitalize($vm)} {
 		@include module.extend-viewports-classes {
-			#{$property}: 25v#{$m};
+			#{$property}: 25 * $unit;
 		}
 
 		@for $i from 3 through 10 {
 			&-#{$i*10} {
 				@include module.extend-viewports-classes {
-					#{$property}: #{$i * 10}v#{$m};
+					#{$property}: ($i * 10) * $unit;
 				}
 			}
 		}

@@ -33,13 +33,13 @@
 	// @group Modifiers
 	@for $i from 2 through 10 {
 		&.#{module.$prefix__default}--size-#{$i*5} {
-			font-size: #{math.div($i, 3)}rem;
+			font-size: math.div($i, 3) * 1rem;
 		}
 	}
 }
 
 @mixin svg-active-styles {
-	--cl: var(--cl-a, module.$color__text);
+	--cl: var(--cl-a, #{module.$color__text});
 	&.#{module.$prefix__defaultWithSeparator}is--logo {
 		--cl: var(--cl-l, #{module.color(primary)});
 	}

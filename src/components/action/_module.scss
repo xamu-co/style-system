@@ -162,13 +162,13 @@
 		}
 	}
 	// default theme
-	&:not([class*="-tm"]),
+	&:not([class*="--tm-"]),
 	&.#{module.$prefix__default}--tm-secondary-light {
 		&:not(.#{module.$prefix__defaultWithSeparator}is--invalid) {
 			&:hover,
 			&:focus {
 				&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
-					--cl: module.$color__text;
+					--cl: #{module.$color__text};
 				}
 			}
 		}
@@ -302,7 +302,7 @@
 		//
 		// @group SharedStyles
 		&.#{module.$prefix__default}--size-#{$name} {
-			height: #{$size * 2.6}; // button size: height/width
+			height: $size * 2.6; // button size: height/width
 		}
 	}
 }
@@ -316,12 +316,12 @@
 
 	@each $name, $size in module.$fontSizes {
 		&.#{module.$prefix__default}--size-#{$name} {
-			border-radius: #{$size}; // button border radius
+			border-radius: $size; // button border radius
 			border-width: calc(
 				2px + #{math.div($size, 18)}
 			); // button border width
 			&.#{module.$prefix__default}--round {
-				width: #{$size * 2.6};
+				width: $size * 2.6;
 			}
 		}
 	}

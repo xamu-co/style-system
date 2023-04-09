@@ -15,7 +15,7 @@
 		line-height: utils.$size__lineHeight;
 	}
 
-	h1:not([class*="--txtSi"]):not([class*="swal"]) {
+	h1:not([class*="--txtSize"]):not([class*="swal"]) {
 		// Size
 		font-size: utils.size(xl);
 		br {
@@ -30,7 +30,7 @@
 			}
 		}
 	}
-	h2:not([class*="--txtSi"]):not([class*="swal"]) {
+	h2:not([class*="--txtSize"]):not([class*="swal"]) {
 		// Size
 		font-size: utils.size(lg);
 		br {
@@ -45,11 +45,11 @@
 			}
 		}
 	}
-	h3:not([class*="--txtSi"]):not([class*="swal"]) {
+	h3:not([class*="--txtSize"]):not([class*="swal"]) {
 		// Size
 		font-size: utils.size(lg);
 	}
-	h4:not([class*="--txtSi"]):not([class*="swal"]) {
+	h4:not([class*="--txtSize"]):not([class*="swal"]) {
 		// Size
 		font-size: utils.size(md);
 	}
@@ -86,7 +86,7 @@
 		}
 	}
 
-	:not([class*="--txtWe"]) > {
+	:not([class*="--txtWeight"]) > {
 		a,
 		b,
 		h1,
@@ -99,7 +99,7 @@
 		button,
 		strong {
 			// ignore inherit
-			&:not([class*="--txtWe"]) {
+			&:not([class*="--txtWeight"]) {
 				// Weight
 				font-weight: utils.weight(bold);
 				@supports (-moz-appearance: none) {

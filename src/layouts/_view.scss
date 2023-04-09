@@ -97,7 +97,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 		// min height
 		//
 		// @group Modifiers
-		&:not([class*="--minH"]) {
+		&:not([class*="--minHeight"]) {
 			// Height
 			min-height: 60vh;
 		}
@@ -116,7 +116,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 
 		> .#{utils.$layout__holder} {
 			@include utils.flex-box(column, nowrap, center, stretch);
-			> :not([class*="--mB"]):not(:last-child) {
+			> :not([class*="--mBottom"]):not(:last-child) {
 				// Bottom
 				margin-bottom: 2rem;
 			}

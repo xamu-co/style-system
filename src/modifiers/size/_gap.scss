@@ -67,7 +67,7 @@
 		}
 
 		@for $i from 1 through 10 {
-			$value: math.div($i, 3);
+			$value: math.div($i, 3) * 1rem;
 
 			// grid Gap, future flex gap
 			.#{module.$prefix__default}--gap-#{$i*5} {
@@ -76,7 +76,7 @@
 					false,
 					module.$viewports
 				) {
-					gap: #{$value}rem;
+					gap: $value;
 				}
 			}
 			.#{module.$prefix__default}--gapX-#{$i*5} {
@@ -85,7 +85,7 @@
 					false,
 					module.$viewports
 				) {
-					column-gap: #{$value}rem;
+					column-gap: $value;
 				}
 			}
 			.#{module.$prefix__default}--gapY-#{$i*5} {
@@ -94,7 +94,7 @@
 					false,
 					module.$viewports
 				) {
-					row-gap: #{$value}rem;
+					row-gap: $value;
 				}
 			}
 		}

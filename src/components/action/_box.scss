@@ -65,7 +65,7 @@
 			}
 			&.#{module.$prefix__default}--button,
 			&.#{module.$prefix__default}--#{module.$component__button} {
-				&:not([class*="--txtCo"]) {
+				&:not([class*="--txtColor"]) {
 					// Color
 					color: module.color($name);
 				}
@@ -92,7 +92,7 @@
 			}
 			&.#{module.$prefix__default}--button,
 			&.#{module.$prefix__default}--#{module.$component__button} {
-				&:not([class*="--txtCo"]) {
+				&:not([class*="--txtColor"]) {
 					// Color
 					color: module.color(light);
 				}

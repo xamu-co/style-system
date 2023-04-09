@@ -20,10 +20,10 @@
 			position: static; // why? see flx layout
 		}
 
-		&:not([class*="--txtWr"]) {
+		&:not([class*="--txtWrap"]) {
 			white-space: pre-line;
 		}
-		&:not([class*="--txtCo"]) {
+		&:not([class*="--txtColor"]) {
 			color: utils.$color__text;
 		}
 		&:not([class*="--txtA"]) {
@@ -37,7 +37,8 @@
 			// Width
 			max-width: utils.$size__maxTextWidth;
 		}
-		&:not([class*="--gapi"]) > *:not([class*="--mB"]):not(:last-child) {
+		&:not([class*="--gaping"])
+			> *:not([class*="--mBottom"]):not(:last-child) {
 			// Gaping, Bottom
 			margin-bottom: 1rem;
 		}
