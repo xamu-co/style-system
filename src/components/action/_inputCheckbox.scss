@@ -1,0 +1,20 @@
+@use "module";
+
+// checkbox input
+//
+// @group Components
+@mixin input-checkbox {
+	.#{module.$component__inputCheckbox} {
+		@at-root input[type^="c"]#{&} {
+			@include module.action-toggle-styles;
+
+			+ label:after {
+				border-radius: 0.7rem;
+			}
+
+			&:checked + label:after {
+				content: "\f00c";
+			}
+		}
+	}
+}

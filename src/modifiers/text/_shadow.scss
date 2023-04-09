@@ -1,0 +1,37 @@
+@use "module";
+@use "../color/module" as color;
+
+// Text color
+@mixin text-shadow {
+	.#{module.$prefix__default}--txtShadow {
+		// default, not in colors
+		&,
+		> :not([class*="--txtShadow"]) {
+			// Shadow
+			text-shadow: 1px 1px 1px module.color(dark, 0.3);
+		}
+
+		// no default
+		@include color.extend-colors() using($name, $isDefault) {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&,
+				> :not([class*="--txtShadow"]) {
+					text-shadow: 1px 1px 1px module.color($name);
+				}
+			}
+
+			// shades of color
+			@include color.extend-color-shades($name) using($colorShade) {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					> :not([class*="--txtShadow"]) {
+						text-shadow: 1px 1px 1px module.color($colorShade);
+					}
+				}
+			}
+		}
+	}
+}

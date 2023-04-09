@@ -1,0 +1,36 @@
+@use "module";
+
+@mixin width-size {
+	.#{module.$prefix__default}--width {
+		@include module.extend-dimensions(width);
+
+		// default
+		@include module.extend-viewports-classes {
+			width: 100%;
+		}
+	}
+
+	.#{module.$prefix__default}--minWidth {
+		@include module.extend-dimensions(min-width);
+
+		// default
+		&,
+		&-1200 {
+			@include module.extend-viewports-classes {
+				min-width: 75rem;
+			}
+		}
+	}
+
+	.#{module.$prefix__default}--maxWidth {
+		@include module.extend-dimensions(max-width);
+
+		// default
+		&,
+		&-1200 {
+			@include module.extend-viewports-classes {
+				max-width: 75rem;
+			}
+		}
+	}
+}

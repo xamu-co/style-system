@@ -1,94 +1,98 @@
+@use "../utils/module" as utils;
 @use "sass:meta";
+
+@function hrXThemeSelector($name) {
+	@return ".#{utils.$prefix__default}--tm-#{$name}";
+}
+@function hrYThemeSelector($name) {
+	@return ".#{utils.$prefix__default}--tm-#{$name}";
+}
 
 // Delimiter
 //
 // @group Components
-hr {
-	box-sizing: border-box;
-	&.--hrX {
-		@function hrXThemeSelector($name) {
-			@return ".--tm-#{$name}";
-		}
-		@include extend-viewports-classes(true, $viewports) {
-			// max-height: 2px;
-			height: 2px;
-			width: 100%;
-			&:not([class*="--m"]) {
+@mixin rule {
+	hr {
+		box-sizing: border-box;
+		&.#{utils.$prefix__default}--hrX {
+			@include utils.extend-viewports-classes(true, utils.$viewports) {
+				// max-height: 2px;
 				height: 2px;
-				width: calc(100% + 1rem);
-				margin: 0 -0.5rem;
-			}
+				width: 100%;
+				&:not([class*="--m"]) {
+					height: 2px;
+					width: calc(100% + 1rem);
+					margin: 0 -0.5rem;
+				}
 
-			// Tema del delimitador
-			//
-			// @group Modifiers
-			@include extend-map-modifiers(
-					$extendedThemeColors,
-					meta.get-function("hrXThemeSelector"),
-					secondary,
-					':not([class*="-tm-"])'
-				)
-				using($name, $value) {
-				background-image: url("#{$ruleSvgPathX}#{str-replace(#{$value}, '#')}#{$ruleSvgPathEnd}");
+				// Tema del delimitador
+				//
+				// @group Modifiers
+				@include utils.extend-map-modifiers(
+						utils.$extendedThemeColors,
+						meta.get-function("hrXThemeSelector"),
+						secondary,
+						':not([class*="--tm-"])'
+					)
+					using($name, $value, $isDefault) {
+					background-image: url("#{utils.$ruleSvgPathX}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
+				}
 			}
 		}
-	}
-	&.--hrY {
-		@function hrYThemeSelector($name) {
-			@return ".--tm-#{$name}";
-		}
-		@include extend-viewports-classes(true, $viewports) {
-			// max-width: 2px;
-			width: 2px;
-			height: 100%;
-			&:not([class*="--m"]) {
+		&.#{utils.$prefix__default}--hrY {
+			@include utils.extend-viewports-classes(true, utils.$viewports) {
+				// max-width: 2px;
 				width: 2px;
-				height: calc(100% + 1rem);
-				margin: -0.5rem 0;
-			}
+				height: 100%;
+				&:not([class*="--m"]) {
+					width: 2px;
+					height: calc(100% + 1rem);
+					margin: -0.5rem 0;
+				}
 
-			// Tema del delimitador
-			//
-			// @group Modifiers
-			@include extend-map-modifiers(
-					$extendedThemeColors,
-					meta.get-function("hrYThemeSelector"),
-					secondary,
-					':not([class*="-tm-"])'
-				)
-				using($name, $value) {
-				background-image: url("#{$ruleSvgPathY}#{str-replace(#{$value}, '#')}#{$ruleSvgPathEnd}");
+				// Tema del delimitador
+				//
+				// @group Modifiers
+				@include utils.extend-map-modifiers(
+						utils.$extendedThemeColors,
+						meta.get-function("hrYThemeSelector"),
+						secondary,
+						':not([class*="--tm-"])'
+					)
+					using($name, $value, $isDefault) {
+					background-image: url("#{utils.$ruleSvgPathY}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
+				}
 			}
 		}
-	}
-	&.--hrX,
-	&.--hrY {
-		@include extend-viewports-classes(true, $viewports) {
+		&.#{utils.$prefix__default}--hrX,
+		&.#{utils.$prefix__default}--hrY {
+			@include utils.extend-viewports-classes(true, utils.$viewports) {
+				opacity: 0.2;
+				background-repeat: round;
+				background-position: 50% 50%;
+				flex: 0 0 auto;
+				display: block;
+				&:last-child:not(:nth-child(2)):not(:only-child) {
+					display: none;
+				}
+			}
+		}
+		// default: horizontal
+		&:not([id]):not([class]) {
+			// max-height: 2px;
+			width: calc(100% + 1rem);
+			height: 2px;
+			margin-left: -0.5rem;
+			margin-right: -0.5rem;
 			opacity: 0.2;
 			background-repeat: round;
 			background-position: 50% 50%;
 			flex: 0 0 auto;
+			background-image: url("#{utils.$ruleSvgPathX}#{str-replace(#{utils.$color__secondary}, '#')}#{utils.$ruleSvgPathEnd}");
 			display: block;
 			&:last-child:not(:nth-child(2)):not(:only-child) {
 				display: none;
 			}
-		}
-	}
-	// default: horizontal
-	&:not([id]):not([class]) {
-		// max-height: 2px;
-		width: calc(100% + 1rem);
-		height: 2px;
-		margin-left: -0.5rem;
-		margin-right: -0.5rem;
-		opacity: 0.2;
-		background-repeat: round;
-		background-position: 50% 50%;
-		flex: 0 0 auto;
-		background-image: url("#{$ruleSvgPathX}#{str-replace(#{$secondary}, '#')}#{$ruleSvgPathEnd}");
-		display: block;
-		&:last-child:not(:nth-child(2)):not(:only-child) {
-			display: none;
 		}
 	}
 }

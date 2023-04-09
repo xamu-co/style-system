@@ -1,0 +1,71 @@
+@use "module";
+
+// flexbox align items
+//
+// @group modifiers
+@mixin flex-align {
+	.#{module.$prefix__default}--flxAlign {
+		&-end {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: flex-end;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: flex-end;
+				}
+			}
+		}
+		&-start {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: flex-start;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: flex-start;
+				}
+			}
+		}
+		&-stretch {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: stretch;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: stretch;
+				}
+			}
+		}
+		&-baseline {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: baseline;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: baseline;
+				}
+			}
+		}
+		// default
+		&,
+		&-center {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: center;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: center;
+				}
+			}
+		}
+	}
+}

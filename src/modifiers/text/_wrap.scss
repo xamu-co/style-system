@@ -1,0 +1,21 @@
+@use "module";
+
+// text wrap
+//
+// @group Modifiers
+@mixin text-wrap {
+	.#{module.$prefix__default}--txtWrap {
+		&-nowrap {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				white-space: nowrap;
+			}
+		}
+		// default
+		&,
+		&-wrap {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				white-space: pre-line;
+			}
+		}
+	}
+}

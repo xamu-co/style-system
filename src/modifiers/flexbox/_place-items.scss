@@ -1,0 +1,339 @@
+@use "module";
+
+// flexbox shortcuts: Set justify-content & align-items
+//
+// @group Modifiers
+@mixin flex-place-items {
+	.#{module.$prefix__default}--flx {
+		//  Justify Space between...
+		//
+		// @group GlobalUnions
+		&-between {
+			&,
+			&-stretch,
+			&-baseline,
+			&-start,
+			&-center,
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
+						justify-content: space-between;
+					}
+					&.#{module.$layout__grid} {
+						justify-items: space-between;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						justify-self: space-between;
+					}
+				}
+			}
+		}
+
+		//  Justify space around...
+		//
+		// @group GlobalUnions
+		&-around {
+			&,
+			&-stretch,
+			&-baseline,
+			&-start,
+			&-center,
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
+						justify-content: space-around;
+					}
+					&.#{module.$layout__grid} {
+						justify-items: space-around;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						justify-self: space-around;
+					}
+				}
+			}
+		}
+
+		//  Justify stretch...
+		//
+		// @group GlobalUnions
+		&-stretch {
+			&,
+			&-stretch,
+			&-baseline,
+			&-start,
+			&-center,
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
+						justify-content: stretch;
+					}
+					&.#{module.$layout__grid} {
+						justify-items: stretch;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						justify-self: stretch;
+					}
+				}
+			}
+		}
+
+		//  Justify space evenly...
+		//
+		// @group GlobalUnions
+		&-evenly {
+			&,
+			&-stretch,
+			&-baseline,
+			&-start,
+			&-center,
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
+						justify-content: space-around; // for unsupported browsers
+						justify-content: space-evenly;
+					}
+					&.#{module.$layout__grid} {
+						justify-items: space-around; // for unsupported browsers
+						justify-items: space-evenly;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						justify-self: space-around; // for unsupported browsers
+						justify-self: space-evenly;
+					}
+				}
+			}
+		}
+
+		// Justify center...
+		//
+		// @group GlobalUnions
+		&-center {
+			&,
+			&-stretch,
+			&-baseline,
+			&-start,
+			&-center,
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
+						justify-content: center;
+					}
+					&.#{module.$layout__grid} {
+						justify-items: center;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						justify-self: center;
+					}
+				}
+			}
+		}
+
+		&-stretch,
+		&-between,
+		&-around,
+		&-evenly,
+		&-center {
+			// default
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: center;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: center;
+				}
+			}
+		}
+
+		//  Justify flex start...
+		//
+		// @group GlobalUnions
+		&-start {
+			// default
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: flex-start;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: flex-start;
+				}
+			}
+
+			&,
+			&-stretch,
+			&-baseline,
+			&-start,
+			&-center,
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
+						justify-content: flex-start;
+					}
+					&.#{module.$layout__grid} {
+						justify-items: flex-start;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						justify-self: flex-start;
+					}
+				}
+			}
+		}
+
+		// Justify flex-end...
+		//
+		// @group GlobalUnions
+		&-end {
+			// default
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				&:not(.#{module.$prefix__default}--flxSelf) {
+					align-items: flex-end;
+				}
+				&.#{module.$layout__grid}
+					> .#{module.$prefix__default}--flxSelf,
+				&.#{module.$prefix__default}--flxSelf {
+					align-self: flex-end;
+				}
+			}
+
+			&,
+			&-stretch,
+			&-baseline,
+			&-start,
+			&-center,
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
+						justify-content: flex-end;
+					}
+					&.#{module.$layout__grid} {
+						justify-items: flex-end;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						justify-self: flex-end;
+					}
+				}
+			}
+		}
+		&-start,
+		&-center,
+		&-end,
+		&-stretch,
+		&-between,
+		&-around,
+		&-evenly {
+			&-start {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$prefix__default}--flxSelf) {
+						align-items: flex-start;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						align-self: flex-start;
+					}
+				}
+			}
+			&-center {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$prefix__default}--flxSelf) {
+						align-items: center;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						align-self: center;
+					}
+				}
+			}
+			&-end {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$prefix__default}--flxSelf) {
+						align-items: flex-end;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						align-self: flex-end;
+					}
+				}
+			}
+			&-stretch {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$prefix__default}--flxSelf) {
+						align-items: stretch;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						align-self: stretch;
+					}
+				}
+			}
+			&-baseline {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(.#{module.$prefix__default}--flxSelf) {
+						align-items: baseline;
+					}
+					&.#{module.$layout__grid}
+						> .#{module.$prefix__default}--flxSelf,
+					&.#{module.$prefix__default}--flxSelf {
+						align-self: baseline;
+					}
+				}
+			}
+		}
+	}
+}

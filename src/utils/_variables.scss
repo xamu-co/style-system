@@ -1,122 +1,173 @@
-/*
-	Project variables
-*/
+@use "system";
 
-@use "sass:color";
+// TOGGLES
+$toggle__responsive: true !default; // responsive media queries
+$toggle__responsiveClasses: $toggle__responsive !default; // responsive class modifiers
 
-$responsive: true !default;
+// FONT FAMILIES
+$font__default: ("Poppins", sans-serif) !default;
+$font__codeBlocks: ("Courier New", Courier, monospace) !default;
+$font__icons: "Font Awesome 5 Free" !default;
+
+// FONT SIZES
+$fontSize__md: 1rem !default; // main font size
+$fontSize__xs: $fontSize__md * 0.7 !default; // extra small
+$fontSize__sm: $fontSize__md * 0.85 !default; // small
+$fontSize__lg: $fontSize__md * 1.4 !default; // large
+$fontSize__xl: $fontSize__md * 2.2 !default; // extra large
+$fontSize__xx: $fontSize__md * 3.6 !default; // extra extra large
+$fontSize__mx: $fontSize__md * 4.8 !default; // maximum
+
+// FONT WEIGHTS
+$fontWeight__regular: 400 !default;
+$fontWeight__bold: 600 !default;
+$fontWeight__regularAlt: 300 !default; // firefox rendering issue
+$fontWeight__boldAlt: 500 !default;
+
+// COLORS
+$color__primary: #f39c12 !default; // primary theme colors
+$color__primaryComplement: system.primaryComplement($color__primary) !default;
+$color__secondary: #0f47af !default; // secondary theme colors
+$color__secondaryComplement: system.secondaryComplement(
+	$color__primary
+) !default;
+$color__light: #fff !default;
+$color__dark: #000 !default;
+$color__danger: #e74c3c !default;
+$color__success: #259c21 !default;
+$color__text: $color__secondaryComplement !default; // used over light
+
+// MEDIA QUERIES
+$mediaQuerie__smartwatch: 358px !default; // xs
+$mediaQuerie__smartphone: 576px !default; // sm
+$mediaQuerie__tablet: 768px !default; // md
+$mediaQuerie__desktop: 1080px !default; // lg
+$mediaQuerie__tv: 1280px !default; // xl
+
+// SIZES
+$size__minColumnSize: $fontSize__md * 18 !default; // min column size, 280px aprox
+$size__maxTextWidth: 66ch !default; // max text block width, 780px aprox
+$size__lineHeight: 1.2em !default; // main line height
+$size__lineHeightMedium: 1.4em !default;
+$size__lineHeightBig: 1.6em !default;
+
+// PREFIXES
+$prefix__default: "" !default;
+$prefix__defaultWithSeparator: system.dashed($prefix__default) !default;
+
+// PSEUDO NAMES
+$pseudo__tooltip: $prefix__defaultWithSeparator + "tooltip" !default;
+
+// CLASSES
+$class__input: $prefix__defaultWithSeparator + "i" !default; // input base class
+$class__button: $prefix__defaultWithSeparator + "bttn" !default; // button base class
+$class__avatar: $prefix__defaultWithSeparator + "avatar" !default; // avatar base class
+
+// BUTTON CLASSES
+$component__button: $class__button !default; // button base class
+$component__buttonLink: $class__button + "Link" !default;
+$component__buttonToggle: $class__button + "Toggle" !default;
+$component__buttonY: $class__button + "Y" !default;
+
+// INPUT CLASSES
+$component__inputCheckbox: $class__input + "Checkbox" !default;
+$component__inputRadio: $class__input + "Radio" !default;
+$component__inputSelect: $class__input + "Select" !default;
+$component__inputText: $class__input + "Txt" !default;
+
+// AVATAR CLASSES
+$component__avatar: $class__avatar !default; // avatar base class
+$component__avatarAureo: $class__avatar + "Aureo" !default;
+
+// OTHER COMPONENT CLASSES
+$component__background: $prefix__defaultWithSeparator + "back" !default;
+$component__box: $prefix__defaultWithSeparator + "box" !default;
+$component__emoji: $prefix__defaultWithSeparator + "emoji" !default;
+$component__icon: $prefix__defaultWithSeparator + "icon" !default;
+$component__link: $prefix__defaultWithSeparator + "link" !default;
+$component__svg: $prefix__defaultWithSeparator + "svg" !default;
+
+// LAYOUT CLASSES
+$layout__columns: $prefix__defaultWithSeparator + "cols" !default;
+$layout__dropdown: $prefix__defaultWithSeparator + "dropdown" !default;
+$layout__flexbox: $prefix__defaultWithSeparator + "flx" !default;
+$layout__float: $prefix__defaultWithSeparator + "float" !default;
+$layout__grid: $prefix__defaultWithSeparator + "grd" !default;
+$layout__holder: $prefix__defaultWithSeparator + "holder" !default;
+$layout__list: $prefix__defaultWithSeparator + "list" !default;
+$layout__navigationX: $prefix__defaultWithSeparator + "navigationX" !default;
+$layout__navigationY: $prefix__defaultWithSeparator + "navigationY" !default;
+$layout__scroll: $prefix__defaultWithSeparator + "scroll" !default;
+$layout__table: $prefix__defaultWithSeparator + "tbl" !default;
+$layout__text: $prefix__defaultWithSeparator + "txt" !default;
+$layout__view: $prefix__defaultWithSeparator + "view" !default;
+
 $fonts: (
-	primary: (
-		"Poppins",
-		sans-serif,
-	),
-	code: (
-		"Courier New",
-		Courier,
-		monospace,
-	),
-	awesome: "Font Awesome 5 Free",
+	default: $font__default,
+	codeBlocks: $font__codeBlocks,
+	icons: $font__icons,
 );
 
-$primary: #f39c12 !default;
-$primaryComplement: darken(
-	color.adjust($primary, $red: -90deg, $green: -90deg, $blue: -90deg),
-	10
-) !default;
+$fontSizes: (
+	xs: $fontSize__xs,
+	sm: $fontSize__sm,
+	md: $fontSize__md,
+	lg: $fontSize__lg,
+	xl: $fontSize__xl,
+	xx: $fontSize__xx,
+	mx: $fontSize__mx,
+);
 
-$secondary: #0f47af !default;
-$secondaryComplement: color.adjust(
-	$secondary,
-	$red: 60deg,
-	$blue: -90deg
-) !default;
-// text color to be used across the system usually over light color
-$textColor: $secondaryComplement !default;
-
-$light: #fff !default;
-$dark: #000 !default;
-$danger: #e74c3c !default;
-$success: #259c21 !default;
+$fontWeights: (
+	regular: $fontWeight__regular,
+	bold: $fontWeight__bold,
+	regular-alt: $fontWeight__regularAlt,
+	bold-alt: $fontWeight__boldAlt,
+);
 
 $themeColors: (
-	primary: $primary,
-	primaryComplement: $primaryComplement,
-	secondary: $secondary,
-	secondaryComplement: $secondaryComplement,
-	danger: $danger,
-	success: $success,
+	primary: $color__primary,
+	primaryComplement: $color__primaryComplement,
+	secondary: $color__secondary,
+	secondaryComplement: $color__secondaryComplement,
+	danger: $color__danger,
+	success: $color__success,
 );
 
 $extendedThemeColors: map-merge(
 	$themeColors,
 	(
-		light: $light,
+		light: $color__light,
 	)
 );
 
 $baseColors: (
-	light: $light,
-	dark: $dark,
+	light: $color__light,
+	dark: $color__dark,
 );
 
 $colors: map-merge($themeColors, $baseColors);
 
-$viewportXs: 358px !default;
-$viewportSm: 576px !default;
-$viewportMd: 768px !default;
-$viewportLg: 1080px !default;
-$viewportXl: 1280px !default;
-
 $modifiersViewports: (
-	md: $viewportMd,
-	xl: $viewportXl,
+	md: $mediaQuerie__tablet,
+	xl: $mediaQuerie__tv,
 );
 
 $viewports: (
-	xs: $viewportXs,
-	sm: $viewportSm,
-	md: $viewportMd,
-	lg: $viewportLg,
-	xl: $viewportXl,
+	xs: $mediaQuerie__smartwatch,
+	sm: $mediaQuerie__smartphone,
+	md: $mediaQuerie__tablet,
+	lg: $mediaQuerie__desktop,
+	xl: $mediaQuerie__tv,
 );
-
-// font sizes
-$fontSizes: (
-	xs: 0.7rem,
-	sm: 0.85rem,
-	md: 1rem,
-	lg: 1.4rem,
-	xl: 2.2rem,
-	xx: 3.6rem,
-	mx: 4.8rem,
-);
-
-// font weights
-$fontWeights: (
-	regular: 400,
-	bold: 600,
-	regular-alt: 300,
-	bold-alt: 500,
-);
-
-// line height
-$lineHeight: 1.2em;
-$lineHeightMedium: 1.4em;
-$lineHeightBig: 1.6em;
 
 // element sizes
 $elementSizes: (
-	xs: 2rem,
-	sm: 3rem,
-	md: 6rem,
-	lg: 9rem,
+	xs: $fontSize__md * 2,
+	sm: $fontSize__md * 3,
+	md: $fontSize__md * 6,
+	lg: $fontSize__md * 9,
 );
-
-// min column size
-$minColumnSize: 18rem; // 280px aprox
-
-// max text block width
-$maxTextWidth: 66ch; // 780px aprox
 
 // Svg rule path
 $ruleSvgPathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='";

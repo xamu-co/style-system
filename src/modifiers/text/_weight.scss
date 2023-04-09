@@ -1,0 +1,28 @@
+@use "module";
+
+// font weight
+//
+// @group Modifiers
+@mixin text-weight {
+	.#{module.$prefix__default}--txtWeight {
+		&-bold {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				font-weight: module.weight(bold);
+				@supports (-moz-appearance: none) {
+					// firefox fix
+					font-weight: module.weight(bold-alt);
+				}
+			}
+		}
+		&,
+		&-regular {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				font-weight: module.weight();
+				@supports (-moz-appearance: none) {
+					// firefox fix
+					font-weight: module.weight(regular-alt);
+				}
+			}
+		}
+	}
+}

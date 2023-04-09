@@ -1,0 +1,459 @@
+// Forward here to minimize imports
+@forward "../../utils/module";
+
+@use "../../utils/module";
+@use "sass:meta";
+@use "sass:math";
+
+@function bttnAndISelectThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}-light";
+}
+@function bttnAndISelectThemeLightSelector($name) {
+	@return ".#{module.$prefix__default}--tm-light-#{$name}";
+}
+@function iToggleThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}";
+}
+
+@mixin action-styles {
+	color: var(--cl, transparent); // should inherit?
+	background-color: var(--bg, transparent);
+	border-color: var(--bc, transparent); // by default
+	border-style: solid;
+	text-shadow: none;
+	box-sizing: border-box;
+	font-size: 1em;
+}
+
+// button defaults & round modifier
+//
+// @group SharedStyles
+@mixin action-round-styles {
+	// this is the default value
+	// Size
+	padding: 0 0.8rem;
+	&.#{module.$prefix__default}--round {
+		@include module.extend-viewports-classes(true, module.$viewports) {
+			padding: 0; // button padding
+			width: 2.4rem;
+		}
+	}
+	@at-root :not([class*="toggle--"]) > :not([class*="toggle--"])#{&} {
+		// round button
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--round {
+			@include module.extend-viewports-classes(true, module.$viewports) {
+				i.#{module.$component__icon},
+				.#{module.$component__svg} {
+					+ span {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+	@each $name, $size in module.$fontSizes {
+		// button & buttonToggle shared styles
+		//
+		// @group SharedStyles
+		&.#{module.$prefix__default}--size-#{$name} {
+			// --p could be inherited, we don't want that
+			padding: 0 #{$size * 0.8}; // button padding
+		}
+	}
+}
+
+// content alignment
+//
+// @group SharedStyles,
+@mixin action-aligment-styles {
+	flex: 0 0 auto;
+	@include module.flex-box(row, nowrap, center, center, inline-flex);
+}
+
+// content gaping behavior
+//
+// @group SharedStyles
+@mixin action-gaping-styles {
+	> * + * {
+		margin-left: 0.4em;
+	}
+	&.#{module.$prefix__default}--round {
+		@include module.extend-viewports-classes(true, module.$viewports) {
+			> * + * {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+// is alert
+//
+// @group SharedStyles
+@mixin action-alert-styles {
+	&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+		content: "";
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		position: absolute;
+		right: -0.4rem;
+		bottom: -0.4rem;
+		border-width: 4px;
+		border-style: solid;
+		border-radius: 50%;
+		box-sizing: border-box;
+		border-color: var(--bc, transparent);
+	}
+}
+
+// buttons & select themes
+// Invalid state does not make sense on selects
+//
+// @group SharedStyles
+@mixin action-theme-styles {
+	// first value is the bgColor
+	// second value is the textColor
+	//
+	// @group Unions
+	@include module.extend-map-modifiers(
+			module.$themeColors,
+			meta.get-function("bttnAndISelectThemeSelector"),
+			secondary,
+			':not([class*="--tm-"])'
+		)
+		using($name, $value, $isDefault) {
+		--cl: #{module.color(light)};
+		--bg: #{$value};
+		&:hover,
+		&:focus {
+			&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+				&:not(.#{module.$prefix__defaultWithSeparator}is--route),
+				&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+					--cl: #{module.color(light, 0.7)};
+					--bc: #{module.color(light, 0.3)};
+				}
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--active,
+			&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+				--cl: #{module.color($name, 0.7)};
+			}
+		}
+		&:disabled,
+		&[disabled]:not([disabled="false"]) {
+			--cl: #{module.color($name, 0.3)};
+		}
+
+		// invalid
+		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			--bg: #{module.color(danger)};
+			&:hover,
+			&:focus {
+				&.#{module.$prefix__defaultWithSeparator}is--active,
+				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+					--cl: #{module.color(danger, 0.7)};
+				}
+			}
+			&:disabled,
+			&[disabled]:not([disabled="false"]) {
+				--cl: #{module.color(danger, 0.3)};
+			}
+		}
+	}
+	// default theme
+	&:not([class*="-tm"]),
+	&.#{module.$prefix__default}--tm-secondary-light {
+		&:not(.#{module.$prefix__defaultWithSeparator}is--invalid) {
+			&:hover,
+			&:focus {
+				&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+					--cl: module.$color__text;
+				}
+			}
+		}
+	}
+
+	// Alternative colors
+	@include module.extend-map-modifiers(
+			module.$extendedThemeColors,
+			meta.get-function("bttnAndISelectThemeLightSelector")
+		)
+		using($name, $value, $isDefault) {
+		--cl: #{$value};
+		--bg: #{module.color(light)};
+		&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+			&:not(.#{module.$prefix__defaultWithSeparator}is--route),
+			&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+				&:hover,
+				&:focus {
+					--cl: #{module.color($name, 0.7)};
+					--bc: #{module.color($name, 0.3)};
+				}
+			}
+		}
+		&.#{module.$prefix__defaultWithSeparator}is--active,
+		&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+			&:hover,
+			&:focus {
+				--cl: #{module.color(light, 0.7)};
+			}
+		}
+		&:disabled,
+		&[disabled]:not([disabled="false"]) {
+			--cl: #{module.color(light, 0.3)};
+		}
+
+		// invalid
+		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			--bg: #{module.color(danger)};
+			&:hover,
+			&:focus {
+				&.#{module.$prefix__defaultWithSeparator}is--active,
+				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+					--cl: #{module.color(danger, 0.7)};
+					--bc: #{module.color(danger, 0.3)};
+				}
+			}
+		}
+	}
+	&.#{module.$prefix__default}--tm-light-primary {
+		--bg: #{module.color(light)};
+		&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+			&:not(.#{module.$prefix__defaultWithSeparator}is--route),
+			&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+				text-shadow: 0 0 1px module.color(dark, 0.2);
+			}
+		}
+	}
+	// Aditional colors
+	&.#{module.$prefix__default}--tm-primaryComplement-primary {
+		--cl: #{module.color(primary)};
+		--bg: #{module.color(primaryComplement)};
+		&:hover,
+		&:focus {
+			&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+				&:not(.#{module.$prefix__defaultWithSeparator}is--route),
+				&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+					--cl: #{module.color(primary, 0.7)};
+					--bc: #{module.color(primary, 0.3)};
+				}
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--active,
+			&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+				--cl: #{module.color(primaryComplement, 0.7)};
+			}
+		}
+		&:disabled,
+		&[disabled]:not([disabled="false"]) {
+			--cl: #{module.color(primaryComplement, 0.3)};
+		}
+		// invalid
+		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			--bg: #{module.color(danger)};
+			&:hover,
+			&:focus {
+				&.#{module.$prefix__defaultWithSeparator}is--active,
+				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+					--cl: #{module.color(danger, 0.7)};
+					--bc: #{module.color(danger, 0.3)};
+				}
+			}
+		}
+	}
+
+	// OVERRIDE: dejar en el final
+	// increased specificity
+	&.#{module.$prefix__defaultWithSeparator}is--active.#{module.$prefix__defaultWithSeparator}is--active,
+	&.#{module.$prefix__defaultWithSeparator}is--route.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route),
+	&.#{module.$prefix__defaultWithSeparator}is--routeExact.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+		--cl: var(--bg);
+		--bc: var(--cl);
+	}
+	&.#{module.$prefix__defaultWithSeparator}is--active,
+	&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+		&:hover,
+		&:focus {
+			--bc: var(--cl);
+		}
+	}
+	&:disabled,
+	&[disabled]:not([disabled="false"]) {
+		--bc: var(--cl);
+	}
+	&.#{module.$prefix__defaultWithSeparator}is--active,
+	&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact),
+	&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route),
+	&:disabled,
+	&[disabled]:not([disabled="false"]) {
+		background-color: var(--bg-a, transparent);
+	}
+}
+
+// button size
+// this is the default value
+//
+// @group SharedStyles
+@mixin action-size-styles {
+	height: 2.4rem;
+
+	@each $name, $size in module.$fontSizes {
+		// text, select, button & buttonToggle shared styles
+		//
+		// @group SharedStyles
+		&.#{module.$prefix__default}--size-#{$name} {
+			height: #{$size * 2.6}; // button size: height/width
+		}
+	}
+}
+
+// button borders
+//
+// @group SharedStyles
+@mixin action-border-styles {
+	border-radius: 1rem;
+	border-width: 2px;
+
+	@each $name, $size in module.$fontSizes {
+		&.#{module.$prefix__default}--size-#{$name} {
+			border-radius: #{$size}; // button border radius
+			border-width: calc(
+				2px + #{math.div($size, 18)}
+			); // button border width
+			&.#{module.$prefix__default}--round {
+				width: #{$size * 2.6};
+			}
+		}
+	}
+}
+
+// capitalize
+//
+// @group SharedStyles
+@mixin action-capitalize-styles {
+	&:not([class*="--txtTransform"]) {
+		&,
+		> :not(.#{module.$component__icon}) {
+			::first-letter {
+				text-transform: capitalize;
+			}
+		}
+	}
+}
+
+// disabled behavior
+//
+// @group SharedStyles
+@mixin action-disabled-styles {
+	&:disabled,
+	&[disabled]:not([disabled="false"]) {
+		pointer-events: none;
+		opacity: 0.3;
+	}
+}
+@mixin action-disabled-pointer-styles {
+	&:disabled,
+	&[disabled]:not([disabled="false"]) {
+		pointer-events: none;
+	}
+}
+
+// Toggle input
+// radio & checkbox
+//
+// @group SharedStyles
+@mixin action-toggle-styles {
+	display: none;
+
+	+ label {
+		&:after {
+			content: "";
+			vertical-align: middle;
+			display: inline-block;
+			width: 1.8rem;
+			height: 1.8rem;
+			border-width: 2px;
+			border-style: solid;
+			font-family: module.family(icons);
+			font-weight: 900;
+			text-align: center;
+			line-height: 1.7rem;
+			box-sizing: border-box;
+			flex: 0 0 auto;
+		}
+
+		> * {
+			margin-right: 0.5em;
+		}
+	}
+	&:checked + label {
+		font-weight: module.weight(bold);
+	}
+	&:disabled,
+	&[disabled]:not([disabled="false"]) {
+		+ label {
+			opacity: 0.3;
+			pointer-events: none;
+		}
+	}
+	&:not(:disabled),
+	&[disabled="false"] {
+		+ label:hover {
+			cursor: pointer;
+		}
+	}
+
+	// Full width
+	//
+	// @group Modifiers
+	&.#{module.$prefix__default}--full + label {
+		width: 100%;
+		@include module.flex-box(row, nowrap, space-between, center);
+	}
+
+	// Radio theme
+	//
+	// @group Modifiers
+	@include module.extend-map-modifiers(
+			module.$extendedThemeColors,
+			meta.get-function("iToggleThemeSelector"),
+			secondary,
+			':not([class*="--tm-"])'
+		)
+		using($name, $value, $isDefault) {
+		+ label {
+			color: $value;
+			&:after {
+				background-color: module.color($name, 0.1);
+				border-color: module.color($name, 0.1);
+			}
+			&:hover {
+				color: module.color($name, 0.7);
+				&:after {
+					border-color: module.color($name, 0.3);
+				}
+			}
+		}
+		&:checked + label:after {
+			background-color: module.color($name, 0.5);
+		}
+		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			+ label {
+				color: module.color(danger);
+				&:after {
+					background-color: module.color(danger, 0.1);
+					border-color: module.color(danger, 0.1);
+				}
+				&:hover {
+					color: module.color(danger, 0.7);
+					&:after {
+						border-color: module.color(danger, 0.3);
+					}
+				}
+			}
+			&:checked + label:after {
+				background-color: module.color(danger, 0.5);
+			}
+		}
+	}
+}

@@ -1,0 +1,126 @@
+@use "module";
+
+// text align
+//
+// @group Modifiers
+@mixin text-align {
+	.#{module.$prefix__default}--txtAlign {
+		// txtAlignFlx
+		&Flx {
+			&-right {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
+						align-items: flex-end;
+					}
+				}
+			}
+			&-center {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
+						align-items: center;
+					}
+				}
+			}
+			&-justify {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
+						align-items: stretch;
+					}
+				}
+			}
+			// default
+			&,
+			&-left {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
+						align-items: flex-start;
+					}
+				}
+			}
+			&,
+			&-left,
+			&-justify,
+			&-center,
+			&-right {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&:not(table):not(thead):not(tbody) {
+						// Gaping
+						display: inline-flex;
+						flex-flow: column nowrap;
+						justify-content: flex-start;
+					}
+				}
+			}
+		}
+
+		// txtAlign & txtAlignFlx
+		&,
+		&Flx {
+			&-right {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					*:not([class*="--txtAlign"]) {
+						text-align: right;
+					}
+				}
+			}
+			&-center {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					*:not([class*="--txtAlign"]) {
+						text-align: center;
+					}
+				}
+			}
+			&-justify {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					*:not([class*="--txtAlign"]) {
+						text-align: justify;
+					}
+				}
+			}
+			// default
+			&,
+			&-left {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					&,
+					*:not([class*="--txtAlign"]) {
+						text-align: left;
+					}
+				}
+			}
+		}
+	}
+}

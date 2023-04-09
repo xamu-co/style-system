@@ -1,0 +1,75 @@
+@use "module";
+@use "sass:meta";
+@use "sass:selector";
+
+@function svgThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}";
+}
+
+// svg icon
+//
+// @group Components
+@mixin svg {
+	a,
+	label,
+	button {
+		&:not(.#{module.$component__buttonToggle}) {
+			&:hover,
+			&.#{module.$prefix__defaultWithSeparator}is--active,
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+				.#{module.$component__svg} {
+					@include module.svg-active-styles;
+				}
+			}
+		}
+	}
+
+	.#{module.$component__svg} {
+		@include module.icon-styles;
+
+		&,
+		svg {
+			@include module.flex-box(row, nowrap, center, center, inline-flex);
+		}
+
+		[fill]:not([fill="none"]) {
+			fill: var(--cl, #{module.color(secondary)});
+		}
+
+		&:hover,
+		&.#{module.$prefix__defaultWithSeparator}is--active,
+		&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+			@include module.svg-active-styles;
+		}
+
+		// logo theme
+		//
+		// @group Modifiers
+		@include module.extend-map-modifiers(
+				module.$themeColors,
+				meta.get-function("svgThemeSelector")
+			)
+			using($name, $value, $isDefault) {
+			--cl: #{$value};
+			--cl-a: #{module.color(light)};
+		}
+		&.#{module.$prefix__default}--tm-light {
+			--cl: #{module.color(light)};
+			--cl-a: #{module.color(primary)};
+			--cl-l: #{module.color(secondary)};
+		}
+		&.#{module.$prefix__default}--tm-lightComplement {
+			--cl: #{module.color(light)};
+			--cl-a: #{module.color(primaryComplement)};
+			--cl-l: #{module.color(secondary)};
+		}
+		&.#{module.$prefix__default}--tm-light,
+		&.#{module.$prefix__default}--tm-lightComplement {
+			filter: drop-shadow(1px 1px 1px module.color(dark, 0.3));
+		}
+
+		[fill="none"] {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,13 @@
+@use "module";
+
+// icon components
+//
+// @group Components
+// this element is expected to be an <i> tag
+@mixin icon {
+	i.#{module.$component__icon} {
+		color: inherit;
+		@include module.icon-styles;
+		@include module.flex-box(row, nowrap, center, center, inline-flex);
+	}
+}

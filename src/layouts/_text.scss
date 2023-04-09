@@ -1,0 +1,59 @@
+@use "../utils/module" as utils;
+
+// Text block layout
+//
+// @group layout
+@mixin text {
+	.#{utils.$layout__text} {
+		// Root
+		&,
+		> * {
+			&:not(.#{utils.$layout__flexbox}):not(.#{utils.$layout__grid}):not([class*="--txtAlignF"]) {
+				display: block;
+			}
+		}
+		* {
+			line-height: utils.$size__lineHeightMedium;
+		}
+		> .#{utils.$layout__flexbox} {
+			display: inline-flex;
+			position: static; // why? see flx layout
+		}
+
+		&:not([class*="--txtWr"]) {
+			white-space: pre-line;
+		}
+		&:not([class*="--txtCo"]) {
+			color: utils.$color__text;
+		}
+		&:not([class*="--txtA"]) {
+			&,
+			*:not([class*="--txtA"]) {
+				// Txt Align
+				text-align: left;
+			}
+		}
+		&:not([class*="--maxW"]) {
+			// Width
+			max-width: utils.$size__maxTextWidth;
+		}
+		&:not([class*="--gapi"]) > *:not([class*="--mB"]):not(:last-child) {
+			// Gaping, Bottom
+			margin-bottom: 1rem;
+		}
+
+		// Childs
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		// Text block component
+		//
+		// @group Components
+		&.#{utils.$prefix__default}--box,
+		&.#{utils.$prefix__default}--miniBox {
+			padding: 0.5rem 1rem;
+		}
+	}
+}

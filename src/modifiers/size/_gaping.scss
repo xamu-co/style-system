@@ -1,0 +1,83 @@
+@use "module";
+@use "sass:math";
+
+// Gaping
+// Fallback for gap on non supporting browsers
+@mixin gaping-size {
+	.#{module.$prefix__default}--gaping {
+		&,
+		&-15 {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				> *:not(:last-child) {
+					margin-bottom: 1rem;
+					margin-bottom: 1rem;
+				}
+			}
+		}
+
+		&X {
+			// X dimension
+			&,
+			&-15 {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					> *:not(:last-child) {
+						margin-right: 1rem;
+					}
+				}
+			}
+		}
+		&Y {
+			// Y dimension
+			&,
+			&-15 {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					> *:not(:last-child) {
+						margin-bottom: 1rem;
+					}
+				}
+			}
+		}
+
+		@for $i from 1 through 10 {
+			$value: math.div($i, 3);
+
+			&-#{$i*5} {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					margin: 0 -#{$value}rem -#{$value}rem 0;
+					> * {
+						margin: 0 #{$value}rem #{$value}rem 0;
+					}
+				}
+			}
+			&X-#{$i*5} {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					> *:not(:last-child) {
+						margin-right: #{$value}rem;
+					}
+				}
+			}
+			&Y-#{$i*5} {
+				@include module.extend-viewports-classes(
+					false,
+					module.$viewports
+				) {
+					> *:not(:last-child) {
+						margin-bottom: #{$value}rem;
+					}
+				}
+			}
+		}
+	}
+}

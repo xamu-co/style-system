@@ -1,3 +1,4 @@
+@use "../utils/module" as utils;
 @use "sass:math";
 
 /// # Column layout
@@ -24,33 +25,35 @@
 /// @example njk
 ///  {% extends "columns.njk" %}
 
-.cols {
-	@include extend-device-interactions {
-		overflow: visible;
-		column-gap: var(--gy, var(--g, 2rem));
-		> * {
-			// margin: 0;
-			// display: inline-block;
-			break-inside: avoid;
-		}
-		&:not([class*="-gapi"]) {
-			> *:not(:last-child) {
-				margin-bottom: var(--gx, var(--g, 2rem));
+@mixin columns {
+	.#{utils.$layout__columns} {
+		@include utils.extend-device-interactions {
+			overflow: visible;
+			column-gap: var(--gy, var(--g, 2rem));
+			> * {
+				// margin: 0;
+				// display: inline-block;
+				break-inside: avoid;
+			}
+			&:not([class*="--gapi"]) {
+				> *:not(:last-child) {
+					margin-bottom: var(--gx, var(--g, 2rem));
+				}
 			}
 		}
-	}
 
-	@for $i from 2 through 12 {
-		&.--count-#{$i} {
-			@include extend-viewports-classes {
-				columns: #{math.div($minColumnSize, $i) * 3} #{$i};
+		@for $i from 2 through 12 {
+			&.#{utils.$prefix__default}--count-#{$i} {
+				@include utils.extend-viewports-classes {
+					columns: #{math.div(utils.$size__minColumnSize, $i) * 3} #{$i};
+				}
 			}
 		}
-	}
-	// default
-	&.--count,
-	&:not([class*="-co"]) {
-		// Count
-		columns: #{math.div($minColumnSize, 2) * 3} 2;
+		// default
+		&.#{utils.$prefix__default}--count,
+		&:not([class*="-co"]) {
+			// Count
+			columns: #{math.div(utils.$size__minColumnSize, 2) * 3} 2;
+		}
 	}
 }

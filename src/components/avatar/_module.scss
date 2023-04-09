@@ -1,0 +1,83 @@
+// Forward here to minimize imports
+@forward "../../utils/module";
+
+@use "../../utils/module";
+
+// avatar & avatarAureo shared styles
+//
+// @group SharedStyles
+@mixin avatar-styles {
+	display: block;
+	overflow: hidden;
+	flex: 0 0 auto;
+	background-color: module.color(light);
+
+	// avatar size
+	//
+	// @group Modifiers
+	&,
+	&.#{module.$prefix__default}--size {
+		border-radius: 1rem;
+		&.#{module.$prefix__default}--bdr,
+		&.#{module.$prefix__default}--border {
+			border-width: 2px;
+		}
+	}
+	&.#{module.$prefix__default}--size-lg {
+		border-radius: 1.667rem;
+		&.#{module.$prefix__default}--bdr,
+		&.#{module.$prefix__default}--border {
+			border-width: 4px;
+		}
+	}
+	&.#{module.$prefix__default}--size-md {
+		border-radius: 1.333rem;
+		&.#{module.$prefix__default}--bdr,
+		&.#{module.$prefix__default}--border {
+			border-width: 3px;
+		}
+	}
+
+	// avatar border
+	//
+	// @group Modifiers
+	&.#{module.$prefix__default}--bdr,
+	&.#{module.$prefix__default}--border {
+		border-style: solid;
+		box-sizing: border-box;
+		&:not([class*="--bdrColor"]) {
+			// Color
+			border-color: module.color(light);
+		}
+	}
+
+	img {
+		object-fit: cover;
+		object-position: 50% 50%;
+	}
+
+	// avatar is a link
+	@at-root a#{&} {
+		&:hover,
+		&.#{module.$prefix__defaultWithSeparator}is--active,
+		&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+			// box-shadow: 1px 1px 3px module.color(dark, 0.2);
+			img {
+				opacity: 0.7;
+			}
+		}
+		// avatar border
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--bdr,
+		&.#{module.$prefix__default}--border {
+			&:not(:hover),
+			&:not(.#{module.$prefix__defaultWithSeparator}is--active),
+			&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+				border-color: transparent;
+			}
+		}
+	}
+}

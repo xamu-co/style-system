@@ -1,0 +1,35 @@
+@use "../utils/module" as utils;
+
+// hidden element
+//
+// @group Modifiers
+@mixin hidden {
+	.#{utils.$prefix__default}--hidden {
+		// hide visually only
+		@include utils.extend-viewports-classes(true, utils.$viewports) {
+			width: 0.1px;
+			height: 0.1px;
+			opacity: 0;
+			overflow: hidden;
+			position: absolute;
+			z-index: -1;
+			&:first-child + {
+				i.#{utils.$component__icon},
+				.#{utils.$component__svg} {
+					margin-left: 0;
+				}
+			}
+		}
+		&-full {
+			@include utils.extend-viewports-classes(true, utils.$viewports) {
+				display: none !important;
+				&:first-child + {
+					i.#{utils.$component__icon},
+					.#{utils.$component__svg} {
+						margin-left: 0;
+					}
+				}
+			}
+		}
+	}
+}

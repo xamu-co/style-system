@@ -1,186 +1,190 @@
+@use "../utils/module" as utils;
+
 // tooltip
 //
 // @group Pseudos
-&[data-tooltip] {
-	overflow: visible;
-	&:before {
-		content: attr(data-tooltip);
-		width: max-content;
-		white-space: pre-line;
-		pointer-events: none;
-		display: block;
-		overflow: hidden;
-		z-index: 15;
-		position: absolute;
-		// vertical-align: bottom;
-		color: color(light);
-		padding: 0 0.5rem;
-		text-align: center;
-		font-size: 0.7rem;
-		opacity: 0;
-		border-radius: 0.5rem;
-		font-weight: weight();
-		box-shadow: 3px 3px 9px color(dark, 0.3);
-		box-sizing: content-box;
-		border: 2px solid color(light, 0.1);
-		background: color(dark);
-	}
-	&:hover:not([disabled]:not([disabled="false"])):not(.is--open):not([class*="toggle--"].only--active.is--active) {
-		&:not(.is--routeExact),
-		&.is--routeExact.no--route,
-		&.is--routeExact.no--routeExact {
-			@media (hover: hover) {
-				// dektop only
+@mixin tooltip {
+	[data-#{utils.$pseudo__tooltip}] {
+		overflow: visible;
+		&:before {
+			content: attr(data-#{utils.$pseudo__tooltip});
+			width: max-content;
+			white-space: pre-line;
+			pointer-events: none;
+			display: block;
+			overflow: hidden;
+			z-index: 15;
+			position: absolute;
+			// vertical-align: bottom;
+			color: utils.color(light);
+			padding: 0 0.5rem;
+			text-align: center;
+			font-size: 0.7rem;
+			opacity: 0;
+			border-radius: 0.5rem;
+			font-weight: utils.weight();
+			box-shadow: 3px 3px 9px utils.color(dark, 0.3);
+			box-sizing: content-box;
+			border: 2px solid utils.color(light, 0.1);
+			background: utils.color(dark);
+		}
+		&:hover:not([disabled]:not([disabled="false"])):not(.#{utils.$prefix__defaultWithSeparator}is--open):not([class*="#{utils.$prefix__defaultWithSeparator}toggle--"].#{utils.$prefix__defaultWithSeparator}only--active.#{utils.$prefix__defaultWithSeparator}is--active) {
+			&:not(.#{utils.$prefix__defaultWithSeparator}is--routeExact),
+			&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--route,
+			&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+				@media (hover: hover) {
+					// dektop only
 
-				cursor: pointer;
-				&:before {
-					opacity: 1;
+					cursor: pointer;
+					&:before {
+						opacity: 1;
+					}
 				}
 			}
 		}
-	}
 
-	// tooltip bgColor
-	//
-	// @group PseudoModifiers
-	&[data-tooltip-bg="light"]:before {
-		color: $textColor;
-	}
-	&[data-tooltip-bg="lightComplement"]:before {
-		color: color(primaryComplement);
-		background: color(light);
-	}
-	&[data-tooltip-bg="secondaryComplement"]:before {
-		background: color(secondary);
-	}
-	@each $name, $color in $colors {
-		&[data-tooltip-bg="#{$name}"]:before {
-			background: color($name);
+		// tooltip bgColor
+		//
+		// @group PseudoModifiers
+		&[data-#{utils.$pseudo__tooltip}-bg="light"]:before {
+			color: utils.$color__text;
 		}
-	}
+		&[data-#{utils.$pseudo__tooltip}-bg="lightComplement"]:before {
+			color: utils.color(primaryComplement);
+			background: utils.color(light);
+		}
+		&[data-#{utils.$pseudo__tooltip}-bg="secondaryComplement"]:before {
+			background: utils.color(secondary);
+		}
+		@each $name, $color in utils.$colors {
+			&[data-#{utils.$pseudo__tooltip}-bg="#{$name}"]:before {
+				background: utils.color($name);
+			}
+		}
 
-	// tooltip text behavior
-	//
-	// @group PseudoModifiers
-	&[data-tooltip-text]:before {
-		max-width: 40ch;
-	}
-	//default text behavior
-	&:not([data-tooltip-text]):before {
-		white-space: nowrap;
-		text-transform: capitalize;
-	}
+		// tooltip text behavior
+		//
+		// @group PseudoModifiers
+		&[data-#{utils.$pseudo__tooltip}-text]:before {
+			max-width: 40ch;
+		}
+		//default text behavior
+		&:not([data-#{utils.$pseudo__tooltip}-text]):before {
+			white-space: nowrap;
+			text-transform: capitalize;
+		}
 
-	// tooltip position
-	//
-	// @group PseudoModifiers
-	// top position
-	&[data-tooltip-top="left"],
-	&[data-tooltip-p="top-left"] {
-		&:before {
-			top: 0;
-			left: 0;
-			transform: translateY(calc(-100% - 0.5em));
+		// tooltip position
+		//
+		// @group PseudoModifiers
+		// top position
+		&[data-#{utils.$pseudo__tooltip}-top="left"],
+		&[data-#{utils.$pseudo__tooltip}-p="top-left"] {
+			&:before {
+				top: 0;
+				left: 0;
+				transform: translateY(calc(-100% - 0.5em));
+			}
 		}
-	}
-	&[data-tooltip-top="right"],
-	&[data-tooltip-p="top-right"] {
-		&:before {
-			top: 0;
-			right: 0;
-			transform: translateY(calc(-100% - 0.5em));
+		&[data-#{utils.$pseudo__tooltip}-top="right"],
+		&[data-#{utils.$pseudo__tooltip}-p="top-right"] {
+			&:before {
+				top: 0;
+				right: 0;
+				transform: translateY(calc(-100% - 0.5em));
+			}
 		}
-	}
-	&[data-tooltip-top],
-	&[data-tooltip-p="top"],
-	&[data-tooltip-position="top"] {
-		&:before {
-			top: 0;
-			left: 50%;
-			transform: translate(-50%, calc(-100% - 0.5em));
+		&[data-#{utils.$pseudo__tooltip}-top],
+		&[data-#{utils.$pseudo__tooltip}-p="top"],
+		&[data-#{utils.$pseudo__tooltip}-position="top"] {
+			&:before {
+				top: 0;
+				left: 50%;
+				transform: translate(-50%, calc(-100% - 0.5em));
+			}
 		}
-	}
 
-	// right position
-	&[data-tooltip-right="top"],
-	&[data-tooltip-p="right-top"] {
-		&:before {
-			top: 0;
-			right: 0;
-			transform: translateX(calc(100% + 0.5em));
+		// right position
+		&[data-#{utils.$pseudo__tooltip}-right="top"],
+		&[data-#{utils.$pseudo__tooltip}-p="right-top"] {
+			&:before {
+				top: 0;
+				right: 0;
+				transform: translateX(calc(100% + 0.5em));
+			}
 		}
-	}
-	&[data-tooltip-right="bottom"],
-	&[data-tooltip-p="right-bottom"] {
-		&:before {
-			bottom: 0;
-			right: 0;
-			transform: translateX(calc(100% + 0.5em));
+		&[data-#{utils.$pseudo__tooltip}-right="bottom"],
+		&[data-#{utils.$pseudo__tooltip}-p="right-bottom"] {
+			&:before {
+				bottom: 0;
+				right: 0;
+				transform: translateX(calc(100% + 0.5em));
+			}
 		}
-	}
-	&[data-tooltip-right],
-	&[data-tooltip-p="right"],
-	&[data-tooltip-position="right"] {
-		&:before {
-			top: 50%;
-			right: 0;
-			transform: translate(calc(100% + 0.5em), -50%);
+		&[data-#{utils.$pseudo__tooltip}-right],
+		&[data-#{utils.$pseudo__tooltip}-p="right"],
+		&[data-#{utils.$pseudo__tooltip}-position="right"] {
+			&:before {
+				top: 50%;
+				right: 0;
+				transform: translate(calc(100% + 0.5em), -50%);
+			}
 		}
-	}
 
-	// left position
-	&[data-tooltip-left="top"],
-	&[data-tooltip-p="left-top"] {
-		&:before {
-			top: 0;
-			left: 0;
-			transform: translateX(calc(-100% - 0.5em));
+		// left position
+		&[data-#{utils.$pseudo__tooltip}-left="top"],
+		&[data-#{utils.$pseudo__tooltip}-p="left-top"] {
+			&:before {
+				top: 0;
+				left: 0;
+				transform: translateX(calc(-100% - 0.5em));
+			}
 		}
-	}
-	&[data-tooltip-left="bottom"],
-	&[data-tooltip-p="left-bottom"] {
-		&:before {
-			bottom: 0;
-			left: 0;
-			transform: translateX(calc(-100% - 0.5em));
+		&[data-#{utils.$pseudo__tooltip}-left="bottom"],
+		&[data-#{utils.$pseudo__tooltip}-p="left-bottom"] {
+			&:before {
+				bottom: 0;
+				left: 0;
+				transform: translateX(calc(-100% - 0.5em));
+			}
 		}
-	}
-	&[data-tooltip-left],
-	&[data-tooltip-p="left"],
-	&[data-tooltip-position="left"] {
-		&:before {
-			top: 50%;
-			left: 0;
-			transform: translate(calc(-100% - 0.5em), -50%);
+		&[data-#{utils.$pseudo__tooltip}-left],
+		&[data-#{utils.$pseudo__tooltip}-p="left"],
+		&[data-#{utils.$pseudo__tooltip}-position="left"] {
+			&:before {
+				top: 50%;
+				left: 0;
+				transform: translate(calc(-100% - 0.5em), -50%);
+			}
 		}
-	}
 
-	// bottom position
-	&[data-tooltip-bottom="left"],
-	&[data-tooltip-p="bottom-left"] {
-		&:before {
-			bottom: 0;
-			left: 0;
-			transform: translateY(calc(100% + 0.5em));
+		// bottom position
+		&[data-#{utils.$pseudo__tooltip}-bottom="left"],
+		&[data-#{utils.$pseudo__tooltip}-p="bottom-left"] {
+			&:before {
+				bottom: 0;
+				left: 0;
+				transform: translateY(calc(100% + 0.5em));
+			}
 		}
-	}
-	&[data-tooltip-bottom="right"],
-	&[data-tooltip-p="bottom-right"] {
-		&:before {
-			bottom: 0;
-			right: 0;
-			transform: translateY(calc(100% + 0.5em));
+		&[data-#{utils.$pseudo__tooltip}-bottom="right"],
+		&[data-#{utils.$pseudo__tooltip}-p="bottom-right"] {
+			&:before {
+				bottom: 0;
+				right: 0;
+				transform: translateY(calc(100% + 0.5em));
+			}
 		}
-	}
-	// default value
-	&[data-tooltip-bottom],
-	&[data-tooltip-p="bottom"],
-	&[data-tooltip-position="bottom"],
-	&:not([data-tooltip-position]):not([data-tooltip-p]):not([data-tooltip-bottom]):not([data-tooltip-top]):not([data-tooltip-left]):not([data-tooltip-right]) {
-		&:before {
-			bottom: 0;
-			left: 50%;
-			transform: translate(-50%, calc(100% + 0.5em));
+		// default value
+		&[data-#{utils.$pseudo__tooltip}-bottom],
+		&[data-#{utils.$pseudo__tooltip}-p="bottom"],
+		&[data-#{utils.$pseudo__tooltip}-position="bottom"],
+		&:not([data-#{utils.$pseudo__tooltip}-position]):not([data-#{utils.$pseudo__tooltip}-p]):not([data-#{utils.$pseudo__tooltip}-bottom]):not([data-#{utils.$pseudo__tooltip}-top]):not([data-#{utils.$pseudo__tooltip}-left]):not([data-#{utils.$pseudo__tooltip}-right]) {
+			&:before {
+				bottom: 0;
+				left: 50%;
+				transform: translate(-50%, calc(100% + 0.5em));
+			}
 		}
 	}
 }

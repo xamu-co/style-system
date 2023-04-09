@@ -1,0 +1,161 @@
+@use "../utils/module" as utils;
+
+// CSS reset
+// General styling, layout agnostig classes and rules
+//
+// @group Base
+@mixin reset {
+	* {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		position: relative;
+		font-family: inherit;
+		font-weight: inherit;
+		font-size: 1em;
+		appearance: none;
+		scroll-behavior: smooth;
+		-webkit-tap-highlight-color: transparent;
+		vertical-align: middle;
+		&:before,
+		&:after {
+			// line-height: 1.2em;
+			box-sizing: inherit;
+		}
+		&:active,
+		&:focus,
+		&:hover {
+			outline: 0;
+		}
+	}
+
+	svg {
+		width: inherit;
+		height: inherit;
+		[_fill] {
+			fill: none;
+			stroke: none;
+		}
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	p {
+		white-space: inherit;
+		/* These are technically the same, but use both */
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		/* This is the dangerous one in WebKit, as it breaks things wherever */
+		// word-break: break-all;
+		/* Instead use this non-standard one: */
+		word-break: break-word;
+
+		/* Adds a hyphen where the word breaks, if supported (No Blink) */
+		hyphens: none;
+		> a {
+			display: inline !important;
+			// white-space: normal !important;
+		}
+	}
+
+	input[type="number"]:not(.#{utils.$prefix__default}--arrows) {
+		/* Chrome, Safari, Edge, Opera */
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		/* Firefox */
+		appearance: textfield;
+		-moz-appearance: textfield;
+	}
+
+	button {
+		background: transparent;
+	}
+
+	small {
+		font-size: 0.7em;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	i:not(.#{utils.$component__icon}):not(.#{utils.$component__svg}) {
+		font-style: italic;
+	}
+
+	ul,
+	ol {
+		list-style: none;
+	}
+
+	a,
+	button,
+	label {
+		text-align: center;
+	}
+
+	a,
+	button,
+	label,
+	select,
+	datalist {
+		white-space: nowrap;
+		&,
+		* {
+			vertical-align: inherit;
+		}
+		&:not(:disabled):not([disabled]:not([disabled="false"])):hover {
+			cursor: pointer;
+		}
+	}
+
+	a,
+	button,
+	label,
+	select,
+	datalist {
+		&:not([class*="toggle--"]).#{utils.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact):not([class*="toggle--"]) {
+			pointer-events: none;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		&,
+		:not([class*="--txtWr"]) {
+			white-space: pre-line;
+		}
+	}
+
+	// basic transition
+	//
+	// @group SharedStyles
+	a,
+	button,
+	select,
+	datalist,
+	label,
+	label:after,
+	.box,
+	.#{utils.$component__svg} [fill]:not([fill="none"]),
+	i.#{utils.$component__icon}:before,
+	*[data-tooltip]:before,
+	[class*="avatar"],
+	[class*="avatar"] img {
+		transition: all 0.1s ease-out, background-image 0s;
+	}
+
+	html {
+		text-rendering: optimizeLegibility;
+	}
+}

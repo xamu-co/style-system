@@ -1,0 +1,158 @@
+@use "module";
+@use "sass:meta";
+
+@function buttonLinkThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}-light";
+}
+@function buttonLinkThemeSelectorLight($name) {
+	@return ".#{module.$prefix__default}--tm-light-#{$name}";
+}
+
+// link Navigation element
+//
+// @group Components
+@mixin button-link {
+	.#{module.$component__buttonLink} {
+		@include module.action-styles;
+		@include module.action-aligment-styles;
+		@include module.action-theme-styles;
+		@include module.action-capitalize-styles;
+		@include module.action-disabled-styles;
+
+		@if (module.$toggle__responsive) {
+			@media (max-width: module.$mediaQuerie__smartphone) {
+				width: 2.4rem;
+				span {
+					display: none;
+				}
+			}
+			@media (max-width: module.$mediaQuerie__tablet) {
+				// tablet
+				// Size
+				// this is the default value
+				height: 2.4rem;
+				border-radius: 1rem;
+				border-width: 2px;
+				padding: 0 0.8rem;
+				width: auto;
+				&:disabled,
+				&[disabled]:not([disabled="false"]) {
+					opacity: 1;
+				}
+				@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
+					&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+						&:not(.#{module.$prefix__defaultWithSeparator}is--route),
+						&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+							// icon only
+							width: 2.4rem;
+							padding: 0;
+							span {
+								display: none;
+							}
+						}
+					}
+					&.#{module.$prefix__defaultWithSeparator}is--active,
+					&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+						// text only
+						i.#{module.$component__icon},
+						.#{module.$component__svg} {
+							display: none;
+						}
+					}
+
+					i.#{module.$component__icon},
+					.#{module.$component__svg} {
+						&:first-child {
+							display: none;
+						}
+					}
+				}
+
+				@each $name, $size in module.$fontSizes {
+					&.#{module.$prefix__default}--size-#{$name} {
+						height: $size * 2.6;
+						border-radius: $size;
+						border-width: calc(2px + (#{$size} / 18));
+						padding: 0 #{$size * 0.8};
+						@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
+							&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+								&:not(.#{module.$prefix__defaultWithSeparator}is--route),
+								&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+									// icon only
+									width: $size * 2.6;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			@media (min-width: (module.$mediaQuerie__tablet + 1)) {
+				// desktop
+				--cl: var(--rw) !important;
+				--bg: transparent !important;
+
+				// ruta activa
+				//
+				// @group Statuses
+				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route):before {
+					content: "...";
+					display: block;
+					position: absolute;
+					top: calc(100%);
+					left: 0;
+					line-height: 0;
+					overflow: visible;
+					font-size: 1.3em;
+				}
+
+				// nav link themes
+				//
+				// @group Modifiers
+				@include module.extend-map-modifiers(
+						module.$extendedThemeColors,
+						meta.get-function("buttonLinkThemeSelector"),
+						secondary,
+						':not([class*="--tm-"])'
+					)
+					using($name, $value, $isDefault) {
+					--rw: #{module.color($name)};
+					&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+						&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
+						&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
+						&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+							&:hover {
+								--rw: #{module.color($name, 0.5)};
+							}
+						}
+					}
+					&.#{module.$prefix__defaultWithSeparator}is--active,
+					&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+						--rw: #{module.color($name, 0.7)};
+					}
+				}
+
+				// Alternative themes
+				@include module.extend-map-modifiers(
+						module.$extendedThemeColors,
+						meta.get-function("buttonLinkThemeSelectorLight")
+					)
+					using($name, $value, $isDefault) {
+					--rw: #{module.color(light)};
+					&:hover,
+					&.#{module.$prefix__defaultWithSeparator}is--active,
+					&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+						--rw: #{module.color($name)};
+					}
+				}
+
+				i.#{module.$component__icon},
+				.#{module.$component__svg} {
+					&:last-child {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

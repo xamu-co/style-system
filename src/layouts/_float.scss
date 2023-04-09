@@ -1,27 +1,31 @@
-// float container
-.float {
-	@include extend-device-interactions {
-		display: block;
-		&:not([class*="-floatDir"]) {
-			> *:not([class*="-float"]) {
-				float: left;
-			}
-		}
-	}
+@use "../utils/module" as utils;
 
-	&.--floatDir {
-		&-right {
-			@include extend-viewports-classes {
-				> *:not([class*="-float"]) {
-					float: right;
+// float container
+@mixin float {
+	.#{utils.$layout__float} {
+		@include utils.extend-device-interactions {
+			display: block;
+			&:not([class*="--floatDir"]) {
+				> *:not([class*="--float"]) {
+					float: left;
 				}
 			}
 		}
-		&,
-		&-left {
-			@include extend-viewports-classes {
-				> *:not([class*="-float"]) {
-					float: left;
+
+		&.#{utils.$prefix__default}--floatDir {
+			&-right {
+				@include utils.extend-viewports-classes {
+					> *:not([class*="--float"]) {
+						float: right;
+					}
+				}
+			}
+			&,
+			&-left {
+				@include utils.extend-viewports-classes {
+					> *:not([class*="--float"]) {
+						float: left;
+					}
 				}
 			}
 		}

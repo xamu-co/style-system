@@ -1,0 +1,23 @@
+@use "../utils/module" as utils;
+
+// order
+//
+// @group Modifiers
+@mixin order {
+	.#{utils.$prefix__default}--order {
+		@include utils.extend-viewports-classes(false, utils.$viewports) {
+			order: 1;
+		}
+
+		@for $i from 1 through 10 {
+			&-#{$i} {
+				@include utils.extend-viewports-classes(
+					false,
+					utils.$viewports
+				) {
+					order: #{$i};
+				}
+			}
+		}
+	}
+}

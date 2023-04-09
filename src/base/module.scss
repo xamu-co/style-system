@@ -1,2 +1,10 @@
-@import "globals";
-@import "animations";
+@forward "forward";
+
+@use "forward";
+
+// all base
+@mixin all {
+	@include forward.reset;
+	@include forward.initialize;
+	@include forward.animations;
+}

@@ -1,8 +1,0 @@
-// icon components
-//
-// @group Components
-// this element is expected to be an <i> tag
-i.icon {
-	color: inherit;
-	@include flexbox(row, nowrap, center, center, inline-flex);
-}

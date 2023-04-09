@@ -1,12 +1,21 @@
-@import "navList";
-@import "table";
-@import "holder";
-@import "scroll";
-@import "view";
-@import "navigationX";
-@import "navigationY";
-@import "dropdown";
-@import "columns";
-@import "flex";
-@import "grid";
-@import "float";
+@forward "forward";
+
+@use "forward";
+
+// all layouts
+@mixin all {
+	@include forward.columns;
+	@include forward.flex;
+	@include forward.float;
+	@include forward.grid;
+	// override layouts
+	@include forward.dropdown;
+	@include forward.holder;
+	@include forward.list;
+	@include forward.navigation-x;
+	@include forward.navigation-y;
+	@include forward.scroll;
+	@include forward.table;
+	@include forward.text;
+	@include forward.view;
+}

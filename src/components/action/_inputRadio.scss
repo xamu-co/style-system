@@ -1,0 +1,20 @@
+@use "module";
+
+// radio input
+//
+// @group Components
+@mixin input-radio {
+	.#{module.$component__inputRadio} {
+		@at-root input[type^="r"]#{&} {
+			@include module.action-toggle-styles;
+
+			+ label:after {
+				border-radius: 50%;
+			}
+
+			&:checked + label:after {
+				content: "\f111";
+			}
+		}
+	}
+}

@@ -1,0 +1,122 @@
+@use "module";
+@use "sass:meta";
+
+@function linkThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}";
+}
+
+// Default link element
+// this element is expected to be an <a> tag
+//
+// @group Components
+@mixin link {
+	.#{module.$component__link} {
+		// display: inline-block;
+		--bg: transparent;
+		@include module.action-styles;
+		@include module.action-aligment-styles;
+		@include module.action-gaping-styles;
+		@include module.action-alert-styles;
+		@include module.action-capitalize-styles;
+		@include module.action-disabled-styles;
+
+		&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+			--bc: var(--cl-h, var(--cl-a));
+			background-color: var(--cl, var(--bg));
+		}
+		&.#{module.$prefix__defaultWithSeparator}is--active,
+		&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+			color: var(--cl-a);
+		}
+
+		// hover status
+		&.#{module.$prefix__defaultWithSeparator}toggle--dropdown.#{module.$prefix__defaultWithSeparator}is--active {
+			color: var(--cl-h, var(--cl-a));
+		}
+		&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
+			&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+				&:hover {
+					color: var(--cl-h, var(--cl-a));
+				}
+			}
+		}
+
+		// shadow
+		&.#{module.$prefix__default}--shadow {
+			&:hover,
+			&.#{module.$prefix__defaultWithSeparator}is--active,
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+				text-shadow: 1px 1px 1px var(--sh, #{module.color(dark, 0.3)});
+			}
+		}
+
+		// link theme
+		//
+		// @group Modifiers
+		@include module.extend-map-modifiers(
+				module.$themeColors,
+				meta.get-function("linkThemeSelector"),
+				secondary,
+				':not([class*="--tm-"])'
+			)
+			using($name, $value, $isDefault) {
+			--cl: #{module.color($name)};
+			--cl-a: #{module.color($name, 0.7)};
+			--cl-h: #{module.color($name, 0.5)};
+			&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+				--cl-h: #{module.color(light, 0.5)};
+			}
+		}
+		.#{module.$prefix__default}--tm-light {
+			--cl: #{module.color(light)};
+			--cl-a: #{module.color(primary)};
+		}
+		.#{module.$prefix__default}--tm-lightComplement {
+			--cl: #{module.color(light)};
+			--cl-a: #{module.color(primaryComplement)};
+		}
+
+		// link round handling
+		&.#{module.$prefix__default}--round {
+			@include module.extend-viewports-classes(true, module.$viewports) {
+				i.#{module.$component__icon},
+				.#{module.$component__svg} {
+					&:last-child {
+						display: none;
+					}
+				}
+			}
+		}
+		@if (module.$toggle__responsive) {
+			// desktop only, use hover
+			@media (min-width: (module.$mediaQuerie__tablet + 1)) {
+				// hover status
+				@at-root *:hover
+						> .#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active)#{&} {
+					color: var(--cl-h, var(--cl-a));
+					// link shadow
+					&.#{module.$prefix__default}--shadow {
+						text-shadow: 1px 1px 1px
+							var(--sh, #{module.color(dark, 0.3)});
+					}
+				}
+			}
+
+			// mobile only, use focus
+			@media (max-width: module.$mediaQuerie__tablet) {
+				// focus status
+				@at-root *:focus-within:not(.no--focus)
+						> .#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active)#{&} {
+					color: var(--cl-h, var(--cl-a));
+					// link shadow
+					&.#{module.$prefix__default}--shadow {
+						text-shadow: 1px 1px 1px
+							var(--sh, #{module.color(dark, 0.3)});
+					}
+				}
+			}
+		}
+	}
+}

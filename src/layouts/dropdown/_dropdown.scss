@@ -1,0 +1,127 @@
+@use "module";
+
+/// # Dropdown layout
+/// Multipurpose dropdown
+/// ```css
+///  .dropdown
+/// ```
+///
+/// ## Requirements:
+///
+/// ### Toggle
+/// It requires a toggler as previous sibling element to trigger the opening
+/// ```css
+///  .toggle--dropdown
+/// ```
+/// Or with action components:
+/// ```html
+///  <div class="flx --flxColumn --flx-center --pY-100">
+///   <x-link toggle="dropdown">trigger</x-link>
+///   <ul class="dropdown flx --flxColumn --flx-start --gapingY-5">
+///    <li>
+///     <a href="#" class="link">aguacate</a>
+///    </li>
+///    <li>
+///     <a href="#" class="link">cereza</a>
+///    </li>
+///    <li>
+///     <a href="#" class="link">platano</a>
+///    </li>
+///   </ul>
+///  </div>
+/// ```
+/// If an icon is provided this will rotate accordignly.
+/// It is recomended that this points to the oposite direction where the dropdown is located.
+/// ```html
+///  <div class="flx --flxColumn --flx-center --pY-100">
+///   <a href="#" class="toggle--dropdown link">
+///    <span>trigger</span>
+///    <i class="icon fa-chevron-up fas"></i>
+///   </a>
+///   <ul class="dropdown flx --flxColumn --flx-start --gapingY-5">
+///    <li>
+///     <a href="#" class="link">aguacate</a>
+///    </li>
+///    <li>
+///     <a href="#" class="link">cereza</a>
+///    </li>
+///    <li>
+///     <a href="#" class="link">platano</a>
+///    </li>
+///   </ul>
+///  </div>
+/// ```
+///
+/// ## Modifiers:
+/// None
+///
+/// ## Unions:
+/// ### Position
+/// This component can be aligned at almost any position, the default being bottom-left.
+/// The second value is optional and fallbacks to center.
+/// ```css
+///  .dropdown.--position-bottom-left
+/// ```
+///
+/// @group layout-dropdown
+/// @example njk
+///  {% extends "dropdown.njk" %}
+
+@mixin dropdown {
+	.#{module.$prefix__defaultWithSeparator}toggle--dropdown {
+		&.#{module.$prefix__defaultWithSeparator}is--active,
+		&:not(.#{module.$prefix__defaultWithSeparator}only--active):hover {
+			@include module.dropdown-toggle-styles;
+		}
+	}
+	// hover devices only any size (mostly desktop)
+	// use hover
+	@media (hover: hover) {
+		*:hover
+			> .#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active),
+		.#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active):hover:not(.no--hover) {
+			@include module.dropdown-toggle-styles;
+		}
+	}
+	@if (module.$toggle__responsive) {
+		// tablet with no hover only (tablets & mobile devices)
+		// use focus & .is--active class
+		@media (max-width: module.$mediaQuerie__tablet) and (hover: none) {
+			.#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active):focus-within:not(.no--focus) {
+				@include module.dropdown-toggle-styles;
+			}
+		}
+	}
+
+	.#{module.$layout__dropdown} {
+		z-index: 10;
+
+		&,
+		&.#{module.$layout__flexbox},
+		&.#{module.$layout__grid} {
+			display: none;
+		}
+
+		&.#{module.$layout__flexbox},
+		&.#{module.$layout__grid} {
+			&.#{module.$prefix__default}--display-inline {
+				@include module.extend-viewports-classes {
+					display: none;
+				}
+			}
+		}
+
+		&.#{module.$prefix__defaultWithSeparator}is--active {
+			@include module.dropdown-visible-styles;
+		}
+
+		li {
+			&:not(:first-child) {
+				padding-top: 0.2rem;
+			}
+			&:not(:last-child) {
+				padding-bottom: 0.2rem;
+			}
+		}
+	}
+}

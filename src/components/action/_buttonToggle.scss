@@ -1,0 +1,123 @@
+@use "module";
+@use "sass:meta";
+
+@function buttonToggleThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}";
+}
+
+// Toggle button
+// this element is expected to be an <button>, <a> or <label> element
+// aditionally you have to provide a fas(solid) far(regular) icons
+//
+// @group Components
+@mixin button-toggle {
+	.#{module.$component__buttonToggle} {
+		--cl-a: var(--cl);
+		@include module.action-styles;
+		@include module.action-round-styles;
+		@include module.action-aligment-styles;
+		@include module.action-gaping-styles;
+		@include module.action-alert-styles;
+		@include module.action-size-styles;
+		@include module.action-border-styles;
+		@include module.action-capitalize-styles;
+		@include module.action-disabled-styles;
+
+		&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+			background-color: var(--bg, transparent);
+		}
+
+		&.#{module.$prefix__defaultWithSeparator}is--alert,
+		&.#{module.$prefix__defaultWithSeparator}is--active,
+		&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+			//hide regular
+			&,
+			.#{module.$component__buttonToggle}-icon {
+				i.#{module.$component__icon},
+				.#{module.$component__svg} {
+					&:first-of-type {
+						display: none;
+						&:first-child + * {
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+		&:not(.#{module.$prefix__defaultWithSeparator}is--alert):not(.#{module.$prefix__defaultWithSeparator}is--active) {
+			&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+				//hide solid
+				&,
+				.#{module.$component__buttonToggle}-icon {
+					i.#{module.$component__icon},
+					.#{module.$component__svg} {
+						&:last-of-type {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+
+		// button theme
+		// first value is the bgColor
+		// second value is the textColor
+		//
+		// @group Modifiers
+		@include module.extend-map-modifiers(
+				module.$extendedThemeColors,
+				meta.get-function("buttonToggleThemeSelector"),
+				secondary,
+				':not([class*="--tm-"])'
+			)
+			using($name, $value, $isDefault) {
+			--cl: #{module.color($name)};
+			--bg: #{module.color($name, 0.1)};
+			&:hover {
+				--bc: #{module.color($name, 0.3)};
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--alert,
+			&.#{module.$prefix__defaultWithSeparator}is--active {
+				--bg: #{module.color($name, 0.5)};
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+				--bc: #{module.color($name)};
+				--bg: #{module.color(light)};
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+				--cl: #{module.color(light)};
+				--bg: #{module.color($name, 0.5)};
+				--bc: #{module.color(light, 0.3)};
+			}
+		}
+
+		// Alternative color
+		&.#{module.$prefix__default}--tm-lightComplement {
+			--cl: #{module.color(light)};
+			--bg: #{module.color(primaryComplement, 0.1)};
+			&:hover {
+				--bc: #{module.color(primaryComplement, 0.3)};
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+				--bg: #{module.color(light)};
+				--bc: #{module.color(dark, 0.3)};
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--alert,
+			&.#{module.$prefix__defaultWithSeparator}is--active {
+				--bg: #{module.color(primaryComplement, 0.5)};
+			}
+			&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+				--cl: #{module.color(light)};
+				--bg: #{module.color(primaryComplement, 0.5)};
+				--bc: #{module.color(light, 0.3)};
+			}
+		}
+
+		> span {
+			display: block;
+			line-height: 1em;
+		}
+	}
+}

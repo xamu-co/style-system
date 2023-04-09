@@ -1,0 +1,17 @@
+@use "module";
+
+// Button but vertical
+// this element is expected to be an <button>, <a> or <label> element
+//
+// @group Components
+@mixin button-y {
+	.#{module.$component__buttonY} {
+		padding: 0.8rem 0.2rem;
+		border-radius: 0.4rem;
+		border-width: 2px;
+		@include module.action-styles;
+		@include module.action-aligment-styles;
+		@include module.action-theme-styles;
+		@include module.action-disabled-pointer-styles;
+	}
+}

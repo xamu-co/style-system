@@ -1,3 +1,10 @@
+@use "utils/module" as utils;
+@use "base/module" as base;
+@use "modifiers/module" as modifiers;
+@use "pseudos/module" as pseudos;
+@use "components/module" as components;
+@use "layouts/module" as layouts;
+
 /**
 	MAIN STYLESHEET
 
@@ -6,62 +13,20 @@
 	module concatenation
 */
 
-@import "utils/module";
-
 @media only screen {
-	@import "base/module";
-	@import "base/modifiers/module"; // nested imports take longer to compile
+	// BASE
+	@include base.all;
 
-	@import "pseudos/module";
-	@import "components/module";
-	@import "layouts/module";
+	// MODIFIERS
+	@include modifiers.all;
 
-	html {
-		width: 100%;
-		height: 100%;
-		overflow-y: auto;
-		overflow-x: hidden;
-		font-size: 95%;
-		font-weight: weight();
-		text-rendering: optimizeLegibility;
-		@supports (-moz-appearance: none) {
-			// firefox fix, font weight bug
-			-webkit-font-smoothing: antialiased;
-			-moz-osx-font-smoothing: grayscale;
-			font-weight: weight(regular-alt);
-		}
-		@media (hover: none) {
-			@media (max-width: $viewportXl) {
-				font-size: 100%;
-			}
-			@media (max-width: $viewportLg) {
-				font-size: 105%;
-			}
-			@media (max-width: $viewportMd) {
-				font-size: 110%;
-			}
-			@media (max-width: $viewportSm) {
-				font-size: 115%;
-			}
-			@media (max-width: $viewportXs) {
-				font-size: 120%;
-			}
-		}
-	}
+	// PSEUDOS
+	@include pseudos.all;
 
-	body {
-		width: 100%;
-		font-family: family(primary);
-		font-size: size();
-		overflow: hidden;
-		@media (max-width: $viewportMd) and (hover: none) {
-			@supports (-moz-appearance: none) {
-				// firefox fix, scroll bug on android
-				width: 100%;
-				height: 100%;
-				overflow-y: auto;
-				overflow-x: hidden;
-			}
-		}
-	}
+	// COMPONENTS
+	@include components.all;
+
+	// LAYOUTS
+	// base layouts
+	@include layouts.all;
 }

@@ -1,0 +1,33 @@
+@use "module";
+
+// text tranform
+//
+// @group Modifiers
+@mixin text-transform {
+	.#{module.$prefix__default}--txtTransform {
+		&-lower,
+		&-lowercase {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				text-transform: lowercase;
+			}
+		}
+		&-upper,
+		&-uppercase {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				text-transform: uppercase;
+			}
+		}
+		&-capitalize {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				text-transform: capitalize;
+			}
+		}
+		// default
+		&,
+		&-none {
+			@include module.extend-viewports-classes(false, module.$viewports) {
+				text-transform: none;
+			}
+		}
+	}
+}

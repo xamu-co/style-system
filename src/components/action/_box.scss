@@ -1,0 +1,160 @@
+@use "module";
+@use "sass:meta";
+
+@function boxThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}";
+}
+@function boxSquareSelector($name) {
+	@return ".#{module.$prefix__default}--square-#{$name}";
+}
+
+// Comment
+//
+// @group Components
+@mixin box {
+	.#{module.$component__box} {
+		// width: 100%;
+		border: 2px solid transparent;
+		overflow: visible;
+		@include module.action-disabled-styles;
+
+		&:not(.#{module.$prefix__default}--button):not(.#{module.$prefix__default}--#{module.$component__button}) {
+			&:not([class*="--p-"]):not([class*="--pY"]):not([class*="--pX"]) {
+				&:not([class*="--pT"]):not([class*="--pR"]):not([class*="--pB"]):not([class*="--pL"]) {
+					padding: 1rem;
+				}
+			}
+		}
+		&:not(.#{module.$layout__flexbox}) {
+			@include module.flex-box(column, nowrap, flex-start, stretch);
+			> :not([class*="--mB"]):not(:last-child) {
+				// Bottom
+				margin-bottom: 1rem;
+			}
+		}
+
+		// size
+		//
+		// @group Modifiers
+		&,
+		&.#{module.$prefix__default}--size {
+			border-radius: 1rem;
+		}
+		&.#{module.$prefix__default}--size-lg {
+			border-radius: 1.667rem;
+		}
+		&.#{module.$prefix__default}--size-md {
+			border-radius: 1.333rem;
+		}
+
+		// Comment theme
+		//
+		// @group Modifiers
+		@include module.extend-map-modifiers(
+				module.$extendedThemeColors,
+				meta.get-function("boxThemeSelector"),
+				secondary,
+				':not([class*="--tm-"])'
+			)
+			using($name, $value, $isDefault) {
+			&:not([class*="--bgColor"]) {
+				background: module.color($name, 0.1);
+			}
+			&:hover {
+				border-color: module.color($name, 0.1);
+			}
+			&.#{module.$prefix__default}--button,
+			&.#{module.$prefix__default}--#{module.$component__button} {
+				&:not([class*="--txtCo"]) {
+					// Color
+					color: module.color($name);
+				}
+
+				&:hover,
+				&.#{module.$prefix__defaultWithSeparator}is--active,
+				&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+					background: module.color($name, 0.2);
+					// border-color: module.color($name, 0.3);
+				}
+			}
+			&.#{module.$prefix__default}--button &,
+			&.#{module.$prefix__default}--#{module.$component__button} & {
+				box-shadow: 3px 3px 9px module.color($name, 0.3);
+			}
+		}
+
+		&.#{module.$prefix__default}--tm-lightComplement {
+			&:not([class*="--bgColor"]) {
+				background: module.color(light);
+			}
+			&:hover {
+				border-color: module.color(dark, 0.1);
+			}
+			&.#{module.$prefix__default}--button,
+			&.#{module.$prefix__default}--#{module.$component__button} {
+				&:not([class*="--txtCo"]) {
+					// Color
+					color: module.color(light);
+				}
+
+				&:hover,
+				&.#{module.$prefix__defaultWithSeparator}is--active,
+				&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+					background: module.color(light, 0.2);
+					// border-color: module.color(light, 0.3);
+				}
+			}
+			&.#{module.$prefix__default}--button &,
+			&.#{module.$prefix__default}--#{module.$component__button} & {
+				box-shadow: 3px 3px 9px module.color(light, 0.3);
+			}
+		}
+
+		// button behavior
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--button,
+		&.#{module.$prefix__default}--#{module.$component__button} {
+			padding: 0.8rem;
+			p {
+				text-align: center;
+			}
+		}
+		&.#{module.$prefix__default}--button &,
+		&.#{module.$prefix__default}--#{module.$component__button} & {
+			border-color: transparent !important;
+		}
+
+		& & {
+			border-radius: 1rem;
+
+			// Square shape
+			// this assummes there is only one child
+			//
+			// @group Modifiers
+			@include module.extend-map-modifiers(
+					module.$elementSizes,
+					meta.get-function("boxSquareSelector"),
+					md
+				)
+				using($name, $value, $isDefault) {
+				width: $value;
+				margin: 0 auto;
+				overflow: hidden;
+				&:before {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 0;
+					padding-bottom: 100%;
+				}
+				> * {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}
