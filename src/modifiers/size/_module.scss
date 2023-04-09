@@ -6,14 +6,6 @@
 
 // Gutters
 @mixin extend-gutters($property) {
-	// default: all sides
-	// margin & padding already have defaults for X & Y axles
-	& {
-		@include module.extend-viewports-classes {
-			#{$property}: 1rem;
-		}
-	}
-
 	@for $i from 1 through 20 {
 		$value: math.div($i, 3);
 
@@ -44,10 +36,8 @@
 	// @group GlobalModifiers
 	$directions: top, right, bottom, left;
 	@each $direction in $directions {
-		$mcd: module.capitalize($direction);
-
 		// property direction defaults
-		&#{$mcd} {
+		&#{module.capitalize($direction)} {
 			@include module.extend-viewports-classes {
 				#{$property}-#{$direction}: 1rem;
 			}

@@ -2,6 +2,14 @@
 
 // padding
 @mixin padding-size {
+	// default: all sides
+	.#{module.$prefix__default}--p,
+	.#{module.$prefix__default}--padding {
+		@include module.extend-viewports-classes {
+			padding: 1rem;
+		}
+	}
+
 	.#{module.$prefix__default}--p {
 		@include module.extend-gutters(padding);
 
