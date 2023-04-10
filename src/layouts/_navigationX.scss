@@ -14,8 +14,8 @@
 		// es barra de navegacion principal
 		//
 		// @group Statuses
-		&:not(.#{utils.$prefix__defaultWithSeparator}is--sub) {
-			&:not(.#{utils.$prefix__defaultWithSeparator}is--relative) {
+		&:not(.#{utils.$status__isSub}) {
+			&:not(.#{utils.$status__isRelative}) {
 				z-index: 16;
 			}
 			&,
@@ -35,17 +35,17 @@
 				.#{utils.$layout__navigationX}-list-item {
 					> *,
 					> * > * {
-						&:not(.#{utils.$prefix__defaultWithSeparator}is--active):not(:hover) {
-							&:not(.#{utils.$prefix__defaultWithSeparator}is--routeExact),
-							&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--route,
-							&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+						&:not(.#{utils.$status__isActive}):not(:hover) {
+							&:not(.#{utils.$status__isRouteExact}),
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
 								&.#{utils.$component__link}[class*="--tm-light"] {
 									text-shadow: 1px 1px 1px
 										var(--sh, #{utils.color(dark, 0.3)});
 								}
 								&.#{utils.$prefix__defaultWithSeparator
 									+ utils.$component__button}Link {
-									@if (utils.$toggle__responsive) {
+									@if (utils.$allow__responsive) {
 										@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 											text-shadow: 1px 1px 1px
 												var(
@@ -57,20 +57,20 @@
 								}
 							}
 						}
-						&.#{utils.$prefix__defaultWithSeparator}is--active,
-						&.#{utils.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+						&.#{utils.$status__isActive},
+						&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
 							&.#{utils.$component__button} {
 								text-shadow: 1px 1px 1px
 									var(--sh, #{utils.color(dark, 0.3)});
 							}
 						}
 					}
-					> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown.#{utils.$prefix__defaultWithSeparator}is--active:not(:hover) {
+					> .#{utils.$status__toggleDropdown}.#{utils.$status__isActive}:not(:hover) {
 						&.#{utils.$component__link}[class*="--tm-light"] {
 							text-shadow: none;
 						}
 						&.#{utils.$component__buttonLink} {
-							@if (utils.$toggle__responsive) {
+							@if (utils.$allow__responsive) {
 								@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 									text-shadow: none;
 								}
@@ -81,15 +81,15 @@
 						}
 					}
 
-					@if (utils.$toggle__responsive) {
+					@if (utils.$allow__responsive) {
 						// desktop only, use hover
 						@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 							&:hover
-								> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{utils.$prefix__defaultWithSeparator}only--active) {
-								&:not(.#{utils.$prefix__defaultWithSeparator}is--active):not(:hover) {
-									&:not(.#{utils.$prefix__defaultWithSeparator}is--routeExact),
-									&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--route,
-									&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+								> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+								&:not(.#{utils.$status__isActive}):not(:hover) {
+									&:not(.#{utils.$status__isRouteExact}),
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
 										&.#{utils.$component__link}[class*="--tm-light"] {
 											text-shadow: none;
 										}
@@ -99,8 +99,8 @@
 										}
 									}
 								}
-								&.#{utils.$prefix__defaultWithSeparator}is--active,
-								&.#{utils.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+								&.#{utils.$status__isActive},
+								&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
 									&.#{utils.$prefix__defaultWithSeparator
 										+ utils.$component__button} {
 										text-shadow: none;
@@ -110,19 +110,19 @@
 						}
 						// mobile only, use focus
 						@media (max-width: utils.$mediaQuerie__tablet) {
-							&:focus-within:not(.no--focus)
-								> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{utils.$prefix__defaultWithSeparator}only--active) {
-								&:not(.#{utils.$prefix__defaultWithSeparator}is--active):not(:hover) {
-									&:not(.#{utils.$prefix__defaultWithSeparator}is--routeExact),
-									&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--route,
-									&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+							&:focus-within:not(.#{utils.$status__noFocus})
+								> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+								&:not(.#{utils.$status__isActive}):not(:hover) {
+									&:not(.#{utils.$status__isRouteExact}),
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
 										&.#{utils.$component__link}[class*="--tm-light"] {
 											text-shadow: none;
 										}
 									}
 								}
-								&.#{utils.$prefix__defaultWithSeparator}is--active,
-								&.#{utils.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+								&.#{utils.$status__isActive},
+								&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
 									&.#{utils.$prefix__defaultWithSeparator
 										+ utils.$component__button} {
 										text-shadow: none;
@@ -139,7 +139,7 @@
 				> .#{utils.$layout__navigationX}-wrapper {
 					background: utils.color(light);
 				}
-				&:not(.#{utils.$prefix__defaultWithSeparator}is--relative)
+				&:not(.#{utils.$status__isRelative})
 					> .#{utils.$layout__navigationX}-wrapper {
 					box-shadow: 0 0.5rem 2.4rem utils.color(dark, 0.05);
 				}
@@ -149,7 +149,7 @@
 		// es barra de navegacion secundaria
 		//
 		// @group Statuses
-		&.#{utils.$prefix__defaultWithSeparator}is--sub {
+		&.#{utils.$status__isSub} {
 			position: absolute;
 			left: 0;
 			top: 100%;
@@ -167,27 +167,27 @@
 				> * > * {
 					&.#{utils.$component__link},
 					&.#{utils.$component__buttonLink} {
-						&:not(:hover):not(.#{utils.$prefix__defaultWithSeparator}is--active) {
-							&:not(.#{utils.$prefix__defaultWithSeparator}is--routeExact),
-							&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--route,
-							&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+						&:not(:hover):not(.#{utils.$status__isActive}) {
+							&:not(.#{utils.$status__isRouteExact}),
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
 								text-shadow: 1px 1px 1px
 									var(--sh, #{utils.color(dark, 0.3)});
 							}
 						}
 					}
 				}
-				> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown.#{utils.$prefix__defaultWithSeparator}is--active {
+				> .#{utils.$status__toggleDropdown}.#{utils.$status__isActive} {
 					&.#{utils.$component__link},
 					&.#{utils.$component__buttonLink} {
 						text-shadow: none;
 					}
 				}
-				@if (utils.$toggle__responsive) {
+				@if (utils.$allow__responsive) {
 					// desktop only, use hover
 					@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 						&:hover
-							> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{utils.$prefix__defaultWithSeparator}only--active) {
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
 							&.#{utils.$component__link},
 							&.#{utils.$component__buttonLink} {
 								text-shadow: none;
@@ -196,8 +196,8 @@
 					}
 					// mobile only, use focus
 					@media (max-width: utils.$mediaQuerie__tablet) {
-						&:focus-within:not(.no--focus)
-							> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{utils.$prefix__defaultWithSeparator}only--active) {
+						&:focus-within:not(.#{utils.$status__noFocus})
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
 							&.#{utils.$component__link},
 							&.#{utils.$component__buttonLink} {
 								text-shadow: none;
@@ -213,25 +213,25 @@
 					&.#{utils.$component__link},
 					&.#{utils.$component__buttonLink} {
 						&:hover,
-						&.#{utils.$prefix__defaultWithSeparator}is--active,
-						&.#{utils.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+						&.#{utils.$status__isActive},
+						&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
 							text-shadow: 1px 1px 1px
 								var(--sh, #{utils.color(dark, 0.3)});
 						}
 					}
 				}
-				> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown.#{utils.$prefix__defaultWithSeparator}is--active {
+				> .#{utils.$status__toggleDropdown}.#{utils.$status__isActive} {
 					&.#{utils.$component__link},
 					&.#{utils.$component__buttonLink} {
 						text-shadow: 1px 1px 1px
 							var(--sh, #{utils.color(dark, 0.3)});
 					}
 				}
-				@if (utils.$toggle__responsive) {
+				@if (utils.$allow__responsive) {
 					// desktop only, use hover
 					@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 						&:hover
-							> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{utils.$prefix__defaultWithSeparator}only--active) {
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
 							&.#{utils.$component__link},
 							&.#{utils.$component__buttonLink} {
 								text-shadow: 1px 1px 1px
@@ -241,8 +241,8 @@
 					}
 					// mobile only, use focus
 					@media (max-width: utils.$mediaQuerie__tablet) {
-						&:focus-within:not(.no--focus)
-							> .#{utils.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{utils.$prefix__defaultWithSeparator}only--active) {
+						&:focus-within:not(.#{utils.$status__noFocus})
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
 							&.#{utils.$component__link},
 							&.#{utils.$component__buttonLink} {
 								text-shadow: 1px 1px 1px
@@ -282,7 +282,7 @@
 			> * {
 				&:not(:first-child) {
 					margin-left: 1rem;
-					@if (utils.$toggle__responsive) {
+					@if (utils.$allow__responsive) {
 						@media (max-width: utils.$mediaQuerie__smartphone) {
 							margin-left: 0.5rem;
 						}

@@ -51,7 +51,7 @@
 			}
 		}
 
-		&:not([class*="--txtA"]) {
+		&:not([class*="--txtAlign"]) {
 			text-align: left;
 		}
 
@@ -71,7 +71,7 @@
 			--cl-a: #{module.color(light, 0.5)};
 
 			// invalid
-			&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			&.#{module.$status__isInvalid} {
 				--bg: #{module.color(danger, 0.1)};
 				--bc: #{module.color(danger, 0.05)};
 				--cl: #{module.color(danger)};
@@ -111,7 +111,7 @@
 		&.#{module.$prefix__default}--tm-lighter,
 		&.#{module.$prefix__default}--tm-lightComplement {
 			// invalid
-			&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			&.#{module.$status__isInvalid} {
 				--bg: #{module.color(danger, 0.1)};
 				--bc: #{module.color(danger, 0.05)};
 				--cl: #{module.color(danger)};

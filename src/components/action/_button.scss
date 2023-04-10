@@ -18,7 +18,8 @@
 		@include module.action-capitalize-styles;
 		@include module.action-disabled-pointer-styles;
 
-		@at-root :not([class*="toggle--"]) > :not([class*="toggle--"])#{&} {
+		@at-root :not([class*="#{module.$status__toggle}"])
+				> :not([class*="#{module.$status__toggle}"])#{&} {
 			// round button
 			//
 			// @group Modifiers

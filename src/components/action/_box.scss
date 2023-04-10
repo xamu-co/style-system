@@ -71,8 +71,8 @@
 				}
 
 				&:hover,
-				&.#{module.$prefix__defaultWithSeparator}is--active,
-				&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+				&.#{module.$status__isActive},
+				&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 					background: module.color($name, 0.2);
 					// border-color: module.color($name, 0.3);
 				}
@@ -98,8 +98,8 @@
 				}
 
 				&:hover,
-				&.#{module.$prefix__defaultWithSeparator}is--active,
-				&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+				&.#{module.$status__isActive},
+				&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 					background: module.color(light, 0.2);
 					// border-color: module.color(light, 0.3);
 				}

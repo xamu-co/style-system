@@ -1,8 +1,8 @@
 @use "system";
 
-// TOGGLES
-$toggle__responsive: true !default; // responsive media queries
-$toggle__responsiveClasses: $toggle__responsive !default; // responsive class modifiers
+// ALLOWANCES
+$allow__responsive: true !default; // responsive media queries
+$allow__responsiveClasses: $allow__responsive !default; // responsive class modifiers
 
 // FONT FAMILIES
 $font__default: ("Poppins", sans-serif) !default;
@@ -26,11 +26,9 @@ $fontWeight__boldAlt: 500 !default;
 
 // COLORS
 $color__primary: #f39c12 !default; // primary theme colors
-$color__primaryComplement: system.primaryComplement($color__primary) !default;
+$color__primaryComplement: system.primary($color__primary) !default;
 $color__secondary: #0f47af !default; // secondary theme colors
-$color__secondaryComplement: system.secondaryComplement(
-	$color__primary
-) !default;
+$color__secondaryComplement: system.secondary($color__primary) !default;
 $color__light: #fff !default;
 $color__dark: #000 !default;
 $color__danger: #e74c3c !default;
@@ -101,6 +99,42 @@ $layout__scroll: $prefix__defaultWithSeparator + "scroll" !default;
 $layout__table: $prefix__defaultWithSeparator + "tbl" !default;
 $layout__text: $prefix__defaultWithSeparator + "txt" !default;
 $layout__view: $prefix__defaultWithSeparator + "view" !default;
+
+// STATUS CLASSES, IS
+$status__is: $prefix__defaultWithSeparator + "is" + "--" !default; // is
+$status__isActive: $status__is + "active" !default;
+$status__isAlert: $status__is + "alert" !default;
+$status__isAnimated: $status__is + "animated" !default;
+$status__isHeader: $status__is + "header" !default;
+$status__isInvalid: $status__is + "invalid" !default;
+$status__isLogo: $status__is + "logo" !default;
+$status__isOpen: $status__is + "open" !default;
+$status__isRelative: $status__is + "relative" !default;
+$status__isRoute: $status__is + "route" !default;
+$status__isRouteExact: $status__is + "routeExact" !default;
+$status__isSelected: $status__is + "selected" !default;
+$status__isSub: $status__is + "sub" !default;
+$status__isToggleIndicator: $status__is + "toggleIndicator" !default;
+
+// STATUS CLASSES, NO
+$status__no: $prefix__defaultWithSeparator + "no" + "--" !default; // no
+$status__noFocus: $status__no + "focus" !default;
+$status__noHover: $status__no + "hover" !default;
+$status__noRoute: $status__no + "route" !default;
+$status__noRouteExact: $status__no + "routeExact" !default;
+
+// STATUS CLASSES, HAS
+$status__has: $prefix__defaultWithSeparator + "has" + "--" !default; // has
+$status__hasItems: $status__has + "items" !default;
+
+// STATUS CLASSES, ONLY
+$status__only: $prefix__defaultWithSeparator + "only" + "--" !default; // only
+$status__onlyActive: $status__only + "active" !default;
+
+// STATUS CLASSES, TOGGLE
+$status__toggle: $prefix__defaultWithSeparator + "toggle" + "--" !default; // toggle
+$status__toggleDropdown: $status__toggle + "dropdown" !default;
+$status__toggleList: $status__toggle + "list" !default;
 
 $fonts: (
 	default: $font__default,

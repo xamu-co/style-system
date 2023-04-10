@@ -20,23 +20,23 @@
 		@include module.action-capitalize-styles;
 		@include module.action-disabled-styles;
 
-		&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+		&.#{module.$status__isAlert}:after {
 			--bc: var(--cl-h, var(--cl-a));
 			background-color: var(--cl, var(--bg));
 		}
-		&.#{module.$prefix__defaultWithSeparator}is--active,
-		&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+		&.#{module.$status__isActive},
+		&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 			color: var(--cl-a);
 		}
 
 		// hover status
-		&.#{module.$prefix__defaultWithSeparator}toggle--dropdown.#{module.$prefix__defaultWithSeparator}is--active {
+		&.#{module.$status__toggleDropdown}.#{module.$status__isActive} {
 			color: var(--cl-h, var(--cl-a));
 		}
-		&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-			&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+		&:not(.#{module.$status__isActive}) {
+			&:not(.#{module.$status__isRouteExact}),
+			&.#{module.$status__isRouteExact}.#{module.$status__noRoute},
+			&.#{module.$status__isRouteExact}.#{module.$status__noRouteExact} {
 				&:hover {
 					color: var(--cl-h, var(--cl-a));
 				}
@@ -46,8 +46,8 @@
 		// shadow
 		&.#{module.$prefix__default}--shadow {
 			&:hover,
-			&.#{module.$prefix__defaultWithSeparator}is--active,
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+			&.#{module.$status__isActive},
+			&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 				text-shadow: 1px 1px 1px var(--sh, #{module.color(dark, 0.3)});
 			}
 		}
@@ -65,7 +65,7 @@
 			--cl: #{module.color($name)};
 			--cl-a: #{module.color($name, 0.7)};
 			--cl-h: #{module.color($name, 0.5)};
-			&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+			&.#{module.$status__isAlert}:after {
 				--cl-h: #{module.color(light, 0.5)};
 			}
 		}
@@ -89,12 +89,12 @@
 				}
 			}
 		}
-		@if (module.$toggle__responsive) {
+		@if (module.$allow__responsive) {
 			// desktop only, use hover
 			@media (min-width: (module.$mediaQuerie__tablet + 1)) {
 				// hover status
 				@at-root *:hover
-						> .#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active)#{&} {
+						> .#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive})#{&} {
 					color: var(--cl-h, var(--cl-a));
 					// link shadow
 					&.#{module.$prefix__default}--shadow {
@@ -107,8 +107,8 @@
 			// mobile only, use focus
 			@media (max-width: module.$mediaQuerie__tablet) {
 				// focus status
-				@at-root *:focus-within:not(.no--focus)
-						> .#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active)#{&} {
+				@at-root *:focus-within:not(.#{module.$status__noFocus})
+						> .#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive})#{&} {
 					color: var(--cl-h, var(--cl-a));
 					// link shadow
 					&.#{module.$prefix__default}--shadow {

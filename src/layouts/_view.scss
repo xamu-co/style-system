@@ -34,7 +34,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 			background-repeat: no-repeat;
 			pointer-events: none;
 			box-sizing: border-box;
-			@if (utils.$toggle__responsive) {
+			@if (utils.$allow__responsive) {
 				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 					height: 12vh; // triangle size
 				}
@@ -85,7 +85,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 						top: calc(100% - 1px);
 						border-top: 1px solid utils.color(light);
 					}
-					@if (utils.$toggle__responsive) {
+					@if (utils.$allow__responsive) {
 						@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 							margin-bottom: 12vh; // triangle size
 						}
@@ -104,7 +104,7 @@ $viewPathEnd: "' fill='%23fff' /%3E%3C/svg%3E%0A";
 		&.#{utils.$prefix__default}--minHeight-100 {
 			min-height: calc(100vh - 5rem);
 
-			@if (utils.$toggle__responsive) {
+			@if (utils.$allow__responsive) {
 				@media (max-device-width: utils.$mediaQuerie__tablet) {
 					// mobile only
 					min-height: calc(

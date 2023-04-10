@@ -28,10 +28,10 @@
 			border: 2px solid utils.color(light, 0.1);
 			background: utils.color(dark);
 		}
-		&:hover:not([disabled]:not([disabled="false"])):not(.#{utils.$prefix__defaultWithSeparator}is--open):not([class*="#{utils.$prefix__defaultWithSeparator}toggle--"].#{utils.$prefix__defaultWithSeparator}only--active.#{utils.$prefix__defaultWithSeparator}is--active) {
-			&:not(.#{utils.$prefix__defaultWithSeparator}is--routeExact),
-			&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--route,
-			&.#{utils.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+		&:hover:not([disabled]:not([disabled="false"])):not(.#{utils.$status__isOpen}):not([class*="#{utils.$prefix__defaultWithSeparator}toggle--"].#{utils.$status__onlyActive}.#{utils.$status__isActive}) {
+			&:not(.#{utils.$status__isRouteExact}),
+			&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+			&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
 				@media (hover: hover) {
 					// dektop only
 

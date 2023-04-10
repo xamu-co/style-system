@@ -60,7 +60,7 @@
 				}
 			}
 
-			@if (utils.$toggle__responsive) {
+			@if (utils.$allow__responsive) {
 				// mobile & hover only
 				@media (max-width: utils.$mediaQuerie__tablet) {
 					table.#{utils.$layout__table} {

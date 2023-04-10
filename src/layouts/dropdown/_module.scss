@@ -31,8 +31,7 @@
 			&:last-child {
 				transform: rotate(180deg);
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--toggleIndicator
-				~ :last-child {
+			&.#{module.$status__isToggleIndicator} ~ :last-child {
 				// prevent tranform is toggle indicator is defined
 				transform: none;
 			}
@@ -41,7 +40,7 @@
 
 	i.#{module.$component__icon},
 	.#{module.$component__svg} {
-		&.#{module.$prefix__defaultWithSeparator}is--toggleIndicator {
+		&.#{module.$status__isToggleIndicator} {
 			transform: rotate(180deg);
 		}
 	}
@@ -58,7 +57,7 @@
 			height: 100%;
 		}
 
-		&:not(.#{module.$prefix__defaultWithSeparator}has--items),
+		&:not(.#{module.$status__hasItems}),
 		&-item {
 			background: module.color(light);
 			box-shadow: 3px 3px 9px module.color(dark, 0.3);

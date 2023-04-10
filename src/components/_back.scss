@@ -23,12 +23,12 @@
 			position: absolute;
 		}
 
-		&.#{utils.$prefix__defaultWithSeparator}is--header {
+		&.#{utils.$status__isHeader} {
 			top: -5rem;
 			height: auto;
 			bottom: 0;
 			background-color: utils.color(secondary);
-			@if (utils.$toggle__responsive) {
+			@if (utils.$allow__responsive) {
 				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 					background-attachment: fixed;
 					@supports (-webkit-overflow-scrolling: touch) {

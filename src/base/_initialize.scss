@@ -21,7 +21,7 @@
 		br {
 			display: none;
 		}
-		@if (utils.$toggle__responsive) {
+		@if (utils.$allow__responsive) {
 			@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 				font-size: utils.size(xx);
 				br {
@@ -36,7 +36,7 @@
 		br {
 			display: none;
 		}
-		@if (utils.$toggle__responsive) {
+		@if (utils.$allow__responsive) {
 			@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 				font-size: utils.size(xl);
 				br {
@@ -126,7 +126,7 @@
 
 		// Dinamically switch UI size
 		@media (hover: none) {
-			@if (utils.$toggle__responsive) {
+			@if (utils.$allow__responsive) {
 				@media (max-width: utils.$mediaQuerie__tv) {
 					font-size: 100%;
 				}
@@ -151,7 +151,7 @@
 		font-family: utils.family(default);
 		font-size: utils.size();
 		overflow: hidden;
-		@if (utils.$toggle__responsive) {
+		@if (utils.$allow__responsive) {
 			@media (max-width: utils.$mediaQuerie__tablet) and (hover: none) {
 				@supports (-moz-appearance: none) {
 					// firefox fix, scroll bug on android

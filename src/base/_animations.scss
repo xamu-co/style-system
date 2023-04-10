@@ -53,7 +53,7 @@
 	// inicia animations
 	//
 	// @group Status
-	.#{utils.$prefix__defaultWithSeparator}is--animated {
+	.#{utils.$status__isAnimated} {
 		&,
 		&:before,
 		&:after {
@@ -78,76 +78,78 @@
 
 	// animate only on pc
 	@media (hover: hover) {
-		// grows from the center
-		//
-		// @group Animations
-		.#{utils.$prefix__defaultWithSeparator}a-growingIn {
-			max-height: 0;
-			// opacity: 0;
-			// transform: translateY(-5vh);
-			&.#{utils.$prefix__defaultWithSeparator}is--animated {
-				animation-name: growingIn;
-				animation-duration: 6s;
+		.#{utils.$prefix__defaultWithSeparator}a {
+			// grows from the center
+			//
+			// @group Animations
+			&-growingIn {
+				max-height: 0;
+				// opacity: 0;
+				// transform: translateY(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: growingIn;
+					animation-duration: 6s;
+				}
 			}
-		}
 
-		// fades from the center
-		//
-		// @group Animations
-		.#{utils.$prefix__defaultWithSeparator}a-fadeIn {
-			opacity: 0;
-			// transform: translateY(-5vh);
-			&.#{utils.$prefix__defaultWithSeparator}is--animated {
-				animation-name: fadeIn;
-				animation-duration: 1.2s;
+			// fades from the center
+			//
+			// @group Animations
+			&-fadeIn {
+				opacity: 0;
+				// transform: translateY(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: fadeIn;
+					animation-duration: 1.2s;
+				}
 			}
-		}
 
-		// grows from the top
-		//
-		// @group Animations
-		.#{utils.$prefix__defaultWithSeparator}a-topFade {
-			opacity: 0;
-			transform: translateY(-5vh);
-			&.#{utils.$prefix__defaultWithSeparator}is--animated {
-				animation-name: topFade;
-				animation-duration: 0.6s;
+			// grows from the top
+			//
+			// @group Animations
+			&-topFade {
+				opacity: 0;
+				transform: translateY(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: topFade;
+					animation-duration: 0.6s;
+				}
 			}
-		}
 
-		// grows from the bottom
-		//
-		// @group Animations
-		.#{utils.$prefix__defaultWithSeparator}a-bottomFade {
-			opacity: 0;
-			transform: translateY(5vh);
-			&.#{utils.$prefix__defaultWithSeparator}is--animated {
-				animation-name: bottomFade;
-				animation-duration: 0.6s;
+			// grows from the bottom
+			//
+			// @group Animations
+			&-bottomFade {
+				opacity: 0;
+				transform: translateY(5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: bottomFade;
+					animation-duration: 0.6s;
+				}
 			}
-		}
 
-		// grows from the left
-		//
-		// @group Animations
-		.#{utils.$prefix__defaultWithSeparator}a-leftFade {
-			opacity: 0;
-			transform: translateX(-5vh);
-			&.#{utils.$prefix__defaultWithSeparator}is--animated {
-				animation-name: leftFade;
-				animation-duration: 0.6s;
+			// grows from the left
+			//
+			// @group Animations
+			&-leftFade {
+				opacity: 0;
+				transform: translateX(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: leftFade;
+					animation-duration: 0.6s;
+				}
 			}
-		}
 
-		// grows from the right
-		//
-		// @group Animations
-		.#{utils.$prefix__defaultWithSeparator}a-rightFade {
-			opacity: 0;
-			transform: translateX(5vh);
-			&.#{utils.$prefix__defaultWithSeparator}is--animated {
-				animation-name: rightFade;
-				animation-duration: 0.6s;
+			// grows from the right
+			//
+			// @group Animations
+			&-rightFade {
+				opacity: 0;
+				transform: translateX(5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: rightFade;
+					animation-duration: 0.6s;
+				}
 			}
 		}
 	}

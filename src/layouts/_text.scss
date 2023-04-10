@@ -26,14 +26,14 @@
 		&:not([class*="--txtColor"]) {
 			color: utils.$color__text;
 		}
-		&:not([class*="--txtA"]) {
+		&:not([class*="--txtAlign"]) {
 			&,
-			*:not([class*="--txtA"]) {
+			*:not([class*="--txtAlign"]) {
 				// Txt Align
 				text-align: left;
 			}
 		}
-		&:not([class*="--maxW"]) {
+		&:not([class*="--maxWidth"]) {
 			// Width
 			max-width: utils.$size__maxTextWidth;
 		}

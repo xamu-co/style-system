@@ -38,7 +38,8 @@
 			width: 2.4rem;
 		}
 	}
-	@at-root :not([class*="toggle--"]) > :not([class*="toggle--"])#{&} {
+	@at-root :not([class*="#{module.$status__toggle}"])
+			> :not([class*="#{module.$status__toggle}"])#{&} {
 		// round button
 		//
 		// @group Modifiers
@@ -92,7 +93,7 @@
 //
 // @group SharedStyles
 @mixin action-alert-styles {
-	&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+	&.#{module.$status__isAlert}:after {
 		content: "";
 		display: block;
 		width: 1rem;
@@ -128,15 +129,15 @@
 		--bg: #{$value};
 		&:hover,
 		&:focus {
-			&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-				&:not(.#{module.$prefix__defaultWithSeparator}is--route),
-				&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+			&:not(.#{module.$status__isActive}) {
+				&:not(.#{module.$status__isRoute}),
+				&.#{module.$status__isRoute}.#{module.$status__noRoute} {
 					--cl: #{module.color(light, 0.7)};
 					--bc: #{module.color(light, 0.3)};
 				}
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--active,
-			&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+			&.#{module.$status__isActive},
+			&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 				--cl: #{module.color($name, 0.7)};
 			}
 		}
@@ -146,12 +147,12 @@
 		}
 
 		// invalid
-		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+		&.#{module.$status__isInvalid} {
 			--bg: #{module.color(danger)};
 			&:hover,
 			&:focus {
-				&.#{module.$prefix__defaultWithSeparator}is--active,
-				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+				&.#{module.$status__isActive},
+				&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 					--cl: #{module.color(danger, 0.7)};
 				}
 			}
@@ -164,10 +165,10 @@
 	// default theme
 	&:not([class*="--tm-"]),
 	&.#{module.$prefix__default}--tm-secondary-light {
-		&:not(.#{module.$prefix__defaultWithSeparator}is--invalid) {
+		&:not(.#{module.$status__isInvalid}) {
 			&:hover,
 			&:focus {
-				&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+				&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 					--cl: #{module.$color__text};
 				}
 			}
@@ -182,9 +183,9 @@
 		using($name, $value, $isDefault) {
 		--cl: #{$value};
 		--bg: #{module.color(light)};
-		&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-			&:not(.#{module.$prefix__defaultWithSeparator}is--route),
-			&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+		&:not(.#{module.$status__isActive}) {
+			&:not(.#{module.$status__isRoute}),
+			&.#{module.$status__isRoute}.#{module.$status__noRoute} {
 				&:hover,
 				&:focus {
 					--cl: #{module.color($name, 0.7)};
@@ -192,8 +193,8 @@
 				}
 			}
 		}
-		&.#{module.$prefix__defaultWithSeparator}is--active,
-		&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+		&.#{module.$status__isActive},
+		&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 			&:hover,
 			&:focus {
 				--cl: #{module.color(light, 0.7)};
@@ -205,12 +206,12 @@
 		}
 
 		// invalid
-		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+		&.#{module.$status__isInvalid} {
 			--bg: #{module.color(danger)};
 			&:hover,
 			&:focus {
-				&.#{module.$prefix__defaultWithSeparator}is--active,
-				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+				&.#{module.$status__isActive},
+				&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 					--cl: #{module.color(danger, 0.7)};
 					--bc: #{module.color(danger, 0.3)};
 				}
@@ -219,9 +220,9 @@
 	}
 	&.#{module.$prefix__default}--tm-light-primary {
 		--bg: #{module.color(light)};
-		&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-			&:not(.#{module.$prefix__defaultWithSeparator}is--route),
-			&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+		&:not(.#{module.$status__isActive}) {
+			&:not(.#{module.$status__isRoute}),
+			&.#{module.$status__isRoute}.#{module.$status__noRoute} {
 				text-shadow: 0 0 1px module.color(dark, 0.2);
 			}
 		}
@@ -232,15 +233,15 @@
 		--bg: #{module.color(primaryComplement)};
 		&:hover,
 		&:focus {
-			&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-				&:not(.#{module.$prefix__defaultWithSeparator}is--route),
-				&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+			&:not(.#{module.$status__isActive}) {
+				&:not(.#{module.$status__isRoute}),
+				&.#{module.$status__isRoute}.#{module.$status__noRoute} {
 					--cl: #{module.color(primary, 0.7)};
 					--bc: #{module.color(primary, 0.3)};
 				}
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--active,
-			&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+			&.#{module.$status__isActive},
+			&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 				--cl: #{module.color(primaryComplement, 0.7)};
 			}
 		}
@@ -249,12 +250,12 @@
 			--cl: #{module.color(primaryComplement, 0.3)};
 		}
 		// invalid
-		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+		&.#{module.$status__isInvalid} {
 			--bg: #{module.color(danger)};
 			&:hover,
 			&:focus {
-				&.#{module.$prefix__defaultWithSeparator}is--active,
-				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+				&.#{module.$status__isActive},
+				&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 					--cl: #{module.color(danger, 0.7)};
 					--bc: #{module.color(danger, 0.3)};
 				}
@@ -264,14 +265,14 @@
 
 	// OVERRIDE: dejar en el final
 	// increased specificity
-	&.#{module.$prefix__defaultWithSeparator}is--active.#{module.$prefix__defaultWithSeparator}is--active,
-	&.#{module.$prefix__defaultWithSeparator}is--route.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route),
-	&.#{module.$prefix__defaultWithSeparator}is--routeExact.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+	&.#{module.$status__isActive}.#{module.$status__isActive},
+	&.#{module.$status__isRoute}.#{module.$status__isRoute}:not(.#{module.$status__noRoute}),
+	&.#{module.$status__isRouteExact}.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 		--cl: var(--bg);
 		--bc: var(--cl);
 	}
-	&.#{module.$prefix__defaultWithSeparator}is--active,
-	&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+	&.#{module.$status__isActive},
+	&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 		&:hover,
 		&:focus {
 			--bc: var(--cl);
@@ -281,9 +282,9 @@
 	&[disabled]:not([disabled="false"]) {
 		--bc: var(--cl);
 	}
-	&.#{module.$prefix__defaultWithSeparator}is--active,
-	&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact),
-	&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route),
+	&.#{module.$status__isActive},
+	&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}),
+	&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}),
 	&:disabled,
 	&[disabled]:not([disabled="false"]) {
 		background-color: var(--bg-a, transparent);
@@ -437,7 +438,7 @@
 		&:checked + label:after {
 			background-color: module.color($name, 0.5);
 		}
-		&.#{module.$prefix__defaultWithSeparator}is--invalid {
+		&.#{module.$status__isInvalid} {
 			+ label {
 				color: module.color(danger);
 				&:after {

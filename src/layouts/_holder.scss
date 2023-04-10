@@ -13,7 +13,8 @@
 			box-sizing: border-box;
 			transition: padding 0.3s ease-out;
 			padding: 0 1rem;
-			@if (utils.$toggle__responsive) {
+
+			@if (utils.$allow__responsive) {
 				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 					padding: 0 2rem;
 				}

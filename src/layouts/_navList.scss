@@ -5,7 +5,7 @@
 // @name Columns
 // @group Layouts
 @mixin list {
-	.#{utils.$prefix__defaultWithSeparator}toggle--list {
+	.#{utils.$status__toggleList} {
 		display: block;
 		@include utils.flex-box(row, nowrap, space-between, center);
 		i.#{utils.$component__icon},
@@ -18,9 +18,9 @@
 		> input[type^="c"] {
 			display: none;
 		}
-		&.#{utils.$prefix__defaultWithSeparator}is--active,
+		&.#{utils.$status__isActive},
 		> input[type^="c"]:checked ~ {
-			.#{utils.$prefix__defaultWithSeparator}toggle--list {
+			.#{utils.$status__toggleList} {
 				font-weight: utils.weight(bold);
 				margin-bottom: 1rem;
 				i.#{utils.$component__icon},
@@ -28,7 +28,7 @@
 					transform: rotate(180deg);
 				}
 			}
-			.#{utils.$prefix__defaultWithSeparator}toggle--list + {
+			.#{utils.$status__toggleList} + {
 				ul.#{utils.$layout__list}-group,
 				ol.#{utils.$layout__list}-group {
 					max-height: none;
@@ -36,7 +36,7 @@
 			}
 		}
 
-		.#{utils.$prefix__defaultWithSeparator}toggle--list + {
+		.#{utils.$status__toggleList} + {
 			ul.#{utils.$layout__list}-group,
 			ol.#{utils.$layout__list}-group {
 				max-height: 0;
@@ -79,7 +79,7 @@
 
 			> li {
 				&,
-				:not([class*="--txtA"]) {
+				:not([class*="--txtAlign"]) {
 					text-align: left;
 				}
 				&,

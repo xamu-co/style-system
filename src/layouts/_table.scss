@@ -14,12 +14,12 @@
 		border-collapse: collapse;
 		box-sizing: border-box;
 		border-spacing: 0;
-		&:not([class*="--txtA"]) {
+		&:not([class*="--txtAlign"]) {
 			// Align
 			tr {
 				th,
 				td {
-					&:not([class*="--txtA"]) {
+					&:not([class*="--txtAlign"]) {
 						text-align: left;
 					}
 				}
@@ -34,7 +34,7 @@
 			tr {
 				th,
 				td {
-					&.#{utils.$prefix__defaultWithSeparator}is--selected {
+					&.#{utils.$status__isSelected} {
 						font-weight: utils.weight(bold);
 					}
 					*:not(i.#{utils.$component__icon}) {
@@ -127,7 +127,7 @@
 					}
 					th,
 					td {
-						&.#{utils.$prefix__defaultWithSeparator}is--selected {
+						&.#{utils.$status__isSelected} {
 							color: $value;
 						}
 						&:before {
@@ -138,7 +138,7 @@
 			}
 			tbody {
 				tr {
-					&.#{utils.$prefix__defaultWithSeparator}is--selected {
+					&.#{utils.$status__isSelected} {
 						&:hover {
 							th:before,
 							td:before {
@@ -151,7 +151,7 @@
 						}
 					}
 					&:hover,
-					&.#{utils.$prefix__defaultWithSeparator}is--selected {
+					&.#{utils.$status__isSelected} {
 						color: $value;
 						th:before,
 						td:before {
@@ -162,7 +162,7 @@
 			}
 		}
 
-		@if (utils.$toggle__responsive) {
+		@if (utils.$allow__responsive) {
 			@media (max-width: utils.$mediaQuerie__tablet) {
 				// TODO: fix this
 				&.#{utils.$prefix__default}--collapseOnMobile {

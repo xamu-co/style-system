@@ -19,7 +19,7 @@
 		@include module.action-capitalize-styles;
 		@include module.action-disabled-styles;
 
-		@if (module.$toggle__responsive) {
+		@if (module.$allow__responsive) {
 			@media (max-width: module.$mediaQuerie__smartphone) {
 				width: 2.4rem;
 				span {
@@ -40,9 +40,9 @@
 					opacity: 1;
 				}
 				@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
-					&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-						&:not(.#{module.$prefix__defaultWithSeparator}is--route),
-						&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+					&:not(.#{module.$status__isActive}) {
+						&:not(.#{module.$status__isRoute}),
+						&.#{module.$status__isRoute}.#{module.$status__noRoute} {
 							// icon only
 							width: 2.4rem;
 							padding: 0;
@@ -51,8 +51,8 @@
 							}
 						}
 					}
-					&.#{module.$prefix__defaultWithSeparator}is--active,
-					&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route) {
+					&.#{module.$status__isActive},
+					&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
 						// text only
 						i.#{module.$component__icon},
 						.#{module.$component__svg} {
@@ -75,9 +75,9 @@
 						border-width: calc(2px + (#{$size} / 18));
 						padding: 0 #{$size * 0.8};
 						@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
-							&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-								&:not(.#{module.$prefix__defaultWithSeparator}is--route),
-								&.#{module.$prefix__defaultWithSeparator}is--route.no--route {
+							&:not(.#{module.$status__isActive}) {
+								&:not(.#{module.$status__isRoute}),
+								&.#{module.$status__isRoute}.#{module.$status__noRoute} {
 									// icon only
 									width: $size * 2.6;
 								}
@@ -95,7 +95,7 @@
 				// ruta activa
 				//
 				// @group Statuses
-				&.#{module.$prefix__defaultWithSeparator}is--route:not(.no--route):before {
+				&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}):before {
 					content: "...";
 					display: block;
 					position: absolute;
@@ -117,17 +117,17 @@
 					)
 					using($name, $value, $isDefault) {
 					--rw: #{module.color($name)};
-					&:not(.#{module.$prefix__defaultWithSeparator}is--active) {
-						&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
-						&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
-						&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+					&:not(.#{module.$status__isActive}) {
+						&:not(.#{module.$status__isRouteExact}),
+						&.#{module.$status__isRouteExact}.#{module.$status__noRoute},
+						&.#{module.$status__isRouteExact}.#{module.$status__noRouteExact} {
 							&:hover {
 								--rw: #{module.color($name, 0.5)};
 							}
 						}
 					}
-					&.#{module.$prefix__defaultWithSeparator}is--active,
-					&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+					&.#{module.$status__isActive},
+					&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 						--rw: #{module.color($name, 0.7)};
 					}
 				}
@@ -140,8 +140,8 @@
 					using($name, $value, $isDefault) {
 					--rw: #{module.color(light)};
 					&:hover,
-					&.#{module.$prefix__defaultWithSeparator}is--active,
-					&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+					&.#{module.$status__isActive},
+					&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 						--rw: #{module.color($name)};
 					}
 				}

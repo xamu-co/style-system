@@ -68,9 +68,9 @@
 ///  {% extends "dropdown.njk" %}
 
 @mixin dropdown {
-	.#{module.$prefix__defaultWithSeparator}toggle--dropdown {
-		&.#{module.$prefix__defaultWithSeparator}is--active,
-		&:not(.#{module.$prefix__defaultWithSeparator}only--active):hover {
+	.#{module.$status__toggleDropdown} {
+		&.#{module.$status__isActive},
+		&:not(.#{module.$status__onlyActive}):hover {
 			@include module.dropdown-toggle-styles;
 		}
 	}
@@ -78,16 +78,16 @@
 	// use hover
 	@media (hover: hover) {
 		*:hover
-			> .#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active),
-		.#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active):hover:not(.no--hover) {
+			> .#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive}),
+		.#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive}):hover:not(.#{module.$status__noHover}) {
 			@include module.dropdown-toggle-styles;
 		}
 	}
-	@if (module.$toggle__responsive) {
+	@if (module.$allow__responsive) {
 		// tablet with no hover only (tablets & mobile devices)
 		// use focus & .is--active class
 		@media (max-width: module.$mediaQuerie__tablet) and (hover: none) {
-			.#{module.$prefix__defaultWithSeparator}toggle--dropdown:not(.#{module.$prefix__defaultWithSeparator}only--active):focus-within:not(.no--focus) {
+			.#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive}):focus-within:not(.#{module.$status__noFocus}) {
 				@include module.dropdown-toggle-styles;
 			}
 		}
@@ -111,7 +111,7 @@
 			}
 		}
 
-		&.#{module.$prefix__defaultWithSeparator}is--active {
+		&.#{module.$status__isActive} {
 			@include module.dropdown-visible-styles;
 		}
 

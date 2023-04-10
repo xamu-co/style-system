@@ -23,13 +23,13 @@
 		@include module.action-capitalize-styles;
 		@include module.action-disabled-styles;
 
-		&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+		&.#{module.$status__isAlert}:after {
 			background-color: var(--bg, transparent);
 		}
 
-		&.#{module.$prefix__defaultWithSeparator}is--alert,
-		&.#{module.$prefix__defaultWithSeparator}is--active,
-		&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+		&.#{module.$status__isAlert},
+		&.#{module.$status__isActive},
+		&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 			//hide regular
 			&,
 			.#{module.$component__buttonToggle}-icon {
@@ -44,10 +44,10 @@
 				}
 			}
 		}
-		&:not(.#{module.$prefix__defaultWithSeparator}is--alert):not(.#{module.$prefix__defaultWithSeparator}is--active) {
-			&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+		&:not(.#{module.$status__isAlert}):not(.#{module.$status__isActive}) {
+			&:not(.#{module.$status__isRouteExact}),
+			&.#{module.$status__isRouteExact}.#{module.$status__noRoute},
+			&.#{module.$status__isRouteExact}.#{module.$status__noRouteExact} {
 				//hide solid
 				&,
 				.#{module.$component__buttonToggle}-icon {
@@ -78,15 +78,15 @@
 			&:hover {
 				--bc: #{module.color($name, 0.3)};
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--alert,
-			&.#{module.$prefix__defaultWithSeparator}is--active {
+			&.#{module.$status__isAlert},
+			&.#{module.$status__isActive} {
 				--bg: #{module.color($name, 0.5)};
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+			&.#{module.$status__isAlert}:after {
 				--bc: #{module.color($name)};
 				--bg: #{module.color(light)};
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+			&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 				--cl: #{module.color(light)};
 				--bg: #{module.color($name, 0.5)};
 				--bc: #{module.color(light, 0.3)};
@@ -100,15 +100,15 @@
 			&:hover {
 				--bc: #{module.color(primaryComplement, 0.3)};
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--alert:after {
+			&.#{module.$status__isAlert}:after {
 				--bg: #{module.color(light)};
 				--bc: #{module.color(dark, 0.3)};
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--alert,
-			&.#{module.$prefix__defaultWithSeparator}is--active {
+			&.#{module.$status__isAlert},
+			&.#{module.$status__isActive} {
 				--bg: #{module.color(primaryComplement, 0.5)};
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+			&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 				--cl: #{module.color(light)};
 				--bg: #{module.color(primaryComplement, 0.5)};
 				--bc: #{module.color(light, 0.3)};

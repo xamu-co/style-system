@@ -2,7 +2,7 @@
 @use "sass:math";
 
 // return default primary color complement
-@function primaryComplement($color) {
+@function primary($color) {
 	@return darken(
 		color.adjust($color, $red: -90deg, $green: -90deg, $blue: -90deg),
 		10
@@ -10,16 +10,13 @@
 }
 
 // return default secondary color complement
-@function secondaryComplement($color) {
+@function secondary($color) {
 	@return color.adjust($color, $red: 60deg, $blue: -90deg);
 }
 
 // return value with dash
 @function dashed($string) {
-	@if ($string == "") {
-		@return $string;
-	}
-	@return $string + "-";
+	@return if($string == "", $string, $string + "-");
 }
 
 // coverts color to rgb, making it compatible with custom vars and opacity

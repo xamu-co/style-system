@@ -59,8 +59,8 @@
 	// avatar is a link
 	@at-root a#{&} {
 		&:hover,
-		&.#{module.$prefix__defaultWithSeparator}is--active,
-		&.#{module.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact) {
+		&.#{module.$status__isActive},
+		&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
 			// box-shadow: 1px 1px 3px module.color(dark, 0.2);
 			img {
 				opacity: 0.7;
@@ -72,10 +72,10 @@
 		&.#{module.$prefix__default}--bdr,
 		&.#{module.$prefix__default}--border {
 			&:not(:hover),
-			&:not(.#{module.$prefix__defaultWithSeparator}is--active),
-			&:not(.#{module.$prefix__defaultWithSeparator}is--routeExact),
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--route,
-			&.#{module.$prefix__defaultWithSeparator}is--routeExact.no--routeExact {
+			&:not(.#{module.$status__isActive}),
+			&:not(.#{module.$status__isRouteExact}),
+			&.#{module.$status__isRouteExact}.#{module.$status__noRoute},
+			&.#{module.$status__isRouteExact}.#{module.$status__noRouteExact} {
 				border-color: transparent;
 			}
 		}

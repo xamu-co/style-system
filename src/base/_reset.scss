@@ -120,7 +120,7 @@
 	label,
 	select,
 	datalist {
-		&:not([class*="toggle--"]).#{utils.$prefix__defaultWithSeparator}is--routeExact:not(.no--route):not(.no--routeExact):not([class*="toggle--"]) {
+		&:not([class*="#{utils.$status__toggle}"]).#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}):not([class*="#{utils.$status__toggle}"]) {
 			pointer-events: none;
 		}
 	}

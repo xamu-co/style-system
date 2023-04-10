@@ -16,7 +16,7 @@
 	$localViewports: variables.$modifiersViewports
 ) {
 	@content;
-	@if variables.$toggle__responsiveClasses {
+	@if variables.$allow__responsiveClasses {
 		@each $name, $viewport in $localViewports {
 			// mobile first
 			@media (min-width: ($viewport + 1)) {
@@ -44,7 +44,7 @@
 	$localViewports: variables.$modifiersViewports
 ) {
 	@content;
-	@if variables.$toggle__responsiveClasses {
+	@if variables.$allow__responsiveClasses {
 		@each $name, $viewport in $localViewports {
 			@each $selector in & {
 				$not: str-slice(#{$selector}, str-length(#{$selector})) == ")";
@@ -87,7 +87,7 @@
 // device type extend
 @mixin extend-device-interactions($touch: false) {
 	@content;
-	@if variables.$toggle__responsiveClasses {
+	@if variables.$allow__responsiveClasses {
 		@each $selector in & {
 			// desktop only
 			@media (hover: hover) {

@@ -62,7 +62,7 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 				//chevron-primary down
 				background-image: url("#{$selectPathDown}#{str-replace(#{$value}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			&.#{module.$status__isInvalid} {
 				&:disabled,
 				&[disabled]:not([disabled="false"]) {
 					//chevron-danger down
@@ -97,7 +97,7 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 				//chevron-light down
 				background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__light}, '#')}' opacity='0.3#{$selectPathEnd}");
 			}
-			&.#{module.$prefix__defaultWithSeparator}is--invalid {
+			&.#{module.$status__isInvalid} {
 				//chevron-light down
 				background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__danger}, '#')}#{$selectPathEnd}");
 				&:hover {
