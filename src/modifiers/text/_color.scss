@@ -13,7 +13,7 @@
 
 		// no default
 		@include color.extend-colors() using($name, $isDefault) {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&,
 				> :not([class*="--txtColor"]) {
 					color: module.color($name);
@@ -22,10 +22,7 @@
 
 			// shades of color
 			@include color.extend-color-shades($name) using($colorShade) {
-				@include module.extend-viewports-classes(
-					false,
-					module.$viewports
-				) {
+				@include module.extend-viewports-classes {
 					&,
 					> :not([class*="--txtColor"]) {
 						color: $colorShade;

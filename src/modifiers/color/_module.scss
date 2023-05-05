@@ -10,11 +10,12 @@
 }
 
 // ease the use of modifier extend for colors
+// relies on extend-color-modifiers
 @mixin extend-colors($default: false) {
-	@include module.extend-map-modifiers(
-			module.$colors,
+	@include module.extend-color-modifiers(
 			meta.get-function("colorsSelector"),
-			$default
+			$default: $default,
+			$defaultCondition: null
 		)
 		using($name, $value, $isDefault) {
 		@content ($name, $isDefault);

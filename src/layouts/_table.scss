@@ -109,11 +109,9 @@
 		// table theme
 		//
 		// @group Modifiers
-		@include utils.extend-map-modifiers(
-				utils.$themeColors,
+		@include utils.extend-color-modifiers(
 				meta.get-function("tableThemeSelector"),
-				secondary,
-				':not([class*="--tm-"])'
+				utils.$themeColors
 			)
 			using($name, $value, $isDefault) {
 			thead {

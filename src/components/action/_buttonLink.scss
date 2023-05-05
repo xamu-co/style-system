@@ -109,11 +109,8 @@
 				// nav link themes
 				//
 				// @group Modifiers
-				@include module.extend-map-modifiers(
-						module.$extendedThemeColors,
-						meta.get-function("buttonLinkThemeSelector"),
-						secondary,
-						':not([class*="--tm-"])'
+				@include module.extend-color-modifiers(
+						meta.get-function("buttonLinkThemeSelector")
 					)
 					using($name, $value, $isDefault) {
 					--rw: #{module.color($name)};
@@ -133,9 +130,9 @@
 				}
 
 				// Alternative themes
-				@include module.extend-map-modifiers(
-						module.$extendedThemeColors,
-						meta.get-function("buttonLinkThemeSelectorLight")
+				@include module.extend-color-modifiers(
+						meta.get-function("buttonLinkThemeSelectorLight"),
+						$default: false
 					)
 					using($name, $value, $isDefault) {
 					--rw: #{module.color(light)};

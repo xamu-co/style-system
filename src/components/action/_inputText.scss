@@ -58,11 +58,9 @@
 		// theme
 		//
 		// @group Modifiers
-		@include module.extend-map-modifiers(
-				module.$themeColors,
+		@include module.extend-color-modifiers(
 				meta.get-function("iTxtThemeSelector"),
-				secondary,
-				':not([class*="--tm-"])'
+				module.$themeColors
 			)
 			using($name, $value, $isDefault) {
 			--bg: #{module.color($name, 0.1)};

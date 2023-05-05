@@ -6,7 +6,7 @@
 @mixin hidden {
 	.#{utils.$prefix__default}--hidden {
 		// hide visually only
-		@include utils.extend-viewports-classes(true, utils.$viewports) {
+		@include utils.extend-viewports-classes(true, true) {
 			width: 0.1px;
 			height: 0.1px;
 			opacity: 0;
@@ -21,7 +21,7 @@
 			}
 		}
 		&-full {
-			@include utils.extend-viewports-classes(true, utils.$viewports) {
+			@include utils.extend-viewports-classes(true, true) {
 				display: none !important;
 				&:first-child + {
 					i.#{utils.$component__icon},

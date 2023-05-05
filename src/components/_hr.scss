@@ -1,10 +1,7 @@
 @use "../utils/module" as utils;
 @use "sass:meta";
 
-@function hrXThemeSelector($name) {
-	@return ".#{utils.$prefix__default}--tm-#{$name}";
-}
-@function hrYThemeSelector($name) {
+@function hrThemeSelector($name) {
 	@return ".#{utils.$prefix__default}--tm-#{$name}";
 }
 
@@ -15,7 +12,7 @@
 	hr {
 		box-sizing: border-box;
 		&.#{utils.$prefix__default}--hrX {
-			@include utils.extend-viewports-classes(true, utils.$viewports) {
+			@include utils.extend-viewports-classes {
 				// max-height: 2px;
 				height: 2px;
 				width: 100%;
@@ -28,11 +25,8 @@
 				// Tema del delimitador
 				//
 				// @group Modifiers
-				@include utils.extend-map-modifiers(
-						utils.$extendedThemeColors,
-						meta.get-function("hrXThemeSelector"),
-						secondary,
-						':not([class*="--tm-"])'
+				@include utils.extend-color-modifiers(
+						meta.get-function("hrThemeSelector")
 					)
 					using($name, $value, $isDefault) {
 					background-image: url("#{utils.$ruleSvgPathX}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
@@ -40,7 +34,7 @@
 			}
 		}
 		&.#{utils.$prefix__default}--hrY {
-			@include utils.extend-viewports-classes(true, utils.$viewports) {
+			@include utils.extend-viewports-classes {
 				// max-width: 2px;
 				width: 2px;
 				height: 100%;
@@ -53,11 +47,8 @@
 				// Tema del delimitador
 				//
 				// @group Modifiers
-				@include utils.extend-map-modifiers(
-						utils.$extendedThemeColors,
-						meta.get-function("hrYThemeSelector"),
-						secondary,
-						':not([class*="--tm-"])'
+				@include utils.extend-color-modifiers(
+						meta.get-function("hrThemeSelector")
 					)
 					using($name, $value, $isDefault) {
 					background-image: url("#{utils.$ruleSvgPathY}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
@@ -66,7 +57,7 @@
 		}
 		&.#{utils.$prefix__default}--hrX,
 		&.#{utils.$prefix__default}--hrY {
-			@include utils.extend-viewports-classes(true, utils.$viewports) {
+			@include utils.extend-viewports-classes {
 				opacity: 0.2;
 				background-repeat: round;
 				background-position: 50% 50%;

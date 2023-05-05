@@ -45,9 +45,9 @@
 		// logo theme
 		//
 		// @group Modifiers
-		@include module.extend-map-modifiers(
-				module.$themeColors,
-				meta.get-function("svgThemeSelector")
+		@include module.extend-color-modifiers(
+				meta.get-function("svgThemeSelector"),
+				module.$themeColors
 			)
 			using($name, $value, $isDefault) {
 			--cl: #{$value};

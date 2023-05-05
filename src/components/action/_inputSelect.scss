@@ -35,11 +35,8 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 		// Theme
 		//
 		// @group Unions
-		@include module.extend-map-modifiers(
-				module.$extendedThemeColors,
-				meta.get-function("iSelectThemeSelector"),
-				secondary,
-				':not([class*="--tm-"])'
+		@include module.extend-color-modifiers(
+				meta.get-function("iSelectThemeSelector")
 			)
 			using($name, $value, $isDefault) {
 			//chevron-light down
@@ -72,9 +69,10 @@ $selectPathEnd: "'/%3E%3C/svg%3E";
 		}
 
 		// Alternative colors
-		@include module.extend-map-modifiers(
+		@include module.extend-color-modifiers(
+				meta.get-function("iSelectThemeLightSelector"),
 				module.$themeColors,
-				meta.get-function("iSelectThemeLightSelector")
+				false
 			)
 			using($name, $value, $isDefault) {
 			//chevron-light down

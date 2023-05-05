@@ -33,7 +33,7 @@
 	// Size
 	padding: 0 0.8rem;
 	&.#{module.$prefix__default}--round {
-		@include module.extend-viewports-classes(true, module.$viewports) {
+		@include module.extend-viewports-classes {
 			padding: 0; // button padding
 			width: 2.4rem;
 		}
@@ -44,7 +44,7 @@
 		//
 		// @group Modifiers
 		&.#{module.$prefix__default}--round {
-			@include module.extend-viewports-classes(true, module.$viewports) {
+			@include module.extend-viewports-classes {
 				i.#{module.$component__icon},
 				.#{module.$component__svg} {
 					+ span {
@@ -81,7 +81,7 @@
 		margin-left: 0.4em;
 	}
 	&.#{module.$prefix__default}--round {
-		@include module.extend-viewports-classes(true, module.$viewports) {
+		@include module.extend-viewports-classes {
 			> * + * {
 				margin-left: 0;
 			}
@@ -118,11 +118,9 @@
 	// second value is the textColor
 	//
 	// @group Unions
-	@include module.extend-map-modifiers(
-			module.$themeColors,
+	@include module.extend-color-modifiers(
 			meta.get-function("bttnAndISelectThemeSelector"),
-			secondary,
-			':not([class*="--tm-"])'
+			module.$themeColors
 		)
 		using($name, $value, $isDefault) {
 		--cl: #{module.color(light)};
@@ -176,8 +174,7 @@
 	}
 
 	// Alternative colors
-	@include module.extend-map-modifiers(
-			module.$extendedThemeColors,
+	@include module.extend-color-modifiers(
 			meta.get-function("bttnAndISelectThemeLightSelector")
 		)
 		using($name, $value, $isDefault) {
@@ -415,11 +412,8 @@
 	// Radio theme
 	//
 	// @group Modifiers
-	@include module.extend-map-modifiers(
-			module.$extendedThemeColors,
-			meta.get-function("iToggleThemeSelector"),
-			secondary,
-			':not([class*="--tm-"])'
+	@include module.extend-color-modifiers(
+			meta.get-function("iToggleThemeSelector")
 		)
 		using($name, $value, $isDefault) {
 		+ label {

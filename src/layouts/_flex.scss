@@ -67,10 +67,7 @@
 			&-wrap,
 			&-reverse,
 			&-nowrap {
-				@include utils.extend-viewports-classes(
-					true,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					flex-direction: row;
 				}
 			}
@@ -80,10 +77,7 @@
 			&-wrap,
 			&-reverse,
 			&-nowrap {
-				@include utils.extend-viewports-classes(
-					true,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					flex-direction: row-reverse;
 				}
 			}
@@ -97,10 +91,7 @@
 			&-wrap,
 			&-reverse,
 			&-nowrap {
-				@include utils.extend-viewports-classes(
-					true,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					flex-direction: column;
 				}
 			}
@@ -110,10 +101,7 @@
 			&-wrap,
 			&-reverse,
 			&-nowrap {
-				@include utils.extend-viewports-classes(
-					true,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					flex-direction: column-reverse;
 				}
 			}
@@ -125,28 +113,19 @@
 		&.#{utils.$prefix__default}--flxRowReverse,
 		&.#{utils.$prefix__default}--flxColumnReverse {
 			&-wrap {
-				@include utils.extend-viewports-classes(
-					true,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					flex-wrap: wrap;
 				}
 			}
 			&-reverse {
-				@include utils.extend-viewports-classes(
-					true,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					flex-wrap: wrap-reverse;
 				}
 			}
 			// default
 			&,
 			&-nowrap {
-				@include utils.extend-viewports-classes(
-					true,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					flex-wrap: nowrap;
 				}
 			}

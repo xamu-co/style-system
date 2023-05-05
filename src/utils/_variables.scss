@@ -1,8 +1,12 @@
 @use "system";
 
-// ALLOWANCES
-$allow__responsive: true !default; // responsive media queries
+// ALLOWANCES, RESPONSIVE
+$allow__responsive: true !default; // responsive & media queries
+
+// all of the following depend on $allow__responsive and have no fuctionality otherwise
 $allow__responsiveClasses: $allow__responsive !default; // responsive class modifiers
+$allow__responsiveDesktopFirstClasses: false !default; // include desktop first class modifiers
+$allow__responsiveAllViewports: false !default; // use all viewports
 
 // FONT FAMILIES
 $font__default: ("Poppins", sans-serif) !default;
@@ -155,8 +159,8 @@ $fontSizes: (
 $fontWeights: (
 	regular: $fontWeight__regular,
 	bold: $fontWeight__bold,
-	regular-alt: $fontWeight__regularAlt,
-	bold-alt: $fontWeight__boldAlt,
+	regularAlt: $fontWeight__regularAlt,
+	boldAlt: $fontWeight__boldAlt,
 );
 
 $themeColors: (
@@ -168,13 +172,6 @@ $themeColors: (
 	success: $color__success,
 );
 
-$extendedThemeColors: map-merge(
-	$themeColors,
-	(
-		light: $color__light,
-	)
-);
-
 $baseColors: (
 	light: $color__light,
 	dark: $color__dark,
@@ -182,7 +179,8 @@ $baseColors: (
 
 $colors: map-merge($themeColors, $baseColors);
 
-$modifiersViewports: (
+$commonViewports: (
+	sm: $mediaQuerie__smartphone,
 	md: $mediaQuerie__tablet,
 	xl: $mediaQuerie__tv,
 );

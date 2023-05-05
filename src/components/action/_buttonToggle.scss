@@ -66,11 +66,8 @@
 		// second value is the textColor
 		//
 		// @group Modifiers
-		@include module.extend-map-modifiers(
-				module.$extendedThemeColors,
-				meta.get-function("buttonToggleThemeSelector"),
-				secondary,
-				':not([class*="--tm-"])'
+		@include module.extend-color-modifiers(
+				meta.get-function("buttonToggleThemeSelector")
 			)
 			using($name, $value, $isDefault) {
 			--cl: #{module.color($name)};

@@ -6,21 +6,21 @@
 @mixin text-weight {
 	.#{module.$prefix__default}--txtWeight {
 		&-bold {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				font-weight: module.weight(bold);
 				@supports (-moz-appearance: none) {
 					// firefox fix
-					font-weight: module.weight(bold-alt);
+					font-weight: module.weight(boldAlt);
 				}
 			}
 		}
 		&,
 		&-regular {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				font-weight: module.weight();
 				@supports (-moz-appearance: none) {
 					// firefox fix
-					font-weight: module.weight(regular-alt);
+					font-weight: module.weight(regularAlt);
 				}
 			}
 		}

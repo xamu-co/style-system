@@ -6,7 +6,7 @@
 @mixin flex-justify {
 	.#{module.$prefix__default}--flxJustify {
 		&-end {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
 					justify-content: flex-end;
 				}
@@ -21,7 +21,7 @@
 			}
 		}
 		&-start {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
 					justify-content: flex-start;
 				}
@@ -36,7 +36,7 @@
 			}
 		}
 		&-around {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
 					justify-content: space-around;
 				}
@@ -51,7 +51,7 @@
 			}
 		}
 		&-evenly {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
 					justify-content: space-around; // for unsupported browsers
 					justify-content: space-evenly;
@@ -69,7 +69,7 @@
 			}
 		}
 		&-between {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
 					justify-content: space-between;
 				}
@@ -84,7 +84,7 @@
 			}
 		}
 		&-stretch {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
 					justify-content: stretch;
 				}
@@ -101,7 +101,7 @@
 		// default
 		&,
 		&-center {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$layout__grid}):not(.#{module.$prefix__default}--flxSelf) {
 					justify-content: center;
 				}

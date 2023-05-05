@@ -6,7 +6,7 @@
 @mixin flex-align {
 	.#{module.$prefix__default}--flxAlign {
 		&-end {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$prefix__default}--flxSelf) {
 					align-items: flex-end;
 				}
@@ -18,7 +18,7 @@
 			}
 		}
 		&-start {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$prefix__default}--flxSelf) {
 					align-items: flex-start;
 				}
@@ -30,7 +30,7 @@
 			}
 		}
 		&-stretch {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$prefix__default}--flxSelf) {
 					align-items: stretch;
 				}
@@ -42,7 +42,7 @@
 			}
 		}
 		&-baseline {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$prefix__default}--flxSelf) {
 					align-items: baseline;
 				}
@@ -56,7 +56,7 @@
 		// default
 		&,
 		&-center {
-			@include module.extend-viewports-classes(false, module.$viewports) {
+			@include module.extend-viewports-classes {
 				&:not(.#{module.$prefix__default}--flxSelf) {
 					align-items: center;
 				}

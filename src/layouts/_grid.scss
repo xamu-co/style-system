@@ -180,10 +180,7 @@
 			}
 			& {
 				// default, the same as .--grdColumns-auto3
-				@include utils.extend-viewports-classes(
-					false,
-					utils.$viewports
-				) {
+				@include utils.extend-viewports-classes {
 					grid-template-columns: repeat(
 						auto-fit,
 						minmax(#{utils.$size__minColumnSize}, 1fr)

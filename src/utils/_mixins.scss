@@ -12,11 +12,17 @@
 
 // viewport extend
 @mixin extend-viewports-classes(
-	$desktop: false,
-	$localViewports: variables.$modifiersViewports
+	$desktopFirst: variables.$allow__responsiveDesktopFirstClasses,
+	$allViewports: variables.$allow__responsiveAllViewports
 ) {
 	@content;
 	@if variables.$allow__responsiveClasses {
+		// conditionally set viewports
+		$localViewports: if(
+			$allViewports,
+			variables.$viewports,
+			variables.$commonViewports
+		);
 		@each $name, $viewport in $localViewports {
 			// mobile first
 			@media (min-width: ($viewport + 1)) {
@@ -26,7 +32,7 @@
 				}
 			}
 			// desktop first
-			@if $desktop {
+			@if $desktopFirst {
 				@media (max-width: $viewport) {
 					// default: class selector
 					&\:#{$name}-inv {
@@ -40,11 +46,17 @@
 // alternative for attrs
 // needs improvements
 @mixin extend-viewports-attrs(
-	$desktop: false,
-	$localViewports: variables.$modifiersViewports
+	$desktopFirst: variables.$allow__responsiveDesktopFirstClasses,
+	$allViewports: variables.$allow__responsiveAllViewports
 ) {
 	@content;
 	@if variables.$allow__responsiveClasses {
+		// conditionally set viewports
+		$localViewports: if(
+			$allViewports,
+			variables.$viewports,
+			variables.$commonViewports
+		);
 		@each $name, $viewport in $localViewports {
 			@each $selector in & {
 				$not: str-slice(#{$selector}, str-length(#{$selector})) == ")";
@@ -67,7 +79,7 @@
 				}
 
 				// desktop first
-				@if $desktop {
+				@if $desktopFirst {
 					@media (max-width: $viewport) {
 						// attr selector support
 						$end: if($not, '-inv"])', '-inv"]');
@@ -125,6 +137,20 @@
 		&#{$resolveSelector} {
 			@content ($name, $value, false);
 		}
+	}
+}
+
+// ease the use of modifier extend for colors
+// relies on extend-map-modifiers
+@mixin extend-color-modifiers(
+	$selector,
+	$map: variables.$colors,
+	$default: secondary,
+	$defaultCondition: if($default, ':not([class*="--tm-"])', null)
+) {
+	@include extend-map-modifiers($map, $selector, $default, $defaultCondition)
+		using($name, $value, $isDefault) {
+		@content ($name, $value, $isDefault);
 	}
 }
 
