@@ -67,13 +67,20 @@
 				--cl-h: #{module.color(light, 0.5)};
 			}
 		}
-		.#{module.$prefix__default}--tm-light {
+
+		// link theme
+		// alternative themes
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--tm-light {
 			--cl: #{module.color(light)};
 			--cl-a: #{module.color(primary)};
+			--cl-h: #{module.color(light, 0.5)};
 		}
-		.#{module.$prefix__default}--tm-lightComplement {
+		&.#{module.$prefix__default}--tm-lightComplement {
 			--cl: #{module.color(light)};
 			--cl-a: #{module.color(primaryComplement)};
+			--cl-h: #{module.color(light, 0.5)};
 		}
 
 		// link round handling

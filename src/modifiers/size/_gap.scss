@@ -58,19 +58,19 @@
 			$value: math.div($i, 3) * 1rem;
 
 			// grid Gap, future flex gap
-			.#{module.$prefix__default}--gap-#{$i*5} {
+			&-#{$i*5} {
 				// flex, column & grid only
 				@include module.extend-viewports-classes {
 					gap: $value;
 				}
 			}
-			.#{module.$prefix__default}--gapX-#{$i*5} {
+			&X-#{$i*5} {
 				// flex, column & grid only, X axis
 				@include module.extend-viewports-classes {
 					column-gap: $value;
 				}
 			}
-			.#{module.$prefix__default}--gapY-#{$i*5} {
+			&Y-#{$i*5} {
 				// flex, column & grid only, Y axis
 				@include module.extend-viewports-classes {
 					row-gap: $value;

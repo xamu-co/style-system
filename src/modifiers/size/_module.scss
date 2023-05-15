@@ -81,9 +81,7 @@
 		}
 	}
 
-	// pixel based
-	$sizes: 1400, 1300, 1080, 980, 880, 780, 580, 480, 440, 220, 180;
-	@each $size in $sizes {
+	@each $size in module.$size__allPx {
 		&-#{$size} {
 			@include module.extend-viewports-classes {
 				#{$property}: round(math.div($size, 15)) * 1rem;

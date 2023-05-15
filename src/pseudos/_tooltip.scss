@@ -28,17 +28,21 @@
 			border: 2px solid utils.color(light, 0.1);
 			background: utils.color(dark);
 		}
-		&:hover:not([disabled]:not([disabled="false"])):not(.#{utils.$status__isOpen}):not([class*="#{utils.$prefix__defaultWithSeparator}toggle--"].#{utils.$status__onlyActive}.#{utils.$status__isActive}) {
-			&:not(.#{utils.$status__isRouteExact}),
-			&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
-			&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
-				@media (hover: hover) {
-					// dektop only
+		&[disabled]:not([disabled="false"]),
+		&.#{utils.$status__isOpen},
+		&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}),
+		&[class*="#{utils.$prefix__defaultWithSeparator}toggle--"].#{utils.$status__onlyActive}.#{utils.$status__isActive} {
+			&:before {
+				display: none;
+			}
+		}
 
-					cursor: pointer;
-					&:before {
-						opacity: 1;
-					}
+		&:hover {
+			@media (hover: hover) {
+				// dektop only
+				cursor: pointer;
+				&:before {
+					opacity: 1;
 				}
 			}
 		}

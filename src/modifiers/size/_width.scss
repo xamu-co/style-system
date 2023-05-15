@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "module";
 
 @mixin width-size {
@@ -15,9 +16,10 @@
 
 		// default
 		&,
-		&-1200 {
+		&-#{module.$size__defaultPx} {
 			@include module.extend-viewports-classes {
-				min-width: 75rem;
+				// 1200 = 75rem
+				min-width: math.div(module.$size__defaultPx, 16) * 1rem;
 			}
 		}
 	}
@@ -27,9 +29,10 @@
 
 		// default
 		&,
-		&-1200 {
+		&-#{module.$size__defaultPx} {
 			@include module.extend-viewports-classes {
-				max-width: 75rem;
+				// 1200 = 75rem
+				max-width: math.div(module.$size__defaultPx, 16) * 1rem;
 			}
 		}
 	}

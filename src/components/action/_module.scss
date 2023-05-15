@@ -160,7 +160,7 @@
 			}
 		}
 	}
-	// default theme
+	// default theme overrides
 	&:not([class*="--tm-"]),
 	&.#{module.$prefix__default}--tm-secondary-light {
 		&:not(.#{module.$status__isInvalid}) {
@@ -175,7 +175,8 @@
 
 	// Alternative colors
 	@include module.extend-color-modifiers(
-			meta.get-function("bttnAndISelectThemeLightSelector")
+			meta.get-function("bttnAndISelectThemeLightSelector"),
+			$default: null
 		)
 		using($name, $value, $isDefault) {
 		--cl: #{$value};
@@ -215,6 +216,7 @@
 			}
 		}
 	}
+	// theme overrides
 	&.#{module.$prefix__default}--tm-light-primary {
 		--bg: #{module.color(light)};
 		&:not(.#{module.$status__isActive}) {

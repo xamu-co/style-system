@@ -32,7 +32,7 @@ $fontWeight__boldAlt: 500 !default;
 $color__primary: #f39c12 !default; // primary theme colors
 $color__primaryComplement: system.primary($color__primary) !default;
 $color__secondary: #0f47af !default; // secondary theme colors
-$color__secondaryComplement: system.secondary($color__primary) !default;
+$color__secondaryComplement: system.secondary($color__secondary) !default;
 $color__light: #fff !default;
 $color__dark: #000 !default;
 $color__danger: #e74c3c !default;
@@ -47,6 +47,8 @@ $mediaQuerie__desktop: 1080px !default; // lg
 $mediaQuerie__tv: 1280px !default; // xl
 
 // SIZES
+$size__defaultPx: 1200 !default;
+$size__allPx: 1080, 480, 440, 220, 180, 90 !default;
 $size__minColumnSize: $fontSize__md * 18 !default; // min column size, 280px aprox
 $size__maxTextWidth: 66ch !default; // max text block width, 780px aprox
 $size__lineHeight: 1.2em !default; // main line height

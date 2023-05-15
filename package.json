@@ -69,8 +69,8 @@
 		"semantic-release": "^17.1.1",
 		"sort-css-media-queries": "vis97c/sort-css-media-queries",
 		"stylelint": "^13.6.1",
-		"stylelint-config-prettier": "^8.0.2",
-		"stylelint-prettier": "^1.1.2"
+		"stylelint-config-prettier": "^9.0.5",
+		"stylelint-prettier": "^3.0.0"
 	},
 	"engines": {
 		"node": ">=16.19.0",

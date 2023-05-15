@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "module";
 
 @mixin height-size {
@@ -17,9 +18,10 @@
 
 		// default
 		&,
-		&-1200 {
+		&-#{module.$size__defaultPx} {
 			@include module.extend-viewports-classes {
-				min-height: 75rem;
+				// 1200 = 75rem
+				min-height: math.div(module.$size__defaultPx, 16) * 1rem;
 			}
 		}
 	}
@@ -29,9 +31,10 @@
 
 		// default
 		&,
-		&-1200 {
+		&-#{module.$size__defaultPx} {
 			@include module.extend-viewports-classes {
-				max-height: 75rem;
+				// 1200 = 75rem
+				max-height: math.div(module.$size__defaultPx, 16) * 1rem;
 			}
 		}
 	}

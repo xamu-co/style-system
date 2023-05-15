@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "../utils/module" as utils;
 
 // limita el ancho de los elementos en el contenidos
@@ -35,7 +36,8 @@
 			width: 100%;
 		}
 		&:not([class*="--maxWidth-"]) {
-			max-width: 75rem;
+			// 1200 = 75rem
+			max-width: math.div(utils.$size__defaultPx, 16) * 1rem;
 		}
 	}
 }
