@@ -13,9 +13,9 @@
 
 		// es barra de navegacion principal
 		//
-		// @group Statuses
-		&:not(.#{utils.$status__isSub}) {
-			&:not(.#{utils.$status__isRelative}) {
+		// @group Modifiers
+		&:not(.#{utils.$prefix__default}--sub) {
+			&:not(.#{utils.$prefix__default}--relative) {
 				z-index: 16;
 			}
 			&,
@@ -139,7 +139,7 @@
 				> .#{utils.$layout__navigationX}-wrapper {
 					background: utils.color(light);
 				}
-				&:not(.#{utils.$status__isRelative})
+				&:not(.#{utils.$prefix__default}--relative)
 					> .#{utils.$layout__navigationX}-wrapper {
 					box-shadow: 0 0.5rem 2.4rem utils.color(dark, 0.05);
 				}
@@ -148,8 +148,8 @@
 
 		// es barra de navegacion secundaria
 		//
-		// @group Statuses
-		&.#{utils.$status__isSub} {
+		// @group Modifiers
+		&.#{utils.$prefix__default}--sub {
 			position: absolute;
 			left: 0;
 			top: 100%;

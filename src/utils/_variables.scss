@@ -111,16 +111,10 @@ $status__is: $prefix__defaultWithSeparator + "is" + "--" !default; // is
 $status__isActive: $status__is + "active" !default;
 $status__isAlert: $status__is + "alert" !default;
 $status__isAnimated: $status__is + "animated" !default;
-$status__isHeader: $status__is + "header" !default;
 $status__isInvalid: $status__is + "invalid" !default;
-$status__isLogo: $status__is + "logo" !default;
-$status__isOpen: $status__is + "open" !default;
-$status__isRelative: $status__is + "relative" !default;
 $status__isRoute: $status__is + "route" !default;
 $status__isRouteExact: $status__is + "routeExact" !default;
 $status__isSelected: $status__is + "selected" !default;
-$status__isSub: $status__is + "sub" !default;
-$status__isToggleIndicator: $status__is + "toggleIndicator" !default;
 
 // STATUS CLASSES, NO
 $status__no: $prefix__defaultWithSeparator + "no" + "--" !default; // no

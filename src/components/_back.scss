@@ -14,16 +14,32 @@
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		transition: background 0.3s ease-out;
-		&:not([class*="--index"]) {
-			// Index
-			z-index: -1;
-		}
-		&:not([class*="--position"]) {
-			// Position
-			position: absolute;
+		z-index: -1;
+		position: absolute;
+
+		// Overlay
+		// Act as content overlay
+		//
+		// @group Modifiers
+		&.#{utils.$prefix__default}--overlay {
+			display: none;
+			~ * {
+				transition: all 0.3s ease-out;
+			}
+			&.#{utils.$status__isActive} {
+				@include utils.flex-box(row, nowrap, center, center);
+				~ * {
+					opacity: 0.3;
+					pointer-events: none;
+				}
+			}
 		}
 
-		&.#{utils.$status__isHeader} {
+		// Header
+		// Enhance header background
+		//
+		// @group Modifiers
+		&.#{utils.$prefix__default}--header {
 			top: -5rem;
 			height: auto;
 			bottom: 0;

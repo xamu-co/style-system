@@ -31,7 +31,7 @@
 			&:last-child {
 				transform: rotate(180deg);
 			}
-			&.#{module.$status__isToggleIndicator} ~ :last-child {
+			&.#{module.$prefix__default}--indicator ~ :last-child {
 				// prevent tranform is toggle indicator is defined
 				transform: none;
 			}
@@ -40,7 +40,7 @@
 
 	i.#{module.$component__icon},
 	.#{module.$component__svg} {
-		&.#{module.$status__isToggleIndicator} {
+		&.#{module.$prefix__default}--indicator {
 			transform: rotate(180deg);
 		}
 	}

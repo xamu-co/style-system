@@ -17,7 +17,7 @@
 		// es barra de navegacion principal
 		//
 		// @group Statuses
-		&:not(.#{utils.$status__isSub}) {
+		&:not(.#{utils.$prefix__default}--sub) {
 			@include utils.flex-box(column, nowrap, space-between, center);
 			ul.#{utils.$layout__navigationY}-menu-list,
 			ol.#{utils.$layout__navigationY}-menu-list {
@@ -29,7 +29,7 @@
 		//
 		// @group Statuses
 
-		&.#{utils.$status__isSub} {
+		&.#{utils.$prefix__default}--sub {
 			@if (utils.$allow__responsive) {
 				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 					overflow: hidden;
