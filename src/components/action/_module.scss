@@ -29,22 +29,13 @@
 //
 // @group SharedStyles
 @mixin action-round-styles {
-	// this is the default value
-	// Size
-	padding: 0 0.8rem;
-	&.#{module.$prefix__default}--round {
-		@include module.extend-viewports-classes {
-			padding: 0; // button padding
-			width: 2.4rem;
-		}
-	}
 	@at-root :not([class*="#{module.$status__toggle}"])
 			> :not([class*="#{module.$status__toggle}"])#{&} {
 		// round button
 		//
 		// @group Modifiers
 		&.#{module.$prefix__default}--round {
-			@include module.extend-viewports-classes {
+			@include module.extend-viewports-classes(true, true) {
 				i.#{module.$component__icon},
 				.#{module.$component__svg} {
 					+ span {
@@ -54,13 +45,28 @@
 			}
 		}
 	}
+
+	// this is the default value
+	&.#{module.$prefix__default}--round {
+		@include module.extend-viewports-classes(true, true) {
+			padding: 0; // button padding
+			width: 2.4rem;
+		}
+	}
+
 	@each $name, $size in module.$fontSizes {
 		// button & buttonToggle shared styles
 		//
 		// @group SharedStyles
 		&.#{module.$prefix__default}--size-#{$name} {
-			// --p could be inherited, we don't want that
-			padding: 0 #{$size * 0.8}; // button padding
+			@include module.extend-viewports-classes {
+				&.#{module.$prefix__default}--round {
+					@include module.extend-viewports-classes(true, true) {
+						padding: 0; // button padding
+						width: $size * 2.6;
+					}
+				}
+			}
 		}
 	}
 }
@@ -81,7 +87,7 @@
 		margin-left: 0.4em;
 	}
 	&.#{module.$prefix__default}--round {
-		@include module.extend-viewports-classes {
+		@include module.extend-viewports-classes(true, true) {
 			> * + * {
 				margin-left: 0;
 			}
@@ -296,13 +302,17 @@
 // @group SharedStyles
 @mixin action-size-styles {
 	height: 2.4rem;
+	padding: 0 0.8rem;
 
 	@each $name, $size in module.$fontSizes {
 		// text, select, button & buttonToggle shared styles
 		//
 		// @group SharedStyles
 		&.#{module.$prefix__default}--size-#{$name} {
-			height: $size * 2.6; // button size: height/width
+			@include module.extend-viewports-classes {
+				height: $size * 2.6; // button size: height/width
+				padding: 0 #{$size * 0.8}; // button padding
+			}
 		}
 	}
 }
@@ -316,12 +326,11 @@
 
 	@each $name, $size in module.$fontSizes {
 		&.#{module.$prefix__default}--size-#{$name} {
-			border-radius: $size; // button border radius
-			border-width: calc(
-				2px + #{math.div($size, 18)}
-			); // button border width
-			&.#{module.$prefix__default}--round {
-				width: $size * 2.6;
+			@include module.extend-viewports-classes {
+				border-radius: $size; // button border radius
+				border-width: calc(
+					2px + #{math.div($size, 18)}
+				); // button border width
 			}
 		}
 	}

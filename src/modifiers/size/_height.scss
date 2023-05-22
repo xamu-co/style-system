@@ -11,6 +11,21 @@
 				height: 100%;
 			}
 		}
+		&-fit {
+			@include module.extend-viewports-classes {
+				height: fit-content;
+			}
+		}
+		&-max {
+			@include module.extend-viewports-classes {
+				height: max-content;
+			}
+		}
+		&-min {
+			@include module.extend-viewports-classes {
+				height: max-content;
+			}
+		}
 	}
 
 	.#{module.$prefix__default}--minHeight {

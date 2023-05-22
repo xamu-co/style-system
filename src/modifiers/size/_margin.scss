@@ -7,6 +7,9 @@
 	.#{module.$prefix__default}--margin {
 		@include module.extend-viewports-classes {
 			margin: 1rem;
+			&-center {
+				margin: 0 auto;
+			}
 		}
 	}
 

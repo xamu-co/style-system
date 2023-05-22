@@ -85,7 +85,7 @@
 
 		// link round handling
 		&.#{module.$prefix__default}--round {
-			@include module.extend-viewports-classes {
+			@include module.extend-viewports-classes(true, true) {
 				i.#{module.$component__icon},
 				.#{module.$component__svg} {
 					&:last-child {

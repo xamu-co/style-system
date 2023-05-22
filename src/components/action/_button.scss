@@ -24,7 +24,7 @@
 			//
 			// @group Modifiers
 			&.#{module.$prefix__default}--round {
-				@include module.extend-viewports-classes {
+				@include module.extend-viewports-classes(true, true) {
 					:not(:only-child) {
 						&:not(:last-child),
 						&:not(:nth-child(2)) {

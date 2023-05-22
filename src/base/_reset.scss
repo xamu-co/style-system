@@ -155,6 +155,13 @@
 		transition: all 0.1s ease-out, background-image 0s;
 	}
 
+	hr {
+		box-sizing: border-box;
+	}
+
+	dialog {
+	}
+
 	html {
 		text-rendering: optimizeLegibility;
 	}

@@ -8,37 +8,41 @@
 // Delimiter
 //
 // @group Components
-@mixin rule {
+@mixin hr {
 	hr {
-		box-sizing: border-box;
-		&.#{utils.$prefix__default}--hrX {
-			@include utils.extend-viewports-classes {
-				// max-height: 2px;
-				height: 2px;
-				width: 100%;
-				&:not([class*="--m"]) {
-					height: 2px;
-					width: calc(100% + 1rem);
-					margin: 0 -0.5rem;
-				}
+		opacity: 0.2;
+		background-repeat: round;
+		background-position: 50% 50%;
+		flex: 0 0 auto;
+		display: block;
 
-				// Tema del delimitador
-				//
-				// @group Modifiers
-				@include utils.extend-color-modifiers(
-						meta.get-function("hrThemeSelector")
-					)
-					using($name, $value, $isDefault) {
-					background-image: url("#{utils.$ruleSvgPathX}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
-				}
-			}
+		height: 2px;
+		width: 100%;
+		&:not([class*="#{utils.$prefix__default}--m"]) {
+			height: 2px;
+			width: calc(100% + 1rem);
+			margin: 0 -0.5rem;
 		}
-		&.#{utils.$prefix__default}--hrY {
+		&:last-child:not(:nth-child(2)):not(:only-child) {
+			display: none;
+		}
+
+		// Tema del delimitador
+		//
+		// @group Modifiers
+		@include utils.extend-color-modifiers(
+				meta.get-function("hrThemeSelector")
+			)
+			using($name, $value, $isDefault) {
+			background-image: url("#{utils.$ruleSvgPathX}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
+		}
+
+		&.#{utils.$prefix__default}--vertical {
 			@include utils.extend-viewports-classes {
 				// max-width: 2px;
 				width: 2px;
 				height: 100%;
-				&:not([class*="--m"]) {
+				&:not([class*="#{utils.$prefix__default}--m"]) {
 					width: 2px;
 					height: calc(100% + 1rem);
 					margin: -0.5rem 0;
@@ -53,36 +57,6 @@
 					using($name, $value, $isDefault) {
 					background-image: url("#{utils.$ruleSvgPathY}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
 				}
-			}
-		}
-		&.#{utils.$prefix__default}--hrX,
-		&.#{utils.$prefix__default}--hrY {
-			@include utils.extend-viewports-classes {
-				opacity: 0.2;
-				background-repeat: round;
-				background-position: 50% 50%;
-				flex: 0 0 auto;
-				display: block;
-				&:last-child:not(:nth-child(2)):not(:only-child) {
-					display: none;
-				}
-			}
-		}
-		// default: horizontal
-		&:not([id]):not([class]) {
-			// max-height: 2px;
-			width: calc(100% + 1rem);
-			height: 2px;
-			margin-left: -0.5rem;
-			margin-right: -0.5rem;
-			opacity: 0.2;
-			background-repeat: round;
-			background-position: 50% 50%;
-			flex: 0 0 auto;
-			background-image: url("#{utils.$ruleSvgPathX}#{str-replace(#{utils.$color__secondary}, '#')}#{utils.$ruleSvgPathEnd}");
-			display: block;
-			&:last-child:not(:nth-child(2)):not(:only-child) {
-				display: none;
 			}
 		}
 	}
