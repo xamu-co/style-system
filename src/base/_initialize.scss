@@ -58,6 +58,16 @@
 		font-family: utils.family(codeBlocks);
 	}
 
+	dialog {
+		margin: auto;
+		background: transparent;
+		overflow: visible;
+		&::backdrop {
+			background: utils.color(dark, 0.3);
+			backdrop-filter: blur(1rem) saturate(2);
+		}
+	}
+
 	// broken asset fallback styles
 	img,
 	iframe {
@@ -147,6 +157,7 @@
 	}
 
 	body {
+		min-height: 100%;
 		width: 100%;
 		font-family: utils.family(default);
 		font-size: utils.size();

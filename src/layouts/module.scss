@@ -10,7 +10,7 @@
 	@include forward.grid;
 	// override layouts
 	@include forward.dropdown;
-	@include forward.dialog;
+	@include forward.modal;
 	@include forward.holder;
 	@include forward.list;
 	@include forward.navigation-x;

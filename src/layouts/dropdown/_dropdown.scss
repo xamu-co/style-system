@@ -95,13 +95,21 @@
 
 	.#{module.$layout__dropdown} {
 		z-index: 10;
+		position: absolute;
+
+		&:before {
+			content: "";
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
 
 		&,
 		&.#{module.$layout__flexbox},
 		&.#{module.$layout__grid} {
 			display: none;
 		}
-
 		&.#{module.$layout__flexbox},
 		&.#{module.$layout__grid} {
 			&.#{module.$prefix__default}--display-inline {
@@ -113,6 +121,147 @@
 
 		&.#{module.$status__isActive} {
 			@include module.dropdown-visible-styles;
+		}
+
+		&:not(.#{module.$status__hasItems}),
+		&-item {
+			background: module.color(light);
+			box-shadow: 3px 3px 9px module.color(dark, 0.3);
+			&:not([class*="--txtSize"]) {
+				font-size: module.size(sm);
+			}
+			&.#{module.$prefix__default}--size-lg {
+				padding: 1rem 1.333rem;
+				border-radius: 1.667rem;
+			}
+			&:not([class*="--size"]),
+			&.#{module.$prefix__default}--size,
+			&.#{module.$prefix__default}--size-md {
+				padding: 0.7rem 1rem;
+				border-radius: 1.333rem;
+			}
+			&.#{module.$prefix__default}--size-sm {
+				padding: 0.5rem 0.7rem;
+				border-radius: 0.5rem;
+			}
+		}
+
+		// Position
+		//
+		// @group Modifiers
+		// Right
+		&.#{module.$prefix__default}--position-right {
+			&,
+			&-top,
+			&-center,
+			&-bottom {
+				@include module.extend-viewports-classes {
+					left: calc(100% + 0.5rem);
+					&:before {
+						left: -0.5rem;
+						top: 0;
+					}
+				}
+			}
+		}
+		// Left
+		&.#{module.$prefix__default}--position-left {
+			&,
+			&-top,
+			&-center,
+			&-bottom {
+				@include module.extend-viewports-classes {
+					right: calc(100% + 0.5rem);
+					&:before {
+						right: -0.5rem;
+						top: 0;
+					}
+				}
+			}
+		}
+		// Right & Left
+		&.#{module.$prefix__default}--position-right,
+		&.#{module.$prefix__default}--position-left {
+			&-center {
+				@include module.extend-viewports-classes {
+					top: 50%;
+					transform: translateY(-50%);
+				}
+			}
+			&-bottom {
+				@include module.extend-viewports-classes {
+					bottom: -1rem;
+				}
+			}
+			// Default right position
+			&,
+			&-top {
+				@include module.extend-viewports-classes {
+					top: -1rem;
+				}
+			}
+		}
+		// Top
+		&.#{module.$prefix__default}--position-top {
+			&,
+			&-left,
+			&-right,
+			&-center {
+				@include module.extend-viewports-classes {
+					bottom: calc(100% + 0.5rem);
+					&:before {
+						left: 0;
+						bottom: -0.5rem;
+					}
+				}
+			}
+		}
+		// Bottom
+		&.#{module.$prefix__default}--position-bottom {
+			&,
+			&-left,
+			&-right,
+			&-center {
+				@include module.extend-viewports-classes {
+					top: calc(100% + 0.5rem);
+					&:before {
+						right: 0;
+						top: -0.5rem;
+					}
+				}
+			}
+		}
+		// Top & Bottom
+		&.#{module.$prefix__default}--position-top,
+		&.#{module.$prefix__default}--position-bottom {
+			&-right {
+				@include module.extend-viewports-classes {
+					right: -0.7rem;
+				}
+			}
+			&-center {
+				@include module.extend-viewports-classes {
+					left: 50%;
+					transform: translateX(-50%);
+				}
+			}
+			// Default bottom position
+			&,
+			&-left {
+				@include module.extend-viewports-classes {
+					left: -0.7rem;
+				}
+			}
+		}
+		// default: bottom-left
+		&:not([class*="#{module.$prefix__default}--position"]) {
+			// Position
+			left: -0.7rem;
+			top: calc(100% + 0.5rem);
+			&:before {
+				right: 0;
+				top: -0.5rem;
+			}
 		}
 
 		li {

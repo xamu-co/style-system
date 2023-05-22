@@ -105,6 +105,7 @@ $layout__scroll: $prefix__defaultWithSeparator + "scroll" !default;
 $layout__table: $prefix__defaultWithSeparator + "tbl" !default;
 $layout__text: $prefix__defaultWithSeparator + "txt" !default;
 $layout__view: $prefix__defaultWithSeparator + "view" !default;
+$layout__modal: $prefix__defaultWithSeparator + "modal" !default;
 
 // STATUS CLASSES, IS
 $status__is: $prefix__defaultWithSeparator + "is" + "--" !default; // is
