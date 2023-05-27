@@ -95,10 +95,13 @@
 									flex-start !important,
 									inline-flex
 								);
-								&:not([class*="--width"]) {
-									width: auto;
+								@layer defaults {
+									& {
+										// @defaults width
+										width: auto;
+									}
 								}
-								&[class*="grd"]:after {
+								&.#{utils.$layout__grid}:after {
 									width: 1px;
 								}
 								&:not(:first-child):after {

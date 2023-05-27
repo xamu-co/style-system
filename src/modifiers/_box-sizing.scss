@@ -3,16 +3,18 @@
 // box sizing
 @mixin box-sizing {
 	.#{utils.$prefix__default}--boxSizing {
-		&-content {
-			@include utils.extend-viewports-classes {
-				box-sizing: content-box;
+		@layer modifiers {
+			&-content {
+				@include utils.extend-viewports-classes {
+					box-sizing: content-box;
+				}
 			}
-		}
-		// default
-		&,
-		&-box {
-			@include utils.extend-viewports-classes {
-				box-sizing: border-box;
+			// default
+			&,
+			&-box {
+				@include utils.extend-viewports-classes {
+					box-sizing: border-box;
+				}
 			}
 		}
 	}

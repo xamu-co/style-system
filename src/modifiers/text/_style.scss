@@ -5,21 +5,23 @@
 // @group Modifiers
 @mixin text-style {
 	.#{module.$prefix__default}--txtStyle {
-		&-normal {
-			@include module.extend-viewports-classes {
-				font-style: normal;
+		@layer modifiers {
+			&-normal {
+				@include module.extend-viewports-classes {
+					font-style: normal;
+				}
 			}
-		}
-		&-oblique {
-			@include module.extend-viewports-classes {
-				font-style: oblique;
+			&-oblique {
+				@include module.extend-viewports-classes {
+					font-style: oblique;
+				}
 			}
-		}
-		// default
-		&,
-		&-italic {
-			@include module.extend-viewports-classes {
-				font-style: italic;
+			// default
+			&,
+			&-italic {
+				@include module.extend-viewports-classes {
+					font-style: italic;
+				}
 			}
 		}
 	}

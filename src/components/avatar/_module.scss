@@ -45,9 +45,11 @@
 	&.#{module.$prefix__default}--border {
 		border-style: solid;
 		box-sizing: border-box;
-		&:not([class*="--bdrColor"]) {
-			// Color
-			border-color: module.color(light);
+		@layer defaults {
+			& {
+				// @defaults bdrColor
+				border-color: module.color(light);
+			}
 		}
 	}
 
@@ -63,7 +65,9 @@
 		label#{&} {
 			&:hover,
 			&.#{module.$status__isActive},
-			&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
+			&.#{module.$status__isRouteExact}:not(
+					.#{module.$status__noRoute}
+				):not(.#{module.$status__noRouteExact}) {
 				// box-shadow: 1px 1px 3px module.color(dark, 0.2);
 				img {
 					opacity: 0.7;

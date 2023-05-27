@@ -78,8 +78,12 @@
 	// use hover
 	@media (hover: hover) {
 		*:hover
-			> .#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive}),
-		.#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive}):hover:not(.#{module.$status__noHover}) {
+			> .#{module.$status__toggleDropdown}:not(
+				.#{module.$status__onlyActive}
+			),
+		.#{module.$status__toggleDropdown}:not(
+				.#{module.$status__onlyActive}
+			):hover:not(.#{module.$status__noHover}) {
 			@include module.dropdown-toggle-styles;
 		}
 	}
@@ -87,7 +91,9 @@
 		// tablet with no hover only (tablets & mobile devices)
 		// use focus & .is--active class
 		@media (max-width: module.$mediaQuerie__tablet) and (hover: none) {
-			.#{module.$status__toggleDropdown}:not(.#{module.$status__onlyActive}):focus-within:not(.#{module.$status__noFocus}) {
+			.#{module.$status__toggleDropdown}:not(
+					.#{module.$status__onlyActive}
+				):focus-within:not(.#{module.$status__noFocus}) {
 				@include module.dropdown-toggle-styles;
 			}
 		}
@@ -127,8 +133,11 @@
 		&-item {
 			background: module.color(light);
 			box-shadow: 3px 3px 9px module.color(dark, 0.3);
-			&:not([class*="--txtSize"]) {
-				font-size: module.size(sm);
+			@layer defaults {
+				& {
+					// @defaults txtSize
+					font-size: module.size(sm);
+				}
 			}
 			&.#{module.$prefix__default}--size-lg {
 				padding: 1rem 1.333rem;
@@ -253,8 +262,9 @@
 				}
 			}
 		}
+
 		// default: bottom-left
-		&:not([class*="#{module.$prefix__default}--position"]) {
+		&:not([class*="--position"]) {
 			// Position
 			left: -0.7rem;
 			top: calc(100% + 0.5rem);

@@ -122,8 +122,11 @@
 			grid-auto-rows: minmax(min-content, 100%);
 			overflow: visible;
 
-			&:not([class*="--gap"]) {
-				gap: 2rem;
+			@layer defaults {
+				& {
+					// @defaults gap
+					gap: 2rem;
+				}
 			}
 
 			> * {

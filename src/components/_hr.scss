@@ -18,8 +18,7 @@
 
 		height: 2px;
 		width: 100%;
-		&:not([class*="#{utils.$prefix__default}--m"]) {
-			height: 2px;
+		&:not([class*="--m"]) {
 			width: calc(100% + 1rem);
 			margin: 0 -0.5rem;
 		}
@@ -42,8 +41,7 @@
 				// max-width: 2px;
 				width: 2px;
 				height: 100%;
-				&:not([class*="#{utils.$prefix__default}--m"]) {
-					width: 2px;
+				&:not([class*="--m"]) {
 					height: calc(100% + 1rem);
 					margin: -0.5rem 0;
 				}

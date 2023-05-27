@@ -172,7 +172,9 @@
 		&:not(.#{module.$status__isInvalid}) {
 			&:hover,
 			&:focus {
-				&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
+				&.#{module.$status__isRouteExact}:not(
+						.#{module.$status__noRoute}
+					):not(.#{module.$status__noRouteExact}) {
 					--cl: #{module.$color__text};
 				}
 			}
@@ -271,8 +273,12 @@
 	// OVERRIDE: dejar en el final
 	// increased specificity
 	&.#{module.$status__isActive}.#{module.$status__isActive},
-	&.#{module.$status__isRoute}.#{module.$status__isRoute}:not(.#{module.$status__noRoute}),
-	&.#{module.$status__isRouteExact}.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
+	&.#{module.$status__isRoute}.#{module.$status__isRoute}:not(
+			.#{module.$status__noRoute}
+		),
+	&.#{module.$status__isRouteExact}.#{module.$status__isRouteExact}:not(
+			.#{module.$status__noRoute}
+		):not(.#{module.$status__noRouteExact}) {
 		--cl: var(--bg);
 		--bc: var(--cl);
 	}
@@ -288,7 +294,9 @@
 		--bc: var(--cl);
 	}
 	&.#{module.$status__isActive},
-	&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}),
+	&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(
+			.#{module.$status__noRouteExact}
+		),
 	&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}),
 	&:disabled,
 	&[disabled]:not([disabled="false"]) {
@@ -340,7 +348,8 @@
 //
 // @group SharedStyles
 @mixin action-capitalize-styles {
-	&:not([class*="--txtTransform"]) {
+	@layer defaults {
+		// @defaults txtTransform
 		&,
 		> :not(.#{module.$component__icon}) {
 			::first-letter {

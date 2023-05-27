@@ -53,9 +53,11 @@
 	.#{utils.$layout__flexbox} {
 		@include utils.extend-device-interactions {
 			display: flex;
-			&:not([class*="--gap"]) {
-				// this already matches .--gaping classes
-				gap: 1rem;
+			@layer defaults {
+				& {
+					// @defaults gap
+					gap: 1rem;
+				}
 			}
 		}
 

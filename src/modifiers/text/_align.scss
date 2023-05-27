@@ -9,25 +9,46 @@
 		&Flx {
 			&-right {
 				@include module.extend-viewports-classes {
-					&,
-					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
-						align-items: flex-end;
+					@layer modifiers {
+						& {
+							align-items: flex-end;
+						}
+					}
+					@layer defaults {
+						* > * {
+							// @defaults txtAlignFlx
+							align-items: flex-end;
+						}
 					}
 				}
 			}
 			&-center {
 				@include module.extend-viewports-classes {
-					&,
-					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
-						align-items: center;
+					@layer modifiers {
+						& {
+							align-items: center;
+						}
+					}
+					@layer defaults {
+						* > * {
+							// @defaults txtAlignFlx
+							align-items: center;
+						}
 					}
 				}
 			}
 			&-justify {
 				@include module.extend-viewports-classes {
-					&,
-					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
-						align-items: stretch;
+					@layer modifiers {
+						& {
+							align-items: stretch;
+						}
+					}
+					@layer defaults {
+						* > * {
+							// @defaults txtAlignFlx
+							align-items: stretch;
+						}
 					}
 				}
 			}
@@ -35,9 +56,16 @@
 			&,
 			&-left {
 				@include module.extend-viewports-classes {
-					&,
-					> :not(p):not([class*="--txtAlign"]):not(.#{module.$layout__flexbox}):not(.#{module.$layout__grid}) {
-						align-items: flex-start;
+					@layer modifiers {
+						& {
+							align-items: flex-start;
+						}
+					}
+					@layer defaults {
+						* > * {
+							// @defaults txtAlignFlx
+							align-items: flex-start;
+						}
 					}
 				}
 			}
@@ -47,11 +75,11 @@
 			&-center,
 			&-right {
 				@include module.extend-viewports-classes {
+					flex-flow: column nowrap;
+					justify-content: flex-start;
 					&:not(table):not(thead):not(tbody) {
 						// Gaping
 						display: inline-flex;
-						flex-flow: column nowrap;
-						justify-content: flex-start;
 					}
 				}
 			}
@@ -62,25 +90,46 @@
 		&Flx {
 			&-right {
 				@include module.extend-viewports-classes {
-					&,
-					*:not([class*="--txtAlign"]) {
-						text-align: right;
+					@layer modifiers {
+						& {
+							text-align: right;
+						}
+					}
+					@layer defaults {
+						* {
+							// @defaults txtAlign
+							text-align: right;
+						}
 					}
 				}
 			}
 			&-center {
 				@include module.extend-viewports-classes {
-					&,
-					*:not([class*="--txtAlign"]) {
-						text-align: center;
+					@layer modifiers {
+						& {
+							text-align: center;
+						}
+					}
+					@layer defaults {
+						* {
+							// @defaults txtAlign
+							text-align: center;
+						}
 					}
 				}
 			}
 			&-justify {
 				@include module.extend-viewports-classes {
-					&,
-					*:not([class*="--txtAlign"]) {
-						text-align: justify;
+					@layer modifiers {
+						& {
+							text-align: justify;
+						}
+					}
+					@layer defaults {
+						* {
+							// @defaults txtAlign
+							text-align: justify;
+						}
 					}
 				}
 			}
@@ -88,9 +137,16 @@
 			&,
 			&-left {
 				@include module.extend-viewports-classes {
-					&,
-					*:not([class*="--txtAlign"]) {
-						text-align: left;
+					@layer modifiers {
+						& {
+							text-align: left;
+						}
+					}
+					@layer defaults {
+						* {
+							// @defaults txtAlign
+							text-align: left;
+						}
 					}
 				}
 			}

@@ -5,16 +5,18 @@
 // @group Modifiers
 @mixin text-wrap {
 	.#{module.$prefix__default}--txtWrap {
-		&-nowrap {
-			@include module.extend-viewports-classes {
-				white-space: nowrap;
+		@layer modifiers {
+			&-nowrap {
+				@include module.extend-viewports-classes {
+					white-space: nowrap;
+				}
 			}
-		}
-		// default
-		&,
-		&-wrap {
-			@include module.extend-viewports-classes {
-				white-space: pre-line;
+			// default
+			&,
+			&-wrap {
+				@include module.extend-viewports-classes {
+					white-space: pre-line;
+				}
 			}
 		}
 	}

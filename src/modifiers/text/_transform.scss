@@ -5,28 +5,30 @@
 // @group Modifiers
 @mixin text-transform {
 	.#{module.$prefix__default}--txtTransform {
-		&-lower,
-		&-lowercase {
-			@include module.extend-viewports-classes {
-				text-transform: lowercase;
+		@layer modifiers {
+			&-lower,
+			&-lowercase {
+				@include module.extend-viewports-classes {
+					text-transform: lowercase;
+				}
 			}
-		}
-		&-upper,
-		&-uppercase {
-			@include module.extend-viewports-classes {
-				text-transform: uppercase;
+			&-upper,
+			&-uppercase {
+				@include module.extend-viewports-classes {
+					text-transform: uppercase;
+				}
 			}
-		}
-		&-capitalize {
-			@include module.extend-viewports-classes {
-				text-transform: capitalize;
+			&-capitalize {
+				@include module.extend-viewports-classes {
+					text-transform: capitalize;
+				}
 			}
-		}
-		// default
-		&,
-		&-none {
-			@include module.extend-viewports-classes {
-				text-transform: none;
+			// default
+			&,
+			&-none {
+				@include module.extend-viewports-classes {
+					text-transform: none;
+				}
 			}
 		}
 	}

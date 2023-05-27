@@ -5,18 +5,20 @@
 // @group Modifiers
 @mixin hidden {
 	.#{utils.$prefix__default}--hidden {
-		// hide visually only
-		@include utils.extend-viewports-classes(true, true) {
-			width: 0.1px;
-			height: 0.1px;
-			opacity: 0;
-			overflow: hidden;
-			position: absolute;
-			z-index: -1;
-		}
-		&-full {
+		@layer modifiers {
+			// hide visually only
 			@include utils.extend-viewports-classes(true, true) {
-				display: none !important;
+				width: 0.1px;
+				height: 0.1px;
+				opacity: 0;
+				overflow: hidden;
+				position: absolute;
+				z-index: -1;
+			}
+			&-full {
+				@include utils.extend-viewports-classes(true, true) {
+					display: none !important;
+				}
 			}
 		}
 	}
@@ -24,16 +26,17 @@
 	label,
 	button {
 		> .#{utils.$prefix__default}--hidden {
-			// hide visually only
-			@include utils.extend-viewports-classes(true, true) {
-				& + * {
-					margin-left: 0;
-				}
-			}
-			&-full {
+			@layer modifiers {
 				@include utils.extend-viewports-classes(true, true) {
 					& + * {
 						margin-left: 0;
+					}
+				}
+				&-full {
+					@include utils.extend-viewports-classes(true, true) {
+						& + * {
+							margin-left: 0;
+						}
 					}
 				}
 			}

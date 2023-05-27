@@ -5,8 +5,10 @@
 	.#{utils.$layout__float} {
 		@include utils.extend-device-interactions {
 			display: block;
-			&:not([class*="--floatDir"]) {
-				> *:not([class*="--float"]) {
+
+			@layer defaults {
+				> * {
+					// @defaults float
 					float: left;
 				}
 			}
@@ -15,16 +17,22 @@
 		&.#{utils.$prefix__default}--floatDir {
 			&-right {
 				@include utils.extend-viewports-classes {
-					> *:not([class*="--float"]) {
-						float: right;
+					@layer defaults {
+						> * {
+							// @defaults float
+							float: right;
+						}
 					}
 				}
 			}
 			&,
 			&-left {
 				@include utils.extend-viewports-classes {
-					> *:not([class*="--float"]) {
-						float: left;
+					@layer defaults {
+						> * {
+							// @defaults float
+							float: left;
+						}
 					}
 				}
 			}

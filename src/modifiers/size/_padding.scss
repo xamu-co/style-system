@@ -2,36 +2,33 @@
 
 // padding
 @mixin padding-size {
-	// default: all sides
-	.#{module.$prefix__default}--p,
-	.#{module.$prefix__default}--padding {
-		@include module.extend-viewports-classes {
-			padding: 1rem;
-		}
-	}
-
 	.#{module.$prefix__default}--p {
-		@include module.extend-gutters(padding);
-
-		// box paddings
-		// X axis
-		//
-		// @group GlobalModifiers
-		&X {
+		@layer modifiers {
+			@include module.extend-gutters(padding);
 			@include module.extend-viewports-classes {
-				padding-left: 1rem;
-				padding-right: 1rem;
+				padding: 1rem;
 			}
-		}
 
-		// box paddings
-		// Y axis
-		//
-		// @group GlobalModifiers
-		&Y {
-			@include module.extend-viewports-classes {
-				padding-top: 1rem;
-				padding-bottom: 1rem;
+			// box paddings
+			// X axis
+			//
+			// @group GlobalModifiers
+			&X {
+				@include module.extend-viewports-classes {
+					padding-left: 1rem;
+					padding-right: 1rem;
+				}
+			}
+
+			// box paddings
+			// Y axis
+			//
+			// @group GlobalModifiers
+			&Y {
+				@include module.extend-viewports-classes {
+					padding-top: 1rem;
+					padding-bottom: 1rem;
+				}
 			}
 		}
 	}

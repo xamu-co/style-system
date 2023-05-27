@@ -78,14 +78,17 @@
 			}
 
 			> li {
-				&,
-				:not([class*="--txtAlign"]) {
-					text-align: left;
+				text-align: left;
+				white-space: pre-line;
+
+				@layer defaults {
+					// @defaults txtAlign, txtWrap
+					* {
+						text-align: left;
+						white-space: pre-line;
+					}
 				}
-				&,
-				:not([class*="--txtWrap"]) {
-					white-space: pre-line;
-				}
+
 				a,
 				label,
 				button {

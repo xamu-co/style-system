@@ -8,8 +8,10 @@
 	//
 	// @group GlobalModifiers
 	.#{utils.$prefix__default}--clear {
-		@include utils.extend-viewports-classes {
-			clear: both;
+		@layer modifiers {
+			@include utils.extend-viewports-classes {
+				clear: both;
+			}
 		}
 	}
 
@@ -17,15 +19,17 @@
 	//
 	// @group GlobalModifiers
 	.#{utils.$prefix__default}--float {
-		&-right {
-			@include utils.extend-viewports-classes {
-				float: left;
+		@layer modifiers {
+			&-right {
+				@include utils.extend-viewports-classes {
+					float: left;
+				}
 			}
-		}
-		&,
-		&-left {
-			@include utils.extend-viewports-classes {
-				float: left;
+			&,
+			&-left {
+				@include utils.extend-viewports-classes {
+					float: left;
+				}
 			}
 		}
 	}

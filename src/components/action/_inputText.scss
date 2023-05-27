@@ -51,8 +51,11 @@
 			}
 		}
 
-		&:not([class*="--txtAlign"]) {
-			text-align: left;
+		@layer defaults {
+			& {
+				// @defaults txtAlign
+				text-align: left;
+			}
 		}
 
 		// theme

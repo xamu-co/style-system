@@ -18,18 +18,22 @@
 		overflow: visible;
 		@include module.action-disabled-styles;
 
-		&:not(.#{module.$prefix__default}--button):not(.#{module.$prefix__default}--#{module.$component__button}) {
-			&:not([class*="--p-"]):not([class*="--pY"]):not([class*="--pX"]) {
-				&:not([class*="--pT"]):not([class*="--pR"]):not([class*="--pB"]):not([class*="--pL"]) {
-					padding: 1rem;
-				}
+		@layer defaults {
+			&:not(.#{module.$prefix__default}--button):not(
+					.#{module.$prefix__default}--#{module.$component__button}
+				) {
+				// @defaults p
+				padding: 1rem;
 			}
 		}
+
 		&:not(.#{module.$layout__flexbox}) {
 			@include module.flex-box(column, nowrap, flex-start, stretch);
-			> :not([class*="--mB"]):not(:last-child) {
-				// Bottom
-				margin-bottom: 1rem;
+			@layer defaults {
+				> :not(:last-child) {
+					// @defaults mBottom
+					margin-bottom: 1rem;
+				}
 			}
 		}
 
@@ -78,22 +82,29 @@
 			&.#{module.$prefix__default}--bdr-dashed {
 				border-color: module.color($name, 0.1);
 			}
-			&:not([class*="--bgColor"]) {
-				background: module.color($name, 0.1);
+			@layer defaults {
+				// @defaults bgColor
+				& {
+					background: module.color($name, 0.1);
+				}
 			}
 			&:hover {
 				border-color: module.color($name, 0.1);
 			}
 			&.#{module.$prefix__default}--button,
 			&.#{module.$prefix__default}--#{module.$component__button} {
-				&:not([class*="--txtColor"]) {
-					// Color
-					color: module.color($name);
+				@layer defaults {
+					& {
+						// @defaults txtColor
+						color: module.color($name);
+					}
 				}
 
 				&:hover,
 				&.#{module.$status__isActive},
-				&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
+				&.#{module.$status__isRouteExact}:not(
+						.#{module.$status__noRoute}
+					):not(.#{module.$status__noRouteExact}) {
 					background: module.color($name, 0.2);
 					// border-color: module.color($name, 0.3);
 				}
@@ -101,7 +112,9 @@
 			&.#{module.$prefix__default}--button,
 			&.#{module.$prefix__default}--#{module.$component__button} {
 				.#{module.$component__box} {
-					&:not(.#{module.$prefix__default}--bdr-solid):not(.#{module.$prefix__default}--bdr-dashed) {
+					&:not(.#{module.$prefix__default}--bdr-solid):not(
+							.#{module.$prefix__default}--bdr-dashed
+						) {
 						box-shadow: 3px 3px 9px module.color($name, 0.3);
 					}
 				}
@@ -117,22 +130,29 @@
 			&.#{module.$prefix__default}--bdr-dashed {
 				border-color: module.color(dark, 0.1);
 			}
-			&:not([class*="--bgColor"]) {
-				background: module.color(light);
+			@layer defaults {
+				& {
+					// @defaults bgColor
+					background: module.color(light);
+				}
 			}
 			&:hover {
 				border-color: module.color(dark, 0.1);
 			}
 			&.#{module.$prefix__default}--button,
 			&.#{module.$prefix__default}--#{module.$component__button} {
-				&:not([class*="--txtColor"]) {
-					// Color
-					color: module.color(light);
+				@layer defaults {
+					& {
+						// @defaults txtColor
+						color: module.color(light);
+					}
 				}
 
 				&:hover,
 				&.#{module.$status__isActive},
-				&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
+				&.#{module.$status__isRouteExact}:not(
+						.#{module.$status__noRoute}
+					):not(.#{module.$status__noRouteExact}) {
 					background: module.color(light, 0.2);
 					// border-color: module.color(light, 0.3);
 				}
@@ -140,7 +160,9 @@
 			&.#{module.$prefix__default}--button,
 			&.#{module.$prefix__default}--#{module.$component__button} {
 				.#{module.$component__box} {
-					&:not(.#{module.$prefix__default}--bdr-solid):not(.#{module.$prefix__default}--bdr-dashed) {
+					&:not(.#{module.$prefix__default}--bdr-solid):not(
+							.#{module.$prefix__default}--bdr-dashed
+						) {
 						box-shadow: 3px 3px 9px module.color(light, 0.3);
 					}
 				}
@@ -157,7 +179,9 @@
 				text-align: center;
 			}
 			.#{module.$component__box} {
-				&:not(.#{module.$prefix__default}--bdr-solid):not(.#{module.$prefix__default}--bdr-dashed) {
+				&:not(.#{module.$prefix__default}--bdr-solid):not(
+						.#{module.$prefix__default}--bdr-dashed
+					) {
 					border-color: transparent !important;
 				}
 			}

@@ -29,8 +29,10 @@
 			background: utils.color(dark);
 		}
 		&[disabled]:not([disabled="false"]),
-		&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}),
-		&[class*="#{utils.$prefix__defaultWithSeparator}toggle--"].#{utils.$status__onlyActive}.#{utils.$status__isActive} {
+		&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(
+				.#{utils.$status__noRouteExact}
+			),
+		&[class*="toggle--"].#{utils.$status__onlyActive}.#{utils.$status__isActive} {
 			&:before {
 				display: none;
 			}
@@ -182,7 +184,13 @@
 		&[data-#{utils.$pseudo__tooltip}-bottom],
 		&[data-#{utils.$pseudo__tooltip}-p="bottom"],
 		&[data-#{utils.$pseudo__tooltip}-position="bottom"],
-		&:not([data-#{utils.$pseudo__tooltip}-position]):not([data-#{utils.$pseudo__tooltip}-p]):not([data-#{utils.$pseudo__tooltip}-bottom]):not([data-#{utils.$pseudo__tooltip}-top]):not([data-#{utils.$pseudo__tooltip}-left]):not([data-#{utils.$pseudo__tooltip}-right]) {
+		&:not([data-#{utils.$pseudo__tooltip}-position]):not(
+				[data-#{utils.$pseudo__tooltip}-p]
+			):not([data-#{utils.$pseudo__tooltip}-bottom]):not(
+				[data-#{utils.$pseudo__tooltip}-top]
+			):not([data-#{utils.$pseudo__tooltip}-left]):not(
+				[data-#{utils.$pseudo__tooltip}-right]
+			) {
 			&:before {
 				bottom: 0;
 				left: 50%;

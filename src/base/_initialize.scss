@@ -15,45 +15,6 @@
 		line-height: utils.$size__lineHeight;
 	}
 
-	h1:not([class*="--txtSize"]):not([class*="swal"]) {
-		// Size
-		font-size: utils.size(xl);
-		br {
-			display: none;
-		}
-		@if (utils.$allow__responsive) {
-			@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
-				font-size: utils.size(xx);
-				br {
-					display: inline;
-				}
-			}
-		}
-	}
-	h2:not([class*="--txtSize"]):not([class*="swal"]) {
-		// Size
-		font-size: utils.size(lg);
-		br {
-			display: none;
-		}
-		@if (utils.$allow__responsive) {
-			@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
-				font-size: utils.size(xl);
-				br {
-					display: inline;
-				}
-			}
-		}
-	}
-	h3:not([class*="--txtSize"]):not([class*="swal"]) {
-		// Size
-		font-size: utils.size(lg);
-	}
-	h4:not([class*="--txtSize"]):not([class*="swal"]) {
-		// Size
-		font-size: utils.size(md);
-	}
-
 	code {
 		font-family: utils.family(codeBlocks);
 	}
@@ -74,8 +35,8 @@
 		display: block;
 		overflow: hidden;
 		color: utils.color(light);
-		&:not([class*="--bgColor"]) {
-			// Color
+		@layer defaults {
+			// bgColor
 			@include utils.linear-gradient(135deg, #d4d4d4 0, #00b6ff 500%);
 		}
 
@@ -96,21 +57,59 @@
 		}
 	}
 
-	:not([class*="--txtWeight"]) > {
-		a,
-		b,
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		th,
-		button,
-		strong {
-			// ignore inherit
-			&:not([class*="--txtWeight"]) {
-				// Weight
+	@layer defaults {
+		h1:not([class*="swal"]) {
+			// @defaults txtSize
+			font-size: utils.size(xl);
+			br {
+				display: none;
+			}
+			@if (utils.$allow__responsive) {
+				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+					font-size: utils.size(xx);
+					br {
+						display: inline;
+					}
+				}
+			}
+		}
+		h2:not([class*="swal"]) {
+			// @defaults txtSize
+			font-size: utils.size(lg);
+			br {
+				display: none;
+			}
+			@if (utils.$allow__responsive) {
+				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+					font-size: utils.size(xl);
+					br {
+						display: inline;
+					}
+				}
+			}
+		}
+		h3:not([class*="swal"]) {
+			// @defaults txtSize
+			font-size: utils.size(lg);
+		}
+		h4:not([class*="swal"]) {
+			// @defaults txtSize
+			font-size: utils.size(md);
+		}
+
+		* > {
+			a,
+			b,
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6,
+			th,
+			button,
+			strong {
+				// @defaults txtWeight
 				font-weight: utils.weight(bold);
 				@supports (-moz-appearance: none) {
 					// firefox fix

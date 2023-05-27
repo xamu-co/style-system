@@ -5,17 +5,19 @@
 // @group Modifiers
 @mixin text-size {
 	.#{module.$prefix__default}--txtSize {
-		&,
-		&-normal {
-			@include module.extend-viewports-classes {
-				font-size: module.size();
-			}
-		}
-
-		@each $name, $size in module.$fontSizes {
-			&-#{$name} {
+		@layer modifiers {
+			&,
+			&-normal {
 				@include module.extend-viewports-classes {
-					font-size: $size;
+					font-size: module.size();
+				}
+			}
+
+			@each $name, $size in module.$fontSizes {
+				&-#{$name} {
+					@include module.extend-viewports-classes {
+						font-size: $size;
+					}
 				}
 			}
 		}

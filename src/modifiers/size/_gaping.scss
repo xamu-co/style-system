@@ -5,61 +5,63 @@
 // Fallback for gap on non supporting browsers
 @mixin gaping-size {
 	.#{module.$prefix__default}--gaping {
-		&,
-		&-15 {
-			@include module.extend-viewports-classes {
-				> *:not(:last-child) {
-					margin-bottom: 1rem;
-					margin-bottom: 1rem;
-				}
-			}
-		}
-
-		&X {
-			// X dimension
-			&,
-			&-15 {
-				@include module.extend-viewports-classes {
-					> *:not(:last-child) {
-						margin-right: 1rem;
-					}
-				}
-			}
-		}
-		&Y {
-			// Y dimension
+		@layer modifiers {
 			&,
 			&-15 {
 				@include module.extend-viewports-classes {
 					> *:not(:last-child) {
 						margin-bottom: 1rem;
+						margin-bottom: 1rem;
 					}
 				}
 			}
-		}
 
-		@for $i from 1 through 10 {
-			$value: math.div($i, 3);
+			&X {
+				// X dimension
+				&,
+				&-15 {
+					@include module.extend-viewports-classes {
+						> *:not(:last-child) {
+							margin-right: 1rem;
+						}
+					}
+				}
+			}
+			&Y {
+				// Y dimension
+				&,
+				&-15 {
+					@include module.extend-viewports-classes {
+						> *:not(:last-child) {
+							margin-bottom: 1rem;
+						}
+					}
+				}
+			}
 
-			&-#{$i*5} {
-				@include module.extend-viewports-classes {
-					margin: 0 (-$value * 1rem) (-$value * 1rem) 0;
-					> * {
-						margin: 0 ($value * 1rem) ($value * 1rem) 0;
+			@for $i from 1 through 10 {
+				$value: math.div($i, 3);
+
+				&-#{$i*5} {
+					@include module.extend-viewports-classes {
+						margin: 0 (-$value * 1rem) (-$value * 1rem) 0;
+						> * {
+							margin: 0 ($value * 1rem) ($value * 1rem) 0;
+						}
 					}
 				}
-			}
-			&X-#{$i*5} {
-				@include module.extend-viewports-classes {
-					> *:not(:last-child) {
-						margin-right: $value * 1rem;
+				&X-#{$i*5} {
+					@include module.extend-viewports-classes {
+						> *:not(:last-child) {
+							margin-right: $value * 1rem;
+						}
 					}
 				}
-			}
-			&Y-#{$i*5} {
-				@include module.extend-viewports-classes {
-					> *:not(:last-child) {
-						margin-bottom: $value * 1rem;
+				&Y-#{$i*5} {
+					@include module.extend-viewports-classes {
+						> *:not(:last-child) {
+							margin-bottom: $value * 1rem;
+						}
 					}
 				}
 			}

@@ -5,22 +5,24 @@
 // @group Modifiers
 @mixin text-weight {
 	.#{module.$prefix__default}--txtWeight {
-		&-bold {
-			@include module.extend-viewports-classes {
-				font-weight: module.weight(bold);
-				@supports (-moz-appearance: none) {
-					// firefox fix
-					font-weight: module.weight(boldAlt);
+		@layer modifiers {
+			&-bold {
+				@include module.extend-viewports-classes {
+					font-weight: module.weight(bold);
+					@supports (-moz-appearance: none) {
+						// firefox fix
+						font-weight: module.weight(boldAlt);
+					}
 				}
 			}
-		}
-		&,
-		&-regular {
-			@include module.extend-viewports-classes {
-				font-weight: module.weight();
-				@supports (-moz-appearance: none) {
-					// firefox fix
-					font-weight: module.weight(regularAlt);
+			&,
+			&-regular {
+				@include module.extend-viewports-classes {
+					font-weight: module.weight();
+					@supports (-moz-appearance: none) {
+						// firefox fix
+						font-weight: module.weight(regularAlt);
+					}
 				}
 			}
 		}

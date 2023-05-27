@@ -6,16 +6,19 @@
 // @group Modifiers
 @mixin background-color {
 	.#{module.$prefix__default}--bgColor {
-		@include module.extend-colors(light) using($name, $isDefault) {
-			@include module.extend-viewports-classes {
-				background-color: module.color($name);
-			}
+		@layer modifiers {
+			@include module.extend-colors(light) using($name, $isDefault) {
+				@include module.extend-viewports-classes {
+					background-color: module.color($name);
+				}
 
-			@if not $isDefault {
-				// shades of color
-				@include module.extend-color-shades($name) using($colorShade) {
-					@include module.extend-viewports-classes {
-						background-color: $colorShade;
+				@if not $isDefault {
+					// shades of color
+					@include module.extend-color-shades($name)
+						using($colorShade) {
+						@include module.extend-viewports-classes {
+							background-color: $colorShade;
+						}
 					}
 				}
 			}

@@ -6,22 +6,25 @@
 // @group Modifiers
 @mixin border-color {
 	.#{module.$prefix__default}--bdrColor {
-		// default color, not plain
-		@include module.extend-viewports-classes {
-			border-color: module.color(secondary, 0.1);
-		}
-
-		// no default
-		@include module.extend-colors() using($name, $isDefault) {
+		@layer modifiers {
+			// default color, not plain
 			@include module.extend-viewports-classes {
-				border-color: module.color($name);
+				border-color: module.color(secondary, 0.1);
 			}
 
-			@if not $isDefault {
-				// shades of color
-				@include module.extend-color-shades($name) using($colorShade) {
-					@include module.extend-viewports-classes {
-						border-color: $colorShade;
+			// no default
+			@include module.extend-colors() using($name, $isDefault) {
+				@include module.extend-viewports-classes {
+					border-color: module.color($name);
+				}
+
+				@if not $isDefault {
+					// shades of color
+					@include module.extend-color-shades($name)
+						using($colorShade) {
+						@include module.extend-viewports-classes {
+							border-color: $colorShade;
+						}
 					}
 				}
 			}

@@ -120,7 +120,13 @@
 	label,
 	select,
 	datalist {
-		&:not([class*="#{utils.$status__toggle}"]).#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}):not([class*="#{utils.$status__toggle}"]) {
+		&:not(
+				[class*="#{utils.$status__toggle}"]
+			).#{utils.$status__isRouteExact}:not(
+				.#{utils.$status__noRoute}
+			):not(.#{utils.$status__noRouteExact}):not(
+				[class*="#{utils.$status__toggle}"]
+			) {
 			pointer-events: none;
 		}
 	}
@@ -131,9 +137,12 @@
 	h4,
 	h5,
 	h6 {
-		&,
-		:not([class*="--txtWrap"]) {
-			white-space: pre-line;
+		@layer defaults {
+			&,
+			* {
+				// @defaults txtWrap
+				white-space: pre-line;
+			}
 		}
 	}
 

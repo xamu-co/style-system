@@ -14,21 +14,22 @@
 		border-collapse: collapse;
 		box-sizing: border-box;
 		border-spacing: 0;
-		&:not([class*="--txtAlign"]) {
-			// Align
+
+		@layer defaults {
+			& {
+				// @defaults txtColor
+				color: utils.$color__text;
+			}
+
 			tr {
 				th,
 				td {
-					&:not([class*="--txtAlign"]) {
-						text-align: left;
-					}
+					// @defaults txtAlign
+					text-align: left;
 				}
 			}
 		}
-		&:not([class*="--txtColor"]) {
-			// Color
-			color: utils.$color__text;
-		}
+
 		thead {
 			z-index: 3;
 			tr {

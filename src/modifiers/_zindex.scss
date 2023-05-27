@@ -5,14 +5,16 @@
 // @group Modifiers
 @mixin z-index {
 	.#{utils.$prefix__default}--index {
-		@include utils.extend-viewports-classes {
-			z-index: 999;
-		}
+		@layer modifiers {
+			@include utils.extend-viewports-classes {
+				z-index: 999;
+			}
 
-		@for $i from 1 through 10 {
-			&-#{$i} {
-				@include utils.extend-viewports-classes {
-					z-index: $i;
+			@for $i from 1 through 10 {
+				&-#{$i} {
+					@include utils.extend-viewports-classes {
+						z-index: $i;
+					}
 				}
 			}
 		}

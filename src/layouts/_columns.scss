@@ -35,7 +35,8 @@
 				// display: inline-block;
 				break-inside: avoid;
 			}
-			&:not([class*="--gaping"]) {
+			@layer defaults {
+				// @defaults gaping
 				> *:not(:last-child) {
 					margin-bottom: var(--gx, var(--g, 2rem));
 				}

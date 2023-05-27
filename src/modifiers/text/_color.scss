@@ -5,27 +5,47 @@
 @mixin text-color {
 	.#{module.$prefix__default}--txtColor {
 		// default, not in colors
-		&,
-		> :not([class*="--txtColor"]) {
-			// Color
-			color: module.$color__text;
+		@layer modifiers {
+			& {
+				color: module.$color__text;
+			}
+		}
+		@layer defaults {
+			* > * {
+				// @defaults txtColor
+				color: module.$color__text;
+			}
 		}
 
 		// no default
 		@include color.extend-colors() using($name, $isDefault) {
 			@include module.extend-viewports-classes {
-				&,
-				> :not([class*="--txtColor"]) {
-					color: module.color($name);
+				@layer modifiers {
+					& {
+						color: module.color($name);
+					}
+				}
+				@layer defaults {
+					* > * {
+						// @defaults txtColor
+						color: module.color($name);
+					}
 				}
 			}
 
 			// shades of color
 			@include color.extend-color-shades($name) using($colorShade) {
 				@include module.extend-viewports-classes {
-					&,
-					> :not([class*="--txtColor"]) {
-						color: $colorShade;
+					@layer modifiers {
+						& {
+							color: $colorShade;
+						}
+					}
+					@layer defaults {
+						* > * {
+							// @defaults txtColor
+							color: $colorShade;
+						}
 					}
 				}
 			}

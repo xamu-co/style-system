@@ -5,33 +5,35 @@
 // @group Modifiers
 @mixin position {
 	.#{utils.$prefix__default}--position {
-		&-fixed {
-			@include utils.extend-viewports-classes {
-				position: fixed;
+		@layer modifiers {
+			&-fixed {
+				@include utils.extend-viewports-classes {
+					position: fixed;
+				}
 			}
-		}
-		&-sticky {
-			@include utils.extend-viewports-classes {
-				position: sticky;
-				left: 0;
-				top: 0;
+			&-sticky {
+				@include utils.extend-viewports-classes {
+					position: sticky;
+					left: 0;
+					top: 0;
+				}
 			}
-		}
-		&-relative {
-			@include utils.extend-viewports-classes {
-				position: relative;
+			&-relative {
+				@include utils.extend-viewports-classes {
+					position: relative;
+				}
 			}
-		}
-		&-absolute {
-			@include utils.extend-viewports-classes {
-				position: absolute;
+			&-absolute {
+				@include utils.extend-viewports-classes {
+					position: absolute;
+				}
 			}
-		}
-		// default
-		&,
-		&-static {
-			@include utils.extend-viewports-classes {
-				position: static;
+			// default
+			&,
+			&-static {
+				@include utils.extend-viewports-classes {
+					position: static;
+				}
 			}
 		}
 	}
