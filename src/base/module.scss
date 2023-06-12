@@ -1,10 +1,17 @@
 @forward "forward";
 
+@use "../utils/module";
 @use "forward";
 
 // all base
 @mixin all {
-	@include forward.reset;
-	@include forward.initialize;
-	@include forward.animations;
+	@if (module.$allow__reset) {
+		@include forward.reset;
+	}
+	@if (module.$allow__initialize) {
+		@include forward.initialize;
+	}
+	@if (module.$allow__animations) {
+		@include forward.animations;
+	}
 }

@@ -1,28 +1,66 @@
 @forward "forward";
 
+@use "../utils/module";
 @use "forward";
 
 // all components
 @mixin all {
 	// icon components
-	@include forward.emoji;
-	@include forward.icon;
-	@include forward.svg;
+	@if (module.$component__emoji) {
+		@include forward.emoji;
+	}
+	@if (module.$component__icon) {
+		@include forward.icon;
+	}
+	@if (module.$component__svg) {
+		@include forward.svg;
+	}
 	// action components
-	@include forward.box;
-	@include forward.button-link;
-	@include forward.button-toggle;
-	@include forward.button-y;
-	@include forward.button;
-	@include forward.input-checkbox;
-	@include forward.input-radio;
-	@include forward.input-select;
-	@include forward.input-text;
-	@include forward.link;
+	@if (module.$component__box) {
+		@include forward.box;
+	}
+	@if (module.$allow__button) {
+		@if (module.$component__buttonLink) {
+			@include forward.button-link;
+		}
+		@if (module.$component__buttonToggle) {
+			@include forward.button-toggle;
+		}
+		@if (module.$component__buttonY) {
+			@include forward.button-y;
+		}
+		@if (module.$component__button) {
+			@include forward.button;
+		}
+	}
+	@if (module.$allow__input) {
+		@if (module.$component__inputCheckbox) {
+			@include forward.input-checkbox;
+		}
+		@if (module.$component__inputRadio) {
+			@include forward.input-radio;
+		}
+		@if (module.$component__inputSelect) {
+			@include forward.input-select;
+		}
+		@if (module.$component__inputText) {
+			@include forward.input-text;
+		}
+	}
+	@if (module.$component__link) {
+		@include forward.link;
+	}
 	// avatar components
-	@include forward.avatar-aureo;
-	@include forward.avatar;
+	@if (module.$allow__avatar) {
+		@if (module.$component__avatarAureo) {
+			@include forward.avatar-aureo;
+		}
+		@if (module.$component__avatar) {
+			@include forward.avatar;
+		}
+	}
 	// other components
-	@include forward.background;
-	@include forward.hr;
+	@if (module.$component__background) {
+		@include forward.background;
+	}
 }

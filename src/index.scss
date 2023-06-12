@@ -18,15 +18,22 @@
 	@include base.all;
 
 	// MODIFIERS
-	@include modifiers.all;
+	@if (utils.$allow__modifiers) {
+		@include modifiers.all;
+	}
 
 	// PSEUDOS
-	@include pseudos.all;
+	@if (utils.$allow__pseudos) {
+		@include pseudos.all;
+	}
 
 	// COMPONENTS
-	@include components.all;
+	@if (utils.$allow__components) {
+		@include components.all;
+	}
 
 	// LAYOUTS
-	// base layouts
-	@include layouts.all;
+	@if (utils.$allow__layouts) {
+		@include layouts.all;
+	}
 }

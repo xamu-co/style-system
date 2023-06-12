@@ -1,9 +1,12 @@
 @forward "forward";
 
+@use "../utils/module";
 @use "forward";
 
 // all pseudos
 // there is only one, but this is a formality
 @mixin all {
-	@include forward.tooltip;
+	@if (module.$pseudo__tooltip) {
+		@include forward.tooltip;
+	}
 }

@@ -1,9 +1,25 @@
 @use "system";
 
+// PREFIXES
+$prefix__default: "" !default;
+$prefix__defaultWithSeparator: system.dashed($prefix__default) !default;
+
+// ALLOWANCES
+$allow__reset: true !default;
+$allow__initialize: true !default;
+$allow__animations: true !default;
+$allow__modifiers: true !default;
+$allow__pseudos: true !default;
+$allow__components: true !default;
+$allow__layouts: true !default;
+
+// ALLOWANCES, CLASSES
+$allow__input: $prefix__defaultWithSeparator + "i" !default; // input base class
+$allow__button: $prefix__defaultWithSeparator + "bttn" !default; // button base class
+$allow__avatar: $prefix__defaultWithSeparator + "avatar" !default; // avatar base class
+
 // ALLOWANCES, RESPONSIVE
 $allow__responsive: true !default; // responsive & media queries
-
-// all of the following depend on $allow__responsive and have no fuctionality otherwise
 $allow__responsiveClasses: $allow__responsive !default; // responsive class modifiers
 $allow__responsiveDesktopFirstClasses: false !default; // include desktop first class modifiers
 $allow__responsiveAllViewports: false !default; // use all viewports
@@ -55,33 +71,24 @@ $size__lineHeight: 1.2em !default; // main line height
 $size__lineHeightMedium: 1.4em !default;
 $size__lineHeightBig: 1.6em !default;
 
-// PREFIXES
-$prefix__default: "" !default;
-$prefix__defaultWithSeparator: system.dashed($prefix__default) !default;
-
 // PSEUDO NAMES
 $pseudo__tooltip: $prefix__defaultWithSeparator + "tooltip" !default;
 
-// CLASSES
-$class__input: $prefix__defaultWithSeparator + "i" !default; // input base class
-$class__button: $prefix__defaultWithSeparator + "bttn" !default; // button base class
-$class__avatar: $prefix__defaultWithSeparator + "avatar" !default; // avatar base class
-
 // BUTTON CLASSES
-$component__button: $class__button !default; // button base class
-$component__buttonLink: $class__button + "Link" !default;
-$component__buttonToggle: $class__button + "Toggle" !default;
-$component__buttonY: $class__button + "Y" !default;
+$component__button: $allow__button !default; // button base class
+$component__buttonLink: $allow__button + "Link" !default;
+$component__buttonToggle: $allow__button + "Toggle" !default;
+$component__buttonY: $allow__button + "Y" !default;
 
 // INPUT CLASSES
-$component__inputCheckbox: $class__input + "Checkbox" !default;
-$component__inputRadio: $class__input + "Radio" !default;
-$component__inputSelect: $class__input + "Select" !default;
-$component__inputText: $class__input + "Txt" !default;
+$component__inputCheckbox: $allow__input + "Checkbox" !default;
+$component__inputRadio: $allow__input + "Radio" !default;
+$component__inputSelect: $allow__input + "Select" !default;
+$component__inputText: $allow__input + "Txt" !default;
 
 // AVATAR CLASSES
-$component__avatar: $class__avatar !default; // avatar base class
-$component__avatarAureo: $class__avatar + "Aureo" !default;
+$component__avatar: $allow__avatar !default; // avatar base class
+$component__avatarAureo: $allow__avatar + "Aureo" !default;
 
 // OTHER COMPONENT CLASSES
 $component__background: $prefix__defaultWithSeparator + "back" !default;

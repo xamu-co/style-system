@@ -1,22 +1,51 @@
 @forward "forward";
 
+@use "../utils/module";
 @use "forward";
 
 // all layouts
 @mixin all {
-	@include forward.columns;
-	@include forward.flex;
-	@include forward.float;
-	@include forward.grid;
+	@if (module.$layout__columns) {
+		@include forward.columns;
+	}
+	@if (module.$layout__flexbox) {
+		@include forward.flex;
+	}
+	@if (module.$layout__float) {
+		@include forward.float;
+	}
+	@if (module.$layout__grid) {
+		@include forward.grid;
+	}
 	// override layouts
-	@include forward.dropdown;
-	@include forward.modal;
-	@include forward.holder;
-	@include forward.list;
-	@include forward.navigation-x;
-	@include forward.navigation-y;
-	@include forward.scroll;
-	@include forward.table;
-	@include forward.text;
-	@include forward.view;
+	@if (module.$layout__dropdown) {
+		@include forward.dropdown;
+	}
+	@if (module.$layout__modal) {
+		@include forward.modal;
+	}
+	@if (module.$layout__holder) {
+		@include forward.holder;
+	}
+	@if (module.$layout__list) {
+		@include forward.list;
+	}
+	@if (module.$layout__navigationX) {
+		@include forward.navigation-x;
+	}
+	@if (module.$layout__navigationY) {
+		@include forward.navigation-y;
+	}
+	@if (module.$layout__scroll) {
+		@include forward.scroll;
+	}
+	@if (module.$layout__table) {
+		@include forward.table;
+	}
+	@if (module.$layout__text) {
+		@include forward.text;
+	}
+	@if (module.$layout__view) {
+		@include forward.view;
+	}
 }

@@ -1,4 +1,9 @@
 @use "../utils/module" as utils;
+@use "sass:meta";
+
+@function hrThemeSelector($name) {
+	@return ".#{utils.$prefix__default}--tm-#{$name}";
+}
 
 // Style System definitions
 // Use this if your working with the whole system
@@ -57,31 +62,89 @@
 		}
 	}
 
+	hr {
+		opacity: 0.2;
+		background-repeat: round;
+		background-position: 50% 50%;
+		flex: 0 0 auto;
+		display: block;
+		height: 2px;
+		width: 100%;
+
+		@layer defaults {
+			// @defaults margin
+			& {
+				width: calc(100% + 1rem);
+				margin: 0 -0.5rem;
+			}
+		}
+
+		&:last-child:not(:nth-child(2)):not(:only-child) {
+			display: none;
+		}
+
+		// Delimiter theme
+		//
+		// @group Modifiers
+		@include utils.extend-color-modifiers(
+				meta.get-function("hrThemeSelector")
+			)
+			using($name, $value, $isDefault) {
+			background-image: url("#{utils.$ruleSvgPathX}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
+		}
+
+		&.#{utils.$prefix__default}--vertical {
+			@include utils.extend-viewports-classes {
+				width: 2px;
+				height: 100%;
+
+				@layer defaults {
+					// @defaults margin
+					& {
+						height: calc(100% + 1rem);
+						margin: -0.5rem 0;
+					}
+				}
+
+				// Delimiter theme
+				//
+				// @group Modifiers
+				@include utils.extend-color-modifiers(
+						meta.get-function("hrThemeSelector")
+					)
+					using($name, $value, $isDefault) {
+					background-image: url("#{utils.$ruleSvgPathY}#{str-replace(#{$value}, '#')}#{utils.$ruleSvgPathEnd}");
+				}
+			}
+		}
+	}
+
 	@layer defaults {
 		h1:not([class*="swal"]) {
 			// @defaults txtSize
 			font-size: utils.size(xl);
-			br {
-				display: none;
-			}
 			@if (utils.$allow__responsive) {
 				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
 					font-size: utils.size(xx);
-					br {
-						display: inline;
-					}
 				}
 			}
 		}
 		h2:not([class*="swal"]) {
 			// @defaults txtSize
 			font-size: utils.size(lg);
+			@if (utils.$allow__responsive) {
+				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+					font-size: utils.size(xl);
+				}
+			}
+		}
+		h1:not([class*="swal"]),
+		h2:not([class*="swal"]) {
 			br {
 				display: none;
 			}
 			@if (utils.$allow__responsive) {
 				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
-					font-size: utils.size(xl);
 					br {
 						display: inline;
 					}
