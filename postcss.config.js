@@ -8,20 +8,27 @@ const nano = {
 	],
 };
 
-const createSort = require("sort-css-media-queries/lib/create-sort");
-const sortCSSmq = createSort({ unitlessMqAlwaysFirst: true });
-
 module.exports = {
 	map: false,
 	plugins: [
 		// Optimizations
+		require("postcss-preset-env")({
+			stage: 4,
+			features: {
+				"nesting-rules": { noIsPseudoSelector: true },
+			},
+			minimumVendorImplementations: 3,
+			autoprefixer: false,
+		}),
 		require("cssnano")(nano),
 		require("postcss-merge-selectors")({}),
-		require("node-css-mqpacker")({
-			sort: sortCSSmq.desktopFirst,
+		require("postcss-sort-media-queries")({
+			sort: "desktop-first",
+			configuration: {
+				unitlessMqAlwaysFirst: true,
+			},
 		}),
+		require("postcss-merge-at-rules")({ nest: true }),
 		require("postcss-precision")({}),
 	],
-	env: "production",
-	preset: { stage: false },
 };

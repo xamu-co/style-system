@@ -52,7 +52,9 @@
 						}
 					}
 					&.#{module.$status__isActive},
-					&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}) {
+					&.#{module.$status__isRoute}:not(
+							.#{module.$status__noRoute}
+						) {
 						// text only
 						i.#{module.$component__icon},
 						.#{module.$component__svg} {
@@ -70,16 +72,26 @@
 
 				@each $name, $size in module.$fontSizes {
 					&.#{module.$prefix__default}--size-#{$name} {
-						height: $size * 2.6;
-						border-radius: $size;
-						border-width: calc(2px + (#{$size} / 18));
-						padding: 0 #{$size * 0.8};
-						@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
-							&:not(.#{module.$status__isActive}) {
-								&:not(.#{module.$status__isRoute}),
-								&.#{module.$status__isRoute}.#{module.$status__noRoute} {
-									// icon only
-									width: $size * 2.6;
+						@include module.extend-viewports-classes {
+							height: $size * 2.6;
+							border-radius: $size;
+							border-width: calc(2px + (#{$size} / 18));
+							padding: 0 #{$size * 0.8};
+						}
+
+						// switch to round button
+						@include module.extend-viewports-classes(
+							module.$allow__responsiveDesktopFirstClasses,
+							module.$allow__responsiveAllViewports,
+							true
+						) {
+							@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
+								&:not(.#{module.$status__isActive}) {
+									&:not(.#{module.$status__isRoute}),
+									&.#{module.$status__isRoute}.#{module.$status__noRoute} {
+										// icon only
+										width: $size * 2.6;
+									}
 								}
 							}
 						}
@@ -95,7 +107,9 @@
 				// ruta activa
 				//
 				// @group Statuses
-				&.#{module.$status__isRoute}:not(.#{module.$status__noRoute}):before {
+				&.#{module.$status__isRoute}:not(
+						.#{module.$status__noRoute}
+					):before {
 					content: "...";
 					display: block;
 					position: absolute;
@@ -124,7 +138,9 @@
 						}
 					}
 					&.#{module.$status__isActive},
-					&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
+					&.#{module.$status__isRouteExact}:not(
+							.#{module.$status__noRoute}
+						):not(.#{module.$status__noRouteExact}) {
 						--rw: #{module.color($name, 0.7)};
 					}
 				}
@@ -138,7 +154,9 @@
 					--rw: #{module.color(light)};
 					&:hover,
 					&.#{module.$status__isActive},
-					&.#{module.$status__isRouteExact}:not(.#{module.$status__noRoute}):not(.#{module.$status__noRouteExact}) {
+					&.#{module.$status__isRouteExact}:not(
+							.#{module.$status__noRoute}
+						):not(.#{module.$status__noRouteExact}) {
 						--rw: #{module.color($name)};
 					}
 				}

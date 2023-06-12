@@ -61,7 +61,7 @@
 		&.#{module.$prefix__default}--size-#{$name} {
 			@include module.extend-viewports-classes {
 				&.#{module.$prefix__default}--round {
-					@include module.extend-viewports-classes(true, true) {
+					@include module.extend-viewports-classes(true, true, true) {
 						padding: 0; // button padding
 						width: $size * 2.6;
 					}

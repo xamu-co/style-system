@@ -13,7 +13,8 @@
 // viewport extend
 @mixin extend-viewports-classes(
 	$desktopFirst: variables.$allow__responsiveDesktopFirstClasses,
-	$allViewports: variables.$allow__responsiveAllViewports
+	$allViewports: variables.$allow__responsiveAllViewports,
+	$omitMedia: false
 ) {
 	@content;
 	@if variables.$allow__responsiveClasses {
@@ -24,19 +25,35 @@
 			variables.$commonViewports
 		);
 		@each $name, $viewport in $localViewports {
-			// mobile first
-			@media (min-width: ($viewport + 1)) {
+			// to allow nesting this mixin within modifiers that affect other modifiers
+			@if $omitMedia {
+				// mobile first
 				// default: class selector
 				&\:#{$name} {
 					@content;
 				}
-			}
-			// desktop first
-			@if $desktopFirst {
-				@media (max-width: $viewport) {
+				// desktop first
+				@if $desktopFirst {
 					// default: class selector
 					&\:#{$name}-inv {
 						@content;
+					}
+				}
+			} @else {
+				// mobile first
+				@media (min-width: ($viewport + 1)) {
+					// default: class selector
+					&\:#{$name} {
+						@content;
+					}
+				}
+				// desktop first
+				@if $desktopFirst {
+					@media (max-width: $viewport) {
+						// default: class selector
+						&\:#{$name}-inv {
+							@content;
+						}
 					}
 				}
 			}
