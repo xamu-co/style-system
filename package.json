@@ -2,14 +2,14 @@
 	"name": "@open-xamu-co/style-system",
 	"version": "1.0.0",
 	"description": "Style system for the xamu project",
-	"main": "dist/index.css",
-	"browser": "dist/index.min.css",
+	"main": "lib/index.css",
+	"browser": "lib/index.min.css",
 	"source": "src/index.scss",
 	"scripts": {
 		"i": "yarn --frozen-lockfile",
-		"format": "copy-files-from-to && prettier dist/*.formatted.css --no-config --write",
-		"sass": "sass src/index.scss dist/index.css",
-		"postcss": "postcss dist/index.css -o dist/index.min.css --no-map",
+		"format": "copy-files-from-to && prettier lib/*.formatted.css --no-config --write",
+		"sass": "sass src/index.scss lib/index.css",
+		"postcss": "postcss lib/index.css -o lib/index.min.css --no-map",
 		"css:compile": "yarn sass && yarn postcss --verbose && yarn format",
 		"build": "yarn css:compile && yarn docs:compile",
 		"watch": "yarn sass --watch",
@@ -97,7 +97,7 @@
 		]
 	},
 	"prettier": {
-		"tabWidth": 4,
+		"tabWidth": 2,
 		"useTabs": true,
 		"endOfLine": "auto",
 		"requirePragma": false,
@@ -112,12 +112,12 @@
 		}
 	},
 	"browserslist": [
-		"last 2 versions, > 0.5%, ie >= 11"
+		"defaults"
 	],
 	"copyFiles": [
 		{
-			"from": "dist/index.min.css",
-			"to": "dist/index.formatted.css"
+			"from": "lib/index.min.css",
+			"to": "lib/index.formatted.css"
 		}
 	],
 	"copyFilesSettings": {

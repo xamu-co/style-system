@@ -24,7 +24,7 @@ herman:
   displayColors:
     - hex
     - rgba
-  customCSS: './dist/index.min.css'
+  customCSS: './lib/index.min.css'
   nunjucks:
     templatePath: './templates'
 trackingCode: '<style type="text/css">

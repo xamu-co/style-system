@@ -70,9 +70,9 @@
 			#{$property}: 50%;
 		}
 	}
-	&-auto {
+	&-none {
 		@include module.extend-viewports-classes {
-			#{$property}: auto;
+			#{$property}: none;
 		}
 	}
 	&-full {

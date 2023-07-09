@@ -2,7 +2,7 @@
 @use "sass:math";
 
 // layer order
-@layer defaults, modifiers;
+@layer resets, defaults, modifiers;
 
 // return default primary color complement
 @function primary($color) {
