@@ -68,8 +68,8 @@
 			using($name, $value, $isDefault) {
 			--bg: #{module.color($name, 0.1)};
 			--bc: #{module.color($name, 0.05)};
-			--cl: #{module.color(light)};
-			--cl-a: #{module.color(light, 0.5)};
+			--cl: #{module.color($name)};
+			--cl-a: #{module.color($name, 0.5)};
 
 			// invalid
 			&.#{module.$status__isInvalid} {

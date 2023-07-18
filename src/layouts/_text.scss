@@ -11,7 +11,9 @@
 			@layer defaults {
 				// @defaults txtAlignFlx
 				&:not(.#{utils.$layout__flexbox}):not(.#{utils.$layout__grid}) {
-					display: block;
+					&:not(datalist) {
+						display: block;
+					}
 				}
 			}
 		}

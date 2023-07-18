@@ -14,7 +14,6 @@
 			font-family: inherit;
 			font-weight: inherit;
 			font-size: 1em;
-			appearance: none;
 			scroll-behavior: smooth;
 			-webkit-tap-highlight-color: transparent;
 			vertical-align: middle;
@@ -28,6 +27,12 @@
 			&:hover {
 				outline: 0;
 			}
+		}
+
+		a,
+		button,
+		textarea {
+			appearance: none;
 		}
 
 		svg {
@@ -114,13 +119,6 @@
 			&:not(:disabled):not([disabled]:not([disabled="false"])):hover {
 				cursor: pointer;
 			}
-		}
-
-		a,
-		button,
-		label,
-		select,
-		datalist {
 			&:not(
 					[class*="#{utils.$status__toggle}"]
 				).#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(
