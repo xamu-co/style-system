@@ -1,87 +1,209 @@
-/*
-	Project variables
-*/
-$responsive: true !default;
+@use "system";
+
+// PREFIXES
+$prefix__default: "" !default;
+$prefix__defaultWithSeparator: system.dashed($prefix__default) !default;
+
+// ALLOWANCES
+$allow__reset: true !default;
+$allow__initialize: true !default;
+$allow__animations: true !default;
+$allow__modifiers: true !default;
+$allow__pseudos: true !default;
+$allow__components: true !default;
+$allow__layouts: true !default;
+
+// ALLOWANCES, CLASSES
+$allow__input: $prefix__defaultWithSeparator + "i" !default; // input base class
+$allow__button: $prefix__defaultWithSeparator + "bttn" !default; // button base class
+$allow__avatar: $prefix__defaultWithSeparator + "avatar" !default; // avatar base class
+
+// ALLOWANCES, RESPONSIVE
+$allow__responsive: true !default; // responsive & media queries
+$allow__responsiveClasses: $allow__responsive !default; // responsive class modifiers
+$allow__responsiveDesktopFirstClasses: false !default; // include desktop first class modifiers
+$allow__responsiveAllViewports: false !default; // use all viewports
+
+// FONT FAMILIES
+$font__default: ("Poppins", sans-serif) !default;
+$font__codeBlocks: ("Courier New", Courier, monospace) !default;
+$font__icons: "Font Awesome 5 Free" !default;
+
+// FONT SIZES
+$fontSize__md: 1rem !default; // main font size
+$fontSize__xs: $fontSize__md * 0.7 !default; // extra small
+$fontSize__sm: $fontSize__md * 0.85 !default; // small
+$fontSize__lg: $fontSize__md * 1.4 !default; // large
+$fontSize__xl: $fontSize__md * 2.2 !default; // extra large
+$fontSize__xx: $fontSize__md * 3.6 !default; // extra extra large
+$fontSize__mx: $fontSize__md * 4.8 !default; // maximum
+
+// FONT WEIGHTS
+$fontWeight__regular: 400 !default;
+$fontWeight__bold: 600 !default;
+$fontWeight__regularAlt: 300 !default; // firefox rendering issue
+$fontWeight__boldAlt: 500 !default;
+
+// COLORS
+$color__primary: #f39c12 !default; // primary theme colors
+$color__primaryComplement: system.primary($color__primary) !default;
+$color__secondary: #0f47af !default; // secondary theme colors
+$color__secondaryComplement: system.secondary($color__secondary) !default;
+$color__light: #fff !default;
+$color__dark: #000 !default;
+$color__danger: #e74c3c !default;
+$color__success: #259c21 !default;
+$color__text: $color__secondaryComplement !default; // used over light
+
+// MEDIA QUERIES
+$mediaQuerie__smartwatch: 358px !default; // xs
+$mediaQuerie__smartphone: 576px !default; // sm
+$mediaQuerie__tablet: 768px !default; // md
+$mediaQuerie__desktop: 1080px !default; // lg
+$mediaQuerie__tv: 1280px !default; // xl
+
+// SIZES
+$size__defaultPx: 1200 !default;
+$size__allPx: 1080, 480, 440, 220, 180, 90 !default;
+$size__minColumnSize: $fontSize__md * 18 !default; // min column size, 280px aprox
+$size__maxTextWidth: 66ch !default; // max text block width, 780px aprox
+$size__lineHeight: 1.2em !default; // main line height
+$size__lineHeightMedium: 1.4em !default;
+$size__lineHeightBig: 1.6em !default;
+
+// PSEUDO NAMES
+$pseudo__tooltip: $prefix__defaultWithSeparator + "tooltip" !default;
+
+// BUTTON CLASSES
+$component__button: $allow__button !default; // button base class
+$component__buttonLink: $allow__button + "Link" !default;
+$component__buttonToggle: $allow__button + "Toggle" !default;
+$component__buttonY: $allow__button + "Y" !default;
+
+// INPUT CLASSES
+$component__inputCheckbox: $allow__input + "Checkbox" !default;
+$component__inputRadio: $allow__input + "Radio" !default;
+$component__inputSelect: $allow__input + "Select" !default;
+$component__inputText: $allow__input + "Txt" !default;
+
+// AVATAR CLASSES
+$component__avatar: $allow__avatar !default; // avatar base class
+$component__avatarAureo: $allow__avatar + "Aureo" !default;
+
+// OTHER COMPONENT CLASSES
+$component__background: $prefix__defaultWithSeparator + "back" !default;
+$component__box: $prefix__defaultWithSeparator + "box" !default;
+$component__emoji: $prefix__defaultWithSeparator + "emoji" !default;
+$component__icon: $prefix__defaultWithSeparator + "icon" !default;
+$component__link: $prefix__defaultWithSeparator + "link" !default;
+$component__svg: $prefix__defaultWithSeparator + "svg" !default;
+
+// LAYOUT CLASSES
+$layout__columns: $prefix__defaultWithSeparator + "cols" !default;
+$layout__dropdown: $prefix__defaultWithSeparator + "dropdown" !default;
+$layout__flexbox: $prefix__defaultWithSeparator + "flx" !default;
+$layout__float: $prefix__defaultWithSeparator + "float" !default;
+$layout__grid: $prefix__defaultWithSeparator + "grd" !default;
+$layout__holder: $prefix__defaultWithSeparator + "holder" !default;
+$layout__list: $prefix__defaultWithSeparator + "list" !default;
+$layout__navigationX: $prefix__defaultWithSeparator + "navigationX" !default;
+$layout__navigationY: $prefix__defaultWithSeparator + "navigationY" !default;
+$layout__scroll: $prefix__defaultWithSeparator + "scroll" !default;
+$layout__table: $prefix__defaultWithSeparator + "tbl" !default;
+$layout__text: $prefix__defaultWithSeparator + "txt" !default;
+$layout__view: $prefix__defaultWithSeparator + "view" !default;
+$layout__modal: $prefix__defaultWithSeparator + "modal" !default;
+
+// STATUS CLASSES, IS
+$status__is: $prefix__defaultWithSeparator + "is" + "--" !default; // is
+$status__isActive: $status__is + "active" !default;
+$status__isAlert: $status__is + "alert" !default;
+$status__isAnimated: $status__is + "animated" !default;
+$status__isInvalid: $status__is + "invalid" !default;
+$status__isRoute: $status__is + "route" !default;
+$status__isRouteExact: $status__is + "routeExact" !default;
+$status__isSelected: $status__is + "selected" !default;
+
+// STATUS CLASSES, NO
+$status__no: $prefix__defaultWithSeparator + "no" + "--" !default; // no
+$status__noFocus: $status__no + "focus" !default;
+$status__noHover: $status__no + "hover" !default;
+$status__noRoute: $status__no + "route" !default;
+$status__noRouteExact: $status__no + "routeExact" !default;
+
+// STATUS CLASSES, HAS
+$status__has: $prefix__defaultWithSeparator + "has" + "--" !default; // has
+$status__hasItems: $status__has + "items" !default;
+
+// STATUS CLASSES, ONLY
+$status__only: $prefix__defaultWithSeparator + "only" + "--" !default; // only
+$status__onlyActive: $status__only + "active" !default;
+
+// STATUS CLASSES, TOGGLE
+$status__toggle: $prefix__defaultWithSeparator + "toggle" + "--" !default; // toggle
+$status__toggleDropdown: $status__toggle + "dropdown" !default;
+$status__toggleList: $status__toggle + "list" !default;
+
 $fonts: (
-	primary: (
-		"Poppins",
-		sans-serif,
-	),
-	code: (
-		"Courier New",
-		Courier,
-		monospace,
-	),
-	awesome: "Font Awesome 5 Free",
+	default: $font__default,
+	codeBlocks: $font__codeBlocks,
+	icons: $font__icons,
 );
 
-$primary: #f39c12;
-$primaryAlt: #61320f;
-$secondary: #0f47af;
-$light: #fff;
-$dark: #000;
-$danger: #e74c3c;
-$success: #259c21;
-
-$colors: (
-	primary: $primary,
-	primaryAlt: $primaryAlt,
-	secondary: $secondary,
-	light: $light,
-	dark: $dark,
-	danger: $danger,
-	success: $success,
+$fontSizes: (
+	xs: $fontSize__xs,
+	sm: $fontSize__sm,
+	md: $fontSize__md,
+	lg: $fontSize__lg,
+	xl: $fontSize__xl,
+	xx: $fontSize__xx,
+	mx: $fontSize__mx,
 );
 
-$viewportXs: 358px;
-$viewportSm: 576px;
-$viewportMd: 768px;
-$viewportLg: 1080px;
-$viewportXl: 1280px;
+$fontWeights: (
+	regular: $fontWeight__regular,
+	bold: $fontWeight__bold,
+	regularAlt: $fontWeight__regularAlt,
+	boldAlt: $fontWeight__boldAlt,
+);
 
-$modifiersViewports: (
-	md: $viewportMd,
-	xl: $viewportXl,
+$themeColors: (
+	primary: $color__primary,
+	primaryComplement: $color__primaryComplement,
+	secondary: $color__secondary,
+	secondaryComplement: $color__secondaryComplement,
+	danger: $color__danger,
+	success: $color__success,
+);
+
+$baseColors: (
+	light: $color__light,
+	dark: $color__dark,
+);
+
+$colors: map-merge($themeColors, $baseColors);
+
+$commonViewports: (
+	sm: $mediaQuerie__smartphone,
+	md: $mediaQuerie__tablet,
+	xl: $mediaQuerie__tv,
 );
 
 $viewports: (
-	xs: $viewportXs,
-	sm: $viewportSm,
-	md: $viewportMd,
-	lg: $viewportLg,
-	xl: $viewportXl,
+	xs: $mediaQuerie__smartwatch,
+	sm: $mediaQuerie__smartphone,
+	md: $mediaQuerie__tablet,
+	lg: $mediaQuerie__desktop,
+	xl: $mediaQuerie__tv,
 );
 
-// font sizes
-$fontSizes: (
-	xs: 0.7rem,
-	sm: 0.9rem,
-	nm: 1rem,
-	md: 1.2rem,
-	lg: 1.8rem,
-	xl: 2.8rem,
-	xx: 3.8rem,
-	mx: 4.8rem,
+// element sizes
+$elementSizes: (
+	xs: $fontSize__md * 2,
+	sm: $fontSize__md * 3,
+	md: $fontSize__md * 6,
+	lg: $fontSize__md * 9,
 );
-
-// font weights
-$fontWeights: (
-	regular: 400,
-	bold: 600,
-	regular-alt: 300,
-	bold-alt: 500,
-);
-
-// line height
-$lineHeight: 1.2em;
-$lineHeightMedium: 1.4em;
-$lineHeightBig: 1.6em;
-
-// min column size
-$minColumnSize: 18rem; // 280px aprox
-
-// max text block width
-$maxTextWidth: 66ch; // 780px aprox
 
 // Svg rule path
 $ruleSvgPathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='";

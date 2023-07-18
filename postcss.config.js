@@ -1,40 +1,28 @@
-const nano = {
-	preset: [
-		"advanced",
-		{
-			discardComments: {
-				removeAll: true,
-			},
-			calc: false,
-			zindex: false,
-			autoprefixer: false,
-		},
-	],
-};
-
-const sortCSSmq = require("sort-css-media-queries")({
-	unitlessMqAlwaysFirst: true,
-});
-
 module.exports = {
-	// Add plugin names as key and arguments as value
-	// Install them before as dependencies with npm or yarn
 	map: false,
 	plugins: [
 		// Optimizations
-		require("node-css-mqpacker")({ sort: false }),
-		require("cssnano")(nano),
-		require("postcss-merge-selectors")({}),
-		require("postcss-precision")({}),
-		// optimize again
-		require("node-css-mqpacker")({
-			sort: sortCSSmq.desktopFirst,
+		require("postcss-preset-env")({
+			stage: 4,
+			features: { "nesting-rules": { noIsPseudoSelector: true } },
+			minimumVendorImplementations: 3,
+			autoprefixer: false,
 		}),
-		require("cssnano")(nano),
-		// More weight by polyfilling
-		require("autoprefixer")({}),
-		require("postcss-custom-properties")({}),
+		require("cssnano")({
+			preset: [
+				"advanced",
+				{
+					discardComments: { removeAll: true },
+					zindex: false,
+				},
+			],
+		}),
+		require("postcss-merge-selectors")({}),
+		require("postcss-sort-media-queries")({
+			sort: "desktop-first",
+			configuration: { unitlessMqAlwaysFirst: true },
+		}),
+		require("postcss-merge-at-rules")({ nest: true }),
+		require("postcss-precision")({}),
 	],
-	env: "production",
-	preset: { stage: false },
 };

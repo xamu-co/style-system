@@ -1,0 +1,62 @@
+@use "sass:math";
+@use "module";
+
+@mixin width-size {
+	.#{module.$prefix__default}--width {
+		@layer modifiers {
+			@include module.extend-dimensions(width);
+
+			// default
+			& {
+				@include module.extend-viewports-classes {
+					width: 100%;
+				}
+			}
+			&-fit {
+				@include module.extend-viewports-classes {
+					width: fit-content;
+				}
+			}
+			&-max {
+				@include module.extend-viewports-classes {
+					width: max-content;
+				}
+			}
+			&-min {
+				@include module.extend-viewports-classes {
+					width: max-content;
+				}
+			}
+		}
+	}
+
+	.#{module.$prefix__default}--minWidth {
+		@layer modifiers {
+			@include module.extend-dimensions(min-width);
+
+			// default
+			&,
+			&-#{module.$size__defaultPx} {
+				@include module.extend-viewports-classes {
+					// 1200 = 75rem
+					min-width: math.div(module.$size__defaultPx, 16) * 1rem;
+				}
+			}
+		}
+	}
+
+	.#{module.$prefix__default}--maxWidth {
+		@layer modifiers {
+			@include module.extend-dimensions(max-width);
+
+			// default
+			&,
+			&-#{module.$size__defaultPx} {
+				@include module.extend-viewports-classes {
+					// 1200 = 75rem
+					max-width: math.div(module.$size__defaultPx, 16) * 1rem;
+				}
+			}
+		}
+	}
+}

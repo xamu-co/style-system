@@ -1,0 +1,91 @@
+// Forward here to minimize imports
+@forward "../../utils/module";
+
+@use "../../utils/module";
+
+// avatar & avatarAureo shared styles
+//
+// @group SharedStyles
+@mixin avatar-styles {
+	display: block;
+	overflow: hidden;
+	flex: 0 0 auto;
+	background-color: module.color(light);
+
+	// avatar size
+	//
+	// @group Modifiers
+	&,
+	&.#{module.$prefix__default}--size {
+		border-radius: 1rem;
+		&.#{module.$prefix__default}--bdr,
+		&.#{module.$prefix__default}--border {
+			border-width: 2px;
+		}
+	}
+	&.#{module.$prefix__default}--size-lg {
+		border-radius: 1.667rem;
+		&.#{module.$prefix__default}--bdr,
+		&.#{module.$prefix__default}--border {
+			border-width: 4px;
+		}
+	}
+	&.#{module.$prefix__default}--size-md {
+		border-radius: 1.333rem;
+		&.#{module.$prefix__default}--bdr,
+		&.#{module.$prefix__default}--border {
+			border-width: 3px;
+		}
+	}
+
+	// avatar border
+	//
+	// @group Modifiers
+	&.#{module.$prefix__default}--bdr,
+	&.#{module.$prefix__default}--border {
+		border-style: solid;
+		box-sizing: border-box;
+		@layer defaults {
+			& {
+				// @defaults bdrColor
+				border-color: module.color(light);
+			}
+		}
+	}
+
+	img {
+		object-fit: cover;
+		object-position: 50% 50%;
+	}
+
+	// action avatar
+	@at-root {
+		a#{&},
+		button#{&},
+		label#{&} {
+			&:hover,
+			&.#{module.$status__isActive},
+			&.#{module.$status__isRouteExact}:not(
+					.#{module.$status__noRoute}
+				):not(.#{module.$status__noRouteExact}) {
+				// box-shadow: 1px 1px 3px module.color(dark, 0.2);
+				img {
+					opacity: 0.7;
+				}
+			}
+			// avatar border
+			//
+			// @group Modifiers
+			&.#{module.$prefix__default}--bdr,
+			&.#{module.$prefix__default}--border {
+				&:not(:hover),
+				&:not(.#{module.$status__isActive}),
+				&:not(.#{module.$status__isRouteExact}),
+				&.#{module.$status__isRouteExact}.#{module.$status__noRoute},
+				&.#{module.$status__isRouteExact}.#{module.$status__noRouteExact} {
+					border-color: transparent;
+				}
+			}
+		}
+	}
+}

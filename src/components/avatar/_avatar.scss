@@ -1,0 +1,33 @@
+@use "module";
+@use "sass:meta";
+
+@function avatarSizeSelector($name) {
+	@return ".#{module.$prefix__default}--size-#{$name}";
+}
+
+// avatar proporcion 1:1
+//
+// @group Components
+@mixin avatar {
+	.#{module.$component__avatar} {
+		@include module.avatar-styles;
+
+		// avatar size
+		//
+		// @group Modifiers
+		@include module.extend-map-modifiers(
+				module.$elementSizes,
+				meta.get-function("avatarSizeSelector"),
+				sm
+			)
+			using($name, $value, $isDefault) {
+			width: $value;
+			height: $value;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}

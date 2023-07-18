@@ -1,265 +1,300 @@
+@use "../utils/module" as utils;
+
 // Main navigation
 // this element is expected to be an <nav> wrapper
 //
 // @name Columns
 // @group Layouts
+@mixin navigation-x {
+	.#{utils.$layout__navigationX} {
+		width: 100%;
+		@include utils.flex-box(column, nowrap, center, stretch);
+		// box-sizing: border-box;
 
-.navX {
-	width: 100%;
-	@include flexbox(column, nowrap, center, stretch);
-	// box-sizing: border-box;
-
-	// es barra de navegacion principal
-	//
-	// @group Statuses
-	&:not(.is--sub) {
-		&:not(.is--relative) {
-			z-index: 16;
-		}
-		&,
-		.navX-wrapper {
-			height: 5rem;
-			transition: all 0.3s ease-out, padding 0s;
-		}
-
-		// tema de la barra de navegacion principal
+		// es barra de navegacion principal
 		//
-		// @group ConditionalModifiers
-		&[class*="-tm-light"] {
-			.navX-list-item {
-				> *,
-				> * > * {
-					&:not(.is--active):not(:hover) {
-						&:not(.is--routeExact),
-						&.is--routeExact.no--route,
-						&.is--routeExact.no--routeExact {
-							&.link[class*="-tm-light"] {
-								text-shadow: 1px 1px 1px
-									var(--sh, #{color(dark, 0.3)});
-							}
-							&.bttnLink {
-								@media (min-width: ($viewportMd + 1)) {
+		// @group Modifiers
+		&:not(.#{utils.$prefix__default}--sub) {
+			&:not(.#{utils.$prefix__default}--relative) {
+				z-index: 16;
+			}
+			&,
+			.#{utils.$layout__navigationX}-wrapper {
+				height: 5rem;
+				transition: all 0.3s ease-out, padding 0s;
+			}
+
+			// tema de la barra de navegacion principal
+			//
+			// @group ConditionalModifiers
+			&.#{utils.$prefix__default}--tm-lightComplement {
+				--sh: #{utils.color(primaryComplement, 0.7)};
+			}
+			&.#{utils.$prefix__default}--tm-light,
+			&.#{utils.$prefix__default}--tm-lightComplement {
+				.#{utils.$layout__navigationX}-list-item {
+					> *,
+					> * > * {
+						&:not(.#{utils.$status__isActive}):not(:hover) {
+							&:not(.#{utils.$status__isRouteExact}),
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
+								&.#{utils.$component__link}[class*="--tm-light"] {
 									text-shadow: 1px 1px 1px
-										var(--sh, #{color(dark, 0.3)});
+										var(--sh, #{utils.color(dark, 0.3)});
+								}
+								&.#{utils.$prefix__defaultWithSeparator
+									+ utils.$component__button}Link {
+									@if (utils.$allow__responsive) {
+										@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+											text-shadow: 1px 1px 1px
+												var(
+													--sh,
+													#{utils.color(dark, 0.3)}
+												);
+										}
+									}
 								}
 							}
 						}
-					}
-					&.is--active,
-					&.is--routeExact:not(.no--route):not(.no--routeExact) {
-						&.bttn {
-							text-shadow: 1px 1px 1px
-								var(--sh, #{color(dark, 0.3)});
+						&.#{utils.$status__isActive},
+						&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
+							&.#{utils.$component__button} {
+								text-shadow: 1px 1px 1px
+									var(--sh, #{utils.color(dark, 0.3)});
+							}
 						}
 					}
-				}
-				> .toggle--dropdown.is--active:not(:hover) {
-					&.link[class*="-tm-light"] {
-						text-shadow: none;
-					}
-					&.bttnLink {
-						@media (min-width: ($viewportMd + 1)) {
+					> .#{utils.$status__toggleDropdown}.#{utils.$status__isActive}:not(:hover) {
+						&.#{utils.$component__link}[class*="--tm-light"] {
+							text-shadow: none;
+						}
+						&.#{utils.$component__buttonLink} {
+							@if (utils.$allow__responsive) {
+								@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+									text-shadow: none;
+								}
+							}
+						}
+						&.#{utils.$component__button} {
 							text-shadow: none;
 						}
 					}
-					&.bttn {
-						text-shadow: none;
-					}
-				}
 
-				// desktop only, use hover
-				@media (min-width: ($viewportMd + 1)) {
-					&:hover > .toggle--dropdown:not(.only--active) {
-						&:not(.is--active):not(:hover) {
-							&:not(.is--routeExact),
-							&.is--routeExact.no--route,
-							&.is--routeExact.no--routeExact {
-								&.link[class*="-tm-light"] {
-									text-shadow: none;
+					@if (utils.$allow__responsive) {
+						// desktop only, use hover
+						@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+							&:hover
+								> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+								&:not(.#{utils.$status__isActive}):not(:hover) {
+									&:not(.#{utils.$status__isRouteExact}),
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
+										&.#{utils.$component__link}[class*="--tm-light"] {
+											text-shadow: none;
+										}
+										&.#{utils.$prefix__defaultWithSeparator
+											+ utils.$component__button}Link {
+											text-shadow: none;
+										}
+									}
 								}
-								&.bttnLink {
-									text-shadow: none;
-								}
-							}
-						}
-						&.is--active,
-						&.is--routeExact:not(.no--route):not(.no--routeExact) {
-							&.bttn {
-								text-shadow: none;
-							}
-						}
-					}
-				}
-				// mobile only, use focus
-				@media (max-width: $viewportMd) {
-					&:focus-within:not(.no--focus)
-						> .toggle--dropdown:not(.only--active) {
-						&:not(.is--active):not(:hover) {
-							&:not(.is--routeExact),
-							&.is--routeExact.no--route,
-							&.is--routeExact.no--routeExact {
-								&.link[class*="-tm-light"] {
-									text-shadow: none;
+								&.#{utils.$status__isActive},
+								&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
+									&.#{utils.$prefix__defaultWithSeparator
+										+ utils.$component__button} {
+										text-shadow: none;
+									}
 								}
 							}
 						}
-						&.is--active,
-						&.is--routeExact:not(.no--route):not(.no--routeExact) {
-							&.bttn {
-								text-shadow: none;
+						// mobile only, use focus
+						@media (max-width: utils.$mediaQuerie__tablet) {
+							&:focus-within:not(.#{utils.$status__noFocus})
+								> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+								&:not(.#{utils.$status__isActive}):not(:hover) {
+									&:not(.#{utils.$status__isRouteExact}),
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+									&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
+										&.#{utils.$component__link}[class*="--tm-light"] {
+											text-shadow: none;
+										}
+									}
+								}
+								&.#{utils.$status__isActive},
+								&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
+									&.#{utils.$prefix__defaultWithSeparator
+										+ utils.$component__button} {
+										text-shadow: none;
+									}
+								}
 							}
 						}
 					}
 				}
 			}
-		}
-		&.--tm-lightAlt {
-			--sh: #{color(primaryAlt, 0.7)};
-		}
-		// default theme
-		&:not([class*="-tm"]),
-		&.--tm-secondary {
-			> .navX-wrapper {
-				background: color(light);
-			}
-			&:not(.is--relative) > .navX-wrapper {
-				box-shadow: 0 0.5rem 2.4rem color(dark, 0.05);
+			// default theme
+			&:not([class*="--tm-"]),
+			&.#{utils.$prefix__default}--tm-secondary {
+				> .#{utils.$layout__navigationX}-wrapper {
+					background: utils.color(light);
+				}
+				&:not(.#{utils.$prefix__default}--relative)
+					> .#{utils.$layout__navigationX}-wrapper {
+					box-shadow: 0 0.5rem 2.4rem utils.color(dark, 0.05);
+				}
 			}
 		}
-	}
 
-	// es barra de navegacion secundaria
-	//
-	// @group Statuses
-	&.is--sub {
-		position: absolute;
-		left: 0;
-		top: 100%;
-		// margin: 0;
-		height: 2.4rem;
-		border-top: 2px solid transparent;
-		border-bottom: 2px solid transparent;
-
-		// tema de la barra de navegacion secundaria
+		// es barra de navegacion secundaria
 		//
-		// @group ConditionalModifiers
-		&.--tm-light .navX-list-item {
-			> *,
-			> * > * {
-				&.link,
-				&.bttnLink {
-					&:not(:hover):not(.is--active) {
-						&:not(.is--routeExact),
-						&.is--routeExact.no--route,
-						&.is--routeExact.no--routeExact {
-							text-shadow: 1px 1px 1px
-								var(--sh, #{color(dark, 0.3)});
+		// @group Modifiers
+		&.#{utils.$prefix__default}--sub {
+			position: absolute;
+			left: 0;
+			top: 100%;
+			// margin: 0;
+			height: 2.4rem;
+			border-top: 2px solid transparent;
+			border-bottom: 2px solid transparent;
+
+			// tema de la barra de navegacion secundaria
+			//
+			// @group ConditionalModifiers
+			&.#{utils.$prefix__default}--tm-light
+				.#{utils.$layout__navigationX}-list-item {
+				> *,
+				> * > * {
+					&.#{utils.$component__link},
+					&.#{utils.$component__buttonLink} {
+						&:not(:hover):not(.#{utils.$status__isActive}) {
+							&:not(.#{utils.$status__isRouteExact}),
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRoute},
+							&.#{utils.$status__isRouteExact}.#{utils.$status__noRouteExact} {
+								text-shadow: 1px 1px 1px
+									var(--sh, #{utils.color(dark, 0.3)});
+							}
+						}
+					}
+				}
+				> .#{utils.$status__toggleDropdown}.#{utils.$status__isActive} {
+					&.#{utils.$component__link},
+					&.#{utils.$component__buttonLink} {
+						text-shadow: none;
+					}
+				}
+				@if (utils.$allow__responsive) {
+					// desktop only, use hover
+					@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+						&:hover
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+							&.#{utils.$component__link},
+							&.#{utils.$component__buttonLink} {
+								text-shadow: none;
+							}
+						}
+					}
+					// mobile only, use focus
+					@media (max-width: utils.$mediaQuerie__tablet) {
+						&:focus-within:not(.#{utils.$status__noFocus})
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+							&.#{utils.$component__link},
+							&.#{utils.$component__buttonLink} {
+								text-shadow: none;
+							}
 						}
 					}
 				}
 			}
-			> .toggle--dropdown.is--active {
-				&.link,
-				&.bttnLink {
-					text-shadow: none;
+			&.#{utils.$prefix__default}--tm-primaryComplement
+				.#{utils.$layout__navigationX}-list-item {
+				> *,
+				> * > * {
+					&.#{utils.$component__link},
+					&.#{utils.$component__buttonLink} {
+						&:hover,
+						&.#{utils.$status__isActive},
+						&.#{utils.$status__isRouteExact}:not(.#{utils.$status__noRoute}):not(.#{utils.$status__noRouteExact}) {
+							text-shadow: 1px 1px 1px
+								var(--sh, #{utils.color(dark, 0.3)});
+						}
+					}
 				}
-			}
-			// desktop only, use hover
-			@media (min-width: ($viewportMd + 1)) {
-				&:hover > .toggle--dropdown:not(.only--active) {
-					&.link,
-					&.bttnLink {
-						text-shadow: none;
+				> .#{utils.$status__toggleDropdown}.#{utils.$status__isActive} {
+					&.#{utils.$component__link},
+					&.#{utils.$component__buttonLink} {
+						text-shadow: 1px 1px 1px
+							var(--sh, #{utils.color(dark, 0.3)});
+					}
+				}
+				@if (utils.$allow__responsive) {
+					// desktop only, use hover
+					@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+						&:hover
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+							&.#{utils.$component__link},
+							&.#{utils.$component__buttonLink} {
+								text-shadow: 1px 1px 1px
+									var(--sh, #{utils.color(dark, 0.3)});
+							}
+						}
+					}
+					// mobile only, use focus
+					@media (max-width: utils.$mediaQuerie__tablet) {
+						&:focus-within:not(.#{utils.$status__noFocus})
+							> .#{utils.$status__toggleDropdown}:not(.#{utils.$status__onlyActive}) {
+							&.#{utils.$component__link},
+							&.#{utils.$component__buttonLink} {
+								text-shadow: 1px 1px 1px
+									var(--sh, #{utils.color(dark, 0.3)});
+							}
+						}
 					}
 				}
 			}
-			// mobile only, use focus
-			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no--focus)
-					> .toggle--dropdown:not(.only--active) {
-					&.link,
-					&.bttnLink {
-						text-shadow: none;
-					}
-				}
-			}
-		}
-		&.--tm-primaryAlt .navX-list-item {
-			> *,
-			> * > * {
-				&.link,
-				&.bttnLink {
-					&:hover,
-					&.is--active,
-					&.is--routeExact:not(.no--route):not(.no--routeExact) {
-						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-					}
-				}
-			}
-			> .toggle--dropdown.is--active {
-				&.link,
-				&.bttnLink {
-					text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-				}
-			}
-			// desktop only, use hover
-			@media (min-width: ($viewportMd + 1)) {
-				&:hover > .toggle--dropdown:not(.only--active) {
-					&.link,
-					&.bttnLink {
-						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-					}
-				}
-			}
-			// mobile only, use focus
-			@media (max-width: $viewportMd) {
-				&:focus-within:not(.no--focus)
-					> .toggle--dropdown:not(.only--active) {
-					&.link,
-					&.bttnLink {
-						text-shadow: 1px 1px 1px var(--sh, #{color(dark, 0.3)});
-					}
-				}
-			}
-		}
-		// default theme
-		&:not([class*="-tm"]),
-		&.--tm-secondary {
-			border-bottom-color: color(secondary, 0.05);
-		}
-	}
-}
-
-// Navigation wrapper
-.navX-wrapper {
-	&,
-	> .holder {
-		width: 100%;
-		height: 100%;
-		position: static;
-		@include flexbox(row, nowrap, space-between, center);
-	}
-}
-
-// Navigation nav list
-// this element is expected to be an <ul> or <ol> list
-ul.navX-list,
-ol.navX-list {
-	position: static;
-	@include flexbox(row, nowrap, center, center);
-	&,
-	> * {
-		&:not(:first-child) {
-			margin-left: 1rem;
-			@media (max-width: $viewportSm) {
-				margin-left: 0.5rem;
+			// default theme
+			&:not([class*="--tm-"]),
+			&.#{utils.$prefix__default}--tm-secondary {
+				border-bottom-color: utils.color(secondary, 0.05);
 			}
 		}
 	}
-}
 
-// Navigation nav list item
-// this element is expected to be an <li> list item
-li.navX-list-item {
-	@include flexbox(column, nowrap, center, flex-start);
+	// Navigation wrapper
+	.#{utils.$layout__navigationX}-wrapper {
+		&,
+		> .#{utils.$layout__holder} {
+			width: 100%;
+			height: 100%;
+			position: static;
+			@include utils.flex-box(row, nowrap, space-between, center);
+		}
+	}
+
+	// Navigation nav list
+	// this element is expected to be an <ul> or <ol> list
+	ul,
+	ol {
+		&.#{utils.$layout__navigationX}-list {
+			position: static;
+			@include utils.flex-box(row, nowrap, center, center);
+			&,
+			> * {
+				&:not(:first-child) {
+					margin-left: 1rem;
+					@if (utils.$allow__responsive) {
+						@media (max-width: utils.$mediaQuerie__smartphone) {
+							margin-left: 0.5rem;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// Navigation nav list item
+	// this element is expected to be an <li> list item
+	li.#{utils.$layout__navigationX}-list-item {
+		@include utils.flex-box(column, nowrap, center, flex-start);
+	}
 }

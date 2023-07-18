@@ -1,0 +1,39 @@
+@use "system";
+@use "variables";
+
+/*
+	Useful functions
+	
+	assumes variables have already been imported
+*/
+
+// retorna la fuente del mapa de fuentes
+@function family($font-name: primary) {
+	@return map-get(variables.$fonts, $font-name);
+}
+
+// returns the size from the map of sizes
+@function size($font-size: md) {
+	@return map-get(variables.$fontSizes, $font-size);
+}
+
+// returns the weight from the map of weights
+@function weight($font-weight: regular) {
+	@return map-get(variables.$fontWeights, $font-weight);
+}
+
+// retorna el color del mapa de colores
+@function color($color-name, $rgb: false) {
+	@if $rgb {
+		$color: system.to-rgb(map-get(variables.$colors, $color-name));
+		@return unquote("rgba(" + $color + "," + $rgb + ")");
+	} @else {
+		@return map-get(variables.$colors, $color-name);
+	}
+}
+
+// Capitalize string
+// https://gist.github.com/pascalduez/10011785
+@function capitalize($string) {
+	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}

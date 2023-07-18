@@ -1,35 +1,44 @@
+@use "sass:math";
+@use "../utils/module" as utils;
+
 // limita el ancho de los elementos en el contenidos
 //
 // @name Columns
 // @group Layouts
+@mixin holder {
+	.#{utils.$layout__holder} {
+		margin: 0 auto;
 
-.holder {
-	margin: 0 auto;
+		// display: block;
+		&:not(.#{utils.$prefix__default}--p-none) {
+			box-sizing: border-box;
+			transition: padding 0.3s ease-out;
+			padding: 0 1rem;
 
-	// display: block;
-	&:not(.--p-none) {
-		box-sizing: border-box;
-		transition: padding 0.3s ease-out;
-		padding: 0 1rem;
-		@media (min-width: ($viewportMd + 1)) {
-			padding: 0 2rem;
-		}
-		@media (min-width: ($viewportXl + 1)) {
-			padding: 0;
-		}
-		@media (max-width: $viewportMd) and (hover: none) {
-			.scroll.--horizontal {
-				margin-left: -1rem;
-				margin-right: -1rem;
-				padding: 0 1rem;
-				width: auto;
+			@if (utils.$allow__responsive) {
+				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+					padding: 0 2rem;
+				}
+				@media (min-width: (utils.$mediaQuerie__tv + 1)) {
+					padding: 0;
+				}
+				@media (max-width: utils.$mediaQuerie__tablet) and (hover: none) {
+					.#{utils.$layout__scroll}.#{utils.$prefix__default}--horizontal {
+						margin-left: -1rem;
+						margin-right: -1rem;
+						padding: 0 1rem;
+						width: auto;
+					}
+				}
 			}
 		}
-	}
-	&:not([class*="-width"]) {
-		width: 100%;
-	}
-	&:not([class*="-maxWidth-"]) {
-		max-width: 75rem;
+		@layer defaults {
+			& {
+				// @defaults width, maxWidth
+				// 1200 = 75rem
+				width: 100%;
+				max-width: math.div(utils.$size__defaultPx, 16) * 1rem;
+			}
+		}
 	}
 }

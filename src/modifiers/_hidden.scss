@@ -1,0 +1,45 @@
+@use "../utils/module" as utils;
+
+// hidden element
+//
+// @group Modifiers
+@mixin hidden {
+	.#{utils.$prefix__default}--hidden {
+		@layer modifiers {
+			// hide visually only
+			@include utils.extend-viewports-classes(true, true) {
+				width: 0.1px;
+				height: 0.1px;
+				opacity: 0;
+				overflow: hidden;
+				position: absolute;
+				z-index: -1;
+			}
+			&-full {
+				@include utils.extend-viewports-classes(true, true) {
+					display: none !important;
+				}
+			}
+		}
+	}
+	a,
+	label,
+	button {
+		> .#{utils.$prefix__default}--hidden {
+			@layer modifiers {
+				@include utils.extend-viewports-classes(true, true) {
+					& + * {
+						margin-left: 0;
+					}
+				}
+				&-full {
+					@include utils.extend-viewports-classes(true, true) {
+						& + * {
+							margin-left: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}

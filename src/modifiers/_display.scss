@@ -1,0 +1,32 @@
+@use "../utils/module" as utils;
+
+// Display
+//
+// @group Modifiers
+@mixin display {
+	.#{utils.$prefix__default}--display {
+		@layer modifiers {
+			&,
+			&-block {
+				@include utils.extend-viewports-classes {
+					display: block;
+				}
+			}
+			&-inline {
+				@include utils.extend-viewports-classes {
+					display: inline;
+
+					&.#{utils.$layout__flexbox} {
+						display: inline-flex;
+						position: static; // why? (27/03/2021)
+					}
+					&.#{utils.$layout__grid} {
+						display: inline-grid;
+						width: max-content;
+						max-width: 100%;
+					}
+				}
+			}
+		}
+	}
+}

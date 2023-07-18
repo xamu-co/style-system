@@ -1,6 +1,12 @@
-* {
-	@import "tooltip";
-	// @import 'data-badge';
+@forward "forward";
+
+@use "../utils/module";
+@use "forward";
+
+// all pseudos
+// there is only one, but this is a formality
+@mixin all {
+	@if (module.$pseudo__tooltip) {
+		@include forward.tooltip;
+	}
 }
-// @import 'line';
-// @import 'renderbox';

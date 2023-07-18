@@ -1,0 +1,54 @@
+@use "module";
+@use "../color/module" as color;
+
+// Text color
+@mixin text-color {
+	.#{module.$prefix__default}--txtColor {
+		// default, not in colors
+		@layer modifiers {
+			& {
+				color: module.$color__text;
+			}
+		}
+		@layer defaults {
+			* > * {
+				// @defaults txtColor
+				color: module.$color__text;
+			}
+		}
+
+		// no default
+		@include color.extend-colors() using($name, $isDefault) {
+			@include module.extend-viewports-classes {
+				@layer modifiers {
+					& {
+						color: module.color($name);
+					}
+				}
+				@layer defaults {
+					* > * {
+						// @defaults txtColor
+						color: module.color($name);
+					}
+				}
+			}
+
+			// shades of color
+			@include color.extend-color-shades($name) using($colorShade) {
+				@include module.extend-viewports-classes {
+					@layer modifiers {
+						& {
+							color: $colorShade;
+						}
+					}
+					@layer defaults {
+						* > * {
+							// @defaults txtColor
+							color: $colorShade;
+						}
+					}
+				}
+			}
+		}
+	}
+}

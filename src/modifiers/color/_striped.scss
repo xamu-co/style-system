@@ -1,0 +1,22 @@
+@use "module";
+
+// Default striped
+@mixin striped-color {
+	.#{module.$prefix__default}--striped {
+		@layer modifiers {
+			@include module.extend-colors(secondary) using($name, $isDefault) {
+				@include module.extend-viewports-classes {
+					&:not(.#{module.$layout__table}) > :nth-child(even) {
+						background-color: module.color($name, 0.1);
+					}
+					&.#{module.$layout__table}
+						tbody
+						tr:nth-child(even)
+						td:after {
+						background-color: module.color($name, 0.1);
+					}
+				}
+			}
+		}
+	}
+}

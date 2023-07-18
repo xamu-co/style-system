@@ -1,3 +1,6 @@
+@use "../utils/module" as utils;
+@use "sass:math";
+
 /// # Animations
 /// Animations are also taken into account.\
 /// They are his own kind of component so all animations comes with a shared set of classes to alter them.
@@ -46,165 +49,168 @@
 ///   TODO: animation example
 ///  </div>
 
-// inicia animations
-//
-// @group Status
-.is--animated {
-	&,
-	&:before,
-	&:after {
-		-webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
-		animation-fill-mode: forwards;
-		animation-timing-function: ease-out;
-	}
-
-	&.--iterations-infinite {
-		animation-iteration-count: infinite;
-	}
-
-	@for $i from 1 through 20 {
-		&.--delay-#{$i} {
-			animation-delay: #{$i/10}s;
-		}
-		&.--iterations-#{$i} {
-			animation-iteration-count: #{$i};
-		}
-	}
-}
-
-// animate only on pc
-@media (hover: hover) {
-	// grows from the center
+@mixin animations {
+	// inicia animations
 	//
-	// @group Animations
-	.a-growingIn {
-		max-height: 0;
-		// opacity: 0;
-		// transform: translateY(-5vh);
-		&.is--animated {
-			animation-name: growingIn;
-			animation-duration: 6s;
+	// @group Status
+	.#{utils.$status__isAnimated} {
+		&,
+		&:before,
+		&:after {
+			-webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+			animation-fill-mode: forwards;
+			animation-timing-function: ease-out;
+		}
+
+		&.#{utils.$prefix__default}--iterations-infinite {
+			animation-iteration-count: infinite;
+		}
+
+		@for $i from 1 through 20 {
+			&.#{utils.$prefix__default}--delay-#{$i} {
+				animation-delay: math.div($i, 10) * 1s;
+			}
+			&.#{utils.$prefix__default}--iterations-#{$i} {
+				animation-iteration-count: $i;
+			}
 		}
 	}
 
-	// fades from the center
-	//
-	// @group Animations
-	.a-fadeIn {
-		opacity: 0;
-		// transform: translateY(-5vh);
-		&.is--animated {
-			animation-name: fadeIn;
-			animation-duration: 1.2s;
+	// animate only on pc
+	@media (hover: hover) {
+		.#{utils.$prefix__defaultWithSeparator}a {
+			// grows from the center
+			//
+			// @group Animations
+			&-growingIn {
+				max-height: 0;
+				// opacity: 0;
+				// transform: translateY(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: growingIn;
+					animation-duration: 6s;
+				}
+			}
+
+			// fades from the center
+			//
+			// @group Animations
+			&-fadeIn {
+				opacity: 0;
+				// transform: translateY(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: fadeIn;
+					animation-duration: 1.2s;
+				}
+			}
+
+			// grows from the top
+			//
+			// @group Animations
+			&-topFade {
+				opacity: 0;
+				transform: translateY(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: topFade;
+					animation-duration: 0.6s;
+				}
+			}
+
+			// grows from the bottom
+			//
+			// @group Animations
+			&-bottomFade {
+				opacity: 0;
+				transform: translateY(5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: bottomFade;
+					animation-duration: 0.6s;
+				}
+			}
+
+			// grows from the left
+			//
+			// @group Animations
+			&-leftFade {
+				opacity: 0;
+				transform: translateX(-5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: leftFade;
+					animation-duration: 0.6s;
+				}
+			}
+
+			// grows from the right
+			//
+			// @group Animations
+			&-rightFade {
+				opacity: 0;
+				transform: translateX(5vh);
+				&.#{utils.$status__isAnimated} {
+					animation-name: rightFade;
+					animation-duration: 0.6s;
+				}
+			}
+		}
+	}
+	@media (prefers-reduced-motion: reduce) {
+		*,
+		*:before,
+		*:after {
+			animation-duration: 0.001s !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.001s !important;
 		}
 	}
 
-	// grows from the top
-	//
-	// @group Animations
-	.a-topFade {
-		opacity: 0;
-		transform: translateY(-5vh);
-		&.is--animated {
-			animation-name: topFade;
-			animation-duration: 0.6s;
+	@keyframes growingIn {
+		0% {
+		}
+		100% {
+			// opacity: 1;
+			max-height: 1000px;
+			overflow: visible;
+			// transform: translateY(0);
 		}
 	}
-
-	// grows from the bottom
-	//
-	// @group Animations
-	.a-bottomFade {
-		opacity: 0;
-		transform: translateY(5vh);
-		&.is--animated {
-			animation-name: bottomFade;
-			animation-duration: 0.6s;
+	@keyframes fadeIn {
+		0% {
+		}
+		100% {
+			opacity: 1;
+			// transform: translateY(0);
 		}
 	}
-
-	// grows from the left
-	//
-	// @group Animations
-	.a-leftFade {
-		opacity: 0;
-		transform: translateX(-5vh);
-		&.is--animated {
-			animation-name: leftFade;
-			animation-duration: 0.6s;
+	@keyframes topFade {
+		0% {
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
 		}
 	}
-
-	// grows from the right
-	//
-	// @group Animations
-	.a-rightFade {
-		opacity: 0;
-		transform: translateX(5vh);
-		&.is--animated {
-			animation-name: rightFade;
-			animation-duration: 0.6s;
+	@keyframes bottomFade {
+		0% {
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes leftFade {
+		0% {
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+	@keyframes rightFade {
+		0% {
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
 		}
 	}
 }
-@media (prefers-reduced-motion: reduce) {
-	*,
-	*:before,
-	*:after {
-		animation-duration: 0.001s !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.001s !important;
-	}
-}
-
-@keyframes growingIn {
-	0% {
-	}
-	100% {
-		// opacity: 1;
-		max-height: 1000px;
-		overflow: visible;
-		// transform: translateY(0);
-	}
-}
-@keyframes fadeIn {
-	0% {
-	}
-	100% {
-		opacity: 1;
-		// transform: translateY(0);
-	}
-}
-@keyframes topFade {
-	0% {
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-@keyframes bottomFade {
-	0% {
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-@keyframes leftFade {
-	0% {
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-@keyframes rightFade {
-	0% {
-	}
-	100% {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-// termina animations

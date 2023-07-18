@@ -1,0 +1,221 @@
+@use "module";
+@use "sass:meta";
+
+@function boxThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}";
+}
+@function boxSquareSizeSelector($name) {
+	@return ".#{module.$prefix__default}--square-#{$name}";
+}
+
+// Comment
+//
+// @group Components
+@mixin box {
+	.#{module.$component__box} {
+		// width: 100%;
+		border: 2px solid transparent;
+		overflow: visible;
+		@include module.action-disabled-styles;
+
+		@layer defaults {
+			&:not(.#{module.$prefix__default}--button):not(
+					.#{module.$prefix__default}--#{module.$component__button}
+				) {
+				// @defaults p
+				padding: 1rem;
+			}
+		}
+
+		&:not(.#{module.$layout__flexbox}) {
+			@include module.flex-box(column, nowrap, flex-start, stretch);
+			@layer defaults {
+				> :not(:last-child) {
+					// @defaults mBottom
+					margin-bottom: 1rem;
+				}
+			}
+		}
+
+		// borderStyle
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--bdr-dashed {
+			border-style: dashed;
+		}
+
+		// size
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--size-xs {
+			border-radius: 0.7rem;
+		}
+		&.#{module.$prefix__default}--size-sm {
+			border-radius: 0.85rem;
+		}
+		&,
+		&.#{module.$prefix__default}--size,
+		&.#{module.$prefix__default}--size-md {
+			border-radius: 1rem;
+		}
+		&.#{module.$prefix__default}--size-lg {
+			border-radius: 1.3rem;
+		}
+		&.#{module.$prefix__default}--size-xl {
+			border-radius: 1.6rem;
+		}
+		&.#{module.$prefix__default}--size-xx {
+			border-radius: 2.2rem;
+		}
+		&.#{module.$prefix__default}--size-mx {
+			border-radius: 3rem;
+		}
+
+		// Box theme
+		//
+		// @group Modifiers
+		@include module.extend-color-modifiers(
+				meta.get-function("boxThemeSelector")
+			)
+			using($name, $value, $isDefault) {
+			&.#{module.$prefix__default}--bdr-solid,
+			&.#{module.$prefix__default}--bdr-dashed {
+				border-color: module.color($name, 0.1);
+			}
+			@layer defaults {
+				// @defaults bgColor
+				& {
+					background: module.color($name, 0.1);
+				}
+			}
+			&:hover {
+				border-color: module.color($name, 0.1);
+			}
+			&.#{module.$prefix__default}--button,
+			&.#{module.$prefix__default}--#{module.$component__button} {
+				@layer defaults {
+					& {
+						// @defaults txtColor
+						color: module.color($name);
+					}
+				}
+
+				&:hover,
+				&.#{module.$status__isActive},
+				&.#{module.$status__isRouteExact}:not(
+						.#{module.$status__noRoute}
+					):not(.#{module.$status__noRouteExact}) {
+					background: module.color($name, 0.2);
+					// border-color: module.color($name, 0.3);
+				}
+			}
+			&.#{module.$prefix__default}--button,
+			&.#{module.$prefix__default}--#{module.$component__button} {
+				.#{module.$component__box} {
+					&:not(.#{module.$prefix__default}--bdr-solid):not(
+							.#{module.$prefix__default}--bdr-dashed
+						) {
+						box-shadow: 3px 3px 9px module.color($name, 0.3);
+					}
+				}
+			}
+		}
+
+		// Box theme
+		// alternate color
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--tm-lightComplement {
+			&.#{module.$prefix__default}--bdr-solid,
+			&.#{module.$prefix__default}--bdr-dashed {
+				border-color: module.color(dark, 0.1);
+			}
+			@layer defaults {
+				& {
+					// @defaults bgColor
+					background: module.color(light);
+				}
+			}
+			&:hover {
+				border-color: module.color(dark, 0.1);
+			}
+			&.#{module.$prefix__default}--button,
+			&.#{module.$prefix__default}--#{module.$component__button} {
+				@layer defaults {
+					& {
+						// @defaults txtColor
+						color: module.color(light);
+					}
+				}
+
+				&:hover,
+				&.#{module.$status__isActive},
+				&.#{module.$status__isRouteExact}:not(
+						.#{module.$status__noRoute}
+					):not(.#{module.$status__noRouteExact}) {
+					background: module.color(light, 0.2);
+					// border-color: module.color(light, 0.3);
+				}
+			}
+			&.#{module.$prefix__default}--button,
+			&.#{module.$prefix__default}--#{module.$component__button} {
+				.#{module.$component__box} {
+					&:not(.#{module.$prefix__default}--bdr-solid):not(
+							.#{module.$prefix__default}--bdr-dashed
+						) {
+						box-shadow: 3px 3px 9px module.color(light, 0.3);
+					}
+				}
+			}
+		}
+
+		// button behavior
+		//
+		// @group Modifiers
+		&.#{module.$prefix__default}--button,
+		&.#{module.$prefix__default}--#{module.$component__button} {
+			padding: 0.8rem;
+			p {
+				text-align: center;
+			}
+			.#{module.$component__box} {
+				&:not(.#{module.$prefix__default}--bdr-solid):not(
+						.#{module.$prefix__default}--bdr-dashed
+					) {
+					border-color: transparent !important;
+				}
+			}
+		}
+
+		& & {
+			// Square shape
+			// this assummes there is only one child
+			//
+			// @group Modifiers
+			@include module.extend-map-modifiers(
+					module.$elementSizes,
+					meta.get-function("boxSquareSizeSelector"),
+					md,
+					".--square"
+				)
+				using($name, $value, $isDefault) {
+				width: $value;
+				margin: 0 auto;
+				overflow: hidden;
+				&:before {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 0;
+					padding-bottom: 100%;
+				}
+				> * {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+}

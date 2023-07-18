@@ -1,89 +1,100 @@
+@use "../utils/module" as utils;
+
 // list element
 //
 // @name Columns
 // @group Layouts
-
-.toggle--list {
-	display: block;
-	@include flexbox(row, nowrap, space-between, center);
-	i.icon,
-	.svg {
-		width: 1.8rem;
-	}
-}
-nav.list {
-	> input[type^="c"] {
-		display: none;
-	}
-	&.is--active,
-	> input[type^="c"]:checked ~ {
-		.toggle--list {
-			font-weight: weight(bold);
-			margin-bottom: 1rem;
-			i.icon,
-			.svg {
-				transform: rotate(180deg);
-			}
-		}
-		.toggle--list + {
-			ul.list-group,
-			ol.list-group {
-				max-height: none;
-			}
+@mixin list {
+	.#{utils.$status__toggleList} {
+		display: block;
+		@include utils.flex-box(row, nowrap, space-between, center);
+		i.#{utils.$component__icon},
+		.#{utils.$component__svg} {
+			width: 1.8rem;
 		}
 	}
 
-	.toggle--list + {
-		ul.list-group,
-		ol.list-group {
-			max-height: 0;
-			overflow: hidden;
+	nav.#{utils.$layout__list} {
+		> input[type^="c"] {
+			display: none;
+		}
+		&.#{utils.$status__isActive},
+		> input[type^="c"]:checked ~ {
+			.#{utils.$status__toggleList} {
+				font-weight: utils.weight(bold);
+				margin-bottom: 1rem;
+				i.#{utils.$component__icon},
+				.#{utils.$component__svg} {
+					transform: rotate(180deg);
+				}
+			}
+			.#{utils.$status__toggleList} + {
+				ul.#{utils.$layout__list}-group,
+				ol.#{utils.$layout__list}-group {
+					max-height: none;
+				}
+			}
+		}
+
+		.#{utils.$status__toggleList} + {
+			ul.#{utils.$layout__list}-group,
+			ol.#{utils.$layout__list}-group {
+				max-height: 0;
+				overflow: hidden;
+				> li {
+					width: 100%;
+				}
+			}
+		}
+	}
+	// .list-title
+	span.#{utils.$layout__list}-title {
+		display: block;
+		margin-bottom: 1rem;
+	}
+	ul,
+	ol {
+		// .list-group
+		&.#{utils.$layout__list}-group {
+			overflow: visible;
+
+			// flow direction
+			//
+			// @group Modifiers
+			&.#{utils.$prefix__default}--flow-row {
+				@include utils.flex-box(row, nowrap, flex-start, center);
+				> li:not(:last-child) {
+					margin-right: 1rem;
+				}
+			}
+			// default flow
+			&:not([class*="--flow"]),
+			&.#{utils.$prefix__default}--flow-column {
+				// Flow
+				@include utils.flex-box(column, nowrap, flex-start, stretch);
+				> *:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
+			}
+
 			> li {
-				width: 100%;
+				text-align: left;
+				white-space: pre-line;
+
+				@layer defaults {
+					// @defaults txtAlign, txtWrap
+					* {
+						text-align: left;
+						white-space: pre-line;
+					}
+				}
+
+				a,
+				label,
+				button {
+					line-height: utils.$size__lineHeightMedium;
+				}
 			}
-		}
-	}
-}
-span.list-title {
-	display: block;
-	margin-bottom: 1rem;
-}
-ul.list-group,
-ol.list-group {
-	overflow: visible;
-
-	// flow direction
-	//
-	// @group Modifiers
-	&.--flow-row {
-		@include flexbox(row, nowrap, flex-start, center);
-		> li:not(:last-child) {
-			margin-right: 1rem;
-		}
-	}
-	// default flow
-	&:not([class*="-flo"]),
-	&.--flow-column {
-		// Flow
-		@include flexbox(column, nowrap, flex-start, stretch);
-		> *:not(:last-child) {
-			margin-bottom: 0.5rem;
-		}
-	}
-
-	> li {
-		&,
-		:not([class*="-txtA"]) {
-			text-align: left;
-		}
-		&,
-		:not([class*="-txtWr"]) {
-			white-space: pre-line;
-		}
-		a,
-		label,
-		button {
-			line-height: $lineHeightMedium;
 		}
 	}
 }

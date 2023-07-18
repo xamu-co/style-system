@@ -1,0 +1,130 @@
+@use "module";
+@use "sass:meta";
+
+$selectPathStart: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16.478' height='10'%3E%3Cpath d='M7.598 9.736L.265 2.403c-.354-.354-.354-.927 0-1.28L1.12.267c.354-.352.925-.352 1.28 0l5.836 5.8 5.84-5.812c.354-.352.925-.352 1.28 0l.855.855c.354.354.354.927 0 1.28L8.875 9.734c-.353.352-.923.352-1.277.002z'";
+$selectPathUp: "#{$selectPathStart} fill='%23";
+$selectPathDown: "#{$selectPathStart} transform='rotate(180 8.236 5)' fill='%23";
+$selectPathEnd: "'/%3E%3C/svg%3E";
+
+@function iSelectThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}-light";
+}
+@function iSelectThemeLightSelector($name) {
+	@return ".#{module.$prefix__default}--tm-light-#{$name}";
+}
+
+// website logo
+// select or datalist
+//
+// @group Components
+@mixin input-select {
+	.#{module.$component__inputSelect} {
+		width: 100%;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-size: auto 0.5em;
+		padding: 0 2.2rem 0 0.8rem;
+		background-position: calc(100% - 0.8rem) 50%;
+		@include module.action-styles;
+		@include module.action-theme-styles;
+		@include module.action-size-styles;
+		@include module.action-border-styles;
+		@include module.action-capitalize-styles;
+		@include module.action-disabled-pointer-styles;
+
+		// Theme
+		//
+		// @group Unions
+		@include module.extend-color-modifiers(
+				meta.get-function("iSelectThemeSelector")
+			)
+			using($name, $value, $isDefault) {
+			//chevron-light down
+			background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__light}, '#')}#{$selectPathEnd}");
+			&:hover {
+				//chevron-light down-hover
+				background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__light}, '#')}' opacity='0.7#{$selectPathEnd}");
+			}
+			&:focus {
+				//chevron-light up
+				background-image: url("#{$selectPathUp}#{str-replace(#{module.$color__light}, '#')}#{$selectPathEnd}");
+			}
+			&:focus:hover,
+			&:focus-within:hover {
+				//chevron-light up-hover
+				background-image: url("#{$selectPathUp}#{str-replace(#{module.$color__light}, '#')}' opacity='0.7#{$selectPathEnd}");
+			}
+			&:disabled,
+			&[disabled]:not([disabled="false"]) {
+				//chevron-primary down
+				background-image: url("#{$selectPathDown}#{str-replace(#{$value}, '#')}' opacity='0.3#{$selectPathEnd}");
+			}
+			&.#{module.$status__isInvalid} {
+				&:disabled,
+				&[disabled]:not([disabled="false"]) {
+					//chevron-danger down
+					background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__danger}, '#')}' opacity='0.3#{$selectPathEnd}");
+				}
+			}
+		}
+
+		// Alternative colors
+		@include module.extend-color-modifiers(
+				meta.get-function("iSelectThemeLightSelector"),
+				module.$themeColors,
+				false
+			)
+			using($name, $value, $isDefault) {
+			//chevron-light down
+			background-image: url("#{$selectPathDown}#{str-replace(#{$value}, '#')}#{$selectPathEnd}");
+			&:hover {
+				//chevron-light down-hover
+				background-image: url("#{$selectPathDown}#{str-replace(#{$value}, '#')}' opacity='0.7#{$selectPathEnd}");
+			}
+			&:focus {
+				//chevron-light up
+				background-image: url("#{$selectPathUp}#{str-replace(#{$value}, '#')}#{$selectPathEnd}");
+			}
+			&:focus:hover,
+			&:focus-within:hover {
+				//chevron-light up-hover
+				background-image: url("#{$selectPathUp}#{str-replace(#{$value}, '#')}' opacity='0.7#{$selectPathEnd}");
+			}
+			&:disabled,
+			&[disabled]:not([disabled="false"]) {
+				//chevron-light down
+				background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__light}, '#')}' opacity='0.3#{$selectPathEnd}");
+			}
+			&.#{module.$status__isInvalid} {
+				//chevron-light down
+				background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__danger}, '#')}#{$selectPathEnd}");
+				&:hover {
+					//chevron-light down-hover
+					background-image: url("#{$selectPathDown}#{str-replace(#{module.$color__danger}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+				&:focus {
+					//chevron-light up
+					background-image: url("#{$selectPathUp}#{str-replace(#{module.$color__danger}, '#')}#{$selectPathEnd}");
+				}
+				&:focus:hover,
+				&:focus-within:hover {
+					//chevron-light up-hover
+					background-image: url("#{$selectPathUp}#{str-replace(#{module.$color__danger}, '#')}' opacity='0.7#{$selectPathEnd}");
+				}
+			}
+		}
+
+		@each $name, $size in module.$fontSizes {
+			&.#{module.$prefix__default}--size-#{$name} {
+				padding: 0 #{$size * 2.2} 0 #{$size * 0.8};
+				background-position: calc(100% - #{$size * 0.8}) 50%;
+			}
+		}
+
+		option {
+			background: module.color(light);
+			border: none;
+			color: module.$color__text;
+		}
+	}
+}

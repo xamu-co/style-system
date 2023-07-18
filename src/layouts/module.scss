@@ -1,12 +1,51 @@
-@import "navList";
-@import "table";
-@import "holder";
-@import "scroll";
-@import "view";
-@import "navigationX";
-@import "navigationY";
-@import "dropdown";
-@import "columns";
-@import "flex";
-@import "grid";
-@import "float";
+@forward "forward";
+
+@use "../utils/module";
+@use "forward";
+
+// all layouts
+@mixin all {
+	@if (module.$layout__columns) {
+		@include forward.columns;
+	}
+	@if (module.$layout__flexbox) {
+		@include forward.flex;
+	}
+	@if (module.$layout__float) {
+		@include forward.float;
+	}
+	@if (module.$layout__grid) {
+		@include forward.grid;
+	}
+	// override layouts
+	@if (module.$layout__dropdown) {
+		@include forward.dropdown;
+	}
+	@if (module.$layout__modal) {
+		@include forward.modal;
+	}
+	@if (module.$layout__holder) {
+		@include forward.holder;
+	}
+	@if (module.$layout__list) {
+		@include forward.list;
+	}
+	@if (module.$layout__navigationX) {
+		@include forward.navigation-x;
+	}
+	@if (module.$layout__navigationY) {
+		@include forward.navigation-y;
+	}
+	@if (module.$layout__scroll) {
+		@include forward.scroll;
+	}
+	@if (module.$layout__table) {
+		@include forward.table;
+	}
+	@if (module.$layout__text) {
+		@include forward.text;
+	}
+	@if (module.$layout__view) {
+		@include forward.view;
+	}
+}

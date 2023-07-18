@@ -1,0 +1,32 @@
+// Forward here to minimize imports
+@forward "../../utils/module";
+
+@use "../../utils/module";
+@use "sass:meta";
+@use "sass:math";
+
+@function colorsSelector($name) {
+	@return "-#{$name}";
+}
+
+// ease the use of modifier extend for colors
+// relies on extend-color-modifiers
+@mixin extend-colors($default: false) {
+	@include module.extend-color-modifiers(
+			meta.get-function("colorsSelector"),
+			$default: $default,
+			$defaultCondition: null
+		)
+		using($name, $value, $isDefault) {
+		@content ($name, $isDefault);
+	}
+}
+
+// shades of color
+@mixin extend-color-shades($name) {
+	@for $i from 1 through 9 {
+		&#{$i} {
+			@content (module.color($name, math.div($i, 10)));
+		}
+	}
+}

@@ -1,47 +1,61 @@
-nav.navY {
-	background-color: color(light, 0.9);
-	width: auto;
-	// flex: 0 0 auto;
-	@include flexbox(row, nowrap, flex-start, stretch);
-}
-.navY-menu {
-	min-height: 100%;
-	height: auto;
-	box-sizing: border-box;
-	// box-sizing: border-box;
+@use "../utils/module" as utils;
 
-	// es barra de navegacion principal
-	//
-	// @group Statuses
-	&:not(.is--sub) {
-		@include flexbox(column, nowrap, space-between, center);
-		ul.navY-menu-list,
-		ol.navY-menu-list {
-			align-items: center;
+@mixin navigation-y {
+	nav.#{utils.$layout__navigationY} {
+		background-color: utils.color(light, 0.9);
+		width: auto;
+		// flex: 0 0 auto;
+		@include utils.flex-box(row, nowrap, flex-start, stretch);
+	}
+
+	.#{utils.$layout__navigationY}-menu {
+		min-height: 100%;
+		height: auto;
+		box-sizing: border-box;
+		// box-sizing: border-box;
+
+		// es barra de navegacion principal
+		//
+		// @group Statuses
+		&:not(.#{utils.$prefix__default}--sub) {
+			@include utils.flex-box(column, nowrap, space-between, center);
+			ul.#{utils.$layout__navigationY}-menu-list,
+			ol.#{utils.$layout__navigationY}-menu-list {
+				align-items: center;
+			}
+		}
+
+		// es barra de navegacion secundaria
+		//
+		// @group Statuses
+
+		&.#{utils.$prefix__default}--sub {
+			@if (utils.$allow__responsive) {
+				@media (min-width: (utils.$mediaQuerie__tablet + 1)) {
+					overflow: hidden;
+					@include utils.flex-box(
+						column,
+						nowrap,
+						space-between,
+						flex-start
+					);
+				}
+			}
 		}
 	}
 
-	// es barra de navegacion secundaria
-	//
-	// @group Statuses
-
-	&.is--sub {
-		@media (min-width: ($viewportMd + 1)) {
-			overflow: hidden;
-			@include flexbox(column, nowrap, space-between, flex-start);
-		}
-	}
-}
-
-// Navigation nav list
-// this element is expected to be an <ul> or <ol> list
-ul.navY-menu-list,
-ol.navY-menu-list {
-	@include flexbox(column, nowrap, center, flex-start);
-	&,
-	> * {
-		&:not(:first-child) {
-			margin-top: 1rem;
+	// Navigation nav list
+	// this element is expected to be an <ul> or <ol> list
+	ul,
+	ol {
+		&.#{utils.$layout__navigationY}-menu-list {
+			@include utils.flex-box(column, nowrap, center, flex-start);
+			&,
+			> * {
+				&:not(:first-child) {
+					margin-top: 1rem;
+				}
+			}
 		}
 	}
 }

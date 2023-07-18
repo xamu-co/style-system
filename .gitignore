@@ -1,4 +1,4 @@
-dist/
+lib/
 sassdoc/
 docs/
 node_modules/

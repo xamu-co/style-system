@@ -1,0 +1,173 @@
+@use "module";
+@use "sass:meta";
+
+@function buttonLinkThemeSelector($name) {
+	@return ".#{module.$prefix__default}--tm-#{$name}-light";
+}
+@function buttonLinkThemeSelectorLight($name) {
+	@return ".#{module.$prefix__default}--tm-light-#{$name}";
+}
+
+// link Navigation element
+//
+// @group Components
+@mixin button-link {
+	.#{module.$component__buttonLink} {
+		@include module.action-styles;
+		@include module.action-aligment-styles;
+		@include module.action-theme-styles;
+		@include module.action-capitalize-styles;
+		@include module.action-disabled-styles;
+
+		@if (module.$allow__responsive) {
+			@media (max-width: module.$mediaQuerie__smartphone) {
+				width: 2.4rem;
+				span {
+					display: none;
+				}
+			}
+			@media (max-width: module.$mediaQuerie__tablet) {
+				// tablet
+				// Size
+				// this is the default value
+				height: 2.4rem;
+				border-radius: 1rem;
+				border-width: 2px;
+				padding: 0 0.8rem;
+				width: auto;
+				&:disabled,
+				&[disabled]:not([disabled="false"]) {
+					opacity: 1;
+				}
+				@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
+					&:not(.#{module.$status__isActive}) {
+						&:not(.#{module.$status__isRoute}),
+						&.#{module.$status__isRoute}.#{module.$status__noRoute} {
+							// icon only
+							width: 2.4rem;
+							padding: 0;
+							span {
+								display: none;
+							}
+						}
+					}
+					&.#{module.$status__isActive},
+					&.#{module.$status__isRoute}:not(
+							.#{module.$status__noRoute}
+						) {
+						// text only
+						i.#{module.$component__icon},
+						.#{module.$component__svg} {
+							display: none;
+						}
+					}
+
+					i.#{module.$component__icon},
+					.#{module.$component__svg} {
+						&:first-child {
+							display: none;
+						}
+					}
+				}
+
+				@each $name, $size in module.$fontSizes {
+					&.#{module.$prefix__default}--size-#{$name} {
+						@include module.extend-viewports-classes {
+							height: $size * 2.6;
+							border-radius: $size;
+							border-width: calc(2px + (#{$size} / 18));
+							padding: 0 #{$size * 0.8};
+						}
+
+						// switch to round button
+						@include module.extend-viewports-classes(
+							module.$allow__responsiveDesktopFirstClasses,
+							module.$allow__responsiveAllViewports,
+							true
+						) {
+							@media (min-width: (module.$mediaQuerie__smartphone + 1)) {
+								&:not(.#{module.$status__isActive}) {
+									&:not(.#{module.$status__isRoute}),
+									&.#{module.$status__isRoute}.#{module.$status__noRoute} {
+										// icon only
+										width: $size * 2.6;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			@media (min-width: (module.$mediaQuerie__tablet + 1)) {
+				// desktop
+				--cl: var(--rw) !important;
+				--bg: transparent !important;
+
+				// ruta activa
+				//
+				// @group Statuses
+				&.#{module.$status__isRoute}:not(
+						.#{module.$status__noRoute}
+					):before {
+					content: "...";
+					display: block;
+					position: absolute;
+					top: calc(100%);
+					left: 0;
+					line-height: 0;
+					overflow: visible;
+					font-size: 1.3em;
+				}
+
+				// nav link themes
+				//
+				// @group Modifiers
+				@include module.extend-color-modifiers(
+						meta.get-function("buttonLinkThemeSelector")
+					)
+					using($name, $value, $isDefault) {
+					--rw: #{module.color($name)};
+					&:not(.#{module.$status__isActive}) {
+						&:not(.#{module.$status__isRouteExact}),
+						&.#{module.$status__isRouteExact}.#{module.$status__noRoute},
+						&.#{module.$status__isRouteExact}.#{module.$status__noRouteExact} {
+							&:hover {
+								--rw: #{module.color($name, 0.5)};
+							}
+						}
+					}
+					&.#{module.$status__isActive},
+					&.#{module.$status__isRouteExact}:not(
+							.#{module.$status__noRoute}
+						):not(.#{module.$status__noRouteExact}) {
+						--rw: #{module.color($name, 0.7)};
+					}
+				}
+
+				// Alternative themes
+				@include module.extend-color-modifiers(
+						meta.get-function("buttonLinkThemeSelectorLight"),
+						$default: false
+					)
+					using($name, $value, $isDefault) {
+					--rw: #{module.color(light)};
+					&:hover,
+					&.#{module.$status__isActive},
+					&.#{module.$status__isRouteExact}:not(
+							.#{module.$status__noRoute}
+						):not(.#{module.$status__noRouteExact}) {
+						--rw: #{module.color($name)};
+					}
+				}
+
+				i.#{module.$component__icon},
+				.#{module.$component__svg} {
+					&:last-child {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}

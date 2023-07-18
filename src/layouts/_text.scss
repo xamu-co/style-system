@@ -1,0 +1,60 @@
+@use "../utils/module" as utils;
+
+// Text block layout
+//
+// @group layout
+@mixin text {
+	.#{utils.$layout__text} {
+		// Root
+		&,
+		> * {
+			@layer defaults {
+				// @defaults txtAlignFlx
+				&:not(.#{utils.$layout__flexbox}):not(.#{utils.$layout__grid}) {
+					&:not(datalist) {
+						display: block;
+					}
+				}
+			}
+		}
+		* {
+			line-height: utils.$size__lineHeightMedium;
+		}
+		> .#{utils.$layout__flexbox} {
+			display: inline-flex;
+			position: static; // why? see flx layout
+		}
+
+		@layer defaults {
+			& {
+				// @defaults txtWrap, txtColor, maxWidth
+				white-space: pre-line;
+				color: utils.$color__text;
+				max-width: utils.$size__maxTextWidth;
+			}
+			> :not(:last-child) {
+				// @defaults gaping, bottom
+				margin-bottom: 1rem;
+			}
+			&,
+			* {
+				// @defaults txtAlign
+				text-align: left;
+			}
+		}
+
+		// Childs
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		// Text block component
+		//
+		// @group Components
+		&.#{utils.$prefix__default}--box,
+		&.#{utils.$prefix__default}--miniBox {
+			padding: 0.5rem 1rem;
+		}
+	}
+}

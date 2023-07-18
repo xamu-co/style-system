@@ -1,10 +1,12 @@
+@use "../utils/module" as utils;
+
 /// # Flexbox layout
 /// Flexbox layout system
 /// ```css
 ///  .flx
 ///
 ///  /** or inline */
-///  .flxInline
+///  .flx.--display-inline
 /// ```
 /// This layout makes use of the global flx union
 ///
@@ -46,99 +48,88 @@
 ///   TODO: flexbox example
 ///  </div>
 
-// flex container
-.flx {
-	@include extend-device-interactions {
-		display: flex;
-	}
-}
-
-// flex inline container
-.txt > .flx,
-.flxInline {
-	@include extend-device-interactions {
-		display: inline-flex;
-		position: static; // why? (27/03/2021)
-	}
-}
-
 // flexbox container
-.flx,
-.flxInline {
-	@include extend-device-interactions {
-		&:not([class*="-gap"]) {
-			// this already matches .--gaping classes
-			gap: 1rem;
-		}
-	}
-	// flexbox row container
-	//
-	// @group Modifiers
-	&.--flxRow {
-		&,
-		&-wrap,
-		&-reverse,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				flex-direction: row;
+@mixin flex {
+	.#{utils.$layout__flexbox} {
+		@include utils.extend-device-interactions {
+			display: flex;
+			@layer defaults {
+				& {
+					// @defaults gap
+					gap: 1rem;
+				}
 			}
 		}
-	}
-	&.--flxRowReverse {
-		&,
-		&-wrap,
-		&-reverse,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				flex-direction: row-reverse;
-			}
-		}
-	}
 
-	// flexbox flex container
-	//
-	// @group Modifiers
-	&.--flxColumn {
-		&,
-		&-wrap,
-		&-reverse,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				flex-direction: column;
+		// flexbox row container
+		//
+		// @group Modifiers
+		&.#{utils.$prefix__default}--flxRow {
+			&,
+			&-wrap,
+			&-reverse,
+			&-nowrap {
+				@include utils.extend-viewports-classes {
+					flex-direction: row;
+				}
 			}
 		}
-	}
-	&.--flxColumnReverse {
-		&,
-		&-wrap,
-		&-reverse,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				flex-direction: column-reverse;
+		&.#{utils.$prefix__default}--flxRowReverse {
+			&,
+			&-wrap,
+			&-reverse,
+			&-nowrap {
+				@include utils.extend-viewports-classes {
+					flex-direction: row-reverse;
+				}
 			}
 		}
-	}
 
-	// an union could be a shorter solution, but is a huge breaking change
-	&.--flxRow,
-	&.--flxColumn,
-	&.--flxRowReverse,
-	&.--flxColumnReverse {
-		&-wrap {
-			@include extend-viewports-classes(true, $viewports) {
-				flex-wrap: wrap;
+		// flexbox flex container
+		//
+		// @group Modifiers
+		&.#{utils.$prefix__default}--flxColumn {
+			&,
+			&-wrap,
+			&-reverse,
+			&-nowrap {
+				@include utils.extend-viewports-classes {
+					flex-direction: column;
+				}
 			}
 		}
-		&-reverse {
-			@include extend-viewports-classes(true, $viewports) {
-				flex-wrap: wrap-reverse;
+		&.#{utils.$prefix__default}--flxColumnReverse {
+			&,
+			&-wrap,
+			&-reverse,
+			&-nowrap {
+				@include utils.extend-viewports-classes {
+					flex-direction: column-reverse;
+				}
 			}
 		}
-		// default
-		&,
-		&-nowrap {
-			@include extend-viewports-classes(true, $viewports) {
-				flex-wrap: nowrap;
+
+		// an union could be a shorter solution, but is a huge breaking change
+		&.#{utils.$prefix__default}--flxRow,
+		&.#{utils.$prefix__default}--flxColumn,
+		&.#{utils.$prefix__default}--flxRowReverse,
+		&.#{utils.$prefix__default}--flxColumnReverse {
+			&-wrap {
+				@include utils.extend-viewports-classes {
+					flex-wrap: wrap;
+				}
+			}
+			&-reverse {
+				@include utils.extend-viewports-classes {
+					flex-wrap: wrap-reverse;
+				}
+			}
+			// default
+			&,
+			&-nowrap {
+				@include utils.extend-viewports-classes {
+					flex-wrap: nowrap;
+				}
 			}
 		}
 	}

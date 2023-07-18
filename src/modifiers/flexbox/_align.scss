@@ -1,0 +1,70 @@
+@use "module";
+
+// flexbox align items
+//
+// @group modifiers
+@mixin flex-align {
+	.#{module.$prefix__default}--flxAlign {
+		@layer modifiers {
+			&-end {
+				@include module.extend-viewports-classes {
+					align-items: flex-end;
+				}
+			}
+			&-start {
+				@include module.extend-viewports-classes {
+					align-items: flex-start;
+				}
+			}
+			&-stretch {
+				@include module.extend-viewports-classes {
+					align-items: stretch;
+				}
+			}
+			&-baseline {
+				@include module.extend-viewports-classes {
+					align-items: baseline;
+				}
+			}
+			// default
+			&,
+			&-center {
+				@include module.extend-viewports-classes {
+					align-items: center;
+				}
+			}
+		}
+	}
+
+	.#{module.$prefix__default}--flxAlignSelf {
+		@layer modifiers {
+			&-end {
+				@include module.extend-viewports-classes {
+					align-self: flex-end;
+				}
+			}
+			&-start {
+				@include module.extend-viewports-classes {
+					align-self: flex-start;
+				}
+			}
+			&-stretch {
+				@include module.extend-viewports-classes {
+					align-self: stretch;
+				}
+			}
+			&-baseline {
+				@include module.extend-viewports-classes {
+					align-self: baseline;
+				}
+			}
+			// default
+			&,
+			&-center {
+				@include module.extend-viewports-classes {
+					align-self: center;
+				}
+			}
+		}
+	}
+}
